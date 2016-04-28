@@ -7,11 +7,25 @@
  * @param  {[type]} function( [description]
  * @return {[type]}           [description]
  */
+
+/*
+{
+        demo_link: '網址',
+        img_link: '網址',
+        code_link: '網址',
+        title: '標題',
+        core_tech: '相關領域',
+        description: '描述'
+    }
+*/
+
+
 (function() {
 
     /**
      * 内容JSON
      */
+     /*
     var demoContent = [{
         demo_link: 'http://gaohaoyang.github.io/mask-fade-out/',
         img_link: 'http://7q5cdt.com1.z0.glb.clouddn.com/demo-fade-out.png',
@@ -118,6 +132,7 @@
         core_tech: 'HTML BootStrap',
         description: '使用BootStrap仿照知乎做了一个静态页面。'
     }];
+*/
 
     contentInit(demoContent) //内容初始化
     waitImgsLoad() //等待图片加载，并执行布局初始化
@@ -139,9 +154,9 @@ function contentInit(content) {
         htmlArr.push('<h3 class="demo-title">')
         htmlArr.push('<a href="'+content[i].demo_link+'">'+content[i].title+'</a>')
         htmlArr.push('</h3>')
-        htmlArr.push('<p>主要技术：'+content[i].core_tech+'</p>')
+        htmlArr.push('<p>相關領域：'+content[i].core_tech+'</p>')
         htmlArr.push('<p>'+content[i].description)
-        htmlArr.push('<a href="'+content[i].code_link+'">源代码 <i class="fa fa-code" aria-hidden="true"></i></a>')
+        htmlArr.push('<a href="'+content[i].code_link+'">詳細資料... <i class="fa fa-code" aria-hidden="true"></a>')
         htmlArr.push('</p>')
         htmlArr.push('</div>')
     }

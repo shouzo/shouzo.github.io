@@ -9,24 +9,21 @@
 title: 少左 - shouzo
 brief-intro: Software Engineer & Traceur
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://shouzo.github.io" # the base hostname & protocol for your site
+url: "http://shouzo.github.io/" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
 # other links
-twitter_username: 
-facebook_username: danny200026@yahoo.com.tw
+facebook_username: danny200026
 github_username:  shouzo
 email: danny200026@yahoo.com.tw
-weibo_username: 
-zhihu_username: 
+# weibo_username: 
+# zhihu_username: 
+# twitter_username: 
 
-description_footer: 測試！
+description_footer: Software Engineer & Traceur！
 
 # comments
-# two ways to comment, only choose one, and use your own short name
-# 两种评论插件，选一个就好了，使用自己的 short_name
-duoshuo_shortname: #hygblog
 disqus_shortname: shouzonotes
 
 # Build settings
@@ -48,4 +45,6 @@ excerpt_separator: "\n\n\n\n"
 
 # paginate
 gems: [jekyll-paginate]
+
+paginate_path: "/blog/page:num/"
 paginate: 5

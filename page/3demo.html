@@ -26,12 +26,11 @@ icon: play
 <script src="{{ " /js/waterfall.js " | prepend: site.baseurl }}" charset="utf-8"></script>
 
 
-<!-- <h2 id="comments">Comments</h2> -->
-{% if site.duoshuo_shortname %}
-<!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="{{ site.url }}{{ page.url }}" data-title="{{page.title}}" data-url="{{ site.url }}{{ page.url }}"></div>
-<!-- 多说评论框 end -->
-{% endif %} {% if site.disqus_shortname %}
+
+
+<!-- Comments -->
+
+{% if site.disqus_shortname %}
 <div id="disqus_thread"></div>
 <script>
     /**
