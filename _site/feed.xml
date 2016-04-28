@@ -1,0 +1,2960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HyG</title>
+    <description></description>
+    <link>http://gaohaoyang.github.io/</link>
+    <atom:link href="http://gaohaoyang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 28 Apr 2016 22:49:52 +0800</pubDate>
+    <lastBuildDate>Thu, 28 Apr 2016 22:49:52 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>对这个 jekyll 博客主题的改版和重构</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;改版重构说明&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#rubygems-ssl-&quot; id=&quot;markdown-toc-rubygems-ssl-&quot;&gt;RubyGems 无法访问，SSL 证书问题&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;错误呈现&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;解决方法&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#jekyll-paginate-&quot; id=&quot;markdown-toc-jekyll-paginate-&quot;&gt;jekyll-paginate 依赖缺失&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;错误呈现&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;解决方法&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#foxit-pdf-reader-4000&quot; id=&quot;markdown-toc-foxit-pdf-reader-4000&quot;&gt;被 Foxit pdf reader 占用4000端口&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;错误呈现&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;解决方法&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文主要说明对这个博客主题的改版和代码重构的过程。这个简洁高雅的博客主题受到了很多朋友的喜欢。在写第一版界面时，我对前端并不是很熟悉，对&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;也不熟悉。现在距离当时也一年了，对自己当时写的代码也不太满意了，同时&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;如今也已经升级了，目前最新版为3.1.2。因此我在临近毕业尚未入职前做一下博客主题的代码重构和改版吧。&lt;/p&gt;
+
+&lt;p&gt;主要想做这些事情有：添加归档，添加标签，添加分类页面，主页显示文章摘要，代码去除 jQuery 和 BootStrap，优化移动端显示，将所有变量写入配置文件&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;中等。再优化一些细节吧。希望更多人会喜欢。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;改版重构说明&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;使用 GitHub 风格的代码块 Markdown 写法 (Fenced code blocks)。&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;即 GFM(github flavored markdown) 的方式。&lt;/p&gt;
+
+    &lt;p&gt;Jekyll 已经升级至 3.1.2（2016-03），其中有一些新的要注意的地方，比如官网上说使用了 &lt;code class=&quot;highlighter-rouge&quot;&gt;Rouge&lt;/code&gt; 去做代码高亮而不是默认的 &lt;code class=&quot;highlighter-rouge&quot;&gt;Pygments&lt;/code&gt;，因为 &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; 本身是基于 Ruby 的，因此我看到官方说希望不再使用基于 Python 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;Pygments&lt;/code&gt; 了，而是都使用基于 Ruby 的代码。详情见官网升级说明 &lt;a href=&quot;https://jekyllrb.com/docs/upgrading/2-to-3/#syntax-highlighter-changed&quot;&gt;syntax-highlighter-changed&lt;/a&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;首页中添加摘要&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;摘要可以在每一篇 md 文件头中使用 excerpt 属性写出来。也可以在正文中，4个换行符来分割，这个设置见配置文件&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;添加归档&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;上一版中没有归档，现在专门做了一个归档页面，当文章很多时方便根据年份快速查阅。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;添加标签&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;标签还是很有必要添加的，上一版中也没有这个功能。现在也可以根据标签查找文章了。同时标签还有一个重要的作用是，用来获取相似文章的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;添加分类页&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;之前的分类就是在首页中直接完成的，现在和标签和归档类似，我将分类单独制作为一页，方便查阅。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;去掉 jQuery 和 BootStrap&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;我觉得太重了，没必要使用这两个库，使用原生 JavaScript 和 CSS就可以做到一样的效果，代码量大大减轻，载入速度略有提高。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;重写了demo页的瀑布流布局&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;改变数据写死的方式，将数据用 json 格式录入，由 JavaScript 拼接为 HTML 代码。同时，使用 &lt;a href=&quot;http://masonry.desandro.com/&quot;&gt;Masonry&lt;/a&gt;，重写了瀑布流布局。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;简化评论配置，支持 多说 和 disqus&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;在&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;中评论配置直接添加自己的&lt;code class=&quot;highlighter-rouge&quot;&gt;short_name&lt;/code&gt;，评论就能正常使用了。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面列举一些可能遇到的问题，至少我是遇到了：&lt;/p&gt;
+
+&lt;h2 id=&quot;rubygems-ssl-&quot;&gt;RubyGems 无法访问，SSL 证书问题&lt;/h2&gt;
+
+&lt;p&gt;以前我使用的是 RubyGems 的淘宝镜像&lt;a href=&quot;https://ruby.taobao.org/&quot;&gt;https://ruby.taobao.org/&lt;/a&gt;。现在这个镜像已经不再维护了，作者 &lt;a href=&quot;https://ruby-china.org/huacnlee&quot;&gt;huacnlee (李华顺)&lt;/a&gt; 转到 &lt;a href=&quot;https://ruby-china.org/&quot;&gt;Ruby China&lt;/a&gt; 中继续维护了，详情见 &lt;a href=&quot;https://gems.ruby-china.org/&quot;&gt;RubyGems 镜像- Ruby China&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;错误呈现&lt;/h3&gt;
+
+&lt;p&gt;在执行任何&lt;code class=&quot;highlighter-rouge&quot;&gt;gem&lt;/code&gt;命令的时候出现以下错误：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)
+    SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://gems.ruby-china.org/specs.4.8.gz)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;解决方法&lt;/h3&gt;
+
+&lt;p&gt;根据 &lt;a href=&quot;https://gems.ruby-china.org/&quot;&gt;https://gems.ruby-china.org/&lt;/a&gt; 页面最下方提供的 GitHub Issue 地址。&lt;/p&gt;
+
+&lt;p&gt;可以进入这个 issue：&lt;a href=&quot;https://github.com/ruby-china/rubygems-mirror/issues/3&quot;&gt;https://github.com/ruby-china/rubygems-mirror/issues/3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;其中 sanlengjingvv 给出了一个链接地址 &lt;a href=&quot;https://gist.github.com/fnichol/867550&quot;&gt;https://gist.github.com/fnichol/867550&lt;/a&gt; 里面提供了方法。我就是采用这里面的方法解决的。&lt;/p&gt;
+
+&lt;p&gt;我使用的是 &lt;a href=&quot;https://gist.github.com/fnichol/867550#the-manual-way-boring&quot;&gt;The Manual Way&lt;/a&gt;，因为 &lt;a href=&quot;https://gist.github.com/fnichol/867550#the-ruby-way-fun&quot;&gt;The Ruby Way&lt;/a&gt; 我没有成功，不知道什么原因，有兴趣的朋友可以试试。下面说说我的具体操作吧。&lt;/p&gt;
+
+&lt;p&gt;首先从 &lt;a href=&quot;https://curl.haxx.se/ca/cacert.pem&quot;&gt;https://curl.haxx.se/ca/cacert.pem&lt;/a&gt; 将文件&lt;code class=&quot;highlighter-rouge&quot;&gt;cacert.pem&lt;/code&gt;下载至 &lt;code class=&quot;highlighter-rouge&quot;&gt;C:\RailsInstaller\cacert.pem&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;然后执行&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set SSL_CERT_FILE=C:\RailsInstaller\cacert.pem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;就成功了，不会再出现 SSL 错误了。&lt;/p&gt;
+
+&lt;p&gt;最后原文中说，为了长久设置，将这个目录存入控制面板中。我没理解是什么意思，是指环境变量吗？有朋友知道的话，欢迎留言告知我。&lt;/p&gt;
+
+&lt;p&gt;我存入环境变量后，还是会出现 SSL 错误，这时再次执行上面那条命令即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;jekyll-paginate-&quot;&gt;jekyll-paginate 依赖缺失&lt;/h2&gt;
+
+&lt;p&gt;因为 jekyll 3 中默认安装已经没有这个分页组件了，官方把这个分页组件插件化了，因此要独立安装。详情见 &lt;a href=&quot;https://jekyllrb.com/docs/pagination/&quot;&gt;https://jekyllrb.com/docs/pagination/&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;错误呈现&lt;/h3&gt;
+
+&lt;p&gt;在启动 jekyll 服务的时候出现以下错误：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve
+Configuration file: c:/gitWorkSpace/blog-based-on-jekyll-3/_config.yml
+  Dependency Error: Yikes! It looks like you don&#39;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&#39;ll need to install this gem. The full error message from Ruby is: &#39;cannot load such file -- jekyll-paginate&#39; If you run into trouble, you can find helpful resources at http://jekyllrb.com/help/!
+jekyll 3.1.2 | Error:  jekyll-paginate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;解决方法&lt;/h3&gt;
+
+&lt;p&gt;我们安装这个插件到本地即可。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install jekyll-paginate
+Fetching: jekyll-paginate-1.1.0.gem (100%)
+Successfully installed jekyll-paginate-1.1.0
+Parsing documentation for jekyll-paginate-1.1.0
+Installing ri documentation for jekyll-paginate-1.1.0
+Done installing documentation for jekyll-paginate after 3 seconds
+1 gem installed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;foxit-pdf-reader-4000&quot;&gt;被 Foxit pdf reader 占用4000端口&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;错误呈现&lt;/h3&gt;
+
+&lt;p&gt;在本地使用命令&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;出现错误，如下&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve
+Configuration file: E:/GitWorkSpace/blog/_config.yml
+           Source: E:/GitWorkSpace/blog
+      Destination: E:/GitWorkSpace/blog/_site
+Incremental build: disabled. Enable with --incremental
+     Generating...
+                   done in 0.547 seconds.
+ Please add the following to your Gemfile to avoid polling for changes:
+   gem &#39;wdm&#39;, &#39;&amp;gt;= 0.1.0&#39; if Gem.win_platform?
+Auto-regeneration: enabled for &#39;E:/GitWorkSpace/blog&#39;
+Configuration file: E:/GitWorkSpace/blog/_config.yml
+jekyll 3.1.1 | Error:  Permission denied - bind(2) for 127.0.0.1:4000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;网上查阅后，这篇博文解决了我的问题。&lt;a href=&quot;http://lxconan.github.io/2016/01/07/who-is-using-my-port/&quot;&gt;谁占了我的端口 for Windows –By Liu Xia, ThoughtWorks Senior Consultant. .NET Expert&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上述报错主要原因是，jekyll 启动使用的4000端口被福昕pdf阅读器的自动更新进程占用了，关掉这个进程，jekyll在本地调试启动服务时就没有问题了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;解决方法&lt;/h3&gt;
+
+&lt;p&gt;简单的解决方法是：&lt;/p&gt;
+
+&lt;p&gt;输入命令，查看各端口被占用情况&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netstat -ano
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;找到4000端口被占用的&lt;code class=&quot;highlighter-rouge&quot;&gt;PID&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我的结果如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;协议  本地地址          外部地址          状态           PID
+TCP  0.0.0.0:80        0.0.0.0:0         LISTENING     4
+TCP  0.0.0.0:135       0.0.0.0:0         LISTENING     836
+TCP  0.0.0.0:445       0.0.0.0:0         LISTENING     4
+TCP  0.0.0.0:1801      0.0.0.0:0         LISTENING     2312
+TCP  0.0.0.0:2103      0.0.0.0:0         LISTENING     2312
+TCP  0.0.0.0:2105      0.0.0.0:0         LISTENING     2312
+TCP  0.0.0.0:2107      0.0.0.0:0         LISTENING     2312
+TCP  0.0.0.0:3306      0.0.0.0:0         LISTENING     2404
+TCP  0.0.0.0:3389      0.0.0.0:0         LISTENING     1172
+TCP  0.0.0.0:49664     0.0.0.0:0         LISTENING     584
+TCP  0.0.0.0:49665     0.0.0.0:0         LISTENING     1072
+TCP  0.0.0.0:49666     0.0.0.0:0         LISTENING     460
+TCP  0.0.0.0:49667     0.0.0.0:0         LISTENING     1000
+TCP  0.0.0.0:49670     0.0.0.0:0         LISTENING     696
+TCP  0.0.0.0:49678     0.0.0.0:0         LISTENING     2312
+TCP  0.0.0.0:49692     0.0.0.0:0         LISTENING     688
+TCP  127.0.0.1:4000    0.0.0.0:0         LISTENING     2476
+TCP  127.0.0.1:4000    127.0.0.1:55160   ESTABLISHED   2476
+TCP  127.0.0.1:4012    0.0.0.0:0         LISTENING     12724
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;可以看到4000端口的PID是2476。下面查看是什么进程，命令行中输入：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tasklist /svc /FI &quot;PID eq 2476&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;得到结果：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;映像名称                       PID 服务
+========================= ======== ============================================
+FoxitProtect.exe              2476 FxService
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;可以看到正是福昕阅读器。下面关掉这个服务就好了。在 win10 中进入任务管理器，选择服务选项卡，关闭这个服务就好了，如下图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/7011d6cfjw1f1ty28wwj4j20g00aiju7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当然也可以在启动jekyll服务的时候指定端口号，如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve --port 3000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样在浏览器中输入 http://localhost:3000/ 就可以访问了。&lt;/p&gt;
+
+&lt;p&gt;还可以在配置文件&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;中添加端口号设置（参考&lt;a href=&quot;https://jekyllrb.com/docs/configuration/#serve-command-options&quot;&gt;官网文档-Serve Command OptionsPermalink&lt;/a&gt;），如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# port
+port: 1234
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;此时，启动jekyll服务后，访问 http://localhost:1234/ 即可&lt;/p&gt;
+</description>
+        <pubDate>Sat, 12 Mar 2016 11:40:18 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2016/03/12/jekyll-theme-version-2.0/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2016/03/12/jekyll-theme-version-2.0/</guid>
+        
+        <category>jekyll</category>
+        
+        <category>端口</category>
+        
+        <category>markdown</category>
+        
+        <category>Foxit</category>
+        
+        <category>RubyGems</category>
+        
+        <category>HTML</category>
+        
+        <category>CSS</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>前端处理动态 url 和 pushStatus 的使用</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;起因&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#history&quot; id=&quot;markdown-toc-history&quot;&gt;History&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#back-forward-go-length&quot; id=&quot;markdown-toc-back-forward-go-length&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;back()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;forward()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;go()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;length&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#pushstate-replacestate&quot; id=&quot;markdown-toc-pushstate-replacestate&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;replaceState()&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#pjax&quot; id=&quot;markdown-toc-pjax&quot;&gt;pjax&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;参考&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;起因&lt;/h2&gt;
+
+&lt;p&gt;起因是这样的，在尝试前后端分离的这条道路上，我自己也在不断摸索，感觉要把大部分的坑都踩踩了。目前我用的技术是：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;webpack 自动构建&lt;/li&gt;
+  &lt;li&gt;AMD 模块化 js&lt;/li&gt;
+  &lt;li&gt;Sass 预处理 CSS&lt;/li&gt;
+  &lt;li&gt;使用前端模板引擎 handlebars 解决动态操作将 html 拼接在 js 中的问题&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;但最近写了一个项目类似知乎这样的多页网站。前端 url 的处理让我觉得不够优雅。我使用的是 hash 的方式处理动态 url 的，为此我专门在知乎上提了一个问题：&lt;a href=&quot;https://www.zhihu.com/question/38802932&quot;&gt;前端如何处理动态url？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;这里我将问题描述如下：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;前后端彻底分离的情况下，页面跳转页全部由前端控制。那么如何更好的处理动态url地址？
+例如本问题的url为
+https://www.zhihu.com/question/38802932
+这肯定是用后台路由处理的url&lt;/p&gt;
+
+  &lt;p&gt;纯前端怎么处理？用hash吗，如下:
+https://www.zhihu.com/question#38802932
+那如果本页跳转，只改变hash的话，页面不会刷新。
+使用&lt;code class=&quot;highlighter-rouge&quot;&gt;location.reload()&lt;/code&gt;倒是可以解决。&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;但总觉得这样处理不够优雅。大家在工作中是如何处理此类场景的？还是用传统的后台路由来提供动态url？&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;感谢郑海波和剧中人的热心回答。都提到了&lt;code class=&quot;highlighter-rouge&quot;&gt;history&lt;/code&gt;对象中的&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState&lt;/code&gt;，这是我第一次接触到这方面的内容（顿时觉得自己真是才疏学浅）。&lt;/p&gt;
+
+&lt;p&gt;同时也有人提到了&lt;code class=&quot;highlighter-rouge&quot;&gt;pjax&lt;/code&gt;，这个就是&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState&lt;/code&gt;+&lt;code class=&quot;highlighter-rouge&quot;&gt;Ajax&lt;/code&gt;的封装，也很有意思。&lt;/p&gt;
+
+&lt;p&gt;下面就来研究和实践一下吧。&lt;/p&gt;
+
+&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;window&lt;/code&gt;对象通过&lt;code class=&quot;highlighter-rouge&quot;&gt;history&lt;/code&gt;对象提供对浏览器历史记录的访问能力。它暴露了一些非常有用的方法和属性，让你在历史记录中自由前进和后退，而在 HTML5 中，更可以操纵历史记录中的数据。&lt;/p&gt;
+
+&lt;h3 id=&quot;back-forward-go-length&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;back()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;forward()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;go()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;length&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;浏览器的历史记录就好像一个栈，最新的在最上面，较早之前看过的在下面。&lt;/p&gt;
+
+&lt;p&gt;如下图，Chrome的历史记录：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/7011d6cfjw1ezb16fn2bfj20k008htan.jpg&quot; alt=&quot;chrome history&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下面介绍怎么在这些历史记录中跳转，但要&lt;strong&gt;注意&lt;/strong&gt;，上图中的浏览器历史记录和本文说的 history 还不太同。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;back()&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;在历史记录中后退&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  history.back();
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;forward()&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;在历史记录中前进&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  history.forward();
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;go()&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;移动到指定的历史记录点&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  history.go(-1);
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;通过指定一个相对于当前页面位置的数值，你可以使用go()方法从当前会话的历史记录中加载页面（当前页面位置索引值为0，上一页就是-1，下一页为1）。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;go()不填参数或参数为go(0)时，页面会刷新，即&lt;code class=&quot;highlighter-rouge&quot;&gt;history.go()&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;history.go(0)&lt;/code&gt;相当于&lt;code class=&quot;highlighter-rouge&quot;&gt;location.reload()&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;length&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;length&lt;/code&gt;为history的属性，显示history长度。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本节在线demo见：&lt;a href=&quot;http://gaohaoyang.github.io/history-pjax-demo/&quot;&gt;History &amp;amp; pjax demo&lt;/a&gt; 源代码：&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;经过亲自测试，&lt;code class=&quot;highlighter-rouge&quot;&gt;history&lt;/code&gt;对象只记录同一个 tab 页内的历史。如果是在新窗口打开的，则无效。如：在a标签中添加&lt;code class=&quot;highlighter-rouge&quot;&gt;target=&quot;_blank&quot;&lt;/code&gt;，或按住&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl&lt;/code&gt;点击，这类场景下，在新的tab页中，&lt;code class=&quot;highlighter-rouge&quot;&gt;history&lt;/code&gt;对象也是新的。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;且&lt;code class=&quot;highlighter-rouge&quot;&gt;history&lt;/code&gt;对象记录的信息与是否同源也无关，所以唯一要满足的就是同一个标签页。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pushstate-replacestate&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;replaceState()&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;HTML5 引进了&lt;code class=&quot;highlighter-rouge&quot;&gt;history.pushState()&lt;/code&gt;方法和&lt;code class=&quot;highlighter-rouge&quot;&gt;history.replaceState()&lt;/code&gt;方法，它们允许你逐条地添加和修改历史记录条目，能够在不加载新页面的情况下没改变浏览器的URL。这些方法可以协同&lt;code class=&quot;highlighter-rouge&quot;&gt;window.onpopstate&lt;/code&gt;事件一起工作。&lt;/p&gt;
+
+&lt;p&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;history.pushState()&lt;/code&gt;会改变&lt;code class=&quot;highlighter-rouge&quot;&gt;referrer&lt;/code&gt;的值，而在你调用方法后创建的  XMLHttpRequest 对象会在 HTTP 请求头中使用这个值。&lt;code class=&quot;highlighter-rouge&quot;&gt;referrer的&lt;/code&gt;值则是创建  XMLHttpRequest 对象时所处的窗口的 URL。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState(any data, string title, [string url])&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;第一个参数为&lt;code class=&quot;highlighter-rouge&quot;&gt;history&lt;/code&gt;对象的&lt;code class=&quot;highlighter-rouge&quot;&gt;state&lt;/code&gt;属性值，可以放任意数据，记录历史状态。第二个参数是新状态的标题，目前浏览器基本不支持。第三个参数为可选的相对url。&lt;/p&gt;
+
+    &lt;p&gt;执行&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState&lt;/code&gt;后，可以在不加载新页面的情况下，更改url。同时&lt;code class=&quot;highlighter-rouge&quot;&gt;history&lt;/code&gt;栈中新增一条数据。&lt;/p&gt;
+
+    &lt;p&gt;例如，我们有这样一段代码：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;button id=&quot;push1&quot;&amp;gt;pushState()&amp;lt;/button&amp;gt;
+
+  document.querySelector(&#39;#push1&#39;).addEventListener(&#39;click&#39;, function() {
+      history.pushState(&#39;abc&#39;,&#39;pushStatePageTitle&#39;,&#39;pushState.html&#39;);
+      document.querySelector(&#39;#length&#39;).innerHTML = history.length;//重新读取历史长度
+  });
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;当点击按钮的时候，页面不会刷新，但&lt;code class=&quot;highlighter-rouge&quot;&gt;url&lt;/code&gt;地址的最后已经变为&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState.html&lt;/code&gt;。这一点非常像&lt;code class=&quot;highlighter-rouge&quot;&gt;hash&lt;/code&gt;的作用，但比&lt;code class=&quot;highlighter-rouge&quot;&gt;hash&lt;/code&gt;更优雅。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;replaceState(any data, string title, [string url])&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState()&lt;/code&gt;类似，只是在&lt;code class=&quot;highlighter-rouge&quot;&gt;history&lt;/code&gt;栈中不是新增记录，而是替换一条记录。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;需要注意的是：&lt;/strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState()&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;replaceState()&lt;/code&gt;方法存在安全方面的限制，本地测试是无效的，会报错，可以简单放到任何服务端测试，或者使用&lt;code class=&quot;highlighter-rouge&quot;&gt;http-server&lt;/code&gt;开启简单服务器，通过访问&lt;code class=&quot;highlighter-rouge&quot;&gt;localhost&lt;/code&gt;来查看效果。&lt;/p&gt;
+
+&lt;p&gt;本节demo见：&lt;a href=&quot;http://gaohaoyang.github.io/history-pjax-demo/index.html&quot;&gt;History &amp;amp; pjax demo - pushState&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;pjax&quot;&gt;pjax&lt;/h2&gt;
+
+&lt;p&gt;现在再看本文一开始提出的问题，如何让前端优雅的控制 url，这里就可以考虑 pjax 技术了。我们把 pushState + ajax 进行封装，合起来简称为 pjax。虽然不是什么新的技术，但概念已然不同。&lt;/p&gt;
+
+&lt;p&gt;如果不使用 pjax。我们依然可以使用&lt;code class=&quot;highlighter-rouge&quot;&gt;hash&lt;/code&gt;来实现文本开始的需求。但会不利于 SEO，看着也不够优雅。&lt;/p&gt;
+
+&lt;p&gt;Pjax的原理十分简单。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;拦截 a 标签的默认跳转动作或某些按钮的点击事件。&lt;/li&gt;
+  &lt;li&gt;使用 Ajax 请求新页面。&lt;/li&gt;
+  &lt;li&gt;将返回的 Html 替换到页面中。&lt;/li&gt;
+  &lt;li&gt;使用 HTML5 的&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState()&lt;/code&gt;修改Url。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;个人理解3中也可以仅仅请求数据，再由浏览器渲染。&lt;/p&gt;
+
+&lt;p&gt;每当同一个文档的浏览历史（即history对象）出现变化时，会触发&lt;code class=&quot;highlighter-rouge&quot;&gt;window.onpopstate&lt;/code&gt;事件。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;window.onpopstate = function(event) {
+    console.log(event.state);
+    console.log(location);
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样在用户点击前进后退时也可以很好的监听url，来做相应的页面渲染。&lt;/p&gt;
+
+&lt;p&gt;若用户刷新了页面，但没有相应的页面资源，这时页面就会显示不存在。所以我认为较好的方法是在写&lt;code class=&quot;highlighter-rouge&quot;&gt;pushState()&lt;/code&gt;第三个参数的时候，写为&lt;code class=&quot;highlighter-rouge&quot;&gt;?a=1&lt;/code&gt;这样的参数形式。&lt;a href=&quot;https://github.com/browserstate/history.js&quot;&gt;History.js&lt;/a&gt; 也是这么写的。但是这样应该会多一次请求。也许使用 nodeJS 作为中间层会好一些吧。&lt;/p&gt;
+
+&lt;p&gt;对于上述的探索，不知道是不是我还不够深入，总觉得还是不够完美。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/History&quot;&gt;MDN History&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/DOM/Manipulating_the_browser_history&quot;&gt;MDN 操纵浏览器的历史记录&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/20289254&quot;&gt;pjax 是如何工作的？ 知乎&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/hustskyking/p/history-api-in-html5.html&quot;&gt;PJAX的实现与应用 小胡子哥&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/03/url_hash.html&quot;&gt;URL的井号-阮一峰&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://javascript.ruanyifeng.com/bom/history.html&quot;&gt;history对象 JavaScript 标准参考教程（alpha） 阮一峰&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ayqy.net/blog/pjaxpushstate-and-ajax/&quot;&gt;Pjax(pushState and Ajax) 黯羽轻扬&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.clanfei.com/2012/09/1646.html&quot;&gt;操纵历史，利用HTML5 History API实现无刷新跳转 蓝飞&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://segmentfault.com/a/1190000002920768&quot;&gt;前端：将网站打造成单页面应用SPA（一） Coffce&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Coffcer/coffce-pjax&quot;&gt;coffce-pjax&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/browserstate/history.js&quot;&gt;History.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/defunkt/jquery-pjax&quot;&gt;defunkt/jquery-pjax GitHub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/welefen/pjax&quot;&gt;welefen/pjax&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 01 Jan 2016 07:06:05 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2016/01/01/History-API/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2016/01/01/History-API/</guid>
+        
+        <category>JavaScript</category>
+        
+        <category>Ajax</category>
+        
+        <category>URL</category>
+        
+        <category>HistoryApi</category>
+        
+        <category>pushState</category>
+        
+        <category>pjax</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>在低版本 IE 中点击空 block 元素的问题</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;问题描述&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;使用场景&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;解决办法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;问题描述&lt;/h2&gt;
+
+&lt;p&gt;当我们点击一个空的、没有任何内容的 div 或者其他块级元素时。在 IE11 以下，是没有反应的。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;使用场景&lt;/h2&gt;
+
+&lt;p&gt;这类问题使用场景还是很普遍的。比如 UI 给了一张大图，要点击图上的某一块位置的时候。可以用一个空的 div 定位到相应的位置，然后对它进行绑定事件。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;解决办法&lt;/h2&gt;
+
+&lt;p&gt;解决方法很简单，即给这个块级元素填充任意颜色，然后将其透明度设置为0。代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;background-color: #fff;
+opacity: 0;
+filter:alpha(opacity=0);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 24 Jul 2015 08:06:05 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2015/07/24/low-IE-click-empty-block-bug/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2015/07/24/low-IE-click-empty-block-bug/</guid>
+        
+        <category>IE</category>
+        
+        <category>CSS</category>
+        
+        <category>兼容性</category>
+        
+        <category>HTML</category>
+        
+        
+        <category>CSS</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript 阶段总结</title>
+        <description>&lt;p&gt;做了一张思维导图。总结这几个月对 JavaScript 的学习吧，也是一个复习。也是我目前的技能树。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-JavaScriptNet2.png&quot; alt=&quot;JavaScriptNet&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 09 Jul 2015 08:06:05 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2015/07/09/JavaScript-Net/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2015/07/09/JavaScript-Net/</guid>
+        
+        <category>JavaScript</category>
+        
+        <category>HTML</category>
+        
+        <category>CSS</category>
+        
+        <category>思维导图</category>
+        
+        <category>技能树</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Weinre --WebApp 调试工具</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#weinre&quot; id=&quot;markdown-toc-weinre&quot;&gt;什么是 weinre？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#weinre-1&quot; id=&quot;markdown-toc-weinre-1&quot;&gt;为什么用 weinre？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;原理&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;安装&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;使用&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;参考&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;weinre&quot;&gt;什么是 weinre？&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html&quot;&gt;weinre官网&lt;/a&gt; 上有两句有意思的介绍：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;weinre&lt;/strong&gt; is &lt;strong&gt;WE&lt;/strong&gt;b &lt;strong&gt;IN&lt;/strong&gt;spector &lt;strong&gt;RE&lt;/strong&gt;mote. Pronounced like the word “winery”. Or maybe like the word “weiner”. Who knows, really.&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;weinre&lt;/strong&gt; is a debugger for web pages, like FireBug (for FireFox) and Web Inspector (for WebKit-based browsers), except it’s designed to work remotely, and in particular, to allow you debug web pages on a mobile device such as a phone.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;上面说 weinre 是一个远程 web 调试器。说到了它的发音，还挺幽默，哈哈。&lt;/p&gt;
+
+&lt;p&gt;远程 web 调试器。先说调试器，就像火狐中的 FireBug，Chrome 中的调试器一样。就是在浏览器中按下 &lt;code class=&quot;highlighter-rouge&quot;&gt;F12&lt;/code&gt; 出现的那个工具。但是在手机上，你没办法按 &lt;code class=&quot;highlighter-rouge&quot;&gt;F12&lt;/code&gt;，而这个 weinre 就是在手机上的 &lt;code class=&quot;highlighter-rouge&quot;&gt;F12&lt;/code&gt;，与传统的不同的是，它是在手机上浏览你的 web 页面，在 PC 上查看调试工具，非常方便，这就是所谓的远程。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;weinre-1&quot;&gt;为什么用 weinre？&lt;/h2&gt;
+
+&lt;p&gt;现代浏览器中调试工具都非常强大了，可以直接模拟手机设备，为什么还要用 weinre 这么麻烦的东西呢？&lt;/p&gt;
+
+&lt;p&gt;我觉得 PC 端的浏览器虽说可以模拟，但模拟毕竟还是模拟，还只是鼠标长按滑来滑去。在开发过程中，使用手机或平板直接来感受是多么的酷，指尖在移动设备的屏幕上摩擦摩擦！给人的直观感受绝对秒杀浏览器的模拟。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;原理&lt;/h2&gt;
+
+&lt;p&gt;使用一种工具之前，了解它的原理和结构是很有帮助的。weinre 作为一种远程调试工具，在结构上分为三层：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;目标页面（target）：被调试的页面，页面已嵌入 weinre 的远程 js，下文会介绍；&lt;/li&gt;
+  &lt;li&gt;Debug客户端（client）：本地的 Web Inspector 调试客户端；&lt;/li&gt;
+  &lt;li&gt;Debug服务端（agent）：一个 HTTP Server，为目标页面与 Debug 客户端建立通信。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;三层结构如下图所示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://muellerware.org/papers/weinre/images/http-flow.png&quot; alt=&quot;http-flow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;weinre 的 debug 客户端是基于 Web Inspector 开发，而 Web Inspector 只与以 WebKit 为核心的浏览器兼容，所以 Weinre 的客户端只能用 Chrome 或者 Safari 打开。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html&quot;&gt;官网&lt;/a&gt;上也有相应的平台支持说明：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Platforms supported - debug server 服务端&lt;/p&gt;
+
+    &lt;p&gt;任何支持 node.js 的平台。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Platforms supported - debug client 客户端（跑 debugger 界面的浏览器）&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Google Chrome&lt;/li&gt;
+      &lt;li&gt;Apple Safari&lt;/li&gt;
+      &lt;li&gt;Other recent-ish WebKit-based browsers 其他基于 webkit 内核的现代浏览器&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Platforms supported - debug target 目标页面（在移动设备中调试运行的目标页面）&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Android Browser application&lt;/li&gt;
+      &lt;li&gt;iOS Mobile Safari application&lt;/li&gt;
+      &lt;li&gt;PhoneGap/Cordova&lt;/li&gt;
+      &lt;li&gt;other&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;安装&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;weinre 是 nodeJS 的一个应用，首先要 &lt;a href=&quot;https://nodejs.org/&quot;&gt;安装 nodeJS 运行环境&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用 npm 命令，安装 weinre&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; npm -g install weinre
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;安装成功后会有类似的信息：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; C:\Users\haoyang\AppData\Roaming\npm\weinre -&amp;gt; C:\Users\haoyang\AppData\Roaming\npm\node_modules\weinre\weinre
+ weinre@2.0.0-pre-I0Z7U9OV C:\Users\haoyang\AppData\Roaming\npm\node_modules\weinre
+ ├── underscore@1.7.0
+ ├── nopt@3.0.2 (abbrev@1.0.7)
+ └── express@2.5.11 (mime@1.2.4, qs@0.4.2, mkdirp@0.3.0, connect@1.9.2)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;使用&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;启动服务&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; weinre --boundHost -all- --httpPort 8081
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;–boundHost [hostname | ip address | -all-]&lt;/p&gt;
+
+        &lt;p&gt;The ip address to bind the server to.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;–httpPort [portNumber]&lt;/p&gt;
+
+        &lt;p&gt;The port to run the HTTP server on.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;更多配置项参考 &lt;a href=&quot;http://people.apache.org/~pmuellr/weinre/docs/latest/Running.html&quot;&gt;官网的说明&lt;/a&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;启动成功后看到如下界面：&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-weinre.png&quot; alt=&quot;weinre&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;给目标页面添加一行脚本&lt;/p&gt;
+
+    &lt;p&gt;可以看到 2.中的 Target Script 说要添加一行脚本到要调试的 web 页面中。&lt;/p&gt;
+
+    &lt;p&gt;Target Script&lt;/p&gt;
+
+    &lt;p&gt;You can use this script to inject the weinre target code into your web page.&lt;/p&gt;
+
+    &lt;p&gt;http://localhost:8081/target/target-script-min.js#anonymous&lt;/p&gt;
+
+    &lt;p&gt;Example:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &amp;lt;script src=&quot;http://localhost:8081/target/target-script-min.js#anonymous&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;这里要说明一下，要把上面的 localhost 换为本机的 ip 地址。&lt;/p&gt;
+
+    &lt;p&gt;我们可以在命令行中 使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;ipconfig&lt;/code&gt; 得到 ip 地址，如下（当然你的可能和我的不一样）：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; IPv4 地址 . . . . . . . . . . . . : 192.168.1.107
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;即插入如下代码：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &amp;lt;script src=&quot;http://192.168.1.107:8081/target/target-script-min.js#anonymous&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;进入调试页面&lt;/p&gt;
+
+    &lt;p&gt;PC 端访问这个地址：&lt;/p&gt;
+
+    &lt;p&gt;debug client user interface:    http://localhost:8081/client/#anonymous&lt;/p&gt;
+
+    &lt;p&gt;此时 target 为 none，如下图：&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-target-none.png&quot; alt=&quot;target-none&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;现在我们要用手机访问同一个局域网下的这个目标页面。我们可以把要调试的页面放到这个路径下：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; C:\Users\haoyang\AppData\Roaming\npm\node_modules\weinre\web
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;通过 http://192.168.1.107:8081/FILE_NAME 在手机上访问，就可以看到了。当然前提是同一个局域网。&lt;/p&gt;
+
+    &lt;p&gt;但是这样可能不太灵活，每次都要把目标页面放到指定的目录下。所以我们可以另外开一个服务器。&lt;/p&gt;
+
+    &lt;p&gt;我使用了基于 node.js 的 http-server 工具。将要调试的页面发布。这样我就能通过 ip 地址加端口号在手机上访问到了。&lt;/p&gt;
+
+    &lt;p&gt;我在手机上访问 http://192.168.1.107:8080 打开要调试的页面，此时 debug client user interface 中自动检测到 target。就可以进行调试了！&lt;/p&gt;
+
+    &lt;p&gt;如下图：&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-target.png&quot; alt=&quot;target&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-1954958440_meitu_2.jpg&quot; alt=&quot;phone&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/dojotoolkit/article/details/6280924&quot;&gt;Web移动应用调试工具——Weinre&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://muellerware.org/papers/weinre/manual.html&quot;&gt;weinre - WEb INspector REmote&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/smy_yu/article/details/38922315&quot;&gt;webapp开发调试环境–weinre配置&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 18 Jun 2015 08:06:05 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2015/06/18/weinre/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2015/06/18/weinre/</guid>
+        
+        <category>Weinre</category>
+        
+        <category>WebApp</category>
+        
+        <category>调试工具</category>
+        
+        <category>JavaScript</category>
+        
+        <category>HTML</category>
+        
+        <category>CSS</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Web App 相关技术</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;概念&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#head-&quot; id=&quot;markdown-toc-head-&quot;&gt;head 标签&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;页面切换动画&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#css-processing&quot; id=&quot;markdown-toc-css-processing&quot;&gt;CSS Processing&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;安装&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;编译&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;补充&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;安全&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;分类&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#xss&quot; id=&quot;markdown-toc-xss&quot;&gt;关于 XSS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#xss-&quot; id=&quot;markdown-toc-xss-&quot;&gt;XSS 防护&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;性能优化&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;模块化&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#amd&quot; id=&quot;markdown-toc-amd&quot;&gt;AMD规范&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#commonjs&quot; id=&quot;markdown-toc-commonjs&quot;&gt;CommonJS规范&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#requirejs&quot; id=&quot;markdown-toc-requirejs&quot;&gt;为什么要用 requireJS&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#requirejs-1&quot; id=&quot;markdown-toc-requirejs-1&quot;&gt;requireJS&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#amdcmd&quot; id=&quot;markdown-toc-amdcmd&quot;&gt;AMD和CMD&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;参考&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;前端工程化&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;参考&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;最终作品&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#todo-webapp-version&quot; id=&quot;markdown-toc-todo-webapp-version&quot;&gt;ToDo WebApp Version&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#details&quot; id=&quot;markdown-toc-details&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;其他&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#webkit-tap-highlight-color-&quot; id=&quot;markdown-toc-webkit-tap-highlight-color-&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-webkit-tap-highlight-color&lt;/code&gt; 属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#textarea--disabled-&quot; id=&quot;markdown-toc-textarea--disabled-&quot;&gt;textarea 标签 disabled 颜色&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;往前推2到3年，前端工程师还在忧心忡忡地想，移动互联网时代下，前端是不是没有生存空间了。但今天一看，在我们团队，前端工程师超过一半的工作都是在做移动端的Web或者APP的开发。移动Web或者APP在技术本质上是和做桌面端Web没有本质区别，但是移动端的坑那是非常的多，通过学习这部分内容，让你成为一名桌面移动通吃的前端开发工程师。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;概念&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;参考： &lt;a href=&quot;http://junmer.github.io/mobile-dev-get-started/&quot;&gt;移动 Web 开发入门&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上面这个 slide 资料讲的非常好，算是一个入门的介绍吧。带我们建立基本的移动 web 开发知识体系和常见问题的实践。包含以下几个方面：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;基本概念
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Native&lt;/p&gt;
+
+        &lt;p&gt;本地应用 使用 Java \ Objective-C \ Swift 开发&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;WebApp&lt;/p&gt;
+
+        &lt;p&gt;网页应用 html5 开发&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Hybrid&lt;/p&gt;
+
+        &lt;p&gt;混合应用 ooxx(native, web)&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;对比&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;视觉
+    &lt;ul&gt;
+      &lt;li&gt;设备的像素&lt;/li&gt;
+      &lt;li&gt;文字单位使用 rem&lt;/li&gt;
+      &lt;li&gt;viewport 属性&lt;/li&gt;
+      &lt;li&gt;横屏竖屏&lt;/li&gt;
+      &lt;li&gt;Flex 伸缩布局&lt;/li&gt;
+      &lt;li&gt;响应式设计&lt;/li&gt;
+      &lt;li&gt;软键盘&lt;/li&gt;
+      &lt;li&gt;隐藏地址栏&lt;/li&gt;
+      &lt;li&gt;苹果设备添加到主屏图标&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;交互
+    &lt;ul&gt;
+      &lt;li&gt;Touch&lt;/li&gt;
+      &lt;li&gt;click 延迟&lt;/li&gt;
+      &lt;li&gt;Scroll&lt;/li&gt;
+      &lt;li&gt;Gestures(hammer –A javascript library for multi-touch gestures)&lt;/li&gt;
+      &lt;li&gt;手指友好设计&lt;/li&gt;
+      &lt;li&gt;HTML5 APIS（图像，摇动，声音等）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;实践
+    &lt;ul&gt;
+      &lt;li&gt;屏蔽点击元素时的阴影&lt;/li&gt;
+      &lt;li&gt;图像（像素、矢量图标、base64 减少请求、lazyload）&lt;/li&gt;
+      &lt;li&gt;CSS3（合理使用渐变/圆角/阴影、代替 js 动画、translate3d、解决动画闪烁）&lt;/li&gt;
+      &lt;li&gt;localStorage&lt;/li&gt;
+      &lt;li&gt;避免（iframe、fixed + input）&lt;/li&gt;
+      &lt;li&gt;SPA 或 Multi page&lt;/li&gt;
+      &lt;li&gt;can I use&lt;/li&gt;
+      &lt;li&gt;压缩合并&lt;/li&gt;
+      &lt;li&gt;@G/3G 下建立连接时间&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;调试
+    &lt;ul&gt;
+      &lt;li&gt;浏览器自己的调试工具，模拟手机设备&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;weinre&lt;/p&gt;
+
+        &lt;p&gt;关于 weinre 我写了一篇博客介绍它。&lt;a href=&quot;http://gaohaoyang.github.io/2015/06/18/weinre/&quot;&gt;Weinre –WebApp 调试工具&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;head-&quot;&gt;head 标签&lt;/h2&gt;
+
+&lt;p&gt;参考：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.css88.com/archives/5480&quot;&gt;移动前端不得不了解的html5 head 头标签&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上面的链接详细的讲解了：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DOCTYPE&lt;/li&gt;
+  &lt;li&gt;charset&lt;/li&gt;
+  &lt;li&gt;lang属性&lt;/li&gt;
+  &lt;li&gt;优先使用 IE 最新版本和 Chrome&lt;/li&gt;
+  &lt;li&gt;360 使用Google Chrome Frame&lt;/li&gt;
+  &lt;li&gt;SEO 优化部分：页面标题&lt;title&gt;标签(head 头部必须)，页面关键词 keywords，页面描述内容 description，定义网页作者 author，网页搜索引擎索引方式&lt;/title&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;为移动设备添加 viewport&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;viewport&lt;/code&gt; 可以让布局在移动浏览器上显示的更好。 通常会写&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name =&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content =&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz --&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;content 参数：
+    &lt;ul&gt;
+      &lt;li&gt;width viewport 宽度(数值/device-width)&lt;/li&gt;
+      &lt;li&gt;height viewport 高度(数值/device-height)&lt;/li&gt;
+      &lt;li&gt;initial-scale 初始缩放比例&lt;/li&gt;
+      &lt;li&gt;maximum-scale 最大缩放比例&lt;/li&gt;
+      &lt;li&gt;minimum-scale 最小缩放比例&lt;/li&gt;
+      &lt;li&gt;user-scalable 是否允许用户缩放(yes/no)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ios 设备，iOS 图标，Android，Windows 8&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 使用 HTML5 doctype，不区分大小写 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;zh-cmn-Hans&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 声明文档使用的字符编码 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;utf-8&#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 优先使用 IE 最新版本和 Chrome --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;X-UA-Compatible&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IE=edge,chrome=1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 页面描述 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;description&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;不超过150个字符&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 页面关键词 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;keywords&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 网页作者 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;author&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name, email@gmail.com&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 搜索引擎抓取 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;robots&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;index,follow&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 为移动设备添加 viewport --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz --&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iOS 设备 begin --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-mobile-web-app-title&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;标题&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 添加到主屏后的标题（iOS 6 新增） --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-mobile-web-app-capable&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;yes&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 --&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-itunes-app&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-mobile-web-app-status-bar-style&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 设置苹果工具栏颜色 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;format-detection&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;telphone=no, email=no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 启用360浏览器的极速模式(webkit) --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;renderer&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;webkit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 避免IE使用兼容模式 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;X-UA-Compatible&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IE=edge&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;HandheldFriendly&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 微软的老式浏览器 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MobileOptimized&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;320&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- uc强制竖屏 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;screen-orientation&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;portrait&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- QQ强制竖屏 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;x5-orientation&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;portrait&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- UC强制全屏 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;full-screen&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;yes&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- QQ强制全屏 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;x5-fullscreen&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- UC应用模式 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;browsermode&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;application&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- QQ应用模式 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;x5-page-mode&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;app&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- windows phone 点击无高光 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;msapplication-tap-highlight&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iOS 图标 begin --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-icon-precomposed&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/apple-touch-icon-57x57-precomposed.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-icon-precomposed&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sizes=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;114x114&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/apple-touch-icon-114x114-precomposed.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-icon-precomposed&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sizes=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;144x144&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/apple-touch-icon-144x144-precomposed.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iOS 图标 end --&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iOS 启动画面 begin --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-startup-image&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sizes=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;768x1004&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/splash-screen-768x1004.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-startup-image&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sizes=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1536x2008&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/splash-screen-1536x2008.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iPad 竖屏 1536x2008（Retina） --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-startup-image&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sizes=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1024x748&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/Default-Portrait-1024x748.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iPad 横屏 1024x748（标准分辨率） --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-startup-image&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sizes=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2048x1496&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/splash-screen-2048x1496.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iPad 横屏 2048x1496（Retina） --&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-startup-image&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/splash-screen-320x480.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-startup-image&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sizes=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;640x960&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/splash-screen-640x960.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;apple-touch-startup-image&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sizes=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;640x1136&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/splash-screen-640x1136.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iOS 启动画面 end --&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- iOS 设备 end --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;msapplication-TileColor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#000&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Windows 8 磁贴颜色 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;msapplication-TileImage&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;icon.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Windows 8 磁贴图标 --&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alternate&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;application/rss+xml&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RSS&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/rss.xml&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 添加 RSS 订阅 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;shortcut icon&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image/ico&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/favicon.ico&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 添加 favicon icon --&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;标题&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;页面切换动画&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html&quot;&gt;移动端重构系列13——页面切换&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/css3-3d-transform.html&quot;&gt;CSS3 3D Transform&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;关于 HammerJS 的一个中文文档&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/iamlilinfeng/p/4239957.html&quot;&gt;Hammer.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;css-processing&quot;&gt;CSS Processing&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;CSS语言由于其自身语言设计的问题，加上一些浏览器兼容性问题，往往会使得我们在写它的时候，要写很多冗余代码，或者为了兼容性对同一个样式设定写好几遍。针对这些问题，诞生了CSS预处理和后处理的概念及相关方法、工具。&lt;/p&gt;
+
+  &lt;p&gt;这些工具和方法帮助我们能够更加高效地书写可维护性更强的CSS代码。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这里我尝试使用了 Sass，果然很好用。下面记录几个 sass 教程。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3cplus.com/sassguide/&quot;&gt;Sass入门-w3cplus&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/06/sass.html&quot;&gt;SASS用法指南-阮一峰&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;安装&lt;/h3&gt;
+
+&lt;p&gt;首先要有 ruby 环境。&lt;/p&gt;
+
+&lt;p&gt;由于国内网络原因（你懂的），导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。这时候我们可以通过gem sources命令来配置源，先移除默认的 https://rubygems.org 源，然后添加淘宝的源 https://ruby.taobao.org/，然后查看下当前使用的源是哪个，如果是淘宝的，则表示可以输入 sass 安装命令 &lt;code class=&quot;highlighter-rouge&quot;&gt;gem install sass&lt;/code&gt; 了。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gem sources --remove https://rubygems.org/
+$ gem sources -a https://ruby.taobao.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+
+https://ruby.taobao.org
+# 请确保只有 ruby.taobao.org
+$ gem install sass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;编译&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sass --watch style.scss:style.css --style expanded
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;补充&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rem&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;字体单位使用 rem，用户在手机上设置了字体大小时，不会打破布局，造成混乱。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/define-font-size-with-css3-rem&quot;&gt;CSS3的REM设置字体大小-w3cplus&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.iyunlu.com/view/css-xhtml/76.html&quot;&gt;响应式十日谈第一日：使用 rem 设置文字大小-一丝&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;安全&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;安全是大家经常容易忽视，但其实一旦出现影响会非常大的问题，尤其对于没有经历过企业开发，或者没有踩过坑的同学，如果等到公司工作，做实际项目后非常容易发生安全问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;分类&lt;/h3&gt;
+
+&lt;p&gt;WEB基本攻击大致可以分为三大类：“资源枚举”、“参数操纵” 和 “其它攻击”&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;资源枚举&lt;/li&gt;
+  &lt;li&gt;参数操纵
+    &lt;ul&gt;
+      &lt;li&gt;SQL注入&lt;/li&gt;
+      &lt;li&gt;XPath注入&lt;/li&gt;
+      &lt;li&gt;cgi命令执行&lt;/li&gt;
+      &lt;li&gt;XXS（cross-site scripting跨域脚本攻击）其重点是“跨域”和“客户端执行”
+        &lt;ul&gt;
+          &lt;li&gt;Reflected XSS ——基于反射的XSS攻击。主要依靠站点服务端返回脚本，在客户端触发执行从而发起WEB攻击。&lt;/li&gt;
+          &lt;li&gt;DOM-based or local XSS——基于DOM或本地的XSS攻击&lt;/li&gt;
+          &lt;li&gt;Stored XSS——基于存储的XSS攻击&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;会话劫持&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;其它攻击
+    &lt;ul&gt;
+      &lt;li&gt;CSRF（cross-site request forgery）跨站请求伪造&lt;/li&gt;
+      &lt;li&gt;钓鱼攻击指的是网站的伪造，比如ta0bao.com，然后在其中应用XSS等方式发起攻击。&lt;/li&gt;
+      &lt;li&gt;拒绝服务（DoS）指的是向网站发起洪水一样的请求（Traffic Floor），导致服务器超负荷并关闭，处理方法常规是采用QoS（Quality of Service）的软硬件解决方案。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;xss&quot;&gt;关于 XSS&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;跨网站脚本&lt;/strong&gt;（Cross-site scripting，通常简称为XSS或跨站脚本或跨站脚本攻击）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。&lt;/p&gt;
+
+  &lt;p&gt;XSS攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。这些恶意网页程序通常是JavaScript，但实际上也可以包括Java， VBScript， ActiveX， Flash 或者甚至是普通的HTML。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、会话和cookie等各种内容。&lt;/p&gt;
+
+  &lt;p&gt;——维基百科&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;xss-&quot;&gt;XSS 防护&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;浏览器解析顺序：&lt;/p&gt;
+
+    &lt;p&gt;HTML Parser » CSS Parser » JavaScript Parser&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;浏览器解码顺序：&lt;/p&gt;
+
+    &lt;p&gt;HTML Decoding » URL Decoding » JavaScript Decoding&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;具体的防护方式：&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;验证输入并且基于语境和按照正确的顺序转义不可信数据
+        &lt;ul&gt;
+          &lt;li&gt;HTML 中的字符串&lt;/li&gt;
+          &lt;li&gt;HTML 属性中的字符串&lt;/li&gt;
+          &lt;li&gt;事件句柄属性和 JavaScript 中的字符串&lt;/li&gt;
+          &lt;li&gt;HTML 属性中的 URL 路径&lt;/li&gt;
+          &lt;li&gt;HTML 风格属性和 CSS 中的字符串&lt;/li&gt;
+          &lt;li&gt;JavaScript 中的 HTML&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;始终遵循白名单优于黑名单的做法&lt;/li&gt;
+      &lt;li&gt;使用 UTF-8 为默认的字符编码以及设置 content 为 text/html&lt;/li&gt;
+      &lt;li&gt;不要将用户可以控制的文本放在&lt;meta /&gt;标签前。通过使用不同的字符集注射可以导致 XSS。&lt;/li&gt;
+      &lt;li&gt;使用 &amp;lt;!DOCTYPE html&amp;gt;&lt;/li&gt;
+      &lt;li&gt;使用推荐的 HTTP 响应头进行 XSS 防护&lt;/li&gt;
+      &lt;li&gt;防止 CRLF 注入/HTTP 响应拆分&lt;/li&gt;
+      &lt;li&gt;禁止 TRACE 和其他非必要方法&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;对于 innerHTML 的方式输出的，我们可以采用如下的方式转码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+ * 转码 XSS 防护
+ * @param  {String} str 用户输入的字符串
+ * @return {String}     转码后的字符串
+ */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;changeCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&amp;amp;/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;amp;amp;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&amp;lt;/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;amp;lt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&amp;gt;/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&quot;/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;amp;quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&#39;/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;amp;#x27;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;amp;#x2f;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;参考：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/vajoy/p/4176908.html&quot;&gt;浅谈WEB安全性（前端向）&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.freebuf.com/articles/web/40520.html&quot;&gt;XSS的原理分析与解剖&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.fooying.com/chinese-translationthe-ultimate-xss-protection-cheatsheet-for-developers/&quot;&gt;原创翻译：给开发者的终极XSS防护备忘录&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;性能优化&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在自己做一些小项目时，可能是学校的一些网站项目，流量可能日均都不超过500，而且大多是校园局域网内访问；或者是开发一些实验室的MIS系统，这辈子你都不会去使用你开发的这个系统。在这样一些项目中，性能优化往往会被你忽略。&lt;/p&gt;
+
+  &lt;p&gt;但是如果你是做一个日均PV数万、数十万、甚至更大的量级，开发的页面会被全国各地，不同网络条件的用户来进行访问。这个时候，性能问题就无法忽视了。在当今的网络条件下，如果你的页面3秒都无法完成首屏渲染，一定会让你的网站流失很多用户。&lt;/p&gt;
+
+  &lt;p&gt;整个网站的性能优化有很多的环节和工作，大多数时候，不是前端工程师单独就能完成的，尤其在职能划分明确的公司中，往往需要前后端、运维、DBA等多个职位协同完成。所以，在我们的课程中，主要让你了解整个性能优化都涉及哪些方面的工作，同时，我们会专注介绍一些在前端领域可以重点关注的技术点。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这里就是网页的打开速度，如果你的网页打开速度很慢，那么一定会有用户的流失。所以性能优化很重要。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;网页内容
+    &lt;ul&gt;
+      &lt;li&gt;减少http请求次数&lt;/li&gt;
+      &lt;li&gt;减少DNS查询次数&lt;/li&gt;
+      &lt;li&gt;避免页面跳转&lt;/li&gt;
+      &lt;li&gt;缓存Ajax&lt;/li&gt;
+      &lt;li&gt;延迟加载&lt;/li&gt;
+      &lt;li&gt;提前加载&lt;/li&gt;
+      &lt;li&gt;减少DOM元素数量&lt;/li&gt;
+      &lt;li&gt;根据域名划分内容&lt;/li&gt;
+      &lt;li&gt;减少iframe数量&lt;/li&gt;
+      &lt;li&gt;避免404&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;服务器
+    &lt;ul&gt;
+      &lt;li&gt;使用CDN&lt;/li&gt;
+      &lt;li&gt;添加Expires 或Cache-Control报文头&lt;/li&gt;
+      &lt;li&gt;Gzip压缩传输文件&lt;/li&gt;
+      &lt;li&gt;配置ETags&lt;/li&gt;
+      &lt;li&gt;尽早flush输出&lt;/li&gt;
+      &lt;li&gt;使用GET Ajax请求&lt;/li&gt;
+      &lt;li&gt;避免空的图片src&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cookie
+    &lt;ul&gt;
+      &lt;li&gt;减少Cookie大小&lt;/li&gt;
+      &lt;li&gt;页面内容使用无cookie域名&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CSS
+    &lt;ul&gt;
+      &lt;li&gt;将样式表置顶&lt;/li&gt;
+      &lt;li&gt;避免CSS表达式&lt;/li&gt;
+      &lt;li&gt;用&amp;lt;link&amp;gt;代替@import&lt;/li&gt;
+      &lt;li&gt;避免使用Filters&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Javascript
+    &lt;ul&gt;
+      &lt;li&gt;将脚本置底&lt;/li&gt;
+      &lt;li&gt;使用外部Javascirpt和CSS文件&lt;/li&gt;
+      &lt;li&gt;精简Javascript和CSS&lt;/li&gt;
+      &lt;li&gt;去除重复脚本&lt;/li&gt;
+      &lt;li&gt;减少DOM访问&lt;/li&gt;
+      &lt;li&gt;使用智能事件处理&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;图片
+    &lt;ul&gt;
+      &lt;li&gt;优化图像&lt;/li&gt;
+      &lt;li&gt;优化CSS Sprite&lt;/li&gt;
+      &lt;li&gt;不要在HTML中缩放图片&lt;/li&gt;
+      &lt;li&gt;使用小且可缓存的favicon.ico&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;移动客户端
+    &lt;ul&gt;
+      &lt;li&gt;保持单个内容小于25KB&lt;/li&gt;
+      &lt;li&gt;打包组建成符合文档&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;具体细节参考文章：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html&quot;&gt;毫秒必争，前端网页性能最佳实践&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我在 ToDo 这个任务中主要使用了 CDN 来加载静态资源。比如我使用了 &lt;a href=&quot;http://cdn.code.baidu.com/&quot;&gt;百度静态资源公共库&lt;/a&gt;。引用了里面的 fontawesome，速度果然比在 GitHub 仓库里快很多。下一步是压缩我自己写的静态资源。&lt;/p&gt;
+
+&lt;p&gt;其他参考资料：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.oschina.net/translate/front-end-performance-for-web-designers-and-front-end-developers#section:maximising-parallelisation&quot;&gt;给网页设计师和前端开发者看的前端性能优化&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/?p=3152&quot;&gt;梳理：提高前端性能方面的处理以及不足&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/mofish/archive/2010/10/12/1849062.html&quot;&gt;css sprite原理优缺点及使用&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.qianduan.net/css-sprites-useful-technique-or-potential-nuisance/&quot;&gt;CSS Sprites：鱼翅还是三鹿？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/leefreeman/p/3998757.html&quot;&gt;大型网站的灵魂——性能&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://web.jobbole.com/35339/&quot;&gt;编写高效的 CSS 选择器&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;模块化&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;对于一个复杂项目，特别是多人协作的复杂项目，如何合理划分模块，如何更加方便地进行模块加载，如何管理模块之间的依赖，是一个项目团队都会面临的问题，目前业界已经有了一些较为普遍的解决方案，如AMD。这个部分希望你能够通过学习JavaScript的模块化，学习如何合理地规划项目模块，合理使用模块化工具来优化你的项目代码结构。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;一个模块就是实现特定功能的文件，有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。模块开发需要遵循一定的规范，否则就都乱套了。&lt;/p&gt;
+
+&lt;p&gt;根据AMD规范，我们可以使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;define&lt;/code&gt; 定义模块，使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;require&lt;/code&gt; 调用模块。&lt;/p&gt;
+
+&lt;p&gt;目前，通行的 js 模块规范主要有两种：&lt;code class=&quot;highlighter-rouge&quot;&gt;CommonJS&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;AMD&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;amd&quot;&gt;AMD规范&lt;/h3&gt;
+
+&lt;p&gt;AMD 即 Asynchronous Module Definition，中文名是“异步模块定义”的意思。它是一个在浏览器端模块化开发的规范，服务器端的规范是 CommonJS&lt;/p&gt;
+
+&lt;p&gt;模块将被异步加载，模块加载不影响后面语句的运行。所有依赖某些模块的语句均放置在回调函数中。&lt;/p&gt;
+
+&lt;p&gt;AMD 是 RequireJS 在推广过程中对模块定义的规范化的产出。&lt;/p&gt;
+
+&lt;p&gt;详细 API 如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88)&quot;&gt;AMD（中文版）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;commonjs&quot;&gt;CommonJS规范&lt;/h3&gt;
+
+&lt;p&gt;CommonJS 是服务器端模块的规范，Node.js 采用了这个规范。Node.JS 首先采用了 js 模块化的概念。&lt;/p&gt;
+
+&lt;p&gt;根据 CommonJS 规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为 global 对象的属性。&lt;/p&gt;
+
+&lt;p&gt;输出模块变量的最好方法是使用 module.exports 对象。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;requirejs&quot;&gt;为什么要用 requireJS&lt;/h3&gt;
+
+&lt;p&gt;试想一下，如果一个网页有很多的js文件，那么浏览器在下载该页面的时候会先加载js文件，从而停止了网页的渲染，如果文件越多，浏览器可能失去响应。其次，要保证js文件的依赖性，依赖性最大的模块（文件）要放在最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难。&lt;/p&gt;
+
+&lt;p&gt;RequireJS就是为了解决这两个问题而诞生的：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;（1）实现js文件的异步加载，避免网页失去响应；
+（2）管理模块之间的依赖性，便于代码的编写和维护。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;requirejs-1&quot;&gt;requireJS&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://requirejs.org/&quot;&gt;requireJS 官网&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.requirejs.cn/&quot;&gt;requireJS 中文网&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;amdcmd&quot;&gt;AMD和CMD&lt;/h3&gt;
+
+&lt;p&gt;CMD（Common Module Definition） 通用模块定义。该规范明确了模块的基本书写格式和基本交互规则。该规范是在国内发展出来的。AMD是依赖关系前置，CMD是按需加载。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。
+CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/242&quot;&gt;CMD 模块定义规范&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;AMD:提前执行（异步加载：依赖先执行）+延迟执行
+CMD:延迟执行（运行到需加载，根据顺序执行）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;参考&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/javascript_module.html&quot;&gt;Javascript模块化编程（一）：模块的写法–阮一峰&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html&quot;&gt;Javascript模块化编程（二）：AMD规范&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/11/require_js.html&quot;&gt;Javascript模块化编程（三）：require.js的用法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://segmentfault.com/a/1190000000733959&quot;&gt;详解 JavaScript 模块开发&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html?utm_source=tuicool&quot;&gt;浅谈模块化的JavaScript&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://div.io/topic/430&quot;&gt;再谈 SeaJS 与 RequireJS 的差异&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;玩转AMD系列 by erik@EFE
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://efe.baidu.com/blog/dissecting-amd-preface/&quot;&gt;玩转AMD - 写在前面&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://efe.baidu.com/blog/dissecting-amd-what/&quot;&gt;玩转AMD - 设计思路&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://efe.baidu.com/blog/dissecting-amd-how/&quot;&gt;玩转AMD - 应用实践&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://efe.baidu.com/blog/dissecting-amd-loader/&quot;&gt;玩转AMD - Loader&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-10&quot;&gt;前端工程化&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;业界目前有非常多的前端开发工具，完成一些开发过程中可以自动化完成的工作，提高研发效率，并且可以提高多人协作时的开发过程一致性，提高整个项目的运维效率。&lt;/p&gt;
+
+  &lt;p&gt;在EFE日常工作中，我们是基于EDP，完成项目开发过程中的项目构建、包管理、调试、单测、静态检测、打包、压缩、优化、项目部署等一系列所有工作。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;注：&lt;/p&gt;
+
+&lt;p&gt;如果网络不好，可以使用 &lt;a href=&quot;http://npm.taobao.org/&quot;&gt;淘宝 NPM 镜像&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;参考&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://div.io/topic/439&quot;&gt;前端工程与模块化框架&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mweb.baidu.com/p/baidusearch-front-end-road.html&quot;&gt;手机百度前端工程化之路&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.infoq.com/cn/articles/yunlong-on-fis&quot;&gt;对话百度前端工程师张云龙：F.I.S与前端工业化&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ecomfe/edp&quot;&gt;EDP&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3cplus.com/tools/grunt-tutorial-start-grunt.html&quot;&gt;Grunt教程——初涉Grunt&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.open-open.com/lib/view/open1417068223049.html&quot;&gt;gulp入门指南&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3ctech.com/topic/134&quot;&gt;Gulp开发教程（翻译）&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.gulpjs.com.cn/&quot;&gt;Gulp 中文网&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ericdum/mujiang.info/issues/6&quot;&gt;npm的package.json中文文档&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-12&quot;&gt;最终作品&lt;/h2&gt;
+
+&lt;p&gt;在任务三中，做了一个 PC 端的 ToDo 应用。任务四是将它优化，以适应移动端设备。&lt;/p&gt;
+
+&lt;h3 id=&quot;todo-webapp-version&quot;&gt;ToDo WebApp Version&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/task/task0004&quot;&gt;任务四要求&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Gaohaoyang/ToDo-WebApp&quot;&gt;源代码&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gaohaoyang.github.io/ToDo-WebApp/&quot;&gt;在线 demo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;手机查看 ↓ 二维码 ↓&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/task4-code-todoWebApp.png&quot; alt=&quot;todoWebApp&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gaohaoyang.github.io&quot;&gt;我的博客 HyG&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;details&quot;&gt;Details&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;数据存储&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;以 JSON 模拟数据表的形式存储于 LocalStorage 中&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   使用数据库的思想，构建3张表。
+   cateJson 分类
+   childCateJson 子分类
+   taskJson 任务
+
+   分类表 cate
+   ----------------------
+   id* | name | child(FK)
+   ----------------------
+
+   子分类表 childCate
+   --------------------------------
+   id* | pid(FK) | name | child(FK)
+   --------------------------------
+
+   任务表 task
+   ----------------------------------------------
+   id* | pid(FK) | finish | name | date | content
+   ----------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;Sass&lt;/code&gt; 重构了 CSS 代码&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;使用分块、继承等方式，使得代码更加清晰明了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;响应式布局&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;针对手机端细节做了很多调整，更符合手机上的视觉交互习惯。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;加入页面切换效果&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;translate3d()&lt;/code&gt;，纯 CSS3 切换动画效果。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;处理了 XSS 防护&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;对可能造成破坏的字符进行转码。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;性能优化&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;使用 CDN 处理静态资源 fontAwesome，压缩静态资源等&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;模块化&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;使用 requireJS 模块化 JavaScript 代码。重构 JavaScript 代码。优化之前写的耦合性高的绑定事件，重新绑定事件，降低耦合性。期间根据具体需求重写了事件代理的代码。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;前端工程化&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;使用 gulp，自动编译 Sass，压缩 CSS 和 JavaScript 代码。并且配置了自动流程。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-13&quot;&gt;其他&lt;/h2&gt;
+
+&lt;h3 id=&quot;webkit-tap-highlight-color-&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-webkit-tap-highlight-color&lt;/code&gt; 属性&lt;/h3&gt;
+
+&lt;p&gt;感谢 &lt;a href=&quot;https://github.com/fiona23&quot;&gt;fiona&lt;/a&gt; 指出。&lt;/p&gt;
+
+&lt;p&gt;safari移动端点击的时候会闪一下加上 &lt;code class=&quot;highlighter-rouge&quot;&gt;-webkit-tap-highlight-color: transparent;&lt;/code&gt; 就不会闪了。&lt;/p&gt;
+
+&lt;p&gt;参考：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.css88.com/webkit/-webkit-tap-highlight-color/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-webkit-tap-highlight-color&lt;/code&gt;  css88&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ued.ctrip.com/webkitcss/prop/tap-highlight-color.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-webkit-tap-highlight-color&lt;/code&gt; 属性&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;textarea--disabled-&quot;&gt;textarea 标签 disabled 颜色&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;为什么用 disabled 属性？&lt;/p&gt;
+
+    &lt;p&gt;因为我发现仅仅使用 readonly 属性，在 IE 下是显示光标的。于是使用 disabled。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;出现的问题&lt;/p&gt;
+
+    &lt;p&gt;各家浏览器对于 disabled 属性有自己的样式设定，比如 IE 下是灰色的。苹果设备下也是。改变这些样式的方法也不是统一的。如果要兼容 Safari 必须加上&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;background: #fff;
+-webkit-text-fill-color: rgba(0, 0, 0, 1);
+-webkit-opacity: 1;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;于是最终代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;textarea&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:disabled&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;-webkit-text-fill-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;-webkit-opacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;参考：&lt;a href=&quot;http://stackoverflow.com/a/4648315&quot;&gt;Disabled input text color 中的评论&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 17 Jun 2015 22:06:05 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2015/06/17/web-app/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2015/06/17/web-app/</guid>
+        
+        <category>JavaScript</category>
+        
+        <category>HTML</category>
+        
+        <category>CSS</category>
+        
+        <category>Sass</category>
+        
+        <category>移动端</category>
+        
+        <category>XSS</category>
+        
+        <category>AMD</category>
+        
+        <category>requireJS</category>
+        
+        <category>CommonJS</category>
+        
+        <category>性能优化</category>
+        
+        <category>WebApp</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript 面向对象</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;概念&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;基于原型的继承&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#prototype-&quot; id=&quot;markdown-toc-prototype-&quot;&gt;prototype 属性与原型&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;例&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;原型链&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#objectcreatenull--bindnull&quot; id=&quot;markdown-toc-objectcreatenull--bindnull&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Object.create(null)&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;.bind(null)&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#prototype--1&quot; id=&quot;markdown-toc-prototype--1&quot;&gt;prototype 属性&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#prototype&quot; id=&quot;markdown-toc-prototype&quot;&gt;改变 prototype&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#prototype--2&quot; id=&quot;markdown-toc-prototype--2&quot;&gt;内置构造器的 &lt;code class=&quot;highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#new&quot; id=&quot;markdown-toc-new&quot;&gt;创建对象-new/原型链&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#instanceof&quot; id=&quot;markdown-toc-instanceof&quot;&gt;instanceof&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;实现继承的方式&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;模拟重载&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;调用子类方法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;链式调用&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;抽象类&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;模块化&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文为慕课网 &lt;a href=&quot;http://www.imooc.com/learn/277&quot;&gt;JavaScript深入浅出&lt;/a&gt;  JavaScript 面向对象笔记。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;概念&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;面向对象程序设计（Object-oriented programming，OOP）是一种程序设计范型，同时也是一种程序开发的方法。对象指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性。&lt;/p&gt;
+
+  &lt;p&gt;——维基百科&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;一般面向对象包含：继承，封装，多态，抽象&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;基于原型的继承&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Foo() {
+    this.y = 2;
+}
+console.log(typeof Foo.prototype); //object
+
+Foo.prototype.x = 1;
+var obj3 = new Foo();
+
+console.log(obj3.y); //2
+console.log(obj3.x); //1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;创建函数 &lt;code class=&quot;highlighter-rouge&quot;&gt;Foo&lt;/code&gt; 的时候，就会有一个内置的 &lt;code class=&quot;highlighter-rouge&quot;&gt;Foo.prototype&lt;/code&gt; 属性，并且这个属性是对象。&lt;/p&gt;
+
+&lt;p&gt;在使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;new Foo();&lt;/code&gt; 创建对象实例时。&lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt; 会指向一个对象，并且这个对象的原型会指向 &lt;code class=&quot;highlighter-rouge&quot;&gt;Foo.prototype&lt;/code&gt; 属性。&lt;code class=&quot;highlighter-rouge&quot;&gt;this.y = 2&lt;/code&gt; 给这个对象赋值，并把这个对象返回。把这个对象赋值给 &lt;code class=&quot;highlighter-rouge&quot;&gt;obj3&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; 是 &lt;code class=&quot;highlighter-rouge&quot;&gt;obj3&lt;/code&gt; 上的，&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; 是 &lt;code class=&quot;highlighter-rouge&quot;&gt;obj3&lt;/code&gt; 的原型 &lt;code class=&quot;highlighter-rouge&quot;&gt;Foo.prototype&lt;/code&gt; 上的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-prototype.png&quot; alt=&quot;prototype&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;prototype-&quot;&gt;prototype 属性与原型&lt;/h3&gt;
+
+&lt;p&gt;prototype 是函数对象上预设的对象属性。&lt;/p&gt;
+
+&lt;p&gt;原型是对象上的原型，通常是构造器的 prototype 属性。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;例&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.LEGS_NUM = 2;
+Person.prototype.ARMS_NUM = 2;
+
+Person.prototype.hi = function() {
+    console.log(&#39;Hi, my name is &#39; + this.name + &quot;. I&#39;m &quot; + this.age + &#39; years old now&#39;);
+};
+
+Person.prototype.walking = function() {
+    console.log(this.name + &#39; is walking...&#39;);
+};
+
+function Student(name, age, className) {
+    Person.call(this, name, age); //使 Person 中的 this 指向 Student
+    this.className = className;
+}
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+Student.prototype.hi = function() {
+    console.log(&#39;Hi, my name is &#39; + this.name + &quot;. I&#39;m &quot; + this.age + &#39; years old now, and from &#39; + this.className + &quot;.&quot;);
+};
+
+Student.prototype.learn = function(subject) {
+    console.log(this.name + &#39; is learning &#39; + subject + &#39; at &#39; + this.className + &#39;.&#39;);
+}
+
+//test
+var gao = new Student(&#39;Gao&#39;, &#39;24&#39;, &#39;Class 3123&#39;);
+console.log(gao); // 这个对象的具体内容见下图
+gao.hi(); //Hi, my name is Gao. I&#39;m 24 years old now, and from Class 3123.
+gao.LEGS_NUM; //2
+gao.walking(); //Gao is walking...
+gao.learn(&#39;JavaScript&#39;); //Gao is learning JavaScript at Class 3123.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Object.create(arg)&lt;/code&gt; 创建一个空对象，并且这个对象的原型指向参数 &lt;code class=&quot;highlighter-rouge&quot;&gt;arg&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Student.prototype.constructor = Student&lt;/code&gt; 为了保证一致性，否则 constructor 指向 Person。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;原型链&lt;/h3&gt;
+
+&lt;p&gt;gao 对象的原型链：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-oop-gao.png&quot; alt=&quot;Object&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下面通过图形展示原型链：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-原型链.png&quot; alt=&quot;原型链&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;objectcreatenull--bindnull&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Object.create(null)&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;.bind(null)&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;这两种算是特例。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Object.create(null)&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;.bind(null)&lt;/code&gt; 这两种方式创建出来的对象是没有 &lt;code class=&quot;highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 属性的，为 &lt;code class=&quot;highlighter-rouge&quot;&gt;undefined&lt;/code&gt;。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;prototype--1&quot;&gt;prototype 属性&lt;/h2&gt;
+
+&lt;h3 id=&quot;prototype&quot;&gt;改变 prototype&lt;/h3&gt;
+
+&lt;p&gt;JavaScript 中的 prototype 是对象，在运行的时候可以修改。&lt;/p&gt;
+
+&lt;p&gt;给 prototype 添加或删除一些属性，是会影响到已经创建好的实例对象的。&lt;/p&gt;
+
+&lt;p&gt;但是，直接修改 prototype 属性，是不会影响到已经创建好的实例对象的。但是会影响到新的实例对象。如下代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 上接上面的代码
+
+// 给 prototype 添加或删除一些属性
+Student.prototype.x = 101;
+console.log(gao.x); //101
+
+// 直接修改 prototype 属性
+Student.prototype = {
+    y: 2
+};
+
+// 不会影响到已创建好的实例对象
+console.log(gao.x); //101
+console.log(gao.y); //undefined
+
+// 会影响到新创建的实例对象
+var ying = new Student(&#39;Ying&#39;, 24, &#39;UI&#39;);
+console.log(ying.x); //undefined
+console.log(ying.y); //2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;prototype--2&quot;&gt;内置构造器的 &lt;code class=&quot;highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 属性&lt;/h3&gt;
+
+&lt;p&gt;修改内置构造器的 &lt;code class=&quot;highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 属性后，在实例化这个对象后，枚举其属性时，会把修改的内置构造器的 &lt;code class=&quot;highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 属性也枚举出来，有时候这是要避免的。可用 &lt;code class=&quot;highlighter-rouge&quot;&gt;defineProperty&lt;/code&gt; 方法解决。如下代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Object.prototype.x = 1;
+var obj = {};
+console.log(obj.x); //1
+console.log(obj);
+
+for (var k in obj) {
+    console.log(&#39;result---&amp;gt;&#39; + k);
+}
+// result---&amp;gt;x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;defineProperty&lt;/code&gt; 后：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Object.defineProperty(Object.prototype, &#39;x&#39;, {
+    writable: true,
+    value: 1
+});
+var obj = {};
+console.log(obj.x);//1
+console.log(obj);
+for (var k in obj) {
+    console.log(&#39;result---&amp;gt;&#39; + k);
+}
+// nothing output here
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其实也可以这样枚举，使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;hasOwnProperty&lt;/code&gt; 方法：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+        console.log(&quot;result---&amp;gt;&quot; + key);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;new&quot;&gt;创建对象-new/原型链&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-new prototype.png&quot; alt=&quot;prototype&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;instanceof&quot;&gt;instanceof&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.log([1, 2] instanceof Array); //true
+console.log([1, 2] instanceof Object); //true
+console.log(new Object() instanceof Array); //false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;左边要求是对象，右边要求是构造器或函数。它会判断：&lt;strong&gt;右边的构造器中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 属性是否出现在左边的对象的原型链上。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;注意：&lt;/strong&gt;不同的 window 或 iframe 间的对象类型检测&lt;strong&gt;不能&lt;/strong&gt;使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;instanceof&lt;/code&gt;！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;实现继承的方式&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person() {}
+
+function Student() {}
+
+Student.prototype = Person.prototype; //1
+
+Student.prototype = new Person(); //2
+
+Student.prototype = Object.create(Person.prototype); //3
+
+Student.prototype.constructor = Student;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;注释中：&lt;/p&gt;
+
+&lt;p&gt;1 是错误的。如果改变了 Student 就会改变 Person&lt;/p&gt;
+
+&lt;p&gt;2 可以实现继承，但是其调用了构造函数，若父类构造函数中有形参，那么传值就会比较奇怪。&lt;/p&gt;
+
+&lt;p&gt;3 是最好的方法。创建了一个空对象，并且对象的原型指向参数 Person.prototype。这样便实现了继承。同时原型链写，不向上查找。但是 &lt;code class=&quot;highlighter-rouge&quot;&gt;Object.create&lt;/code&gt; 是ES5 中的方法，所以可以使用下列代码做兼容：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if (!Object.create) {
+    Object.create = function(proto) {
+        function F() {}
+        F.prototype = proto;
+        return new F;
+    };
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;模拟重载&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person() {
+    var args = arguments;
+    if (typeof args[0] === &#39;object&#39; &amp;amp;&amp;amp; args[0]) {
+        if (args[0].name) {
+            this.name = args[0].name;
+        }
+        if(args[0].age){
+            this.age = args[0].age;
+        }
+    } else {
+        if (args[0]) {
+            this.name = args[0];
+        }
+        if (args[1]) {
+            this.age = args[1];
+        }
+    }
+}
+
+//重写 toString 方法
+Person.prototype.toString = function() {
+    console.log(&#39;name=&#39;+this.name+&#39;, age=&#39;+this.age);
+};
+
+var gao = new Person({name:&#39;Gao&#39;,age:24});
+gao.toString(); // name=Gao, age=24
+
+var ying = new Person(&#39;Ying&#39;,25);
+ying.toString(); // name=Ying, age=25
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;对参数进行判断，模拟实现重载。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-6&quot;&gt;调用子类方法&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person(name) {
+    this.name = name;
+}
+
+function Student(name, className) {
+    this.className = className;
+    Person.call(this, name); // 调用基类的构造器
+}
+
+var gao = new Student(&#39;Gao&#39;, &#39;3123&#39;);
+console.log(gao); // Student {className: &quot;3123&quot;, name: &quot;Gao&quot;}
+
+Person.prototype.init = function() {};
+
+Student.prototype.init = function() {
+    // do sth...
+    Person.prototype.init.apply(this, arguments); // 同时也想调用父类被覆盖的方法
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;主要是两种：调用父类的构造器，调用原型链上父类被覆盖的方法。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;链式调用&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function ClassManager() {}
+ClassManager.prototype.addClass = function(str) {
+    console.log(&#39;Class: &#39; + str + &#39; added&#39;);
+    return this;
+};
+
+var manager = new ClassManager();
+manager.addClass(&#39;classA&#39;).addClass(&#39;classB&#39;).addClass(&#39;classC&#39;);
+// Class: classA added
+// Class: classB added
+// Class: classC added
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;重点在于 return this。返回这个 ClassManager 的实例。这样这个实例又可以继续调用方法。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;抽象类&lt;/h2&gt;
+
+&lt;p&gt;在构造器中 &lt;code class=&quot;highlighter-rouge&quot;&gt;throw new Error(&#39;&#39;);&lt;/code&gt; 抛异常。这样防止这个类被直接调用。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function DetectorBase() {
+    throw new Error(&#39;Abstract class can not be invoked directly!&#39;);
+}
+
+DetectorBase.detect = function() {
+    console.log(&#39;Detection starting...&#39;);
+}
+DetectorBase.stop = function() {
+    console.log(&#39;Detection stopped.&#39;);
+};
+DetectorBase.init = function() {
+    throw new Error(&#39;Error&#39;);
+}
+
+var d = new DetectorBase();// Uncaught Error: Abstract class can not be invoked directly!
+
+function LinkDetector() {}
+LinkDetector.prototype = Object.create(DetectorBase.prototype);
+LinkDetector.prototype.constructor = LinkDetector;
+
+var l = new LinkDetector();
+console.log(l); //LinkDetector {}__proto__: LinkDetector
+l.detect(); //Uncaught TypeError: l.detect is not a function
+l.init(); //Uncaught TypeError: l.init is not a function
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;var d = new DetectorBase();&lt;/code&gt; 是不能实例化的，会报错&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;l.detect();&lt;/code&gt; 但是这个为什么报错我就不知道了。&lt;/p&gt;
+
+&lt;p&gt;已经在原课程下提问了，期待老师的讲解。 &lt;a href=&quot;http://www.imooc.com/qadetail/82732&quot;&gt;抽象类中子类为什么不能调用父类的非抽象方法？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;问题已经解决了，应该是老师当时的课件写错了，应该再基类中将这两个方法写在其原型 prototype 上。如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function DetectorBase() {
+    throw new Error(&#39;Abstract class can not be invoked directly!&#39;);
+}
+
+DetectorBase.prototype.detect = function() {
+    console.log(&#39;Detection starting...&#39;);
+};
+DetectorBase.prototype.stop = function() {
+    console.log(&#39;Detection stopped.&#39;);
+};
+DetectorBase.prototype.init = function() {
+    throw new Error(&#39;Error&#39;);
+};
+
+// var d = new DetectorBase();// Uncaught Error: Abstract class can not be invoked directly!
+
+function LinkDetector() {}
+LinkDetector.prototype = Object.create(DetectorBase.prototype);
+LinkDetector.prototype.constructor = LinkDetector;
+
+var l = new LinkDetector();
+console.log(l); //LinkDetector {}__proto__: LinkDetector
+l.detect(); //Detection starting...
+l.init(); //Uncaught Error: Error
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-9&quot;&gt;模块化&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var moduleA;
+moduleA = function() {
+    var prop = 1;
+
+    function func() {}
+
+    return {
+        func: func,
+        prop: prop
+    };
+}(); // 立即执行匿名函数
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;prop，func 不会被泄露到全局作用域。&lt;/p&gt;
+
+&lt;p&gt;或者另一种写法，使用 new&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;moduleA = new function() {
+    var prop = 1;
+
+    function func() {}
+
+    this.func = func;
+    this.prop = prop;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;更复杂的可以使用 Sea.js Kissy Require.js 模块化工具。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;最后补充一点设计模式相关的资料，我还没有来得及看的：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.oschina.net/translate/learning-javascript-design-patterns&quot;&gt;学用 JavaScript 设计模式&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.jobbole.com/29454/&quot;&gt;常用的Javascript设计模式&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://developer.51cto.com/art/201109/288650_all.htm&quot;&gt;JavaScript设计模式深入分析&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 15 Jun 2015 22:06:05 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2015/06/15/JavaScript-Object-Oriented/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2015/06/15/JavaScript-Object-Oriented/</guid>
+        
+        <category>JavaScript</category>
+        
+        <category>面向对象</category>
+        
+        <category>慕课网</category>
+        
+        <category>ife</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript 中的闭包</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;闭包的例子&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;应用&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;常见错误之循环闭包&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;封装&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;总结&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文为慕课网 &lt;a href=&quot;http://www.imooc.com/learn/277&quot;&gt;JavaScript深入浅出&lt;/a&gt; JavaScript 中的闭包笔记。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;闭包的例子&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function outer() {
+    var localVal = 30;
+    return localVal;
+}
+
+console.log(outer()); //30
+
+function outer2() {
+    var localVal = 30;
+    return function() {
+        return localVal;
+    };
+}
+
+var func = outer2();
+console.log(func()); //30
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;对于第一个普通的函数，在执行过之后，它的局部变量就可以被释放。&lt;/p&gt;
+
+&lt;p&gt;对于第二个函数，&lt;code class=&quot;highlighter-rouge&quot;&gt;localVal&lt;/code&gt; 是不能被释放的。因为调用 &lt;code class=&quot;highlighter-rouge&quot;&gt;outer2()&lt;/code&gt; 后，返回的是匿名函数，匿名函数可以访问外部的 &lt;code class=&quot;highlighter-rouge&quot;&gt;outer2()&lt;/code&gt; 中的局部变量，并返回了这个局部变量 localVal。当 &lt;code class=&quot;highlighter-rouge&quot;&gt;outer2()&lt;/code&gt; 赋值给 &lt;code class=&quot;highlighter-rouge&quot;&gt;func&lt;/code&gt; 后，再次调用 &lt;code class=&quot;highlighter-rouge&quot;&gt;func()&lt;/code&gt;，仍能访问到局部变量 &lt;code class=&quot;highlighter-rouge&quot;&gt;localVal&lt;/code&gt;。这种情况就是闭包。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;应用&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;所谓闭包就是：子函数可以使用父函数中的局部变量。&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ! function() {
+      var localData = &quot;localData here&quot;;
+      document.addEventListener(&#39;click&#39;,
+          function() {
+              console.log(localData); //这里访问外部数据
+          });
+  }();
+
+  ! function() {
+      var localData = &quot;localData here&quot;;
+      var url = &quot;http://www.baidu.com/&quot;;
+      $.ajax({
+          url: url,
+          success: function() {
+              // do sth...
+              console.log(localData); //这里访问外部数据
+          }
+      });
+  }()
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;常见错误之循环闭包&lt;/h2&gt;
+
+&lt;p&gt;比如我们想循环绑定点击事件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;document.body.innerHTML = &quot;&amp;lt;div id=div1&amp;gt;aaa&amp;lt;/div&amp;gt;&amp;lt;div id=div2&amp;gt;bbb&amp;lt;/div&amp;gt;&amp;lt;div id=div3&amp;gt;ccc&amp;lt;/div&amp;gt;&quot;;
+for (var i = 1; i &amp;lt; 4; i++) {
+    document.getElementById(&#39;div&#39; + i).
+    addEventListener(&#39;click&#39;, function() {
+        alert(i); // all are 4!
+    });
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上面的代码，我们点击任何一个 div，弹出的都是 4&lt;/p&gt;
+
+&lt;p&gt;这是因为，for 循环中的 i 是一个全局变量。这里内函数的点击事件，访问到的是循环后的 i 值，所以是 4&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;document.body.innerHTML = &quot;&amp;lt;div id=div1&amp;gt;aaa&amp;lt;/div&amp;gt;&amp;lt;div id=div2&amp;gt;bbb&amp;lt;/div&amp;gt;&amp;lt;div id=div3&amp;gt;ccc&amp;lt;/div&amp;gt;&quot;;
+for (var i = 1; i &amp;lt; 4; i++) {
+    ! function(i) {
+        document.getElementById(&#39;div&#39; + i).
+        addEventListener(&#39;click&#39;, function() {
+            alert(i); // 1, 2, 3
+        });
+    }(i);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这里使用了立即执行函数，并给匿名函数赋值 i，这样点击事件每一次就会访问到相应的 i。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;封装&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(function() {
+    var _userId = 9527;
+    var _typeId = &quot;item&quot;;
+    var exp = {};
+
+    function converter(userId) {
+        return +userId;
+    }
+
+    exp.getUserId = function() {
+        return converter(_userId);
+    };
+
+    exp.getTypeId = function() {
+        return _typeId;
+    };
+
+    window.a = exp;
+})();
+
+console.log(a.getUserId()); //9527
+console.log(a.getTypeId()); //item
+
+console.log(a._userId); //undefined
+console.log(a._typeId); //undefined
+console.log(converter); //Uncaught ReferenceError: converter is not defined
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上面的代码通过闭包实现了一个封装。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;总结&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;p&gt;在计算机科学中，闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起。这个引用环境是一个存储该函数每个非局部变量（也叫自由变量）的表。&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;from 维基百科&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;闭包的优点
+    &lt;ul&gt;
+      &lt;li&gt;灵活和方便&lt;/li&gt;
+      &lt;li&gt;封装&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;缺点
+    &lt;ul&gt;
+      &lt;li&gt;空间浪费&lt;/li&gt;
+      &lt;li&gt;内存泄露&lt;/li&gt;
+      &lt;li&gt;性能消耗&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 14 Jun 2015 22:06:05 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2015/06/14/JavaScript-closure/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2015/06/14/JavaScript-closure/</guid>
+        
+        <category>JavaScript</category>
+        
+        <category>闭包</category>
+        
+        <category>慕课网</category>
+        
+        <category>ife</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript 中的 this</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#this&quot; id=&quot;markdown-toc-this&quot;&gt;全局的 this&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#this-1&quot; id=&quot;markdown-toc-this-1&quot;&gt;一般函数的 this&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#this-2&quot; id=&quot;markdown-toc-this-2&quot;&gt;作为对象方法的函数的 this&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#this-3&quot; id=&quot;markdown-toc-this-3&quot;&gt;对象原型链上的 this&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#getset--this&quot; id=&quot;markdown-toc-getset--this&quot;&gt;get/set 方法与 this&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#this-4&quot; id=&quot;markdown-toc-this-4&quot;&gt;构造器中的 this&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#callapply--this&quot; id=&quot;markdown-toc-callapply--this&quot;&gt;call/apply 方法与 this&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bind--this&quot; id=&quot;markdown-toc-bind--this&quot;&gt;bind 方法与 this&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文为慕课网 &lt;a href=&quot;http://www.imooc.com/learn/277&quot;&gt;JavaScript深入浅出&lt;/a&gt; JavaScript 中的 this笔记。&lt;/p&gt;
+
+&lt;h2 id=&quot;this&quot;&gt;全局的 this&lt;/h2&gt;
+
+&lt;p&gt;全局 this 一般指向全局对象，浏览器中的全局对象就是 &lt;code class=&quot;highlighter-rouge&quot;&gt;window&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;例如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.log(this.document === document); //true
+console.log(this === window); //true
+
+this.a = 91;
+console.log(window.a); //91
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;this-1&quot;&gt;一般函数的 this&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function f1 () {
+    return this;
+}
+console.log(f1() === window);//true, global object
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;可以看到一般函数的 this 也指向 window，在 nodeJS 中为 global object&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function f2 () {
+    &quot;use strict&quot;;//使用严格模式
+    return this;
+}
+console.log(f1() === undefined);//true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;严格模式中，函数的 this 为 undefined&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;this-2&quot;&gt;作为对象方法的函数的 this&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var o = {
+    prop: 37,
+    f: function() {
+        return this.prop;
+    }
+};
+console.log(o.f()); // 37
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上述代码通过字面量创建对象 o。&lt;/p&gt;
+
+&lt;p&gt;f 为对象 o 的方法。这个方法的 this 指向这个对象，在这里即对象 o。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var o = {
+    prop: 37
+};
+
+function independent() {
+    return this.prop;
+}
+o.f = independent;
+console.log(o.f()); // 37
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上面的代码，创建了对象 o，但是没有给对象 o，添加方法。而是通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;o.f = independent&lt;/code&gt; 临时添加了方法属性。这样这个方法中的 this 同样也指向这个对象 o。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;this-3&quot;&gt;对象原型链上的 this&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var o = {
+    f: function() {
+        return this.a + this.b;
+    }
+};
+var p = Object.create(o);
+p.a = 1;
+p.b = 2;
+console.log(p.f()); //3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;var p = Object.create(o)&lt;/code&gt; 创建的对象，p 是基于原型 o 创建出的对象。&lt;/p&gt;
+
+&lt;p&gt;p 的原型是 o，调用 f() 的时候是调用了 o 上的方法 f()，这里面的 this 是可以指向当前对象的，即对象 p。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;getset--this&quot;&gt;get/set 方法与 this&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function modulus() {
+    return Math.sqrt(this.re * this.re + this.im * this.im);
+}
+var o = {
+    re: 1,
+    im: -1,
+    get phase() {
+        return Math.atan2(this.im, this.re);
+    }
+};
+Object.defineProperty(o, &#39;modulus&#39;, {
+    get: modulus,
+    enumerable: true,
+    configurable: true
+});
+console.log(o.phase, o.modulus); // -0.78 1.4142
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;get/set 方法中的 this 也会指向 get/set 方法所在的对象的。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;this-4&quot;&gt;构造器中的 this&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function MyClass() {
+    this.a = 25;
+}
+var o = new MyClass();
+console.log(o.a); //25
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;new MyClass() 的时候，MyClass()中的 this 会指向一个空对象，这个对象的原型会指向 MyClass.prototype。MyClass()没有返回值或者返回为基本类型时，默认将 this 返回。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function C2() {
+    this.a = 26;
+    return {
+        a: 24
+    };
+}
+
+o = new C2();
+console.log(o.a); //24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;因为返回了对象，将这个对象作为返回值&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;callapply--this&quot;&gt;call/apply 方法与 this&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function add(c, d) {
+    return this.a + this.b + c + d;
+}
+var o = {
+    a: 1,
+    b: 3
+};
+add.call(o, 5, 7); // 1 + 3 + 5 + 7 = 16
+add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34
+function bar() {
+    console.log(Object.prototype.toString.call(this));
+}
+bar.call(7); // &quot;[object Number]&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;bind--this&quot;&gt;bind 方法与 this&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function f() {
+    return this.a;
+}
+var g = f.bind({
+    a: &quot;test&quot;
+});
+console.log(g()); // test
+var o = {
+    a: 37,
+    f: f,
+    g: g
+};
+console.log(o.f(), o.g()); // 37, test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;绑定之后再调用时，仍然会按绑定时的内容走，所以 o.g() 结果是 test&lt;/p&gt;
+</description>
+        <pubDate>Fri, 12 Jun 2015 22:06:05 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2015/06/12/JavaScript-this/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2015/06/12/JavaScript-this/</guid>
+        
+        <category>JavaScript</category>
+        
+        <category>慕课网</category>
+        
+        <category>this</category>
+        
+        <category>ife</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript 函数</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;概念&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;调用方式&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;函数声明与函数表达式&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;函数声明&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;函数表达式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;变量 &amp;amp; 函数的声明前置&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#function-&quot; id=&quot;markdown-toc-function-&quot;&gt;Function 构造器&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;对比&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arguments&quot; id=&quot;markdown-toc-arguments&quot;&gt;函数属性 &amp;amp; arguments&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#arguments-1&quot; id=&quot;markdown-toc-arguments-1&quot;&gt;函数属性 &amp;amp; arguments&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#applycall-&quot; id=&quot;markdown-toc-applycall-&quot;&gt;apply/call 方法（浏览器）&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#bind-&quot; id=&quot;markdown-toc-bind-&quot;&gt;bind 方法&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#bind--currying&quot; id=&quot;markdown-toc-bind--currying&quot;&gt;bind 与 currying&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#bind--new&quot; id=&quot;markdown-toc-bind--new&quot;&gt;bind 与 new&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文为慕课网 &lt;a href=&quot;http://www.imooc.com/learn/277&quot;&gt;JavaScript深入浅出&lt;/a&gt; JavaScript 函数笔记。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;概念&lt;/h2&gt;
+
+&lt;p&gt;函数是一块JavaScript代码，被定义一次，但可执行和调用多次。&lt;/p&gt;
+
+&lt;p&gt;JS中的函数也是对象，所以JS函数可以像其它对象那样操作和传递。&lt;/p&gt;
+
+&lt;p&gt;所以我们也常叫JS中的函数为函数对象。&lt;/p&gt;
+
+&lt;p&gt;例如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function foo(x, y) {
+    if (typeof x === &#39;number&#39; &amp;amp;&amp;amp;
+        typeof y === &#39;number&#39;) {
+        return x + y;
+    } else {
+        return 0;
+    }
+}
+foo(1, 2); // 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;一般由3部分组成：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;函数名&lt;/li&gt;
+  &lt;li&gt;参数列表&lt;/li&gt;
+  &lt;li&gt;函数体&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;调用方式&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;直接调用&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  foo();
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对象方法&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  o.method();
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;构造器&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  new Foo();
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;call/apply/bind&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  func.call(o);
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;函数声明与函数表达式&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;函数声明&lt;/h3&gt;
+
+&lt;p&gt;就是对函数进行普通的声明&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function add(a, b) {
+    return a + b;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;函数表达式&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;将函数赋值给变量&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  //function variable
+  var add = function(a, b) {
+      // body...
+  };
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;立即执行函数&lt;/p&gt;
+
+    &lt;p&gt;把匿名函数用括号括起来，再直接调用。&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  // IEF(Immediately Executed Function)
+  (function() {
+      // body...
+  })();
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数对象作为返回值&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  return function() {
+      // body...
+  };
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;命名式函数表达式&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  //NFE(Named Function Expression)
+  var add = function foo(a, b) {
+      // body...
+  };
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;这里大家肯定会好奇，这个函数怎么调用？到底用哪个名字呢？&lt;/p&gt;
+
+    &lt;p&gt;做一个测试：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  var func = function nfe() {};
+  console.log(func === nfe);
+  // 在 IE6~8，得到 false
+  // 在 IE9+ 及现代浏览器中 Uncaught ReferenceError: nfe is not defined
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;那么命名函数表达式有什么使用场景呢？&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;一般用于调试方便，如果使用匿名函数，执行的时候看不到函数名，命名函数表达式是可以看到函数名的。&lt;/li&gt;
+      &lt;li&gt;或者在递归时，使用名字调用自己。&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;但是这两种用法都不常见。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;变量 &amp;amp; 函数的声明前置&lt;/h3&gt;
+
+&lt;p&gt;举两个例子&lt;/p&gt;
+
+&lt;p&gt;例1，函数声明：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var num = add(1,2);
+console.log(num);
+
+function add(a, b) {
+    return a + b;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;例2，函数表达式：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var num = add(1, 2);
+console.log(num);
+
+var add = function(a, b) {
+    return a + b;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;例1中得到的结果是 3，而例2中是 &lt;code class=&quot;highlighter-rouge&quot;&gt;Uncaught TypeError: add is not a function&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;因为函数和变量在声明的时候，会被前置到当前作用域的顶端。例1将函数声明 &lt;code class=&quot;highlighter-rouge&quot;&gt;function add(a, b)&lt;/code&gt; 前置到作用域前端，例2将声明 &lt;code class=&quot;highlighter-rouge&quot;&gt;var add&lt;/code&gt; 前置到其作用域的前端了，并没有赋值。&lt;strong&gt;赋值的过程是在函数执行到响应位置的时候才进行的&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;function-&quot;&gt;Function 构造器&lt;/h3&gt;
+
+&lt;p&gt;除了函数声明、函数表达式。还有一种创建函数对象的方式，是使用函数构造器。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var func = new Function(&#39;a&#39;,&#39;b&#39;,&#39;console.log(a+b);&#39;);
+func(1,2);//3
+
+var func2 = Function(&#39;a&#39;,&#39;b&#39;,&#39;console.log(a+b);&#39;);
+func2(1,2);//3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Function 中前面的参数为后面函数体的形参，最后一个参数为函数体。可以看到传入的都是字符串，这样的创建函数对象的方法是不安全的。&lt;/p&gt;
+
+&lt;p&gt;还有一点，Function 构造器的得到的函数对象，拿不到外层函数的变量，但是可以拿到全局变量。它的作用域与众不同，这也是很少使用的原因之一。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;对比&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7q5cdt.com1.z0.glb.clouddn.com/blog-function.png&quot; alt=&quot;函数对比&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;arguments&quot;&gt;函数属性 &amp;amp; arguments&lt;/h2&gt;
+
+&lt;h3 id=&quot;arguments-1&quot;&gt;函数属性 &amp;amp; arguments&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function foo(x, y, z) {
+    arguments.length; // 2
+    arguments[0]; // 1
+    arguments[0] = 10;
+    x; // change to 10
+
+    arguments[2] = 100;
+    z; // still undefined!!!
+    arguments.callee === foo; // true
+}
+
+foo(1, 2);
+foo.length; // 3
+foo.name; //&quot;foo&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;foo.name&lt;/code&gt; 函数名&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;foo.length&lt;/code&gt; 形参个数&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;arguments.length&lt;/code&gt; 实参个数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;未传参数时，arguments[i] 相应的位置仍然是 undefined。&lt;/p&gt;
+
+&lt;p&gt;严格模式下，代码中的改变实参失效。即 x 仍为 1。同时 callee 属性失效。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;关于 &lt;code class=&quot;highlighter-rouge&quot;&gt;callee&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;callee 属性的初始值就是正被执行的 Function 对象。&lt;/p&gt;
+
+    &lt;p&gt;callee 属性是 arguments 对象的一个成员，它表示对函数对象本身的引用，这有利于匿名函数的递归或者保证函数的封装性，例如下边示例的递归计算1到n的自然数之和。而该属性仅当相关函数正在执行时才可用。还有需要注意的是callee拥有length属性，这个属性有时用于验证还是比较好的。&lt;/p&gt;
+
+    &lt;p&gt;arguments.length是实参长度，arguments.callee.length是形参长度，由此可以判断调用时形参长度是否和实参长度一致。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;applycall-&quot;&gt;apply/call 方法（浏览器）&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function foo(x, y) {
+    console.log(x, y, this);
+}
+
+foo.call(100, 1, 2); //1 2 Number {[[PrimitiveValue]]: 100}
+foo.apply(true, [3, 4]); //3 4 Boolean {[[PrimitiveValue]]: true}
+foo.apply(null); //undefined undefined Window
+foo.apply(undefined); //undefined undefined Window
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;call/apply 的作用：调用一个对象的一个方法，以另一个对象替换当前对象(其实就是更改对象的内部指针，即改变对象的this指向的内容)。&lt;/li&gt;
+  &lt;li&gt;call/apply 的第一个参数为对象，即使不是对象，也会被包装为对象。&lt;/li&gt;
+  &lt;li&gt;call 为扁平化传参，apply 后面的参数为数组&lt;/li&gt;
+  &lt;li&gt;传入 null/undefined 时，实际为 Window 对象&lt;/li&gt;
+  &lt;li&gt;在严格模式下：上述代码最后两行分别输出 &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;undefined&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;bind-&quot;&gt;bind 方法&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bind&lt;/code&gt; 是 ES5 中提出的方法，所以浏览器支持为 IE9+ 及现代浏览器。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;this.x = 9;
+var module = {
+    x: 81,
+    getX: function() {
+        return console.log(this.x);
+    }
+};
+
+module.getX(); //81
+
+var getX = module.getX;
+getX(); //9
+
+var boundGetX = getX.bind(module);
+boundGetX(); //81
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bind&lt;/code&gt; 主要用于改变函数中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;module.getX(); &lt;/code&gt; 直接通过对象调用自己的方法，结果是 81&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;var getX = module.getX;&lt;/code&gt; 将这个方法赋值给一个全局变量，这时 this 指向了 Window，所以结果为 9&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;var boundGetX = getX.bind(module);&lt;/code&gt; 使用 bind 绑定了自己的对象，这样 this 仍然指向 module 对象，所以结果为 81&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;bind--currying&quot;&gt;bind 与 currying&lt;/h4&gt;
+
+&lt;p&gt;bind 可以使函数柯里化，那么什么是柯里化？&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在计算机科学中，柯里化（Currying）是把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数，并且返回接受余下的参数且返回结果的新函数的技术。这个技术由 Christopher Strachey 以逻辑学家 Haskell Curry 命名的，尽管它是 Moses Schnfinkel 和 Gottlob Frege 发明的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function add(a, b, c) {
+    return a + b + c;
+}
+
+var func = add.bind(undefined, 100);
+func(1, 2); //103
+
+var func2 = func.bind(undefined, 200);
+func2(10); //310
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;add 函数拥有 3 个参数。我们想先传入一个参数，再去传其他参数。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;var func = add.bind(undefined, 100);&lt;/code&gt; add 函数对象调用 bind 方法，由于不需要将 this 指向原来的 add 函数对象，所以第一个参数写为 undefined 或 null。第二个参数 100 传给了 add 函数中的形参 a，并赋值给一个新的函数对象 func。&lt;/p&gt;
+
+&lt;p&gt;这时，&lt;code class=&quot;highlighter-rouge&quot;&gt;func(1, 2)&lt;/code&gt; 即相当于传入后两个参数，所以结果为 103。&lt;/p&gt;
+
+&lt;p&gt;同理，基于 func 可以创造一个函数 func2。它只用传最后一个参数。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;bind--new&quot;&gt;bind 与 new&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function foo() {
+    this.b = 100;
+    return this.a;
+}
+
+console.log(foo()); //undefined
+
+var func = foo.bind({
+    a: 1
+});
+
+console.log(func()); //1
+console.log(new func()); //foo {b: 100}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;对于使用了 &lt;code class=&quot;highlighter-rouge&quot;&gt;new func()&lt;/code&gt; 这种方式创建对象，其返回值为一个对象。&lt;/p&gt;
+
+&lt;p&gt;而原函数 foo 的返回值不是对象，所以会直接忽视这个 return 方法。而是变为 &lt;code class=&quot;highlighter-rouge&quot;&gt;return this;&lt;/code&gt;。并且 this 会被初始化为一个空对象，这个空对象的原型指向 foo.prototype。所以后面的 bind 是不起作用的。&lt;/p&gt;
+
+&lt;p&gt;这里面这个 this 对象包含一个属性 &lt;code class=&quot;highlighter-rouge&quot;&gt;b = 100&lt;/code&gt;。所以返回的是对象 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;b:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 11 Jun 2015 22:06:05 +0800</pubDate>
+        <link>http://gaohaoyang.github.io/2015/06/11/JavaScript-function/</link>
+        <guid isPermaLink="true">http://gaohaoyang.github.io/2015/06/11/JavaScript-function/</guid>
+        
+        <category>JavaScript</category>
+        
+        <category>函数</category>
+        
+        <category>慕课网</category>
+        
+        <category>ife</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+  </channel>
+</rss>
