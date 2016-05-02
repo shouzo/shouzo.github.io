@@ -1,8 +1,8 @@
 ---
 layout: page
-title: About
+title: 關於 About
 permalink: /about/
-icon: heart
+icon: commenting
 ---
 
 * content
