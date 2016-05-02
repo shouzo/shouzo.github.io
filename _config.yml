@@ -6,10 +6,10 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: 少左 - shouzo
-brief-intro: Software Engineer & Traceur
+title: 少左 shouzo
+brief-intro: Martial artist、Traceur & Engineer
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://shouzo.github.io/" # the base hostname & protocol for your site
+url: "http://shouzo.github.io" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
