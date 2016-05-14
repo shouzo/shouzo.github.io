@@ -7,7 +7,7 @@
 
 # Site settings
 title: 少左 shouzo
-brief-intro: Martial artist、Traceur & Engineer
+brief-intro: Be strong to Be useful！
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://shouzo.github.io" # the base hostname & protocol for your site
 
@@ -21,7 +21,7 @@ email: danny200026@yahoo.com.tw
 # zhihu_username: 
 # twitter_username: 
 
-description_footer: Software Engineer & Traceur！
+description_footer: Martial Artist、Traceur & Engineer
 
 # comments
 disqus_shortname: shouzonotes
