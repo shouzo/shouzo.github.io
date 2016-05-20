@@ -35,29 +35,28 @@ icon: bookmark
 20. [20151211 [R基礎與應用] Ch10：迴圈 - 疊代元素的傳統作法](https://hackpad.com/20151211-R-Ch10--mY7cl7qgymF)
 21. [20151216 [Coursera] R Programming (11)](https://hackpad.com/20151216-Coursera-R-Programming-11-1yj3UwzvDtu)
 
-### 備用連結
-1. [20150823 [Coursera] R Programming (1)](/hackpad/R/20150823-[Coursera]-R-Programming-(1).html)
-
-20150823 [Coursera] R Programming (2)
-20150824 [學習筆記] R與資料探勘 (1)
-20150825 [學習筆記] R與資料探勘 (2)
-20150826 [學習筆記] R與資料探勘 (3)
-20150827 [學習筆記] R與資料探勘 (4)
-20150827 [學習筆記] R與資料探勘 (5)
-20150829 [Coursera] R Programming (3)
-20150916 [Coursera] R Programming (4)
-20150920 [Coursera] R Programming (5)
-20150921 [Coursera] R Programming (6)
-20150925 [R基礎與應用] Ch06 : 讀取各類資料
-20150925 [R基礎與應用] Ch07 : 統計繪圖
-20151001 [R基礎與應用] Ch08 : 建立R函數
-20151005 [Coursera] R Programming (7)
-20151019 [Coursera] R Programming (8)
-20151023 [Coursera] R Programming (9)
-20151208 [Coursera] R Programming (10)
-20151210 [R基礎與應用] Ch09：流程控制
-20151211 [R基礎與應用] Ch10：迴圈 - 疊代元素的傳統作法
-20151216 [Coursera] R Programming (11)
+### 備用連結(整理中...)
+1. 20150823 [Coursera] R Programming (1)
+2. 20150823 [Coursera] R Programming (2)
+3. 20150824 [學習筆記] R與資料探勘 (1)
+4. 20150825 [學習筆記] R與資料探勘 (2)
+5. 20150826 [學習筆記] R與資料探勘 (3)
+6. 20150827 [學習筆記] R與資料探勘 (4) 
+7. 20150827 [學習筆記] R與資料探勘 (5)
+8. 20150829 [Coursera] R Programming (3)
+9. 20150916 [Coursera] R Programming (4)
+10. 20150920 [Coursera] R Programming (5)
+11. 20150921 [Coursera] R Programming (6)
+12. 20150925 [R基礎與應用] Ch06 : 讀取各類資料
+13. 20150925 [R基礎與應用] Ch07 : 統計繪圖
+14. 20151001 [R基礎與應用] Ch08 : 建立R函數
+15. 20151005 [Coursera] R Programming (7)
+16. 20151019 [Coursera] R Programming (8)
+17. 20151023 [Coursera] R Programming (9)
+18. 20151208 [Coursera] R Programming (10)
+19. 20151210 [R基礎與應用] Ch09：流程控制
+20. 20151211 [R基礎與應用] Ch10：迴圈 - 疊代元素的傳統作法
+21. 20151216 [Coursera] R Programming (11)
 
 
 
