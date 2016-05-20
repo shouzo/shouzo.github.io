@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="referrer" content="origin-when-crossorigin">
     
-    <title>20150823 [Coursera] R Programming (1) - hackpad.com</title>
+    <title>20151001 [R&amp;#22522;&amp;#30990;&amp;#33287;&amp;#25033;&amp;#29992;] Ch08 : &amp;#24314;&amp;#31435;R&amp;#20989;&amp;#25976; - hackpad.com</title>
     <base href="https://hackpad.com/">
     <link rel="shortcut icon" href="/static/favicon.png">
     <link rel="apple-touch-icon" sizes="57x57"
@@ -25,17 +25,23 @@
         title="hackpad" href="/static/opensearch.xml" />
 
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta content='hackpad.com' name='title' /><meta content='Real-time collaborative wiki' name='description' /><link href='/static/img/hackpad-logo.png' rel='image_src' /><meta name="fragment" content="!" /><meta name="robots" content="noindex, noarchive" /><link rel="alternate" type="text/xml+oembed" href="/ep/oembed/NM7k7ShG8ff" title="20150823 [Coursera] R Programming (1)"><link rel="canonical" href="/20150823-Coursera-R-Programming-1-NM7k7ShG8ff"><meta property="og:title" content="20150823 [Coursera] R Programming (1)" /><meta property="og:description" content="整理自 R Programming  (Background Material) *
-*&lt;資料整理來源&gt; https://www.coursera.org/course/rprog
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta content='hackpad.com' name='title' /><meta content='Real-time collaborative wiki' name='description' /><link href='/static/img/hackpad-logo.png' rel='image_src' /><meta name="fragment" content="!" /><meta name="robots" content="noindex, noarchive" /><link rel="alternate" type="text/xml+oembed" href="/ep/oembed/wUqI6pGxCe3" title="20151001 [R基礎與應用] Ch08 : 建立R函數"><link rel="canonical" href="/20151001-R基礎與應用-Ch08-建立R函數-wUqI6pGxCe3"><meta property="og:title" content="20151001 [R基礎與應用] Ch08 : 建立R函數" /><meta property="og:description" content="整理自 R 軟體資料分析基礎與應用 -- Ch08 : 建立R函數 [ 本次筆記內容 ]
+*（一）Hello World
+*（二）函數的引數
+*[ 前置作業 ] 使用 sprintf()
+*(1) 字串、特殊字元
+*(2) 建立字串
+*(3) name 引數
+*1.  預設引數值
+*2.  附加引數
+*（三）值的回傳
+*（四）do.call
 
 
-
-
-*摘要
-*課業需求...
-*因為課業需求，這一陣子要在很有限的時間內迅速掌握多種軟體工程用語言以及其他課業外未曾接觸過的領域，為了能夠隨時編輯與回顧我所學的內容，我用hackpad作為記錄的平台
-*推HACKPAD 左欣要加油喔！　
-*當你筆記做到一定程度的時候，可以考慮用Hackfold." /><meta property="og:image" content="https://hackpad.com/static/img/hackpad-logo-112.png" /><meta property="fb:app_id" content="145393915506961" /><meta property="og:url" content="https://hackpad.com/20150823-Coursera-R-Programming-1-NM7k7ShG8ff" /><meta property="og:type" content="hackpad:pad" /><meta property="twitter:site" content="@hackpad" /><meta name="twitter:widgets:csp" content="on" />
+*（一）Hello World
+*在控制台建立一個會顯示&#34; Hello, World! &#34;的函數 : 
+*&gt; # &#34;say.hello&#34;是函數名稱(裡面的&#34;.&#34;是普通字元，沒有特殊意義)
+*&gt; # 函數&#34;function()以&#34;{..." /><meta property="og:image" content="https://hackpad.com/static/img/hackpad-logo-112.png" /><meta property="fb:app_id" content="145393915506961" /><meta property="og:url" content="https://hackpad.com/20151001-R-Ch08-R-wUqI6pGxCe3" /><meta property="og:type" content="hackpad:pad" /><meta property="twitter:site" content="@hackpad" /><meta name="twitter:widgets:csp" content="on" />
 <style type="text/css" title="dynamicsyntax"></style>
 
 <style type="text/css" title="dynamicsyntax"></style>
@@ -53,11 +59,11 @@
 <style type="text/css" title="dynamicsyntax"></style>
 
 <style type="text/css" title="dynamicsyntax"></style>
-<meta name="apple-itunes-app" content="app-id=789857184, app-argument=https://hackpad.com/20150823-Coursera-R-Programming-1-NM7k7ShG8ff">
+<meta name="apple-itunes-app" content="app-id=789857184, app-argument=https://hackpad.com/20151001-R-Ch08-R-wUqI6pGxCe3">
 <style type="text/css" title="dynamicsyntax"></style>
 
 
-    <script nonce="4a0ae4def5cc0f70c82db2dea03ac8c97b6580f3" type="text/javascript">try { document.domain = document.domain.split(".").slice(-2).join("."); } catch (ex) { console.log("error setting document.domain: " + ex); }</script>
+    <script nonce="0e0503b30e56fade02e1f575a189485711830988" type="text/javascript">try { document.domain = document.domain.split(".").slice(-2).join("."); } catch (ex) { console.log("error setting document.domain: " + ex); }</script>
 
     
   </head>
@@ -406,7 +412,7 @@
       <ul class="hp-ui-button-list-ul">
         
           
-          <li><a href="/ep/pad/summary/NM7k7ShG8ff"  
+          <li><a href="/ep/pad/summary/wUqI6pGxCe3"  
             
             >
             
@@ -426,7 +432,7 @@
           
         
           
-          <li><a href="/ep/pad/static/NM7k7ShG8ff"  
+          <li><a href="/ep/pad/static/wUqI6pGxCe3"  
             
             >
             
@@ -449,7 +455,7 @@
     </div>
   </div>
   
-  <div id="follow-container" src="/ep/pad/pad-follow-button?padId=NM7k7ShG8ff">
+  <div id="follow-container" src="/ep/pad/pad-follow-button?padId=wUqI6pGxCe3">
     <button type="button"
     
      data-tooltip="Follow" 
@@ -539,7 +545,7 @@
     <div id="padeditor">
       
   
-  <script type="text/javascript" nonce="4a0ae4def5cc0f70c82db2dea03ac8c97b6580f3">
+  <script type="text/javascript" nonce="0e0503b30e56fade02e1f575a189485711830988">
     window.onerror = function(message, file, line, column, errorObj) {
       etherpad.logError(message, file, line, column, errorObj);
     };
@@ -844,7 +850,7 @@
             
             >
             
-              <form id="collection-invite-form"><input name="xsrf" type="hidden" value="9be833a96145b1bd" /><input type="hidden" name="padId" value="NM7k7ShG8ff" /><i class="icon-addcollection"></i><input type="text" id="collection-picker" placeholder="New or existing collection"/></form>
+              <form id="collection-invite-form"><input name="xsrf" type="hidden" value="23758df2c5696feb" /><input type="hidden" name="padId" value="wUqI6pGxCe3" /><i class="icon-addcollection"></i><input type="text" id="collection-picker" placeholder="New or existing collection"/></form>
             
           </a></li>
           
@@ -924,9 +930,9 @@
   <div id="editorbottombox">
     
   <div>
-    <a id="editor-last-changed" href="/ep/pad/summary/NM7k7ShG8ff">
+    <a id="editor-last-changed" href="/ep/pad/summary/wUqI6pGxCe3">
       Latest change
-      <span id="last-saved-timestamp" title="2015-08-23T17:03:20.000Z"></span>
+      <span id="last-saved-timestamp" title="2015-09-30T18:04:29.000Z"></span>
     </a>
   </div>
 
@@ -971,8 +977,8 @@
 
   <div id="friend-picker-div">
     <form id="invite-form" method="get" action="">
-      <input name="xsrf" type="hidden" value="9be833a96145b1bd" />
-      <input type="hidden" name="padId" value="NM7k7ShG8ff" />
+      <input name="xsrf" type="hidden" value="23758df2c5696feb" />
+      <input type="hidden" name="padId" value="wUqI6pGxCe3" />
       <div id="friend-picker-wrapper">
         <input type="text" id="friend-picker" class="" placeholder="invite people to this pad"/>
         <div class="ac-loading-spinny"></div>
@@ -1256,7 +1262,7 @@
      <h1>Insert an Image</h1>
      <div class="modaldialog-inner">
       <form name="insert-image-form" id="insert-image-form">
-        <input name="xsrf" type="hidden" value="9be833a96145b1bd" />
+        <input name="xsrf" type="hidden" value="23758df2c5696feb" />
         <br/>
         <div id="insertimagedialog-upload">
           <input multiple type="file" id="web-image-upload" name="photo[]"
@@ -1302,9 +1308,9 @@
       </div>
       <form id="killuser-form" action="/ep/pad/removeuser"
           data-submit="submitmodal">
-        <input name="xsrf" type="hidden" value="9be833a96145b1bd" />
+        <input name="xsrf" type="hidden" value="23758df2c5696feb" />
         <input type="hidden" id="padId" name="padId"
-            value="NM7k7ShG8ff" />
+            value="wUqI6pGxCe3" />
         <input type="hidden" id="userId" name="userId" />
         <div class="dialog-buttons">
           <a href="#" data-click="hidemodal">Cancel</a>
@@ -1357,7 +1363,7 @@
       action="/ep/pad/reconnect"
       accept-charset="UTF-8"
       style="display: none;">
-    <input name="xsrf" type="hidden" value="9be833a96145b1bd" />
+    <input name="xsrf" type="hidden" value="23758df2c5696feb" />
     <input type="hidden" class="padId" name="padId" />
     <input type="hidden" class="diagnosticInfo" name="diagnosticInfo" />
     <input type="hidden" class="missedChanges" name="missedChanges" />
@@ -1427,13 +1433,13 @@
     </div>
 
     <div id="nofacebook" class="page-login-rhs">
-      <a id="login-google" href="https://accounts.google.com/o/oauth2/auth?client_id=261270787987-jqaig2qiho2pe21fmmis6ak34oapihhf.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fhackpad.com%2Fep%2Faccount%2Fopenid&amp;response_type=code&amp;access_type=offline&amp;scope=email%20profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts.readonly&amp;state=%7B%22nonce%22%3A%227vnt3kA1Uk%22%2C%22shortContUrl%22%3A%22https%3A%2F%2Fhackpad.com%2FNM7k7ShG8ff%3Ftoken%3Dundefined%22%7D&amp;approval_prompt=force" class="google-signin-button" target="_self">
+      <a id="login-google" href="https://accounts.google.com/o/oauth2/auth?client_id=261270787987-jqaig2qiho2pe21fmmis6ak34oapihhf.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fhackpad.com%2Fep%2Faccount%2Fopenid&amp;response_type=code&amp;access_type=offline&amp;scope=email%20profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts.readonly&amp;state=%7B%22nonce%22%3A%22VhmDEA5D3C%22%2C%22shortContUrl%22%3A%22https%3A%2F%2Fhackpad.com%2FwUqI6pGxCe3%3Ftoken%3Dundefined%22%7D&amp;approval_prompt=force" class="google-signin-button" target="_self">
         <img src="https://d29bt26wntaesq.cloudfront.net/static/img/goog.png">
         <span>Sign in with <strong>Google</strong></span>
       </a>
 
       
-        <a id="login-facebook" class="fb-login-required" href="https://hackpad.com/20150823-Coursera-R-Programming-1-NM7k7ShG8ff">
+        <a id="login-facebook" class="fb-login-required" href="https://hackpad.com/20151001-R-Ch08-R-wUqI6pGxCe3">
           <img class="fb-connect-button" src="https://d29bt26wntaesq.cloudfront.net/static/img/fb.png">
           <span>Sign in with <strong>Facebook</strong></span>
         </a>
@@ -1442,7 +1448,7 @@
       <span id="login-or"><span class="page-login-or"></span><span class="page-login-or-lbl">or</span><span class="page-login-or"></span></span>
 
       <form id="login-form" method="post" action="/ep/account/signin">
-        <input name="xsrf" type="hidden" value="9be833a96145b1bd" />
+        <input name="xsrf" type="hidden" value="23758df2c5696feb" />
         <span id="login-email-wrapper" class="login-email-input">
           <label for="login-email"><i class="icon-privacy-invite"></i></label>
           <input id="login-email" name="email" type="email" placeholder="Email" autocorrect="off" autocapitalize="off">
@@ -1470,7 +1476,7 @@
           <a href="/ep/account/forgot-password" id="login-forgot-password">Forgot password?</a>
 
           <input id="signin-remember-me" type="hidden" group="1" name="rememberMe" value="1">
-          <input type="hidden" name="cont" value="https://hackpad.com/20150823-Coursera-R-Programming-1-NM7k7ShG8ff">
+          <input type="hidden" name="cont" value="https://hackpad.com/20151001-R-Ch08-R-wUqI6pGxCe3">
           
 
           <div id="login-email-tertiary" class="modal-more-info">
@@ -1551,7 +1557,7 @@
   <div class="modaldialog-inner">
 
     <form id="feedback-form">
-      <input name="xsrf" type="hidden" value="9be833a96145b1bd" />
+      <input name="xsrf" type="hidden" value="23758df2c5696feb" />
 
 
       
@@ -1608,27 +1614,27 @@
 
     
     
-    <script type="text/javascript" nonce="4a0ae4def5cc0f70c82db2dea03ac8c97b6580f3">
+    <script type="text/javascript" nonce="0e0503b30e56fade02e1f575a189485711830988">
   // <![CDATA[
-var clientVars = {"proTitle":"","creatorId":427403,"initialTitle":"20150823 [Coursera] R Programming (1)","padTitle":"20150823 [Coursera] R Programming (1)","collab_client_vars":{"initialAttributedText":{"text":"20150823%20%5BCoursera%5D%20R%20Programming%20%281%29%0A*%u6574%u7406%u81EA%20R%20Programming%20%20%28Background%20Material%29%0A*%0A*%3C%u8CC7%u6599%u6574%u7406%u4F86%u6E90%3E%20https%3A//www.coursera.org/course/rprog%0A%0A%0A%0A%0A*%u6458%u8981%0A*%u8AB2%u696D%u9700%u6C42...%0A*%u56E0%u70BA%u8AB2%u696D%u9700%u6C42%uFF0C%u9019%u4E00%u9663%u5B50%u8981%u5728%u5F88%u6709%u9650%u7684%u6642%u9593%u5167%u8FC5%u901F%u638C%u63E1%u591A%u7A2E%u8EDF%u9AD4%u5DE5%u7A0B%u7528%u8A9E%u8A00%u4EE5%u53CA%u5176%u4ED6%u8AB2%u696D%u5916%u672A%u66FE%u63A5%u89F8%u904E%u7684%u9818%u57DF%uFF0C%u70BA%u4E86%u80FD%u5920%u96A8%u6642%u7DE8%u8F2F%u8207%u56DE%u9867%u6211%u6240%u5B78%u7684%u5167%u5BB9%uFF0C%u6211%u7528hackpad%u4F5C%u70BA%u8A18%u9304%u7684%u5E73%u53F0%0A*%u63A8HACKPAD%20%u5DE6%u6B23%u8981%u52A0%u6CB9%u5594%uFF01%u3000%0A*%u7576%u4F60%u7B46%u8A18%u505A%u5230%u4E00%u5B9A%u7A0B%u5EA6%u7684%u6642%u5019%uFF0C%u53EF%u4EE5%u8003%u616E%u7528Hackfold.%0A*%28%u4F60%u7684%u6B66%u7814%u793E%u96FB%u6A5F%u79D1%u5B78%u5F1F%20%5EW%5E%20%29%20%0A*%20%u76EE%u524D%u66AB%u5B9A%u4F7F%u7528%u5566%uFF0C%u672A%u4F86%u518D%u770B%u60C5%u6CC1%u6C7A%u5B9A%u8981%u4E0D%u8981%u4F7F%u7528%u5225%u7684%u5E73%u53F0%uFF0C%u76EE%u524D%u70BA%u6B62%u6211%u89BA%u5F97hackpad%u7528%u5F97%u6700%u4E0A%u624B%0A*%u5F35%u5609%u5E43%u8B1D%u8B1D%u5566%20%3A+1%3A%20%0A%0A%0A*%u95DC%u65BCR%u8A9E%u8A00...%0A*%u800CR%u8A9E%u8A00%u7684%u90E8%u5206%u6211%u6C7A%u5B9A%u7528Coursera%u5E73%u53F0%u4F86%u5B78%u7FD2%uFF0C%u9019%u500B%u90E8%u4EFD%u7684%u7CFB%u5217%u8AB2%u7A0B%u662FData%20Science%uFF0C%u6709%u8208%u8DA3%u7684%u4EBA%u53EF%u4EE5%u8A3B%u518A%u4E00%u500BCoursera%u5E33%u865F%u4F86%u4FEE%u8AB2%uFF0C%u4E0D%u77E5%u9053R%u8A9E%u8A00%u662F%u4EC0%u9EBC%u7684%u8ACB%u770B%u4E0B%u65B9%u7684%u6295%u5F71%u7247%0A*%0A*%3CR%u8A9E%u8A00%u7C21%u4ECB%3E%20http%3A//www.slideshare.net/personlin/r-13114042%0A*%0A*%u5C0D%u65BC%u5167%u5BB9%u6709%u7591%u554F%uFF0C%u6216%u8005%u662F%u9AD8%u624B%u5011%u60F3%u8981%u88DC%u5145%u6216%u8005%u662F%u4FEE%u6539...%20%28%u8981%u5148%u6709hackpad%u5E33%u865F%29%0A*%u53EF%u4EE5%u5728Facebook%u4E0A%u9762%u63D0%u554F%0A*%u5982%u679C%u60F3%u8981%u76F4%u63A5%u5728hackpad%u4E0A%u63D0%u554F%uFF0C%u8ACB%u4E0D%u8981%u76F4%u63A5%u4FEE%u6539%u5167%u6587%uFF0C%u8ACB%u6309%u7167%u4E0B%u5217%u6B65%u9A5F%u8655%u7406%20%3A%20%28%20%u7576%u7136%u6709%u7528%u904Ehackpad%u7684%u4EBA%u53EF%u4EE5%u4E0D%u7528%u770B%u9019%u500B%20%29%0A*STEP%201%20%3A%20%u4F7F%u7528comment%20%u529F%u80FD%0A**%0A*%0A*STEP%202%20%3A%20%u7136%u5F8C%u5728%u6709%u7591%u554F%u7684%u6BB5%u843D%u4E0B%u65B9%u7559%u8A00%20%28%20%u4E0D%u8981%u76F4%u63A5%u653E%u5165%u6BB5%u843D%u88E1%u9762%20%29%uFF0C%u4F8B%u5982%20%3A%0A**%0A%0A*%u6CE8%u610F%u4E8B%u9805%20%3A%20%u56E0%u70BA%u6211%u5728R%u8A9E%u8A00%u4E0A%u9762%u9084%u662F%u65B0%u624B%uFF0C%u6240%u4EE5%u5982%u679C%u6211%u6C92%u8FA6%u6CD5%u56DE%u7B54%u554F%u984C%u7684%u8A71%u8ACB%u898B%u8AD2%28%20%u7562%u7ADF%u6211%u4E5F%u624D%u525B%u5B78%u800C%u5DF2%20%29xd%0A%0A%0A*%u524D%u7F6E%u5DE5%u4F5C%0A%uFF08%u4E00%uFF09%u4E0B%u8F09%u8207%u5B89%u88DDR%u4EE5%u53CARStudio%20%20%20%28%u8ACB%u5148%u5B89%u88DDR%uFF0C%u518D%u5B89%u88DDRStudio%29%0A**%0A*%3CR%20%u5B98%u7DB2%3E%20https%3A//cran.rstudio.com/%0A*%0A**%0A*%3CRStudio%20%u5B98%u7DB2%3E%20https%3A//www.rstudio.com/%0A*%0A%uFF08%u4E8C%uFF09%u8A2D%u5B9A%u5DE5%u4F5C%u76EE%u9304%0A*1.%20%20%u8B93%u6211%u5011%u5148%u57F7%u884CR%u7684%u4E3B%u7A0B%u5F0F%20%3A%20%0A**%0A%0A*2.%20%20%u5728%u547D%u4EE4%u5217%u4E2D%u8F38%u5165%20%22getwd%28%29%22%uFF0C%u53D6%u5F97%u76EE%u524D%u7684%u5DE5%u4F5C%u76EE%u9304%20%28%20%u5728%u9019%u908A%u4F7F%u7528%u5168%u87A2%u5E55%u6AA2%u8996%20%29%20%3A%20%0A*%u5728%u9019%u908A%u53EF%u4EE5%u770B%u5230%u76EE%u524DR%u7684%u5DE5%u4F5C%u76EE%u9304%u70BA%3A%20%22C%3A/Users/user/Documents%22%20%28%u76EE%u9304%u4F4D%u7F6E%u6703%u6839%u64DA%u96FB%u8166%u74B0%u5883%u6709%u6240%u5DEE%u7570%29%uFF0C%u9019%u500B%u76EE%u9304%u5C31%u662FR%u5728%u5B58%u53D6%u6587%u4EF6%u6642%u7684%u76EE%u9304%uFF0C%u5F80%u5F8C%u6240%u6709%u76F8%u95DC%u7684%u5DE5%u4F5C%u6587%u4EF6%u6700%u597D%u90FD%u5B58%u653E%u5728%u9019%u500B%u76EE%u9304%u4E0B.%0A**%0A%0A*3.%20%20%u8B8A%u66F4%u5DE5%u4F5C%u76EE%u9304%0A*%u70BA%u4E86%u5F80%u5F8C%u5DE5%u4F5C%u65B9%u4FBF%uFF0C%u6211%u5011%u5728%u9019%u908A%u8B8A%u66F4%u73FE%u6709%u7684%u5DE5%u4F5C%u76EE%u9304%20%3A%20%0A*STEP%201%20%3A%20%u9EDE%u9078%u5DE6%u4E0A%u65B9%u7684%22%u6A94%u6848%22%20-%3E%20%22%u8B8A%u66F4%u73FE%u884C%u76EE%u9304%22%0A**%0A%0A*STEP%202%20%3A%20%u8A2D%u5B9A%u65B0%u7684%u76EE%u9304%u4F4D%u7F6E%20%28%20%u5728%u9019%u88E1%u8A2D%u5B9A%u6210%20%22C%3A/R_Programming%22%20%29%0A*%u8A2D%u5B9A%u5B8C%u6210%u5F8C%u53EF%u4EE5%u7528%20%22getwd%28%29%22%20%u91CD%u65B0%u6AA2%u67E5%u5DE5%u4F5C%u76EE%u9304%u7684%u4F4D%u7F6E%0A**%0A%0A%0A*%u57FA%u672C%u64CD%u4F5C%0A%u5E38%u7528%u6307%u4EE4%u6574%u7406%20%3A%20%0A*dir%28%29%20%20%20%20%u67E5%u770B%u5DE5%u4F5C%u76EE%u9304%0A*source%28%29%20%20%20%20%u8F09%u5165R%u7A0B%u5F0F%u78BC%0A*getwd%28%29%20%20%20%20%u53D6%u5F97%u5DE5%u4F5C%u76EE%u9304%u7684%u4F4D%u7F6E%0A*help%28%29%20%20%20%20%u6AA2%u8996%u7DDA%u4E0A%u8F14%u52A9%u6A94%u6848%0A*q%28%29%20%20%20%20%u96E2%u958BR%u4E3B%u7A0B%u5F0F%0A%0A%uFF08%u4E00%uFF09%u64B0%u5BEBR%u7A0B%u5F0F%u78BC%0A*1.%20%20R%u7A0B%u5F0F%u53EF%u4EE5%u76F4%u63A5%u4F7F%u7528%u4EFB%u4F55%u6587%u5B57%u7DE8%u8F2F%u5668%u4F86%u64B0%u5BEB%uFF0C%u5728%u9019%u88E1%u6211%u5011%u4F7F%u7528R%u88E1%u9762%u5167%u5EFA%u7684%u6587%u5B57%u7DE8%u8F2F%u5668%20%uFF0C%u53EF%u4EE5%u9EDE%u9078%u4E3B%u8996%u7A97%u5DE6%u4E0A%u65B9%u7684%22%u6A94%u6848%22%20-%3E%20%22%u5EFA%u7ACB%u65B0%u7684%u547D%u4EE4%u7A3F%22%u4F86%u958B%u555F%u7DE8%u8F2F%u756B%u9762%28%20%u5982%u4E0B%u5716%20%29%3A%20%0A**%0A*%0A*2.%20%20%u7136%u5F8C%u6211%u5011%u5728%u88E1%u9762%u8F38%u5165%u4EE5%u4E0B%u7684R%u7A0B%u5F0F%u78BC%20%28%20%u4EE5%u4E0B%u6709%u6A19%u8A18%u984F%u8272%u7684%u90A3%u4E00%u6BB5%u53EF%u4EE5%u76F4%u63A5%u8CBC%u5230%u7DE8%u8F2F%u756B%u9762%u5167%20%29%3A%20%0A*%0A*%23%20%u9019%u662F%u4E00%u884C%u662F%u8A3B%u89E3%20%28%22%23%22%u5F8C%u9762%u90A3%u4E00%u884C%u7684%u6587%u5B57%u5728R%u88E1%u9762%u90FD%u4E0D%u6703%u88AB%u57F7%u884C%29%0A*%23%20--------%20%u7A0B%u5F0F%u958B%u59CB%20--------%0A*myfunction%20%3C-%20function%28%29%20%7B%20%20%20%0A*%20%20%20%20%20%20%20%20x%20%3C-%20rnorm%28100%29%0A*%20%20%20%20%20%20%20%20mean%28x%29%0A*%7D%0A*%23%20--------%20%u7A0B%u5F0F%u7D50%u675F%20--------%20%20%0A%0A**%0A*%0A*3.%20%20%u63A5%u8457%u9078%u53D6%u7DE8%u8F2F%u756B%u9762%u4E2D%u5DE6%u4E0A%u65B9%u7684%22%u6A94%u6848%22%20-%3E%20%22%u53E6%u5B58%u70BA%22%uFF0C%u5C07%u6A94%u6848%u5132%u5B58%u81F3%u5DE5%u4F5C%u76EE%u9304%u5167%20%3A%20%0A**%0A%0A*4.%20%20%u5728%u9019%u908A%u6211%u5011%u628A%u6A94%u6848%u547D%u540D%u70BA%2220150823_R_code%22%uFF0C%u526F%u6A94%u540D%u70BA%20*.R%20%20%uFF0C%u5B8C%u6210%u5F8C%u5B58%u6A94%20%3A%20%0A**%0A*%0A*5.%20%20%u73FE%u5728%u53EF%u4EE5%u56DE%u5230%u4E3B%u8996%u7A97%u5167%uFF0C%u8F38%u5165%22dir%28%29%22%20%u4F86%u770B%u770BR%u7A0B%u5F0F%u78BC%u6709%u6C92%u6709%u88AB%u5132%u5B58%u5728%u5DE5%u4F5C%u76EE%u9304%u5167%20%3A%20%0A**%0A%0A%uFF08%u4E8C%uFF09%u57F7%u884C%u7A0B%u5F0F%0A*%u5728%20%u4E0A%u4E00%u500B%u6BB5%u843D%u88E1%u9762%u6211%u5011%u5C07R%u7A0B%u5F0F%u78BC%u5132%u5B58%u5728%u5DE5%u4F5C%u76EE%u9304%u88E1%u9762%uFF0C%u73FE%u5728%u6211%u5011%u8981%u8F09%u5165%u5B83%20%0A*1.%20%20%u5728%u547D%u4EE4%u5217%u8996%u7A97%u88E1%u8F38%u5165%22%20source%28%2220150823_R_code.R%22%29%20%22%20%u4F86%u8F09%u5165%u7A0B%u5F0F%u78BC%20%3A%0A**%0A*%0A*2.%20%20%u8F09%u5165%u5B8C%u6210%u5F8C%u5C31%u53EF%u4EE5%u4F7F%u7528%u7A0B%u5F0F%u78BC%u88E1%u9762%u7684%u51FD%u6578%u4E86%20%3A%20%0A**%0A%0A%0A%0A%0A","attribs":"*0|1+12*0*1*2+1*0*3+4*0*4+d*0|1+o*5*0*6+1*0|1+1*0*1*7+1*0|5+1f*0*1*2+1*0*3|1+3*0*1*8+1*0*3+7*0|1+1*0*1*9+1*0+1x*0*3*a+7*0|1+8*b*1*c+1*b|1+i*b*1*c+1*b|1+t*b*1*c+1*b|1+j*0*1*c+1*0|1+1b*0*1*c+1*0*3+3*0|3+c*0*1*8+1*0*3+8*0|1+1*0*1*9+1*0+b*0*3*d+8*0+g*0*3*e+c*0*3+1*0|1+18*0*f+1*0|1+1*0*1*7+1*0|1+1j*0*1*7+1*0|1+1*0*1*8+1*0*3+r*0|1+f*0*1*g+1*0*3+f*0|1+1*0*1*g+1*0+2*0*3+f*0|1+1d*0*1*9+1*0*3*h+7*0+4*0*3+7*0|1+4*0*1*i+1*j*0*k+1*0|1+1*0*1*9+1*0|1+1*0*1*9+1*0*3*h+7*0+9*0*3*l+4*0|1+n*0*1*i+1*m*0*n+1*0|2+2*0*1*o+1*0*3+5*0+b*0*3*l+4*0|3+10*0*1*2+1*0*3+4*0|1+1*0*3+8*0*3*l+a*0*3+l*0|1+1*0*1*9+1*p*0*q+1*0|1+1*0*1*7+1*0|1+x*0*1*9+1*0|1+1*0*1*9+1*r*0*s+1*0|1+1*0*1*7+1*0+d*0*t+o*0|1+1*0*1*7+1*0|1+1*0*3+9*0|1+1*0*1*9+1*0|1+j*0*1*9+1*u*0*v+1*0|2+2*0*1*9+1*0+9*0*3+4*0*3*w+7*0*3+r*0|1+3*0*1*i+1*0+i*0*3+1r*0*3*w+k*0*3+1*0|1+1*0*1*9+1*x*0*y+1*0|2+2*0*1*9+1*0+4*0*3+6*0|1+1*0*1*z+1*0|1+r*0*1*i+1*0*3*h+6*0+9*0*3+g*0|1+1*0*1*10+1*11*0*12+1*0|2+2*0*1*i+1*0*3*h+6*0+l*0*3+k*0|1+1*0*1*10+1*0+9*0*3+1*0*3*w+7*0*3+2*0|1+c*0*1*10+1*13*0*14+1*0|3+3*0*1*2+1*0*3+4*0|1+1*0*3+9*0|1+1*0*1*15+1*0*3+9*0*3*h+6*0|1+1*0*1*15+1*0*3+c*0*3*h+6*0|1+1*0*1*15+1*0*3+7*0+4*0*3*h+9*0|1+1*0*1*15+1*0*3+a*0*3*h+8*0|1+1*0*1*15+1*0*3+3*0+4*0*3*h+6*0|2+2*0*3+9*0|1+1*0*1*16+1*0+1j*0*3+h*0|1+h*0*1*9+1*17*0*18+1*0|1+1*0*1*16+1*0|1+1*0*1*16+1*0|1+1e*0*1*19+1*0|1+1*0*1*19+1*0*w|1+y*0*w*1*19+1*0*w|1+p*0*w*1*19+1*0*3*w+q*0*w+3*0*3*w|1+1*0*3*w*1*19+1*0*3*w|1+o*0*3*w*1*19+1*0*3*w|1+g*0*w*1*19+1*0*3*w+1*0*w|1+1*0*w*1*19+1*0*w+q*0*3|1+1*0|1+1*0*1*9+1*1a*0*1b+1*0|1+1*0*1*9+1*0|1+1*0*1*16+1*0+h*0*3+e*0|1+f*0*1*i+1*1c*0*1d+1*0|2+2*0*1*16+1*0+f*0*3+1*0*3*w+f*0*3+7*0*3*w*h+1*0*3*w+3*0*3+2*0|1+9*0*1*i+1*1e*0*1f+1*0|1+1*0*1*9+1*0|1+1*0*1*16+1*0+i*0*3*w+5*0|1+p*0*1*i+1*1g*0*1h+1*0|2+2*0*3+7*0|1+1*0*1*9+1*0|1+10*0*1*9+1*0+f*0*3*w+r*0*3+3*0|1+9*0*1*i+1*1i*0*1j+1*0|1+1*0*1*9+1*0|1+1*0*1*9+1*0|1+r*0*1*i+1*1k*0*1l+1*0|3+3*3|1+1|1+1"},"rev":2251,"padId":"NM7k7ShG8ff","globalPadId":"1$NM7k7ShG8ff","historicalAuthorData":{"p.427403":{"colorId":0,"name":"羅左欣","userLink":"/ep/profile/vCS3Hx1OGOV"},"p.446382":{"colorId":2,"name":"Zhang Jiawei","userLink":"/ep/profile/pboH5ue5hWe"}},"apool":{"numToAttrib":{"0":["author","p.427403"],"1":["insertorder","first"],"2":["list","hone1"],"3":["bold","true"],"4":["link","https://www.coursera.org/course/rprog"],"5":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440326634789_undefined"],"6":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440326634789_undefined"],"7":["list","indent8"],"8":["list","task2"],"9":["list","indent2"],"10":["link","/"],"11":["author","p.446382"],"12":["list","comment4"],"13":["link","https://www.coursera.org/"],"14":["link","https://www.coursera.org/specialization/jhudatascience/1"],"15":["embed","http://www.slideshare.net/personlin/r-13114042"],"16":["list","bullet3"],"17":["italic","true"],"18":["list","indent3"],"19":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440318220687_undefined"],"20":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440318220687_undefined"],"21":["underline","true"],"22":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440318070992_undefined"],"23":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440318070992_undefined"],"24":["list","bullet1"],"25":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440318827875_undefined"],"26":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440318827875_undefined"],"27":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440315949125_undefined"],"28":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440315949125_undefined"],"29":["link","https://www.rstudio.com/"],"30":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440320003543_undefined"],"31":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440320003543_undefined"],"32":["highlight","true"],"33":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440320341020_undefined"],"34":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440320341020_undefined"],"35":["list","bullet4"],"36":["list","indent4"],"37":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440321346833_undefined"],"38":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440321346833_undefined"],"39":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440321822317_undefined"],"40":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440321822317_undefined"],"41":["list","bullet2"],"42":["list","indent1"],"43":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440322900342_undefined"],"44":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440322900342_undefined"],"45":["list","code1"],"46":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440324133417_undefined"],"47":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440324133417_undefined"],"48":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440324376447_undefined"],"49":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440324376447_undefined"],"50":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440324568158_undefined"],"51":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440324568158_undefined"],"52":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440325527138_undefined"],"53":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440325527138_undefined"],"54":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440325974096_undefined"],"55":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440325974096_undefined"],"56":["attachmentKey","hackpad.com_NM7k7ShG8ff_p.427403_1440326164307_undefined"],"57":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_NM7k7ShG8ff_p.427403_1440326164307_undefined"]},"nextNum":58},"clientIp":"203.64.104.19","clientAgent":"Python-urllib/1.17"},"friendUserIds":[],"globalPadId":"1$NM7k7ShG8ff","initialOptions":{"guestPolicy":"link"},"initialRevisionList":[],"invitedGroupInfos":[],"invitedUserInfos":[{"name":"羅左欣","userId":"p.427403","userLink":"/ep/profile/vCS3Hx1OGOV","userPic":"https://www.gravatar.com/avatar.php?default=https%3A%2F%2Fhackpad.com%2Fstatic%2Fimg%2Fnophoto.png&gravatar_id=f6ae7264338da5d676564e9b593b19dd&size=100","status":"creator","colorId":1},{"name":"Zhang Jiawei","userId":"p.446382","userLink":"/ep/profile/pboH5ue5hWe","userPic":"https://graph.facebook.com/1177972338896492/picture?type=square","status":"following","colorId":1}],"isProPad":true,"isPublicPad":false,"padId":"NM7k7ShG8ff","siteName":"hackpad","titleIsReadOnly":false,"userColor":1,"userName":"Guest","attachmentsBucket":"hackpad-attachments","s3BucketRoot":"s3.amazonaws.com","s3PolicyAndSig":{"s3Policy":"eyJleHBpcmF0aW9uIjoiMjAxNi0wNS0yMVQxMDoyNDowMy42OThaIiwiY29uZGl0aW9ucyI6W3siYnVja2V0IjoiaGFja3BhZC1hdHRhY2htZW50cyJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwiaGFja3BhZC5jb21fTk03azdTaEc4ZmZfZy4yZTQ4MTgwZGRmNjI2N2YxXyJdLHsiYWNsIjoicHVibGljLXJlYWQifSxbInN0YXJ0cy13aXRoIiwiJENvbnRlbnQtVHlwZSIsImltYWdlLyJdLFsiY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMjA5NzE1MjBdLHsieC1hbXotY3JlZGVudGlhbCI6IkFLSUFJR1hGN1YzSVNEVVhJUjVRLzIwMTYwNTIxL3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDE2MDUyMVQxMDI0MDNaIn1dfQ==","s3PolicySig":"098a339d598e143822d686bc598349ab2e7671764682bed519733c2e819b9ddc"},"clientIp":"203.64.104.19","colorPalette":["#2996c3","#c66c78","#53af98","#daa458","#8a6fb1","#d98175","#87b747","#c98e6a","#5888b7","#c6759f","#b5b251","#50bad3"],"disableFB":false,"facebookClientId":"145393915506961","isDesktopApp":false,"isMobileApp":false,"isMobile":false,"serverTimestamp":1463739843716,"userAgent":"Python-urllib/1.17","accountPrivs":{"maxRevisions":1000},"dropboxConnected":false,"encryptedUserId":"","shouldGetFbLoginStatus":false,"useFbChat":false,"userId":"g.2e48180ddf6267f1","userIsGuest":true,"userLink":"","userPic":"","initialSpaces":[{"id":1,"orgName":"hackpad","subDomain":"\x3c\x3cprivate-network>>","isDeleted":false,"lastLoginDate":0,"url":"https://hackpad.com/"}],"xsrf":"9be833a96145b1bd","isDogfood":false,"cdn":"https://d29bt26wntaesq.cloudfront.net"};
+var clientVars = {"proTitle":"","creatorId":427403,"initialTitle":"20151001 [R基礎與應用] Ch08 : 建立R函數","padTitle":"20151001 [R基礎與應用] Ch08 : 建立R函數","collab_client_vars":{"initialAttributedText":{"text":"20151001%20%5BR%u57FA%u790E%u8207%u61C9%u7528%5D%20Ch08%20%3A%20%u5EFA%u7ACBR%u51FD%u6578%0A*%u6574%u7406%u81EA%20R%20%u8EDF%u9AD4%u8CC7%u6599%u5206%u6790%u57FA%u790E%u8207%u61C9%u7528%20--%20Ch08%20%3A%20%u5EFA%u7ACBR%u51FD%u6578%0A%5B%20%u672C%u6B21%u7B46%u8A18%u5167%u5BB9%20%5D%0A*%uFF08%u4E00%uFF09Hello%20World%0A*%uFF08%u4E8C%uFF09%u51FD%u6578%u7684%u5F15%u6578%0A*%5B%20%u524D%u7F6E%u4F5C%u696D%20%5D%20%u4F7F%u7528%20sprintf%28%29%0A*%281%29%20%u5B57%u4E32%u3001%u7279%u6B8A%u5B57%u5143%0A*%282%29%20%u5EFA%u7ACB%u5B57%u4E32%0A*%283%29%20name%20%u5F15%u6578%0A*1.%20%20%u9810%u8A2D%u5F15%u6578%u503C%0A*2.%20%20%u9644%u52A0%u5F15%u6578%0A*%uFF08%u4E09%uFF09%u503C%u7684%u56DE%u50B3%0A*%uFF08%u56DB%uFF09do.call%0A%0A%0A*%uFF08%u4E00%uFF09Hello%20World%0A*%u5728%u63A7%u5236%u53F0%u5EFA%u7ACB%u4E00%u500B%u6703%u986F%u793A%22%20Hello%2C%20World%21%20%22%u7684%u51FD%u6578%20%3A%20%0A*%3E%20%23%20%22say.hello%22%u662F%u51FD%u6578%u540D%u7A31%28%u88E1%u9762%u7684%22.%22%u662F%u666E%u901A%u5B57%u5143%uFF0C%u6C92%u6709%u7279%u6B8A%u610F%u7FA9%29%0A*%3E%20%23%20%u51FD%u6578%22function%28%29%u4EE5%22%7B...%7D%22%u88E1%u9762%u7684%u5167%u5BB9%u4F5C%u70BA%u51FD%u6578%u4E3B%u9AD4%0A*%3E%20say.hello%20%3C-%20function%28%29%20%20%20%20%0A*+%20%7B%0A*+%20%20%20%20print%28%22Hello%2C%20World%21%22%29%0A*+%20%7D%0A*%3E%20%0A*%3E%20%0A*%3E%20say.hello%20%20%20%20%23%20%u547C%u53EB%u51FD%u6578%0A*function%28%29%0A*%7B%0A*%20%20%20%20print%28%22Hello%2C%20World%21%22%29%0A*%7D%0A**%0A%0A%0A%0A%0A*%uFF08%u4E8C%uFF09%u51FD%u6578%u7684%u5F15%u6578%0A%5B%20%u524D%u7F6E%u4F5C%u696D%20%5D%20%u4F7F%u7528%20sprintf%28%29%0A*%u76F8%u95DC%u8AAA%u660E%20%20https%3A//stat.ethz.ch/R-manual/R-devel/library/base/html/sprintf.html%20%0A*%281%29%20%u5B57%u4E32%u3001%u7279%u6B8A%u5B57%u5143%0A*%3E%20%23%20%u53D6%u4EE3%u4E00%u500B%u7279%u6B8A%u8F38%u5165%u5B57%u5143%0A*%3E%20sprintf%28%22Hello%20%25s%22%2C%20%22Danny%22%29%0A*%5B1%5D%20%22Hello%20Danny%22%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u53D6%u4EE3%u5169%u500B%u7279%u6B8A%u8F38%u5165%u5B57%u5143%0A*%3E%20sprintf%28%22Hello%20%25s%2C%20today%20is%20%25s%22%2C%20%22Danny%22%2C%20%22Friday%22%29%0A*%5B1%5D%20%22Hello%20Danny%2C%20today%20is%20Friday%22%0A%0A%0A*%282%29%20%u5EFA%u7ACB%u5B57%u4E32%0A*%3E%20%23%20%u7528sprintf%u5EFA%u7ACB%u5B57%u4E32%2C%u4E26%u4EE5%u8F38%u5165%u7684%u5F15%u6578%u4F86%u6C7A%u5B9A%u986F%u793A%u7D50%u679C%0A*%3E%20hello.person%20%3C-%20function%28name%29%0A*+%20%7B%0A*+%20%20%20%20%20print%28sprintf%28%22Hello%20%25s%22%2C%20name%29%29%0A*+%20%7D%0A*%3E%20%0A*%3E%20hello.person%28%22Danny%22%29%0A*%5B1%5D%20%22Hello%20Danny%22%0A*%3E%20%0A*%3E%20hello.person%28%22John%22%29%0A*%5B1%5D%20%22Hello%20John%22%0A*%3E%20%0A*%3E%20hello.person%28%22Manami%22%29%0A*%5B1%5D%20%22Hello%20Manami%22%0A*%3E%20%0A*%3E%20hello.person%28%22Mason%22%29%0A*%5B1%5D%20%22Hello%20Mason%22%0A*%3E%20%0A*%3E%20hello.person%28%22Martial%20Art%22%29%0A*%5B1%5D%20%22Hello%20Martial%20Art%22%0A*%3E%20%0A*%3E%20hello.person%28%22Parkour%22%29%0A*%5B1%5D%20%22Hello%20Parkour%22%20%20%20%20*%0A%0A%0A*%283%29%20name%20%u5F15%u6578%0A*name%20%u5F15%u6578%u5728%20%22sprintf%28%29%22%20%u88E1%u88AB%u7576%u6210%u8B8A%u6578%u4F7F%u7528%28%20%u5728%u51FD%u6578%u5916%u9762%u4E0D%u5B58%u5728%20%29%uFF0C%u57FA%u672C%u4E0A%u8207%u5176%u4ED6%u8B8A%u6578%u7121%u7570%uFF0C%u4E5F%u53EF%u4EE5%u88AB%u7528%u5728%u5176%u4ED6%u51FD%u6578%u88E1%u7576%u5F15%u6578%u3002%0A*%u547C%u53EB%u591A%u65BC%u4E00%u500B%u5F15%u6578%u7684%u51FD%u6578%u6642%uFF0C%u53EF%u4EE5%u628A%u503C%u8F38%u5165%u5230%u5F15%u6578%u7684%u76F8%u5C0D%u4F4D%u7F6E%uFF0C%u6216%u662F%u76F4%u63A5%u6307%u5B9A%u5F15%u6578%u540D%u7A31%u3002%0A*%3E%20hello.person%20%3C-%20function%28first%2C%20last%29%0A*+%20%7B%0A*+%20%20%20%20%20print%28sprintf%28%22Hello%20%25s%20%25s%22%2C%20first%2C%20last%29%29%0A*+%20%7D%0A*%3E%20%0A*%3E%20%23%20%u900F%u904E%u5F15%u6578%u76F8%u5C0D%u4F4D%u7F6E%0A*%3E%20hello.person%28%22Danny%22%2C%20%22Mason%22%29%0A*%5B1%5D%20%22Hello%20Danny%20Mason%22%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u900F%u904E%u5F15%u6578%u540D%u7A31%0A*%3E%20hello.person%28first%20%3D%20%22Danny%22%2C%20last%20%3D%20%22Mason%22%29%0A*%5B1%5D%20%22Hello%20Danny%20Mason%22%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u628A%u5F15%u6578%u53CD%u904E%u4F86%0A*%3E%20hello.person%28last%20%3D%20%22Mason%22%2C%20first%20%3D%20%22Danny%22%29%0A*%5B1%5D%20%22Hello%20Danny%20Mason%22%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u53EA%u6307%u5B9A%u5230%u4E00%u500B%u5F15%u6578%u540D%u7A31%0A*%3E%20hello.person%28%22Danny%22%2C%20last%20%3D%20%22Mason%22%29%0A*%5B1%5D%20%22Hello%20Danny%20Mason%22%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u6307%u5B9A%u53E6%u4E00%u500B%u5F15%u6578%u540D%u7A31%0A*%3E%20hello.person%28first%20%3D%20%22Danny%22%2C%20%22Mason%22%29%0A*%5B1%5D%20%22Hello%20Danny%20Mason%22%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u900F%u904E%u5F15%u6578%u540D%u7A31%u6307%u5B9A%u7B2C%u4E8C%u500B%u5F15%u6578%2C%20%u63A5%u8457%u5728%u6C92%u8F38%u5165%u5F15%u6578%u540D%u7A31%u4E0B%u6307%u5B9A%u7B2C%u4E00%u500B%u5F15%u6578%20%0A*%3E%20hello.person%28last%20%3D%20%22Mason%22%2C%20%22Danny%22%29%0A*%5B1%5D%20%22Hello%20Danny%20Mason%22%0A**%0A%0A%0A1.%20%20%u9810%u8A2D%u5F15%u6578%u503C%0A*%u9069%u7528%u60C5%u6CC1%20%3A%20%u7576%u9700%u8981%u540C%u6642%u8F38%u5165%u591A%u500B%u4EE5%u4E0A%u7684%u5F15%u6578%u6642%uFF0C%u53EF%u4F7F%u7528%u9810%u8A2D%u5F15%u6578%u503C%u4F86%u589E%u52A0%u6548%u7387%u3002%0A*%u9810%u8A2D%u7684%u503C%u53EF%u4EE5%u662F%22NULL%22%u3001%22%u5B57%u5143%22%u3001%22%u6578%u5B57%22%u3001%22%20R%20%u7684%u4EFB%u4F55%u6709%u6548%u7269%u4EF6%22%u3002%0A*%3E%0A*%3E%20hello.person%20%3C-%20function%28first%2C%20last%20%3D%20%22Doe%22%29%20%20%20%20%23%20%u4EE5%22Doe%22%u4F5C%u70BA%u9810%u8A2D%u7684%u59D3%u6C0F%28last%20name%29%0A*+%20%7B%0A*+%20%20%20%20%20print%28sprintf%28%22Hello%20%25s%20%25s%22%2C%20first%2C%20last%29%29%0A*+%20%7D%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u547C%u53EB%u51FD%u6578%u6642%u4E0D%u6307%u5B9A%u59D3%u6C0F%0A*%3E%20hello.person%28%22Jared%22%29%0A*%5B1%5D%20%22Hello%20Jared%20Doe%22%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u547C%u53EB%u51FD%u6578%u6642%u6307%u5B9A%u5176%u5B83%u7684%u59D3%u6C0F%0A*%3E%20hello.person%28%22Jared%22%2C%20%22Lander%22%29%0A*%5B1%5D%20%22Hello%20Jared%20Lander%22%0A*%0A%0A2.%20%20%u9644%u52A0%u5F15%u6578%0A*%u5141%u8A31%u4F7F%u7528%u8005%u8F38%u5165%u4EFB%u610F%u6578%u91CF%u7684%u5F15%u6578%u5230%u51FD%u6578%u88E1%28%u4E0D%u7528%u4E8B%u5148%u5B9A%u7FA9%29%uFF0C%u900F%u904E%22dot-dot-dot%20%28...%29%20%u7684%u5F15%u6578%22%u4F86%u5B8C%u6210%u3002%0A*%3E%0A*%3E%20%23%20%u547C%u53EB%20hello.person%2C%20%u4E26%u52A0%u5165%u984D%u5916%u7684%u5F15%u6578%0A*%3E%20hello.person%28%22Jared%22%2C%20extra%20%3D%20%22Goodbye%22%29%0A*Error%20in%20hello.person%28%22Jared%22%2C%20extra%20%3D%20%22Goodbye%22%29%20%3A%20%0A*%20%20unused%20argument%20%28extra%20%3D%20%22Goodbye%22%29%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u4EE5%u5169%u500B%u6709%u6548%u5F15%u6578%u547C%u53EB%u51FD%u6578%2C%20%u7B2C%u4E09%u500B%u5F15%u6578%u662F%u984D%u5916%u7684%0A*%3E%20hello.person%28%22Jared%22%2C%20%22Lander%22%2C%20%22Goodbye%22%29%0A*Error%20in%20hello.person%28%22Jared%22%2C%20%22Lander%22%2C%20%22Goodbye%22%29%20%3A%20%0A*%20%20unused%20argument%20%28%22Goodbye%22%29%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u73FE%u5728%u5EFA%u7ACB%20hello.person%2C%20%u4E26%u52A0%u5165%20%22...%22%20%u5F15%u6578%u4EE5%u63A5%u53D7%u9644%u52A0%u5F15%u6578%0A*%3E%20hello.person%20%3C-%20function%28first%2C%20last%20%3D%20%22Doe%22%2C%20...%20%29%0A*+%20%7B%0A*+%20%20%20%20%20print%28sprintf%28%22Hello%20%25s%20%25s%22%2C%20first%2C%20last%29%29%0A*+%20%7D%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u547C%u53EB%20hello.person%2C%20%u4E26%u52A0%u5165%u984D%u5916%u7684%u5F15%u6578%0A*%3E%20hello.person%28%22Jared%22%2C%20extra%20%3D%20%22Goodbye%22%29%0A*%5B1%5D%20%22Hello%20Jared%20Doe%22%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u4EE5%u5169%u500B%u6709%u6548%u5F15%u6578%u547C%u53EB%u51FD%u6578%2C%20%u7B2C%u4E09%u500B%u5F15%u6578%u662F%u984D%u5916%u7684%0A*%3E%20hello.person%28%22Jared%22%2C%20%22Lander%22%2C%20%22Goodbye%22%29%0A*%5B1%5D%20%22Hello%20Jared%20Lander%22%0A*%3E%20%0A*%0A%0A%0A%0A*%uFF08%u4E09%uFF09%u503C%u7684%u56DE%u50B3%0A*%u51FD%u6578%u56DE%u50B3%u57F7%u884C%u7D50%u679C%u7684%u65B9%u5F0F%20%3A%20%0A*%u51FD%u6578%u8A08%u7B97%u7D50%u675F%u5F8C%u7684%u503C%u81EA%u52D5%u88AB%u56DE%u50B3%u3002%0A*%u4F7F%u7528%20return%20%u6307%u4EE4%20%28%u5EFA%u8B70%u4F7F%u7528%29%20%3E%3E%20%u660E%u78BA%u5730%u6307%u5B9A%u6240%u8981%u56DE%u50B3%u7684%u503C%uFF0C%u540C%u6642%u4F5C%u70BA%u8A72%u51FD%u6578%u7684%u7D50%u675F%u3002%0A*%3E%0A*%3E%20%23%20%u5EFA%u7ACB%u51FD%u6578%u6642%u4E0D%u4F7F%u7528%20return%20%u6307%u4EE4%0A*%3E%20double.num%20%3C-%20function%28x%29%0A*+%20%7B%0A*+%20%20%20%20%20x%20*%202%0A*+%20%7D%0A*%3E%20%0A*%3E%20double.num%285%29%0A*%5B1%5D%2010%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u4F7F%u7528%20return%20%u6307%u4EE4%u5EFA%u7ACB%0A*%3E%20double.num%20%3C-%20function%28x%29%0A*+%20%7B%0A*+%20%20%20%20%20return%28x%20*%202%29%0A*+%20%7D%0A*%3E%20%0A*%3E%20double.num%285%29%0A*%5B1%5D%2010%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u518D%u6B21%u5EFA%u7ACB%u51FD%u6578%2C%20%u9019%u6B21%u5728%20return%20%u5F8C%u9762%u4E5F%u653E%u4E00%u4E9B%u6307%u4EE4%0A*%3E%20double.num%20%3C-%20function%28x%29%0A*+%20%7B%0A*+%20%20%20%20%20return%28x%20*%202%29%20%20%20%23%20%u51FD%u6578%u5728%u9019%u88E1%u9000%u51FA%0A*+%20%20%20%20%20%0A*+%20%20%20%20%20%0A*+%20%20%20%20%20%23---%u4EE5%u4E0B%u6307%u4EE4%u4E0D%u6703%u88AB%u57F7%u884C%2C%20%u56E0%u70BA%u51FD%u6578%u5DF2%u7D93%u88AB%u9000%u51FA%u4E86---%0A*+%20%20%20%20%20print%28%22Hello%20%21%22%29%0A*+%20%20%20%20%20return%2817%29%0A*+%20%20%20%20%20%23----------------------------------------------%0A*+%20%7D%0A*%3E%20%0A*%3E%20double.num%285%29%0A*%5B1%5D%2010%0A*%3E%20%0A%0A%0A%0A%0A*%uFF08%u56DB%uFF09do.call%0A*do.call%20%u5141%u8A31%u4F7F%u7528%20character%20%u6216%u8005%u7269%u4EF6%u4F86%u6307%u5B9A%u51FD%u6578%u540D%u7A31%uFF0C%u5176%u8F38%u5165%u7684%u5F15%u6578%u9700%u4EE5%20%u5217%u8868%28list%29%20%u5448%u73FE%u3002%0A*%3E%0A*%3E%20do.call%28%22hello.person%22%2C%20args%20%3D%20list%28first%20%3D%20%22Jared%22%2C%20last%20%3D%20%22Lander%22%29%29%0A*%5B1%5D%20%22Hello%20Jared%20Lander%22%0A*%3E%20%0A*%3E%20do.call%28hello.person%2C%20args%20%3D%20list%28first%20%3D%20%22Jared%22%2C%20last%20%3D%20%22Lander%22%29%29%0A*%5B1%5D%20%22Hello%20Jared%20Lander%22%0A*%3E%20%0A*%3E%20%0A*%3E%20run.this%20%3C-%20function%28x%2C%20func%20%3D%20mean%29%0A*+%20%7B%0A*+%20%20%20%20%20do.call%28func%2C%20args%20%3D%20list%28x%29%29%0A*+%20%7D%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u7528%u9810%u8A2D%u7684%20mean%20%u51FD%u6578%u627E%u5E73%u5747%u503C%0A*%3E%20run.this%281%3A10%29%0A*%5B1%5D%205.5%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u6307%u5B9A%u8981%u627E%u5E73%u5747%u503C%0A*%3E%20run.this%281%3A10%2C%20mean%29%0A*%5B1%5D%205.5%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u8A08%u7B97%u7E3D%u548C%0A*%3E%20run.this%281%3A10%2C%20sum%29%0A*%5B1%5D%2055%0A*%3E%20%0A*%3E%20%0A*%3E%20%23%20%u8A08%u7B97%u6A19%u6E96%u5DEE%0A*%3E%20run.this%281%3A10%2C%20sd%29%0A*%5B1%5D%203.02765%0A*%3E%20%0A%0A","attribs":"*0|1+v*0*1*2+1*0*3+4*0*4+d*0|1+h*0*3+a*0|1+1*0*1*5+1*0*3|1+f*0*1*5+1*0*3+8*0|1+1*0*1*6+1*0*3+l*0|1+1*0*1*7+1*0*3+b*0|1+1*0*1*7+1*0*3+8*0|1+1*0*1*7+1*0*3+b*0|1+1*0*1*6+1*0*3+9*0|1+1*0*1*6+1*0*3+8*0|1+1*0*1*5+1*0*3+7*0|1+1*0*1*5+1*0*3+a*0|3+3*0*1*2+1*0*3+e*0|1+1*0*1*5+1*0+b*0*3+h*0+6|1+1*0*1*8+1*0+5*0*3*9+9*0+1*0*3+p*0|1+1*0*1*8+1*0+j*0*3*9+5*0|1+d*0*1*8+1*0+2*0*9+9*0+4*0*9+a*0|1+5*0*1*8+1*0+2*0*3*9+1*0|1+1*0*1*8+1*0|1+s*0*1*8+1*0+2*0*3*9+1*0|1+1*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+f*0*3+6*0|1+1*0*1*8+1*0|1+b*0*1*8+1*0|1+2*0*1*8+1*0|1+r*0*1*8+1*0|1+2*0*1*a+1*b*0*c+1*0|5+5*0*1*2+1*0*3+8|1+1*0*3+l*0|1+1*0*1*5+1*0*3+4*0+2*0*3*d+1w*0*3+1*0|1+1*0*1*e+1*0*3+b*0|1+1*0*1*8+1*0+2*0*3+c*0|1+1*0*1*8+1*0+2*0*3*9+7*0*3+8*0*3*9+2*0*3+4*0*3*9+5*0*3+2*0|1+1*0*1*8+1*0|1+i*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3+c*0|1+1*0*1*8+1*0+2*0*3*9+7*0+8*0*9+2*0+b*0*9+2*0+4*0*9+5*0+4*0*9+6*0|1+3*0*1*8+1*0|3+11*0*1*e+1*0*3+8*0|1+1*0*1*8+1*0+2*0*3*9+t*0|1+1*0*1*8+1*0+2*0*9|1+v*0*9*1*8+1*0+2*0*9|1+2*0*9*1*8+1*0+6*0*9|1+x*0*9*1*8+1*0+2*0*9+1*0|1+1*0*1*8+1*0|1+3*0*1*8+1*0|1+o*0*1*8+1*0|1+i*0*1*8+1*0|1+3*0*1*8+1*0|1+n*0*1*8+1*0|1+h*0*1*8+1*0|1+3*0*1*8+1*0|1+p*0*1*8+1*0|1+j*0*1*8+1*0|1+3*0*1*8+1*0|1+o*0*1*8+1*0|1+i*0*1*8+1*0|1+3*0*1*8+1*0|1+u*0*1*8+1*0|1+o*0*1*8+1*0|1+3*0*1*8+1*0|1+q*0*1*8+1*0+n*f*0*g+1*0|3+3*0*1*e+1*0*3+b*0|1+1*0*1*7+1*0+a*0*3+9*0|1+1e*0*1*7+1*0|1+14*0*1*8+1*0|1+14*0*1*8+1*0|1+4*0*1*8+1*0|1+1d*0*1*8+1*0|1+4*0*1*8+1*0|1+3*0*1*8+1*0|1+d*0*1*8+1*0|1+x*0*1*8+1*0|1+o*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0|1+b*0*1*8+1*0|1+1c*0*1*8+1*0|1+o*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0|1+b*0*1*8+1*0|1+1c*0*1*8+1*0|1+o*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0|1+f*0*1*8+1*0|1+14*0*1*8+1*0|1+o*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0|1+e*0*1*8+1*0|1+15*0*1*8+1*0|1+o*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0|1+13*0*1*8+1*0|1+14*0*1*8+1*0|1+o*0*1*e+1*h*0*i+1*0|3+3*0*3+9*0|1+1*0*1*6+1*0*3+11*0|1+1*0*1*6+1*0*3+11*0|1+1*0*1*8+1*0|1+2*0*1*8+1*0+2*0*3*9+19*0+6*0*3+o*0|1+1*0*1*8+1*0|1+4*0*1*8+1*0+c*0*3*9+z*0|1+2*0*1*8+1*0|1+4*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9+c*0|1+1*0*1*8+1*0|1+o*0*1*8+1*0|1+m*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9+e*0|1+1*0*1*8+1*0|1+y*0*1*8+1*0|1+p*0*1*8+1*0|2+2*0*3+8*0|1+1*0*1*6+1*0+i*0*3+8*0+3*0*3+n*0|1+5*0*1*8+1*0|1+2*0*1*8+1*0+2*0*3*9+r*0|1+1*0*1*8+1*0*3+2*0*3*9+c*0*3+1*0+9*0*3*9+h*0*3+1*0|1+1*0*1*8+1*0*3+1g*0|1+1*0*1*8+1*0*3+11*0|1+1*0*1*8+1*0*3+2*0|1+1*0*1*8+1*0*3+2*0|1+1*0*1*8+1*0*3+2*0*3*9+o*0|1+1*0*1*8+1*0*3+2*0*3*9+c*0*3+k*0*3*9+9*0*3+1*0|1+1*0*1*8+1*0*3+1i*0|1+1*0*1*8+1*0*3+t*0|1+1*0*1*8+1*0*3+2*0|1+1*0*1*8+1*0*3+2*0|1+1*0*1*8+1*0*3+2*0*3*9+14*0|1+1*0*1*8+1*0*3+2*0*3*9+1f*0|1+1*0*1*8+1*0*3+3*0|1+1*0*1*8+1*0*3+1c*0|1+1*0*1*8+1*0*3+3*0|1+1*0*1*8+1*0*3+2*0|1+1*0*1*8+1*0*3+2*0|1+1*0*1*8+1*0*3+2*0*3*9+r*0|1+1*0*1*8+1*0*3+2*0*3*9+c*0*3+a*0*3*9+h*0*3+1*0|1+1*0*1*8+1*0*3+l*0|1+1*0*1*8+1*0*3+2*0|1+1*0*1*8+1*0*3+2*0|1+1*0*1*8+1*0*3+2*0*3*9+o*0|1+1*0*1*8+1*0*3+2*0*3*9+c*0*3+k*0*3*9+9*0*3+1*0|1+1*0*1*8+1*0*3+o*0|1+1*0*1*8+1*0*3+2*0|1+1*0*1*a+1*0|4+4*0*1*2+1*0|1+8*0*1*5+1*0*3+e*0|1+1*0*1*j*k+1*0|1+g*0*1*j*l+1*0*3*9+c*0*3+7*0+1*0*3+2*0+1*0*3*m+m*0|1+2*0*1*8+1*0|1+2*0*1*8+1*0+2*0*3*9+k*0|1+1*0*1*8+1*0|1+s*0*1*8+1*0|1+4*0*1*8+1*0|1+c*0*1*8+1*0|1+4*0*1*8+1*0|1+3*0*1*8+1*0|1+g*0*1*8+1*0|1+7*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9+g*0|1+1*0*1*8+1*0|1+s*0*1*8+1*0|1+4*0*1*8+1*0+6*0*9+d*0|1+1*0*1*8+1*0|1+4*0*1*8+1*0|1+3*0*1*8+1*0|1+g*0*1*8+1*0|1+7*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9+t*0|1+1*0*1*8+1*0|1+s*0*1*8+1*0|1+4*0*1*8+1*0+6*0*9+g*0*3*9+9*0|1+1*0*1*8+1*0|1+7*0*1*8+1*0|1+7*0*1*8+1*0+5*0*3+1*0*3*9|1+t*0*3*9*1*8+1*0*3*9|1+n*0*3*9*1*8+1*0*3*9|1+h*0*3*9*1*8+1*0*3*9+1h*0|1+1*0*1*8+1*0|1+4*0*1*8+1*0|1+3*0*1*8+1*0|1+g*0*1*8+1*0|1+7*0*1*8+1*0|5+7*0*1*2+1*0*3+a*0|1+1*0*1*5+1*0*3+6*0+1*0*3+f*0+6*0*3+6*0+1*0*3*9+9*0*3*9*m+8*0*3*9+3*0|1+2*0*1*8+1*0|1+2*0*1*8+1*0+2*0*3*9+7*0*3+h*0*3*9+19*0*3+1*0|1+1*0*1*8+1*0|1+p*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9+7*0*3+f*0*3*9+19*0*3+1*0|1+1*0*1*8+1*0|1+p*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9|1+11*0*3*9*1*8+1*0*3*9|1+4*0*3*9*1*8+1*0*3*9|1+10*0*3*9*1*8+1*0*3*9+3*0|1+1*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9+i*0|1+1*0*1*8+1*0+2*0*3*9+e*0|1+1*0*1*8+1*0|1+8*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9+9*0|1+1*0*1*8+1*0+2*0*3*9+k*0|1+1*0*1*8+1*0|1+8*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9+6*0|1+1*0*1*8+1*0+2*0*3*9+j*0|1+1*0*1*8+1*0|1+7*0*1*8+1*0|1+3*0*1*8+1*0|1+3*0*1*8+1*0+2*0*3*9+7*0|1+1*0*1*8+1*0+2*0*3*9+i*0|1+1*0*1*8+1*0|1+c*0*1*8+1*0+2|2+2"},"rev":1556,"padId":"wUqI6pGxCe3","globalPadId":"1$wUqI6pGxCe3","historicalAuthorData":{"p.427403":{"colorId":0,"name":"羅左欣","userLink":"/ep/profile/vCS3Hx1OGOV"}},"apool":{"numToAttrib":{"0":["author","p.427403"],"1":["insertorder","first"],"2":["list","hone1"],"3":["bold","true"],"4":["link","http://www.books.com.tw/products/0010685036"],"5":["list","bullet1"],"6":["list","bullet2"],"7":["list","bullet3"],"8":["list","code1"],"9":["highlight","true"],"10":["list","indent2"],"11":["attachmentKey","hackpad.com_wUqI6pGxCe3_p.427403_1443125755898_undefined"],"12":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_wUqI6pGxCe3_p.427403_1443125755898_undefined"],"13":["link","https://stat.ethz.ch/R-manual/R-devel/library/base/html/sprintf.html"],"14":["list","indent1"],"15":["attachmentKey","hackpad.com_wUqI6pGxCe3_p.427403_1443126724316_undefined"],"16":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_wUqI6pGxCe3_p.427403_1443126724316_undefined"],"17":["attachmentKey","hackpad.com_wUqI6pGxCe3_p.427403_1443127898553_undefined"],"18":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_wUqI6pGxCe3_p.427403_1443127898553_undefined"],"19":["list","number2"],"20":["start","1"],"21":["start","2"],"22":["underline","true"]},"nextNum":23},"clientIp":"203.64.104.19","clientAgent":"Python-urllib/1.17"},"friendUserIds":[],"globalPadId":"1$wUqI6pGxCe3","initialOptions":{"guestPolicy":"link"},"initialRevisionList":[],"invitedGroupInfos":[],"invitedUserInfos":[{"name":"羅左欣","userId":"p.427403","userLink":"/ep/profile/vCS3Hx1OGOV","userPic":"https://www.gravatar.com/avatar.php?default=https%3A%2F%2Fhackpad.com%2Fstatic%2Fimg%2Fnophoto.png&gravatar_id=f6ae7264338da5d676564e9b593b19dd&size=100","status":"creator","colorId":1}],"isProPad":true,"isPublicPad":false,"padId":"wUqI6pGxCe3","siteName":"hackpad","titleIsReadOnly":false,"userColor":1,"userName":"Guest","attachmentsBucket":"hackpad-attachments","s3BucketRoot":"s3.amazonaws.com","s3PolicyAndSig":{"s3Policy":"eyJleHBpcmF0aW9uIjoiMjAxNi0wNS0yMVQxMDoyNDoyNS4wMTlaIiwiY29uZGl0aW9ucyI6W3siYnVja2V0IjoiaGFja3BhZC1hdHRhY2htZW50cyJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwiaGFja3BhZC5jb21fd1VxSTZwR3hDZTNfZy41YzI4YTI1NjcxZjc2ZDU4XyJdLHsiYWNsIjoicHVibGljLXJlYWQifSxbInN0YXJ0cy13aXRoIiwiJENvbnRlbnQtVHlwZSIsImltYWdlLyJdLFsiY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMjA5NzE1MjBdLHsieC1hbXotY3JlZGVudGlhbCI6IkFLSUFJR1hGN1YzSVNEVVhJUjVRLzIwMTYwNTIxL3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDE2MDUyMVQxMDI0MjVaIn1dfQ==","s3PolicySig":"f36f9d5bd80d10e515448b92e22fdb7850fdd9377c324ab84d669004b2c1dfae"},"clientIp":"203.64.104.19","colorPalette":["#2996c3","#c66c78","#53af98","#daa458","#8a6fb1","#d98175","#87b747","#c98e6a","#5888b7","#c6759f","#b5b251","#50bad3"],"disableFB":false,"facebookClientId":"145393915506961","isDesktopApp":false,"isMobileApp":false,"isMobile":false,"serverTimestamp":1463739865037,"userAgent":"Python-urllib/1.17","accountPrivs":{"maxRevisions":1000},"dropboxConnected":false,"encryptedUserId":"","shouldGetFbLoginStatus":false,"useFbChat":false,"userId":"g.5c28a25671f76d58","userIsGuest":true,"userLink":"","userPic":"","initialSpaces":[{"id":1,"orgName":"hackpad","subDomain":"\x3c\x3cprivate-network>>","isDeleted":false,"lastLoginDate":0,"url":"https://hackpad.com/"}],"xsrf":"23758df2c5696feb","isDogfood":false,"cdn":"https://d29bt26wntaesq.cloudfront.net"};
   // ]]>
 </script>
     
 
 
 
-<script type="text/javascript" nonce="4a0ae4def5cc0f70c82db2dea03ac8c97b6580f3">
+<script type="text/javascript" nonce="0e0503b30e56fade02e1f575a189485711830988">
 //<![CDATA[
 (function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+"//cdn.mxpnl.com/libs/mixpanel-2.1.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);
 mixpanel.init("51ca7558fe905a645b2ecfaf07d08a62");
-mixpanel.identify("5e4721aa619c7ce8");
+mixpanel.identify("9b82ea6ad46520bc");
 if (clientVars && !clientVars.userIsGuest && clientVars.userName) {
   mixpanel.name_tag(clientVars.userName);
-  mixpanel.people.identify("5e4721aa619c7ce8");
+  mixpanel.people.identify("9b82ea6ad46520bc");
 }
 //]]>
 </script>
-<script type="text/javascript" nonce="4a0ae4def5cc0f70c82db2dea03ac8c97b6580f3">
+<script type="text/javascript" nonce="0e0503b30e56fade02e1f575a189485711830988">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-24086041-1']);
 _gaq.push(['_setDomainName', 'hackpad.com']);
@@ -1642,7 +1648,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </script>
 
 
-<script type="text/javascript" nonce="4a0ae4def5cc0f70c82db2dea03ac8c97b6580f3">
+<script type="text/javascript" nonce="0e0503b30e56fade02e1f575a189485711830988">
 //<![CDATA[
 
 var logSearchPerformed = (function () {
@@ -1709,7 +1715,7 @@ function trackPageview(optPath) {
 
 </script>
  
-    <script nonce="4a0ae4def5cc0f70c82db2dea03ac8c97b6580f3" type="text/javascript" src="https://d29bt26wntaesq.cloudfront.net/static/compressed/5a802ad97db1995b26ccea937afa5e54.js" crossorigin="anonymous"></script>
+    <script nonce="0e0503b30e56fade02e1f575a189485711830988" type="text/javascript" src="https://d29bt26wntaesq.cloudfront.net/static/compressed/5a802ad97db1995b26ccea937afa5e54.js" crossorigin="anonymous"></script>
 
     
       
@@ -1717,8 +1723,8 @@ function trackPageview(optPath) {
     
 
     <script type="text/javascript" async src="https://www.dropbox.com/static/api/1/dropins.js" id="dropboxjs" data-app-key="0d6svpz10vgp18t"></script>
-    <!--start,7 | accessPadLocal,17 | after addClientVars,49 | before data,50 | before html generation,53 | done,246-->
-    <script nonce="4a0ae4def5cc0f70c82db2dea03ac8c97b6580f3" type="text/javascript">
+    <!--start,7 | accessPadLocal,18 | after addClientVars,55 | before data,56 | before html generation,59 | done,295-->
+    <script nonce="0e0503b30e56fade02e1f575a189485711830988" type="text/javascript">
 $(document).on("click", "a[target]", function(e) {
   e.preventDefault();
   var newWindow = window.open("", this.target || "_blank");
