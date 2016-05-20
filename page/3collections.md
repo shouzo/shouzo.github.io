@@ -36,7 +36,7 @@ icon: bookmark
 21. [20151216 [Coursera] R Programming (11)](https://hackpad.com/20151216-Coursera-R-Programming-11-1yj3UwzvDtu)
 
 ### 備用連結
-1. [20150823 [Coursera] R Programming (1)](/hackpad/R/20150823-[Coursera]-R-Programming-(1))
+1. [20150823 [Coursera] R Programming (1)](/hackpad/R/20150823-[Coursera]-R-Programming-(1).html)
 
 20150823 [Coursera] R Programming (2)
 20150824 [學習筆記] R與資料探勘 (1)
