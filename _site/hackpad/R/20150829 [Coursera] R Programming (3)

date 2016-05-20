@@ -1,0 +1,1738 @@
+
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="origin-when-crossorigin">
+    
+    <title>20150829 [Coursera] R Programming (3) - hackpad.com</title>
+    <base href="https://hackpad.com/">
+    <link rel="shortcut icon" href="/static/favicon.png">
+    <link rel="apple-touch-icon" sizes="57x57"
+        href="/static/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="/static/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="/static/apple-touch-icon-144.png" />
+    <link rel="apple-touch-icon" sizes="144x144"
+        href="/static/apple-touch-icon-144.png" />
+
+    
+    <link href="https://d29bt26wntaesq.cloudfront.net/static/compressed/663fa08181a7a4f57a258b0a017889b5.css" rel="stylesheet" type="text/css" onError="this.loadError=true;" />
+    <link rel="search" type="application/opensearchdescription+xml"
+        title="hackpad" href="/static/opensearch.xml" />
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta content='hackpad.com' name='title' /><meta content='Real-time collaborative wiki' name='description' /><link href='/static/img/hackpad-logo.png' rel='image_src' /><meta name="fragment" content="!" /><meta name="robots" content="noindex, noarchive" /><link rel="alternate" type="text/xml+oembed" href="/ep/oembed/ETuVpfuklrK" title="20150829 [Coursera] R Programming (3)"><link rel="canonical" href="/20150829-Coursera-R-Programming-3-ETuVpfuklrK"><meta property="og:title" content="20150829 [Coursera] R Programming (3)" /><meta property="og:description" content="整理自 R Programming (Week 1) -- Data Types [ Week 1 課程內容 ]
+*Introduction (略過)
+*Overview and History of R [16:07] (完成)
+*Getting Help [13:53] (略過)
+*Console Input and Evaluation [4:46] (完成)
+*Data Types - R Objects and Attributes [4:43]
+*Data Types - Vectors and Lists [6:27]
+" /><meta property="og:image" content="https://hackpad.com/static/img/hackpad-logo-112.png" /><meta property="fb:app_id" content="145393915506961" /><meta property="og:url" content="https://hackpad.com/20150829-Coursera-R-Programming-3-ETuVpfuklrK" /><meta property="og:type" content="hackpad:pad" /><meta property="twitter:site" content="@hackpad" /><meta name="twitter:widgets:csp" content="on" />
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+<meta name="apple-itunes-app" content="app-id=789857184, app-argument=https://hackpad.com/20150829-Coursera-R-Programming-3-ETuVpfuklrK">
+<style type="text/css" title="dynamicsyntax"></style>
+
+
+    <script nonce="b81de24e956bea9b20349a86dd78f1376948148c" type="text/javascript">try { document.domain = document.domain.split(".").slice(-2).join("."); } catch (ex) { console.log("error setting document.domain: " + ex); }</script>
+
+    
+  </head>
+
+  <body id="padbody" class=" desktop-web propad nonprouser  guestbanner   sitebar hasSitebar">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<button type="button"
+     id="site-toggle" 
+     data-tooltip="Workspaces" 
+    
+    
+     data-click="sitebar-open" 
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-menu-web" ></span></button>
+
+<a href="/" id="site-iphone-back" class="iphoneshow"><i class="icon-back"></i></a>
+
+<header>
+  <div id="guestbanner">
+    <div class="banner-close icon-x">
+    </div>
+    <div id="guest-banner-msg">
+      Hackpads are smart collaborative documents.
+      <a href="#join-hackpad">Join Hackpad Now</a>.
+    </div>
+  </div>
+
+  <div id="site-banner" style="background-image: url('/static/img/banner.jpg'); background-position: left 0px top -160px"></div>
+  <nav id="padbar">
+    <a href="/" id="topbarBrand">
+      <span id="topbarBrandFullName" class="iphonehide ipadhide"
+          title="hackpad">hackpad</span>
+      <span class="iphoneshow ipadshow"><strong>h</strong></span>
+    </a>
+
+    <div id="mainbar">
+      <a href="/" data-tooltip="home" id="topbarBrand2">
+        <i class="icon-home"></i>
+      </a>
+      <a href="/" id="topbarBrand3">
+        <span id="topbarBrandFullName2" class="iphonehide ipadhide"
+            title="hackpad">hackpad</span>
+      </a>
+
+      <form id="createpadform" target="_blank" action="/ep/pad/newpad">
+        <button type="submit"
+     id="createpadlink" 
+     data-tooltip="New Hackpad" 
+    
+    
+     data-click="showmodal" 
+    
+     data-modal="#page-login-box" 
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-newpad" ></span></button>
+        <input id="createpadentry-hidden" name="title"
+            value="" type="hidden"/>
+      </form>
+      <form id="createpadform2" action="/ep/pad/newpad">
+        <div id="createpadbox">
+          <i class="icon-search"></i>
+          <input id="createpadentry" name="title" type="text"
+              value="" autocomplete="off"
+              autocorrect="off" />
+          <div class="ac-loading-spinny"></div>
+        </div>
+      </form>
+
+      
+  
+  <span id="toolbar" class="iphonehide">
+    
+
+    <button type="button"
+     id="textformatbutton" 
+     data-tooltip="Formatting Options" 
+    
+    
+    
+    
+    
+    
+    
+     data-type="format" 
+    class="hp-ui-button toolbar-main  hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-textformat" ></span></button><span class="hp-ui-button-group" data-type="format">
+      <button type="button"
+     id="boldbutton" 
+     data-tooltip="Bold (Ctrl+B)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-bold" ></span></button><button type="button"
+     id="italicsbutton" 
+     data-tooltip="Italics (Ctrl+I)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-italic" ></span></button><button type="button"
+     id="underlinebutton" 
+     data-tooltip="Underline (Ctrl+U)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-underline" ></span></button><button type="button"
+     id="strikebutton" 
+     data-tooltip="Strikethrough" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-strikethrough" ></span></button>
+    </span><button type="button"
+     id="paragraphbutton" 
+     data-tooltip="Paragraph Options" 
+    
+    
+    
+    
+    
+    
+    
+     data-type="paragraph" 
+    class="hp-ui-button toolbar-main  hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-paragraph" ></span></button><span class="hp-ui-button-group" data-type="paragraph">
+      <button type="button"
+     id="commentbutton" 
+     data-tooltip="Comment (// at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-comment" ></span></button><button type="button"
+     id="taskbutton" 
+     data-tooltip="Task List (type [ ] at the beginning of a line, or Ctrl+\)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-check" ></span></button><button type="button"
+     id="listbutton" 
+     data-tooltip="Bulleted List (- or * at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-bullet" ></span></button><button type="button"
+     id="numberedlistbutton" 
+     data-tooltip="Numbered List (1.  at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-number" ></span></button><button type="button"
+     id="codebutton" 
+     data-tooltip="Code (4 spaces at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-code" ></span></button>
+    </span><span id="toolbar-indent-group" class="hp-ui-button-group"
+        data-type="paragraph">
+      <button type="button"
+     id="indentbutton" 
+     data-tooltip="Indent (press Tab)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-indent" ></span></button><button type="button"
+     id="outdentbutton" 
+     data-tooltip="Unindent (press Shift-Tab)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-outdent" ></span></button>
+    </span><span id="toolbar-attach-group" class="hp-ui-button-group"
+        data-type="attach">
+      <button type="button"
+     id="insertimage" 
+     data-tooltip="Image" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-photo" ></span></button><button type="button"
+     id="inserttable" 
+     data-tooltip="Table" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-table" ></span></button><button type="button"
+     id="insertdropbox" 
+     data-tooltip="Dropbox File" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-dropbox" ></span></button><button type="button"
+     id="attachbutton" 
+     data-tooltip="Insert" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-insert" ></span></button>
+    </span>
+    <img id="toolbar-arrow"
+        src="https://d29bt26wntaesq.cloudfront.net/static/img/editBarTriangle@2x.png">
+  </span>
+  <button type="button"
+     id="editbutton" 
+     data-tooltip="Edit" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-edit" ></span></button>
+
+  
+  <div
+     id="settingsbutton" 
+     data-tooltip="Pad Settings" 
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-gear-hollow" ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="/ep/pad/summary/ETuVpfuklrK"  
+            
+            >
+            
+              View History
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+             data-click="showembeddialog" 
+            >
+            
+              Embed
+            
+          </a></li>
+          
+        
+          
+          <li><a href="/ep/pad/static/ETuVpfuklrK"  
+            
+            >
+            
+              Print
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="pad-moderator-link" 
+            
+            >
+            
+              Moderated By
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  
+  <div id="follow-container" src="/ep/pad/pad-follow-button?padId=ETuVpfuklrK">
+    <button type="button"
+    
+     data-tooltip="Follow" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button padfollow   hp-ui-button-secondary"
+><span class="hp-ui-button-content icon-follow" ></span></button>
+    <button type="button"
+    
+     data-tooltip="Following" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button padunfollow hidden  hp-ui-button-secondary"
+><span class="hp-ui-button-content icon-follow" ></span></button>
+  </div>
+
+
+
+      
+
+      
+    </div>
+  </nav>
+</header>
+
+<nav id="sitebar">
+  <h1 id="sitebar-heading"><a href="https://hackpad.com">hackpad</a></h1>
+  <ul id="domain-list">
+    <li class="domain-item domain-item-overflow">
+      <div
+    
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-primary"
+><span class="hp-ui-button-content " >more</span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+    </li>
+    <li class="domain-item domain-item-new">
+      <a href="/ep/new-site" id="create-space">+ new workspace</a>
+    </li>
+  </ul>
+
+  <div id="account">
+    <div id="faccountnav">
+      
+        <a href="#" data-modal="#page-login-box" data-click="showmodal">
+          Sign In
+        </a>
+      
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+  <div id="padpage">
+    <div id="padeditor">
+      
+  
+  <script type="text/javascript" nonce="b81de24e956bea9b20349a86dd78f1376948148c">
+    window.onerror = function(message, file, line, column, errorObj) {
+      etherpad.logError(message, file, line, column, errorObj);
+    };
+    window.onfreakout = function(msg) {
+      if ($('#freakout-dialog').is(':visible')) {
+        return;
+      }
+      trackEvent('freakout', null, null, {
+        url: location.href,
+        padId: clientVars.collab_client_vars.globalPadId,
+        userId: clientVars.userId,
+        error: (msg || "").split(":")[0],
+        errorDetail: msg
+      });
+      modals.showModal("#freakout-dialog", 0, true /* not cancellable */);
+    };
+  </script>
+
+  
+  
+
+  
+
+
+
+<div id="editor" class="syntax notranslate" autocorrect="off" autocomplete="off">
+  &nbsp;
+</div>
+<div id="non-editor">
+<div id="sidediv"><!-- --></div>
+<div id="overlaysdiv"><!-- --></div>
+<div
+     id="hp-editor-lang" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-primary"
+><span class="hp-ui-button-content " ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              txt
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              html
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              coffee
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              java
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              rb
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              c
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              c++
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              js
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              py
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+<div
+     id="hp-editor-headings" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-primary"
+><span class="hp-ui-button-content " ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"   id="hp-editor-headings-1" 
+            
+            >
+            
+              Heading 1
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-2" 
+            
+            >
+            
+              Heading 2
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-3" 
+            
+            >
+            
+              Heading 3
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-normal" 
+            
+            >
+            
+              Normal
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-link" 
+            
+            >
+            
+              Link to here
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+<div id="hp-editor-selection-wrapper"><button type="button"
+     id="hp-editor-selection-link" 
+     data-tooltip="Create Link" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-link" ></span></button><input id="hp-editor-selection-link-url" placeholder="Enter link URL"><button type="button"
+     id="hp-editor-selection-link-confirm" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-checkMark" ></span></button><button type="button"
+     id="hp-editor-selection-link-delete" 
+     data-tooltip="Remove Link" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-delete" ></span></button><button type="button"
+     id="hp-editor-selection-newpad" 
+     data-tooltip="Create New Hackpad" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-newpad" ></span></button><input id="hp-editor-selection-newpad-title" placeholder="Enter title"><button type="button"
+     id="hp-editor-selection-newpad-confirm" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-checkMark" ></span></button></div>
+</div>
+
+
+  
+  <div id="collections-div" class="sidebar-div">
+    <div id="collection-list-div">
+      <div
+     id="add-to-collection" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-custom"
+><span class="hp-ui-button-content " >add to collection</span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"   id="collection-invite-list-item" 
+            
+            >
+            
+              <form id="collection-invite-form"><input name="xsrf" type="hidden" value="dad1903f7f5dd56a" /><input type="hidden" name="padId" value="ETuVpfuklrK" /><i class="icon-addcollection"></i><input type="text" id="collection-picker" placeholder="New or existing collection"/></form>
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+    </div>
+    <div id="collections-recent-list-wrapper">
+      <div id="collections-recent-label" class="sidebartext">
+        or choose a recent collection:
+      </div>
+      <ul id="collections-recent-list"></ul>
+    </div>
+    <div id="collection-list-overflow"></div>
+  </div>
+
+  <div id="shared-with-settings">
+    <div id="shared-with-settings-inner">
+    
+    <div
+     id="padaccess-menu" 
+    
+     role="menu" aria-haspopup="true" 
+     disabled 
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-custom"
+><span class="hp-ui-button-content " ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"   id="padaccess-deny" 
+            
+            >
+            
+              <i class="icon-lock"></i>invitees only
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="padaccess-link" 
+            
+            >
+            
+              <i class="icon-privacy-link"></i>anyone with link
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="padaccess-allow" 
+            
+            >
+            
+              <i class="icon-privacy-public"></i>everyone (public)
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+
+  <div id="editorbottombox">
+    
+  <div>
+    <a id="editor-last-changed" href="/ep/pad/summary/ETuVpfuklrK">
+      Latest change
+      <span id="last-saved-timestamp" title="2015-09-11T04:52:56.000Z"></span>
+    </a>
+  </div>
+
+  <script id="template-user-create-entry" type="text/html">
+    <div class="create">
+      <img />
+      <a class="host"></a> created this <span class="timestamp"></span>.
+    </div>
+  </script>
+
+  <script id="template-invite-user-entry" type="text/html">
+    <div class="invite">
+      <img />
+      <a class="host"></a> invited
+      <a class="user"></a>.
+      <span class="lastAccessed">Seen
+      <span class="lastAccessedTimestamp"></span>.</span>
+      <span class="timestamp"></span>
+    </div>
+  </script>
+
+  <script id="template-invite-group-entry" type="text/html">
+    <div class="invite">
+      <img />
+      <a class="host"></a> added this to collection
+      <a class="collection"></a>. <span class="timestamp"></span>
+    </div>
+  </script>
+
+  <div id="inviteLog-wrapper"><div id="inviteLog"></div></div>
+
+  </div>
+
+    </div>
+    
+  <aside id="padsidebar">
+    
+  
+  <div id="padusers" class="">
+    <div id="sharingsettings">
+      
+
+  <div id="friend-picker-div">
+    <form id="invite-form" method="get" action="">
+      <input name="xsrf" type="hidden" value="dad1903f7f5dd56a" />
+      <input type="hidden" name="padId" value="ETuVpfuklrK" />
+      <div id="friend-picker-wrapper">
+        <input type="text" id="friend-picker" class="" placeholder="invite people to this pad"/>
+        <div class="ac-loading-spinny"></div>
+        <label for="friend-picker"><i class="icon-invite"></i></label>
+      </div>
+    </form>
+  </div>
+
+
+      <div id="sharesummarywrapper" style="display: none">
+        <span class="sharesummary-with">With </span>
+        <span id="sharesummary" data-tooltip="Show list"
+            data-altTooltip="Hide List"> </span>
+      </div>
+      
+  
+  
+
+  <div id="otherusers">
+    <div id="otherusers-facepile-wrapper" data-tooltip="Show list" data-altTooltip="Hide list">
+      <img id="otherusers-facepile" src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif">
+      <span class="connected"></span>
+    </div>
+    <div id="otheruserstable-wrapper"><ul id="otheruserstable" class="popup-scrollable"></ul></div>
+  </div>
+
+  <script id="template-user-list" type="text/html">
+    <li id="XXX" title="XXX">
+      <figure>
+        <a>
+          <span class="user-image">
+            <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif" data-src="XXX" alt="XXX">
+            <span class="connected"></span>
+          </span>
+          <figcaption>
+            <span>XXX</span>
+            <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif" class="killuser"
+                alt="Remove User" role="button"
+                data-userId="XXX" data-name="XXX">
+          </figcaption>
+        </a>
+      </figure>
+    </li>
+  </script>
+
+      <div id="guestprompts"><!-- --></div>
+    </div>
+  </div>
+
+  <div id="toc-div" class="sidebar-div">
+    <ul></ul>
+  </div>
+
+
+  <div id="related-pads-div" class="sidebar-div">
+    <div class="sidebarheading">
+      <div
+     id="related-pads-menu" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button hp-ui-button-menu-reverse  hp-ui-button-menu  hp-ui-button-custom"
+><span class="hp-ui-button-content " >Related Pads</span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+
+    <div class="clear"></div>
+  </aside>
+
+  </div>
+  
+  <div class="connection-status iphonehide"><h3>Reconnecting...</h3></div>
+
+  <div id="modaloverlay"><div id="modaloverlay-inner"><!-- --></div></div>
+
+  <div id="mainmodals">
+    <div id="connectionbox" class="modaldialog" >
+      <h1 class="h1_disconnect">Disconnected</h1>
+      <h1 class="h1_unauth">No Authorization</h1>
+      <button type="button"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+      <div id="connectionboxinner" class="modaldialog-inner">
+        <div class="connecting">
+          Connecting...
+        </div>
+        <div class="reconnecting">
+          Reestablishing connection...
+        </div>
+        <div class="disconnected">
+          <div id="disconnected_looping">
+            <p>
+              <b>We're having trouble talking to the Hackpad synchronization
+                server.</b>
+              You may be connecting through an incompatible firewall or proxy
+              server.
+            </p>
+          </div>
+          <div id="disconnected_initsocketfail">
+            <p>
+              <b>We were unable to connect to the Hackpad synchronization
+              server.</b>
+              This may be due to an incompatibility with your web
+              browser or internet connection.
+            </p>
+          </div>
+
+          <div id="disconnected_unknown">
+            <p>
+              <b>Lost connection with Hackpad.</b>
+              This may be due to a loss of network connectivity. If you close
+              this window you may lose up to 30 seconds of unsaved work.
+            </p>
+          </div>
+          <div id="disconnected_slowcommit">
+            <p>
+              <b>Server not responding.</b>
+              This may be due to network connectivity issues or high load on
+              the server.
+            </p>
+          </div>
+          <div id="disconnected_unauth">
+            <p>
+              You are no longer allowed to access this pad. Reconnect to
+              request access.
+            </p>
+          </div>
+          <div id="reconnect_form">
+            <button type="button"
+     id="forcereconnect" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Reconnect Now</span></button>
+            <img class="loading-indicator"
+                src="/static/img/misc/status-ball.gif"/>
+            <span class="failed-indicator">Failed to reconnect.</span>
+          </div>
+          <div id="reconnect_advise">
+            <p>
+              If this continues to happen, please <a target="_blank"
+                  href="/ep/support">let us know</a>
+              (opens in new window).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="freakout-dialog" class="modaldialog">
+      <h1>How embarrassing...</h1>
+      <div id="freakout-dialog-inner" class="modaldialog-inner">
+        <div class="disconnected">
+          <div>
+            <p>
+              <b>We experienced an error on the page that is causing problems
+              with saving your work.</b>
+              Continuing to edit on the page without refreshing your browser
+              would lead to some <b>loss of your work</b>.
+            </p>
+          </div>
+          <div id="freakout-options">
+            <button type="button"
+    
+    
+    
+    
+     data-click="pagereload" 
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Refresh Now</span></button>
+            <button type="button"
+     id="freakout-copy-first" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >I want to copy my work first, please.</span></button>
+          </div>
+          <div id="freakout_advise">
+            <p>
+              If this continues to happen, please <a target="_blank"
+                  href="/ep/support">let us know</a>
+              (opens in new window).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="moderated-modal" class="modaldialog">
+      <h1>Heads Up!</h1>
+      <div id="moderated-modal-inner" class="modaldialog-inner">
+
+        <p id="moderated-modal-msg">
+          This pad is moderated.  Your changes will require owner approval.
+        </p>
+        <div class="dialog-buttons">
+          <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Cancel</span></button>
+          <button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button default  hp-ui-button-primary"
+><span class="hp-ui-button-content " >Yes! I want to edit</span></button>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div id="sharebox" class="modaldialog">
+      <div id="sharebox-inner" class="modaldialog-inner">
+      </div>
+    </div>
+
+    <div id="insertimagedialog" class="modaldialog">
+     <h1>Insert an Image</h1>
+     <div class="modaldialog-inner">
+      <form name="insert-image-form" id="insert-image-form">
+        <input name="xsrf" type="hidden" value="dad1903f7f5dd56a" />
+        <br/>
+        <div id="insertimagedialog-upload">
+          <input multiple type="file" id="web-image-upload" name="photo[]"
+              accept="image/*">
+          <div id="web-image-upload-separator">or</div>
+          <input type="text" id="web-image-url" name="web-image-url"
+              placeholder="paste a url" />
+        </div>
+        <div id="insertimagedialog-drag">
+          Tip: you can simply <b>drag&amp;drop</b> images into the editor
+          from your desktop!
+        </div>
+        <br/>
+         <div class="dialog-buttons">
+           <a href="#" data-click="hidemodal">Cancel</a>
+           <button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button default  hp-ui-button-primary"
+><span class="hp-ui-button-content " >Insert</span></button>
+         </div>
+         <div class="clear"></div>
+       </form>
+     </div>
+    </div>
+
+    
+  
+  <div id="killuser" class="modaldialog">
+    <h1>Stop sharing with <span class="name"></span>?</h1>
+    <div class="modaldialog-inner">
+      <div id="killuser-access">
+        This pad is shared with "<span class="access"></span>", so
+        <span class="name"></span> will still be able to access it.
+      </div>
+      <form id="killuser-form" action="/ep/pad/removeuser"
+          data-submit="submitmodal">
+        <input name="xsrf" type="hidden" value="dad1903f7f5dd56a" />
+        <input type="hidden" id="padId" name="padId"
+            value="ETuVpfuklrK" />
+        <input type="hidden" id="userId" name="userId" />
+        <div class="dialog-buttons">
+          <a href="#" data-click="hidemodal">Cancel</a>
+          <button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Stop Sharing</span></button>
+        </div>
+        <div class="clear"></div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="embedpaddialog" class="modaldialog">
+   <h1>Embed This Pad</h1>
+   <div class="modaldialog-inner">
+    <label for="embedpad-code">
+      Paste the following into your web page or blog:
+    </label>
+    <textarea id="embedpad-code" rows="6" readonly></textarea>
+    <br />
+    <div class="clear"></div>
+    Embed as
+    <select id="embedpad-type" onchange="pad.updateEmbedCode()">
+      <option value="">Editable Hackpad</option>
+      <option value="html">Plain HTML</option>
+      <option value="html-notitle">Plain HTML without title</option>
+    </select>
+    <div class="dialog-buttons">
+      <a class="button" href="#" data-click="hidemodal">Close</a>
+    </div>
+  </div>
+
+  </div>
+
+  
+
+  <form id="reconnectform"
+      method="post"
+      action="/ep/pad/reconnect"
+      accept-charset="UTF-8"
+      style="display: none;">
+    <input name="xsrf" type="hidden" value="dad1903f7f5dd56a" />
+    <input type="hidden" class="padId" name="padId" />
+    <input type="hidden" class="diagnosticInfo" name="diagnosticInfo" />
+    <input type="hidden" class="missedChanges" name="missedChanges" />
+  </form>
+  </div>
+
+
+
+  
+  
+<footer id="pad-page-footer" class="hide-before-pad-load iphonehide">
+  
+  &copy; Dropbox Inc.
+  
+  <a href="https://hackpad.com/83netTWokps#Hackpad-Terms-of-Service">Terms</a>
+  <a href="https://hackpad.com/RpTWPko6ER2#Hackpad-Privacy-Policy">Privacy</a>
+  <a id="footer-support-link" href="mailto:support@hackpad.com">Support</a>
+  <a href="https://hackpad.com/sIkGLftzN7c#About-Hackpad">About</a>
+  <a href="https://hackpad.com/blog">Blog</a>
+</footer>
+
+  
+<div id="page-login-box" class="modaldialog" style="right: inherit; left: 50%;">
+  <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+  <div>
+    
+    
+
+  <div id="login-form-wrapper">
+
+  
+
+  <h1 class="iphonehide">Log in / Sign up</h1>
+  <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+
+  <div class="modaldialog-body">
+
+  
+  
+
+    <div id="page-loging-lhs">
+      <img width="230" src="https://d29bt26wntaesq.cloudfront.net/static/img/pencil-love.png">
+    </div>
+
+    <div id="nofacebook" class="page-login-rhs">
+      <a id="login-google" href="https://accounts.google.com/o/oauth2/auth?client_id=261270787987-jqaig2qiho2pe21fmmis6ak34oapihhf.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fhackpad.com%2Fep%2Faccount%2Fopenid&amp;response_type=code&amp;access_type=offline&amp;scope=email%20profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts.readonly&amp;state=%7B%22nonce%22%3A%22bKOaM3Oy2t%22%2C%22shortContUrl%22%3A%22https%3A%2F%2Fhackpad.com%2FETuVpfuklrK%3Ftoken%3Dundefined%22%7D&amp;approval_prompt=force" class="google-signin-button" target="_self">
+        <img src="https://d29bt26wntaesq.cloudfront.net/static/img/goog.png">
+        <span>Sign in with <strong>Google</strong></span>
+      </a>
+
+      
+        <a id="login-facebook" class="fb-login-required" href="https://hackpad.com/20150829-Coursera-R-Programming-3-ETuVpfuklrK">
+          <img class="fb-connect-button" src="https://d29bt26wntaesq.cloudfront.net/static/img/fb.png">
+          <span>Sign in with <strong>Facebook</strong></span>
+        </a>
+      
+
+      <span id="login-or"><span class="page-login-or"></span><span class="page-login-or-lbl">or</span><span class="page-login-or"></span></span>
+
+      <form id="login-form" method="post" action="/ep/account/signin">
+        <input name="xsrf" type="hidden" value="dad1903f7f5dd56a" />
+        <span id="login-email-wrapper" class="login-email-input">
+          <label for="login-email"><i class="icon-privacy-invite"></i></label>
+          <input id="login-email" name="email" type="email" placeholder="Email" autocorrect="off" autocapitalize="off">
+          <button type="button"
+     id="login-email-go" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Go</span></button>
+        </span>
+
+        <div id="login-email-secondary">
+          <i class="icon-back"></i>
+          <span id="login-password-wrapper" class="login-email-input">
+            <label for="login-password"><i class="icon-lock"></i></label>
+            <input id="login-password" name="password" type="password" placeholder="Password">
+          </span>
+          <a href="/ep/account/forgot-password" id="login-forgot-password">Forgot password?</a>
+
+          <input id="signin-remember-me" type="hidden" group="1" name="rememberMe" value="1">
+          <input type="hidden" name="cont" value="https://hackpad.com/20150829-Coursera-R-Programming-3-ETuVpfuklrK">
+          
+
+          <div id="login-email-tertiary" class="modal-more-info">
+            <span id="login-full-name-wrapper" class="login-email-input">
+              <label for="login-fullname"><i class="icon-user"></i></label>
+              <input id="login-fullname" name="name" placeholder="Full Name">
+            </span>
+          </div>
+
+          <button id="login-submit" type="submit" disabled>Start using Hackpad</button>
+        </div>
+      </form>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  
+  </div>
+
+  </div>
+</div>
+
+
+  
+  <div id="connecting-to-facebook" class="modaldialog" style="padding:30px; margin-top: 100px">
+    <img alt="" src="https://d29bt26wntaesq.cloudfront.net/static/img/misc/status-ball.gif" style="float:right" />
+    <span style="font-size:21px; color:#666">Signing in using Facebook...</span>
+    <div style="margin-top:20px"><button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Cancel</span></button></div>
+  </div>
+  
+
+
+
+  <button type="button"
+     id="feedbackbutton" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button iphonehide ipadhide  hp-ui-button-action"
+><span class="hp-ui-button-content " >feedback</span></button>
+  
+
+<div id="feedbackbox" class="modaldialog">
+  <h1 class="with-content">Contact Support</h1>
+
+  <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+
+  <div class="modaldialog-inner">
+
+    <form id="feedback-form">
+      <input name="xsrf" type="hidden" value="dad1903f7f5dd56a" />
+
+
+      
+        <input type="text" name="feedbackbox-email" id="feedbackbox-email" class="modalfield" placeholder="Your email">
+        <br/>
+      
+
+      <select name="feedbackbox-topic" id="feedbackbox-topic" class="modalfield">
+        <option value="">Please select a topic</option>
+        <option value="howto">General usage / How does this work?</option>
+        <option value="feature">Feature request</option>
+        <option value="login">Login / account issue</option>
+        <option value="broken">Broken / can't load hackpad</option>
+        <option value="mobile">Mobile / iOS issue</option>
+        <option value="other">Other issue</option>
+        <option value="love">Send your love! &#9829;</option>
+      </select><br>
+
+      <div id="feedbackbox-faq">Please check out our <a href="https://hackpad.com/How-to-use-Hackpad-mlZvEsJykI5" target="_blank">How-to Guide</a> and <a href="https://hackpad.com/Hackpad-FAQ-tq56fI63mz3" target="_blank">FAQ</a> first to see if your question is already answered! :)<br><br></div>
+      <div id="feedbackbox-feature-request">If you have a feature request, please add it to <a href="https://hackpad.com/mwN5" target="_blank">this pad</a>.  Thanks!<br><br></div>
+
+      <input type="text" name="feedbackbox-subject" id="feedbackbox-subject" class="modalfield" placeholder="Summary"><br>
+      <textarea id="feedbackbox-message" rows="6" cols="40" class="modalfield" placeholder="Give as much detail as possible."></textarea>
+      <div style="text-align:right">
+        <div id="feedbackbox-response"><!-- --></div>
+        <button type="button"
+     id="feedbackbox-send" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button default  hp-ui-button-primary"
+><span class="hp-ui-button-content " >Send</span></button>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+
+
+
+ 
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" nonce="b81de24e956bea9b20349a86dd78f1376948148c">
+  // <![CDATA[
+var clientVars = {"proTitle":"","creatorId":427403,"initialTitle":"20150829 [Coursera] R Programming (3)","padTitle":"20150829 [Coursera] R Programming (3)","collab_client_vars":{"initialAttributedText":{"text":"20150829%20%5BCoursera%5D%20R%20Programming%20%283%29%0A*%u6574%u7406%u81EA%20R%20Programming%20%28Week%201%29%20--%20Data%20Types%0A%5B%20Week%201%20%u8AB2%u7A0B%u5167%u5BB9%20%5D%0A*Introduction%20%28%u7565%u904E%29%0A*Overview%20and%20History%20of%20R%20%5B16%3A07%5D%20%28%u5B8C%u6210%29%0A*Getting%20Help%20%5B13%3A53%5D%20%28%u7565%u904E%29%0A*Console%20Input%20and%20Evaluation%20%5B4%3A46%5D%20%28%u5B8C%u6210%29%0A*Data%20Types%20-%20R%20Objects%20and%20Attributes%20%5B4%3A43%5D%0A*Data%20Types%20-%20Vectors%20and%20Lists%20%5B6%3A27%5D%0A*Data%20Types%20-%20Matrices%20%5B3%3A24%5D%0A*Data%20Types%20-%20Factors%20%5B4%3A31%5D%0A*Data%20Types%20-%20Missing%20Values%20%5B2%3A10%5D%0A*Data%20Types%20-%20Data%20Frames%20%5B2%3A44%5D%0A*Data%20Types%20-%20Names%20Attribute%20%5B1%3A49%5D%0A*Data%20Types%20-%20Summary%20%5B0%3A43%5D%0A*Reading%20Tabular%20Data%20%5B5%3A51%5D%0A*Reading%20Large%20Tables%20%5B7%3A08%5D%0A*Textual%20Data%20Formats%20%5B4%3A58%5D%0A*Connections%3A%20Interfaces%20to%20the%20Outside%20World%20%5B4%3A35%5D%0A*Subsetting%20-%20Basics%0A*Subsetting%20-%20Lists%0A*Subsetting%20-%20Matrices%0A*Subsetting%20-%20Partial%20Matching%0A*Subsetting%20-%20Removing%20Missing%20Values%0A*Vectorized%20Operations%20%5B3%3A46%5D%0A*Introduction%20to%20swirl%0A%0A%0A%5B%20%u672C%u6B21%u7B46%u8A18%u5167%u5BB9%20%5D%20Data%20Types%0A*%uFF08%u4E00%uFF09Data%20Types%20-%20R%20Objects%20and%20Attributes%0A*%uFF08%u4E8C%uFF09Data%20Types%20-%20Vectors%20%u3001Matrices%20and%20Lists%0A*%uFF08%u4E09%uFF09Data%20Types%20-%20Factors%0A*%uFF08%u56DB%uFF09Data%20Types%20-%20Missing%20Values%0A*%uFF08%u4E94%uFF09Data%20Types%20-%20Data%20Frames%0A*%uFF08%u516D%uFF09Data%20Types%20-%20Names%20Attribute%0A%0A%0A%0A%0A*%uFF08%u4E00%uFF09Data%20Types%20-%20R%20Objects%20and%20Attributes%0A%5B%20%u53C3%u8003%u8CC7%u6599%20%5D%0A*%u7269%u4EF6%u7684%u7DAD%u5EA6%u540D%u7A31%0A*3.1%20Intrinsic%20attributes%3A%20%u5167%u5728%u5C6C%u6027%uFF1A%u6A21%u5F0F%u548C%u9577%u5EA6%0A%0A%0A%5B%20%u91CD%u9EDE%u6574%u7406%20%5D%0A1.%20%20Object%20%20%20%20%u7269%u4EF6%0A*%u5411%u91CF%28vector%29%20%3A%20%0A*%u6211%u89BA%u5F97%u5728R%u8A9E%u8A00%u88E1%u7684%22%u5411%u91CF%22%u6709%u9EDE%u50CF%u662FC%u8A9E%u8A00%u88E1%u7684%22%u8B8A%u6578%22%u6982%u5FF5%0A*R%u88E1%u9762%u6700%u57FA%u672C%u7684%u7269%u4EF6%0A*%u4E00%u500B%u5411%u91CF%u901A%u5E38%u53EF%u4EE5%u64C1%u6709%u591A%u500B%u5143%u7D20%20%28%u4F46%u662F%u9808%u70BA%u76F8%u540C%u985E%u578B%29%20%0A*%5B%u552F%u4E00%u4F8B%u5916%5D%20%0A*%u5217%u8868%28list%29%20%3A%20%u9019%u7A2E%u985E%u578B%u7684%u5411%u91CF%u53EF%u4EE5%u540C%u6642%u5305%u542B%u4E0D%u540C%u985E%u5225%u7684%u7269%u4EF6%0A*%u5411%u91CF%u53EF%u4EE5%u547C%u53EB%22vector%28%29%22%u4F86%u4F7F%u7528%uFF0C%u5B83%u5177%u6709%22%u985E%u578B%22%u548C%22%u9577%u5EA6%22%u9019%u5169%u500B%u53C3%u6578%0A%0A*%u57FA%u672C%u7269%u4EF6%u578B%u614B%20%3A%20R%u8A9E%u8A00%u88E1%u9762%u6700%u57FA%u672C%u76845%u7A2Ej%u7269%u4EF6%u985E%u578B%0A*character%20%20%20%20%u5B57%u5143%u578B%0A*numeric%20%28real%20numbers%29%20%20%20%20%u6578%u503C%u578B%20%20%28%20%u5305%u542B%u5C0F%u6578%20%29%0A*%u7121%u9650%u5927%20%3A%20%u53EF%u4EE5%u4F7F%u7528%22Inf%22%28Infinity%29%u4F86%u8868%u793A%20%0A*%5B%20%u8209%u4F8B%20%5D%20%201%20/%200%20%3D%20Inf%20%20%3B%20%201%20/%20Inf%20%3D%200%0A*%u672A%u5B9A%u7FA9%20%3A%20%u53EF%u4EE5%u4F7F%u7528%22NaN%22%28Not%20a%20Number%29%u4F86%u8868%u793A%uFF0C%u4E5F%u5E38%u7528%u4F86%u8868%u793A%22%u907A%u5931%u503C%22%28Missing%20Value%29%uFF0C%5B%20%u8209%u4F8B%20%5D%200%20/%200%20%3D%20NaN%0A*integer%20%20%20%20%u6574%u6578%u578B%0A*complex%20%20%20%20%u8907%u6578%u578B%0A*logical%20%28True%20/%20False%29%20%20%20%20%u908F%u8F2F%u578B%0A%0A%0A2.%20%20Attributes%20%20%20%20%u5C6C%u6027%0A*%u7269%u4EF6%u548C%u5C6C%u6027%u7684%u95DC%u4FC2%0A*%u7269%u4EF6%u53EF%u4EE5%u4E0D%u5305%u542B%u5C6C%u6027%uFF0C%u4F46%u5C6C%u6027%u53EF%u4EE5%u662F%u7269%u4EF6%u7684%u4E00%u90E8%u4EFD%0A%0A*%u57FA%u672C%u5C6C%u6027%u578B%u614B%0A*%u5E38%u898B%u7684%u578B%u614B%20%28%u4F7F%u7528%u8005%u53EF%u81EA%u884C%u5B9A%u7FA9%u5176%u4ED6%u578B%u614B%u7684%u5C6C%u6027%29%0A*names%20%20%20%20%u540D%u7A31%0A*dimnames%20%28dimension%20name%29%20%20%20%20%u7DAD%u5EA6%u540D%u7A31%0A*dimensions%20%20%20%20%u7DAD%u5EA6%0A*class%20%20%20%20%u985E%u5225%0A*length%20%20%20%20%u9577%u5EA6%0A*%u5C6C%u6027%u53EF%u4EE5%u547C%u53EB%22attributes%28%29%22%u4F86%u4F7F%u7528%uFF0C%u7528%u4F86%u8A2D%u5B9A%u6216%u4FEE%u6539%u7269%u4EF6%u7684%u5C6C%u6027%0A%0A%0A%0A%0A*%uFF08%u4E8C%uFF09Data%20Types%20-%20Vectors%u3001Matrices%20and%20Lists%0A%5B%20%u53C3%u8003%u8CC7%u6599%20%5D%0A*Coercion%20-%20R%20in%20a%20Nutshell%2C%202nd%20Edition%20-%20Safari%20Books%20Online%20%0A*r%3Amatrix%2C%20R%20%u7D71%u8A08%u8EDF%u9AD4--%20%u77E9%u9663%u904B%u7B97%20-%20%u9673%u937E%u8AA0%u7684%u7DB2%u7AD9%20-%20Wikidot%0A%0A%0A%5B%20%u91CD%u9EDE%u6574%u7406%20%5D%0A1.%20%20Creating%20Vector%20%20%20%20%u5EFA%u7ACB%u5411%u91CF%0A*%u540C%u985E%u578B%u7269%u4EF6%u7684%u5411%u91CF%0A*x%20%3C-%20c%280.5%2C%200.6%29%20%20%20%20%20%20%20%23%20numeric%28%u6578%u503C%u578B%29%0A*x%20%3C-%20c%28TRUE%2C%20FALSE%29%20%20%20%20%23%20logical%28%u908F%u8F2F%u578B%29%0A*x%20%3C-%20c%28T%2C%20F%29%20%20%20%20%20%20%20%20%20%20%20%23%20logical%28%u908F%u8F2F%u578B%29%0A*x%20%3C-%20c%28%22a%22%2C%20%22b%22%2C%20%22c%22%29%20%20%23%20character%28%u5B57%u5143%u578B%29%0A*x%20%3C-%209%3A29%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20integer%28%u6574%u6578%u578B%29%0A*x%20%3C-%20c%281+0i%2C%202+4i%29%20%20%20%20%20%23%20complex%28%u8907%u6578%u578B%29%0A**%0A%0A*%u4F7F%u7528%22vector%28%29%22%0A*%u53EF%u4EE5%u5728R%20Console%u88E1%u57F7%u884C%20%22x%20%3C-%20vector%28%22numeric%22%2C%20length%20%3D%2010%29%22%20%2C%20%u57F7%u884C%u7D50%u679C%u5982%u4E0B%20%3A%20%0A*%23%20vector%28%29%0A*%3E%20x%20%3C-%20vector%28%22numeric%22%2C%20length%20%3D%2010%29%20%20%20%20%23%20%u5BA3%u544A%u4E00%u500B%22%u6578%u503C%22%u578B%u614B%u7684%u5411%u91CF%2C%u9577%u5EA6%u8A2D%u5B9A%u70BA10%0A*%3E%20x%0A*%5B1%5D%200%200%200%200%200%200%200%200%200%200%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%22%u6578%u503C%22%u5411%u91CF%u88E1%u6BCF%u4E00%u500B%u5143%u7D20%u7684%u503C%u9810%u8A2D%u70BA0%0A*%0A*%0A%0A2.%20%20Mixing%20Objects%20%20%20%20%u5728%u5411%u91CF%u4E2D%u5617%u8A66%u6DF7%u5408%u4E0D%u540C%u578B%u614B%u7684%u7269%u4EF6%0A*%3C%u512A%u5148%u9806%u5E8F%3E%20%u578B%u614B%u4E4B%u9593%u7684%u6BD4%u8F03%0A*list%20%3E%20character%20%3E%20complex%20%3E%20numeric%20%3E%20integer%20%3E%20logical%0A*%u7576%u4F7F%u7528%u8005%u8A66%u5716%u5EFA%u7ACB%u540C%u6642%u542B%u6709%u5169%u7A2E%u4E0D%u540C%u985E%u578B%u7269%u4EF6%u7684%u5411%u91CF%20%2C%20R%u5C07%u6703%u5728%u5F8C%u53F0%u9032%u884C%22%u5F37%u5236%u8F49%u63DB%28coercion%29%22%20%3A%20%0A*%3E%20y%20%3C-%20c%281.7%2C%20%22a%22%29%20%20%20%20%20%23%23%20%u6703%u5F97%u5230%22character%22%u5411%u91CF%0A*%3E%20y%20%3C-%20c%28TRUE%2C%202%29%20%20%20%20%20%20%23%23%20%u6703%u5F97%u5230%22numeric%22%u5411%u91CF%0A*%3E%20y%20%3C-%20c%28%22a%22%2C%20TRUE%29%20%20%20%20%23%23%20%u6703%u5F97%u5230%22character%22%u5411%u91CF%0A**%0A%0A%0A3.%20%20Explicit%20Coercion%20%20%20%20%u624B%u52D5%u8F49%u63DB%u578B%u614B%0A*%u6211%u5011%u53EF%u4EE5%u4F7F%u7528%22as.%u8CC7%u6599%u578B%u614B%28%u8B8A%u6578%29%22%u9019%u500B%u51FD%u6578%u4F86%u624B%u52D5%u8F49%u63DB%u5411%u91CF%u7684%u578B%u614B%20%2C%20%u4EE5%u4E0B%u662F%u57F7%u884C%u7BC4%u4F8B%20%3A%20%0A*%28%201%20%29%20%u5408%u6CD5%u7684%u578B%u614B%u8F49%u63DB%0A*%3E%20x%20%3C-%200%3A6%20%20%20%20%23%20%u5EFA%u7ACB%u6574%u6578%u578B%u5411%u91CF%22x%22%0A*%3E%20class%28x%29%20%20%20%20%23%20%u986F%u793A%22x%22%u7684%u578B%u614B%0A*%5B1%5D%20%22integer%22%20%0A*%3E%20as.numeric%28x%29%20%20%20%20%23%20%u5C07%22x%22%u8F49%u63DB%u6210%u6578%u503C%u578B%u614B%0A*%5B1%5D%200%201%202%203%204%205%206%0A*%3E%20as.logical%28x%29%20%20%20%20%23%20%u5C07%22x%22%u8F49%u63DB%u6210%u908F%u8F2F%u578B%u614B%0A*%5B1%5D%20FALSE%20TRUE%20TRUE%20TRUE%20TRUE%20TRUE%20TRUE%0A*%3E%20as.character%28x%29%20%20%23%20%u5C07%22x%22%u8F49%u63DB%u6210%u5B57%u5143%u578B%u614B%0A*%5B1%5D%20%220%22%20%221%22%20%222%22%20%223%22%20%224%22%20%225%22%20%226%22%0A**%0A%0A*%28%202%20%29%20%u4E0D%u5408%u6CD5%u7684%u578B%u614B%u8F49%u63DB%0A*%3E%20x%20%3C-%20c%28%22a%22%2C%20%22b%22%2C%20%22c%22%29%20%20%20%20%23%20%u8F38%u5165%u542B%u6709%u4E09%u500B%u7269%u4EF6%u7684%22%u5B57%u5143%22%u5411%u91CFx%0A*%3E%20as.numeric%28x%29%20%20%20%20%23%20%u5617%u8A66%u5C07%22x%22%u8F49%u63DB%u6210%22%u6578%u503C%22%u5411%u91CF%0A*%5B1%5D%20NA%20NA%20NA%0A*Warning%20message%3A%0A*NAs%20introduced%20by%20coercion%20%0A*%3E%20as.logical%28x%29%20%20%20%20%23%20%u5617%u8A66%u5C07%22x%22%u8F49%u63DB%u6210%22%u908F%u8F2F%22%u5411%u91CF%0A*%5B1%5D%20NA%20NA%20NA%0A*%3E%20as.complex%28x%29%20%20%20%20%23%20%u5617%u8A66%u5C07%22x%22%u8F49%u63DB%u6210%22%u8907%u6578%22%u5411%u91CF%0A*%5B1%5D%20NA%20NA%20NA%0A*Warning%20message%3A%0A*NAs%20introduced%20by%20coercion%20%0A*%3E%20%0A**%0A%0A%0A4.%20%20Matrices%20%20%20%20%u77E9%u9663%0A*%28%201%20%29%20%u7279%u6027%0A*%u5177%u6709%u7DAD%u5EA6%u5C6C%u6027%u7684%u5411%u91CF%2C%u662F%u500B%u4E8C%u7DAD%u77E9%u9663%0A*%u5229%u7528%22matrix%28nrow%20%3D%20%3F%20%2Cncol%20%3D%20%3F%29%22%u4F86%u5EFA%u7ACB%u77E9%u9663%0A*%3E%20m%20%3C-%20matrix%28nrow%20%3D%202%2C%20ncol%20%3D%203%29%20%20%20%20%23%20%22nrow%22%3A%u5217%20%2C%20%22ncol%22%3A%u6B04%0A*%3E%20m%20%0A*%20%20%20%20%20%5B%2C1%5D%20%5B%2C2%5D%20%5B%2C3%5D%0A*%5B1%2C%5D%20%20%20NA%20%20%20NA%20%20%20NA%0A*%5B2%2C%5D%20%20%20NA%20%20%20NA%20%20%20NA%0A*%3E%20dim%28m%29%20%20%20%20%23%20%u53D6%u5F97%u77E9%u9663%u7684%u7DAD%u5EA6%0A*%5B1%5D%202%203%0A*%3E%20attributes%28m%29%20%20%20%20%23%20%u53D6%u5F97%u77E9%u9663%u7684%u5C6C%u6027%0A*%24dim%0A*%5B1%5D%202%203%0A*%3E%20%0A**%0A%0A%0A*%28%202%20%29%20%u4EE5%22%u6B04%28column%29%22%u70BA%u512A%u5148%0A*%22matrix%22%u4EE5%22%u76F4%u884C%28ncol%29%22%u70BA%u512A%u5148%u4F86%u5B58%u653E%u8CC7%u6599%20%3A%20%0A*%3E%20m%20%3C-%20matrix%281%3A6%2C%20nrow%20%3D%202%2C%20ncol%20%3D%203%29%20%20%20%20%23%20%u5728%223%u6B04%28ncol%29*2%u5217%28nrow%29%22%u7684%u77E9%u9663%u5167%u5B58%u5165%221%7E6%22%0A*%3E%20m%0A*%20%20%20%20%20%5B%2C1%5D%20%5B%2C2%5D%20%5B%2C3%5D%0A*%5B1%2C%5D%20%20%20%201%20%20%20%203%20%20%20%205%0A*%5B2%2C%5D%20%20%20%202%20%20%20%204%20%20%20%206%0A*%3E%20%23%20%22matrix%22%u662F%u4EE5%22%u76F4%u884C%28ncol%29%22%u70BA%u512A%u5148%u4F86%u653E%u5165%u8CC7%u6599%u7684%2C%20%u6240%u4EE5%u7B2C%u4E00%u7B46%u8CC7%u6599%u662F%u5F9E%5B1%2C1%5D%u958B%u59CB%u5B58%u653E%0A*%3E%20%23%20%5B1%2C1%5D%3D1%2C%5B2%2C1%5D%3D2%2C%5B1%2C2%5D%3D3%2C%5B2%2C2%5D%3D4%2C%5B1%2C3%5D%3D5%2C%5B2%2C3%5D%3D6%20...%u4EE5%u6B64%u985E%u63A8%0A*%3E%20%0A**%0A%0A*%28%203%20%29%20%u7528%22dim%28x%29%22%u8A2D%u5B9A%u7DAD%u5EA6%0A*%22%u5411%u91CF%22%u53EF%u4EE5%u5229%u7528%22dim%28x%29%22%u8A2D%u5B9A%u7DAD%u5EA6%u5C6C%u6027%u4F86%u88FD%u4F5C%u77E9%u9663%20%3A%20%0A*%3E%20m%20%3C-%201%3A10%20%20%20%20%23%20%u8A2D%u5B9A%u4E00%u500B%u6709%221%7E10%22%u6574%u6578%u7684%u5411%u91CF%0A*%3E%20m%0A*%20%5B1%5D%20%201%20%202%20%203%20%204%20%205%20%206%20%207%20%208%20%209%2010%0A*%3E%20dim%28m%29%20%3C-%20c%282%2C%205%29%20%20%20%20%23%20%u5229%u7528%22dim%28x%29%22%u4F86%u8A2D%u5B9A%u5411%u91CF%2C%u5EFA%u7ACB%u7DAD%u5EA6%u5C6C%u6027%28%222%u5217%22%2C%225%u6B04%22%29%0A*%3E%20m%0A*%20%20%20%20%20%5B%2C1%5D%20%5B%2C2%5D%20%5B%2C3%5D%20%5B%2C4%5D%20%5B%2C5%5D%0A*%5B1%2C%5D%20%20%20%201%20%20%20%203%20%20%20%205%20%20%20%207%20%20%20%209%0A*%5B2%2C%5D%20%20%20%202%20%20%20%204%20%20%20%206%20%20%20%208%20%20%2010%0A*%3E%20%0A**%0A%0A*%28%204%20%29%20%u77E9%u9663%u7684%u53E6%u985E%u5EFA%u7ACB%u65B9%u5F0F%20%3A%20%22cbind%28x%2C%20y%29%u3001rbind%28x%2C%20y%29%22%0A*%3E%20x%20%3C-%201%3A3%0A*%3E%20y%20%3C-%2010%3A12%0A*%3E%20cbind%28x%2C%20y%29%20%20%20%20%23%20%u5EFA%u7ACB%22%u76F4%u884C%28col%29%22%u540D%u7A31%u70BA%22x%22%u548C%22y%22%u7684%u77E9%u9663%0A*%20%20%20%20%20x%20%20y%0A*%5B1%2C%5D%201%2010%0A*%5B2%2C%5D%202%2011%0A*%5B3%2C%5D%203%2012%0A*%3E%20rbind%28x%2C%20y%29%20%20%20%20%23%20%u5EFA%u7ACB%22%u5217%28row%29%22%u540D%u7A31%u70BA%22x%22%u548C%22y%22%u7684%u77E9%u9663%0A*%20%20%5B%2C1%5D%20%5B%2C2%5D%20%5B%2C3%5D%0A*x%20%20%20%201%20%20%20%202%20%20%20%203%0A*y%20%20%2010%20%20%2011%20%20%2012%0A*%3E%20%23%20%22cbind%28x%2C%20y%29%22%2C%u5176%u7522%u751F%u7684%u77E9%u9663%u5167%u5BB9%u70BA%3A%5B1%2Cx%5D%2C%5B2%2Cx%5D%2C%5B3%2Cx%5D%2C%5B1%2Cy%5D%2C%5B2%2Cy%5D%2C%5B3%2Cy%5D%0A*%3E%20%23%20%22rbind%28x%2C%20y%29%22%2C%u5176%u7522%u751F%u7684%u77E9%u9663%u5167%u5BB9%u70BA%3A%5Bx%2C1%5D%2C%5Bx%2C2%5D%2C%5Bx%2C3%5D%2C%5By%2C1%5D%2C%5By%2C2%5D%2C%5By%2C3%5D%0A*%3E%20%0A**%0A%0A%0A5.%20%20Lists%0A*%u662F%u4E00%u7A2E%u53EF%u4EE5%u5305%u542B%u4E0D%u540C%u578B%u614B%u5143%u7D20%u7684%u7279%u6B8A%u5411%u91CF%0A*%3E%20x%20%3C-%20list%281%2C%20%22a%22%2C%20TRUE%2C%201+4i%29%0A*%3E%20%23%20%u4E0A%u4E00%u884Clist%28%29%u5167%22%u5F9E%u5DE6%u81EA%u53F3%22%u7684%u5143%u7D20%u985E%u578B%u4F9D%u5E8F%u70BA%22integer%22%2C%22character%22%2C%22logical%22%2C%22complex%22%0A*%3E%20x%0A*%5B%5B1%5D%5D%0A*%5B1%5D%201%0A*%0A*%5B%5B2%5D%5D%0A*%5B1%5D%20%22a%22%0A*%0A*%5B%5B3%5D%5D%0A*%5B1%5D%20TRUE%0A*%0A*%5B%5B4%5D%5D%0A*%5B1%5D%201+4i%0A*%3E%20%0A**%0A%0A%0A%0A%0A*%uFF08%u4E09%uFF09Data%20Types%20-%20Factors%0A%5B%20%u53C3%u8003%u8CC7%u6599%20%5D%0A*http%3A//www.biosino.org/pages/newhtm/r/tchtml/Factors.html%0A%0A%0A%5B%20%u91CD%u9EDE%u6574%u7406%20%5D%0A1.%20%20Factors%20%20%20%20%u56E0%u6578%0A*%3C%20%u7279%u6027%20%3E%0A*%u901A%u5E38%u7528%u4F86%u8A18%u9304%u6709%u5206%u985E%u7684%u6578%u64DA%uFF0C%u5177%u6709%u63CF%u8FF0%u6027%0A*%u5206%u6210%22%u6709%u5E8F%22%u53CA%22%u7121%u5E8F%22%20%3A%20%0A*%22%u6709%u5E8F%22%3A%20%u53EF%u4EE5%u5206%u985E%u800C%u4E14%u6709%u5148%u5F8C%u6B21%u5E8F%u7684%u6578%u64DA%0A*%22%u7121%u5E8F%22%3A%20%u53EF%u4EE5%u5206%u985E%u4F46%u53C8%u6C92%u6709%u9806%u5E8F%u7684%u6578%u64DA%uFF0C%u4F8B%20%3A%20%u7537%u6027%u3001%u5973%u6027%0A*%u53EF%u4EE5%u8996%u70BA%u662F%u4E00%u500B%u6574%u6578%u578B%u614B%u7684%u5411%u91CF%uFF0C%u800C%u5411%u91CF%u88E1%u7684%u6BCF%u4E00%u500B%u6578%u5B57%u90FD%u6709%22%u6A19%u7C64%22%3A%0A*%u4F8B%u5982%20%3A%201%u30012%u30013%20%28%221%22%u4EE3%u8868%22%u9AD8%22%u3001%222%22%u4EE3%u8868%22%u4E2D%22%u3001%223%22%u4EE3%u8868%22%u4F4E%22%29%uFF0C%u6240%u4EE5%u6709%22%u9AD8%u3001%u4E2D%u3001%u4F4E%22%u9019%u4E09%u500B%u6A19%u7C64%0A*%u5728%22lm%28%29%22%u548C%22glm%28%29%22%u4E2D%uFF0C%22Factors%22%u6709%u7279%u6B8A%u610F%u7FA9%0A*%3E%20%20x%20%3C-%20factor%28c%28%22yes%22%2C%20%22yes%22%2C%20%22no%22%2C%20%22yes%22%2C%20%22no%22%29%29%20%20%20%20%23%20%u547C%u53EB%22%u56E0%u5B50%u51FD%u6578%22%3Afactor%28%29%0A*%3E%20x%20%20%20%20%23%20%u8F38%u51FA%u56E0%u5B50%uFF0C%u88E1%u9762%u6709%u5169%u7A2E%u5206%u7D1A%0A*%5B1%5D%20yes%20yes%20no%20%20yes%20no%20%0A*Levels%3A%20no%20yes%0A*%3E%20%23%20%u4E0A%u9762%u8F38%u51FA%u5206%u7D1A%u7684%u5167%u5BB9%u70BA%22no%22%u8DDF%22yes%22%0A*%3E%20%0A*%3E%20table%28x%29%20%20%20%20%23%20%u986F%u793A%u6BCF%u500B%u5206%u7D1A%u7684%u7D1A%u5225%u5728%u5411%u91CF%u88E1%u51FA%u73FE%u7684%u6B21%u6578%0A*x%0A*%20no%20yes%20%0A*%20%202%20%20%203%20%0A*%3E%20%23%20%u900F%u904Etable%28%29%u6211%u5011%u53EF%u4EE5%u5F97%u77E5%uFF0C%u5728%u5411%u91CF%u88E1%22no%22%u986F%u793A%u4E862%u6B21%u3001%22yes%22%u986F%u793A%u4E863%u6B21%0A*%3E%20%0A*%3E%20unclass%28x%29%20%20%20%20%23%20%u7528unclass%28%29%u4F86%u79FB%u9664factor%28%29%u88E1%u7684%22%u5206%u7D1A%22%u5C6C%u6027%0A*%5B1%5D%202%202%201%202%201%0A*attr%28%2C%22levels%22%29%0A*%5B1%5D%20%22no%22%20%20%22yes%22%0A*%3E%20%23%20%u79FB%u9664%u5F8C%u7684%22x%22%u8B8A%u6210%u4E00%u500B%u6574%u6578%u578B%u5411%u91CF%0A*%3E%20%23%20%u53EF%u4EE5%u767C%u73FE%u56E0%u5B50%u5411%u91CF%u88E1%u6BCF%u4E00%u500B%u5143%u7D20%u90FD%u6709%u5176%u5C0D%u61C9%u7684%22%u6574%u6578%22%28%u6A19%u7C64%29%0A*%3E%20%0A**%0A%0A*%3C%20%u8A2D%u5B9A%u9806%u5E8F%20%3E%0A*%u4F7F%u7528%22levels%28%29%22%u4F86%u8A2D%u5B9A%u56E0%u5B50%u7684%u5206%u985E%u9806%u5E8F%3A%0A*%3E%20x%20%3C-%20factor%28c%28%22yes%22%2C%20%22yes%22%2C%20%22no%22%2C%20%22yes%22%2C%20%22no%22%29%29%0A*%3E%20%23%20%u5728%u9810%u8A2D%u60C5%u6CC1%u4E0B%2C%20factor%28%29%u662F%u4EE5%u6BCF%u500B%u5143%u7D20%u7684%u7B2C%u4E00%u500B%u5B57%u6BCD%u4F86%u6392%u5E8F%2C%20%u6240%u4EE5%u7D50%u679C%u6703%u986F%u793A%u6210Levels%3A%20%22no%22%20%20%22yes%22%0A*%3E%0A*%3E%20x%0A*%5B1%5D%20yes%20yes%20no%20%20yes%20no%20%0A*Levels%3A%20no%20yes%0A*%3E%20%0A*%3E%0A*%3E%20%23%20%u5728factor%28%29%u88E1%u4F7F%u7528%22levels%28%29%22%u4F86%u8A2D%u5B9A%u5206%u985E%u7684%u9806%u5E8F%0A*%3E%20%23%20%u6211%u5011%u5E0C%u671B%u7D50%u679C%u986F%u793A%u6210Levels%3A%20%22yes%22%20%22no%22%0A*%3E%20x%20%3C-%20factor%28c%28%22yes%22%2C%20%22yes%22%2C%20%22no%22%2C%20%22yes%22%2C%20%22no%22%29%2Clevels%20%3D%20c%28%22yes%22%2C%20%22no%22%29%29%0A*%3E%0A*%3E%20x%0A*%5B1%5D%20yes%20yes%20no%20%20yes%20no%20%0A*Levels%3A%20yes%20no%0A*%3E%0A**%0A%0A%0A%0A%0A*%uFF08%u56DB%uFF09Data%20Types%20-%20Missing%20Values%0A%5B%20%u53C3%u8003%u8CC7%u6599%20%5D%0A*http%3A//www.biosino.org/pages/newhtm/r/tchtml/Missing-values.html%0A*http%3A//www.statmethods.net/input/missingdata.html%0A%0A%0A%5B%20%u91CD%u9EDE%u6574%u7406%20%5D%0A1.%20%20Missing%20Value%20%20%20%20%u907A%u5931%u503C%0A*%3C%20%u8868%u793A%u65B9%u5F0F%20%3E%20NA%20%u548C%20NaN%0A*NaN%20%3A%20%u672A%u5B9A%u7FA9%u7684%u6578%u503C%28numeric%29%0A*NA%20%3A%20%u5176%u4ED6%u7A2E%u985E%u7684%u907A%u5931%u503C%28%u5305%u62ECNaN%29%uFF0C%u4F8B%u5982%20%3A%20%u6578%u503C%u578B%28numeric%29%u3001%u6574%u6578%u578B%28integer%29%u3001%u5B57%u5143%u578B%28character%29%20...%0A*NA%u6709%u53EF%u80FD%u662FNaN%uFF0C%u4F46NaN%u4E0D%u662FNA%20%21%0A%0A*%3C%20%u6AA2%u6E2C%u65B9%u5F0F%20%3E%20is.na%28%29%20%u548C%20is.nan%28%29%0A*%28%201%20%29%20is.na%28%29%0A*%u7528%u4F86%u6AA2%u6E2C%u5C0D%u8C61%u662F%u5426%u70BANA%0A*%28%202%20%29%20is.nan%28%29%0A*%u7528%u4F86%u6AA2%u6E2C%u5C0D%u8C61%u662F%u5426%u70BANaN%0A*%3E%20x%20%3C-%20c%281%2C%202%2C%20NA%2C%2010%2C%203%29%20%20%20%20%23%20%u8A2D%u5B9A%u4E00%u500B%u5305%u542BNA%u7684%u5411%u91CF%0A*%3E%20is.na%28x%29%20%20%20%20%23%20%u6AA2%u6E2CNA%0A*%5B1%5D%20FALSE%20FALSE%20%20TRUE%20FALSE%20FALSE%0A*%3E%20%0A*%3E%20is.nan%28x%29%20%20%20%23%20%u6AA2%u6E2CNAN%0A*%5B1%5D%20FALSE%20FALSE%20FALSE%20FALSE%20FALSE%0A*%3E%20%0A*%3E%20%0A*%3E%20x%20%3C-%20c%281%2C%202%2C%20NaN%2C%20NA%2C%204%29%20%20%20%23%20%u8A2D%u5B9A%u4E00%u500B%u540C%u6642%u5305%u542BNaN%u548CNA%u7684%u5411%u91CF%0A*%3E%20is.na%28x%29%20%20%20%20%23%20%u6AA2%u6E2CNA%0A*%5B1%5D%20FALSE%20FALSE%20%20TRUE%20%20TRUE%20FALSE%0A*%3E%20%0A*%3E%20is.nan%28x%29%20%20%20%23%20%u6AA2%u6E2CNAN%0A*%5B1%5D%20FALSE%20FALSE%20%20TRUE%20FALSE%20FALSE%0A*%3E%20%0A*%20%20%20%20*%0A%0A%0A%0A%0A*%uFF08%u4E94%uFF09Data%20Types%20-%20Data%20Frames%0A%5B%20%u53C3%u8003%u8CC7%u6599%20%5D%0A*http%3A//www.biosino.org/pages/newhtm/r/tchtml/Data-frames.html%0A*http%3A//www.r-tutor.com/r-introduction/data-frame%0A%0A%0A%5B%20%u91CD%u9EDE%u6574%u7406%20%5D%0A%201.%20%20Data%20Frames%20%20%20%20%u8CC7%u6599%u6846%0A*%20%3C%20%u5C6C%u6027%20%3E%0A*%u662F%u4E00%u7A2E%u8868%u683C%u8CC7%u6599%uFF0C%u53EF%u4EE5%u60F3%u6210%u662F%u7279%u6B8A%u578B%u614B%u7684%22List%20%28%u5217%u8868%29%22%uFF0C%u6BCF%u4E00%u5217%u90FD%u6709%u76F8%u540C%u7684%u9577%u5EA6%28%u53EF%u4EE5%u662F%u4E0D%u540C%u7684%u578B%u614B%29%uFF0C%u548C%22Matrix%20%28%u77E9%u9663%29%22%28%u53EA%u80FD%u662F%u540C%u4E00%u578B%u614B%29%u4E0D%u540C%0A*%u53EF%u4EE5%u4F7F%u7528%22row.names%22%u70BA%u8868%u683C%u4E2D%u7684%u6BCF%u4E00%u884C%u5EFA%u7ACB%u540D%u5B57%28%u76F8%u7576%u65BC%u884C%u6A19%u7C64%29%0A%0A*%3C%20%u4F7F%u7528%u65B9%u5F0F%20%3E%0A*%28%201%20%29%20read.table%28%29%u3001read.csv%28%29%u3001data.frame%28%29%20%20%20%20%u5EFA%u7ACB%u8CC7%u6599%u6846%0A*%28%202%20%29%20data.matrix%28%29%20%20%20%20%u5C07%u8CC7%u6599%u6846%u63DB%u6210%u77E9%u9663%0A*%5B%20%u6CE8%u610F%20%5D%20%u8868%u683C%u88E1%u7684%u6240%u6709%u5143%u7D20%u5C07%u6703%u88AB%u5F37%u5236%u8F49%u63DB%u6210%u76F8%u540C%u578B%u614B%0A*%3E%20%23%20%u5EFA%u7ACB%u8CC7%u6599%u6846%28%u7B2C%u4E00%u500B%u8B8A%u6578%u53EB%u505A%22foo%22%2C%u662F%u4E00%u500B%u6574%u6578%u578B%u6578%u5217%20%3B%20%u7B2C%u4E8C%u500B%u8B8A%u6578%u53EB%u505A%22bar%22%2C%u662F%u4E00%u500B%u908F%u8F2F%u578B%u6578%u5217%29%0A*%3E%20x%20%3C-%20data.frame%28foo%20%3D%201%3A4%2C%20bar%20%3D%20c%28T%2C%20T%2C%20F%2C%20F%29%29%0A*%3E%20%23%20foo%20%u8868%u793A%221%7E4%22%2C%20bar%20%u8868%u793A%22TRUE%2C%20TRUE%2C%20FALSE%2C%20FALSE%22%20%0A*%3E%0A*%3E%0A*%3E%20%23%20%u56E0%u70BA%u6C92%u6709%u70BA%22%u884C%22%u6307%u5B9A%22%u6A19%u7C64%22%2C%20%u6240%u4EE5%u9810%u8A2D%u7684%u540D%u7A31%u70BA%221%202%203%204%22%2C%u5982%u4E0B%u9762%u6A19%u8272%u4E4B%u6587%u5B57%0A*%3E%20x%0A*%20%20foo%20%20%20bar%0A*1%20%20%201%20%20TRUE%0A*2%20%20%202%20%20TRUE%0A*3%20%20%203%20FALSE%0A*4%20%20%204%20FALSE%0A*%3E%20%0A*%3E%20nrow%28x%29%20%20%20%20%23%20%u986F%u793A%u5217%u6578%0A*%5B1%5D%204%0A*%3E%0A*%3E%20ncol%28x%29%20%20%20%20%23%20%u986F%u793A%u884C%u6578%0A*%5B1%5D%202%20%20%20%20%20%20%20%20%0A*%3E%20%23%20%u9019%u88E1%u662F%u6307%u8CC7%u6599%u6846%u7684%u6B04%u4F4D%u6578%u91CF%28%u5206%u5225%u662F%22foo%22%2C%22bar%22%29%0A*%3E%0A**%0A%0A%0A%0A%0A*%uFF08%u516D%uFF09Data%20Types%20-%20Names%20Attribute%0A%5B%20%u53C3%u8003%u8CC7%u6599%20%5D%0A*https%3A//stat.ethz.ch/R-manual/R-devel/library/base/html/names.html%0A%0A%0A%5B%20%u91CD%u9EDE%u6574%u7406%20%5D%0A*%3C%20%u5C0D%22%u7269%u4EF6%22%28Object%29%u9032%u884C%u547D%u540D%20%3E%0A*R%u88E1%u7684%22%u7269%u4EF6%22%u4E5F%u53EF%u4EE5%u6709%22%u540D%u5B57%u5C6C%u6027%22%uFF1A%u589E%u52A0%u7A0B%u5F0F%u7684%u53EF%u8B80%u6027%0A*%3E%20x%20%3C-%201%3A3%20%20%20%20%23%20%u5EFA%u7ACB%u4E00%u500B%u5411%u91CF%0A*%3E%20%0A*%3E%20%23%20%u9810%u8A2D%u60C5%u6CC1%u4E0B%2C%u5411%u91CF%u88E1%u7684%u7269%u4EF6%u662F%u6C92%u6709%u540D%u7A31%u7684%0A*%3E%20names%28x%29%20%20%20%20%23%20%u986F%u793Ax%u5411%u91CF%u88E1%u7269%u4EF6%u7684%u540D%u7A31%0A*NULL%0A*%3E%20%0A*%3E%20%0A*%3E%20names%28x%29%20%3C-%20c%28%22foo%22%2C%20%22bar%22%2C%20%22norf%22%29%20%20%20%20%23%20%u5C0D%u5411%u91CF%u88E1%u7684%u6BCF%u4E00%u500B%u5143%u7D20%u9032%u884C%u547D%u540D%0A*%3E%20x%0A*%20foo%20%20bar%20norf%20%0A*%20%20%201%20%20%20%202%20%20%20%203%20%0A*%3E%20names%28x%29%20%20%20%20%23%20%u986F%u793Ax%u5411%u91CF%u88E1%u7269%u4EF6%u7684%u540D%u7A31%0A*%5B1%5D%20%22foo%22%20%20%22bar%22%20%20%22norf%22%0A*%3E%20%0A**%0A%0A*%3C%20%u5C0D%22%u5217%u8868%22%28List%29%u9032%u884C%u547D%u540D%20%3E%0A*R%u88E1%u7684%22%u5217%u8868%22%u4E5F%u53EF%u4EE5%u6709%22%u540D%u5B57%u5C6C%u6027%22%0A*%3E%20x%20%3C-%20list%28a%20%3D%201%2C%20b%20%3D%202%2C%20c%20%3D%203%29%20%20%20%20%23%20%u5EFA%u7ACB%u5217%u8868%0A*%3E%20%23%20%u5217%u8868%u88E1%u7684%u7B2C%u4E00%u500B%u5143%u7D20%u53EB%u505A%22a%22%u3001%u7B2C%u4E8C%u500B%u5143%u7D20%u53EB%u505A%22b%22%u3001%u7B2C%u4E09%u500B%u5143%u7D20%u53EB%u505A%22c%22%0A*%3E%20%0A*%3E%20x%0A*%24a%0A*%5B1%5D%201%0A*%0A*%24b%0A*%5B1%5D%202%0A*%0A*%24c%0A*%5B1%5D%203%0A*%0A*%3E%20%23%20%u5982%u4E0A%u6240%u793A%2C%u6BCF%u4E00%u500B%u5143%u7D20%u90FD%u6709%u540D%u7A31%u4EE5%u53CA%u5176%u6240%u5C0D%u61C9%u7684%u503C%0A*%3E%20%0A**%0A%0A*%3C%20%u5C0D%22%u77E9%u9663%22%28Matrix%29%u9032%u884C%u547D%u540D%20%3E%0A*R%u88E1%u7684%22%u77E9%u9663%22%u4E5F%u53EF%u4EE5%u6709%22%u540D%u5B57%u5C6C%u6027%22%0A*%3E%20m%20%3C-%20matrix%281%3A4%2C%20nrow%20%3D%202%2C%20ncol%20%3D%202%29%20%20%20%20%23%20%u5EFA%u7ACB%u4E00%u500B2*2%u7684%u77E9%u9663%2C%u88E1%u9762%u6709%u5143%u7D20%221%7E4%22%0A*%3E%20%0A*%3E%20%23%20%u5229%u7528%22dimnames%28%29%22%u628A%u51FD%u6578%u503C%u8CE6%u4E88%u7D66%22list%28%29%22%0A*%3E%20dimnames%28m%29%20%3C-%20list%28c%28%22a%22%2C%20%22b%22%29%2C%20c%28%22c%22%2C%20%22d%22%29%29%0A*%3E%20%23%20%u7B2C%u4E00%u500B%u5143%u7D20%u662F%22%u884C%u540D%22%u7D44%u6210%u7684%u5411%u91CF%2C%u7B2C%u4E8C%u500B%u5143%u7D20%u662F%22%u6B04%u540D%22%u7D44%u6210%u7684%u5411%u91CF%0A*%3E%20%0A*%3E%20%0A*%3E%20m%0A*%20%20c%20d%0A*a%201%203%0A*b%202%204%0A*%3E%20%23%20%22%u884C%u540D%22%u88AB%u6539%u6210%27a%27%2C%27b%27%20%3B%20%22%u6B04%u540D%22%u88AB%u6539%u6210%27c%27%2C%27d%27%0A*%3E%0A**%0A%0A","attribs":"*0|1+12*0*1*2+1*0*3+4*0*4+d*0*3+n*0|1+1*0*3+f*0|1+1*0*1*5+1*0*6*7+c*0+1*0*3+4*0|1+1*0*1*5+1*0*8*7+p*0*7+8*0+1*0*3+4*0|1+1*0*1*5+1*0*9*7+c*0+9*0*3+4*0|1+1*0*1*5+1*0*a*7+z*0+1*0*3+4*0|1+1*0*1*b+1*0*c+18*0|1+1*0*1*b+1*0*d+11*0|1+1*0*1*b+1*0*e+s*0|1+1*0*1*b+1*0*f*g+r*0|1+1*0*1*b+1*0*h+y*0|1+1*0*1*b+1*0*i+v*0|1+1*0*1*b+1*0*j+z*0|1+1*0*1*b+1*0*k+r*0|1+1*0*1*5+1*0*l+r*0|1+1*0*1*5+1*0*m+r*0|1+1*0*1*5+1*0*n+r*0|1+1*0*1*5+1*0*o+1f*0|1+1*0*1*5+1*0*p+j*0|1+1*0*1*5+1*0*q+i*0|1+1*0*1*5+1*0*r+l*0|1+1*0*1*5+1*0*s+t*0|1+1*0*1*5+1*0*t+10*0|1+1*0*1*5+1*0*u+s*0|1+1*0*1*5+1*0*v+l*0|3+3*0*3+l*0|1+1*0*1*w+1*0*3+14*0|1+1*0*1*w+1*0*3+17*0|1+1*0*1*w+1*0*3+n*0|1+1*0*1*w+1*0*3+u*0|1+1*0*1*w+1*0*3|1+s*0*1*w+1*0*3+v*0|5+5*0*1*2+1*0*3+3*0*x+11*0|1+1*0+2*0*3+4*0|1+3*0*1*5+1*0*y+7*0|1+1*0*1*5+1*0*z+10*0|2+2*0*3|1+1*0*3+8*0|1+1*0*3|1+h*0*1*b+1*0*3*10*g+a*0|1+4*0*1*11+1*0|1+t*0*1*12+1*0|1+a*0*1*12+1*0+a*0*3*g+2*0+6*0*10+2*0*3*10*g+4*0|1+3*0*1*13+1*0*3+6*0|1+2*0*1*14+1*0*3+9*0+9*0*3*g+6*0|1+8*0*1*12+1*0+7*0*3+8*0+9*0*3+2*0+3*0*3+2*0|2+8*0*1*b+1*0*3*10*g+6*0+h*0*3+2*0|1+1*0*1*12+1*0*3+d*0*3*15+3*0|1+1*0*1*12+1*0*3+q*0*3*15+5*0*3+2*0+2*0*3+4*0|1+1*0*1*16+1*0*3+4*0+7*0*3*g+3*0*3+b*0|1+5*0*1*17+1*0*3+6*0|1+u*0*1*16+1*0*3+4*0+7*0*3*g+3*0+1*0*3+e*0+b*0*3+3*0+1*0*3+n*0|1+c*0*1*12+1*0*3+b*0*3*15+3*0|1+1*0*1*12+1*0*3+b*0*3*15+3*0|1+1*0*1*12+1*0*3+q*0*3*15+3*0|3+3*0*3+k*0|1+1*0*1*b+1*0*3*10*g+8*0|1+1*0*1*5+1*0|2+o*0*1*b+1*0*3*10*g+6*0|1+1*0*1*12+1*0|1+o*0*1*16+1*0*3+9*0*3*15+2*0*3|1+1*0*3*1*16+1*0*3+t*0*3*15+4*0*3|1+1*0*3*1*16+1*0*3+e*0*3*15+2*0*3|1+1*0*3*1*16+1*0*3+9*0*3*15+2*0*3|1+1*0*3*1*16+1*0*3+a*0*3*15+2*0|1+1*0*1*12+1*0+v*0*3*g+5*0|1+1*0*3|1+1*0|3+3*0*1*2+1*0*3+3*0*18+13*0|1+1*0+2*0*3+4*0|1+3*0*1*5+1*0*19+1p*0|1+2*0*1*5+1*0*1a+16*0|3+3*0*3+8*0|1+1*0*3+r*0|1+1*0*1*5+1*0|1+9*0*1*1b+1*0*3|1+12*0*3*1*1b+1*0*3|1+12*0*3*1*1b+1*0*3|1+12*0*3*1*1b+1*0*3|1+14*0*3*1*1b+1*0*3|1+12*0*3*1*1b+1*0*3+11*0|1+1*0*1*13+1*1c*0*1d+1*0|2+2*0*1*5+1*0*3+c*0|1+1*0*1*13+1*0+f*0*3+11*0|1+e*0*1*1b+1*0*3|1+b*0*3*1*1b+1*0*3+2*0*3*10+z*0*3+6*0*3*10+l*0*3|1+1*0*3*1*1b+1*0*3|1+4*0*3*1*1b+1*0*3+17*0*3*10+i*0|1+1*0*1e+1*0|1+1*0*1*13+1*0|2+2*0*3+11*0|1+1*0*1*1f+1*0*3+e*0|1+1*0*1*5+1*0*3*10*g+1k*0|1+1*0*1*5+1*0+z*0*3+e*0|1+5*0*1*1b+1*0*3|1+17*0*3*1*1b+1*0*3|1+15*0*3*1*1b+1*0*3+16*0|1+1*0*1*1g+1*1h*0*1i+1*0|2+2*0*3|1+1*0*3+v*0|1+1*0*1*5+1*0+7*0*3*10+3*0*3*10*15+4*0*3*10+1*0*10*g+2*0*3*10+1*0|1+t*0*1*1g+1*0*3+6*0*3*10*g+5*0*3*g+2*0|1+1*0*1*1b+1*0|1+r*0*1*1b+1*0+2*0*3+m*0|1+1*0*1*1b+1*0|1+f*0*1*1b+1*0+2*0*3*10+d*0*10+4*0*3*10+d*0|1+1*0*1*1b+1*0|1+i*0*1*1b+1*0+2*0*3*10+d*0*10+4*0*3*10+d*0|1+1*0*1*1b+1*0|1+14*0*1*1b+1*0+2*0*3*10+f*0*10+2*0*3*10+d*0|1+1*0*1*1b+1*0|1+w*0*1*13+1*1j*0*1k+1*0|2+2*0*1*1g+1*0*3+6*0*3*10*g+6*0*3+2*0|1+1*0*1*1b+1*0+2*0*3*10+17*0|1+1*0*1*1b+1*0+2*0*3*10+y*0|1+1*0*1*1b+1*0|1+d*0*1*1b+1*0|1+h*0*1*1b+1*0|1+s*0*1*1b+1*0+2*0*3*10+y*0|1+1*0*1*1b+1*0|1+d*0*1*1b+1*0+2*0*3*10+y*0|1+1*0*1*1b+1*0|1+d*0*1*1b+1*0|1+h*0*1*1b+1*0|1+s*0*1*1b+1*0|1+3*0*1*13+1*1l*0*1m+1*0*3|1+1*0|2+2*0*3+i*0|1+1*0*1*1f+1*0*3|1+9*0*1*12+1*0*10+2*0*3*10+4*0+6*0*3*10+4*0|1+1*0*1*12+1*0+2*0*3+1*0*3*10*g+q*0*3+1*0|1+6*0*1*1b+1*0|1+1n*0*1*1b+1*0|1+5*0*1*1b+1*0|1+k*0*1*1b+1*0|1+k*0*1*1b+1*0|1+k*0*1*1b+1*0|1+m*0*1*1b+1*0|1+8*0*1*1b+1*0|1+t*0*1*1b+1*0|1+5*0*1*1b+1*0|1+8*0*1*1b+1*0|1+3*0*1*13+1*1n*0*1o+1*0|3+3*0*1*1f+1*0*3+l*0|1+1*0*1*12+1*0+9*0*10+3*0*3*10+6*0*10+4*0|1+9*0*1*1b+1*0+2*0*3+21*0|1+1*0*1*1b+1*0|1+4*0*1*1b+1*0|1+k*0*1*1b+1*0|1+k*0*1*1b+1*0|1+k*0*1*1b+1*0+2*0*3*10+1f*0|1+1*0*1*1b+1*0+2*0*3*10+1l*0|1+1*0*1*1b+1*0|1+3*0*1*13+1*1p*0*1q+1*0|2+2*0*1*1f+1*0*3+j*0|1+1*0*1*12+1*0+1*0*3+2*0+6*0*3+6*0|1+g*0*1*1b+1*0+2*0*3+v*0|1+1*0*1*1b+1*0|1+4*0*1*1b+1*0|1+z*0*1*1b+1*0+2*0*3*10+1k*0|1+1*0*1*1b+1*0|1+4*0*1*1b+1*0|1+u*0*1*1b+1*0|1+u*0*1*1b+1*0|1+u*0*1*1b+1*0|1+3*0*1*13+1*1r*0*1s+1*0*3|1+1*0|1+1*0*1*1f+1*0*3+j*0*3*g+n*0*3+1*0|1+1*0*1*1b+1*0|1+b*0*1*1b+1*0|1+d*0*1*1b+1*0*3+2*0*3*10+15*0|1+1*0*1*1b+1*0|1+a*0*1*1b+1*0|1+a*0*1*1b+1*0|1+a*0*1*1b+1*0|1+a*0*1*1b+1*0+2*0*10+e*0*3*10+q*0|1+1*0*1*1b+1*0|1+h*0*1*1b+1*0|1+h*0*1*1b+1*0|1+h*0*1*1b+1*0+2*0*3*10+1p*0|1+1*0*1*1b+1*0+2*0*3*10+1p*0|1+1*0*1*1b+1*0|1+3*0*1*13+1*1t*0*1u+1*0|2+2*0*3|2+b*0*1*5+1*0+3*0*3*10*g+a*0|1+6*0*1*1b+1*0|1+w*0*1*1b+1*0|1+1y*0*1*1b+1*0|1+4*0*1*1b+1*0|1+6*0*1*1b+1*0|1+6*0*1*1b+1*0|1+1*0*1*1b+1*0|1+6*0*1*1b+1*0|1+8*0*1*1b+1*0|1+1*0*1*1b+1*0|1+6*0*1*1b+1*0|1+9*0*1*1b+1*0|1+1*0*1*1b+1*0|1+6*0*1*1b+1*0|1+9*0*1*1b+1*0|1+3*0*1*1g+1*1v*0*1w+1*0|5+5*0*1*2+1*0*3+3*0*1x+k*0|1+1*0+2*0*3+4*0|1+3*0*1*5+1*0|3+1o*0*3+8*0|1+1*0*3+h*0|1+1*0*1*1f+1*0*3+6*0|1+1*0*1*12+1*0+6*0*3*10*g+c*0|1+1*0*1*12+1*0+2*0*3+1*0*3*10+2*0*3+1*0+1*0*3+1*0*3*10+2*0*3+4*0|1+1*0*1*16+1*0*3+5*0|1+g*0*1*16+1*0*3+6*0+i*0*g+5*0|1+1*0*1*12+1*0+7*0*3*10+4*0+g*0*3+5*0|1+1*0*1*16+1*0+3*0*3+2*0*3*g+5*0*3+u*0+3*0*3+7*0|1+6*0*1*12+1*0+1*0*3+6*0+1*0*3+7*0|1+h*0*1*1b+1*0+3*0*3*10+1y*0|1+1*0*1*1b+1*0|1+m*0*1*1b+1*0|1+o*0*1*1b+1*0|1+f*0*1*1b+1*0|1+p*0*1*1b+1*0|1+3*0*1*1b+1*0|1+z*0*1*1b+1*0|1+2*0*1*1b+1*0|1+9*0*1*1b+1*0|1+9*0*1*1b+1*0+4*0*3+14*0|1+1*0*1*1b+1*0|1+3*0*1*1b+1*0|1+1c*0*1*1b+1*0|1+e*0*1*1b+1*0|1+g*0*1*1b+1*0|1+g*0*1*1b+1*0+4*0*3*10+g*0|1+1*0*1*1b+1*0+4*0*3*10+s*0|1+1*0*1*1b+1*0|1+3*0*1*1g+1*1y*0*1z+1*0*3|1+1*0|1+1*0*1*1f+1*0*3+8*0|1+1*0*1*12+1*0+3*0*3+8*0|1+d*0*1*1b+1*0+2*0*3*10+1b*0|1+1*0*1*1b+1*0+2*0*3*10+1q*0|1+1*0*1*1b+1*0|1+2*0*1*1b+1*0|1+4*0*1*1b+1*0|1+o*0*1*1b+1*0*3*10+e*0|1+1*0*1*1b+1*0|1+3*0*1*1b+1*0|1+2*0*1*1b+1*0+2*0*3*10+w*0|1+1*0*1*1b+1*0|1+w*0*1*1b+1*0+2*0*3*10+1z*0|1+1*0*1*1b+1*0|1+2*0*1*1b+1*0|1+4*0*1*1b+1*0|1+o*0*1*1b+1*0*3*10+e*0|1+1*0*1*1b+1*0|1+2*0*1*1g+1*20*0*21+1*0|5+5*0*1*2+1*0*3+3*0*22+r*0|1+1*0+2*0*3+4*0|1+3*0*1*5+1*0|1+1t*0*1*5+1*0|3+1g*0*3+8*0|1+1*0*3|1+p*0*1*1f+1*0*3+h*0|1+1*0*1*12+1*0*3*10+6*0*10+4*0*3*10+b*0*3|1+1*0*1*12+1*0*3*10+5*0*10+8*0*3*10+7*0+6*0*3*g+14*0*3+4*0|1+1*0*1*12+1*0*3*g+i*0*3+2*0|2+2*0*1*1f+1*0*3+r*0|1+1*0*1*1g+1*0*3+d*0|1+1*0*1*16+1*0+9*0*3+2*0|1+1*0*1*1g+1*0*3+e*0|1+1*0*1*16+1*0+9*0*3+3*0|1+1*0*1*1b+1*0+2*0*3*10+14*0|1+1*0*1*1b+1*0+2*0*3*10+i*0|1+1*0*1*1b+1*0+h*0*3*10+4*0|1+d*0*1*1b+1*0|1+3*0*1*1b+1*0+2*0*3*10+j*0|1+1*0*1*1b+1*0|1+y*0*1*1b+1*0|1+3*0*1*1b+1*0|1+3*0*1*1b+1*0*3+2*0*3*10+1a*0|1+1*0*1*1b+1*0+2*0*3*10+i*0|1+1*0*1*1b+1*0+h*0*3*10+4*0+2*0*3*10+4*0|1+7*0*1*1b+1*0|1+3*0*1*1b+1*0+2*0*3*10+j*0|1+1*0*1*1b+1*0+h*0*3*10+4*0|1+d*0*1*1b+1*0|1+3*0*1*1b+1*0+4*23*0*24+1*0|5+5*0*1*2+1*0*3+3*0*25+o*0|1+1*0+2*0*3+4*0|1+3*0*1*5+1*0|1+1q*0*1*5+1*0|3+1f*0*3+8*0|1+1*0*3+n*0|1+1*0*1*1f+1*0*3+7*0|1+1*0*1*12+1*0+d*0*10+6*0*3*10+9*0+2*0*3*10*g+b*0*3+9*0+3*0*3+b*0|1+d*0*1*12+1*0+4*0*3+b*0+g*0*3+3*0|2+3*0*1*1f+1*0*3+8*0|1+1*0*1*1g+1*0*3+u*0*3*10+c*0*3+9*0|1+1*0*1*1g+1*0*3+v*0|1+1*0*1*13+1*0+2*0*3+2*0|1+o*0*1*1b+1*0+2*0*3*10+1i*0|1+1*0*1*1b+1*0+2*0*3*10+1b*0|1+1*0*1*1b+1*0|1+1f*0*1*1b+1*0|1+2*0*1*1b+1*0|1+2*0*1*1b+1*0+2*0*3*10+18*0|1+1*0*1*1b+1*0|1+4*0*1*1b+1*0|1+c*0*1*1b+1*0*3*10+1*0|1+b*0*1*1b+1*0*3*10+1*0|1+b*0*1*1b+1*0*3*10+1*0|1+b*0*1*1b+1*0*3*10+1*0|1+b*0*1*1b+1*0|1+3*0*1*1b+1*0|1+k*0*1*1b+1*0|1+6*0*1*1b+1*0|1+2*0*1*1b+1*0|1+k*0*1*1b+1*0|1+e*0*1*1b+1*0|1+x*0*1*1b+1*0|1+2*0*1*1g+1*26*0*27+1*0|5+5*0*1*2+1*0*3+3*0*28+s*0|1+1*0+2*0*3+4*0|1+3*0*1*5+1*0|3+1x*0*3+8*0|1+1*0*1*1f+1*0*3+l*0|1+1*0*1*12+1*0+3*0*3*10+e*0+1*0*g+8*0|1+1*0*1*1b+1*0+2*0*3+k*0|1+1*0*1*1b+1*0|1+3*0*1*1b+1*0+2*0*3*10+k*0|1+1*0*1*1b+1*0|1+s*0*1*1b+1*0*3*10+4*0|1+1*0*1*1b+1*0|1+3*0*1*1b+1*0|1+3*0*1*1b+1*0+2*0*3*10+1j*0|1+1*0*1*1b+1*0|1+4*0*1*1b+1*0+1*0*10+3*0+2*0*10+3*0+1*0*10+4*0|1+2*0*1*1b+1*0|1+g*0*1*1b+1*0|1+s*0*1*1b+1*0+4*0*10+5*0+2*0*10+5*0+2*0*10+6*0|1+1*0*1*1b+1*0|1+3*0*1*1g+1*29*0*2a+1*0|2+2*0*1*1f+1*0*3+j*0|1+1*0*1*12+1*0+3*0*3*10+e*0|1+1*0*1*1b+1*0+2*0*3*10+14*0|1+1*0*1*1b+1*0+8*0*3*g+w*0|1+1*0*1*1b+1*0|1+3*0*1*1b+1*0|1+4*0*1*1b+1*0|1+3*0*1*1b+1*0|1+6*0*1*1b+1*0|1+1*0*1*1b+1*0|1+3*0*1*1b+1*0|1+6*0*1*1b+1*0|1+1*0*1*1b+1*0|1+3*0*1*1b+1*0|1+6*0*1*1b+1*0|1+1*0*1*1b+1*0|1+r*0*1*1b+1*0|1+3*0*1*1g+1*2b*0*2c+1*0|2+2*0*1*1f+1*0*3+l*0|1+1*0*1*12+1*0+3*0*3*10+e*0|1+1*0*1*1b+1*0+2*0*3+1r*0|1+1*0*1*1b+1*0|1+3*0*1*1b+1*0|1+y*0*1*1b+1*0|1+1c*0*1*1b+1*0|1+10*0*1*1b+1*0|1+3*0*1*1b+1*0|1+3*0*1*1b+1*0|1+4*0*1*1b+1*0|1+6*0*1*1b+1*0|1+6*0*1*1b+1*0|1+6*0*1*1b+1*0+2*0*3*10+x*0|1+1*0*1*1b+1*0|1+2*0*1*1g+1*2d*0*2e+1*0|1+1|1+1"},"rev":5242,"padId":"ETuVpfuklrK","globalPadId":"1$ETuVpfuklrK","historicalAuthorData":{"p.427403":{"colorId":0,"name":"羅左欣","userLink":"/ep/profile/vCS3Hx1OGOV"}},"apool":{"numToAttrib":{"0":["author","p.427403"],"1":["insertorder","first"],"2":["list","hone1"],"3":["bold","true"],"4":["link","https://class.coursera.org/rprog-031/lecture"],"5":["list","bullet2"],"6":["link","https://class.coursera.org/rprog-031/lecture/83"],"7":["strikethrough","true"],"8":["link","https://class.coursera.org/rprog-031/lecture/15"],"9":["link","https://class.coursera.org/rprog-031/lecture/17"],"10":["link","https://class.coursera.org/rprog-031/lecture/117"],"11":["list","task2"],"12":["link","https://class.coursera.org/rprog-031/lecture/119"],"13":["link","https://class.coursera.org/rprog-031/lecture/113"],"14":["link","https://class.coursera.org/rprog-031/lecture/107"],"15":["link","https://class.coursera.org/rprog-031/lecture/105"],"16":["underline","true"],"17":["link","https://class.coursera.org/rprog-031/lecture/109"],"18":["link","https://class.coursera.org/rprog-031/lecture/103"],"19":["link","https://class.coursera.org/rprog-031/lecture/111"],"20":["link","https://class.coursera.org/rprog-031/lecture/115"],"21":["link","https://class.coursera.org/rprog-031/lecture/121"],"22":["link","https://class.coursera.org/rprog-031/lecture/123"],"23":["link","https://class.coursera.org/rprog-031/lecture/125"],"24":["link","https://class.coursera.org/rprog-031/lecture/127"],"25":["link","https://class.coursera.org/rprog-031/lecture/129"],"26":["link","https://class.coursera.org/rprog-031/lecture/131"],"27":["link","https://class.coursera.org/rprog-031/lecture/133"],"28":["link","https://class.coursera.org/rprog-031/lecture/135"],"29":["link","https://class.coursera.org/rprog-031/lecture/137"],"30":["link","https://class.coursera.org/rprog-031/lecture/41"],"31":["link","https://class.coursera.org/rprog-031/lecture/85"],"32":["list","bullet1"],"33":["link","https://d396qusza40orc.cloudfront.net/rprog/lecture_slides/objects_attributes.pdf"],"34":["link","https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnx6aG9uZ2h1YXJydWFudGl4dWVodWl8Z3g6NmI1ODg0YTA2MWUyMjRlYQ"],"35":["link","http://www.biosino.org/pages/newhtm/r/tchtml/The-intrinsic-attributes-mode-and-length.html"],"36":["highlight","true"],"37":["list","comment1"],"38":["list","bullet3"],"39":["list","indent3"],"40":["list","bullet5"],"41":["italic","true"],"42":["list","bullet4"],"43":["list","indent4"],"44":["link","https://d396qusza40orc.cloudfront.net/rprog/lecture_slides/vectors_lists.pdf"],"45":["link","https://www.safaribooksonline.com/library/view/r-in-a/9781449358204/ch05s08.html"],"46":["link","http://ccckmit.wikidot.com/r:matrix"],"47":["list","code1"],"48":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440670771399_undefined"],"49":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440670771399_undefined"],"50":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440667986561_undefined"],"51":["list","indent1"],"52":["list","indent2"],"53":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440669560204_undefined"],"54":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440669560204_undefined"],"55":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440672453924_undefined"],"56":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440672453924_undefined"],"57":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440725320258_undefined"],"58":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440725320258_undefined"],"59":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440741518685_undefined"],"60":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440741518685_undefined"],"61":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440742949155_undefined"],"62":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440742949155_undefined"],"63":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440742821155_undefined"],"64":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440742821155_undefined"],"65":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440744784353_undefined"],"66":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440744784353_undefined"],"67":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440746212602_undefined"],"68":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440746212602_undefined"],"69":["link","https://d396qusza40orc.cloudfront.net/rprog/lecture_slides/factors.pdf"],"70":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440752414956_undefined"],"71":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440752414956_undefined"],"72":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440819781091_undefined"],"73":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440819781091_undefined"],"74":["link","https://d396qusza40orc.cloudfront.net/rprog/lecture_slides/missing_values.pdf"],"75":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440822218478_undefined"],"76":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440822218478_undefined"],"77":["link","https://d396qusza40orc.cloudfront.net/rprog/lecture_slides/dataframes.pdf"],"78":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440829931174_undefined"],"79":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440829931174_undefined"],"80":["link","https://d396qusza40orc.cloudfront.net/rprog/lecture_slides/names_attribute.pdf"],"81":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440831043285_undefined"],"82":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440831043285_undefined"],"83":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440831677245_undefined"],"84":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440831677245_undefined"],"85":["attachmentKey","hackpad.com_ETuVpfuklrK_p.427403_1440832669667_undefined"],"86":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_ETuVpfuklrK_p.427403_1440832669667_undefined"]},"nextNum":87},"clientIp":"203.64.104.19","clientAgent":"Python-urllib/1.17"},"friendUserIds":[],"globalPadId":"1$ETuVpfuklrK","initialOptions":{"guestPolicy":"link"},"initialRevisionList":[],"invitedGroupInfos":[],"invitedUserInfos":[{"name":"羅左欣","userId":"p.427403","userLink":"/ep/profile/vCS3Hx1OGOV","userPic":"https://www.gravatar.com/avatar.php?default=https%3A%2F%2Fhackpad.com%2Fstatic%2Fimg%2Fnophoto.png&gravatar_id=f6ae7264338da5d676564e9b593b19dd&size=100","status":"creator","colorId":1}],"isProPad":true,"isPublicPad":false,"padId":"ETuVpfuklrK","siteName":"hackpad","titleIsReadOnly":false,"userColor":1,"userName":"Guest","attachmentsBucket":"hackpad-attachments","s3BucketRoot":"s3.amazonaws.com","s3PolicyAndSig":{"s3Policy":"eyJleHBpcmF0aW9uIjoiMjAxNi0wNS0xNlQyMDoyMzo1MC42ODNaIiwiY29uZGl0aW9ucyI6W3siYnVja2V0IjoiaGFja3BhZC1hdHRhY2htZW50cyJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwiaGFja3BhZC5jb21fRVR1VnBmdWtscktfZy5iNTU1NWFmOGNlMGE2Mjk3XyJdLHsiYWNsIjoicHVibGljLXJlYWQifSxbInN0YXJ0cy13aXRoIiwiJENvbnRlbnQtVHlwZSIsImltYWdlLyJdLFsiY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMjA5NzE1MjBdLHsieC1hbXotY3JlZGVudGlhbCI6IkFLSUFJR1hGN1YzSVNEVVhJUjVRLzIwMTYwNTE2L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDE2MDUxNlQyMDIzNTBaIn1dfQ==","s3PolicySig":"7052d99a1a76c11b1281b871800d46ee8ca2ad1654b750f6af16c0b2d2727721"},"clientIp":"203.64.104.19","colorPalette":["#2996c3","#c66c78","#53af98","#daa458","#8a6fb1","#d98175","#87b747","#c98e6a","#5888b7","#c6759f","#b5b251","#50bad3"],"disableFB":false,"facebookClientId":"145393915506961","isDesktopApp":false,"isMobileApp":false,"isMobile":false,"serverTimestamp":1463343830701,"userAgent":"Python-urllib/1.17","accountPrivs":{"maxRevisions":1000},"dropboxConnected":false,"encryptedUserId":"","shouldGetFbLoginStatus":false,"useFbChat":false,"userId":"g.b5555af8ce0a6297","userIsGuest":true,"userLink":"","userPic":"","initialSpaces":[{"id":1,"orgName":"hackpad","subDomain":"\x3c\x3cprivate-network>>","isDeleted":false,"lastLoginDate":0,"url":"https://hackpad.com/"}],"xsrf":"dad1903f7f5dd56a","isDogfood":false,"cdn":"https://d29bt26wntaesq.cloudfront.net"};
+  // ]]>
+</script>
+    
+
+
+
+<script type="text/javascript" nonce="b81de24e956bea9b20349a86dd78f1376948148c">
+//<![CDATA[
+(function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+"//cdn.mxpnl.com/libs/mixpanel-2.1.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);
+mixpanel.init("51ca7558fe905a645b2ecfaf07d08a62");
+mixpanel.identify("b9f069df1b9d5db3");
+if (clientVars && !clientVars.userIsGuest && clientVars.userName) {
+  mixpanel.name_tag(clientVars.userName);
+  mixpanel.people.identify("b9f069df1b9d5db3");
+}
+//]]>
+</script>
+<script type="text/javascript" nonce="b81de24e956bea9b20349a86dd78f1376948148c">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-24086041-1']);
+_gaq.push(['_setDomainName', 'hackpad.com']);
+_gaq.push(['_setCustomVar', 1, 'User Type', 'Guest', 2]);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+<script type="text/javascript" nonce="b81de24e956bea9b20349a86dd78f1376948148c">
+//<![CDATA[
+
+var logSearchPerformed = (function () {
+  var lastSearchPerformed = null;
+  return function (query, numResults, label) {
+    var trimmedQuery = $.trim(query);
+    $.doTimeout('log-search-query', 800, function () {
+      if (trimmedQuery && (trimmedQuery != lastSearchPerformed)) {
+        trackEvent("search_performed", null /* action */, label /* label */, { query: query, numResults: numResults });
+        lastSearchPerformed = trimmedQuery;
+      }
+    });
+  }
+})();
+
+function trackEvent(eventName, action, label, extras) {
+  var dict = extras || {};
+  dict["action"] = action;
+  dict["label"] = label;
+  mixpanel.track(eventName, dict);
+  _gaq.push(["_trackEvent", eventName, action, label]);
+}
+
+function _isMeta(e) {
+	if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) return true;
+
+	// Logic that handles checks for the middle mouse button, based
+	// on [jQuery](https://github.com/jquery/jquery/blob/master/src/event.js#L466).
+	var which = e.which, button = e.button;
+	if (!which && button !== undefined) {
+	  return (!button & 1) && (!button & 2) && (button & 4);
+	} else if (which === 2) {
+	  return true;
+	}
+	return false;
+};
+
+function trackLinks(css, eventName, extras) {
+  $(css).bind('click', function(e) {
+  	var el = this;
+  	var dict = extras || {};
+  	dict['url'] = el.href;
+
+    trackEvent(eventName, null, null, dict);
+
+  	if (el.href && el.target !== '_blank' && !_isMeta(e)) {
+      e.preventDefault();
+
+      // Navigate to the url after just enough of a timeout (300 ms).
+      setTimeout(function() {
+        window.location.href = el.href;
+      }, 300);
+    }
+  });
+}
+
+function trackPageview(optPath) {
+  optPath = optPath || document.location.path + document.location.query;
+  mixpanel.track_pageview(optPath);
+  _gaq.push(['_trackPageview', optPath]);
+}
+
+//]]>
+
+</script>
+ 
+    <script nonce="b81de24e956bea9b20349a86dd78f1376948148c" type="text/javascript" src="https://d29bt26wntaesq.cloudfront.net/static/compressed/5a802ad97db1995b26ccea937afa5e54.js" crossorigin="anonymous"></script>
+
+    
+      
+      
+    
+
+    <script type="text/javascript" async src="https://www.dropbox.com/static/api/1/dropins.js" id="dropboxjs" data-app-key="0d6svpz10vgp18t"></script>
+    <!--start,6 | accessPadLocal,15 | after addClientVars,54 | before data,55 | before html generation,57 | done,220-->
+    <script nonce="b81de24e956bea9b20349a86dd78f1376948148c" type="text/javascript">
+$(document).on("click", "a[target]", function(e) {
+  e.preventDefault();
+  var newWindow = window.open("", this.target || "_blank");
+  if (newWindow) {
+    newWindow.opener = null;
+    newWindow.location = this.href;
+    newWindow.focus();
+  }
+});
+</script>
+
+    <noscript>
+      <div>
+        You'll need to turn on JavaScript to use Hackpad in all of its
+        awesomeness. ^_^
+      </div>
+    </noscript>
+  </body>
+</html>
+ 
