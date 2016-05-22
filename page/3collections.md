@@ -62,6 +62,17 @@ icon: bookmark
 21. [20151216 [Coursera] R Programming (11)](/hackpad/R/20151216-Coursera-R-Programming-11.html)
 
 
+---
+
+
+# 自製學習簡報
+* 這裡整理著自己製作的學習簡報：
+
+## 資料科學 Data Science 系列
+1. [20160523 [資料科學系列] 資料探勘 Data Mining (1)](/Data-Science/20160523-Data-Mining-1.html)
+
+
+
 
 
 <!-- Comments -->
