@@ -10,17 +10,16 @@
         
         <link rel="shortcut icon" href="imgs/favicon.ico" />
         
-        <link rel="stylesheet" href="css/front.css">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/front.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		
     </head>
+	
     <body>
-        <div class="content">
-            
-            <img src="imgs/background.jpg" id="fullscreen">
-            
-
-            
+		<div class="content">
+                
+			<!--/img src="imgs/background.jpg" id="fullscreen" -->
                 <img src="https://avatars.githubusercontent.com/shouzo" id="avatar">
             
 
@@ -44,5 +43,29 @@
                 </ul>
         </div>
 
+		
+		<video id="my-video" class="video" muted loop>
+		  <source src="media/demo.mp4" type="video/mp4">
+		  <source src="media/demo.ogv" type="video/ogg">
+		  <source src="media/demo.webm" type="video/webm">
+		</video><!-- /video -->
+
+		<script>
+		(function() {
+		  /**
+		   * Video element
+		   * @type {HTMLElement}
+		   */
+		  var video = document.getElementById("my-video");
+
+		  /**
+		   * Check if video can play, and play it
+		   */
+		  video.addEventListener( "canplay", function() {
+			video.play();
+		  });
+		})();
+		</script>
+		
     </body>
 </html>
