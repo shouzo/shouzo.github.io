@@ -1,0 +1,1733 @@
+
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="origin-when-crossorigin">
+    
+    <title>20150826 [&amp;#23416;&amp;#32722;&amp;#31558;&amp;#35352;] R&amp;#33287;&amp;#36039;&amp;#26009;&amp;#25506;&amp;#21208; (3) - hackpad.com</title>
+    <base href="https://hackpad.com/">
+    <link rel="shortcut icon" href="/static/favicon.png">
+    <link rel="apple-touch-icon" sizes="57x57"
+        href="/static/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="/static/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="/static/apple-touch-icon-144.png" />
+    <link rel="apple-touch-icon" sizes="144x144"
+        href="/static/apple-touch-icon-144.png" />
+
+    
+    <link href="https://d29bt26wntaesq.cloudfront.net/static/compressed/663fa08181a7a4f57a258b0a017889b5.css" rel="stylesheet" type="text/css" onError="this.loadError=true;" />
+    <link rel="search" type="application/opensearchdescription+xml"
+        title="hackpad" href="/static/opensearch.xml" />
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta content='hackpad.com' name='title' /><meta content='Real-time collaborative wiki' name='description' /><link href='/static/img/hackpad-logo.png' rel='image_src' /><meta name="fragment" content="!" /><meta name="robots" content="noindex, noarchive" /><link rel="alternate" type="text/xml+oembed" href="/ep/oembed/mLcnEtiDWQj" title="20150826 [學習筆記] R與資料探勘 (3)"><link rel="canonical" href="/20150826-學習筆記-R與資料探勘-3-mLcnEtiDWQj"><meta property="og:title" content="20150826 [學習筆記] R與資料探勘 (3)" /><meta property="og:description" content="整理自 R軟體與資料探勘之開發與應用 -- 貝式分類、k位最近鄰居法 *要熟悉的概念有&#34;貝式分類&#34;和&#34;k位最近鄰居法&#34; !
+[ GitHub ]
+*https://github." /><meta property="og:image" content="https://hackpad.com/static/img/hackpad-logo-112.png" /><meta property="fb:app_id" content="145393915506961" /><meta property="og:url" content="https://hackpad.com/20150826-R-3-mLcnEtiDWQj" /><meta property="og:type" content="hackpad:pad" /><meta property="twitter:site" content="@hackpad" /><meta name="twitter:widgets:csp" content="on" />
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+<meta name="apple-itunes-app" content="app-id=789857184, app-argument=https://hackpad.com/20150826-R-3-mLcnEtiDWQj">
+<style type="text/css" title="dynamicsyntax"></style>
+
+
+    <script nonce="8d1fa431dcb227422217cf99a6744170b98b8ba3" type="text/javascript">try { document.domain = document.domain.split(".").slice(-2).join("."); } catch (ex) { console.log("error setting document.domain: " + ex); }</script>
+
+    
+  </head>
+
+  <body id="padbody" class=" desktop-web propad nonprouser  guestbanner   sitebar hasSitebar">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<button type="button"
+     id="site-toggle" 
+     data-tooltip="Workspaces" 
+    
+    
+     data-click="sitebar-open" 
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-menu-web" ></span></button>
+
+<a href="/" id="site-iphone-back" class="iphoneshow"><i class="icon-back"></i></a>
+
+<header>
+  <div id="guestbanner">
+    <div class="banner-close icon-x">
+    </div>
+    <div id="guest-banner-msg">
+      Hackpads are smart collaborative documents.
+      <a href="#join-hackpad">Join Hackpad Now</a>.
+    </div>
+  </div>
+
+  <div id="site-banner" style="background-image: url('/static/img/banner.jpg'); background-position: left 0px top -160px"></div>
+  <nav id="padbar">
+    <a href="/" id="topbarBrand">
+      <span id="topbarBrandFullName" class="iphonehide ipadhide"
+          title="hackpad">hackpad</span>
+      <span class="iphoneshow ipadshow"><strong>h</strong></span>
+    </a>
+
+    <div id="mainbar">
+      <a href="/" data-tooltip="home" id="topbarBrand2">
+        <i class="icon-home"></i>
+      </a>
+      <a href="/" id="topbarBrand3">
+        <span id="topbarBrandFullName2" class="iphonehide ipadhide"
+            title="hackpad">hackpad</span>
+      </a>
+
+      <form id="createpadform" target="_blank" action="/ep/pad/newpad">
+        <button type="submit"
+     id="createpadlink" 
+     data-tooltip="New Hackpad" 
+    
+    
+     data-click="showmodal" 
+    
+     data-modal="#page-login-box" 
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-newpad" ></span></button>
+        <input id="createpadentry-hidden" name="title"
+            value="" type="hidden"/>
+      </form>
+      <form id="createpadform2" action="/ep/pad/newpad">
+        <div id="createpadbox">
+          <i class="icon-search"></i>
+          <input id="createpadentry" name="title" type="text"
+              value="" autocomplete="off"
+              autocorrect="off" />
+          <div class="ac-loading-spinny"></div>
+        </div>
+      </form>
+
+      
+  
+  <span id="toolbar" class="iphonehide">
+    
+
+    <button type="button"
+     id="textformatbutton" 
+     data-tooltip="Formatting Options" 
+    
+    
+    
+    
+    
+    
+    
+     data-type="format" 
+    class="hp-ui-button toolbar-main  hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-textformat" ></span></button><span class="hp-ui-button-group" data-type="format">
+      <button type="button"
+     id="boldbutton" 
+     data-tooltip="Bold (Ctrl+B)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-bold" ></span></button><button type="button"
+     id="italicsbutton" 
+     data-tooltip="Italics (Ctrl+I)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-italic" ></span></button><button type="button"
+     id="underlinebutton" 
+     data-tooltip="Underline (Ctrl+U)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-underline" ></span></button><button type="button"
+     id="strikebutton" 
+     data-tooltip="Strikethrough" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-strikethrough" ></span></button>
+    </span><button type="button"
+     id="paragraphbutton" 
+     data-tooltip="Paragraph Options" 
+    
+    
+    
+    
+    
+    
+    
+     data-type="paragraph" 
+    class="hp-ui-button toolbar-main  hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-paragraph" ></span></button><span class="hp-ui-button-group" data-type="paragraph">
+      <button type="button"
+     id="commentbutton" 
+     data-tooltip="Comment (// at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-comment" ></span></button><button type="button"
+     id="taskbutton" 
+     data-tooltip="Task List (type [ ] at the beginning of a line, or Ctrl+\)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-check" ></span></button><button type="button"
+     id="listbutton" 
+     data-tooltip="Bulleted List (- or * at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-bullet" ></span></button><button type="button"
+     id="numberedlistbutton" 
+     data-tooltip="Numbered List (1.  at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-number" ></span></button><button type="button"
+     id="codebutton" 
+     data-tooltip="Code (4 spaces at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-code" ></span></button>
+    </span><span id="toolbar-indent-group" class="hp-ui-button-group"
+        data-type="paragraph">
+      <button type="button"
+     id="indentbutton" 
+     data-tooltip="Indent (press Tab)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-indent" ></span></button><button type="button"
+     id="outdentbutton" 
+     data-tooltip="Unindent (press Shift-Tab)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-outdent" ></span></button>
+    </span><span id="toolbar-attach-group" class="hp-ui-button-group"
+        data-type="attach">
+      <button type="button"
+     id="insertimage" 
+     data-tooltip="Image" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-photo" ></span></button><button type="button"
+     id="inserttable" 
+     data-tooltip="Table" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-table" ></span></button><button type="button"
+     id="insertdropbox" 
+     data-tooltip="Dropbox File" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-dropbox" ></span></button><button type="button"
+     id="attachbutton" 
+     data-tooltip="Insert" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-insert" ></span></button>
+    </span>
+    <img id="toolbar-arrow"
+        src="https://d29bt26wntaesq.cloudfront.net/static/img/editBarTriangle@2x.png">
+  </span>
+  <button type="button"
+     id="editbutton" 
+     data-tooltip="Edit" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-edit" ></span></button>
+
+  
+  <div
+     id="settingsbutton" 
+     data-tooltip="Pad Settings" 
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-gear-hollow" ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="/ep/pad/summary/mLcnEtiDWQj"  
+            
+            >
+            
+              View History
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+             data-click="showembeddialog" 
+            >
+            
+              Embed
+            
+          </a></li>
+          
+        
+          
+          <li><a href="/ep/pad/static/mLcnEtiDWQj"  
+            
+            >
+            
+              Print
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="pad-moderator-link" 
+            
+            >
+            
+              Moderated By
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  
+  <div id="follow-container" src="/ep/pad/pad-follow-button?padId=mLcnEtiDWQj">
+    <button type="button"
+    
+     data-tooltip="Follow" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button padfollow   hp-ui-button-secondary"
+><span class="hp-ui-button-content icon-follow" ></span></button>
+    <button type="button"
+    
+     data-tooltip="Following" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button padunfollow hidden  hp-ui-button-secondary"
+><span class="hp-ui-button-content icon-follow" ></span></button>
+  </div>
+
+
+
+      
+
+      
+    </div>
+  </nav>
+</header>
+
+<nav id="sitebar">
+  <h1 id="sitebar-heading"><a href="https://hackpad.com">hackpad</a></h1>
+  <ul id="domain-list">
+    <li class="domain-item domain-item-overflow">
+      <div
+    
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-primary"
+><span class="hp-ui-button-content " >more</span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+    </li>
+    <li class="domain-item domain-item-new">
+      <a href="/ep/new-site" id="create-space">+ new workspace</a>
+    </li>
+  </ul>
+
+  <div id="account">
+    <div id="faccountnav">
+      
+        <a href="#" data-modal="#page-login-box" data-click="showmodal">
+          Sign In
+        </a>
+      
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+  <div id="padpage">
+    <div id="padeditor">
+      
+  
+  <script type="text/javascript" nonce="8d1fa431dcb227422217cf99a6744170b98b8ba3">
+    window.onerror = function(message, file, line, column, errorObj) {
+      etherpad.logError(message, file, line, column, errorObj);
+    };
+    window.onfreakout = function(msg) {
+      if ($('#freakout-dialog').is(':visible')) {
+        return;
+      }
+      trackEvent('freakout', null, null, {
+        url: location.href,
+        padId: clientVars.collab_client_vars.globalPadId,
+        userId: clientVars.userId,
+        error: (msg || "").split(":")[0],
+        errorDetail: msg
+      });
+      modals.showModal("#freakout-dialog", 0, true /* not cancellable */);
+    };
+  </script>
+
+  
+  
+
+  
+
+
+
+<div id="editor" class="syntax notranslate" autocorrect="off" autocomplete="off">
+  &nbsp;
+</div>
+<div id="non-editor">
+<div id="sidediv"><!-- --></div>
+<div id="overlaysdiv"><!-- --></div>
+<div
+     id="hp-editor-lang" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-primary"
+><span class="hp-ui-button-content " ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              txt
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              html
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              coffee
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              java
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              rb
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              c
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              c++
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              js
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              py
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+<div
+     id="hp-editor-headings" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-primary"
+><span class="hp-ui-button-content " ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"   id="hp-editor-headings-1" 
+            
+            >
+            
+              Heading 1
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-2" 
+            
+            >
+            
+              Heading 2
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-3" 
+            
+            >
+            
+              Heading 3
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-normal" 
+            
+            >
+            
+              Normal
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-link" 
+            
+            >
+            
+              Link to here
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+<div id="hp-editor-selection-wrapper"><button type="button"
+     id="hp-editor-selection-link" 
+     data-tooltip="Create Link" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-link" ></span></button><input id="hp-editor-selection-link-url" placeholder="Enter link URL"><button type="button"
+     id="hp-editor-selection-link-confirm" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-checkMark" ></span></button><button type="button"
+     id="hp-editor-selection-link-delete" 
+     data-tooltip="Remove Link" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-delete" ></span></button><button type="button"
+     id="hp-editor-selection-newpad" 
+     data-tooltip="Create New Hackpad" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-newpad" ></span></button><input id="hp-editor-selection-newpad-title" placeholder="Enter title"><button type="button"
+     id="hp-editor-selection-newpad-confirm" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-checkMark" ></span></button></div>
+</div>
+
+
+  
+  <div id="collections-div" class="sidebar-div">
+    <div id="collection-list-div">
+      <div
+     id="add-to-collection" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-custom"
+><span class="hp-ui-button-content " >add to collection</span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"   id="collection-invite-list-item" 
+            
+            >
+            
+              <form id="collection-invite-form"><input name="xsrf" type="hidden" value="a56fd4869d61790d" /><input type="hidden" name="padId" value="mLcnEtiDWQj" /><i class="icon-addcollection"></i><input type="text" id="collection-picker" placeholder="New or existing collection"/></form>
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+    </div>
+    <div id="collections-recent-list-wrapper">
+      <div id="collections-recent-label" class="sidebartext">
+        or choose a recent collection:
+      </div>
+      <ul id="collections-recent-list"></ul>
+    </div>
+    <div id="collection-list-overflow"></div>
+  </div>
+
+  <div id="shared-with-settings">
+    <div id="shared-with-settings-inner">
+    
+    <div
+     id="padaccess-menu" 
+    
+     role="menu" aria-haspopup="true" 
+     disabled 
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-custom"
+><span class="hp-ui-button-content " ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"   id="padaccess-deny" 
+            
+            >
+            
+              <i class="icon-lock"></i>invitees only
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="padaccess-link" 
+            
+            >
+            
+              <i class="icon-privacy-link"></i>anyone with link
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="padaccess-allow" 
+            
+            >
+            
+              <i class="icon-privacy-public"></i>everyone (public)
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+
+  <div id="editorbottombox">
+    
+  <div>
+    <a id="editor-last-changed" href="/ep/pad/summary/mLcnEtiDWQj">
+      Latest change
+      <span id="last-saved-timestamp" title="2015-12-09T17:03:24.000Z"></span>
+    </a>
+  </div>
+
+  <script id="template-user-create-entry" type="text/html">
+    <div class="create">
+      <img />
+      <a class="host"></a> created this <span class="timestamp"></span>.
+    </div>
+  </script>
+
+  <script id="template-invite-user-entry" type="text/html">
+    <div class="invite">
+      <img />
+      <a class="host"></a> invited
+      <a class="user"></a>.
+      <span class="lastAccessed">Seen
+      <span class="lastAccessedTimestamp"></span>.</span>
+      <span class="timestamp"></span>
+    </div>
+  </script>
+
+  <script id="template-invite-group-entry" type="text/html">
+    <div class="invite">
+      <img />
+      <a class="host"></a> added this to collection
+      <a class="collection"></a>. <span class="timestamp"></span>
+    </div>
+  </script>
+
+  <div id="inviteLog-wrapper"><div id="inviteLog"></div></div>
+
+  </div>
+
+    </div>
+    
+  <aside id="padsidebar">
+    
+  
+  <div id="padusers" class="">
+    <div id="sharingsettings">
+      
+
+  <div id="friend-picker-div">
+    <form id="invite-form" method="get" action="">
+      <input name="xsrf" type="hidden" value="a56fd4869d61790d" />
+      <input type="hidden" name="padId" value="mLcnEtiDWQj" />
+      <div id="friend-picker-wrapper">
+        <input type="text" id="friend-picker" class="" placeholder="invite people to this pad"/>
+        <div class="ac-loading-spinny"></div>
+        <label for="friend-picker"><i class="icon-invite"></i></label>
+      </div>
+    </form>
+  </div>
+
+
+      <div id="sharesummarywrapper" style="display: none">
+        <span class="sharesummary-with">With </span>
+        <span id="sharesummary" data-tooltip="Show list"
+            data-altTooltip="Hide List"> </span>
+      </div>
+      
+  
+  
+
+  <div id="otherusers">
+    <div id="otherusers-facepile-wrapper" data-tooltip="Show list" data-altTooltip="Hide list">
+      <img id="otherusers-facepile" src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif">
+      <span class="connected"></span>
+    </div>
+    <div id="otheruserstable-wrapper"><ul id="otheruserstable" class="popup-scrollable"></ul></div>
+  </div>
+
+  <script id="template-user-list" type="text/html">
+    <li id="XXX" title="XXX">
+      <figure>
+        <a>
+          <span class="user-image">
+            <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif" data-src="XXX" alt="XXX">
+            <span class="connected"></span>
+          </span>
+          <figcaption>
+            <span>XXX</span>
+            <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif" class="killuser"
+                alt="Remove User" role="button"
+                data-userId="XXX" data-name="XXX">
+          </figcaption>
+        </a>
+      </figure>
+    </li>
+  </script>
+
+      <div id="guestprompts"><!-- --></div>
+    </div>
+  </div>
+
+  <div id="toc-div" class="sidebar-div">
+    <ul></ul>
+  </div>
+
+
+  <div id="related-pads-div" class="sidebar-div">
+    <div class="sidebarheading">
+      <div
+     id="related-pads-menu" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button hp-ui-button-menu-reverse  hp-ui-button-menu  hp-ui-button-custom"
+><span class="hp-ui-button-content " >Related Pads</span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+
+    <div class="clear"></div>
+  </aside>
+
+  </div>
+  
+  <div class="connection-status iphonehide"><h3>Reconnecting...</h3></div>
+
+  <div id="modaloverlay"><div id="modaloverlay-inner"><!-- --></div></div>
+
+  <div id="mainmodals">
+    <div id="connectionbox" class="modaldialog" >
+      <h1 class="h1_disconnect">Disconnected</h1>
+      <h1 class="h1_unauth">No Authorization</h1>
+      <button type="button"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+      <div id="connectionboxinner" class="modaldialog-inner">
+        <div class="connecting">
+          Connecting...
+        </div>
+        <div class="reconnecting">
+          Reestablishing connection...
+        </div>
+        <div class="disconnected">
+          <div id="disconnected_looping">
+            <p>
+              <b>We're having trouble talking to the Hackpad synchronization
+                server.</b>
+              You may be connecting through an incompatible firewall or proxy
+              server.
+            </p>
+          </div>
+          <div id="disconnected_initsocketfail">
+            <p>
+              <b>We were unable to connect to the Hackpad synchronization
+              server.</b>
+              This may be due to an incompatibility with your web
+              browser or internet connection.
+            </p>
+          </div>
+
+          <div id="disconnected_unknown">
+            <p>
+              <b>Lost connection with Hackpad.</b>
+              This may be due to a loss of network connectivity. If you close
+              this window you may lose up to 30 seconds of unsaved work.
+            </p>
+          </div>
+          <div id="disconnected_slowcommit">
+            <p>
+              <b>Server not responding.</b>
+              This may be due to network connectivity issues or high load on
+              the server.
+            </p>
+          </div>
+          <div id="disconnected_unauth">
+            <p>
+              You are no longer allowed to access this pad. Reconnect to
+              request access.
+            </p>
+          </div>
+          <div id="reconnect_form">
+            <button type="button"
+     id="forcereconnect" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Reconnect Now</span></button>
+            <img class="loading-indicator"
+                src="/static/img/misc/status-ball.gif"/>
+            <span class="failed-indicator">Failed to reconnect.</span>
+          </div>
+          <div id="reconnect_advise">
+            <p>
+              If this continues to happen, please <a target="_blank"
+                  href="/ep/support">let us know</a>
+              (opens in new window).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="freakout-dialog" class="modaldialog">
+      <h1>How embarrassing...</h1>
+      <div id="freakout-dialog-inner" class="modaldialog-inner">
+        <div class="disconnected">
+          <div>
+            <p>
+              <b>We experienced an error on the page that is causing problems
+              with saving your work.</b>
+              Continuing to edit on the page without refreshing your browser
+              would lead to some <b>loss of your work</b>.
+            </p>
+          </div>
+          <div id="freakout-options">
+            <button type="button"
+    
+    
+    
+    
+     data-click="pagereload" 
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Refresh Now</span></button>
+            <button type="button"
+     id="freakout-copy-first" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >I want to copy my work first, please.</span></button>
+          </div>
+          <div id="freakout_advise">
+            <p>
+              If this continues to happen, please <a target="_blank"
+                  href="/ep/support">let us know</a>
+              (opens in new window).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="moderated-modal" class="modaldialog">
+      <h1>Heads Up!</h1>
+      <div id="moderated-modal-inner" class="modaldialog-inner">
+
+        <p id="moderated-modal-msg">
+          This pad is moderated.  Your changes will require owner approval.
+        </p>
+        <div class="dialog-buttons">
+          <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Cancel</span></button>
+          <button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button default  hp-ui-button-primary"
+><span class="hp-ui-button-content " >Yes! I want to edit</span></button>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div id="sharebox" class="modaldialog">
+      <div id="sharebox-inner" class="modaldialog-inner">
+      </div>
+    </div>
+
+    <div id="insertimagedialog" class="modaldialog">
+     <h1>Insert an Image</h1>
+     <div class="modaldialog-inner">
+      <form name="insert-image-form" id="insert-image-form">
+        <input name="xsrf" type="hidden" value="a56fd4869d61790d" />
+        <br/>
+        <div id="insertimagedialog-upload">
+          <input multiple type="file" id="web-image-upload" name="photo[]"
+              accept="image/*">
+          <div id="web-image-upload-separator">or</div>
+          <input type="text" id="web-image-url" name="web-image-url"
+              placeholder="paste a url" />
+        </div>
+        <div id="insertimagedialog-drag">
+          Tip: you can simply <b>drag&amp;drop</b> images into the editor
+          from your desktop!
+        </div>
+        <br/>
+         <div class="dialog-buttons">
+           <a href="#" data-click="hidemodal">Cancel</a>
+           <button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button default  hp-ui-button-primary"
+><span class="hp-ui-button-content " >Insert</span></button>
+         </div>
+         <div class="clear"></div>
+       </form>
+     </div>
+    </div>
+
+    
+  
+  <div id="killuser" class="modaldialog">
+    <h1>Stop sharing with <span class="name"></span>?</h1>
+    <div class="modaldialog-inner">
+      <div id="killuser-access">
+        This pad is shared with "<span class="access"></span>", so
+        <span class="name"></span> will still be able to access it.
+      </div>
+      <form id="killuser-form" action="/ep/pad/removeuser"
+          data-submit="submitmodal">
+        <input name="xsrf" type="hidden" value="a56fd4869d61790d" />
+        <input type="hidden" id="padId" name="padId"
+            value="mLcnEtiDWQj" />
+        <input type="hidden" id="userId" name="userId" />
+        <div class="dialog-buttons">
+          <a href="#" data-click="hidemodal">Cancel</a>
+          <button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Stop Sharing</span></button>
+        </div>
+        <div class="clear"></div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="embedpaddialog" class="modaldialog">
+   <h1>Embed This Pad</h1>
+   <div class="modaldialog-inner">
+    <label for="embedpad-code">
+      Paste the following into your web page or blog:
+    </label>
+    <textarea id="embedpad-code" rows="6" readonly></textarea>
+    <br />
+    <div class="clear"></div>
+    Embed as
+    <select id="embedpad-type" onchange="pad.updateEmbedCode()">
+      <option value="">Editable Hackpad</option>
+      <option value="html">Plain HTML</option>
+      <option value="html-notitle">Plain HTML without title</option>
+    </select>
+    <div class="dialog-buttons">
+      <a class="button" href="#" data-click="hidemodal">Close</a>
+    </div>
+  </div>
+
+  </div>
+
+  
+
+  <form id="reconnectform"
+      method="post"
+      action="/ep/pad/reconnect"
+      accept-charset="UTF-8"
+      style="display: none;">
+    <input name="xsrf" type="hidden" value="a56fd4869d61790d" />
+    <input type="hidden" class="padId" name="padId" />
+    <input type="hidden" class="diagnosticInfo" name="diagnosticInfo" />
+    <input type="hidden" class="missedChanges" name="missedChanges" />
+  </form>
+  </div>
+
+
+
+  
+  
+<footer id="pad-page-footer" class="hide-before-pad-load iphonehide">
+  
+  &copy; Dropbox Inc.
+  
+  <a href="https://hackpad.com/83netTWokps#Hackpad-Terms-of-Service">Terms</a>
+  <a href="https://hackpad.com/RpTWPko6ER2#Hackpad-Privacy-Policy">Privacy</a>
+  <a id="footer-support-link" href="mailto:support@hackpad.com">Support</a>
+  <a href="https://hackpad.com/sIkGLftzN7c#About-Hackpad">About</a>
+  <a href="https://hackpad.com/blog">Blog</a>
+</footer>
+
+  
+<div id="page-login-box" class="modaldialog" style="right: inherit; left: 50%;">
+  <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+  <div>
+    
+    
+
+  <div id="login-form-wrapper">
+
+  
+
+  <h1 class="iphonehide">Log in / Sign up</h1>
+  <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+
+  <div class="modaldialog-body">
+
+  
+  
+
+    <div id="page-loging-lhs">
+      <img width="230" src="https://d29bt26wntaesq.cloudfront.net/static/img/pencil-love.png">
+    </div>
+
+    <div id="nofacebook" class="page-login-rhs">
+      <a id="login-google" href="https://accounts.google.com/o/oauth2/auth?client_id=261270787987-jqaig2qiho2pe21fmmis6ak34oapihhf.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fhackpad.com%2Fep%2Faccount%2Fopenid&amp;response_type=code&amp;access_type=offline&amp;scope=email%20profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts.readonly&amp;state=%7B%22nonce%22%3A%225Zuo561zkg%22%2C%22shortContUrl%22%3A%22https%3A%2F%2Fhackpad.com%2FmLcnEtiDWQj%3Ftoken%3Dundefined%22%7D&amp;approval_prompt=force" class="google-signin-button" target="_self">
+        <img src="https://d29bt26wntaesq.cloudfront.net/static/img/goog.png">
+        <span>Sign in with <strong>Google</strong></span>
+      </a>
+
+      
+        <a id="login-facebook" class="fb-login-required" href="https://hackpad.com/20150826-R-3-mLcnEtiDWQj">
+          <img class="fb-connect-button" src="https://d29bt26wntaesq.cloudfront.net/static/img/fb.png">
+          <span>Sign in with <strong>Facebook</strong></span>
+        </a>
+      
+
+      <span id="login-or"><span class="page-login-or"></span><span class="page-login-or-lbl">or</span><span class="page-login-or"></span></span>
+
+      <form id="login-form" method="post" action="/ep/account/signin">
+        <input name="xsrf" type="hidden" value="a56fd4869d61790d" />
+        <span id="login-email-wrapper" class="login-email-input">
+          <label for="login-email"><i class="icon-privacy-invite"></i></label>
+          <input id="login-email" name="email" type="email" placeholder="Email" autocorrect="off" autocapitalize="off">
+          <button type="button"
+     id="login-email-go" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Go</span></button>
+        </span>
+
+        <div id="login-email-secondary">
+          <i class="icon-back"></i>
+          <span id="login-password-wrapper" class="login-email-input">
+            <label for="login-password"><i class="icon-lock"></i></label>
+            <input id="login-password" name="password" type="password" placeholder="Password">
+          </span>
+          <a href="/ep/account/forgot-password" id="login-forgot-password">Forgot password?</a>
+
+          <input id="signin-remember-me" type="hidden" group="1" name="rememberMe" value="1">
+          <input type="hidden" name="cont" value="https://hackpad.com/20150826-R-3-mLcnEtiDWQj">
+          
+
+          <div id="login-email-tertiary" class="modal-more-info">
+            <span id="login-full-name-wrapper" class="login-email-input">
+              <label for="login-fullname"><i class="icon-user"></i></label>
+              <input id="login-fullname" name="name" placeholder="Full Name">
+            </span>
+          </div>
+
+          <button id="login-submit" type="submit" disabled>Start using Hackpad</button>
+        </div>
+      </form>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  
+  </div>
+
+  </div>
+</div>
+
+
+  
+  <div id="connecting-to-facebook" class="modaldialog" style="padding:30px; margin-top: 100px">
+    <img alt="" src="https://d29bt26wntaesq.cloudfront.net/static/img/misc/status-ball.gif" style="float:right" />
+    <span style="font-size:21px; color:#666">Signing in using Facebook...</span>
+    <div style="margin-top:20px"><button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Cancel</span></button></div>
+  </div>
+  
+
+
+
+  <button type="button"
+     id="feedbackbutton" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button iphonehide ipadhide  hp-ui-button-action"
+><span class="hp-ui-button-content " >feedback</span></button>
+  
+
+<div id="feedbackbox" class="modaldialog">
+  <h1 class="with-content">Contact Support</h1>
+
+  <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+
+  <div class="modaldialog-inner">
+
+    <form id="feedback-form">
+      <input name="xsrf" type="hidden" value="a56fd4869d61790d" />
+
+
+      
+        <input type="text" name="feedbackbox-email" id="feedbackbox-email" class="modalfield" placeholder="Your email">
+        <br/>
+      
+
+      <select name="feedbackbox-topic" id="feedbackbox-topic" class="modalfield">
+        <option value="">Please select a topic</option>
+        <option value="howto">General usage / How does this work?</option>
+        <option value="feature">Feature request</option>
+        <option value="login">Login / account issue</option>
+        <option value="broken">Broken / can't load hackpad</option>
+        <option value="mobile">Mobile / iOS issue</option>
+        <option value="other">Other issue</option>
+        <option value="love">Send your love! &#9829;</option>
+      </select><br>
+
+      <div id="feedbackbox-faq">Please check out our <a href="https://hackpad.com/How-to-use-Hackpad-mlZvEsJykI5" target="_blank">How-to Guide</a> and <a href="https://hackpad.com/Hackpad-FAQ-tq56fI63mz3" target="_blank">FAQ</a> first to see if your question is already answered! :)<br><br></div>
+      <div id="feedbackbox-feature-request">If you have a feature request, please add it to <a href="https://hackpad.com/mwN5" target="_blank">this pad</a>.  Thanks!<br><br></div>
+
+      <input type="text" name="feedbackbox-subject" id="feedbackbox-subject" class="modalfield" placeholder="Summary"><br>
+      <textarea id="feedbackbox-message" rows="6" cols="40" class="modalfield" placeholder="Give as much detail as possible."></textarea>
+      <div style="text-align:right">
+        <div id="feedbackbox-response"><!-- --></div>
+        <button type="button"
+     id="feedbackbox-send" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button default  hp-ui-button-primary"
+><span class="hp-ui-button-content " >Send</span></button>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+
+
+
+ 
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" nonce="8d1fa431dcb227422217cf99a6744170b98b8ba3">
+  // <![CDATA[
+var clientVars = {"proTitle":"","creatorId":427403,"initialTitle":"20150826 [學習筆記] R與資料探勘 (3)","padTitle":"20150826 [學習筆記] R與資料探勘 (3)","collab_client_vars":{"initialAttributedText":{"text":"20150826%20%5B%u5B78%u7FD2%u7B46%u8A18%5D%20R%u8207%u8CC7%u6599%u63A2%u52D8%20%283%29%0A*%u6574%u7406%u81EA%20R%u8EDF%u9AD4%u8207%u8CC7%u6599%u63A2%u52D8%u4E4B%u958B%u767C%u8207%u61C9%u7528%20--%20%u8C9D%u5F0F%u5206%u985E%u3001k%u4F4D%u6700%u8FD1%u9130%u5C45%u6CD5%0A*%u8981%u719F%u6089%u7684%u6982%u5FF5%u6709%22%u8C9D%u5F0F%u5206%u985E%22%u548C%22k%u4F4D%u6700%u8FD1%u9130%u5C45%u6CD5%22%20%21%0A%5B%20GitHub%20%5D%0A*https%3A//github.com/shouzo/R-Programming/tree/master/R%25E8%2588%2587%25E8%25B3%2587%25E6%2596%2599%25E6%258E%25A2%25E5%258B%2598%0A%0A%0A*%u80CC%u666F%u77E5%u8B58%0A*R%u8EDF%u9AD4%u8207%u8CC7%u6599%u63A2%u52D8%u4E4B%u958B%u767C%u8207%u61C9%u7528%20%20%28%u5167%u6587%u8CC7%u6599%u4F86%u6E90%29%20%3A+1%3A%20%0A*%u8CC7%u6599%u63A1%u7926%u5341%u5927%u7D93%u5178%u6F14%u7B97%u6CD5%0A*%5B%u7B46%u8A18%5D%20%u5229%u7528R%20+%20Hadoop%20%u4F86%u5BE6%u4F5C%u5206%u985E%u3001%u7FA4%u7D44%u3001%u63A8%u85A6%0A*R%u7D71%u8A08%u5206%u6790%u8207%u8CC7%u6599%u63A2%u52D8%u5165%u9580%u2014%u4EE5%u9CF6%u5C3E%u82B1%u8CC7%u6599%u96C6%u70BA%u4F8B%0A%0A%0A*%u5B78%u7FD2%u5167%u5BB9%0A*R%20%u8EDF%u9AD4%u5B89%u88DD%20%28%u7565%u904E%29%0A*R%20Studio%u8EDF%u9AD4%u5B89%u88DD%20%28%u7565%u904E%29%0A%0A*%u8CC7%u6599%u63A2%u52D8%u65B9%u6CD5%0A*START%20%3A%20%u8A13%u7DF4%u8CC7%u6599%u548C%u6E2C%u8A66%u8CC7%u6599%20%28%u5B8C%u6210%29%0A%0A*%u5206%u985E%u6F14%u7B97%u6CD5%0A*%uFF08%u4E00%uFF09%u5012%u50B3%u905E%u985E%u795E%u7D93%u7DB2%u8DEF%28Back-Propagation%20Neural%20Network%29%20%28%u5B8C%u6210%29%0A*%uFF08%u4E8C%uFF09%u6C7A%u7B56%u6A39%28Decision%20Tree%29%20%28%u5B8C%u6210%29%0A*%uFF08%u4E09%uFF09%u652F%u63F4%u5411%u91CF%u6A5F%28Support%20Vector%20Machine%29%20%28%u5B8C%u6210%29%0A*%uFF08%u56DB%uFF09%u8C9D%u5F0F%u5206%u985E%28Na%EFve%20Bayes%29%0A*%uFF08%u4E94%uFF09k%u4F4D%u6700%u8FD1%u9130%u5C45%u6CD5%28k-Nearest%20Neighbor%29%0A%0A*%u5206%u7FA4%u6F14%u7B97%u6CD5%0A*%uFF08%u516D%uFF09%u968E%u5C64%u5206%u7FA4%u6F14%u7B97%u6CD5%28Hierarchical%20Clustering%29%0A*%uFF08%u4E03%uFF09k%u5E73%u5747%u6F14%u7B97%u6CD5%28k-Means%29%0A*%uFF08%u516B%uFF09%u6A21%u7CCAc%u5E73%u5747%u6F14%u7B97%u6CD5%28Fuzzy%20c-Means%29%0A*%uFF08%u4E5D%uFF09%u671F%u671B%u6700%u5927%u503C%u6F14%u7B97%u6CD5%28Expectation-Maximization%29%0A*%uFF08%u5341%uFF09%u81EA%u7D44%u7E54%u6620%u5C04%u5716%28Self%20Organizing%20Maps%29%0A%0A%0A%0A%0A*%uFF08%u56DB%uFF09%u8C9D%u5F0F%u5206%u985E%28Na%EFve%20Bayes%29%0A%5B%u524D%u7F6E%u4F5C%u696D%5D%20%u57FA%u672C%u6982%u5FF5%0A*%u76F8%u95DC%u77E5%u8B58%0A*%5BMachine%20Learning%5D%20Bayes%u8C9D%u6C0F%u5206%u985E%u6F14%u7B97%u6CD5%AB%20Big%20O%281%29%0A*Informatics@TaiBIF%20%BB%20%u8C9D%u6C0F%u5206%u985E%u6CD5%uFF08Bayes%20classifier%uFF09%0A*Naive%20Bayes%20Classifier%0A%0A*%0A*%5B%20Naive%20bayes%20%5D%20%20http%3A//www.slideshare.net/ashrafmath/naive-bayes-15644818%3Fqid%3D357d1fda-96c7-41b2-9a1f-07de8af20086%26v%3Ddefault%26b%3D%26from_search%3D2%0A%0A%0ASTAGE%201%20%3A%20%u8A13%u7DF4%u968E%u6BB5%0A*1.%20%20%u65B0%u589ER%u7A0B%u5F0F%20%2C%20%u5728R%20Script%u4E2D%u64B0%u5BEB%20%2C%20%u4E26%u5C07%u6A94%u6848%u53E6%u5B58%u70BA%22naive%20bayes.R%22%3A%20%0A*install.packages%28%22e1071%22%29%0A*library%28%22e1071%22%29%0A*%0A*%23%20training%20stage%0A*trainingdata%20%3C-%20read.csv%28file.choose%28%29%29%0A*%0A*nb.model%20%3C-%20naiveBayes%28factor%28Species%29%7ESepal.Length%20+%20Sepal.Width%20+%20Petal.Length%20+%0A*%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Petal.Width%2C%20data%3Dtrainingdata%29%0A*print%28nb.model%29%0A%0A*2.%20%20%u5B58%u6A94%u5F8C%u628A%u7A0B%u5F0F%u78BC%u6A19%u8A18%u8D77%u4F86%u9EDE%u9078%20run%20%2C%20%u5728%u5C0D%u8A71%u7A97%u4E2D%u9078%u64C7%u4E4B%u524D%u5728%22START%20%3A%20%u8A13%u7DF4%u8CC7%u6599%u8207%u6E2C%u8A66%u8CC7%u6599%22%u5EFA%u7ACB%u7684%22trainingdata.csv%22%20%3A%20%0A**%0A%0A*3.%20%20%u986F%u793A%u8A13%u7DF4%u7D50%u679C%20%3A%20%0A**%0A*%0A%0ASTAGE%202%20%3A%20%u6E2C%u8A66%u968E%u6BB5%0A*1.%20%20%u5728R%20Script%u4E2D%u65B0%u589E%u4EE5%u4E0B%u5167%u5BB9%20%2C%20%u5B8C%u6210%u5F8C%u628A%u5B83%u6A19%u8A18%u8D77%u4F86%u4E26%u9EDE%u9078%20run%20%3A%20%0A*%23%20testing%20stage%0A*testingfile%20%3C-%20read.csv%28file.choose%28%29%29%0A*testingdata%20%3C-%20subset%28testingfile%2C%20select%20%3D%20-Species%29%0A*testingtarget%20%3C-%20testingfile%24Species%0A*%0A*results%20%3C-%20predict%28nb.model%2C%20newdata%20%3D%20testingdata%29%0A*print%28results%29%0A*%0A**%0A%0A*2.%20%20%20%u5728%u5C0D%u8A71%u8996%u7A97%u4E2D%u9078%u64C7%u4E4B%u524D%u5728%22START%20%3A%20%u8A13%u7DF4%u8CC7%u6599%u8207%u6E2C%u8A66%u8CC7%u6599%22%u5EFA%u7ACB%u7684%22testingdata.csv%22%20%3A%0A**%0A*%0A*%20%0A*3.%20%20%u986F%u793A%u6E2C%u8A66%u7D50%u679C%20%3A%20%0A**%0A%0A%0ASTAGE%203%20%3A%20%u8A55%u4F30%u968E%u6BB5%0A*1.%20%20%u5728R%20Script%u4E2D%u65B0%u589E%u4EE5%u4E0B%u5167%u5BB9%20%2C%20%u5B8C%u6210%u5F8C%u628A%u5B83%u6A19%u8A18%u8D77%u4F86%u4E26%u9EDE%u9078%20run%20%3A%20%0A*%23%20accuracy%0A*table%28results%2C%20testingtarget%29%0A*accuracy%20%3C-%20sum%28testingtarget%20%3D%3D%20results%29/%20length%28testingtarget%29%0A*sprintf%28%22%25.2f%25%25%22%2C%20accuracy%20*%20100%29%0A*%0A*2.%20%20%u986F%u793A%u5206%u985E%u7D50%u679C%20%2C%20%u4EE5%u53CA%u5F97%u77E5%u6B63%u78BA%u7387%u70BA%2096.00%25%20%3A%20%0A**%0A*%0A%0A%0A%0A*%uFF08%u4E94%uFF09k%u4F4D%u6700%u8FD1%u9130%u5C45%u6CD5%28k-Nearest%20Neighbor%29%0A%5B%u524D%u7F6E%u4F5C%u696D%5D%20%u57FA%u672C%u6982%u5FF5%0A*%u76F8%u95DC%u77E5%u8B58%0A*%u6700%u8FD1%u9130%u5C45%u6CD5-%20%u7EF4%u57FA%u767E%u79D1%uFF0C%u81EA%u7531%u7684%u767E%u79D1%u5168%u4E66%0A*KNN%u6F14%u7B97%u6CD5-%20MMDays%0A*35%u6210%u7FA4%3A%20%u8F15%u9B06%u804A%u4E4BKNN%u6F14%u7B97%u6CD5%20-%20Blogger%0A%0A*%0A*%5B%20How%20kNN%20algorithm%20works%20%5D%20https%3A//www.youtube.com/watch%3Fv%3DUqYde-LULfs%0A%0A%0ASTAGE%201%20%3A%20%u8A13%u7DF4%u968E%u6BB5%0A*1.%20%20%u65B0%u589ER%u7A0B%u5F0F%20%2C%20%u5728R%20Script%u4E2D%u64B0%u5BEB%20%2C%20%u4E26%u5C07%u6A94%u6848%u53E6%u5B58%u70BA%22k-nearest%20neighbour.R%22%3A%20%0A*%0A*install.packages%28%22class%22%29%0A*library%28%22class%22%29%0A*%0A*%23%20training%20data%0A*trainingfile%20%3C-%20read.csv%28file.choose%28%29%29%0A*trainingdata%20%3C-%20subset%28trainingfile%2C%20select%20%3D%20-Species%29%0A*trainingtarget%20%3C-%20trainingfile%24Species%0A%0A*2.%20%20%u5728%u5B58%u6A94%u5F8C%u628A%u7A0B%u5F0F%u78BC%u6A19%u8A18%u8D77%u4F86%u9EDE%u9078%20run%20%2C%20%u4E26%u4E14%u5728%u5C0D%u8A71%u7A97%u4E2D%u9078%u64C7%u4E4B%u524D%u5EFA%u7ACB%u7684%22trainingdata.csv%22%20%3A%20%0A**%0A*%0A*3.%20%20%u8B93%u7A0B%u5F0F%u8DD1%u5B8C%28%20%u4E0D%u6703%u986F%u793A%u7D50%u679C%20%29%20%3A%20%0A**%0A%0A%0ASTAGE%202%20%3A%20%u6E2C%u8A66%u968E%u6BB5%0A*1.%20%20%u5728R%20Script%u4E2D%u65B0%u589E%u4EE5%u4E0B%u5167%u5BB9%20%2C%20%u5B8C%u6210%u5F8C%u628A%u5B83%u6A19%u8A18%u8D77%u4F86%u4E26%u9EDE%u9078%20run%20%3A%20%0A*%23%20testing%20stage%0A*testingfile%20%3C-%20read.csv%28file.choose%28%29%29%0A*testingdata%20%3C-%20subset%28testingfile%2C%20select%20%3D%20-Species%29%0A*testingtarget%20%3C-%20testingfile%24Species%0A*%0A*2.%20%20%20%u5728%u5C0D%u8A71%u8996%u7A97%u4E2D%u9078%u64C7%u4E4B%u524D%u5EFA%u7ACB%u7684%22testingdata.csv%22%20%3A%20%0A**%0A%0A*3.%20%20%u8B93%u7A0B%u5F0F%u8DD1%u5B8C%28%20%u4E0D%u6703%u986F%u793A%u7D50%u679C%20%29%20%3A%20%0A**%0A*%0A*%0ASTAGE%203%20%3A%20%u904B%u7B97%u968E%u6BB5%0A*1.%20%20%u5728R%20Script%u4E2D%u65B0%u589E%u4EE5%u4E0B%u5167%u5BB9%20%2C%20%u5B8C%u6210%u5F8C%u628A%u5B83%u6A19%u8A18%u8D77%u4F86%u4E26%u9EDE%u9078%20run%20%3A%20%0A*%23%20computation%0A*results%20%3C-%20knn%28trainingdata%2C%20testingdata%2C%20trainingtarget%2C%20k%20%3D%203%2C%20prob%3DTRUE%29%0A*print%28results%29%0A%0A*2.%20%20%u986F%u793A%u904B%u7B97%u7D50%u679C%20%3A%20%0A**%0A*%0A%0ASTAGE%204%20%3A%20%u8A55%u4F30%u968E%u6BB5%0A*1.%20%20%u5728R%20Script%u4E2D%u65B0%u589E%u4EE5%u4E0B%u5167%u5BB9%20%2C%20%u5B8C%u6210%u5F8C%u628A%u5B83%u6A19%u8A18%u8D77%u4F86%u4E26%u9EDE%u9078%20run%20%3A%20%0A*%23%20accuracy%0A*table%28results%2C%20testingtarget%29%0A*accuracy%20%3C-%20sum%28testingtarget%20%3D%3D%20results%29%20/length%28testingtarget%29%0A*sprintf%28%22%25.2f%25%25%22%2C%20accuracy%20*%20100%29%0A%0A*2.%20%20%u986F%u793A%u5206%u985E%u7D50%u679C%20%2C%20%u4EE5%u53CA%u6B63%u78BA%u7387%u70BA96.00%25%20%3A%20%0A**%0A%0A","attribs":"*0+g*0*1+6*0|1+5*0*2*3+1*0*4+4*0*5+e*0|1+h*0*2*6+1*0+8*0*4+4*0+3*0*4+7*0|1+4*0*4+a*0|1+1*0*2*7+1*0*8+2q*0|3+3*0*2*7+1*0*4+4*0|1+1*0*2*9+1*0*4*5+e*0*4+b*0|1+6*0*2*9+1*0*a+b*0|1+1*0*2*9+1*0*b+t*0|1+1*0*2*9+1*0*c+m*0|3+3*0*2*7+1*0*4+4*0|1+1*0*2*9+1*0*4*d+6*0*4+5*0|1+1*0*2*9+1*0*4*d+c*0*4+5*0|2+2*0*2*9+1*0*4+6*0|1+1*0*2*e+1*0*4*d+h*0*4+5*0|2+2*0*2*9+1*0*4+5*0|1+1*0*2*e+1*0*4*d+18*0*4+5*0|1+1*0*2*e+1*0*4*d+m*0*4+4*0|1+1*0*2*e+1*0*4*d+w*0*4+5*0|1+1*0*2*f+1*0*4+k*0|1+1*0*2*f+1*0*4+u*0|2+2*0*2*9+1*0*4+5*0|1+1*0*2*e+1*0*4+z*0|1+1*0*2*e+1*0*4+i*0|1+1*0*2*e+1*0*4+q*0|1+1*0*2*e+1*0*4+11*0|1+1*0*2*e+1*0*4+v*0|5+5*0*2*3+1*0*4+k*0|1+1*0*4+b*0|1+1*0*2*g+1*0|1+5*0*2*9+1*0*h+15*0|1+1*0*2*9+1*0*i+18*0|1+1*0*2*9+1*0*j+m*0|2+2*0*k+1*0|1+1*0*2*l+1*0+2*0*4+b*0|3+3o*0*4+e*0|1+1*0*2*m+1*0+z*0*4*n*1+d*0|1+4*0*2*o+1*0|1+q*0*2*o+1*0|1+h*0*2*o+1*0|1+1*0*2*o+1*0|1+h*0*2*o+1*0|1+14*0*2*o+1*0|1+1*0*2*o+1*0|1+2b*0*2*o+1*0|1+1l*0*2*o+1*0|2+h*0*2*m+1*0+z*0*4+h*0+5*0*4*n*1+g*0|1+5*0*2*p+1*q*0*r+1*0|2+2*0*2*m+1*0+6*0*4*n*1+4*0|1+4*0*2*p+1*s*0*t+1*0|1+1*0*u*2*m+1*0|2+2*0*4+e*0|1+1*0*2*m+1*0|1+17*0*2*o+1*0|1+g*0*2*o+1*0|1+13*0*2*o+1*0|1+1i*0*2*o+1*0|1+11*0*2*o+1*0|1+1*0*2*o+1*0|1+1g*0*2*o+1*0|1+f*0*2*o+1*0|1+1*0*2*v+1*w*0*x+1*0|2+2*0*2*m+1*0+h*0*4+h*0+5*0*4*n*1+f*0|1+4*0*2*p+1*y*0*z+1*0|1+1*0*10*2*m+1*0|1+1*0*2*m+1*0|1+2*0*2*m+1*0+6*0*4*n*1+4*0*4*n+1*0*4+2*0|1+1*0*2*p+1*11*0*12+1*0|3+3*0*4+e*0|1+1*0*2*m+1*0|1+17*0*2*o+1*0|1+b*0*2*o+1*0|1+u*0*2*o+1*0|1+1t*0*2*o+1*0|1+y*0*2*o+1*0|1+1*0*2*m+1*0+6*0*4*n*1+4*0+c*0*4*n*1+6*0*4+1*0|1+3*0*2*p+1*13*0*14+1*0|1+1*0*15*2*m+1*0|4+4*0*2*3+1*0*4+u*0|1+1*0*4+b*0|1+1*0*2*g+1*0|1+5*0*2*9+1*0*16+j*0|1+1*0*2*9+1*0*17+e*0|1+1*0*2*9+1*0*18+q*0|2+2*0*19+1*0|1+1*0*2*1a+1*0+2*0*4+n*0|3+1d*0*4+e*0|1+1*0*2*m+1*0+z*0*4*n*1+l*0|1+4*0*2*o+1*0|1+1*0*2*o+1*0|1+q*0*2*o+1*0|1+h*0*2*o+1*0|1+1*0*2*o+1*0|1+g*0*2*o+1*0|1+14*0*2*o+1*0|1+1k*0*2*o+1*0|2+14*0*2*m+1*0+14*0*4*n*1+g*0|1+5*0*2*p+1*1b*0*1c+1*0|1+1*0*2*m+1*0|1+1*0*2*m+1*0+h*0*4+1*0|1+5*0*2*p+1*1d*0*1e+1*0|3+3*0*4+e*0|1+1*0*2*m+1*0|1+17*0*2*o+1*0|1+g*0*2*o+1*0|1+13*0*2*o+1*0|1+1i*0*2*o+1*0|1+11*0*2*m+1*0|1+1*0*2*m+1*0+j*0*4*n*1+f*0|1+5*0*2*p+1*1f*0*1g+1*0|2+2*0*2*m+1*0+l*0*4+1*0|1+1*0*2*p+1*1h*0*1i+1*0|1+1*0*1j*2*p+1*0|1+1*0*2*p+1*0|1+1*0*4+e*0|1+1*0*2*m+1*0|1+17*0*2*o+1*0|1+e*0*2*o+1*0|1+24*0*2*o+1*0|2+g*0*2*m+1*0+6*0*4*n*1+4*0*4+1*0|1+3*0*2*p+1*1k*0*1l+1*0|1+1*0*2*m+1|2+2*0*4+e|1+1*0*2*m+1*0|1+17*0*2*o+1*0|1+b*0*2*o+1*0|1+u*0*2*o+1*0|1+1t*0*2*o+1*0|2+z*0*2*m+1*0+6*0*4*n*1+4*0+9*0*4*n*1+6*0+3|1+1*0*2*p+1*1m*0*1n+1|2+2"},"rev":475,"padId":"mLcnEtiDWQj","globalPadId":"1$mLcnEtiDWQj","historicalAuthorData":{"p.427403":{"colorId":0,"name":"shouzo","userLink":"/ep/profile/vCS3Hx1OGOV"}},"apool":{"numToAttrib":{"0":["author","p.427403"],"1":["underline","true"],"2":["insertorder","first"],"3":["list","hone1"],"4":["bold","true"],"5":["link","http://zh.scribd.com/doc/202288331/R%E8%BB%9F%E9%AB%94%E8%88%87%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98%E4%B9%8B%E9%96%8B%E7%99%BC%E8%88%87%E6%87%89%E7%94%A8#scribd"],"6":["list","comment1"],"7":["list","bullet1"],"8":["link","https://github.com/shouzo/R-Programming/tree/master/R%E8%88%87%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98"],"9":["list","bullet2"],"10":["link","http://fecbob.pixnet.net/blog/post/38189923"],"11":["link","http://www.csie.ntnu.edu.tw/~u91029/Classification.html"],"12":["link","http://www.cc.ntu.edu.tw/chinese/epaper/0031/20141220_3105.html"],"13":["strikethrough","true"],"14":["list","bullet3"],"15":["list","task3"],"16":["list","task2"],"17":["link","https://www.google.com.tw/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0CCIQFjABahUKEwjz4pHdisfHAhVhHaYKHY0oBKg&url=http%3A%2F%2Fenginebai.logdown.com%2Fposts%2F241677%2Fbayes-classification&ei=7t3dVfOzDuG6mAWN0ZDACg&usg=AFQjCNELPqKr6OKdeQuY_nH_h41EwtruzA"],"18":["link","https://www.google.com.tw/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&ved=0CC4QFjADahUKEwjz4pHdisfHAhVhHaYKHY0oBKg&url=http%3A%2F%2Ftaibif.org.tw%2Finformatics%2F%3Fp%3D452&ei=7t3dVfOzDuG6mAWN0ZDACg&usg=AFQjCNGgRz36_CDZ-KLR7HH0M3OMIirfaw"],"19":["link","https://www.youtube.com/playlist?list=PLBv09BD7ez_7-4V3IJIzCHWQj9nd4rVWB"],"20":["embed","http://www.slideshare.net/ashrafmath/naive-bayes-15644818?qid=357d1fda-96c7-41b2-9a1f-07de8af20086&v=default&b=&from_search=2"],"21":["list","indent3"],"22":["list","indent1"],"23":["highlight","true"],"24":["list","code1"],"25":["list","indent2"],"26":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440600059670_undefined"],"27":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440600059670_undefined"],"28":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440600204051_undefined"],"29":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440600204051_undefined"],"30":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_FmoBkmodtiu_p.427403_1440497917701_undefined"],"31":["list","code2"],"32":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440600329993_undefined"],"33":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440600329993_undefined"],"34":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440600464931_undefined"],"35":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440600464931_undefined"],"36":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_FmoBkmodtiu_p.427403_1440498397603_undefined"],"37":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440600552455_undefined"],"38":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440600552455_undefined"],"39":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440600729073_undefined"],"40":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440600729073_undefined"],"41":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_FmoBkmodtiu_p.427403_1440499029273_undefined"],"42":["link","https://zh.wikipedia.org/zh-tw/%E6%9C%80%E8%BF%91%E9%84%B0%E5%B1%85%E6%B3%95"],"43":["link","https://www.google.com.tw/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CBwQFjAAahUKEwivrKbYjMfHAhXjJKYKHfueAaE&url=http%3A%2F%2Fmmdays.com%2F2007%2F05%2F16%2Fknn%2F&ei=_N_dVa--OuPJmAX7vYaICg&usg=AFQjCNHHv7Fg-lf-xK5FRLnlN-RT0G6nbA"],"44":["link","http://35around.blogspot.com/2014/07/knn.html"],"45":["embed","https://www.youtube.com/watch?v=UqYde-LULfs"],"46":["list","indent6"],"47":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440602971939_undefined"],"48":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440602971939_undefined"],"49":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440602993517_undefined"],"50":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440602993517_undefined"],"51":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440603047473_undefined"],"52":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440603047473_undefined"],"53":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440603084586_undefined"],"54":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440603084586_undefined"],"55":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440602530070_undefined"],"56":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440603177819_undefined"],"57":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440603177819_undefined"],"58":["attachmentKey","hackpad.com_mLcnEtiDWQj_p.427403_1440603419506_undefined"],"59":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_mLcnEtiDWQj_p.427403_1440603419506_undefined"]},"nextNum":60},"clientIp":"203.64.104.19","clientAgent":"Python-urllib/1.17"},"friendUserIds":[],"globalPadId":"1$mLcnEtiDWQj","initialOptions":{"guestPolicy":"link"},"initialRevisionList":[],"invitedGroupInfos":[],"invitedUserInfos":[{"name":"羅左欣","userId":"p.427403","userLink":"/ep/profile/vCS3Hx1OGOV","userPic":"https://www.gravatar.com/avatar.php?default=https%3A%2F%2Fhackpad.com%2Fstatic%2Fimg%2Fnophoto.png&gravatar_id=f6ae7264338da5d676564e9b593b19dd&size=100","status":"creator","colorId":1}],"isProPad":true,"isPublicPad":false,"padId":"mLcnEtiDWQj","siteName":"hackpad","titleIsReadOnly":false,"userColor":1,"userName":"Guest","attachmentsBucket":"hackpad-attachments","s3BucketRoot":"s3.amazonaws.com","s3PolicyAndSig":{"s3Policy":"eyJleHBpcmF0aW9uIjoiMjAxNi0wNS0yMVQxNzoyMjowOC43MDBaIiwiY29uZGl0aW9ucyI6W3siYnVja2V0IjoiaGFja3BhZC1hdHRhY2htZW50cyJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwiaGFja3BhZC5jb21fbUxjbkV0aURXUWpfZy5kZTRhNDRiOTk5ZjQ3YzUzXyJdLHsiYWNsIjoicHVibGljLXJlYWQifSxbInN0YXJ0cy13aXRoIiwiJENvbnRlbnQtVHlwZSIsImltYWdlLyJdLFsiY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMjA5NzE1MjBdLHsieC1hbXotY3JlZGVudGlhbCI6IkFLSUFJR1hGN1YzSVNEVVhJUjVRLzIwMTYwNTIxL3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDE2MDUyMVQxNzIyMDhaIn1dfQ==","s3PolicySig":"f54a7d84eee9318096970b5ae1e2c30dfeebe8b8fbf7ad582e4156c995f8b366"},"clientIp":"203.64.104.19","colorPalette":["#2996c3","#c66c78","#53af98","#daa458","#8a6fb1","#d98175","#87b747","#c98e6a","#5888b7","#c6759f","#b5b251","#50bad3"],"disableFB":false,"facebookClientId":"145393915506961","isDesktopApp":false,"isMobileApp":false,"isMobile":false,"serverTimestamp":1463764928719,"userAgent":"Python-urllib/1.17","accountPrivs":{"maxRevisions":1000},"dropboxConnected":false,"encryptedUserId":"","shouldGetFbLoginStatus":false,"useFbChat":false,"userId":"g.de4a44b999f47c53","userIsGuest":true,"userLink":"","userPic":"","initialSpaces":[{"id":1,"orgName":"hackpad","subDomain":"\x3c\x3cprivate-network>>","isDeleted":false,"lastLoginDate":0,"url":"https://hackpad.com/"}],"xsrf":"a56fd4869d61790d","isDogfood":false,"cdn":"https://d29bt26wntaesq.cloudfront.net"};
+  // ]]>
+</script>
+    
+
+
+
+<script type="text/javascript" nonce="8d1fa431dcb227422217cf99a6744170b98b8ba3">
+//<![CDATA[
+(function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+"//cdn.mxpnl.com/libs/mixpanel-2.1.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);
+mixpanel.init("51ca7558fe905a645b2ecfaf07d08a62");
+mixpanel.identify("40c7bbb67051cd77");
+if (clientVars && !clientVars.userIsGuest && clientVars.userName) {
+  mixpanel.name_tag(clientVars.userName);
+  mixpanel.people.identify("40c7bbb67051cd77");
+}
+//]]>
+</script>
+<script type="text/javascript" nonce="8d1fa431dcb227422217cf99a6744170b98b8ba3">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-24086041-1']);
+_gaq.push(['_setDomainName', 'hackpad.com']);
+_gaq.push(['_setCustomVar', 1, 'User Type', 'Guest', 2]);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+<script type="text/javascript" nonce="8d1fa431dcb227422217cf99a6744170b98b8ba3">
+//<![CDATA[
+
+var logSearchPerformed = (function () {
+  var lastSearchPerformed = null;
+  return function (query, numResults, label) {
+    var trimmedQuery = $.trim(query);
+    $.doTimeout('log-search-query', 800, function () {
+      if (trimmedQuery && (trimmedQuery != lastSearchPerformed)) {
+        trackEvent("search_performed", null /* action */, label /* label */, { query: query, numResults: numResults });
+        lastSearchPerformed = trimmedQuery;
+      }
+    });
+  }
+})();
+
+function trackEvent(eventName, action, label, extras) {
+  var dict = extras || {};
+  dict["action"] = action;
+  dict["label"] = label;
+  mixpanel.track(eventName, dict);
+  _gaq.push(["_trackEvent", eventName, action, label]);
+}
+
+function _isMeta(e) {
+	if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) return true;
+
+	// Logic that handles checks for the middle mouse button, based
+	// on [jQuery](https://github.com/jquery/jquery/blob/master/src/event.js#L466).
+	var which = e.which, button = e.button;
+	if (!which && button !== undefined) {
+	  return (!button & 1) && (!button & 2) && (button & 4);
+	} else if (which === 2) {
+	  return true;
+	}
+	return false;
+};
+
+function trackLinks(css, eventName, extras) {
+  $(css).bind('click', function(e) {
+  	var el = this;
+  	var dict = extras || {};
+  	dict['url'] = el.href;
+
+    trackEvent(eventName, null, null, dict);
+
+  	if (el.href && el.target !== '_blank' && !_isMeta(e)) {
+      e.preventDefault();
+
+      // Navigate to the url after just enough of a timeout (300 ms).
+      setTimeout(function() {
+        window.location.href = el.href;
+      }, 300);
+    }
+  });
+}
+
+function trackPageview(optPath) {
+  optPath = optPath || document.location.path + document.location.query;
+  mixpanel.track_pageview(optPath);
+  _gaq.push(['_trackPageview', optPath]);
+}
+
+//]]>
+
+</script>
+ 
+    <script nonce="8d1fa431dcb227422217cf99a6744170b98b8ba3" type="text/javascript" src="https://d29bt26wntaesq.cloudfront.net/static/compressed/5a802ad97db1995b26ccea937afa5e54.js" crossorigin="anonymous"></script>
+
+    
+      
+      
+    
+
+    <script type="text/javascript" async src="https://www.dropbox.com/static/api/1/dropins.js" id="dropboxjs" data-app-key="0d6svpz10vgp18t"></script>
+    <!--start,7 | accessPadLocal,17 | after addClientVars,52 | before data,53 | before html generation,56 | done,259-->
+    <script nonce="8d1fa431dcb227422217cf99a6744170b98b8ba3" type="text/javascript">
+$(document).on("click", "a[target]", function(e) {
+  e.preventDefault();
+  var newWindow = window.open("", this.target || "_blank");
+  if (newWindow) {
+    newWindow.opener = null;
+    newWindow.location = this.href;
+    newWindow.focus();
+  }
+});
+</script>
+
+    <noscript>
+      <div>
+        You'll need to turn on JavaScript to use Hackpad in all of its
+        awesomeness. ^_^
+      </div>
+    </noscript>
+  </body>
+</html>
+ 

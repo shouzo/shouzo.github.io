@@ -9,14 +9,17 @@ body {
     margin: 0;
 }
 #fullscreen {
-    z-index: -999;
-    min-height: 100%;
-    min-width: 1024px;
-    width: 100%;
-    height: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: -999;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 #avatar {
     height: 180px;

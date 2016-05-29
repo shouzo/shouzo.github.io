@@ -39,27 +39,27 @@ icon: bookmark
 21. [20151216 [Coursera] R Programming (11)](https://hackpad.com/20151216-Coursera-R-Programming-11-1yj3UwzvDtu)
 
 ### 二、備用連結
-1. [20150823 [Coursera] R Programming (1)](/hackpad/R/20150823-Coursera-R-Programming-1.html)
-2. [20150823 [Coursera] R Programming (2)](/hackpad/R/20150823-Coursera-R-Programming-2.html)
-3. [20150824 [學習筆記] R與資料探勘 (1)](/hackpad/R/20150824-學習筆記-R與資料探勘-1.html)
-4. [20150825 [學習筆記] R與資料探勘 (2)](/hackpad/R/20150825-學習筆記-R與資料探勘-2.html)
-5. [20150826 [學習筆記] R與資料探勘 (3)](/hackpad/R/20150826-學習筆記-R與資料探勘-3.html)
-6. [20150827 [學習筆記] R與資料探勘 (4)](/hackpad/R/20150827-學習筆記-R與資料探勘-4.html)
-7. [20150827 [學習筆記] R與資料探勘 (5)](/hackpad/R/20150827-學習筆記-R與資料探勘-5.html)
-8. [20150829 [Coursera] R Programming (3)](/hackpad/R/20150829-Coursera-R-Programming-3.html)
-9. [20150916 [Coursera] R Programming (4)](/hackpad/R/20150916-Coursera-R-Programming-4.html)
-10. [20150920 [Coursera] R Programming (5)](/hackpad/R/20150920-Coursera-R-Programming-5.html)
-11. [20150921 [Coursera] R Programming (6)](/hackpad/R/20150921-Coursera-R-Programming-6.html)
-12. [20150925 [R基礎與應用] Ch06 : 讀取各類資料](/hackpad/R/20150925-R基礎與應用-Ch06-讀取各類資料.html)
-13. [20150925 [R基礎與應用] Ch07 : 統計繪圖](/hackpad/R/20150925-R基礎與應用-Ch07-統計繪圖.html)
-14. [20151001 [R基礎與應用] Ch08 : 建立R函數](/hackpad/R/20151001-R基礎與應用-Ch08-建立R函數.html)
-15. [20151005 [Coursera] R Programming (7)](/hackpad/R/20151005-Coursera-R-Programming-7.html)
-16. [20151019 [Coursera] R Programming (8)](/hackpad/R/20151019-Coursera-R-Programming-8.html)
-17. [20151023 [Coursera] R Programming (9)](/hackpad/R/20151023-Coursera-R-Programming-9.html)
-18. [20151208 [Coursera] R Programming (10)](/hackpad/R/20151208-Coursera-R-Programming-10.html)
-19. [20151210 [R基礎與應用] Ch09：流程控制](/hackpad/R/20151210-R基礎與應用-Ch09-流程控制.html)
-20. [20151211 [R基礎與應用] Ch10：迴圈 - 疊代元素的傳統作法](/hackpad/R/20151211-R基礎與應用-Ch10-迴圈-疊代元素的傳統作法.html)
-21. [20151216 [Coursera] R Programming (11)](/hackpad/R/20151216-Coursera-R-Programming-11.html)
+1. [20150823 [Coursera] R Programming (1)](/collections/hackpad/R/20150823-Coursera-R-Programming-1.html)
+2. [20150823 [Coursera] R Programming (2)](/collections/hackpad/R/20150823-Coursera-R-Programming-2.html)
+3. [20150824 [學習筆記] R與資料探勘 (1)](/collections/hackpad/R/20150824-學習筆記-R與資料探勘-1.html)
+4. [20150825 [學習筆記] R與資料探勘 (2)](/collections/hackpad/R/20150825-學習筆記-R與資料探勘-2.html)
+5. [20150826 [學習筆記] R與資料探勘 (3)](/collections/hackpad/R/20150826-學習筆記-R與資料探勘-3.html)
+6. [20150827 [學習筆記] R與資料探勘 (4)](/collections/hackpad/R/20150827-學習筆記-R與資料探勘-4.html)
+7. [20150827 [學習筆記] R與資料探勘 (5)](/collections/hackpad/R/20150827-學習筆記-R與資料探勘-5.html)
+8. [20150829 [Coursera] R Programming (3)](/collections/hackpad/R/20150829-Coursera-R-Programming-3.html)
+9. [20150916 [Coursera] R Programming (4)](/collections/hackpad/R/20150916-Coursera-R-Programming-4.html)
+10. [20150920 [Coursera] R Programming (5)](/collections/hackpad/R/20150920-Coursera-R-Programming-5.html)
+11. [20150921 [Coursera] R Programming (6)](/collections/hackpad/R/20150921-Coursera-R-Programming-6.html)
+12. [20150925 [R基礎與應用] Ch06 : 讀取各類資料](/collections/hackpad/R/20150925-R基礎與應用-Ch06-讀取各類資料.html)
+13. [20150925 [R基礎與應用] Ch07 : 統計繪圖](/collections/hackpad/R/20150925-R基礎與應用-Ch07-統計繪圖.html)
+14. [20151001 [R基礎與應用] Ch08 : 建立R函數](/collections/hackpad/R/20151001-R基礎與應用-Ch08-建立R函數.html)
+15. [20151005 [Coursera] R Programming (7)](/collections/hackpad/R/20151005-Coursera-R-Programming-7.html)
+16. [20151019 [Coursera] R Programming (8)](/collections/hackpad/R/20151019-Coursera-R-Programming-8.html)
+17. [20151023 [Coursera] R Programming (9)](/collections/hackpad/R/20151023-Coursera-R-Programming-9.html)
+18. [20151208 [Coursera] R Programming (10)](/collections/hackpad/R/20151208-Coursera-R-Programming-10.html)
+19. [20151210 [R基礎與應用] Ch09：流程控制](/collections/hackpad/R/20151210-R基礎與應用-Ch09-流程控制.html)
+20. [20151211 [R基礎與應用] Ch10：迴圈 - 疊代元素的傳統作法](/collections/hackpad/R/20151211-R基礎與應用-Ch10-迴圈-疊代元素的傳統作法.html)
+21. [20151216 [Coursera] R Programming (11)](/collections/hackpad/R/20151216-Coursera-R-Programming-11.html)
 
 
 ---
@@ -69,7 +69,8 @@ icon: bookmark
 * 這裡整理著自己製作的學習簡報：
 
 ## 資料科學 Data Science 系列
-1. [20160523 [資料科學系列] 資料探勘 Data Mining (1)](/Data-Science/20160523-Data-Mining-1.html)
+1. [20160523 [資料科學系列] 資料探勘 Data Mining (1)](/collections/data-science/20160523-Data-Mining-1.html)
+2. [20160530 [資料科學系列] 資料探勘 Data Mining (2)](/collections/data-science/20160530-Data-Mining-2.html)
 
 
 
