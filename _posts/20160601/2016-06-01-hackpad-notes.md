@@ -2,8 +2,8 @@
 layout: post
 title:  "20160601 [學習筆記] Hackpad - 線上筆記彙整(1)"
 date:   2016-05-31 11:59:59
-categories: Hackpad Git Python語言 C語言 
-tags: 版本控制 程式設計 Hackpad Git Python語言 C語言
+categories: Hackpad Git Python語言 R語言 
+tags: 版本控制 程式設計 Hackpad Git Python語言 R語言
 ---
 
 
