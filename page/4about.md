@@ -38,6 +38,7 @@ s.setAttribute('data-timestamp', +new Date());
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 {% endif %}
 
+
 <script>
 /**
  * target _blank
@@ -47,5 +48,6 @@ s.setAttribute('data-timestamp', +new Date());
     for (var i = 0; i < aTags.length; i++) {
         aTags[i].setAttribute('target', '_blank')
     }
-}());
+
+	}());
 </script>
