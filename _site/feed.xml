@@ -5,9 +5,46 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Jun 2016 15:08:25 +0800</pubDate>
-    <lastBuildDate>Mon, 06 Jun 2016 15:08:25 +0800</lastBuildDate>
+    <pubDate>Thu, 16 Jun 2016 00:30:23 +0800</pubDate>
+    <lastBuildDate>Thu, 16 Jun 2016 00:30:23 +0800</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>20160617 [資料科學系列] 專題製作 - 視覺化電動機車運行能量地圖 (1)</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;簡報主題： 視覺化電動機車運行能量地圖&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;簡報網址： &lt;a href=&quot;/collections/data-science/20160617-MapProject-1.html&quot;&gt;20160617 [資料科學系列] 專題製作 - 視覺化電動機車運行能量地圖 (1)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[簡報預覽]&lt;/strong&gt;
+&lt;img src=&quot;/assets/20160617/cover.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Jun 2016 20:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/06/15/MapProject-1/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/06/15/MapProject-1/</guid>
+        
+        <category>Data-Science</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>R語言</category>
+        
+        <category>Android</category>
+        
+        <category>專題製作</category>
+        
+        
+        <category>Data-Science</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>R語言</category>
+        
+        <category>Android</category>
+        
+        <category>專題製作</category>
+        
+      </item>
     
       <item>
         <title>20160606 [資料科學系列] 資料探勘 Data Mining (3)</title>
@@ -2763,124 +2800,6 @@
         <pubDate>Mon, 09 Nov 2015 03:06:05 +0800</pubDate>
         <link>http://shouzo.github.io/2015/11/09/c-programming-book2/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2015/11/09/c-programming-book2/</guid>
-        
-        <category>C語言</category>
-        
-        <category>程式設計</category>
-        
-        
-        <category>C語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20151105 [學習筆記] 由片語學習C程式設計(1) -- 程式設計</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#chttpssitesgooglecomsitemycprogrammingbook----ch01--&quot; id=&quot;markdown-toc-chttpssitesgooglecomsitemycprogrammingbook----ch01--&quot;&gt;整理自 &lt;a href=&quot;https://sites.google.com/site/mycprogrammingbook/&quot;&gt;由片語學習C程式設計&lt;/a&gt; – Ch01 : 程式設計&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;[ 筆記內容 ]&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#github--&quot; id=&quot;markdown-toc-github--&quot;&gt;[ GitHub ] 程式碼儲存區&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#program&quot; id=&quot;markdown-toc-program&quot;&gt;（一）程式 - Program&lt;/a&gt;            &lt;ul&gt;
-              &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;1. 機器語言&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;2. 高階語言&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;（二）設計&lt;/a&gt;            &lt;ul&gt;
-              &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;1.程式開發流程 : 編輯、編譯、執行&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;2.程式設計流程圖&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;chttpssitesgooglecomsitemycprogrammingbook----ch01--&quot;&gt;整理自 &lt;a href=&quot;https://sites.google.com/site/mycprogrammingbook/&quot;&gt;由片語學習C程式設計&lt;/a&gt; – Ch01 : 程式設計&lt;/h1&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;[ 筆記內容 ]&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;（一）程式 - Program
-  1. 機器語言
-  2. 高階語言
-
-（二）設計
-  1. 程式開發流程 : 編輯、編譯、執行
-  2. 程式設計流程圖
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;github--&quot;&gt;[ GitHub ] 程式碼儲存區&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/C-Programming/tree/master/C_Programming-Book&quot;&gt;https://github.com/shouzo/C-Programming/tree/master/C_Programming-Book&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;program&quot;&gt;（一）程式 - Program&lt;/h3&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;1. 機器語言&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(1) 計算機能看得懂的原始指令，能夠直接執行。
-
-(2) 不容易看得懂。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;2. 高階語言&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(1) 符合人類閱讀習慣的設計語言。
-
-(2) 具有可攜性。
-
-(3) 需要經過 &quot;編譯器&quot;(Compiler) 轉換成 &quot;機器語言&quot; 後才能被執行。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/20151105/java-1-java-5-638.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;圖片來源 :  &lt;a href=&quot;http://image.slidesharecdn.com/java-150421195320-conversion-gate02/95/java-1-java-5-638.jpg?cb=1430083539&quot;&gt;http://image.slidesharecdn.com/java-150421195320-conversion-gate02/95/java-1-java-5-638.jpg?cb=1430083539&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;section-3&quot;&gt;（二）設計&lt;/h3&gt;
-
-&lt;h4 id=&quot;section-4&quot;&gt;1.程式開發流程 : 編輯、編譯、執行&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/20151105/c_compile.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;圖片來源 :  &lt;a href=&quot;http://www2.lssh.tp.edu.tw/~hlf/class-1/lang-c/c_compile.gif&quot;&gt;http://www2.lssh.tp.edu.tw/~hlf/class-1/lang-c/c_compile.gif&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-5&quot;&gt;2.程式設計流程圖&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;參考資料 :
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;http://el.fotech.edu.tw/localuser/huangcc/web1/new/vb/102/flowchart.pdf&quot;&gt;http://el.fotech.edu.tw/localuser/huangcc/web1/new/vb/102/flowchart.pdf&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;http://www.chwa.com.tw/TResource/VS/book2/ch2/2-2.htm&quot;&gt;http://www.chwa.com.tw/TResource/VS/book2/ch2/2-2.htm&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;流程圖符號及意義 :&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/20151105/p64.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;圖片來源 : &lt;a href=&quot;http://www.chwa.com.tw/TResource/VS/book2/ch2/p64.jpg&quot;&gt;http://www.chwa.com.tw/TResource/VS/book2/ch2/p64.jpg&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/20151105/p65.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;圖片來源 : &lt;a href=&quot;http://www.chwa.com.tw/TResource/VS/book2/ch2/p65.jpg&quot;&gt;http://www.chwa.com.tw/TResource/VS/book2/ch2/p65.jpg&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Fri, 06 Nov 2015 03:06:05 +0800</pubDate>
-        <link>http://shouzo.github.io/2015/11/06/c-programming-book1/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2015/11/06/c-programming-book1/</guid>
         
         <category>C語言</category>
         
