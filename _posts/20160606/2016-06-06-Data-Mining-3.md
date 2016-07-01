@@ -9,7 +9,7 @@ tags: Data-Science Data-Mining R語言
 
 
 
-# 簡報主題：軟體基礎、資料的讀取
+# 簡報主題：簡易視覺化
 * 簡報網址： [20160606 [資料科學系列] 資料探勘 Data Mining (3)](/collections/data-science/20160606-Data-Mining-3.html)
 
 

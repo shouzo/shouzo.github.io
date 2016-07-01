@@ -9,16 +9,21 @@
     <title>20151105 [學習筆記] 由片語學習C程式設計(1) -- 程式設計</title>
     <meta name="description" content="">
 
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
     <link rel="canonical" href="http://shouzo.github.io/2015/11/06/c-programming-book1/">
     <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
 </head>
 
 
   <body>
 
-    <header>
+    <header id="top">
     <div class="wrapper">
         <a href="/" class="brand">少左 shouzo</a>
         <small>Be strong to Be useful！</small>
@@ -27,9 +32,9 @@
             <ul>
                 <li>
                     
-                    <a href="/blog">
+                    <a href="/">
                     
-                        <i class="fa fa-home"></i>首頁 Home 
+                        <i class="fa fa-home"></i>Home
                     </a>
                 </li>
 
@@ -273,6 +278,7 @@
 
         </article>
         <hr>
+
         
         
             
@@ -543,34 +549,48 @@
             </ul>
         
 
+        <div class="post-recent">
+    
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2015/11/09/c-programming-book2/">20151108 [學習筆記] 由片語學習C程式設計(2) -- 基本程式架構</a></p>
+        
+    </div>
+</div>
+
 
         <h2 id="comments">Comments</h2>
         
 
-        
-        <div id="disqus_thread"></div>
-        <script>
-        /**
-        * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-        */
 
-        var disqus_config = function () {
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
         this.page.url = 'http://shouzo.github.io/2015/11/06/c-programming-book1/'; // Replace PAGE_URL with your page's canonical URL variable
         this.page.identifier = 'http://shouzo.github.io/2015/11/06/c-programming-book1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
+    };
 
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
 
         s.src = '//shouzonotes.disqus.com/embed.js';
 
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
-        })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-        
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
 
     </div>
     <button class="anchor"><i class="fa fa-anchor"></i></button>
@@ -597,13 +617,12 @@
  * target _blank
  */
 (function() {
-    var aTags = document.querySelectorAll('article a')
+    var aTags = document.querySelectorAll('article a:not([id])')
     for (var i = 0; i < aTags.length; i++) {
         aTags[i].setAttribute('target', '_blank')
     }
 }());
 </script>
-<script src="/js/scroll.min.js " charset="utf-8"></script>
 <script src="/js/pageContent.js " charset="utf-8"></script>
 
 
@@ -660,10 +679,14 @@
   </div>
 </footer>
 <script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
 
-
-
-
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
   </body>
 
 </html>
