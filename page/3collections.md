@@ -33,7 +33,8 @@ icon: bookmark
 ---
 
 # (四)社團筆記
-1. [20160803 [2016年全台大專院校 - 移動藝術/跑酷社創社輔導計畫] 社團創社經驗分享與交流](/collections/clubs/20160803-clubs-share.html)
+1. [20160802 那些年，關於大學的那些事...](/collections/clubs/20160802-about-university.html)
+2. [20160803 [2016年全台大專院校 - 移動藝術/跑酷社創社輔導計畫] 社團創社經驗分享與交流](/collections/clubs/20160803-clubs-share.html)
 
 
 
