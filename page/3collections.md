@@ -9,19 +9,19 @@ icon: bookmark
 {:toc}
 
 
-# (一)GitBook 電子書
+# (一) GitBook 電子書
 * 這裡儲存所有學習到的知識和內容，將會分門別類的存放在這裡：
 	* [https://www.gitbook.com/book/shouzo/shouzo-notebook/](https://www.gitbook.com/book/shouzo/shouzo-notebook/)
 
 ---
 
-# (二)Hackpad 線上筆記
+# (二) Hackpad 線上筆記
 * 這裡整理著之前在 Hackpad 撰寫的筆記：
 	* [20160601 [學習筆記] Hackpad - 線上筆記彙整(1)](/2016/05/31/hackpad-notes/)
 
 ---
 
-# (三)學習簡報
+# (三) 學習簡報
 * 這裡整理著自己製作的學習簡報：
 
 ## 資料科學 Data Science 系列
@@ -32,9 +32,9 @@ icon: bookmark
 
 ---
 
-# (四)社團筆記
+# (四) 社團筆記
 1. [20160802 那些年，關於大學的那些事...](/collections/clubs/20160802-about-university.html)
-2. [20160803 [2016年全台大專院校 - 移動藝術/跑酷社創社輔導計畫] 社團創社經驗分享與交流](/collections/clubs/20160803-clubs-share.html)
+2. [20160803 社團創社經驗分享與交流](/collections/clubs/20160803-clubs-share.html)
 
 
 
