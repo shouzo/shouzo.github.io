@@ -14,6 +14,8 @@ tags: 社團
 # (一) 社團創社經驗分享與交流
 * 簡報網址：[https://shouzo.github.io/collections/clubs/20160803-clubs-share.html#/](https://shouzo.github.io/collections/clubs/20160803-clubs-share.html#/)
 
+* SlideShare：[http://www.slideshare.net/danny200026/20160803-64538046](http://www.slideshare.net/danny200026/20160803-64538046)
+
 **[畫面預覽]**
 ![](/assets/20160803/clubs.jpg)
 
