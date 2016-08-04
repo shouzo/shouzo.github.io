@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "20160803 [社團相關] 社團創社經驗分享與交流、那些年，關於大學的那些事"
-date:   2016-08-02 17:20:59
+title:  "20160803 [社團相關] 社團創社經驗分享與交流"
+date:   2016-08-03 17:20:59
 categories: 社團
 tags: 社團
 ---
@@ -19,9 +19,3 @@ tags: 社團
 
 
 
-
-# (二) 那些年，關於大學的那些事
-* 簡報網址：[https://shouzo.github.io/collections/clubs/20160802-about-university.html#/](https://shouzo.github.io/collections/clubs/20160802-about-university.html#/)
-
-**[畫面預覽]**
-![](/assets/20160803/university.jpg)
