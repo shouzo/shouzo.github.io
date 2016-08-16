@@ -12,8 +12,7 @@ tags: C語言 程式設計 OpenCV
 * 內容網址：[20160513 OpenCV - 影像處理暨實習報告 (pdf)](/assets/20160513/20160513OpenCV-Homework.pdf)
 
 
-[ 範例程式 ] 影像處理暨實習報告 (GitHub)：
-[https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework](https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework)
+* 範例程式：[https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework](https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework)
 
 
 **< 畫面預覽 >**
