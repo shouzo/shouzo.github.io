@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 04 Aug 2016 14:46:35 +0800</pubDate>
-    <lastBuildDate>Thu, 04 Aug 2016 14:46:35 +0800</lastBuildDate>
+    <pubDate>Tue, 16 Aug 2016 16:01:38 +0800</pubDate>
+    <lastBuildDate>Tue, 16 Aug 2016 16:01:38 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -17,7 +17,12 @@
 
 &lt;h1 id=&quot;section&quot;&gt;(一) 社團創社經驗分享與交流&lt;/h1&gt;
 &lt;ul&gt;
-  &lt;li&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20160803-clubs-share.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20160803-clubs-share.html#/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20160803-clubs-share.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20160803-clubs-share.html#/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20160803-64538046&quot;&gt;http://www.slideshare.net/danny200026/20160803-64538046&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
@@ -43,7 +48,12 @@
 
 &lt;h1 id=&quot;section&quot;&gt;(一) 那些年，關於大學的那些事&lt;/h1&gt;
 &lt;ul&gt;
-  &lt;li&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20160802-about-university.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20160802-about-university.html#/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20160802-about-university.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20160802-about-university.html#/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20160802-64603608&quot;&gt;http://www.slideshare.net/danny200026/20160802-64603608&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
@@ -356,6 +366,35 @@
       </item>
     
       <item>
+        <title>20160513 [學習筆記] OpenCV - 影像處理暨實習報告</title>
+        <description>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/assets/20160513/20160513OpenCV-Homework.pdf&quot;&gt;20160513 OpenCV - 影像處理暨實習報告 (pdf)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[ 範例程式 ] 影像處理暨實習報告 (包含範例程式碼)&lt;br /&gt;
+	* 程式碼(GitHub)：&lt;a href=&quot;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework&quot;&gt;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;lt; 畫面預覽 &amp;gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20160513/screen.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 14 May 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/05/14/opencv_homework/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/05/14/opencv_homework/</guid>
+        
+        <category>C語言</category>
+        
+        <category>程式設計</category>
+        
+        <category>OpenCV</category>
+        
+        
+        <category>OpenCV</category>
+        
+        <category>C語言</category>
+        
+      </item>
+    
+      <item>
         <title>20160419 [學習筆記] OpenCV - 程式設計介紹(2)：視訊鏡頭的使用</title>
         <description>&lt;h2 id=&quot;opencv2httpyester-placeblogspottw200806opencv2html&quot;&gt;內文整理自 &lt;a href=&quot;http://yester-place.blogspot.tw/2008/06/opencv2.html&quot;&gt;OpenCV程式設計介紹(2)&lt;/a&gt;&lt;/h2&gt;
 
@@ -415,119 +454,6 @@
         <pubDate>Wed, 20 Apr 2016 03:06:05 +0800</pubDate>
         <link>http://shouzo.github.io/2016/04/20/opencv_yester-place2/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2016/04/20/opencv_yester-place2/</guid>
-        
-        <category>C語言</category>
-        
-        <category>程式設計</category>
-        
-        <category>OpenCV</category>
-        
-        
-        <category>OpenCV</category>
-        
-        <category>C語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20160419 [學習筆記] OpenCV - 程式設計介紹(1)：讀取圖片檔案</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#opencv1httpyester-placeblogspottw200806opencvhtml&quot; id=&quot;markdown-toc-opencv1httpyester-placeblogspottw200806opencvhtml&quot;&gt;內文整理自 &lt;a href=&quot;http://yester-place.blogspot.tw/2008/06/opencv.html&quot;&gt;OpenCV程式設計介紹(1)&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;[ 背景知識 ]&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#opencv---open-source-computer-vision&quot; id=&quot;markdown-toc-opencv---open-source-computer-vision&quot;&gt;（一）OpenCV - Open Source Computer Vision&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;（二）常用的函式庫&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#iplimage&quot; id=&quot;markdown-toc-iplimage&quot;&gt;（三）基本資料結構：IplImage&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;[ 範例程式 ] 讀取圖片檔案&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;opencv1httpyester-placeblogspottw200806opencvhtml&quot;&gt;內文整理自 &lt;a href=&quot;http://yester-place.blogspot.tw/2008/06/opencv.html&quot;&gt;OpenCV程式設計介紹(1)&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;[ 背景知識 ]&lt;/h3&gt;
-
-&lt;h4 id=&quot;opencv---open-source-computer-vision&quot;&gt;（一）OpenCV - Open Source Computer Vision&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;由Intel開發，Open Source圖形演算法的函式庫(Image Process Libary)。&lt;/li&gt;
-  &lt;li&gt;可製作圖片,視訊,矩陣運算,統計,圖論,資料儲存的相關C語言程式設計。&lt;/li&gt;
-  &lt;li&gt;常見的應用領域:影像處理、電腦視覺、圖形識別、電腦圖學、資訊檢索或遊戲設計。&lt;/li&gt;
-  &lt;li&gt;其他的應用領域(較知名)：物體追蹤、人臉辨識、傅立葉轉換、紋理分析,應用在靜態圖片(BMP,JPG,TIF,PNG),動態Webcam影像處理。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;（二）常用的函式庫&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;1. “cv.h”：電腦視覺函式庫&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. “highgui.h”：GUI 介面函式庫&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. “cxcore.h”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. “cvaux.h”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;[ 函式庫載入方式 ]&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;cv.h&amp;gt;
-#include &amp;lt;highgui.h&amp;gt;
-#include &amp;lt;cxcore.h&amp;gt;
-#include &amp;lt;cvaux.h&amp;gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;iplimage&quot;&gt;（三）基本資料結構：IplImage&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;相關資料：&lt;a href=&quot;http://yester-place.blogspot.tw/2008/07/iplimage1.html&quot;&gt;http://yester-place.blogspot.tw/2008/07/iplimage1.html&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;藉由 “cvLoadImage()” 所轉換的自定義格式&lt;br /&gt;
-&lt;img src=&quot;/assets/20160419/lplImage.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;圖片來源 : &lt;a href=&quot;http://3.bp.blogspot.com/_HcQD5f5sLPc/SLapjIwe9iI/AAAAAAAABG0/q_uh0L9LnB4/s400/%E7%B9%AA%E5%9C%962.jpg&quot;&gt;http://3.bp.blogspot.com/_HcQD5f5sLPc/SLapjIwe9iI/AAAAAAAABG0/q_uh0L9LnB4/s400/%E7%B9%AA%E5%9C%962.jpg&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;[ 範例程式 ] 讀取圖片檔案&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;程式碼(GitHub)：&lt;a href=&quot;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/1&quot;&gt;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/1&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Introduce_1.cpp
-&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
-#include &amp;lt;cv.h&amp;gt;
-#include &amp;lt;highgui.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;danny.jpg&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;			   &lt;span class=&quot;c1&quot;&gt;// 要顯示的影像名稱(在此為&quot;danny.jpg&quot;)
-&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;IplImage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Image1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvLoadImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 存入影像
-&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;cvNamedWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Show Image&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;			   &lt;span class=&quot;c1&quot;&gt;// 命名顯示在螢幕上的視窗名稱
-&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;cvResizeWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Show Image&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;800&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;// 設定視窗的大小
-&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;cvShowImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Show Image&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Image1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 顯示視窗
-&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;cvWaitKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;						        &lt;span class=&quot;c1&quot;&gt;// 鍵盤事件(阻斷)
-&lt;/span&gt;
-
-&lt;span class=&quot;cm&quot;&gt;/* 進行記憶體回收的動作 */&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;cvDestroyWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Show Image&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;		   	&lt;span class=&quot;c1&quot;&gt;// 銷毀視窗	
-&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;cvReleaseImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Image1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;				     &lt;span class=&quot;c1&quot;&gt;// 釋放記憶體
-&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;&amp;lt; 執行結果 &amp;gt;&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160419/001.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
-[ 註 ] 圖片檔需和程式碼檔放在同一個目錄下，再編譯執行！&lt;/p&gt;
-</description>
-        <pubDate>Wed, 20 Apr 2016 03:06:05 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/04/20/opencv_yester-place1/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/04/20/opencv_yester-place1/</guid>
         
         <category>C語言</category>
         
