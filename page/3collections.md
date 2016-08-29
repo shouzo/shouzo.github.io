@@ -35,6 +35,7 @@ icon: bookmark
 # (四) 社團筆記
 1. [20160802 那些年，關於大學的那些事...](/collections/clubs/20160802-about-university.html)
 2. [20160803 社團創社經驗分享與交流](/collections/clubs/20160803-clubs-share.html)
+3. [20160829 夢想，Loading...](/collections/clubs/20160829-about-dreams.html)
 
 
 

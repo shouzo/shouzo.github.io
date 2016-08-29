@@ -5,9 +5,40 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Aug 2016 16:01:38 +0800</pubDate>
-    <lastBuildDate>Tue, 16 Aug 2016 16:01:38 +0800</lastBuildDate>
+    <pubDate>Mon, 29 Aug 2016 18:42:07 +0800</pubDate>
+    <lastBuildDate>Mon, 29 Aug 2016 18:42:07 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20160829 [社團相關] 夢想，Loading...</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#loading&quot; id=&quot;markdown-toc-loading&quot;&gt;(一) 夢想，Loading…&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;loading&quot;&gt;(一) 夢想，Loading…&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20160829-about-dreams.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20160829-about-dreams.html#/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20160829-loading&quot;&gt;http://www.slideshare.net/danny200026/20160829-loading&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20160829/dreams.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 29 Aug 2016 02:30:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/08/29/about-dreams/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/08/29/about-dreams/</guid>
+        
+        <category>社團</category>
+        
+        
+        <category>社團</category>
+        
+      </item>
     
       <item>
         <title>20160803 [社團相關] 社團創社經驗分享與交流</title>
@@ -368,11 +399,13 @@
       <item>
         <title>20160513 [學習筆記] OpenCV - 影像處理暨實習報告</title>
         <description>&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/assets/20160513/20160513OpenCV-Homework.pdf&quot;&gt;20160513 OpenCV - 影像處理暨實習報告 (pdf)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;內容網址：&lt;a href=&quot;/assets/20160513/20160513OpenCV-Homework.pdf&quot;&gt;20160513 OpenCV - 影像處理暨實習報告 (pdf)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;範例程式：&lt;a href=&quot;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework&quot;&gt;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;[ 範例程式 ] 影像處理暨實習報告 (包含範例程式碼)&lt;br /&gt;
-	* 程式碼(GitHub)：&lt;a href=&quot;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework&quot;&gt;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Homework&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&amp;lt; 畫面預覽 &amp;gt;&lt;/strong&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/20160513/screen.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -380,80 +413,6 @@
         <pubDate>Sat, 14 May 2016 07:59:59 +0800</pubDate>
         <link>http://shouzo.github.io/2016/05/14/opencv_homework/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2016/05/14/opencv_homework/</guid>
-        
-        <category>C語言</category>
-        
-        <category>程式設計</category>
-        
-        <category>OpenCV</category>
-        
-        
-        <category>OpenCV</category>
-        
-        <category>C語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20160419 [學習筆記] OpenCV - 程式設計介紹(2)：視訊鏡頭的使用</title>
-        <description>&lt;h2 id=&quot;opencv2httpyester-placeblogspottw200806opencv2html&quot;&gt;內文整理自 &lt;a href=&quot;http://yester-place.blogspot.tw/2008/06/opencv2.html&quot;&gt;OpenCV程式設計介紹(2)&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h4 id=&quot;section&quot;&gt;[ 基本資料結構 ]&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;（一）IplImage&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;（二）CvCapture&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;[ 範例程式 ] 視訊鏡頭的使用&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;程式碼(GitHub)：&lt;a href=&quot;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/2&quot;&gt;https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Introduce_2.cpp
-&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;cv.h&amp;gt;
-#include &amp;lt;highgui.h&amp;gt;
-#include &amp;lt;stdio.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;CvCapture&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;capture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;IplImage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;capture&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvCaptureFromCAM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// &quot;cvCaptureFromCAM()&quot;：選定視訊裝置(Webcam)，&quot;0&quot; 代表自動偵測視訊裝置
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;cvNamedWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Webcam&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 命名顯示在螢幕上的視窗名稱
-&lt;/span&gt;        
-
-        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// 用&quot;while&quot;無窮迴圈來捕捉連續影像的圖形畫面
-&lt;/span&gt;        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvQueryFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;capture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// &quot;cvQueryFrame()&quot;：擷取每秒顯示出來的畫面
-&lt;/span&gt;                &lt;span class=&quot;n&quot;&gt;cvShowImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Webcam&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// &quot;cvShowImage()&quot;：顯示圖片
-&lt;/span&gt;            
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cvWaitKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// &quot;cvWaitKey(10)&quot;：每延遲10毫秒就捕捉一次視訊畫面，當鍵盤事件發生時則會跳出&quot;while&quot;無窮迴圈
-&lt;/span&gt;                &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
-
-
-        &lt;span class=&quot;cm&quot;&gt;/* 進行記憶體回收的動作 */&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;cvDestroyWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Webcam&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// 銷毀視窗
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;cvReleaseCapture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;capture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// 釋放記憶體    
-&lt;/span&gt;        
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;&amp;lt; 執行結果 &amp;gt;&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160419/002.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 20 Apr 2016 03:06:05 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/04/20/opencv_yester-place2/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/04/20/opencv_yester-place2/</guid>
         
         <category>C語言</category>
         
