@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 10 Sep 2016 00:58:58 +0800</pubDate>
-    <lastBuildDate>Sat, 10 Sep 2016 00:58:58 +0800</lastBuildDate>
+    <pubDate>Sat, 10 Sep 2016 03:18:14 +0800</pubDate>
+    <lastBuildDate>Sat, 10 Sep 2016 03:18:14 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -40,7 +40,7 @@
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;3. 取得向量值的加總、長度和平均值&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#sumxlengthxmeanx&quot; id=&quot;markdown-toc-sumxlengthxmeanx&quot;&gt;[用法] sum(x)、length(x)、mean(x)&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#sumlengthmean&quot; id=&quot;markdown-toc-sumlengthmean&quot;&gt;[用法] sum()、length()、mean()&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;4. 樣本變異數&lt;/a&gt;        &lt;ul&gt;
@@ -218,7 +218,7 @@
 
 &lt;h3 id=&quot;section-5&quot;&gt;3. 取得向量值的加總、長度和平均值&lt;/h3&gt;
 
-&lt;h4 id=&quot;sumxlengthxmeanx&quot;&gt;[用法] sum(x)、length(x)、mean(x)&lt;/h4&gt;
+&lt;h4 id=&quot;sumlengthmean&quot;&gt;[用法] sum()、length()、mean()&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 		&lt;span class=&quot;c1&quot;&gt;# 回傳向量的加總

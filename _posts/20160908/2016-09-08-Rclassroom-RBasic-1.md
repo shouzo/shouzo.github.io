@@ -137,7 +137,7 @@ tags: R語言 R語言翻轉教室 Data-Science
 
 ### 3. 取得向量值的加總、長度和平均值
 
-#### [用法] sum(x)、length(x)、mean(x)
+#### [用法] sum()、length()、mean()
 
 ```r
 > x <- c(10.4, 5.6, 3.1, 6.4)
