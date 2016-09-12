@@ -5,9 +5,189 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 10 Sep 2016 03:18:14 +0800</pubDate>
-    <lastBuildDate>Sat, 10 Sep 2016 03:18:14 +0800</lastBuildDate>
+    <pubDate>Mon, 12 Sep 2016 10:16:06 +0800</pubDate>
+    <lastBuildDate>Mon, 12 Sep 2016 10:16:06 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20160912 原始點療法 - 操作手法教學</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;[ 筆記內容 ]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;[ 前言 ] 觀念的建立&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;[ 總覽圖 ] 人體原始點分佈及對應位置&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;[ 操作手法 ] 工具的使用&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;(一) 頭部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;(二) 頸部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;(三) 上、下背部原始點&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;1.  上背部原始點&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;2.  下背部原始點&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;(四) 肩部原始點&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;1.  肩胛部原始點&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;2.  肩胛部旁特殊點&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;(五) 薦椎原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;(六) 臀部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-14&quot; id=&quot;markdown-toc-section-14&quot;&gt;(七) 膝部特殊點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-15&quot; id=&quot;markdown-toc-section-15&quot;&gt;(八) 踝部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-16&quot; id=&quot;markdown-toc-section-16&quot;&gt;(九) 足背部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-17&quot; id=&quot;markdown-toc-section-17&quot;&gt;(十) 肘部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-18&quot; id=&quot;markdown-toc-section-18&quot;&gt;(十一) 手背部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-19&quot; id=&quot;markdown-toc-section-19&quot;&gt;[ 技巧 ] 側臥按推方法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-20&quot; id=&quot;markdown-toc-section-20&quot;&gt;[ 總結 ] 按推 + 身體保養 + 經驗累積&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;[ 筆記內容 ]&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;整理自 &lt;a href=&quot;http://cch-foundation.org/&quot;&gt;張釗漢原始點醫療基金會&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;[ 前言 ] 觀念的建立&lt;/li&gt;
+      &lt;li&gt;[ 總覽圖 ] 人體原始點分佈及對應位置&lt;/li&gt;
+      &lt;li&gt;[ 操作手法 ] 工具的使用
+        &lt;ul&gt;
+          &lt;li&gt;（一）頭部原始點&lt;/li&gt;
+          &lt;li&gt;（二）頸部原始點&lt;/li&gt;
+          &lt;li&gt;（三）上、下背部原始點&lt;/li&gt;
+          &lt;li&gt;（四）肩部原始點&lt;/li&gt;
+          &lt;li&gt;（五）薦椎原始點&lt;/li&gt;
+          &lt;li&gt;（六）臀部原始點&lt;/li&gt;
+          &lt;li&gt;（七）膝部特殊點&lt;/li&gt;
+          &lt;li&gt;（八）踝部原始點&lt;/li&gt;
+          &lt;li&gt;（九）足背部原始點&lt;/li&gt;
+          &lt;li&gt;（十）肘部原始點&lt;/li&gt;
+          &lt;li&gt;（十一）手背部原始點&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;[ 技巧 ] 側臥按推方法&lt;/li&gt;
+      &lt;li&gt;[ 總結 ] 按推 + 身體保養 + 經驗累積&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;[ 前言 ] 觀念的建立&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/Sb41dU521wE?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 觀念的建立 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=Sb41dU521wE&amp;amp;index=1&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=Sb41dU521wE&amp;amp;index=1&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;官方網站&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;張釗漢原始點醫療基金會：&lt;a href=&quot;http://cch-foundation.org/&quot;&gt;http://cch-foundation.org/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;YouTube 官方頻道：&lt;a href=&quot;https://www.youtube.com/channel/UCPA-gG3YbDdZEM00wKLU8Eg&quot;&gt;https://www.youtube.com/channel/UCPA-gG3YbDdZEM00wKLU8Eg&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;手法教學&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;YouTube：&lt;a href=&quot;https://www.youtube.com/playlist?list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/playlist?list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;[ 總覽圖 ] 人體原始點分佈及對應位置&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/3BFSnJ7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt; 原始點總覽圖 &amp;gt; &lt;a href=&quot;http://cch-foundation.org/images/Animation2015/index.html&quot;&gt;http://cch-foundation.org/images/Animation2015/index.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;[ 操作手法 ] 工具的使用&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/lvugwqsG31Q?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 操作手法 - 工具的使用 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=lvugwqsG31Q&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=2&quot;&gt;https://www.youtube.com/watch?v=lvugwqsG31Q&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=2&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;(一) 頭部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/SPI55_1vCgY?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 頭部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=SPI55_1vCgY&amp;amp;index=3&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=SPI55_1vCgY&amp;amp;index=3&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;(二) 頸部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/Nt4GqwhO7HE?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 頸部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=Nt4GqwhO7HE&amp;amp;index=4&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=Nt4GqwhO7HE&amp;amp;index=4&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-6&quot;&gt;(三) 上、下背部原始點&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;1.  上背部原始點&lt;/h3&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/IlSqHSZySUo?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 上背部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=IlSqHSZySUo&amp;amp;index=5&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=IlSqHSZySUo&amp;amp;index=5&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;2.  下背部原始點&lt;/h3&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/7a6ettIMDPA?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 下背部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=7a6ettIMDPA&amp;amp;index=8&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=7a6ettIMDPA&amp;amp;index=8&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-9&quot;&gt;(四) 肩部原始點&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;1.  肩胛部原始點&lt;/h3&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/90ymk3tqifE?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 肩胛部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=90ymk3tqifE&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=6&quot;&gt;https://www.youtube.com/watch?v=90ymk3tqifE&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=6&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;2.  肩胛部旁特殊點&lt;/h3&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/vAXkflWsDms?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 肩胛部旁特殊點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=vAXkflWsDms&amp;amp;index=7&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=vAXkflWsDms&amp;amp;index=7&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-12&quot;&gt;(五) 薦椎原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/9DlpET2k4ro?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 薦椎部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=9DlpET2k4ro&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=9&quot;&gt;https://www.youtube.com/watch?v=9DlpET2k4ro&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=9&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-13&quot;&gt;(六) 臀部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/apfO9fKrUCw?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 臀部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=apfO9fKrUCw&amp;amp;index=10&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=apfO9fKrUCw&amp;amp;index=10&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-14&quot;&gt;(七) 膝部特殊點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/Ew6Chq_pWfA?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 膝部特殊點操作手法 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=Ew6Chq_pWfA&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=11&quot;&gt;https://www.youtube.com/watch?v=Ew6Chq_pWfA&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=11&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-15&quot;&gt;(八) 踝部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/-pxkolUxFvY?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 踝部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=-pxkolUxFvY&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=12&quot;&gt;https://www.youtube.com/watch?v=-pxkolUxFvY&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=12&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-16&quot;&gt;(九) 足背部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/cHQ7Fq16Ewo?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 足背部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=cHQ7Fq16Ewo&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=13&quot;&gt;https://www.youtube.com/watch?v=cHQ7Fq16Ewo&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=13&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-17&quot;&gt;(十) 肘部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/bo0GLugDx9A?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 肘部原始點操作手法 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=bo0GLugDx9A&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=14&quot;&gt;https://www.youtube.com/watch?v=bo0GLugDx9A&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=14&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-18&quot;&gt;(十一) 手背部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/j0PD60BKfQo?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 手背部原始點操作手法 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=j0PD60BKfQo&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=15&quot;&gt;https://www.youtube.com/watch?v=j0PD60BKfQo&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=15&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-19&quot;&gt;[ 技巧 ] 側臥按推方法&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/mL_pQro-fPk?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 側臥按推方法 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=mL_pQro-fPk&amp;amp;index=16&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=mL_pQro-fPk&amp;amp;index=16&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-20&quot;&gt;[ 總結 ] 按推 + 身體保養 + 經驗累積&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/GkC4nNd5TBs?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 結論 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=GkC4nNd5TBs&amp;amp;index=17&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=GkC4nNd5TBs&amp;amp;index=17&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 12 Sep 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/09/12/Original-Point/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/09/12/Original-Point/</guid>
+        
+        <category>運動領域</category>
+        
+        <category>原始點療法</category>
+        
+        
+        <category>運動領域</category>
+        
+        <category>原始點療法</category>
+        
+      </item>
     
       <item>
         <title>20160908 [R語言翻轉教室] 01-RBasic (1)</title>
@@ -897,35 +1077,6 @@
         <pubDate>Tue, 31 May 2016 07:59:59 +0800</pubDate>
         <link>http://shouzo.github.io/2016/05/31/Data-Mining-2/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2016/05/31/Data-Mining-2/</guid>
-        
-        <category>Data-Science</category>
-        
-        <category>Data-Mining</category>
-        
-        <category>R語言</category>
-        
-        
-        <category>Data-Science</category>
-        
-        <category>Data-Mining</category>
-        
-        <category>R語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20160523 [資料科學系列] 資料探勘 Data Mining (1)</title>
-        <description>&lt;h1 id=&quot;section&quot;&gt;簡報主題：基本觀念與工作環境的架設&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;簡報網址： &lt;a href=&quot;/collections/data-science/20160523-Data-Mining-1.html&quot;&gt;20160523 [資料科學系列] 資料探勘 Data Mining (1)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[簡報預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160523/cover.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 24 May 2016 07:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/05/24/Data-Mining-1/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/05/24/Data-Mining-1/</guid>
         
         <category>Data-Science</category>
         
