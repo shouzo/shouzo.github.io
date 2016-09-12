@@ -44,7 +44,7 @@ tag_dir: tag/
 excerpt_separator: "\n\n\n\n"
 
 # paginate
-gems: [jekyll-paginate, youtube]
+gems: [jekyll-paginate]
 
 
 paginate_path: "/blog/page:num/"

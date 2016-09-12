@@ -35,7 +35,7 @@ tags: 運動領域 原始點療法
 
 
 ## [ 前言 ] 觀念的建立
-{%youtube Sb41dU521wE %}
+{% include youtubePlayer.html id="Sb41dU521wE" %}
 
 < 觀念的建立 > [https://www.youtube.com/watch?v=Sb41dU521wE&index=1&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX](https://www.youtube.com/watch?v=Sb41dU521wE&index=1&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX)
 
@@ -58,7 +58,7 @@ tags: 運動領域 原始點療法
 
 
 ## [ 操作手法 ] 工具的使用
-{%youtube lvugwqsG31Q %}
+{% include youtubePlayer.html id="lvugwqsG31Q" %}
 
 < 操作手法 - 工具的使用 > [https://www.youtube.com/watch?v=lvugwqsG31Q&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=2](https://www.youtube.com/watch?v=lvugwqsG31Q&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=2)
 
@@ -66,7 +66,9 @@ tags: 運動領域 原始點療法
 
 
 ## (一) 頭部原始點
-{%youtube SPI55_1vCgY %}
+{% include youtubePlayer.html id="SPI55_1vCgY" %}
+
+
 
 < 頭部原始點操作手法  > [https://www.youtube.com/watch?v=SPI55_1vCgY&index=3&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX](https://www.youtube.com/watch?v=SPI55_1vCgY&index=3&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX)
 
@@ -74,7 +76,7 @@ tags: 運動領域 原始點療法
 
 
 ##  (二) 頸部原始點
-{%youtube Nt4GqwhO7HE %}
+{% include youtubePlayer.html id="Nt4GqwhO7HE" %}
 
 < 頸部原始點操作手法  > [https://www.youtube.com/watch?v=Nt4GqwhO7HE&index=4&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX](https://www.youtube.com/watch?v=Nt4GqwhO7HE&index=4&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX)
 
@@ -84,13 +86,13 @@ tags: 運動領域 原始點療法
 ## (三) 上、下背部原始點
 
 ### 1.  上背部原始點
-{%youtube IlSqHSZySUo %}
+{% include youtubePlayer.html id="IlSqHSZySUo" %}
 
 < 上背部原始點操作手法  > [https://www.youtube.com/watch?v=IlSqHSZySUo&index=5&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX](https://www.youtube.com/watch?v=IlSqHSZySUo&index=5&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX)
 
 
 ### 2.  下背部原始點
-{%youtube 7a6ettIMDPA %}
+{% include youtubePlayer.html id="7a6ettIMDPA" %}
 
 < 下背部原始點操作手法  > [https://www.youtube.com/watch?v=7a6ettIMDPA&index=8&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX](https://www.youtube.com/watch?v=7a6ettIMDPA&index=8&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX)
 
@@ -100,13 +102,13 @@ tags: 運動領域 原始點療法
 ## (四) 肩部原始點
 
 ### 1.  肩胛部原始點
-{%youtube 90ymk3tqifE %}
+{% include youtubePlayer.html id="90ymk3tqifE" %}
 
 < 肩胛部原始點操作手法  > [https://www.youtube.com/watch?v=90ymk3tqifE&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=6](https://www.youtube.com/watch?v=90ymk3tqifE&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=6)
 
 
 ### 2.  肩胛部旁特殊點
-{%youtube vAXkflWsDms %}
+{% include youtubePlayer.html id="vAXkflWsDms" %}
 
 < 肩胛部旁特殊點操作手法  > [https://www.youtube.com/watch?v=vAXkflWsDms&index=7&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX](https://www.youtube.com/watch?v=vAXkflWsDms&index=7&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX)
 
@@ -114,7 +116,7 @@ tags: 運動領域 原始點療法
 
 
 ## (五) 薦椎原始點
-{%youtube 9DlpET2k4ro %}
+{% include youtubePlayer.html id="9DlpET2k4ro" %}
 
 < 薦椎部原始點操作手法  > [https://www.youtube.com/watch?v=9DlpET2k4ro&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=9](https://www.youtube.com/watch?v=9DlpET2k4ro&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=9)
 
@@ -122,7 +124,7 @@ tags: 運動領域 原始點療法
 
 
 ## (六) 臀部原始點
-{%youtube apfO9fKrUCw %}
+{% include youtubePlayer.html id="apfO9fKrUCw" %}
 
 < 臀部原始點操作手法  > [https://www.youtube.com/watch?v=apfO9fKrUCw&index=10&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX](https://www.youtube.com/watch?v=apfO9fKrUCw&index=10&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX)
 
@@ -130,7 +132,7 @@ tags: 運動領域 原始點療法
 
 
 ## (七) 膝部特殊點
-{%youtube Ew6Chq_pWfA %}
+{% include youtubePlayer.html id="Ew6Chq_pWfA" %}
 
 < 膝部特殊點操作手法 > [https://www.youtube.com/watch?v=Ew6Chq_pWfA&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=11](https://www.youtube.com/watch?v=Ew6Chq_pWfA&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=11)
 
@@ -138,7 +140,7 @@ tags: 運動領域 原始點療法
 
 
 ## (八) 踝部原始點
-{%youtube -pxkolUxFvY %}
+{% include youtubePlayer.html id="-pxkolUxFvY" %}
 
 < 踝部原始點操作手法  > [https://www.youtube.com/watch?v=-pxkolUxFvY&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=12](https://www.youtube.com/watch?v=-pxkolUxFvY&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=12)
 
@@ -146,7 +148,7 @@ tags: 運動領域 原始點療法
 
 
 ## (九) 足背部原始點
-{%youtube cHQ7Fq16Ewo %}
+{% include youtubePlayer.html id="cHQ7Fq16Ewo" %}
 
 < 足背部原始點操作手法  > [https://www.youtube.com/watch?v=cHQ7Fq16Ewo&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=13](https://www.youtube.com/watch?v=cHQ7Fq16Ewo&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=13)
 
@@ -154,7 +156,7 @@ tags: 運動領域 原始點療法
 
 
 ## (十) 肘部原始點
-{%youtube bo0GLugDx9A %}
+{% include youtubePlayer.html id="bo0GLugDx9A" %}
 
 < 肘部原始點操作手法 > [https://www.youtube.com/watch?v=bo0GLugDx9A&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=14](https://www.youtube.com/watch?v=bo0GLugDx9A&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=14)
 
@@ -162,7 +164,7 @@ tags: 運動領域 原始點療法
 
 
 ## (十一) 手背部原始點
-{%youtube j0PD60BKfQo %}
+{% include youtubePlayer.html id="j0PD60BKfQo" %}
 
 < 手背部原始點操作手法 > [https://www.youtube.com/watch?v=j0PD60BKfQo&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=15](https://www.youtube.com/watch?v=j0PD60BKfQo&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&index=15)
 
@@ -170,7 +172,7 @@ tags: 運動領域 原始點療法
 
 
 ## [ 技巧 ] 側臥按推方法
-{%youtube mL_pQro-fPk %}
+{% include youtubePlayer.html id="mL_pQro-fPk" %}
 
 < 側臥按推方法 > [https://www.youtube.com/watch?v=mL_pQro-fPk&index=16&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX](https://www.youtube.com/watch?v=mL_pQro-fPk&index=16&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX)
 
@@ -178,6 +180,6 @@ tags: 運動領域 原始點療法
 
 
 ## [ 總結 ] 按推 + 身體保養 + 經驗累積
-{%youtube GkC4nNd5TBs %}
+{% include youtubePlayer.html id="GkC4nNd5TBs" %}
 
 < 結論 > [https://www.youtube.com/watch?v=GkC4nNd5TBs&index=17&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX](https://www.youtube.com/watch?v=GkC4nNd5TBs&index=17&list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX)
