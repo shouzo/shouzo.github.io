@@ -46,5 +46,10 @@ excerpt_separator: "\n\n\n\n"
 # paginate
 gems: [jekyll-paginate]
 
+
 paginate_path: "/blog/page:num/"
 paginate: 5
+
+
+
+
