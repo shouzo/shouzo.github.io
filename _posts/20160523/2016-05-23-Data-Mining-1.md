@@ -2,7 +2,7 @@
 layout: post
 title:  "20160523 [資料科學系列] 資料探勘 Data Mining (1)"
 date:   2016-05-23 23:59:59
-categories: Data-Science Data-Mining R語言
+categories: Data-Science R語言
 tags: Data-Science Data-Mining R語言
 ---
 

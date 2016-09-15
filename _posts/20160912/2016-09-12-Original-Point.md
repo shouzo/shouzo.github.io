@@ -2,7 +2,7 @@
 layout: post
 title:  "20160912 [原始點療法] 操作手法教學"
 date:   2016-09-11 23:59:59
-categories: 運動領域 原始點療法
+categories: 運動領域
 tags: 運動領域 原始點療法
 ---
 
