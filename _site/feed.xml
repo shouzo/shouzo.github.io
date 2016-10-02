@@ -5,9 +5,431 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 15 Sep 2016 10:37:25 +0800</pubDate>
-    <lastBuildDate>Thu, 15 Sep 2016 10:37:25 +0800</lastBuildDate>
+    <pubDate>Mon, 03 Oct 2016 01:53:28 +0800</pubDate>
+    <lastBuildDate>Mon, 03 Oct 2016 01:53:28 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20161003 [資料科學系列] R語言資料分析實務(1)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#r1&quot; id=&quot;markdown-toc-r1&quot;&gt;簡報主題：R語言資料分析實務(1)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;r1&quot;&gt;簡報主題：R語言資料分析實務(1)&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161003-R-doing-1.html/&quot;&gt;20161003 [資料科學系列] R語言資料分析實務(1)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161003-r-1&quot;&gt;http://www.slideshare.net/danny200026/20161003-r-1&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20161003/R-doing-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 02 Oct 2016 18:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/10/02/R-doing-1/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/10/02/R-doing-1/</guid>
+        
+        <category>Data-Science</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>R語言</category>
+        
+        
+        <category>Data-Science</category>
+        
+        <category>R語言</category>
+        
+      </item>
+    
+      <item>
+        <title>20160917 [學習筆記] 分析資料與繪製地圖，進行空間資料視覺化</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;參考資料&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;(一) 先別管資料，單純顯示地圖&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;1. 顯示基本地圖&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;2. 再精確一點的地區&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;3. 地圖的類型、明暗程度的調整&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#opendata&quot; id=&quot;markdown-toc-opendata&quot;&gt;(二) 尋找 OpenData，進行檢視和分類&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#open-data&quot; id=&quot;markdown-toc-open-data&quot;&gt;1. 使用開放資料 Open Data&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;2. 檢視資料，取得我們要用的資訊&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;3. 先想一下︰我們用這些資料要做什麼？&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;(三) 將分類後的資料放在地圖上，進行視覺化&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;參考資料&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.gtwang.org/r/r-ggmap-package-spatial-data-visualization/&quot;&gt;R 的 ggmap 套件：繪製地圖與資料分佈圖，空間資料視覺化&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://read01.com/xg0ag7.html&quot;&gt;聚類算法：DBScan算法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://open.canada.ca/data/en/dataset/a50a7360-d986-4d12-b940-67266a2fa980&quot;&gt;Rail occurrence data from January 2004 to present&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%8A%A0%E6%8B%BF%E5%A4%A7%E8%A1%8C%E6%94%BF%E5%8C%BA%E5%88%92&quot;&gt;加拿大行政區劃&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%BB%8F%E7%BA%AC%E5%BA%A6&quot;&gt;經緯度&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;前言&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;最近實驗室需要進行專題的展示，而我本身也在準備近期要分享的演講簡報，於是便試著將這一陣子的工作作個簡單的筆記和紀錄。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我負責的工作是：將爬蟲抓下來且經過 &lt;code class=&quot;highlighter-rouge&quot;&gt;DBSCAN 演算法&lt;/code&gt; 分類後的資料，繪製在地圖上並進行資料視覺化。詳細的作法預計會在下一篇說明，現在先找個範例練習。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;(一) 先別管資料，單純顯示地圖&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;1. 顯示基本地圖&lt;/h3&gt;
+&lt;p&gt;我先參考 &lt;a href=&quot;https://blog.gtwang.org/r/r-ggmap-package-spatial-data-visualization/&quot;&gt;R 的 ggmap 套件：繪製地圖與資料分佈圖，空間資料視覺化&lt;/a&gt; 的內容，將相關的套件安裝好後並加以載入︰&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install.packages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ggmap&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install.packages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mapproj&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ggmap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mapproj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;之後，先試著用 &lt;code class=&quot;highlighter-rouge&quot;&gt;ggmap()&lt;/code&gt; 抓一個地點來看看：&lt;br /&gt;
+	* 在這裡使用 “加拿大(Canada)” 作為示範。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 使用 get_map() 設定要抓的地點，以及地圖放大的比例。
+# location：要抓的地點
+# zoom：調整地圖縮放的參數，需要視需求調整
+# 在地圖上顯示的文字語言
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Canada&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zoom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;language&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;zh-TW&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 將地圖顯示出來
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ggmap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;[顯示結果]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;看起來沒有很清楚，不過至少可以確定地圖上顯示的是北美洲地區。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;2. 再精確一點的地區&lt;/h3&gt;
+&lt;p&gt;整個北美洲太大了，我想要針對指定的地區(城市)進行顯示，在這裡以”溫哥華(Vancouver)”為例。&lt;br /&gt;
+但是如果直接在&lt;code class=&quot;highlighter-rouge&quot;&gt;location&lt;/code&gt;參數上輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;Vancouver&lt;/code&gt;(溫哥華)，地圖會偏掉。&lt;br /&gt;
+這時候可以改用經緯度座標來指定：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;隨意找一個溫哥華內部的地點來定位。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;[範例]&lt;/strong&gt; 經度：&lt;code class=&quot;highlighter-rouge&quot;&gt;49.27894861&lt;/code&gt;、緯度：&lt;code class=&quot;highlighter-rouge&quot;&gt;-123.11536789&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# lon：設定座標，緯度(longitude)、lat：經度(latitude)
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-123.11536789&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;49.27894861&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zoom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;language&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;zh-TW&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ggmap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;[顯示結果]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;嗯，這張看起來清楚多了！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;3. 地圖的類型、明暗程度的調整&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;地圖的類型可以用：&lt;code class=&quot;highlighter-rouge&quot;&gt;maptype&lt;/code&gt; 參數調整&lt;/li&gt;
+  &lt;li&gt;明暗程度可以用：&lt;code class=&quot;highlighter-rouge&quot;&gt;darken&lt;/code&gt; 參數調整&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;詳細的操作在這裡就不多加詳述，可以看看參考資料。&lt;/p&gt;
+
+&lt;h2 id=&quot;opendata&quot;&gt;(二) 尋找 OpenData，進行檢視和分類&lt;/h2&gt;
+
+&lt;h3 id=&quot;open-data&quot;&gt;1. 使用開放資料 Open Data&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/20160917/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在這裡我使用 &lt;a href=&quot;http://open.canada.ca/data/en/dataset/a50a7360-d986-4d12-b940-67266a2fa980&quot;&gt;Rail occurrence data from January 2004 to present&lt;/a&gt; 作為資料來源。(剛好可以對照加拿大的地圖)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;加拿大地圖(省份) &lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;讓我們先下載原始資料檔和說明檔：&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/4.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;2. 檢視資料，取得我們要用的資訊&lt;/h3&gt;
+
+&lt;p&gt;先看一下欄位名稱：&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;詳細的欄位資訊都在說明檔裡，我們在這裡只需要 &lt;code class=&quot;highlighter-rouge&quot;&gt;OCC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;ACC_INC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt;(省份) 這三個欄位的資料。&lt;br /&gt;
+首先要檢查工作目錄的位置是否正確，如果不正確則需要調整：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/home/shouzo&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/home/shouzo/r_test&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 切換工作目錄
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/home/shouzo/r_test&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;# 確認目錄裡的檔案
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;dd-20150217.csv&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Rail_Eng.csv&quot;&lt;/span&gt;   
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我們試著讀取 &lt;code class=&quot;highlighter-rouge&quot;&gt;Rail_Eng.csv&lt;/code&gt; 的檔案內容，你可以看到這個檔案裡的資料有一萬多筆。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read.csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rail_Eng.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 中間省略...
+&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;450&lt;/span&gt;                                   &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;451&lt;/span&gt;                                   &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;452&lt;/span&gt;                                   &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;453&lt;/span&gt;                                   &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;454&lt;/span&gt;       &lt;span class=&quot;n&quot;&gt;FLASHING&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LIGHT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SIGNALS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AND&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BELL&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reached&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getOption&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;max.print&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;omitted&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;17653&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;因為我們只需要 &lt;code class=&quot;highlighter-rouge&quot;&gt;OCC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;ACC_INC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt; 這三個欄位的資料，所以要稍微加以細分：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 將整個檔案裡的資料檔存入變數 &quot;Ori_Data&quot;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ori_Data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read.csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rail_Eng.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 取得並存放 &quot;OCC_TYPE&quot; 欄位的資料
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OCC_TYPE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ori_Data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OCC_TYPE&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 取得並存放 &quot;ACC_INC_TYPE&quot; 欄位的資料
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ACC_INC_TYPE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ori_Data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ACC_INC_TYPE&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 取得並存放 &quot;PROVINCE&quot; 欄位的資料
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PROVINCE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ori_Data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PROVINCE&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;剛剛我們分別對 &lt;code class=&quot;highlighter-rouge&quot;&gt;OCC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;ACC_INC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt; 進行資料的存放和處理，現在我們來看看裡面有哪些內容。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;查看 &lt;code class=&quot;highlighter-rouge&quot;&gt;OCC_TYPE&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 查看 OCC_TYPE 裡面有哪些資料類型
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OCC_TYPE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ACCIDENT&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;INCIDENT&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;查看 &lt;code class=&quot;highlighter-rouge&quot;&gt;ACC_INC_TYPE&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 查看 ACC_INC_TYPE 裡面有哪些資料類型
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ACC_INC_TYPE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;                                      
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;COLLISION INVOLVING TRACK UNIT&quot;&lt;/span&gt;        
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CREW MEMBER INCAPACITATED&quot;&lt;/span&gt;             
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CROSSING&quot;&lt;/span&gt;                              
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;DERAILMENT INVOLVING TRACK UNIT&quot;&lt;/span&gt;       
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;DG LEAKER&quot;&lt;/span&gt;                             
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;EMPLOYEE&quot;&lt;/span&gt;                              
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;FIRE&quot;&lt;/span&gt;                                  
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MAIN-TRACK SWITCH IN ABNORMAL POSITION&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MAIN-TRACK TRAIN COLLISION&quot;&lt;/span&gt;            
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MAIN-TRACK TRAIN DERAILMENT&quot;&lt;/span&gt;           
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MOVEMENT EXCEEDS LIMITS OF AUTHORITY&quot;&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;NON-MAIN-TRACK TRAIN COLLISION&quot;&lt;/span&gt;        
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;NON-MAIN-TRACK TRAIN DERAILMENT&quot;&lt;/span&gt;       
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;PASSENGER&quot;&lt;/span&gt;                             
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;R/S COLL. WITH ABANDONED VEHICLE&quot;&lt;/span&gt;      
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;R/S COLL. WITH OBJECT&quot;&lt;/span&gt;                 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;R/S DAMAGE WITHOUT DERAIL./COLL.&quot;&lt;/span&gt;      
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RUNAWAY ROLLING STOCK&quot;&lt;/span&gt;                 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;SIGNAL LESS RESTRICTIVE THAN REQUIRED&quot;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;TRESPASSER&quot;&lt;/span&gt;                            
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;UNPROTECTED OVERLAP OF AUTHORITIES&quot;&lt;/span&gt;    
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;查看 &lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 查看 PROVINCE 裡面有哪些資料類型
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PROVINCE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;ALBERTA&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;BRITISH COLUMBIA&quot;&lt;/span&gt;     
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MANITOBA&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;NEW BRUNSWICK&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;NEWFOUNDLAND&quot;&lt;/span&gt;         
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;NORTHWEST TERRITORIES&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;NOVA SCOTIA&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;ONTARIO&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;QU\xc9BEC&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;SASKATCHEWAN&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;3. 先想一下︰我們用這些資料要做什麼？&lt;/h3&gt;
+&lt;p&gt;這份是源自於加拿大的 OpenData 資料，而我現在想要用這些資料去 &lt;strong&gt;觀察&lt;/strong&gt; 各省份地鐵事故分佈的情形，可以怎麼做？&lt;/p&gt;
+
+&lt;p&gt;這個問題可以從幾個觀點來看(由簡單到複雜)：&lt;br /&gt;
+1. 哪一個地區比較常發生事故？&lt;br /&gt;
+2. 哪一個地區比較常發生”何種類型”的事故？&lt;br /&gt;
+3. …其他的之後可以再想想&lt;/p&gt;
+
+&lt;p&gt;這一次先探討上方的第1點，我個人的想法如下：&lt;br /&gt;
+『 根據事故發生的次數，以 “點狀圖” 的方式去凸顯發生頻率。』&lt;br /&gt;
+* &lt;strong&gt;點越大，就代表事故發生的次數越多。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;就像是這張圖：&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;(三) 將分類後的資料放在地圖上，進行視覺化&lt;/h2&gt;
+&lt;p&gt;我們從 &lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt; 這個欄位中知道資料分別來自 9 個省份 (扣除兩項無法辨別的資料)；讓我們先個別幫這些地區定義座標，這樣在之後便可以精準的定位：&lt;br /&gt;
+* 只要在各省份中隨意找一個地點設為座標即可，詳情請見 &lt;a href=&quot;https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&amp;amp;hl=zh-Hant&quot;&gt;搜尋和取得座標&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;ALBERTA&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(56.245426, -115.134777)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;BRITISH COLUMBIA&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(54.156673, -124.801499)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;MANITOBA&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(55.829413, -97.121341)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;NEW BRUNSWICK&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(46.717936, -66.294149)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;NEWFOUNDLAND&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(54.501215, -61.985263)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;NORTHWEST TERRITORIES&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(64.585305, -121.295028)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;NOVA SCOTIA&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(45.108690, -63.650974)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ONTARIO&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(51.222450, -85.156691)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SASKATCHEWAN&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(54.829432, -105.995397)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;接著，讓我們看看這些地區在資料中出現的次數：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PROVINCE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                                    &lt;span class=&quot;n&quot;&gt;ALBERTA&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;BRITISH&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COLUMBIA&lt;/span&gt; 
+                    &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;                  &lt;span class=&quot;m&quot;&gt;3758&lt;/span&gt;                  &lt;span class=&quot;m&quot;&gt;3082&lt;/span&gt; 
+             &lt;span class=&quot;n&quot;&gt;MANITOBA&lt;/span&gt;         &lt;span class=&quot;n&quot;&gt;NEW&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BRUNSWICK&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;NEWFOUNDLAND&lt;/span&gt; 
+                 &lt;span class=&quot;m&quot;&gt;1711&lt;/span&gt;                   &lt;span class=&quot;m&quot;&gt;324&lt;/span&gt;                    &lt;span class=&quot;m&quot;&gt;69&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;NORTHWEST&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TERRITORIES&lt;/span&gt;           &lt;span class=&quot;n&quot;&gt;NOVA&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SCOTIA&lt;/span&gt;               &lt;span class=&quot;n&quot;&gt;ONTARIO&lt;/span&gt; 
+                   &lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;                   &lt;span class=&quot;m&quot;&gt;152&lt;/span&gt;                  &lt;span class=&quot;m&quot;&gt;4819&lt;/span&gt; 
+            &lt;span class=&quot;n&quot;&gt;QU&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xc9BEC&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;SASKATCHEWAN&lt;/span&gt; 
+                 &lt;span class=&quot;m&quot;&gt;2399&lt;/span&gt;                  &lt;span class=&quot;m&quot;&gt;1773&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sat, 17 Sep 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/09/17/Rggmap/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/09/17/Rggmap/</guid>
+        
+        <category>R語言</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>Data-Science</category>
+        
+        
+        <category>R語言</category>
+        
+        <category>Data-Science</category>
+        
+      </item>
+    
+      <item>
+        <title>20160915 [R語言翻轉教室] 01-RBasic (2)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#rhttpdatascienceandrorg&quot; id=&quot;markdown-toc-rhttpdatascienceandrorg&quot;&gt;整理自 &lt;a href=&quot;http://datascienceandr.org/&quot;&gt;R語言翻轉教室&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#rbasic&quot; id=&quot;markdown-toc-rbasic&quot;&gt;課程進度：RBasic&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#data-structure-object&quot; id=&quot;markdown-toc-data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#factors&quot; id=&quot;markdown-toc-factors&quot;&gt;(二) 04-Factors&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arrays-matrices&quot; id=&quot;markdown-toc-arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;rhttpdatascienceandrorg&quot;&gt;整理自 &lt;a href=&quot;http://datascienceandr.org/&quot;&gt;R語言翻轉教室&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;版本資訊 (sha-hash：4636e186)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rbasic&quot;&gt;課程進度：RBasic&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;01-RBasic-01-Introduction …ok&lt;/li&gt;
+  &lt;li&gt;01-RBasic-02-Data-Structure-Vectors …ok&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-03-Data-Structure-Object.html&quot;&gt;01-RBasic-03-Data-Structure-Object&lt;/a&gt; (O)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-04-Factors.html&quot;&gt;01-RBasic-04-Factors&lt;/a&gt; (O)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-05-Arrays-Matrices.html&quot;&gt;01-RBasic-05-Arrays-Matrices&lt;/a&gt; (O)&lt;/li&gt;
+  &lt;li&gt;01-RBasic-06-List-DataFrame&lt;/li&gt;
+  &lt;li&gt;01-RBasic-07-Loading-Dataset&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/h2&gt;
+
+&lt;h2 id=&quot;factors&quot;&gt;(二) 04-Factors&lt;/h2&gt;
+
+&lt;h2 id=&quot;arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/h2&gt;
+
+</description>
+        <pubDate>Fri, 16 Sep 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/</guid>
+        
+        <category>R語言</category>
+        
+        <category>R語言翻轉教室</category>
+        
+        <category>Data-Science</category>
+        
+        
+        <category>R語言</category>
+        
+      </item>
     
       <item>
         <title>20160912 [原始點療法] 操作手法教學</title>
@@ -890,198 +1312,6 @@
         <category>Android</category>
         
         <category>專題製作</category>
-        
-      </item>
-    
-      <item>
-        <title>20160606 [資料科學系列] 資料探勘 Data Mining (3)</title>
-        <description>&lt;h1 id=&quot;section&quot;&gt;簡報主題：簡易視覺化&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;簡報網址： &lt;a href=&quot;/collections/data-science/20160606-Data-Mining-3.html&quot;&gt;20160606 [資料科學系列] 資料探勘 Data Mining (3)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[簡報預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160606/cover.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 05 Jun 2016 20:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/06/05/Data-Mining-3/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/06/05/Data-Mining-3/</guid>
-        
-        <category>Data-Science</category>
-        
-        <category>Data-Mining</category>
-        
-        <category>R語言</category>
-        
-        
-        <category>Data-Science</category>
-        
-        <category>R語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20160601 [學習筆記] Hackpad - 線上筆記彙整(1)</title>
-        <description>&lt;h1 id=&quot;section&quot;&gt;筆記範圍：2015/8/23 - 2016/1/31&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;這裡整理著之前在 Hackpad 撰寫的筆記：&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;r-&quot;&gt;(學習) 程式設計 - R 語言&lt;/h2&gt;
-
-&lt;h3 id=&quot;hackpad&quot;&gt;一、主要連結(Hackpad)&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150823-Coursera-R-Programming-1-NM7k7ShG8ff&quot;&gt;20150823 [Coursera] R Programming (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150823-Coursera-R-Programming-2-aGnnTv7LL7g&quot;&gt;20150823 [Coursera] R Programming (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150824-R-1-x2J0pTujKM2&quot;&gt;20150824 [學習筆記] R與資料探勘 (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150825-R-2-FmoBkmodtiu&quot;&gt;20150825 [學習筆記] R與資料探勘 (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150826-R-3-mLcnEtiDWQj&quot;&gt;20150826 [學習筆記] R與資料探勘 (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150827-R-4-a561WgThBEE&quot;&gt;20150827 [學習筆記] R與資料探勘 (4)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150827-R-5-GP2ogKXu39D&quot;&gt;20150827 [學習筆記] R與資料探勘 (5)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150829-Coursera-R-Programming-3-ETuVpfuklrK&quot;&gt;20150829 [Coursera] R Programming (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/YJ04KRQOtbW&quot;&gt;20150916 [Coursera] R Programming (4)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/pcGvoTedUP8&quot;&gt;20150920 [Coursera] R Programming (5)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150921-Coursera-R-Programming-6-16zBLgpeSkC&quot;&gt;20150921 [Coursera] R Programming (6)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150925-R-Ch06--S1UYpbfxL1W&quot;&gt;20150925 [R基礎與應用] Ch06 : 讀取各類資料&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150925-R-Ch07--TRG6a7SzJ7a&quot;&gt;20150925 [R基礎與應用] Ch07 : 統計繪圖&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151001-R-Ch08-R-wUqI6pGxCe3&quot;&gt;20151001 [R基礎與應用] Ch08 : 建立R函數&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151005-Coursera-R-Programming-7-xA1Y7MVDo4T&quot;&gt;20151005 [Coursera] R Programming (7)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151019-Coursera-R-Programming-8-TAIfvcz3k58&quot;&gt;20151019 [Coursera] R Programming (8)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151023-Coursera-R-Programming-9-OiHnphYXDT1&quot;&gt;20151023 [Coursera] R Programming (9)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151208-Coursera-R-Programming-10-WgkpdGNoAYW&quot;&gt;20151208 [Coursera] R Programming (10)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151210-R-Ch09-Wh4u7xc2BJt#:h=%EF%BC%88%E4%B8%80%EF%BC%89if-%E5%92%8C-else&quot;&gt;20151210 [R基礎與應用] Ch09：流程控制&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151211-R-Ch10--mY7cl7qgymF&quot;&gt;20151211 [R基礎與應用] Ch10：迴圈 - 疊代元素的傳統作法&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151216-Coursera-R-Programming-11-1yj3UwzvDtu&quot;&gt;20151216 [Coursera] R Programming (11)&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;二、備用連結&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150823-Coursera-R-Programming-1.html&quot;&gt;20150823 [Coursera] R Programming (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150823-Coursera-R-Programming-2.html&quot;&gt;20150823 [Coursera] R Programming (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150824-學習筆記-R與資料探勘-1.html&quot;&gt;20150824 [學習筆記] R與資料探勘 (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150825-學習筆記-R與資料探勘-2.html&quot;&gt;20150825 [學習筆記] R與資料探勘 (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150826-學習筆記-R與資料探勘-3.html&quot;&gt;20150826 [學習筆記] R與資料探勘 (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150827-學習筆記-R與資料探勘-4.html&quot;&gt;20150827 [學習筆記] R與資料探勘 (4)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150827-學習筆記-R與資料探勘-5.html&quot;&gt;20150827 [學習筆記] R與資料探勘 (5)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150829-Coursera-R-Programming-3.html&quot;&gt;20150829 [Coursera] R Programming (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150916-Coursera-R-Programming-4.html&quot;&gt;20150916 [Coursera] R Programming (4)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150920-Coursera-R-Programming-5.html&quot;&gt;20150920 [Coursera] R Programming (5)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150921-Coursera-R-Programming-6.html&quot;&gt;20150921 [Coursera] R Programming (6)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150925-R基礎與應用-Ch06-讀取各類資料.html&quot;&gt;20150925 [R基礎與應用] Ch06 : 讀取各類資料&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20150925-R基礎與應用-Ch07-統計繪圖.html&quot;&gt;20150925 [R基礎與應用] Ch07 : 統計繪圖&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20151001-R基礎與應用-Ch08-建立R函數.html&quot;&gt;20151001 [R基礎與應用] Ch08 : 建立R函數&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20151005-Coursera-R-Programming-7.html&quot;&gt;20151005 [Coursera] R Programming (7)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20151019-Coursera-R-Programming-8.html&quot;&gt;20151019 [Coursera] R Programming (8)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20151023-Coursera-R-Programming-9.html&quot;&gt;20151023 [Coursera] R Programming (9)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20151208-Coursera-R-Programming-10.html&quot;&gt;20151208 [Coursera] R Programming (10)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20151210-R基礎與應用-Ch09-流程控制.html&quot;&gt;20151210 [R基礎與應用] Ch09：流程控制&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20151211-R基礎與應用-Ch10-迴圈-疊代元素的傳統作法.html&quot;&gt;20151211 [R基礎與應用] Ch10：迴圈 - 疊代元素的傳統作法&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/R/20151216-Coursera-R-Programming-11.html&quot;&gt;20151216 [Coursera] R Programming (11)&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;python-&quot;&gt;(學習) 程式設計 - Python 語言&lt;/h2&gt;
-
-&lt;h3 id=&quot;hackpad-1&quot;&gt;一、主要連結(Hackpad)&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150929-Python1-wzPhZKTKKtW&quot;&gt;20150929 [KUASITC] Python社課簡報 (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150929-Python1-lJjREF9XpuQ&quot;&gt;20150929 [KUASITC] Python社課筆記 (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151007-KUASITC-Python2-xEDRDkDIpA8&quot;&gt;20151007 [KUASITC] Python社課簡報 (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151007-KUASITC-Python2-7hP2BWgEyWc&quot;&gt;20151007 [KUASITC] Python社課筆記 (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151014-KUASITC-Python3-8QzeLsD0Je3&quot;&gt;20151014 [KUASITC] Python社課簡報 (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151014-KUASITC-Python3-wFAEA7H7GVT&quot;&gt;20151014 [KUASITC] Python社課筆記 (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151019-KUASITC-Python12-cWCTs27r3sJ&quot;&gt;20151019 [KUASITC] Python遊戲 (1)和(2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20160131-Codecademy-Python1-4ajqH1ABjOH#:h=%EF%BC%88%E5%85%AD%EF%BC%89Tip-Calculator&quot;&gt;20160131 [Codecademy] Python (1)&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;二、備用連結&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Python/20150929-KUASITC-Python社課簡報-1.html&quot;&gt;20150929 [KUASITC] Python社課簡報 (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Python/20150929-KUASITC-Python社課筆記-1.html&quot;&gt;20150929 [KUASITC] Python社課筆記 (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Python/20151007-KUASITC-Python社課簡報-2.html&quot;&gt;20151007 [KUASITC] Python社課簡報 (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Python/20151007-KUASITC-Python社課筆記-2.html&quot;&gt;20151007 [KUASITC] Python社課筆記 (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Python/20151014-KUASITC-Python社課簡報-3.html&quot;&gt;20151014 [KUASITC] Python社課簡報 (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Python/20151014-KUASITC-Python社課筆記-3.html&quot;&gt;20151014 [KUASITC] Python社課筆記 (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Python/20151019-KUASITC-Python遊戲-1和2.html&quot;&gt;20151019 [KUASITC] Python遊戲 (1)和(2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Python/20160131-Codecademy-Python-1.html&quot;&gt;20160131 [Codecademy] Python (1)&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;git&quot;&gt;(學習) 版本控制 - Git&lt;/h2&gt;
-
-&lt;h3 id=&quot;hackpad-2&quot;&gt;一、主要連結(Hackpad)&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150821-Git-1-6xni2q5QsyV&quot;&gt;20150821 [學習筆記] Git版本控制 (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150822-Git-2-2bPrp84VcI3&quot;&gt;20150822 [學習筆記] Git版本控制 (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150826-Git-3-KmXDMewNGuj&quot;&gt;20150826 [學習筆記] Git版本控制 (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150909-Git4-TJwPNygW2fV&quot;&gt;20150909 [學習筆記] Git版本控制 (4)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150917-Git5-pPR0Txts3af&quot;&gt;20150917 [學習筆記] Git版本控制 (5)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20150927-Git6-CCEc96rfYc6&quot;&gt;20150927 [學習筆記] Git版本控制 (6)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151025-Git7-AtAsZ3LezDE&quot;&gt;20151025 [學習筆記] Git版本控制 (7)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackpad.com/20151230-Git8-Xr2uEa0ltpO&quot;&gt;20151230 [學習筆記] Git版本控制 (8)&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;section-3&quot;&gt;二、備用連結&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Git/20150821-學習筆記-Git版本控制-1.html&quot;&gt;20150821 [學習筆記] Git版本控制 (1)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Git/20150822-學習筆記-Git版本控制-2.html&quot;&gt;20150822 [學習筆記] Git版本控制 (2)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Git/20150826-學習筆記-Git版本控制-3.html&quot;&gt;20150826 [學習筆記] Git版本控制 (3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Git/20150909-學習筆記-Git版本控制-4.html&quot;&gt;20150909 [學習筆記] Git版本控制 (4)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Git/20150917-學習筆記-Git版本控制-5.html&quot;&gt;20150917 [學習筆記] Git版本控制 (5)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Git/20150927-學習筆記-Git版本控制-6.html&quot;&gt;20150927 [學習筆記] Git版本控制 (6)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Git/20151025-學習筆記-Git版本控制-7.html&quot;&gt;20151025 [學習筆記] Git版本控制 (7)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/collections/hackpad/Git/20151230-學習筆記-Git版本控制-8.html&quot;&gt;20151230 [學習筆記] Git版本控制 (8)&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Tue, 31 May 2016 19:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/05/31/hackpad-notes/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/05/31/hackpad-notes/</guid>
-        
-        <category>版本控制</category>
-        
-        <category>程式設計</category>
-        
-        <category>Hackpad</category>
-        
-        <category>Git</category>
-        
-        <category>Python語言</category>
-        
-        <category>R語言</category>
-        
-        
-        <category>Hackpad</category>
-        
-        <category>Git</category>
-        
-        <category>Python語言</category>
-        
-        <category>R語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20160530 [資料科學系列] 資料探勘 Data Mining (2)</title>
-        <description>&lt;h1 id=&quot;section&quot;&gt;簡報主題：軟體基礎、資料的讀取&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;簡報網址： &lt;a href=&quot;/collections/data-science/20160530-Data-Mining-2.html&quot;&gt;20160530 [資料科學系列] 資料探勘 Data Mining (2)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[簡報預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160530/cover.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 31 May 2016 07:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/05/31/Data-Mining-2/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/05/31/Data-Mining-2/</guid>
-        
-        <category>Data-Science</category>
-        
-        <category>Data-Mining</category>
-        
-        <category>R語言</category>
-        
-        
-        <category>Data-Science</category>
-        
-        <category>R語言</category>
         
       </item>
     
