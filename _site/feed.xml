@@ -5,9 +5,83 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 03 Oct 2016 08:39:49 +0800</pubDate>
-    <lastBuildDate>Mon, 03 Oct 2016 08:39:49 +0800</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 05:05:53 +0800</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 05:05:53 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20161017 [資料科學系列] R語言資料分析實務(2)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#r2&quot; id=&quot;markdown-toc-r2&quot;&gt;簡報主題：R語言資料分析實務(2)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;r2&quot;&gt;簡報主題：R語言資料分析實務(2)&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161017-R-doing-2.html#/&quot;&gt;20161017 [資料科學系列] R語言資料分析實務(2)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161003-r-1&quot;&gt;http://www.slideshare.net/danny200026/20161003-r-1&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20161017/R-doing-2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 16 Oct 2016 18:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/10/16/R-doing-2/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/10/16/R-doing-2/</guid>
+        
+        <category>Data-Science</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>R語言</category>
+        
+        
+        <category>Data-Science</category>
+        
+        <category>R語言</category>
+        
+      </item>
+    
+      <item>
+        <title>20161003 [資料科學系列] R語言資料分析實務(1)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#r1&quot; id=&quot;markdown-toc-r1&quot;&gt;簡報主題：R語言資料分析實務(1)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;r1&quot;&gt;簡報主題：R語言資料分析實務(1)&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161003-R-doing-1.html#/&quot;&gt;20161003 [資料科學系列] R語言資料分析實務(1)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161003-r-1&quot;&gt;http://www.slideshare.net/danny200026/20161003-r-1&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20161003/R-doing-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 02 Oct 2016 18:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/10/02/R-doing-1/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/10/02/R-doing-1/</guid>
+        
+        <category>Data-Science</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>R語言</category>
+        
+        
+        <category>Data-Science</category>
+        
+        <category>R語言</category>
+        
+      </item>
     
       <item>
         <title>20160917 [學習筆記] 分析資料與繪製地圖，進行空間資料視覺化</title>
@@ -1236,72 +1310,6 @@
         
         
         <category>GitBook</category>
-        
-      </item>
-    
-      <item>
-        <title>20160617 [資料科學系列] 專題製作 - 視覺化電動機車運行能量地圖 (1)</title>
-        <description>&lt;h1 id=&quot;section&quot;&gt;簡報主題： 視覺化電動機車運行能量地圖&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;簡報網址： &lt;a href=&quot;/collections/data-science/20160617-MapProject-1.html&quot;&gt;20160617 [資料科學系列] 專題製作 - 視覺化電動機車運行能量地圖 (1)&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;這是專題的初版簡報，目前只有大致的框架。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[簡報預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160617/cover.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 15 Jun 2016 20:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/06/15/MapProject-1/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/06/15/MapProject-1/</guid>
-        
-        <category>Data-Science</category>
-        
-        <category>Data-Mining</category>
-        
-        <category>R語言</category>
-        
-        <category>Android</category>
-        
-        <category>專題製作</category>
-        
-        
-        <category>Data-Science</category>
-        
-        <category>R語言</category>
-        
-        <category>Android</category>
-        
-        <category>專題製作</category>
-        
-      </item>
-    
-      <item>
-        <title>20160606 [資料科學系列] 資料探勘 Data Mining (3)</title>
-        <description>&lt;h1 id=&quot;section&quot;&gt;簡報主題：簡易視覺化&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;簡報網址： &lt;a href=&quot;/collections/data-science/20160606-Data-Mining-3.html&quot;&gt;20160606 [資料科學系列] 資料探勘 Data Mining (3)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[簡報預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160606/cover.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 05 Jun 2016 20:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/06/05/Data-Mining-3/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/06/05/Data-Mining-3/</guid>
-        
-        <category>Data-Science</category>
-        
-        <category>Data-Mining</category>
-        
-        <category>R語言</category>
-        
-        
-        <category>Data-Science</category>
-        
-        <category>R語言</category>
         
       </item>
     
