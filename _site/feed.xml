@@ -5,9 +5,46 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 21 Oct 2016 09:52:49 +0800</pubDate>
-    <lastBuildDate>Fri, 21 Oct 2016 09:52:49 +0800</lastBuildDate>
+    <pubDate>Mon, 24 Oct 2016 09:34:35 +0800</pubDate>
+    <lastBuildDate>Mon, 24 Oct 2016 09:34:35 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20161024 [資料科學系列] R語言資料分析實務(3)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#r3&quot; id=&quot;markdown-toc-r3&quot;&gt;簡報主題：R語言資料分析實務(3)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;r3&quot;&gt;簡報主題：R語言資料分析實務(3)&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161024-R-doing-3.html#/&quot;&gt;20161024 [資料科學系列] R語言資料分析實務(3)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161024-r-3&quot;&gt;http://www.slideshare.net/danny200026/20161024-r-3&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20161024/R-doing-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 23 Oct 2016 18:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/10/23/R-doing-3/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/10/23/R-doing-3/</guid>
+        
+        <category>Data-Science</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>R語言</category>
+        
+        
+        <category>Data-Science</category>
+        
+        <category>R語言</category>
+        
+      </item>
     
       <item>
         <title>20161017 [資料科學系列] R語言資料分析實務(2)</title>
@@ -1281,35 +1318,6 @@
         
         
         <category>社團</category>
-        
-      </item>
-    
-      <item>
-        <title>20160617 [電子書] GitBook - 線上電子書</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#gitbook---&quot; id=&quot;markdown-toc-gitbook---&quot;&gt;GitBook - 電子書&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;gitbook---&quot;&gt;GitBook - 電子書&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;這裡未來會儲存所有學習到的知識和內容，依據類別整理成冊：
-    &lt;ul&gt;
-      &lt;li&gt;任意門：&lt;a href=&quot;https://www.gitbook.com/book/shouzo/shouzo-notebook/&quot;&gt;https://www.gitbook.com/book/shouzo/shouzo-notebook/&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[電子書預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160617/GitBook.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 16 Jun 2016 11:45:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/06/16/GitBook/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/06/16/GitBook/</guid>
-        
-        <category>GitBook</category>
-        
-        
-        <category>GitBook</category>
         
       </item>
     
