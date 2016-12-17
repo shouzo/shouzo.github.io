@@ -5,9 +5,40 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 26 Oct 2016 18:27:27 +0800</pubDate>
-    <lastBuildDate>Wed, 26 Oct 2016 18:27:27 +0800</lastBuildDate>
+    <pubDate>Sat, 17 Dec 2016 12:01:43 +0800</pubDate>
+    <lastBuildDate>Sat, 17 Dec 2016 12:01:43 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20161211 [社團相關] 給社團人的一封信</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;(一) 給社團人的一封信&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;(一) 給社團人的一封信&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20161211-why-clubs.html/&quot;&gt;https://shouzo.github.io/collections/clubs/20161211-why-clubs.html#/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161211-70030175&quot;&gt;http://www.slideshare.net/danny200026/20161211-70030175&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20161211/why-clubs.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 12 Dec 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/12/12/why-clubs/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/12/12/why-clubs/</guid>
+        
+        <category>社團</category>
+        
+        
+        <category>社團</category>
+        
+      </item>
     
       <item>
         <title>20161024 [資料科學系列] R語言資料分析實務(3)</title>
@@ -471,7 +502,14 @@
       &lt;li&gt;&lt;a href=&quot;#rbasic&quot; id=&quot;markdown-toc-rbasic&quot;&gt;課程進度：RBasic&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#data-structure-object&quot; id=&quot;markdown-toc-data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#data-structure-object&quot; id=&quot;markdown-toc-data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;1. 物件結構&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#modelength&quot; id=&quot;markdown-toc-modelength&quot;&gt;[屬性] mode()、length()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;2.&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#factors&quot; id=&quot;markdown-toc-factors&quot;&gt;(二) 04-Factors&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#arrays-matrices&quot; id=&quot;markdown-toc-arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -493,6 +531,32 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/h2&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;1. 物件結構&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;向量：最基礎的『物件』。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;modelength&quot;&gt;[屬性] mode()、length()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;mode()：查詢向量的型態。&lt;/li&gt;
+  &lt;li&gt;length()：查詢向量的值的個數。
+    &lt;ul&gt;
+      &lt;li&gt;型態：&lt;code class=&quot;highlighter-rouge&quot;&gt;logical&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;integer&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;numeric&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;complex&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;character&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;raw&lt;/code&gt;。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 用`mode`和`length`函數來查詢向量的型態和長度。
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;numeric&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;2.&lt;/h3&gt;
 
 &lt;h2 id=&quot;factors&quot;&gt;(二) 04-Factors&lt;/h2&gt;
 
@@ -1292,36 +1356,6 @@
         <pubDate>Thu, 04 Aug 2016 01:20:59 +0800</pubDate>
         <link>http://shouzo.github.io/2016/08/04/about-clubs/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2016/08/04/about-clubs/</guid>
-        
-        <category>社團</category>
-        
-        
-        <category>社團</category>
-        
-      </item>
-    
-      <item>
-        <title>20160802 [社團相關] 那些年，關於大學的那些事</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;(一) 那些年，關於大學的那些事&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;section&quot;&gt;(一) 那些年，關於大學的那些事&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20160802-about-university.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20160802-about-university.html#/&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20160802-64603608&quot;&gt;http://www.slideshare.net/danny200026/20160802-64603608&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160802/university.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 03 Aug 2016 07:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/08/03/about-university/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/08/03/about-university/</guid>
         
         <category>社團</category>
         

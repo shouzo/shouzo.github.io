@@ -27,10 +27,32 @@ tags: R語言 R語言翻轉教室 Data-Science
 
 ## (一) 03-Data-Structure-Object
 
+### 1. 物件結構
+* 向量：最基礎的『物件』。
+
+#### [屬性] mode()、length()
+* mode()：查詢向量的型態。
+* length()：查詢向量的值的個數。
+	* 型態：`logical`、`integer`、`numeric`、`complex`、`character`和`raw`。
+
+```r
+> # 用`mode`和`length`函數來查詢向量的型態和長度。
+> mode(x)
+[1] "numeric"
+>
+> length(x)
+[1] 5
+```
+
+
+### 2. 
+
 
 
 
 ## (二) 04-Factors
+
+
 
 
 
