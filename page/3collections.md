@@ -30,13 +30,18 @@ icon: bookmark
 3. [20160606 [資料科學系列] 資料探勘 Data Mining (3)](/collections/data-science/20160606-Data-Mining-3.html)
 4. [20160617 [資料科學系列] 專題製作 - 視覺化電動機車運行能量地圖 (1)](/collections/data-science/20160617-MapProject-1.html)
 5. [20161003 [資料科學系列] R語言資料分析實務(1)](/collections/data-science/20161003-R-doing-1.html/)
+6. [20161017 [資料科學系列] R語言資料分析實務(2)](/collections/data-science/20161017-R-doing-2.html/)
+7. [20161024 [資料科學系列] R語言資料分析實務(3)](/collections/data-science/20161024-R-doing-3.html/)
+
 
 ---
+
 
 # (四) 社團筆記
 1. [20160802 那些年，關於大學的那些事...](/collections/clubs/20160802-about-university.html)
 2. [20160803 社團創社經驗分享與交流](/collections/clubs/20160803-clubs-share.html)
 3. [20160829 夢想，Loading...](/collections/clubs/20160829-about-dreams.html)
+4. [20161211 給社團人的一封信](/collections/clubs/20161211-why-clubs.html)
 
 
 
