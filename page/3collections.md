@@ -29,9 +29,9 @@ icon: bookmark
 2. [20160530 [資料科學系列] 資料探勘 Data Mining (2)](/collections/data-science/20160530-Data-Mining-2.html)
 3. [20160606 [資料科學系列] 資料探勘 Data Mining (3)](/collections/data-science/20160606-Data-Mining-3.html)
 4. [20160617 [資料科學系列] 專題製作 - 視覺化電動機車運行能量地圖 (1)](/collections/data-science/20160617-MapProject-1.html)
-5. [20161003 [資料科學系列] R語言資料分析實務(1)](/collections/data-science/20161003-R-doing-1.html/)
-6. [20161017 [資料科學系列] R語言資料分析實務(2)](/collections/data-science/20161017-R-doing-2.html/)
-7. [20161024 [資料科學系列] R語言資料分析實務(3)](/collections/data-science/20161024-R-doing-3.html/)
+5. [20161003 [資料科學系列] R語言資料分析實務(1)](/collections/data-science/20161003-R-doing-1.html)
+6. [20161017 [資料科學系列] R語言資料分析實務(2)](/collections/data-science/20161017-R-doing-2.html)
+7. [20161024 [資料科學系列] R語言資料分析實務(3)](/collections/data-science/20161024-R-doing-3.html)
 
 
 ---
