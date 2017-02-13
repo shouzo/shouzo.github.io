@@ -42,7 +42,7 @@ icon: bookmark
 2. [20160803 社團創社經驗分享與交流](/collections/clubs/20160803-clubs-share.html)
 3. [20160829 夢想，Loading...](/collections/clubs/20160829-about-dreams.html)
 4. [20161211 給社團人的一封信](/collections/clubs/20161211-why-clubs.html)
-
+5. [20170118 社團大代誌 - 社團負責人課程](/collections/clubs/20170118-clubmanager.pdf)
 
 
 
