@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Mar 2017 18:26:44 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 18:26:44 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Mar 2017 18:33:05 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 18:33:05 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -56,17 +56,13 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 02 Mar 2017 07:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2017/03/02/artificial-intelligence-1/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2017/03/02/artificial-intelligence-1/</guid>
+        <link>http://shouzo.github.io/2017/03/02/AI-1/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/03/02/AI-1/</guid>
         
-        <category>Data-Science</category>
-        
-        <category>Artificial-Intelligence</category>
+        <category>人工智慧</category>
         
         
-        <category>Data-Science</category>
-        
-        <category>Artificial-Intelligence</category>
+        <category>人工智慧</category>
         
       </item>
     
