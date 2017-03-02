@@ -5,68 +5,9 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Mar 2017 23:36:46 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 23:36:46 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Mar 2017 23:44:52 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 23:44:52 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
-    
-      <item>
-        <title>20170302 [學習筆記] 人工智慧(1)</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#a--&quot; id=&quot;markdown-toc-a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#b&quot; id=&quot;markdown-toc-b&quot;&gt;B：類神經網路&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;專家系統結構&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;智慧控制的定義&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;課程紀錄：&lt;a href=&quot;https://github.com/shouzo/Artificial-Intelligence_pages&quot;&gt;https://github.com/shouzo/Artificial-Intelligence_pages&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;藉由規則庫建立專家系統
-    &lt;ol&gt;
-      &lt;li&gt;&lt;a href=&quot;https://goo.gl/MTt7jw&quot;&gt;專家系統&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://goo.gl/39piYs&quot;&gt;基於規則的專家系統&lt;/a&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;b&quot;&gt;B：類神經網路&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;藉由學習建立網路&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;專家系統結構&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/20170302/artificial-intelligence/1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. 正向推論&lt;/strong&gt;：已知條件，推論出結論。&lt;br /&gt;
-&lt;img src=&quot;/assets/20170302/artificial-intelligence/2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. 逆向推論&lt;/strong&gt;：先提出結論或假設， 再推論前提(條件)。&lt;br /&gt;
-&lt;img src=&quot;/assets/20170302/artificial-intelligence/3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;智慧控制的定義&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;古典控制與現代控制都需要精確數學模型，然而工業控制對象常見有非線性、多不確定因素，使精確數學模型不易取得，甚至無法取得。因此有一個結合人工智慧、運算性自動控制，而成 &lt;strong&gt;智慧型控制&lt;/strong&gt; 。&lt;br /&gt;
-&lt;img src=&quot;/assets/20170302/artificial-intelligence/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[範例] 模糊智慧型控制&lt;/strong&gt;&lt;br /&gt;
-* 不需要數學模型。&lt;/p&gt;
-</description>
-        <pubDate>Thu, 02 Mar 2017 07:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2017/03/02/ai/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2017/03/02/ai/</guid>
-        
-        <category>人工智慧</category>
-        
-        
-        <category>人工智慧</category>
-        
-      </item>
     
       <item>
         <title>20170118 [社團相關] 社團負責人課程</title>
@@ -1472,6 +1413,37 @@
         
         
         <category>R語言</category>
+        
+      </item>
+    
+      <item>
+        <title>20160829 [社團相關] 夢想，Loading...</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#loading&quot; id=&quot;markdown-toc-loading&quot;&gt;(一) 夢想，Loading…&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;loading&quot;&gt;(一) 夢想，Loading…&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20160829-about-dreams.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20160829-about-dreams.html#/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20160829-loading&quot;&gt;http://www.slideshare.net/danny200026/20160829-loading&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20160829/dreams.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 29 Aug 2016 02:30:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/08/29/about-dreams/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/08/29/about-dreams/</guid>
+        
+        <category>社團</category>
+        
+        
+        <category>社團</category>
         
       </item>
     
