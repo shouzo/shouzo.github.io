@@ -5,9 +5,40 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Mar 2017 23:44:52 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 23:44:52 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Mar 2017 23:52:35 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 23:52:35 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20170302 [學習筆記] 人工智慧 (1)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;(一) 社團大代誌 - 社團負責人課程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;(一) 社團大代誌 - 社團負責人課程&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20170118-clubmanager.pdf&quot;&gt;https://shouzo.github.io/collections/clubs/20170118-clubmanager.pdf&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20170118-71124221&quot;&gt;http://www.slideshare.net/danny200026/20170118-71124221&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20170118/clubmanger.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 02 Mar 2017 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/03/02/ai/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/03/02/ai/</guid>
+        
+        <category>人工智慧</category>
+        
+        
+        <category>人工智慧</category>
+        
+      </item>
     
       <item>
         <title>20170118 [社團相關] 社團負責人課程</title>
@@ -1413,37 +1444,6 @@
         
         
         <category>R語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20160829 [社團相關] 夢想，Loading...</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#loading&quot; id=&quot;markdown-toc-loading&quot;&gt;(一) 夢想，Loading…&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;loading&quot;&gt;(一) 夢想，Loading…&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20160829-about-dreams.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20160829-about-dreams.html#/&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20160829-loading&quot;&gt;http://www.slideshare.net/danny200026/20160829-loading&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160829/dreams.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 29 Aug 2016 02:30:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/08/29/about-dreams/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/08/29/about-dreams/</guid>
-        
-        <category>社團</category>
-        
-        
-        <category>社團</category>
         
       </item>
     
