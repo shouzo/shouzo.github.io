@@ -113,6 +113,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -186,15 +188,24 @@
     </ul>
   </li>
   <li><a href="#data-structure-object" id="markdown-toc-data-structure-object">(一) 03-Data-Structure-Object</a>    <ul>
-      <li><a href="#section" id="markdown-toc-section">1. 物件結構</a>        <ul>
+      <li><a href="#section" id="markdown-toc-section">物件結構</a>        <ul>
           <li><a href="#modelength" id="markdown-toc-modelength">[屬性] mode()、length()</a></li>
+          <li><a href="#attributesnamesclass" id="markdown-toc-attributesnamesclass">[屬性] attributes()、names()、class()</a></li>
         </ul>
       </li>
-      <li><a href="#section-1" id="markdown-toc-section-1">2.</a></li>
     </ul>
   </li>
-  <li><a href="#factors" id="markdown-toc-factors">(二) 04-Factors</a></li>
-  <li><a href="#arrays-matrices" id="markdown-toc-arrays-matrices">(三) 05-Arrays-Matrices</a></li>
+  <li><a href="#factors" id="markdown-toc-factors">(二) 04-Factors</a>    <ul>
+      <li><a href="#factorlevels" id="markdown-toc-factorlevels">[屬性] factor()、levels()</a></li>
+      <li><a href="#str" id="markdown-toc-str">[屬性] str()</a></li>
+    </ul>
+  </li>
+  <li><a href="#arrays-matrices" id="markdown-toc-arrays-matrices">(三) 05-Arrays-Matrices</a>    <ul>
+      <li><a href="#dim" id="markdown-toc-dim">[屬性] dim()</a></li>
+      <li><a href="#array" id="markdown-toc-array">[屬性] array()</a></li>
+      <li><a href="#cbindrbind" id="markdown-toc-cbindrbind">[屬性] cbind()、rbind()</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="rhttpdatascienceandrorg">整理自 <a href="http://datascienceandr.org/">R語言翻轉教室</a></h2>
@@ -215,7 +226,7 @@
 
 <h2 id="data-structure-object">(一) 03-Data-Structure-Object</h2>
 
-<h3 id="section">1. 物件結構</h3>
+<h3 id="section">物件結構</h3>
 <ul>
   <li>向量：最基礎的『物件』。</li>
 </ul>
@@ -239,11 +250,85 @@
 </code></pre>
 </div>
 
-<h3 id="section-1">2.</h3>
+<h4 id="attributesnamesclass">[屬性] attributes()、names()、class()</h4>
+<ul>
+  <li>attributes()：查詢物件的屬性。</li>
+  <li>names()：查詢物件的名字。</li>
+  <li>class()：查詢物件的類別。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 用`attributes`、`names`和`class`函數來查詢向量的屬性、名稱和類別。
+</span><span class="o">&gt;</span> <span class="n">attributes</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="o">$</span><span class="n">names</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"coefficients"</span>  <span class="s2">"residuals"</span>     <span class="s2">"effects"</span>      
+ <span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="s2">"rank"</span>          <span class="s2">"fitted.values"</span> <span class="s2">"assign"</span>       
+ <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s2">"qr"</span>            <span class="s2">"df.residual"</span>   <span class="s2">"xlevels"</span>      
+<span class="p">[</span><span class="m">10</span><span class="p">]</span> <span class="s2">"call"</span>          <span class="s2">"terms"</span>         <span class="s2">"model"</span>        
+
+<span class="o">$</span><span class="n">class</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"lm"</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">names</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"coefficients"</span>  <span class="s2">"residuals"</span>     <span class="s2">"effects"</span>      
+ <span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="s2">"rank"</span>          <span class="s2">"fitted.values"</span> <span class="s2">"assign"</span>       
+ <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s2">"qr"</span>            <span class="s2">"df.residual"</span>   <span class="s2">"xlevels"</span>      
+<span class="p">[</span><span class="m">10</span><span class="p">]</span> <span class="s2">"call"</span>          <span class="s2">"terms"</span>         <span class="s2">"model"</span>        
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="n">class</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"lm"</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
 
 <h2 id="factors">(二) 04-Factors</h2>
+<ul>
+  <li>範例：血型分類</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">blood_type</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"B"</span>  <span class="s2">"A"</span>  <span class="s2">"A"</span>  <span class="s2">"O"</span>  <span class="s2">"AB"</span> <span class="s2">"O"</span>  <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"O"</span>  <span class="s2">"AB"</span> <span class="s2">"O"</span> 
+<span class="p">[</span><span class="m">12</span><span class="p">]</span> <span class="s2">"AB"</span> <span class="s2">"A"</span>  <span class="s2">"A"</span>  <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"AB"</span> <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"A"</span> 
+<span class="p">[</span><span class="m">23</span><span class="p">]</span> <span class="s2">"AB"</span> <span class="s2">"B"</span>  <span class="s2">"A"</span>  <span class="s2">"O"</span>  <span class="s2">"A"</span>  <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"AB"</span>
+<span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<h4 id="factorlevels">[屬性] factor()、levels()</h4>
+<ul>
+  <li>factor()：將資料轉為factor向量。</li>
+  <li>levels()：取出向量中的類別。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">factor</span><span class="p">(</span><span class="n">blood_type</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="n">B</span>  <span class="n">A</span>  <span class="n">A</span>  <span class="n">O</span>  <span class="n">AB</span> <span class="n">O</span>  <span class="n">A</span>  <span class="n">AB</span> <span class="n">O</span>  <span class="n">AB</span> <span class="n">O</span>  <span class="n">AB</span> <span class="n">A</span>  <span class="n">A</span>  <span class="n">A</span>  <span class="n">AB</span> <span class="n">A</span>  <span class="n">AB</span>
+<span class="p">[</span><span class="m">19</span><span class="p">]</span> <span class="n">AB</span> <span class="n">A</span>  <span class="n">AB</span> <span class="n">A</span>  <span class="n">AB</span> <span class="n">B</span>  <span class="n">A</span>  <span class="n">O</span>  <span class="n">A</span>  <span class="n">A</span>  <span class="n">AB</span> <span class="n">AB</span>
+<span class="n">Levels</span><span class="o">:</span> <span class="n">A</span> <span class="n">AB</span> <span class="n">B</span> <span class="n">O</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">blood_type_factor</span> <span class="o">&lt;-</span> <span class="n">factor</span><span class="p">(</span><span class="n">blood_type</span><span class="p">)</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">levels</span><span class="p">(</span><span class="n">blood_type_factor</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"B"</span>  <span class="s2">"O"</span>
+</code></pre>
+</div>
+
+<h4 id="str">[屬性] str()</h4>
+<ul>
+  <li>str()：觀察factor向量的結構。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">str</span><span class="p">(</span><span class="n">blood_type_factor</span><span class="p">)</span>
+ <span class="n">Factor</span> <span class="n">w</span><span class="o">/</span> <span class="m">4</span> <span class="n">levels</span> <span class="s2">"A"</span><span class="p">,</span><span class="s2">"AB"</span><span class="p">,</span><span class="s2">"B"</span><span class="p">,</span><span class="s2">"O"</span><span class="o">:</span> <span class="m">3</span> <span class="m">1</span> <span class="m">1</span> <span class="m">4</span> <span class="m">2</span> <span class="m">4</span> <span class="m">1</span> <span class="m">2</span> <span class="m">4</span> <span class="m">2</span> <span class="k">...</span>
+</code></pre>
+</div>
 
 <h2 id="arrays-matrices">(三) 05-Arrays-Matrices</h2>
+<p>#### [屬性] matrix()</p>
+
+<h4 id="dim">[屬性] dim()</h4>
+
+<h4 id="array">[屬性] array()</h4>
+
+<h4 id="cbindrbind">[屬性] cbind()、rbind()</h4>
 
 
         </article>
@@ -259,31 +344,59 @@
                     
                 
                     
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
                         
                         <h2 id="similar_posts">Similar Posts</h2>
                         <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/02/artificial-intelligence-1/">20170302 [學習筆記] 人工智慧(1)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
                         
                         <li class="relatedPost">
                             <a href="http://shouzo.github.io/2016/10/23/R-doing-3/">20161024 [資料科學系列] R語言資料分析實務(3)
@@ -465,17 +578,6 @@
                 
                     
                 
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
             
                 
                     

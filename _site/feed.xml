@@ -5,9 +5,70 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Feb 2017 22:30:30 +0800</pubDate>
-    <lastBuildDate>Mon, 13 Feb 2017 22:30:30 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Mar 2017 17:57:12 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 17:57:12 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20170302 [學習筆記] 人工智慧(1)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#a--&quot; id=&quot;markdown-toc-a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#b&quot; id=&quot;markdown-toc-b&quot;&gt;B：類神經網路&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;專家系統結構&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;智慧控制的定義&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;課程紀錄：&lt;a href=&quot;https://github.com/shouzo/Artificial-Intelligence_pages&quot;&gt;https://github.com/shouzo/Artificial-Intelligence_pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;藉由規則庫建立專家系統
+    &lt;ol&gt;
+      &lt;li&gt;&lt;a href=&quot;https://goo.gl/MTt7jw&quot;&gt;專家系統&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://goo.gl/39piYs&quot;&gt;基於規則的專家系統&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;b&quot;&gt;B：類神經網路&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;藉由學習建立網路&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;專家系統結構&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/A3xyOE9.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;strong&gt;1. 正向推論&lt;/strong&gt;：已知條件，推論出結論。&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/CLp1mH4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 逆向推論&lt;/strong&gt;：先提出結論或假設， 再推論前提(條件)。&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/JECgCGc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;智慧控制的定義&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;古典控制與現代控制都需要精確數學模型，然而工業控制對象常見有非線性、多不確定因素，使精確數學模型不易取得，甚至無法取得。因此有一個結合人工智慧、運算性自動控制，而成 &lt;strong&gt;智慧型控制&lt;/strong&gt; 。&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/dlm1zVL.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[範例] 模糊智慧型控制&lt;/strong&gt;&lt;br /&gt;
+* 不需要數學模型。&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 02 Mar 2017 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/03/02/artificial-intelligence-1/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/03/02/artificial-intelligence-1/</guid>
+        
+        <category>Data-Science</category>
+        
+        <category>Artificial-Intelligence</category>
+        
+        
+        <category>Data-Science</category>
+        
+        <category>Artificial-Intelligence</category>
+        
+      </item>
     
       <item>
         <title>20170118 [社團相關] 社團負責人課程</title>
@@ -534,15 +595,24 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#data-structure-object&quot; id=&quot;markdown-toc-data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;1. 物件結構&lt;/a&gt;        &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;物件結構&lt;/a&gt;        &lt;ul&gt;
           &lt;li&gt;&lt;a href=&quot;#modelength&quot; id=&quot;markdown-toc-modelength&quot;&gt;[屬性] mode()、length()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#attributesnamesclass&quot; id=&quot;markdown-toc-attributesnamesclass&quot;&gt;[屬性] attributes()、names()、class()&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;2.&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#factors&quot; id=&quot;markdown-toc-factors&quot;&gt;(二) 04-Factors&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#arrays-matrices&quot; id=&quot;markdown-toc-arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#factors&quot; id=&quot;markdown-toc-factors&quot;&gt;(二) 04-Factors&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#factorlevels&quot; id=&quot;markdown-toc-factorlevels&quot;&gt;[屬性] factor()、levels()&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#str&quot; id=&quot;markdown-toc-str&quot;&gt;[屬性] str()&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arrays-matrices&quot; id=&quot;markdown-toc-arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#dim&quot; id=&quot;markdown-toc-dim&quot;&gt;[屬性] dim()&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#array&quot; id=&quot;markdown-toc-array&quot;&gt;[屬性] array()&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cbindrbind&quot; id=&quot;markdown-toc-cbindrbind&quot;&gt;[屬性] cbind()、rbind()&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;rhttpdatascienceandrorg&quot;&gt;整理自 &lt;a href=&quot;http://datascienceandr.org/&quot;&gt;R語言翻轉教室&lt;/a&gt;&lt;/h2&gt;
@@ -563,7 +633,7 @@
 
 &lt;h2 id=&quot;data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/h2&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;1. 物件結構&lt;/h3&gt;
+&lt;h3 id=&quot;section&quot;&gt;物件結構&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;向量：最基礎的『物件』。&lt;/li&gt;
 &lt;/ul&gt;
@@ -587,11 +657,85 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;2.&lt;/h3&gt;
+&lt;h4 id=&quot;attributesnamesclass&quot;&gt;[屬性] attributes()、names()、class()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;attributes()：查詢物件的屬性。&lt;/li&gt;
+  &lt;li&gt;names()：查詢物件的名字。&lt;/li&gt;
+  &lt;li&gt;class()：查詢物件的類別。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 用`attributes`、`names`和`class`函數來查詢向量的屬性、名稱和類別。
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;coefficients&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;residuals&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;effects&quot;&lt;/span&gt;      
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;rank&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;fitted.values&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;assign&quot;&lt;/span&gt;       
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;qr&quot;&lt;/span&gt;            &lt;span class=&quot;s2&quot;&gt;&quot;df.residual&quot;&lt;/span&gt;   &lt;span class=&quot;s2&quot;&gt;&quot;xlevels&quot;&lt;/span&gt;      
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;call&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;terms&quot;&lt;/span&gt;         &lt;span class=&quot;s2&quot;&gt;&quot;model&quot;&lt;/span&gt;        
+
+&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;lm&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;coefficients&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;residuals&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;effects&quot;&lt;/span&gt;      
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;rank&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;fitted.values&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;assign&quot;&lt;/span&gt;       
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;qr&quot;&lt;/span&gt;            &lt;span class=&quot;s2&quot;&gt;&quot;df.residual&quot;&lt;/span&gt;   &lt;span class=&quot;s2&quot;&gt;&quot;xlevels&quot;&lt;/span&gt;      
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;call&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;terms&quot;&lt;/span&gt;         &lt;span class=&quot;s2&quot;&gt;&quot;model&quot;&lt;/span&gt;        
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;lm&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;factors&quot;&gt;(二) 04-Factors&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;範例：血型分類&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blood_type&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;factorlevels&quot;&gt;[屬性] factor()、levels()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;factor()：將資料轉為factor向量。&lt;/li&gt;
+  &lt;li&gt;levels()：取出向量中的類別。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Levels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blood_type_factor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;str&quot;&gt;[屬性] str()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;str()：觀察factor向量的結構。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;Factor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/h2&gt;
+&lt;p&gt;#### [屬性] matrix()&lt;/p&gt;
+
+&lt;h4 id=&quot;dim&quot;&gt;[屬性] dim()&lt;/h4&gt;
+
+&lt;h4 id=&quot;array&quot;&gt;[屬性] array()&lt;/h4&gt;
+
+&lt;h4 id=&quot;cbindrbind&quot;&gt;[屬性] cbind()、rbind()&lt;/h4&gt;
 
 </description>
         <pubDate>Fri, 16 Sep 2016 07:59:59 +0800</pubDate>
@@ -1330,37 +1474,6 @@
         
         
         <category>R語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20160829 [社團相關] 夢想，Loading...</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#loading&quot; id=&quot;markdown-toc-loading&quot;&gt;(一) 夢想，Loading…&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;loading&quot;&gt;(一) 夢想，Loading…&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20160829-about-dreams.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20160829-about-dreams.html#/&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20160829-loading&quot;&gt;http://www.slideshare.net/danny200026/20160829-loading&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20160829/dreams.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 29 Aug 2016 02:30:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/08/29/about-dreams/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/08/29/about-dreams/</guid>
-        
-        <category>社團</category>
-        
-        
-        <category>社團</category>
         
       </item>
     
