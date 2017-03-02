@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Mar 2017 17:57:12 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 17:57:12 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Mar 2017 18:04:45 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 18:04:45 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -38,17 +38,17 @@
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;section&quot;&gt;專家系統結構&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/A3xyOE9.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/20170302/1.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 &lt;strong&gt;1. 正向推論&lt;/strong&gt;：已知條件，推論出結論。&lt;br /&gt;
-&lt;img src=&quot;https://i.imgur.com/CLp1mH4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/20170302/2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;2. 逆向推論&lt;/strong&gt;：先提出結論或假設， 再推論前提(條件)。&lt;br /&gt;
-&lt;img src=&quot;https://i.imgur.com/JECgCGc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/20170302/3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;智慧控制的定義&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;古典控制與現代控制都需要精確數學模型，然而工業控制對象常見有非線性、多不確定因素，使精確數學模型不易取得，甚至無法取得。因此有一個結合人工智慧、運算性自動控制，而成 &lt;strong&gt;智慧型控制&lt;/strong&gt; 。&lt;br /&gt;
-&lt;img src=&quot;https://i.imgur.com/dlm1zVL.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;/assets/20170302/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;[範例] 模糊智慧型控制&lt;/strong&gt;&lt;br /&gt;

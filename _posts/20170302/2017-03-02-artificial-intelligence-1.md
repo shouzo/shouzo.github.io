@@ -25,17 +25,17 @@ tags: Data-Science Artificial-Intelligence
 
 
 ### 專家系統結構
-![](https://i.imgur.com/A3xyOE9.jpg)
+![](/assets/20170302/1.jpg)
 **1. 正向推論**：已知條件，推論出結論。
-![](https://i.imgur.com/CLp1mH4.jpg)
+![](/assets/20170302/2.jpg)
 
 **2. 逆向推論**：先提出結論或假設， 再推論前提(條件)。
-![](https://i.imgur.com/JECgCGc.jpg)
+![](/assets/20170302/3.jpg)
 
 
 ### 智慧控制的定義
 * 古典控制與現代控制都需要精確數學模型，然而工業控制對象常見有非線性、多不確定因素，使精確數學模型不易取得，甚至無法取得。因此有一個結合人工智慧、運算性自動控制，而成 **智慧型控制** 。
-![](https://i.imgur.com/dlm1zVL.jpg)
+![](/assets/20170302/4.jpg)
 
 
 **[範例] 模糊智慧型控制**
