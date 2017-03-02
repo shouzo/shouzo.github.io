@@ -1,0 +1,1479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>少左 shouzo</title>
+    <description></description>
+    <link>http://shouzo.github.io/</link>
+    <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 02 Mar 2017 23:36:46 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 23:36:46 +0800</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20170302 [學習筆記] 人工智慧(1)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#a--&quot; id=&quot;markdown-toc-a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#b&quot; id=&quot;markdown-toc-b&quot;&gt;B：類神經網路&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;專家系統結構&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;智慧控制的定義&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;課程紀錄：&lt;a href=&quot;https://github.com/shouzo/Artificial-Intelligence_pages&quot;&gt;https://github.com/shouzo/Artificial-Intelligence_pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;藉由規則庫建立專家系統
+    &lt;ol&gt;
+      &lt;li&gt;&lt;a href=&quot;https://goo.gl/MTt7jw&quot;&gt;專家系統&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://goo.gl/39piYs&quot;&gt;基於規則的專家系統&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;b&quot;&gt;B：類神經網路&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;藉由學習建立網路&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;專家系統結構&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/20170302/artificial-intelligence/1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 正向推論&lt;/strong&gt;：已知條件，推論出結論。&lt;br /&gt;
+&lt;img src=&quot;/assets/20170302/artificial-intelligence/2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 逆向推論&lt;/strong&gt;：先提出結論或假設， 再推論前提(條件)。&lt;br /&gt;
+&lt;img src=&quot;/assets/20170302/artificial-intelligence/3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;智慧控制的定義&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;古典控制與現代控制都需要精確數學模型，然而工業控制對象常見有非線性、多不確定因素，使精確數學模型不易取得，甚至無法取得。因此有一個結合人工智慧、運算性自動控制，而成 &lt;strong&gt;智慧型控制&lt;/strong&gt; 。&lt;br /&gt;
+&lt;img src=&quot;/assets/20170302/artificial-intelligence/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[範例] 模糊智慧型控制&lt;/strong&gt;&lt;br /&gt;
+* 不需要數學模型。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Mar 2017 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/03/02/ai/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/03/02/ai/</guid>
+        
+        <category>人工智慧</category>
+        
+        
+        <category>人工智慧</category>
+        
+      </item>
+    
+      <item>
+        <title>20170118 [社團相關] 社團負責人課程</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;(一) 社團大代誌 - 社團負責人課程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;(一) 社團大代誌 - 社團負責人課程&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20170118-clubmanager.pdf&quot;&gt;https://shouzo.github.io/collections/clubs/20170118-clubmanager.pdf&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20170118-71124221&quot;&gt;http://www.slideshare.net/danny200026/20170118-71124221&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20170118/clubmanger.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 19 Jan 2017 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/01/19/clubmanager/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/01/19/clubmanager/</guid>
+        
+        <category>社團</category>
+        
+        
+        <category>社團</category>
+        
+      </item>
+    
+      <item>
+        <title>20161211 [社團相關] 給社團人的一封信</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;(一) 給社團人的一封信&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;(一) 給社團人的一封信&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/clubs/20161211-why-clubs.html#/&quot;&gt;https://shouzo.github.io/collections/clubs/20161211-why-clubs.html#/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161211-70030175&quot;&gt;http://www.slideshare.net/danny200026/20161211-70030175&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20161211/why-clubs.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 12 Dec 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/12/12/why-clubs/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/12/12/why-clubs/</guid>
+        
+        <category>社團</category>
+        
+        
+        <category>社團</category>
+        
+      </item>
+    
+      <item>
+        <title>20161024 [資料科學系列] R語言資料分析實務(3)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#r3&quot; id=&quot;markdown-toc-r3&quot;&gt;簡報主題：R語言資料分析實務(3)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;r3&quot;&gt;簡報主題：R語言資料分析實務(3)&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161024-R-doing-3.html#/&quot;&gt;20161024 [資料科學系列] R語言資料分析實務(3)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PDF網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161024-R-doing-3.pdf&quot;&gt;20161024 [資料科學系列] R語言資料分析實務(3)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161024-r-3&quot;&gt;http://www.slideshare.net/danny200026/20161024-r-3&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20161024/R-doing-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 23 Oct 2016 18:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/10/23/R-doing-3/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/10/23/R-doing-3/</guid>
+        
+        <category>Data-Science</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>R語言</category>
+        
+        
+        <category>Data-Science</category>
+        
+        <category>R語言</category>
+        
+      </item>
+    
+      <item>
+        <title>20161017 [資料科學系列] R語言資料分析實務(2)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#r2&quot; id=&quot;markdown-toc-r2&quot;&gt;簡報主題：R語言資料分析實務(2)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;r2&quot;&gt;簡報主題：R語言資料分析實務(2)&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161017-R-doing-2.html#/&quot;&gt;20161017 [資料科學系列] R語言資料分析實務(2)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PDF簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161017-R-doing-2.pdf&quot;&gt;20161017 [資料科學系列] R語言資料分析實務(2)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161017-r-2&quot;&gt;http://www.slideshare.net/danny200026/20161017-r-2&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20161017/R-doing-2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 16 Oct 2016 18:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/10/16/R-doing-2/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/10/16/R-doing-2/</guid>
+        
+        <category>Data-Science</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>R語言</category>
+        
+        
+        <category>Data-Science</category>
+        
+        <category>R語言</category>
+        
+      </item>
+    
+      <item>
+        <title>20161003 [資料科學系列] R語言資料分析實務(1)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#r1&quot; id=&quot;markdown-toc-r1&quot;&gt;簡報主題：R語言資料分析實務(1)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;r1&quot;&gt;簡報主題：R語言資料分析實務(1)&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161003-R-doing-1.html#/&quot;&gt;20161003 [資料科學系列] R語言資料分析實務(1)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PDF網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161003-R-doing-1.pdf&quot;&gt;20161003 [資料科學系列] R語言資料分析實務(1)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161003-r-1&quot;&gt;http://www.slideshare.net/danny200026/20161003-r-1&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20161003/R-doing-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 02 Oct 2016 18:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/10/02/R-doing-1/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/10/02/R-doing-1/</guid>
+        
+        <category>Data-Science</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>R語言</category>
+        
+        
+        <category>Data-Science</category>
+        
+        <category>R語言</category>
+        
+      </item>
+    
+      <item>
+        <title>20160917 [學習筆記] 分析資料與繪製地圖，進行空間資料視覺化</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;參考資料&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;(一) 先別管資料，單純顯示地圖&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;1. 顯示基本地圖&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;2. 再精確一點的地區&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;3. 地圖的類型、明暗程度的調整&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#opendata&quot; id=&quot;markdown-toc-opendata&quot;&gt;(二) 尋找 OpenData，進行檢視和分類&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#open-data&quot; id=&quot;markdown-toc-open-data&quot;&gt;1. 使用開放資料 Open Data&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;2. 檢視資料，取得我們要用的資訊&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;3. 先想一下︰我們用這些資料要做什麼？&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;(三) 將分類後的資料放在地圖上，進行視覺化&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;參考資料&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.gtwang.org/r/r-ggmap-package-spatial-data-visualization/&quot;&gt;R 的 ggmap 套件：繪製地圖與資料分佈圖，空間資料視覺化&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://read01.com/xg0ag7.html&quot;&gt;聚類算法：DBScan算法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://open.canada.ca/data/en/dataset/a50a7360-d986-4d12-b940-67266a2fa980&quot;&gt;Rail occurrence data from January 2004 to present&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%8A%A0%E6%8B%BF%E5%A4%A7%E8%A1%8C%E6%94%BF%E5%8C%BA%E5%88%92&quot;&gt;加拿大行政區劃&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%BB%8F%E7%BA%AC%E5%BA%A6&quot;&gt;經緯度&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;前言&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;最近實驗室需要進行專題的展示，而我本身也在準備近期要分享的演講簡報，於是便試著將這一陣子的工作作個簡單的筆記和紀錄。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我負責的工作是：將爬蟲抓下來且經過 &lt;code class=&quot;highlighter-rouge&quot;&gt;DBSCAN 演算法&lt;/code&gt; 分類後的資料，繪製在地圖上並進行資料視覺化。詳細的作法預計會在下一篇說明，現在先找個範例練習。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;(一) 先別管資料，單純顯示地圖&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;1. 顯示基本地圖&lt;/h3&gt;
+&lt;p&gt;我先參考 &lt;a href=&quot;https://blog.gtwang.org/r/r-ggmap-package-spatial-data-visualization/&quot;&gt;R 的 ggmap 套件：繪製地圖與資料分佈圖，空間資料視覺化&lt;/a&gt; 的內容，將相關的套件安裝好後並加以載入︰&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install.packages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ggmap&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install.packages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mapproj&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ggmap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mapproj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;之後，先試著用 &lt;code class=&quot;highlighter-rouge&quot;&gt;ggmap()&lt;/code&gt; 抓一個地點來看看：&lt;br /&gt;
+	* 在這裡使用 “加拿大(Canada)” 作為示範。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 使用 get_map() 設定要抓的地點，以及地圖放大的比例。
+# location：要抓的地點
+# zoom：調整地圖縮放的參數，需要視需求調整
+# 在地圖上顯示的文字語言
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Canada&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zoom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;language&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;zh-TW&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 將地圖顯示出來
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ggmap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;[顯示結果]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;看起來沒有很清楚，不過至少可以確定地圖上顯示的是北美洲地區。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;2. 再精確一點的地區&lt;/h3&gt;
+&lt;p&gt;整個北美洲太大了，我想要針對指定的地區(城市)進行顯示，在這裡以”溫哥華(Vancouver)”為例。&lt;br /&gt;
+但是如果直接在&lt;code class=&quot;highlighter-rouge&quot;&gt;location&lt;/code&gt;參數上輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;Vancouver&lt;/code&gt;(溫哥華)，地圖會偏掉。&lt;br /&gt;
+這時候可以改用經緯度座標來指定：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;隨意找一個溫哥華內部的地點來定位。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;[範例]&lt;/strong&gt; 經度：&lt;code class=&quot;highlighter-rouge&quot;&gt;49.27894861&lt;/code&gt;、緯度：&lt;code class=&quot;highlighter-rouge&quot;&gt;-123.11536789&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# lon：設定座標，緯度(longitude)、lat：經度(latitude)
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-123.11536789&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;49.27894861&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zoom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;language&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;zh-TW&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ggmap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;[顯示結果]&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;嗯，這張看起來清楚多了！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;3. 地圖的類型、明暗程度的調整&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;地圖的類型可以用：&lt;code class=&quot;highlighter-rouge&quot;&gt;maptype&lt;/code&gt; 參數調整&lt;/li&gt;
+  &lt;li&gt;明暗程度可以用：&lt;code class=&quot;highlighter-rouge&quot;&gt;darken&lt;/code&gt; 參數調整&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;詳細的操作在這裡就不多加詳述，可以看看參考資料。&lt;/p&gt;
+
+&lt;h2 id=&quot;opendata&quot;&gt;(二) 尋找 OpenData，進行檢視和分類&lt;/h2&gt;
+
+&lt;h3 id=&quot;open-data&quot;&gt;1. 使用開放資料 Open Data&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/20160917/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在這裡我使用 &lt;a href=&quot;http://open.canada.ca/data/en/dataset/a50a7360-d986-4d12-b940-67266a2fa980&quot;&gt;Rail occurrence data from January 2004 to present&lt;/a&gt; 作為資料來源。(剛好可以對照加拿大的地圖)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;加拿大地圖(省份) &lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;讓我們先下載原始資料檔和說明檔：&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/4.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;2. 檢視資料，取得我們要用的資訊&lt;/h3&gt;
+
+&lt;p&gt;先看一下欄位名稱：&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;詳細的欄位資訊都在說明檔裡，我們在這裡只需要 &lt;code class=&quot;highlighter-rouge&quot;&gt;OCC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;ACC_INC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt;(省份) 這三個欄位的資料。&lt;br /&gt;
+首先要檢查工作目錄的位置是否正確，如果不正確則需要調整：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/home/shouzo&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/home/shouzo/r_test&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 切換工作目錄
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/home/shouzo/r_test&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;# 確認目錄裡的檔案
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;dd-20150217.csv&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Rail_Eng.csv&quot;&lt;/span&gt;   
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我們試著讀取 &lt;code class=&quot;highlighter-rouge&quot;&gt;Rail_Eng.csv&lt;/code&gt; 的檔案內容，你可以看到這個檔案裡的資料有一萬多筆。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read.csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rail_Eng.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 中間省略...
+&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;450&lt;/span&gt;                                   &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;451&lt;/span&gt;                                   &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;452&lt;/span&gt;                                   &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;453&lt;/span&gt;                                   &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;454&lt;/span&gt;       &lt;span class=&quot;n&quot;&gt;FLASHING&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LIGHT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SIGNALS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AND&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BELL&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016-09-15&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T09&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reached&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getOption&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;max.print&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;omitted&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;17653&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;因為我們只需要 &lt;code class=&quot;highlighter-rouge&quot;&gt;OCC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;ACC_INC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt; 這三個欄位的資料，所以要稍微加以細分：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 將整個檔案裡的資料檔存入變數 &quot;Ori_Data&quot;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ori_Data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read.csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rail_Eng.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 取得並存放 &quot;OCC_TYPE&quot; 欄位的資料
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OCC_TYPE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ori_Data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OCC_TYPE&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 取得並存放 &quot;ACC_INC_TYPE&quot; 欄位的資料
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ACC_INC_TYPE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ori_Data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ACC_INC_TYPE&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 取得並存放 &quot;PROVINCE&quot; 欄位的資料
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PROVINCE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ori_Data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PROVINCE&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;剛剛我們分別對 &lt;code class=&quot;highlighter-rouge&quot;&gt;OCC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;ACC_INC_TYPE&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt; 進行資料的存放和處理，現在我們來看看裡面有哪些內容。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;查看 &lt;code class=&quot;highlighter-rouge&quot;&gt;OCC_TYPE&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 查看 OCC_TYPE 裡面有哪些資料類型
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OCC_TYPE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ACCIDENT&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;INCIDENT&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;查看 &lt;code class=&quot;highlighter-rouge&quot;&gt;ACC_INC_TYPE&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 查看 ACC_INC_TYPE 裡面有哪些資料類型
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ACC_INC_TYPE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;                                      
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;COLLISION INVOLVING TRACK UNIT&quot;&lt;/span&gt;        
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CREW MEMBER INCAPACITATED&quot;&lt;/span&gt;             
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CROSSING&quot;&lt;/span&gt;                              
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;DERAILMENT INVOLVING TRACK UNIT&quot;&lt;/span&gt;       
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;DG LEAKER&quot;&lt;/span&gt;                             
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;EMPLOYEE&quot;&lt;/span&gt;                              
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;FIRE&quot;&lt;/span&gt;                                  
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MAIN-TRACK SWITCH IN ABNORMAL POSITION&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MAIN-TRACK TRAIN COLLISION&quot;&lt;/span&gt;            
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MAIN-TRACK TRAIN DERAILMENT&quot;&lt;/span&gt;           
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MOVEMENT EXCEEDS LIMITS OF AUTHORITY&quot;&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;NON-MAIN-TRACK TRAIN COLLISION&quot;&lt;/span&gt;        
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;NON-MAIN-TRACK TRAIN DERAILMENT&quot;&lt;/span&gt;       
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;PASSENGER&quot;&lt;/span&gt;                             
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;R/S COLL. WITH ABANDONED VEHICLE&quot;&lt;/span&gt;      
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;R/S COLL. WITH OBJECT&quot;&lt;/span&gt;                 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;R/S DAMAGE WITHOUT DERAIL./COLL.&quot;&lt;/span&gt;      
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RUNAWAY ROLLING STOCK&quot;&lt;/span&gt;                 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;SIGNAL LESS RESTRICTIVE THAN REQUIRED&quot;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;TRESPASSER&quot;&lt;/span&gt;                            
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;UNPROTECTED OVERLAP OF AUTHORITIES&quot;&lt;/span&gt;    
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;查看 &lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 查看 PROVINCE 裡面有哪些資料類型
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PROVINCE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;ALBERTA&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;BRITISH COLUMBIA&quot;&lt;/span&gt;     
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MANITOBA&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;NEW BRUNSWICK&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;NEWFOUNDLAND&quot;&lt;/span&gt;         
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;NORTHWEST TERRITORIES&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;NOVA SCOTIA&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;ONTARIO&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;QU\xc9BEC&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;SASKATCHEWAN&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;3. 先想一下︰我們用這些資料要做什麼？&lt;/h3&gt;
+&lt;p&gt;這份是源自於加拿大的 OpenData 資料，而我現在想要用這些資料去 &lt;strong&gt;觀察&lt;/strong&gt; 各省份地鐵事故分佈的情形，可以怎麼做？&lt;/p&gt;
+
+&lt;p&gt;這個問題可以從幾個觀點來看(由簡單到複雜)：&lt;br /&gt;
+1. 哪一個地區比較常發生事故？&lt;br /&gt;
+2. 哪一個地區比較常發生”何種類型”的事故？&lt;br /&gt;
+3. …其他的之後可以再想想&lt;/p&gt;
+
+&lt;p&gt;這一次先探討上方的第1點，我個人的想法如下：&lt;br /&gt;
+『 根據事故發生的次數，以 “點狀圖” 的方式去凸顯發生頻率。』&lt;br /&gt;
+* &lt;strong&gt;點越大，就代表事故發生的次數越多。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;就像是這張圖：&lt;br /&gt;
+&lt;img src=&quot;/assets/20160917/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;(三) 將分類後的資料放在地圖上，進行視覺化&lt;/h2&gt;
+&lt;p&gt;我們從 &lt;code class=&quot;highlighter-rouge&quot;&gt;PROVINCE&lt;/code&gt; 這個欄位中知道資料分別來自 9 個省份 (扣除兩項無法辨別的資料)；讓我們先個別幫這些地區定義座標，這樣在之後便可以精準的定位：&lt;br /&gt;
+* 只要在各省份中隨意找一個地點設為座標即可，詳情請見 &lt;a href=&quot;https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&amp;amp;hl=zh-Hant&quot;&gt;搜尋和取得座標&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;ALBERTA&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(56.245426, -115.134777)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;BRITISH COLUMBIA&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(54.156673, -124.801499)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;MANITOBA&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(55.829413, -97.121341)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;NEW BRUNSWICK&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(46.717936, -66.294149)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;NEWFOUNDLAND&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(54.501215, -61.985263)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;NORTHWEST TERRITORIES&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(64.585305, -121.295028)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;NOVA SCOTIA&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(45.108690, -63.650974)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ONTARIO&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(51.222450, -85.156691)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SASKATCHEWAN&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;座標：(54.829432, -105.995397)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;接著，讓我們看看這些地區在資料中出現的次數：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PROVINCE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                                    &lt;span class=&quot;n&quot;&gt;ALBERTA&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;BRITISH&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COLUMBIA&lt;/span&gt; 
+                    &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;                  &lt;span class=&quot;m&quot;&gt;3758&lt;/span&gt;                  &lt;span class=&quot;m&quot;&gt;3082&lt;/span&gt; 
+             &lt;span class=&quot;n&quot;&gt;MANITOBA&lt;/span&gt;         &lt;span class=&quot;n&quot;&gt;NEW&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BRUNSWICK&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;NEWFOUNDLAND&lt;/span&gt; 
+                 &lt;span class=&quot;m&quot;&gt;1711&lt;/span&gt;                   &lt;span class=&quot;m&quot;&gt;324&lt;/span&gt;                    &lt;span class=&quot;m&quot;&gt;69&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;NORTHWEST&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TERRITORIES&lt;/span&gt;           &lt;span class=&quot;n&quot;&gt;NOVA&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SCOTIA&lt;/span&gt;               &lt;span class=&quot;n&quot;&gt;ONTARIO&lt;/span&gt; 
+                   &lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;                   &lt;span class=&quot;m&quot;&gt;152&lt;/span&gt;                  &lt;span class=&quot;m&quot;&gt;4819&lt;/span&gt; 
+            &lt;span class=&quot;n&quot;&gt;QU&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xc9BEC&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;SASKATCHEWAN&lt;/span&gt; 
+                 &lt;span class=&quot;m&quot;&gt;2399&lt;/span&gt;                  &lt;span class=&quot;m&quot;&gt;1773&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sat, 17 Sep 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/09/17/Rggmap/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/09/17/Rggmap/</guid>
+        
+        <category>R語言</category>
+        
+        <category>Data-Mining</category>
+        
+        <category>Data-Science</category>
+        
+        
+        <category>R語言</category>
+        
+        <category>Data-Science</category>
+        
+      </item>
+    
+      <item>
+        <title>20160915 [R語言翻轉教室] 01-RBasic (2)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#rhttpdatascienceandrorg&quot; id=&quot;markdown-toc-rhttpdatascienceandrorg&quot;&gt;整理自 &lt;a href=&quot;http://datascienceandr.org/&quot;&gt;R語言翻轉教室&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#rbasic&quot; id=&quot;markdown-toc-rbasic&quot;&gt;課程進度：RBasic&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#data-structure-object&quot; id=&quot;markdown-toc-data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;物件結構&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#modelength&quot; id=&quot;markdown-toc-modelength&quot;&gt;[屬性] mode()、length()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#attributesnamesclass&quot; id=&quot;markdown-toc-attributesnamesclass&quot;&gt;[屬性] attributes()、names()、class()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#factors&quot; id=&quot;markdown-toc-factors&quot;&gt;(二) 04-Factors&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#factorlevels&quot; id=&quot;markdown-toc-factorlevels&quot;&gt;[屬性] factor()、levels()&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#str&quot; id=&quot;markdown-toc-str&quot;&gt;[屬性] str()&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arrays-matrices&quot; id=&quot;markdown-toc-arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#dim&quot; id=&quot;markdown-toc-dim&quot;&gt;[屬性] dim()&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#array&quot; id=&quot;markdown-toc-array&quot;&gt;[屬性] array()&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cbindrbind&quot; id=&quot;markdown-toc-cbindrbind&quot;&gt;[屬性] cbind()、rbind()&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;rhttpdatascienceandrorg&quot;&gt;整理自 &lt;a href=&quot;http://datascienceandr.org/&quot;&gt;R語言翻轉教室&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;版本資訊 (sha-hash：4636e186)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rbasic&quot;&gt;課程進度：RBasic&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;01-RBasic-01-Introduction …ok&lt;/li&gt;
+  &lt;li&gt;01-RBasic-02-Data-Structure-Vectors …ok&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-03-Data-Structure-Object.html&quot;&gt;01-RBasic-03-Data-Structure-Object&lt;/a&gt; (O)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-04-Factors.html&quot;&gt;01-RBasic-04-Factors&lt;/a&gt; (O)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-05-Arrays-Matrices.html&quot;&gt;01-RBasic-05-Arrays-Matrices&lt;/a&gt; (O)&lt;/li&gt;
+  &lt;li&gt;01-RBasic-06-List-DataFrame&lt;/li&gt;
+  &lt;li&gt;01-RBasic-07-Loading-Dataset&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/h2&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;物件結構&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;向量：最基礎的『物件』。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;modelength&quot;&gt;[屬性] mode()、length()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;mode()：查詢向量的型態。&lt;/li&gt;
+  &lt;li&gt;length()：查詢向量的值的個數。
+    &lt;ul&gt;
+      &lt;li&gt;型態：&lt;code class=&quot;highlighter-rouge&quot;&gt;logical&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;integer&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;numeric&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;complex&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;character&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;raw&lt;/code&gt;。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 用`mode`和`length`函數來查詢向量的型態和長度。
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;numeric&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;attributesnamesclass&quot;&gt;[屬性] attributes()、names()、class()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;attributes()：查詢物件的屬性。&lt;/li&gt;
+  &lt;li&gt;names()：查詢物件的名字。&lt;/li&gt;
+  &lt;li&gt;class()：查詢物件的類別。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 用`attributes`、`names`和`class`函數來查詢向量的屬性、名稱和類別。
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;coefficients&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;residuals&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;effects&quot;&lt;/span&gt;      
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;rank&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;fitted.values&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;assign&quot;&lt;/span&gt;       
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;qr&quot;&lt;/span&gt;            &lt;span class=&quot;s2&quot;&gt;&quot;df.residual&quot;&lt;/span&gt;   &lt;span class=&quot;s2&quot;&gt;&quot;xlevels&quot;&lt;/span&gt;      
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;call&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;terms&quot;&lt;/span&gt;         &lt;span class=&quot;s2&quot;&gt;&quot;model&quot;&lt;/span&gt;        
+
+&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;lm&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;coefficients&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;residuals&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;effects&quot;&lt;/span&gt;      
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;rank&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;fitted.values&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;assign&quot;&lt;/span&gt;       
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;qr&quot;&lt;/span&gt;            &lt;span class=&quot;s2&quot;&gt;&quot;df.residual&quot;&lt;/span&gt;   &lt;span class=&quot;s2&quot;&gt;&quot;xlevels&quot;&lt;/span&gt;      
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;call&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;terms&quot;&lt;/span&gt;         &lt;span class=&quot;s2&quot;&gt;&quot;model&quot;&lt;/span&gt;        
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;lm&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;factors&quot;&gt;(二) 04-Factors&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;範例：血型分類&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blood_type&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;factorlevels&quot;&gt;[屬性] factor()、levels()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;factor()：將資料轉為factor向量。&lt;/li&gt;
+  &lt;li&gt;levels()：取出向量中的類別。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Levels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blood_type_factor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;str&quot;&gt;[屬性] str()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;str()：觀察factor向量的結構。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;Factor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/h2&gt;
+&lt;p&gt;#### [屬性] matrix()&lt;/p&gt;
+
+&lt;h4 id=&quot;dim&quot;&gt;[屬性] dim()&lt;/h4&gt;
+
+&lt;h4 id=&quot;array&quot;&gt;[屬性] array()&lt;/h4&gt;
+
+&lt;h4 id=&quot;cbindrbind&quot;&gt;[屬性] cbind()、rbind()&lt;/h4&gt;
+
+</description>
+        <pubDate>Fri, 16 Sep 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/</guid>
+        
+        <category>R語言</category>
+        
+        <category>R語言翻轉教室</category>
+        
+        <category>Data-Science</category>
+        
+        
+        <category>R語言</category>
+        
+      </item>
+    
+      <item>
+        <title>20160912 [原始點療法] 操作手法教學</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;[ 筆記內容 ]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;[ 前言 ] 觀念的建立&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;[ 總覽圖 ] 人體原始點分佈及對應位置&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;[ 操作手法 ] 工具的使用&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;(一) 頭部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;(二) 頸部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;(三) 上、下背部原始點&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;1.  上背部原始點&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;2.  下背部原始點&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;(四) 肩部原始點&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;1.  肩胛部原始點&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;2.  肩胛部旁特殊點&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;(五) 薦椎原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;(六) 臀部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-14&quot; id=&quot;markdown-toc-section-14&quot;&gt;(七) 膝部特殊點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-15&quot; id=&quot;markdown-toc-section-15&quot;&gt;(八) 踝部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-16&quot; id=&quot;markdown-toc-section-16&quot;&gt;(九) 足背部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-17&quot; id=&quot;markdown-toc-section-17&quot;&gt;(十) 肘部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-18&quot; id=&quot;markdown-toc-section-18&quot;&gt;(十一) 手背部原始點&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-19&quot; id=&quot;markdown-toc-section-19&quot;&gt;[ 技巧 ] 側臥按推方法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-20&quot; id=&quot;markdown-toc-section-20&quot;&gt;[ 總結 ] 按推 + 身體保養 + 經驗累積&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;[ 筆記內容 ]&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;整理自 &lt;a href=&quot;http://cch-foundation.org/&quot;&gt;張釗漢原始點醫療基金會&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;[ 前言 ] 觀念的建立&lt;/li&gt;
+      &lt;li&gt;[ 總覽圖 ] 人體原始點分佈及對應位置&lt;/li&gt;
+      &lt;li&gt;[ 操作手法 ] 工具的使用
+        &lt;ul&gt;
+          &lt;li&gt;（一）頭部原始點&lt;/li&gt;
+          &lt;li&gt;（二）頸部原始點&lt;/li&gt;
+          &lt;li&gt;（三）上、下背部原始點&lt;/li&gt;
+          &lt;li&gt;（四）肩部原始點&lt;/li&gt;
+          &lt;li&gt;（五）薦椎原始點&lt;/li&gt;
+          &lt;li&gt;（六）臀部原始點&lt;/li&gt;
+          &lt;li&gt;（七）膝部特殊點&lt;/li&gt;
+          &lt;li&gt;（八）踝部原始點&lt;/li&gt;
+          &lt;li&gt;（九）足背部原始點&lt;/li&gt;
+          &lt;li&gt;（十）肘部原始點&lt;/li&gt;
+          &lt;li&gt;（十一）手背部原始點&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;[ 技巧 ] 側臥按推方法&lt;/li&gt;
+      &lt;li&gt;[ 總結 ] 按推 + 身體保養 + 經驗累積&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;[ 前言 ] 觀念的建立&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Sb41dU521wE&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 觀念的建立 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=Sb41dU521wE&amp;amp;index=1&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=Sb41dU521wE&amp;amp;index=1&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;官方網站&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;張釗漢原始點醫療基金會：&lt;a href=&quot;http://cch-foundation.org/&quot;&gt;http://cch-foundation.org/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;YouTube 官方頻道：&lt;a href=&quot;https://www.youtube.com/channel/UCPA-gG3YbDdZEM00wKLU8Eg&quot;&gt;https://www.youtube.com/channel/UCPA-gG3YbDdZEM00wKLU8Eg&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;手法教學&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;YouTube：&lt;a href=&quot;https://www.youtube.com/playlist?list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/playlist?list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;[ 總覽圖 ] 人體原始點分佈及對應位置&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/3BFSnJ7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt; 原始點總覽圖 &amp;gt; &lt;a href=&quot;http://cch-foundation.org/images/Animation2015/index.html&quot;&gt;http://cch-foundation.org/images/Animation2015/index.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;[ 操作手法 ] 工具的使用&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/lvugwqsG31Q&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 操作手法 - 工具的使用 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=lvugwqsG31Q&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=2&quot;&gt;https://www.youtube.com/watch?v=lvugwqsG31Q&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=2&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;(一) 頭部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/SPI55_1vCgY&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 頭部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=SPI55_1vCgY&amp;amp;index=3&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=SPI55_1vCgY&amp;amp;index=3&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;(二) 頸部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Nt4GqwhO7HE&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 頸部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=Nt4GqwhO7HE&amp;amp;index=4&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=Nt4GqwhO7HE&amp;amp;index=4&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-6&quot;&gt;(三) 上、下背部原始點&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;1.  上背部原始點&lt;/h3&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/IlSqHSZySUo&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 上背部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=IlSqHSZySUo&amp;amp;index=5&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=IlSqHSZySUo&amp;amp;index=5&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;2.  下背部原始點&lt;/h3&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/7a6ettIMDPA&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 下背部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=7a6ettIMDPA&amp;amp;index=8&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=7a6ettIMDPA&amp;amp;index=8&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-9&quot;&gt;(四) 肩部原始點&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;1.  肩胛部原始點&lt;/h3&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/90ymk3tqifE&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 肩胛部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=90ymk3tqifE&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=6&quot;&gt;https://www.youtube.com/watch?v=90ymk3tqifE&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=6&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;2.  肩胛部旁特殊點&lt;/h3&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/vAXkflWsDms&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 肩胛部旁特殊點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=vAXkflWsDms&amp;amp;index=7&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=vAXkflWsDms&amp;amp;index=7&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-12&quot;&gt;(五) 薦椎原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/9DlpET2k4ro&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 薦椎部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=9DlpET2k4ro&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=9&quot;&gt;https://www.youtube.com/watch?v=9DlpET2k4ro&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=9&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-13&quot;&gt;(六) 臀部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/apfO9fKrUCw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 臀部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=apfO9fKrUCw&amp;amp;index=10&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=apfO9fKrUCw&amp;amp;index=10&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-14&quot;&gt;(七) 膝部特殊點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Ew6Chq_pWfA&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 膝部特殊點操作手法 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=Ew6Chq_pWfA&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=11&quot;&gt;https://www.youtube.com/watch?v=Ew6Chq_pWfA&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=11&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-15&quot;&gt;(八) 踝部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/-pxkolUxFvY&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 踝部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=-pxkolUxFvY&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=12&quot;&gt;https://www.youtube.com/watch?v=-pxkolUxFvY&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=12&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-16&quot;&gt;(九) 足背部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cHQ7Fq16Ewo&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 足背部原始點操作手法  &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=cHQ7Fq16Ewo&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=13&quot;&gt;https://www.youtube.com/watch?v=cHQ7Fq16Ewo&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=13&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-17&quot;&gt;(十) 肘部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/bo0GLugDx9A&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 肘部原始點操作手法 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=bo0GLugDx9A&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=14&quot;&gt;https://www.youtube.com/watch?v=bo0GLugDx9A&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=14&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-18&quot;&gt;(十一) 手背部原始點&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/j0PD60BKfQo&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 手背部原始點操作手法 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=j0PD60BKfQo&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=15&quot;&gt;https://www.youtube.com/watch?v=j0PD60BKfQo&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&amp;amp;index=15&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-19&quot;&gt;[ 技巧 ] 側臥按推方法&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/mL_pQro-fPk&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 側臥按推方法 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=mL_pQro-fPk&amp;amp;index=16&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=mL_pQro-fPk&amp;amp;index=16&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-20&quot;&gt;[ 總結 ] 按推 + 身體保養 + 經驗累積&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/GkC4nNd5TBs&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&amp;lt; 結論 &amp;gt; &lt;a href=&quot;https://www.youtube.com/watch?v=GkC4nNd5TBs&amp;amp;index=17&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&quot;&gt;https://www.youtube.com/watch?v=GkC4nNd5TBs&amp;amp;index=17&amp;amp;list=PLBxQ0nLKmyOKw0E5Qzw8SfM1zn1FfhyXX&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 12 Sep 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/09/12/Original-Point/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/09/12/Original-Point/</guid>
+        
+        <category>運動領域</category>
+        
+        <category>原始點療法</category>
+        
+        
+        <category>運動領域</category>
+        
+      </item>
+    
+      <item>
+        <title>20160908 [R語言翻轉教室] 01-RBasic (1)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#rhttpdatascienceandrorg&quot; id=&quot;markdown-toc-rhttpdatascienceandrorg&quot;&gt;整理自 &lt;a href=&quot;http://datascienceandr.org/&quot;&gt;R語言翻轉教室&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#rbasic&quot; id=&quot;markdown-toc-rbasic&quot;&gt;課程進度：RBasic&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;(一) 01-Introduction&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;1. 查詢、說明&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#help&quot; id=&quot;markdown-toc-help&quot;&gt;[用法] help()、?&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#solve-&quot; id=&quot;markdown-toc-solve-&quot;&gt;[範例] 查詢 solve 函數的說明：&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#expressionassignment&quot; id=&quot;markdown-toc-expressionassignment&quot;&gt;2. expression、assignment&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;3. 查詢物件&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#objectsls&quot; id=&quot;markdown-toc-objectsls&quot;&gt;[用法] objects()、ls()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;4. 刪除物件&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#rm&quot; id=&quot;markdown-toc-rm&quot;&gt;[用法] rm()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#data-structure-vectors&quot; id=&quot;markdown-toc-data-structure-vectors&quot;&gt;(二) 02-Data-Structure-Vectors&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;1. 數字向量&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;2. 取最小值、最大值&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#minmaxrange&quot; id=&quot;markdown-toc-minmaxrange&quot;&gt;[用法] min()、max()、range()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;3. 取得向量值的加總、長度和平均值&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#sumlengthmean&quot; id=&quot;markdown-toc-sumlengthmean&quot;&gt;[用法] sum()、length()、mean()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;4. 樣本變異數&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#var&quot; id=&quot;markdown-toc-var&quot;&gt;[用法] var()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;5. 樣本標準差&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#sd&quot; id=&quot;markdown-toc-sd&quot;&gt;[用法] sd()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;6. 對向量進行排序&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#sort&quot; id=&quot;markdown-toc-sort&quot;&gt;[用法] sort()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;7. 整數、實數、複數的計算&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;[範例] 開根號&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;8. 產生序列&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;[用法1] 利用 &lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt; 產生序列&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#seq-&quot; id=&quot;markdown-toc-seq-&quot;&gt;[用法2] 利用 seq() 產生序列&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#rep-&quot; id=&quot;markdown-toc-rep-&quot;&gt;[用法3] 利用 rep() 產生序列&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;9. 邏輯向量&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#nanan&quot; id=&quot;markdown-toc-nanan&quot;&gt;10. NA：缺失值、NaN：數學中沒有被定義的值&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#isna&quot; id=&quot;markdown-toc-isna&quot;&gt;[用法] is.na()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-14&quot; id=&quot;markdown-toc-section-14&quot;&gt;11. 字串的概念&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#pastepaste0&quot; id=&quot;markdown-toc-pastepaste0&quot;&gt;[用法] paste()、paste0()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-15&quot; id=&quot;markdown-toc-section-15&quot;&gt;12. 在向量中挑選特定資料&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-16&quot; id=&quot;markdown-toc-section-16&quot;&gt;13. 為向量中的值進行命名&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#names&quot; id=&quot;markdown-toc-names&quot;&gt;[用法] names()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-17&quot; id=&quot;markdown-toc-section-17&quot;&gt;[範例] 整理台電的公開數據&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-18&quot; id=&quot;markdown-toc-section-18&quot;&gt;&lt;題目內容&gt;&lt;/題目內容&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-19&quot; id=&quot;markdown-toc-section-19&quot;&gt;&lt;標準解答&gt;&lt;/標準解答&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;rhttpdatascienceandrorg&quot;&gt;整理自 &lt;a href=&quot;http://datascienceandr.org/&quot;&gt;R語言翻轉教室&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;版本資訊 (sha-hash：4636e186)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rbasic&quot;&gt;課程進度：RBasic&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-01-Introduction.html&quot;&gt;01-RBasic-01-Introduction&lt;/a&gt; (O)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-02-Data-Structure-Vectors.html&quot;&gt;01-RBasic-02-Data-Structure-Vectors&lt;/a&gt; (O)&lt;/li&gt;
+  &lt;li&gt;01-RBasic-03-Data-Structure-Object&lt;/li&gt;
+  &lt;li&gt;01-RBasic-04-Factors&lt;/li&gt;
+  &lt;li&gt;01-RBasic-05-Arrays-Matrices&lt;/li&gt;
+  &lt;li&gt;01-RBasic-06-List-DataFrame&lt;/li&gt;
+  &lt;li&gt;01-RBasic-07-Loading-Dataset&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;(一) 01-Introduction&lt;/h2&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;1. 查詢、說明&lt;/h3&gt;
+
+&lt;h4 id=&quot;help&quot;&gt;[用法] help()、?&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;獲得函數的細節說明。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;solve-&quot;&gt;[範例] 查詢 solve 函數的說明：&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 查詢 solve 函數
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 用法 1
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;# 用法 2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;expressionassignment&quot;&gt;2. expression、assignment&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# assignment 動作 (不會顯示結果)
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# expression 動作 (會顯示結果)
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;3. 查詢物件&lt;/h3&gt;
+
+&lt;h4 id=&quot;objectsls&quot;&gt;[用法] objects()、ls()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;查詢所有環境的物件。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 用法 1
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;                         &lt;span class=&quot;s2&quot;&gt;&quot;chat&quot;&lt;/span&gt;                     
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;check_then_install&quot;&lt;/span&gt;        &lt;span class=&quot;s2&quot;&gt;&quot;check_then_install_github&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;issue&quot;&lt;/span&gt;                     &lt;span class=&quot;s2&quot;&gt;&quot;source_by_l10n_info&quot;&lt;/span&gt;      
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 用法 2
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;                         &lt;span class=&quot;s2&quot;&gt;&quot;chat&quot;&lt;/span&gt;                     
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;check_then_install&quot;&lt;/span&gt;        &lt;span class=&quot;s2&quot;&gt;&quot;check_then_install_github&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;issue&quot;&lt;/span&gt;                     &lt;span class=&quot;s2&quot;&gt;&quot;source_by_l10n_info&quot;&lt;/span&gt;      
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;4. 刪除物件&lt;/h3&gt;
+
+&lt;h4 id=&quot;rm&quot;&gt;[用法] rm()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;刪除指定的物件。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 查詢所有環境的物件
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;chat&quot;&lt;/span&gt;                      &lt;span class=&quot;s2&quot;&gt;&quot;check_then_install&quot;&lt;/span&gt;       
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;check_then_install_github&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;issue&quot;&lt;/span&gt;                    
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;source_by_l10n_info&quot;&lt;/span&gt;      
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 用 &quot;rm()&quot; 移除物件
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 移除&quot;chat&quot;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;issue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# 移除&quot;issue&quot;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 再次查詢環境
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;check_then_install&quot;&lt;/span&gt;        &lt;span class=&quot;s2&quot;&gt;&quot;check_then_install_github&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;source_by_l10n_info&quot;&lt;/span&gt;      
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;data-structure-vectors&quot;&gt;(二) 02-Data-Structure-Vectors&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;1. 數字向量&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;在數學上，輸入的 x 可能是整數、實數甚至是複數。R 的數學計算，會自動根據 x 的屬性做調整。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 最簡單的向量
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# assignment
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &quot;c()&quot;可以接受任意數量的的向量參數
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 在 x 後面追加&quot;2, 4, 6, 8&quot;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;2.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;8.0&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 			&lt;span class=&quot;c1&quot;&gt;# 建立一個在 x 後面接上 x 的向量
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 向量的運算
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 相同長度的向量相加
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;			 &lt;span class=&quot;c1&quot;&gt;# 兩種不同長度的向量相加
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;2. 取最小值、最大值&lt;/h3&gt;
+
+&lt;h4 id=&quot;minmaxrange&quot;&gt;[用法] min()、max()、range()&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;	 &lt;span class=&quot;c1&quot;&gt;# 取得 x 的最小值和最大值
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;			  &lt;span class=&quot;c1&quot;&gt;# 回傳向量的範圍（最小到最大）
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;3. 取得向量值的加總、長度和平均值&lt;/h3&gt;
+
+&lt;h4 id=&quot;sumlengthmean&quot;&gt;[用法] sum()、length()、mean()&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 		&lt;span class=&quot;c1&quot;&gt;# 回傳向量的加總
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25.5&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	  &lt;span class=&quot;c1&quot;&gt;# 回傳向量的長度
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 回傳向量的平均值
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.375&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;			   &lt;span class=&quot;c1&quot;&gt;# 回傳向量的平均值
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.375&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;4. 樣本變異數&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;樣本變異數：sum((x - mean(x))^2) / (length(x) - 1)
+    &lt;ul&gt;
+      &lt;li&gt;可以直接用 var(x) 取代&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;var&quot;&gt;[用法] var()&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;9.175833&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;9.175833&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;5. 樣本標準差&lt;/h3&gt;
+
+&lt;h4 id=&quot;sd&quot;&gt;[用法] sd()&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.029164&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;6. 對向量進行排序&lt;/h3&gt;
+
+&lt;h4 id=&quot;sort&quot;&gt;[用法] sort()&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 將向量裡的元素從小排到大
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;7. 整數、實數、複數的計算&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-10&quot;&gt;[範例] 開根號&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;			 &lt;span class=&quot;c1&quot;&gt;# 對&quot;負整數&quot;開根號
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NaN&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Warning&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;產生了&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NaNs&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-17&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;# 對&quot;複數&quot;開根號
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0+4.123106i&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;8. 產生序列&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-12&quot;&gt;[用法1] 利用 &lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt; 產生序列&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;在 R 裡面，&lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt;的等級很高，會優先處理。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;17&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;19&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-17&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-17&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-16&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-15&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-14&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-13&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-12&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-11&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-10&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;-9&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;-8&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;-7&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;-6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;-5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;-4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;-3&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;-2&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;   &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;11&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;13&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;14&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 以下 expression，會優先處理 17:23，然後再把所有結果乘以 2
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;34&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;36&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;38&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;42&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;44&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;46&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;seq-&quot;&gt;[用法2] 利用 seq() 產生序列&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;seq 的參數有：&lt;code class=&quot;highlighter-rouge&quot;&gt;from&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;to&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;by&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;length.out&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;along.with&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;查看詳細用法︰&lt;code class=&quot;highlighter-rouge&quot;&gt;?seq&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;查看使用範例︰&lt;code class=&quot;highlighter-rouge&quot;&gt;example(seq)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 如果不指定參數，而是依照順序填入：seq(1,10)，那就代表 from 是 1、to 是 10、而 by 等其他 argument 就使用預設參數
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 指定參數
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 透過 by 參數控制間隔
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;1.5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;2.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;2.5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4.5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;7.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;7.5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;8.0&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;8.5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;9.0&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;9.5&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.0&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 產生一個從1開始，間隔2，長度為10的序列
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length.out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;17&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;rep-&quot;&gt;[用法3] 利用 rep() 產生序列&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 重複特定數字
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 將整個序列重複times次，然後接起來
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 將向量的每一個值個別重複each遍之後，再接起來
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-13&quot;&gt;9. 邏輯向量&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;用於建立邏輯向量的「條件」：
+    &lt;ul&gt;
+      &lt;li&gt;大於 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;大於等於 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;=&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;小於 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;小於等於 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;=&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;相等 &lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;不相等&lt;code class=&quot;highlighter-rouge&quot;&gt;!=&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;常常表示資料中如：「是、否」、「男、女」之類”二選一”的選項。&lt;/li&gt;
+  &lt;li&gt;常見的三種情況：
+    &lt;ul&gt;
+      &lt;li&gt;第一種：「真」用 &lt;strong&gt;TRUE&lt;/strong&gt; 或 &lt;strong&gt;T&lt;/strong&gt; 代表。&lt;/li&gt;
+      &lt;li&gt;第二種：「假」用 &lt;strong&gt;FALSE&lt;/strong&gt; 或 &lt;strong&gt;F&lt;/strong&gt; 代表。&lt;/li&gt;
+      &lt;li&gt;第三種：「NA」（NotAvailable）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 利用「條件類型的expression」來建立邏輯向量
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 拿 5 和 c(10.4, 5.6, 3.1, 6.4) 比較，比較大的就是 TRUE ，而比較小的是 FALSE。
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;TRUE&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;TRUE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;TRUE&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 篩選複雜條件
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 介於5和10之間的值為 TRUE，否則為 FALSE
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;TRUE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;TRUE&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;nanan&quot;&gt;10. NA：缺失值、NaN：數學中沒有被定義的值&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;當資料的值無法取得的時候，R 就會給它一個特殊的記號：NA。&lt;/li&gt;
+  &lt;li&gt;所有和NA做的運算結果，通常都會是NA。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;isna&quot;&gt;[用法] is.na()&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is.na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 判斷向量 x 裡面有沒有NA
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 判斷一個內含 NA 的向量
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is.na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;TRUE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# is.na() 會將 NA 和 NaN 都看成TRUE
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is.na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NaN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;TRUE&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;TRUE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-14&quot;&gt;11. 字串的概念&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;透過單引號&lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;&lt;/code&gt;或雙引號&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;來建立的資料，被稱為：「字串」。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# x 被視為變數
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;x&quot;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# x 被視為字串
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;x&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 輸入一個包含雙引號的字串，有兩種方法：一種是用單引號&#39;來包覆雙引號，另外一種就是在雙引號之前插入斜線\
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;R is good!\&quot;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;R is good!\&quot;&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;pastepaste0&quot;&gt;[用法] paste()、paste0()&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;把輸入的argument以字串的形式，接成一個新的字串。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a b&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;X&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 在串接字串時，中間會留空格。
+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;X 1&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y 2&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;X 3&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y 4&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;X 5&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y 6&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;X 7&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y 8&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;X 9&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y 10&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paste0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;X&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# 在串接字串時，中間不會留空格。
+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;X1&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y2&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;X3&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y4&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;X5&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y6&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;X7&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y8&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;X9&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;Y10&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-15&quot;&gt;12. 在向量中挑選特定資料&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;利用 &lt;code class=&quot;highlighter-rouge&quot;&gt;[]&lt;/code&gt; 挑選特定的資料。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;# 挑選 x 的第一個和第三個位置的值
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;# 挑選 x 之中大於 5 的值
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;# 挑選 x 之中，除了第 2 個數字以外的值
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-16&quot;&gt;13. 為向量中的值進行命名&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;在 R 的向量中，每一個值是可以有名字的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;names&quot;&gt;[用法] names()&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 為 x 裡的值進行命名
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;# 顯示 x 的值
+&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; 
+&lt;span class=&quot;m&quot;&gt;10.4&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;3.1&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 選取名稱為&quot;b&quot;、&quot;d&quot;的值
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; 
+&lt;span class=&quot;m&quot;&gt;5.6&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.4&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-17&quot;&gt;[範例] 整理台電的公開數據&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-18&quot;&gt;&lt;題目內容&gt;&lt;/題目內容&gt;&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 社會服務業自民國87至民國91年的年度用電量（度）
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;87&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;91&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;power1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6097059332&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6425887925&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6982579022&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;7323992602.53436&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;7954239517&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;c1&quot;&gt;# 製造業自民國87至民國91年的年度用電量（度）
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;59090445718&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;61981666330&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;67378329131&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;66127460204.6482&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;69696372914.6949&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-19&quot;&gt;&lt;標準解答&gt;&lt;/標準解答&gt;&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 請同學選出年度(`year1`)中，社會服務業的的用電量超過`7e9` 的年份。
+# （`7e9`是R 的科學符號，代表`7 * 10^9`）
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year1.answer1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;7e9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 接著請同學計算「社會服務業從民國87年到91年的平均用電量」
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1.mean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 請計算「社會服務業從民國87年到91年用電量的標準差」
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1.sd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 在統計中，我們常常會計算一筆數據的「標準分數」，也就是將數據減去平均數後除以標準差。
+# 請同學計算「社會服務業從民國87年到91年用電量的標準分數」
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1.z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 同樣的道理，請同學算出「製造業自民國87年至民國91年用電量的平均數、標準差和標準分數」
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power2.mean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;power2.sd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;power2.z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 最後，請同學找出年度中，「社會服務業的用電量」，超過「製造業的10%用電量」的年份
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year1.answer2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;power1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 09 Sep 2016 07:59:59 +0800</pubDate>
+        <link>http://shouzo.github.io/2016/09/09/Rclassroom-RBasic-1/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2016/09/09/Rclassroom-RBasic-1/</guid>
+        
+        <category>R語言</category>
+        
+        <category>R語言翻轉教室</category>
+        
+        <category>Data-Science</category>
+        
+        
+        <category>R語言</category>
+        
+      </item>
+    
+  </channel>
+</rss>

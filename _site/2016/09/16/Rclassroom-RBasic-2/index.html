@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20160915 [R語言翻轉教室] 01-RBasic (2)</title>
+    <meta name="description" content="  整理自 R語言翻轉教室          課程進度：RBasic      整理自 R語言翻轉教室  版本資訊 (sha-hash：4636e186)課程進度：RBasic  01-RBasic-01-Introduction …ok  01-RBasic-02-Data-Structure-Vectors ...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20160915 [R語言翻轉教室] 01-RBasic (2)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-09-16
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#R語言" title="Category: R語言" rel="category">R語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#R%E8%AA%9E%E8%A8%80" title="Tag: R語言" rel="tag">R語言</a-->
+        <a href="/tag/#R語言" title="Tag: R語言" rel="tag">R語言</a>&nbsp;
+    
+        <!--a href="/tag/#R%E8%AA%9E%E8%A8%80%E7%BF%BB%E8%BD%89%E6%95%99%E5%AE%A4" title="Tag: R語言翻轉教室" rel="tag">R語言翻轉教室</a-->
+        <a href="/tag/#R語言翻轉教室" title="Tag: R語言翻轉教室" rel="tag">R語言翻轉教室</a>&nbsp;
+    
+        <!--a href="/tag/#Data-Science" title="Tag: Data-Science" rel="tag">Data-Science</a-->
+        <a href="/tag/#Data-Science" title="Tag: Data-Science" rel="tag">Data-Science</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#rhttpdatascienceandrorg" id="markdown-toc-rhttpdatascienceandrorg">整理自 <a href="http://datascienceandr.org/">R語言翻轉教室</a></a>    <ul>
+      <li><a href="#rbasic" id="markdown-toc-rbasic">課程進度：RBasic</a></li>
+    </ul>
+  </li>
+  <li><a href="#data-structure-object" id="markdown-toc-data-structure-object">(一) 03-Data-Structure-Object</a>    <ul>
+      <li><a href="#section" id="markdown-toc-section">物件結構</a>        <ul>
+          <li><a href="#modelength" id="markdown-toc-modelength">[屬性] mode()、length()</a></li>
+          <li><a href="#attributesnamesclass" id="markdown-toc-attributesnamesclass">[屬性] attributes()、names()、class()</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#factors" id="markdown-toc-factors">(二) 04-Factors</a>    <ul>
+      <li><a href="#factorlevels" id="markdown-toc-factorlevels">[屬性] factor()、levels()</a></li>
+      <li><a href="#str" id="markdown-toc-str">[屬性] str()</a></li>
+    </ul>
+  </li>
+  <li><a href="#arrays-matrices" id="markdown-toc-arrays-matrices">(三) 05-Arrays-Matrices</a>    <ul>
+      <li><a href="#dim" id="markdown-toc-dim">[屬性] dim()</a></li>
+      <li><a href="#array" id="markdown-toc-array">[屬性] array()</a></li>
+      <li><a href="#cbindrbind" id="markdown-toc-cbindrbind">[屬性] cbind()、rbind()</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="rhttpdatascienceandrorg">整理自 <a href="http://datascienceandr.org/">R語言翻轉教室</a></h2>
+<ul>
+  <li>版本資訊 (sha-hash：4636e186)</li>
+</ul>
+
+<h3 id="rbasic">課程進度：RBasic</h3>
+<ul>
+  <li>01-RBasic-01-Introduction …ok</li>
+  <li>01-RBasic-02-Data-Structure-Vectors …ok</li>
+  <li><a href="http://datascienceandr.org/note/01-RBasic-03-Data-Structure-Object.html">01-RBasic-03-Data-Structure-Object</a> (O)</li>
+  <li><a href="http://datascienceandr.org/note/01-RBasic-04-Factors.html">01-RBasic-04-Factors</a> (O)</li>
+  <li><a href="http://datascienceandr.org/note/01-RBasic-05-Arrays-Matrices.html">01-RBasic-05-Arrays-Matrices</a> (O)</li>
+  <li>01-RBasic-06-List-DataFrame</li>
+  <li>01-RBasic-07-Loading-Dataset</li>
+</ul>
+
+<h2 id="data-structure-object">(一) 03-Data-Structure-Object</h2>
+
+<h3 id="section">物件結構</h3>
+<ul>
+  <li>向量：最基礎的『物件』。</li>
+</ul>
+
+<h4 id="modelength">[屬性] mode()、length()</h4>
+<ul>
+  <li>mode()：查詢向量的型態。</li>
+  <li>length()：查詢向量的值的個數。
+    <ul>
+      <li>型態：<code class="highlighter-rouge">logical</code>、<code class="highlighter-rouge">integer</code>、<code class="highlighter-rouge">numeric</code>、<code class="highlighter-rouge">complex</code>、<code class="highlighter-rouge">character</code>和<code class="highlighter-rouge">raw</code>。</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 用`mode`和`length`函數來查詢向量的型態和長度。
+</span><span class="o">&gt;</span> <span class="n">mode</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"numeric"</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">5</span>
+</code></pre>
+</div>
+
+<h4 id="attributesnamesclass">[屬性] attributes()、names()、class()</h4>
+<ul>
+  <li>attributes()：查詢物件的屬性。</li>
+  <li>names()：查詢物件的名字。</li>
+  <li>class()：查詢物件的類別。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 用`attributes`、`names`和`class`函數來查詢向量的屬性、名稱和類別。
+</span><span class="o">&gt;</span> <span class="n">attributes</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="o">$</span><span class="n">names</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"coefficients"</span>  <span class="s2">"residuals"</span>     <span class="s2">"effects"</span>      
+ <span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="s2">"rank"</span>          <span class="s2">"fitted.values"</span> <span class="s2">"assign"</span>       
+ <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s2">"qr"</span>            <span class="s2">"df.residual"</span>   <span class="s2">"xlevels"</span>      
+<span class="p">[</span><span class="m">10</span><span class="p">]</span> <span class="s2">"call"</span>          <span class="s2">"terms"</span>         <span class="s2">"model"</span>        
+
+<span class="o">$</span><span class="n">class</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"lm"</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">names</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"coefficients"</span>  <span class="s2">"residuals"</span>     <span class="s2">"effects"</span>      
+ <span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="s2">"rank"</span>          <span class="s2">"fitted.values"</span> <span class="s2">"assign"</span>       
+ <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s2">"qr"</span>            <span class="s2">"df.residual"</span>   <span class="s2">"xlevels"</span>      
+<span class="p">[</span><span class="m">10</span><span class="p">]</span> <span class="s2">"call"</span>          <span class="s2">"terms"</span>         <span class="s2">"model"</span>        
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="n">class</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"lm"</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h2 id="factors">(二) 04-Factors</h2>
+<ul>
+  <li>範例：血型分類</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">blood_type</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"B"</span>  <span class="s2">"A"</span>  <span class="s2">"A"</span>  <span class="s2">"O"</span>  <span class="s2">"AB"</span> <span class="s2">"O"</span>  <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"O"</span>  <span class="s2">"AB"</span> <span class="s2">"O"</span> 
+<span class="p">[</span><span class="m">12</span><span class="p">]</span> <span class="s2">"AB"</span> <span class="s2">"A"</span>  <span class="s2">"A"</span>  <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"AB"</span> <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"A"</span> 
+<span class="p">[</span><span class="m">23</span><span class="p">]</span> <span class="s2">"AB"</span> <span class="s2">"B"</span>  <span class="s2">"A"</span>  <span class="s2">"O"</span>  <span class="s2">"A"</span>  <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"AB"</span>
+<span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<h4 id="factorlevels">[屬性] factor()、levels()</h4>
+<ul>
+  <li>factor()：將資料轉為factor向量。</li>
+  <li>levels()：取出向量中的類別。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">factor</span><span class="p">(</span><span class="n">blood_type</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="n">B</span>  <span class="n">A</span>  <span class="n">A</span>  <span class="n">O</span>  <span class="n">AB</span> <span class="n">O</span>  <span class="n">A</span>  <span class="n">AB</span> <span class="n">O</span>  <span class="n">AB</span> <span class="n">O</span>  <span class="n">AB</span> <span class="n">A</span>  <span class="n">A</span>  <span class="n">A</span>  <span class="n">AB</span> <span class="n">A</span>  <span class="n">AB</span>
+<span class="p">[</span><span class="m">19</span><span class="p">]</span> <span class="n">AB</span> <span class="n">A</span>  <span class="n">AB</span> <span class="n">A</span>  <span class="n">AB</span> <span class="n">B</span>  <span class="n">A</span>  <span class="n">O</span>  <span class="n">A</span>  <span class="n">A</span>  <span class="n">AB</span> <span class="n">AB</span>
+<span class="n">Levels</span><span class="o">:</span> <span class="n">A</span> <span class="n">AB</span> <span class="n">B</span> <span class="n">O</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">blood_type_factor</span> <span class="o">&lt;-</span> <span class="n">factor</span><span class="p">(</span><span class="n">blood_type</span><span class="p">)</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">levels</span><span class="p">(</span><span class="n">blood_type_factor</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"A"</span>  <span class="s2">"AB"</span> <span class="s2">"B"</span>  <span class="s2">"O"</span>
+</code></pre>
+</div>
+
+<h4 id="str">[屬性] str()</h4>
+<ul>
+  <li>str()：觀察factor向量的結構。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">str</span><span class="p">(</span><span class="n">blood_type_factor</span><span class="p">)</span>
+ <span class="n">Factor</span> <span class="n">w</span><span class="o">/</span> <span class="m">4</span> <span class="n">levels</span> <span class="s2">"A"</span><span class="p">,</span><span class="s2">"AB"</span><span class="p">,</span><span class="s2">"B"</span><span class="p">,</span><span class="s2">"O"</span><span class="o">:</span> <span class="m">3</span> <span class="m">1</span> <span class="m">1</span> <span class="m">4</span> <span class="m">2</span> <span class="m">4</span> <span class="m">1</span> <span class="m">2</span> <span class="m">4</span> <span class="m">2</span> <span class="k">...</span>
+</code></pre>
+</div>
+
+<h2 id="arrays-matrices">(三) 05-Arrays-Matrices</h2>
+<p>#### [屬性] matrix()</p>
+
+<h4 id="dim">[屬性] dim()</h4>
+
+<h4 id="array">[屬性] array()</h4>
+
+<h4 id="cbindrbind">[屬性] cbind()、rbind()</h4>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/10/23/R-doing-3/">20161024 [資料科學系列] R語言資料分析實務(3)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/10/16/R-doing-2/">20161017 [資料科學系列] R語言資料分析實務(2)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/10/02/R-doing-1/">20161003 [資料科學系列] R語言資料分析實務(1)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/09/17/Rggmap/">20160917 [學習筆記] 分析資料與繪製地圖，進行空間資料視覺化
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/09/09/Rclassroom-RBasic-1/">20160908 [R語言翻轉教室] 01-RBasic (1)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2016/09/12/Original-Point/">20160912 [原始點療法] 操作手法教學</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/09/17/Rggmap/">20160917 [學習筆記] 分析資料與繪製地圖，進行空間資料視覺化</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

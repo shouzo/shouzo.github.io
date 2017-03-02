@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20160523 [資料科學系列] 資料探勘 Data Mining (1)</title>
+    <meta name="description" content="簡報主題：基本觀念與工作環境的架設  簡報網址： 20160523 [資料科學系列] 資料探勘 Data Mining (1)[簡報預覽]">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2016/05/24/Data-Mining-1/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20160523 [資料科學系列] 資料探勘 Data Mining (1)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-05-24
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Data-Science" title="Category: Data-Science" rel="category">Data-Science</a>&nbsp;
+    
+        <a href="/category/#R語言" title="Category: R語言" rel="category">R語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Data-Science" title="Tag: Data-Science" rel="tag">Data-Science</a-->
+        <a href="/tag/#Data-Science" title="Tag: Data-Science" rel="tag">Data-Science</a>&nbsp;
+    
+        <!--a href="/tag/#Data-Mining" title="Tag: Data-Mining" rel="tag">Data-Mining</a-->
+        <a href="/tag/#Data-Mining" title="Tag: Data-Mining" rel="tag">Data-Mining</a>&nbsp;
+    
+        <!--a href="/tag/#R%E8%AA%9E%E8%A8%80" title="Tag: R語言" rel="tag">R語言</a-->
+        <a href="/tag/#R語言" title="Tag: R語言" rel="tag">R語言</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 id="section">簡報主題：基本觀念與工作環境的架設</h1>
+<ul>
+  <li>簡報網址： <a href="/collections/data-science/20160523-Data-Mining-1.html">20160523 [資料科學系列] 資料探勘 Data Mining (1)</a></li>
+</ul>
+
+<p><strong>[簡報預覽]</strong><br />
+<img src="/assets/20160523/cover.jpg" alt="" /></p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/10/23/R-doing-3/">20161024 [資料科學系列] R語言資料分析實務(3)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/10/16/R-doing-2/">20161017 [資料科學系列] R語言資料分析實務(2)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/10/02/R-doing-1/">20161003 [資料科學系列] R語言資料分析實務(1)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/09/17/Rggmap/">20160917 [學習筆記] 分析資料與繪製地圖，進行空間資料視覺化
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/">20160915 [R語言翻轉教室] 01-RBasic (2)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/09/09/Rclassroom-RBasic-1/">20160908 [R語言翻轉教室] 01-RBasic (1)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2016/05/14/opencv_homework/">20160513 [學習筆記] OpenCV - 影像處理暨實習報告</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/05/31/Data-Mining-2/">20160530 [資料科學系列] 資料探勘 Data Mining (2)</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2016/05/24/Data-Mining-1/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2016/05/24/Data-Mining-1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

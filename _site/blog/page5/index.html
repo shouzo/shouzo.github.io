@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>少左 shouzo</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/blog/page5/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" index>
+    <div class="left">
+        <h1>Welcome to shouzo's Blog!</h1>
+        <small>菜鳥的學習紀錄</small>
+        <hr>
+        <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2016/04/20/opencv_yester-place2/">20160419 [學習筆記] OpenCV - 程式設計介紹(2)：視訊鏡頭的使用</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2016-04-20
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#OpenCV" title="Category: OpenCV" rel="category">OpenCV</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>&nbsp;
+    
+        <a href="/tag/#OpenCV" title="Tag: OpenCV" rel="tag">OpenCV</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <h2 id="opencv2httpyester-placeblogspottw200806opencv2html">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv2.html">OpenCV程式設計介紹(2)</a></h2>
+
+<h4 id="section">[ 基本資料結構 ]</h4>
+
+<ul>
+  <li>
+    <p>（一）IplImage</p>
+  </li>
+  <li>
+    <p>（二）CvCapture</p>
+  </li>
+</ul>
+
+<h4 id="section-1">[ 範例程式 ] 視訊鏡頭的使用</h4>
+<ul>
+  <li>程式碼(GitHub)：<a href="https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/2">https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/2</a></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Introduce_2.cpp
+</span><span class="cp">#include &lt;cv.h&gt;
+#include &lt;highgui.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="n">CvCapture</span> <span class="o">*</span><span class="n">capture</span><span class="p">;</span>
+        <span class="n">IplImage</span> <span class="o">*</span><span class="n">frame</span><span class="p">;</span>
+        <span class="n">capture</span> <span class="o">=</span> <span class="n">cvCaptureFromCAM</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">;</span>     <span class="c1">// "cvCaptureFromCAM()"：選定視訊裝置(Webcam)，"0" 代表自動偵測視訊裝置
+</span>        <span class="n">cvNamedWindow</span><span class="p">(</span><span class="s">"Webcam"</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// 命名顯示在螢幕上的視窗名稱
+</span>        
+
+        <span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>     <span class="c1">// 用"while"無窮迴圈來捕捉連續影像的圖形畫面
+</span>        <span class="p">{</span>
+                <span class="n">frame</span> <span class="o">=</span> <span class="n">cvQueryFrame</span><span class="p">(</span><span class="n">capture</span><span class="p">);</span>      <span class="c1">// "cvQueryFrame()"：擷取每秒顯示出來的畫面
+</span>                <span class="n">cvShowImage</span><span class="p">(</span><span class="s">"Webcam"</span><span class="p">,</span><span class="n">frame</span><span class="p">);</span>      <span class="c1">// "cvShowImage()"：顯示圖片
+</span>            
+                <span class="k">if</span><span class="p">(</span><span class="n">cvWaitKey</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>      <span class="c1">// "cvWaitKey(10)"：每延遲10毫秒就捕捉一次視訊畫面，當鍵盤事件發生時則會跳出"while"無窮迴圈
+</span>                <span class="p">{</span>
+                        <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>  
+
+
+        <span class="cm">/* 進行記憶體回收的動作 */</span>
+        <span class="n">cvDestroyWindow</span><span class="p">(</span><span class="s">"Webcam"</span><span class="p">);</span>   <span class="c1">// 銷毀視窗
+</span>        <span class="n">cvReleaseCapture</span><span class="p">(</span><span class="o">&amp;</span><span class="n">capture</span><span class="p">);</span>     <span class="c1">// 釋放記憶體    
+</span>        
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>&lt; 執行結果 &gt;</strong><br />
+<img src="/assets/20160419/002.png" alt="" /></p>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2016/04/20/opencv_yester-place2/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2016/04/20/opencv_yester-place1/">20160419 [學習筆記] OpenCV - 程式設計介紹(1)：讀取圖片檔案</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2016-04-20
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#OpenCV" title="Category: OpenCV" rel="category">OpenCV</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>&nbsp;
+    
+        <a href="/tag/#OpenCV" title="Tag: OpenCV" rel="tag">OpenCV</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2016/04/20/opencv_yester-place1/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2016/04/06/c-programming-book4/">20160405 [學習筆記] 由片語學習C程式設計(4) -- 判斷</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2016-04-06
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2016/04/06/c-programming-book4/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2016/01/05/c-programming-book3/">20160104 [學習筆記] 由片語學習C程式設計(3) -- 運算</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2016-01-05
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2016/01/05/c-programming-book3/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2015/11/09/c-programming-book2/">20151108 [學習筆記] 由片語學習C程式設計(2) -- 基本程式架構</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2015-11-09
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2015/11/09/c-programming-book2/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+        </ul>
+
+
+
+        <!-- Pagination links -->
+        <div class="pagination">
+          
+            <a href="/blog/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
+            <a href="/blog/page4/" class="previous"><i class="fa fa-angle-left"></i></a>
+          
+          <span class="page_number ">5/6</span>
+          
+            <a href="/blog/page6/" class="next"><i class="fa fa-angle-right"></i></a>
+            <a href="/blog/page6" class="next"><i class="fa fa-angle-double-right"></i></a>
+          
+        </div>
+    </div>
+    <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
+    <div class="right">
+        <div class="wrap">
+            <div class="side">
+                <div>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    Recent Posts
+                </div>
+                <ul class="content-ul" recent>
+                    
+                        <li><a href="/2017/03/02/ai/">20170302 [學習筆記] 人工智慧(1)</a></li>
+                    
+                        <li><a href="/2017/01/19/clubmanager/">20170118 [社團相關] 社團負責人課程</a></li>
+                    
+                        <li><a href="/2016/12/12/why-clubs/">20161211 [社團相關] 給社團人的一封信</a></li>
+                    
+                        <li><a href="/2016/10/23/R-doing-3/">20161024 [資料科學系列] R語言資料分析實務(3)</a></li>
+                    
+                        <li><a href="/2016/10/16/R-doing-2/">20161017 [資料科學系列] R語言資料分析實務(2)</a></li>
+                    
+                        <li><a href="/2016/10/02/R-doing-1/">20161003 [資料科學系列] R語言資料分析實務(1)</a></li>
+                    
+                        <li><a href="/2016/09/17/Rggmap/">20160917 [學習筆記] 分析資料與繪製地圖，進行空間資料視覺化</a></li>
+                    
+                        <li><a href="/2016/09/16/Rclassroom-RBasic-2/">20160915 [R語言翻轉教室] 01-RBasic (2)</a></li>
+                    
+                        <li><a href="/2016/09/12/Original-Point/">20160912 [原始點療法] 操作手法教學</a></li>
+                    
+                        <li><a href="/2016/09/09/Rclassroom-RBasic-1/">20160908 [R語言翻轉教室] 01-RBasic (1)</a></li>
+                    
+                </ul>
+            </div>
+
+            <!-- Content -->
+            <div class="side ">
+                <div>
+                    <i class="fa fa-th-list"></i>
+                    Categories
+                </div>
+                <ul class="content-ul" cate>
+                    
+                    <li>
+                        <a href="/category/#C語言" class="categories-list-item" cate="C語言">
+                            <span class="name">
+                                C語言
+                            </span>
+                            <span class="badge">7</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#OpenCV" class="categories-list-item" cate="OpenCV">
+                            <span class="name">
+                                OpenCV
+                            </span>
+                            <span class="badge">3</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Data-Science" class="categories-list-item" cate="Data-Science">
+                            <span class="name">
+                                Data-Science
+                            </span>
+                            <span class="badge">8</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#R語言" class="categories-list-item" cate="R語言">
+                            <span class="name">
+                                R語言
+                            </span>
+                            <span class="badge">11</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Hackpad" class="categories-list-item" cate="Hackpad">
+                            <span class="name">
+                                Hackpad
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Git" class="categories-list-item" cate="Git">
+                            <span class="name">
+                                Git
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Python語言" class="categories-list-item" cate="Python語言">
+                            <span class="name">
+                                Python語言
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Android" class="categories-list-item" cate="Android">
+                            <span class="name">
+                                Android
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#專題製作" class="categories-list-item" cate="專題製作">
+                            <span class="name">
+                                專題製作
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#GitBook" class="categories-list-item" cate="GitBook">
+                            <span class="name">
+                                GitBook
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#社團" class="categories-list-item" cate="社團">
+                            <span class="name">
+                                社團
+                            </span>
+                            <span class="badge">5</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#運動領域" class="categories-list-item" cate="運動領域">
+                            <span class="name">
+                                運動領域
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#人工智慧" class="categories-list-item" cate="人工智慧">
+                            <span class="name">
+                                人工智慧
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <div class="side">
+                <div>
+                    <i class="fa fa-tags"></i>
+                    Tags
+                </div>
+                <div class="tags-cloud">
+                    
+                    
+                    
+                    
+                    
+
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#C語言" style="font-size: 14.5pt; color: #444;">C語言</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#程式設計" style="font-size: 15.5pt; color: #333;">程式設計</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#OpenCV" style="font-size: 11pt; color: #777;">OpenCV</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Data-Science" style="font-size: 17pt; color: #111;">Data-Science</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Data-Mining" style="font-size: 15.5pt; color: #333;">Data-Mining</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#R語言" style="font-size: 18pt; color: #000;">R語言</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#版本控制" style="font-size: 9pt; color: #999;">版本控制</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Hackpad" style="font-size: 9pt; color: #999;">Hackpad</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Git" style="font-size: 9pt; color: #999;">Git</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Python語言" style="font-size: 9pt; color: #999;">Python語言</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Android" style="font-size: 9pt; color: #999;">Android</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#專題製作" style="font-size: 9pt; color: #999;">專題製作</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#GitBook" style="font-size: 9pt; color: #999;">GitBook</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #555;">社團</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#R語言翻轉教室" style="font-size: 10pt; color: #888;">R語言翻轉教室</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#運動領域" style="font-size: 9pt; color: #999;">運動領域</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#原始點療法" style="font-size: 9pt; color: #999;">原始點療法</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#人工智慧" style="font-size: 9pt; color: #999;">人工智慧</a>
+                    
+                </div>
+            </div>
+
+            <!-- <div class="side">
+                <div>
+                    <i class="fa fa-external-link"></i>
+                    Links
+                </div>
+                <ul  class="content-ul">
+
+                </ul>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- <script src="/js/scroll.min.js " charset="utf-8"></script> -->
+<!-- <script src="/js/pageContent.js " charset="utf-8"></script> -->
+
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

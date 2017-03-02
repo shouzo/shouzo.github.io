@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20160908 [R語言翻轉教室] 01-RBasic (1)</title>
+    <meta name="description" content="  整理自 R語言翻轉教室          課程進度：RBasic        (一) 01-Introduction          1. 查詢、說明                  [用法] help()、?          [範例] 查詢 solve 函數的說明：                 ...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2016/09/09/Rclassroom-RBasic-1/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20160908 [R語言翻轉教室] 01-RBasic (1)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-09-09
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#R語言" title="Category: R語言" rel="category">R語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#R%E8%AA%9E%E8%A8%80" title="Tag: R語言" rel="tag">R語言</a-->
+        <a href="/tag/#R語言" title="Tag: R語言" rel="tag">R語言</a>&nbsp;
+    
+        <!--a href="/tag/#R%E8%AA%9E%E8%A8%80%E7%BF%BB%E8%BD%89%E6%95%99%E5%AE%A4" title="Tag: R語言翻轉教室" rel="tag">R語言翻轉教室</a-->
+        <a href="/tag/#R語言翻轉教室" title="Tag: R語言翻轉教室" rel="tag">R語言翻轉教室</a>&nbsp;
+    
+        <!--a href="/tag/#Data-Science" title="Tag: Data-Science" rel="tag">Data-Science</a-->
+        <a href="/tag/#Data-Science" title="Tag: Data-Science" rel="tag">Data-Science</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#rhttpdatascienceandrorg" id="markdown-toc-rhttpdatascienceandrorg">整理自 <a href="http://datascienceandr.org/">R語言翻轉教室</a></a>    <ul>
+      <li><a href="#rbasic" id="markdown-toc-rbasic">課程進度：RBasic</a></li>
+    </ul>
+  </li>
+  <li><a href="#introduction" id="markdown-toc-introduction">(一) 01-Introduction</a>    <ul>
+      <li><a href="#section" id="markdown-toc-section">1. 查詢、說明</a>        <ul>
+          <li><a href="#help" id="markdown-toc-help">[用法] help()、?</a></li>
+          <li><a href="#solve-" id="markdown-toc-solve-">[範例] 查詢 solve 函數的說明：</a></li>
+        </ul>
+      </li>
+      <li><a href="#expressionassignment" id="markdown-toc-expressionassignment">2. expression、assignment</a></li>
+      <li><a href="#section-1" id="markdown-toc-section-1">3. 查詢物件</a>        <ul>
+          <li><a href="#objectsls" id="markdown-toc-objectsls">[用法] objects()、ls()</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-2" id="markdown-toc-section-2">4. 刪除物件</a>        <ul>
+          <li><a href="#rm" id="markdown-toc-rm">[用法] rm()</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#data-structure-vectors" id="markdown-toc-data-structure-vectors">(二) 02-Data-Structure-Vectors</a>    <ul>
+      <li><a href="#section-3" id="markdown-toc-section-3">1. 數字向量</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">2. 取最小值、最大值</a>        <ul>
+          <li><a href="#minmaxrange" id="markdown-toc-minmaxrange">[用法] min()、max()、range()</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-5" id="markdown-toc-section-5">3. 取得向量值的加總、長度和平均值</a>        <ul>
+          <li><a href="#sumlengthmean" id="markdown-toc-sumlengthmean">[用法] sum()、length()、mean()</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-6" id="markdown-toc-section-6">4. 樣本變異數</a>        <ul>
+          <li><a href="#var" id="markdown-toc-var">[用法] var()</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-7" id="markdown-toc-section-7">5. 樣本標準差</a>        <ul>
+          <li><a href="#sd" id="markdown-toc-sd">[用法] sd()</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-8" id="markdown-toc-section-8">6. 對向量進行排序</a>        <ul>
+          <li><a href="#sort" id="markdown-toc-sort">[用法] sort()</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-9" id="markdown-toc-section-9">7. 整數、實數、複數的計算</a>        <ul>
+          <li><a href="#section-10" id="markdown-toc-section-10">[範例] 開根號</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-11" id="markdown-toc-section-11">8. 產生序列</a>        <ul>
+          <li><a href="#section-12" id="markdown-toc-section-12">[用法1] 利用 <code class="highlighter-rouge">:</code> 產生序列</a></li>
+          <li><a href="#seq-" id="markdown-toc-seq-">[用法2] 利用 seq() 產生序列</a></li>
+          <li><a href="#rep-" id="markdown-toc-rep-">[用法3] 利用 rep() 產生序列</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-13" id="markdown-toc-section-13">9. 邏輯向量</a></li>
+      <li><a href="#nanan" id="markdown-toc-nanan">10. NA：缺失值、NaN：數學中沒有被定義的值</a>        <ul>
+          <li><a href="#isna" id="markdown-toc-isna">[用法] is.na()</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-14" id="markdown-toc-section-14">11. 字串的概念</a>        <ul>
+          <li><a href="#pastepaste0" id="markdown-toc-pastepaste0">[用法] paste()、paste0()</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-15" id="markdown-toc-section-15">12. 在向量中挑選特定資料</a></li>
+      <li><a href="#section-16" id="markdown-toc-section-16">13. 為向量中的值進行命名</a>        <ul>
+          <li><a href="#names" id="markdown-toc-names">[用法] names()</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-17" id="markdown-toc-section-17">[範例] 整理台電的公開數據</a>        <ul>
+          <li><a href="#section-18" id="markdown-toc-section-18"><題目內容></題目內容></a></li>
+          <li><a href="#section-19" id="markdown-toc-section-19"><標準解答></標準解答></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="rhttpdatascienceandrorg">整理自 <a href="http://datascienceandr.org/">R語言翻轉教室</a></h2>
+<ul>
+  <li>版本資訊 (sha-hash：4636e186)</li>
+</ul>
+
+<h3 id="rbasic">課程進度：RBasic</h3>
+<ul>
+  <li><a href="http://datascienceandr.org/note/01-RBasic-01-Introduction.html">01-RBasic-01-Introduction</a> (O)</li>
+  <li><a href="http://datascienceandr.org/note/01-RBasic-02-Data-Structure-Vectors.html">01-RBasic-02-Data-Structure-Vectors</a> (O)</li>
+  <li>01-RBasic-03-Data-Structure-Object</li>
+  <li>01-RBasic-04-Factors</li>
+  <li>01-RBasic-05-Arrays-Matrices</li>
+  <li>01-RBasic-06-List-DataFrame</li>
+  <li>01-RBasic-07-Loading-Dataset</li>
+</ul>
+
+<h2 id="introduction">(一) 01-Introduction</h2>
+
+<h3 id="section">1. 查詢、說明</h3>
+
+<h4 id="help">[用法] help()、?</h4>
+<ul>
+  <li>獲得函數的細節說明。</li>
+</ul>
+
+<h4 id="solve-">[範例] 查詢 solve 函數的說明：</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 查詢 solve 函數
+</span><span class="o">&gt;</span> <span class="n">help</span><span class="p">(</span><span class="n">solve</span><span class="p">)</span>	<span class="c1"># 用法 1
+</span><span class="o">&gt;</span> <span class="o">?</span><span class="n">solve</span>		<span class="c1"># 用法 2
+</span></code></pre>
+</div>
+
+<h3 id="expressionassignment">2. expression、assignment</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># assignment 動作 (不會顯示結果)
+</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># expression 動作 (會顯示結果)
+</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="m">1</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span>
+<span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="section-1">3. 查詢物件</h3>
+
+<h4 id="objectsls">[用法] objects()、ls()</h4>
+<ul>
+  <li>查詢所有環境的物件。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">objects</span><span class="p">()</span>	<span class="c1"># 用法 1
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"a"</span>                         <span class="s2">"chat"</span>                     
+<span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="s2">"check_then_install"</span>        <span class="s2">"check_then_install_github"</span>
+<span class="p">[</span><span class="m">5</span><span class="p">]</span> <span class="s2">"issue"</span>                     <span class="s2">"source_by_l10n_info"</span>      
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="n">ls</span><span class="p">()</span>	<span class="c1"># 用法 2
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"a"</span>                         <span class="s2">"chat"</span>                     
+<span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="s2">"check_then_install"</span>        <span class="s2">"check_then_install_github"</span>
+<span class="p">[</span><span class="m">5</span><span class="p">]</span> <span class="s2">"issue"</span>                     <span class="s2">"source_by_l10n_info"</span>      
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-2">4. 刪除物件</h3>
+
+<h4 id="rm">[用法] rm()</h4>
+<ul>
+  <li>刪除指定的物件。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">objects</span><span class="p">()</span>	<span class="c1"># 查詢所有環境的物件
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"chat"</span>                      <span class="s2">"check_then_install"</span>       
+<span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="s2">"check_then_install_github"</span> <span class="s2">"issue"</span>                    
+<span class="p">[</span><span class="m">5</span><span class="p">]</span> <span class="s2">"source_by_l10n_info"</span>      
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 用 "rm()" 移除物件
+</span><span class="o">&gt;</span> <span class="n">rm</span><span class="p">(</span><span class="n">chat</span><span class="p">)</span>    <span class="c1"># 移除"chat"
+</span><span class="o">&gt;</span> <span class="n">rm</span><span class="p">(</span><span class="n">issue</span><span class="p">)</span>   <span class="c1"># 移除"issue"
+</span><span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="n">objects</span><span class="p">()</span>	<span class="c1"># 再次查詢環境
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"check_then_install"</span>        <span class="s2">"check_then_install_github"</span>
+<span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="s2">"source_by_l10n_info"</span>      
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h2 id="data-structure-vectors">(二) 02-Data-Structure-Vectors</h2>
+
+<h3 id="section-3">1. 數字向量</h3>
+<ul>
+  <li>在數學上，輸入的 x 可能是整數、實數甚至是複數。R 的數學計算，會自動根據 x 的屬性做調整。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 最簡單的向量
+</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>	<span class="c1"># assignment
+</span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">3.1</span>  <span class="m">6.4</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="c1"># "c()"可以接受任意數量的的向量參數
+</span><span class="o">&gt;</span> <span class="n">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>	<span class="c1"># 在 x 後面追加"2, 4, 6, 8"
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">3.1</span>  <span class="m">6.4</span>  <span class="m">2.0</span>  <span class="m">4.0</span>  <span class="m">6.0</span>  <span class="m">8.0</span>
+<span class="o">&gt;</span> <span class="n">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 			<span class="c1"># 建立一個在 x 後面接上 x 的向量
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">3.1</span>  <span class="m">6.4</span> <span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">3.1</span>  <span class="m">6.4</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 向量的運算
+</span><span class="o">&gt;</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>	<span class="c1"># 相同長度的向量相加
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span> <span class="m">6</span> <span class="m">9</span>
+<span class="o">&gt;</span> <span class="m">2</span> <span class="o">+</span> <span class="n">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>			 <span class="c1"># 兩種不同長度的向量相加
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">4</span> <span class="m">6</span> <span class="m">8</span>
+<span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="section-4">2. 取最小值、最大值</h3>
+
+<h4 id="minmaxrange">[用法] min()、max()、range()</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="n">c</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>	 <span class="c1"># 取得 x 的最小值和最大值
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">3.1</span> <span class="m">10.4</span>
+<span class="o">&gt;</span> <span class="n">range</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>			  <span class="c1"># 回傳向量的範圍（最小到最大）
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">3.1</span> <span class="m">10.4</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-5">3. 取得向量值的加總、長度和平均值</h3>
+
+<h4 id="sumlengthmean">[用法] sum()、length()、mean()</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 		<span class="c1"># 回傳向量的加總
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">25.5</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>	  <span class="c1"># 回傳向量的長度
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">4</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>	<span class="c1"># 回傳向量的平均值
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">6.375</span>
+<span class="o">&gt;</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>			   <span class="c1"># 回傳向量的平均值
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">6.375</span>
+<span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="section-6">4. 樣本變異數</h3>
+<ul>
+  <li>樣本變異數：sum((x - mean(x))^2) / (length(x) - 1)
+    <ul>
+      <li>可以直接用 var(x) 取代</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="var">[用法] var()</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="m">1</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">9.175833</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">9.175833</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-7">5. 樣本標準差</h3>
+
+<h4 id="sd">[用法] sd()</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">sd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3.029164</span>
+<span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="section-8">6. 對向量進行排序</h3>
+
+<h4 id="sort">[用法] sort()</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>	<span class="c1"># 將向量裡的元素從小排到大
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">3.1</span>  <span class="m">5.6</span>  <span class="m">6.4</span> <span class="m">10.4</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-9">7. 整數、實數、複數的計算</h3>
+
+<h4 id="section-10">[範例] 開根號</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">sqrt</span><span class="p">(</span><span class="m">-17</span><span class="p">)</span>			 <span class="c1"># 對"負整數"開根號
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="n">NaN</span>
+<span class="n">Warning</span> <span class="n">message</span><span class="o">:</span>
+<span class="n">In</span> <span class="n">sqrt</span><span class="p">(</span><span class="m">-17</span><span class="p">)</span> <span class="o">:</span> <span class="err">產生了</span> <span class="n">NaNs</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="n">sqrt</span><span class="p">(</span><span class="m">-17</span> <span class="o">+</span> <span class="m">0i</span><span class="p">)</span>		<span class="c1"># 對"複數"開根號
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0+4.123106i</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-11">8. 產生序列</h3>
+
+<h4 id="section-12">[用法1] 利用 <code class="highlighter-rouge">:</code> 產生序列</h4>
+<ul>
+  <li>在 R 裡面，<code class="highlighter-rouge">:</code>的等級很高，會優先處理。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="m">1</span><span class="o">:</span><span class="m">20</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1</span>  <span class="m">2</span>  <span class="m">3</span>  <span class="m">4</span>  <span class="m">5</span>  <span class="m">6</span>  <span class="m">7</span>  <span class="m">8</span>  <span class="m">9</span> <span class="m">10</span> <span class="m">11</span> <span class="m">12</span> <span class="m">13</span> <span class="m">14</span> <span class="m">15</span> <span class="m">16</span> <span class="m">17</span> <span class="m">18</span> <span class="m">19</span> <span class="m">20</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="m">-17</span><span class="o">:</span><span class="m">15</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">-17</span> <span class="m">-16</span> <span class="m">-15</span> <span class="m">-14</span> <span class="m">-13</span> <span class="m">-12</span> <span class="m">-11</span> <span class="m">-10</span>  <span class="m">-9</span>  <span class="m">-8</span>  <span class="m">-7</span>  <span class="m">-6</span>  <span class="m">-5</span>  <span class="m">-4</span>  <span class="m">-3</span>  <span class="m">-2</span>  <span class="m">-1</span>   <span class="m">0</span>   <span class="m">1</span>
+<span class="p">[</span><span class="m">20</span><span class="p">]</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>   <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>  <span class="m">10</span>  <span class="m">11</span>  <span class="m">12</span>  <span class="m">13</span>  <span class="m">14</span>  <span class="m">15</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 以下 expression，會優先處理 17:23，然後再把所有結果乘以 2
+</span><span class="o">&gt;</span> <span class="m">2</span> <span class="o">*</span> <span class="m">17</span><span class="o">:</span><span class="m">23</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">34</span> <span class="m">36</span> <span class="m">38</span> <span class="m">40</span> <span class="m">42</span> <span class="m">44</span> <span class="m">46</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h4 id="seq-">[用法2] 利用 seq() 產生序列</h4>
+<ul>
+  <li>seq 的參數有：<code class="highlighter-rouge">from</code>、<code class="highlighter-rouge">to</code>、<code class="highlighter-rouge">by</code>、<code class="highlighter-rouge">length.out</code> 和 <code class="highlighter-rouge">along.with</code></li>
+  <li>查看詳細用法︰<code class="highlighter-rouge">?seq</code></li>
+  <li>查看使用範例︰<code class="highlighter-rouge">example(seq)</code></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 如果不指定參數，而是依照順序填入：seq(1,10)，那就代表 from 是 1、to 是 10、而 by 等其他 argument 就使用預設參數
+</span><span class="o">&gt;</span> <span class="n">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1</span>  <span class="m">2</span>  <span class="m">3</span>  <span class="m">4</span>  <span class="m">5</span>  <span class="m">6</span>  <span class="m">7</span>  <span class="m">8</span>  <span class="m">9</span> <span class="m">10</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 指定參數
+</span><span class="o">&gt;</span> <span class="n">seq</span><span class="p">(</span><span class="n">to</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">from</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1</span>  <span class="m">2</span>  <span class="m">3</span>  <span class="m">4</span>  <span class="m">5</span>  <span class="m">6</span>  <span class="m">7</span>  <span class="m">8</span>  <span class="m">9</span> <span class="m">10</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 透過 by 參數控制間隔
+</span><span class="o">&gt;</span> <span class="n">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1.0</span>  <span class="m">1.5</span>  <span class="m">2.0</span>  <span class="m">2.5</span>  <span class="m">3.0</span>  <span class="m">3.5</span>  <span class="m">4.0</span>  <span class="m">4.5</span>  <span class="m">5.0</span>  <span class="m">5.5</span>  <span class="m">6.0</span>  <span class="m">6.5</span>  <span class="m">7.0</span>  <span class="m">7.5</span>  <span class="m">8.0</span>
+<span class="p">[</span><span class="m">16</span><span class="p">]</span>  <span class="m">8.5</span>  <span class="m">9.0</span>  <span class="m">9.5</span> <span class="m">10.0</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 產生一個從1開始，間隔2，長度為10的序列
+</span><span class="o">&gt;</span> <span class="n">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1</span>  <span class="m">3</span>  <span class="m">5</span>  <span class="m">7</span>  <span class="m">9</span> <span class="m">11</span> <span class="m">13</span> <span class="m">15</span> <span class="m">17</span> <span class="m">19</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h4 id="rep-">[用法3] 利用 rep() 產生序列</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 重複特定數字
+</span><span class="o">&gt;</span> <span class="n">rep</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 將整個序列重複times次，然後接起來
+</span><span class="o">&gt;</span> <span class="n">rep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">3.1</span>  <span class="m">6.4</span> <span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">3.1</span>  <span class="m">6.4</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 將向量的每一個值個別重複each遍之後，再接起來
+</span><span class="o">&gt;</span> <span class="n">rep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">each</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10.4</span> <span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">5.6</span>  <span class="m">3.1</span>  <span class="m">3.1</span>  <span class="m">6.4</span>  <span class="m">6.4</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-13">9. 邏輯向量</h3>
+<ul>
+  <li>用於建立邏輯向量的「條件」：
+    <ul>
+      <li>大於 <code class="highlighter-rouge">&gt;</code></li>
+      <li>大於等於 <code class="highlighter-rouge">&gt;=</code></li>
+      <li>小於 <code class="highlighter-rouge">&lt;</code></li>
+      <li>小於等於 <code class="highlighter-rouge">&lt;=</code></li>
+      <li>相等 <code class="highlighter-rouge">==</code></li>
+      <li>不相等<code class="highlighter-rouge">!=</code></li>
+    </ul>
+  </li>
+  <li>常常表示資料中如：「是、否」、「男、女」之類”二選一”的選項。</li>
+  <li>常見的三種情況：
+    <ul>
+      <li>第一種：「真」用 <strong>TRUE</strong> 或 <strong>T</strong> 代表。</li>
+      <li>第二種：「假」用 <strong>FALSE</strong> 或 <strong>F</strong> 代表。</li>
+      <li>第三種：「NA」（NotAvailable）</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 利用「條件類型的expression」來建立邏輯向量
+</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="m">5</span>	<span class="c1"># 拿 5 和 c(10.4, 5.6, 3.1, 6.4) 比較，比較大的就是 TRUE ，而比較小的是 FALSE。
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="n">TRUE</span>  <span class="n">TRUE</span> <span class="n">FALSE</span>  <span class="n">TRUE</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="c1"># 篩選複雜條件
+</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="m">5</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="m">10</span>	<span class="c1"># 介於5和10之間的值為 TRUE，否則為 FALSE
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="n">FALSE</span>  <span class="n">TRUE</span> <span class="n">FALSE</span>  <span class="n">TRUE</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="nanan">10. NA：缺失值、NaN：數學中沒有被定義的值</h3>
+<ul>
+  <li>當資料的值無法取得的時候，R 就會給它一個特殊的記號：NA。</li>
+  <li>所有和NA做的運算結果，通常都會是NA。</li>
+</ul>
+
+<h4 id="isna">[用法] is.na()</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="n">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>	<span class="c1"># 判斷向量 x 裡面有沒有NA
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="n">FALSE</span> <span class="n">FALSE</span> <span class="n">FALSE</span> <span class="n">FALSE</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="c1"># 判斷一個內含 NA 的向量
+</span><span class="o">&gt;</span> <span class="n">is.na</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="m">3</span><span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="n">FALSE</span> <span class="n">FALSE</span>  <span class="n">TRUE</span> <span class="n">FALSE</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="c1"># is.na() 會將 NA 和 NaN 都看成TRUE
+</span><span class="o">&gt;</span> <span class="n">is.na</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">NA</span><span class="p">,</span> <span class="n">NaN</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="n">TRUE</span>  <span class="n">TRUE</span> <span class="n">FALSE</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-14">11. 字串的概念</h3>
+<ul>
+  <li>透過單引號<code class="highlighter-rouge">'</code>或雙引號<code class="highlighter-rouge">"</code>來建立的資料，被稱為：「字串」。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">x</span>    <span class="c1"># x 被視為變數
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">3.1</span>  <span class="m">6.4</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="s2">"x"</span>  <span class="c1"># x 被視為字串
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"x"</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="c1"># 輸入一個包含雙引號的字串，有兩種方法：一種是用單引號'來包覆雙引號，另外一種就是在雙引號之前插入斜線\
+</span><span class="o">&gt;</span> <span class="s2">"\""</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"\""</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="s2">"R is good!\""</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"R is good!\""</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h4 id="pastepaste0">[用法] paste()、paste0()</h4>
+<ul>
+  <li>把輸入的argument以字串的形式，接成一個新的字串。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"a b"</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">paste</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"X"</span><span class="p">,</span> <span class="s2">"Y"</span><span class="p">),</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>	<span class="c1"># 在串接字串時，中間會留空格。
+</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"X 1"</span>  <span class="s2">"Y 2"</span>  <span class="s2">"X 3"</span>  <span class="s2">"Y 4"</span>  <span class="s2">"X 5"</span>  <span class="s2">"Y 6"</span>  <span class="s2">"X 7"</span>  <span class="s2">"Y 8"</span>  <span class="s2">"X 9"</span>  <span class="s2">"Y 10"</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">paste0</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"X"</span><span class="p">,</span> <span class="s2">"Y"</span><span class="p">),</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>	<span class="c1"># 在串接字串時，中間不會留空格。
+</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"X1"</span>  <span class="s2">"Y2"</span>  <span class="s2">"X3"</span>  <span class="s2">"Y4"</span>  <span class="s2">"X5"</span>  <span class="s2">"Y6"</span>  <span class="s2">"X7"</span>  <span class="s2">"Y8"</span>  <span class="s2">"X9"</span>  <span class="s2">"Y10"</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-15">12. 在向量中挑選特定資料</h3>
+<ul>
+  <li>利用 <code class="highlighter-rouge">[]</code> 挑選特定的資料。</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>		<span class="c1"># 挑選 x 的第一個和第三個位置的值
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10.4</span>  <span class="m">3.1</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="m">5</span><span class="p">]</span>		<span class="c1"># 挑選 x 之中大於 5 的值
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">6.4</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">x</span><span class="p">[</span><span class="m">-2</span><span class="p">]</span>			<span class="c1"># 挑選 x 之中，除了第 2 個數字以外的值
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10.4</span>  <span class="m">3.1</span>  <span class="m">6.4</span>
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-16">13. 為向量中的值進行命名</h3>
+<ul>
+  <li>在 R 的向量中，每一個值是可以有名字的。</li>
+</ul>
+
+<h4 id="names">[用法] names()</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span> <span class="m">5.6</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">6.4</span><span class="p">)</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="c1"># 為 x 裡的值進行命名
+</span><span class="o">&gt;</span> <span class="n">names</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">)</span>	
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="n">x</span>		<span class="c1"># 顯示 x 的值
+</span>   <span class="n">a</span>    <span class="n">b</span>    <span class="n">c</span>    <span class="n">d</span> 
+<span class="m">10.4</span>  <span class="m">5.6</span>  <span class="m">3.1</span>  <span class="m">6.4</span> 
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="c1"># 選取名稱為"b"、"d"的值
+</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">)]</span>
+  <span class="n">b</span>   <span class="n">d</span> 
+<span class="m">5.6</span> <span class="m">6.4</span> 
+<span class="o">&gt;</span> 
+</code></pre>
+</div>
+
+<h3 id="section-17">[範例] 整理台電的公開數據</h3>
+
+<h4 id="section-18"><題目內容></題目內容></h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1"># 社會服務業自民國87至民國91年的年度用電量（度）
+</span><span class="n">year1</span> <span class="o">&lt;-</span> <span class="m">87</span><span class="o">:</span><span class="m">91</span>
+<span class="n">power1</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">6097059332</span><span class="p">,</span> <span class="m">6425887925</span><span class="p">,</span> <span class="m">6982579022</span><span class="p">,</span> <span class="m">7323992602.53436</span><span class="p">,</span> <span class="m">7954239517</span><span class="p">)</span> 
+<span class="c1"># 製造業自民國87至民國91年的年度用電量（度）
+</span><span class="n">power2</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">59090445718</span><span class="p">,</span> <span class="m">61981666330</span><span class="p">,</span> <span class="m">67378329131</span><span class="p">,</span> <span class="m">66127460204.6482</span><span class="p">,</span> <span class="m">69696372914.6949</span><span class="p">)</span> 
+</code></pre>
+</div>
+
+<h4 id="section-19"><標準解答></標準解答></h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1"># 請同學選出年度(`year1`)中，社會服務業的的用電量超過`7e9` 的年份。
+# （`7e9`是R 的科學符號，代表`7 * 10^9`）
+</span><span class="n">year1.answer1</span> <span class="o">&lt;-</span> <span class="n">year1</span><span class="p">[</span><span class="n">power1</span> <span class="o">&gt;</span> <span class="m">7e9</span><span class="p">]</span>
+
+<span class="c1"># 接著請同學計算「社會服務業從民國87年到91年的平均用電量」
+</span><span class="n">power1.mean</span> <span class="o">&lt;-</span> <span class="n">mean</span><span class="p">(</span><span class="n">power1</span><span class="p">)</span>
+
+<span class="c1"># 請計算「社會服務業從民國87年到91年用電量的標準差」
+</span><span class="n">power1.sd</span> <span class="o">&lt;-</span> <span class="n">sd</span><span class="p">(</span><span class="n">power1</span><span class="p">)</span>
+
+<span class="c1"># 在統計中，我們常常會計算一筆數據的「標準分數」，也就是將數據減去平均數後除以標準差。
+# 請同學計算「社會服務業從民國87年到91年用電量的標準分數」
+</span><span class="n">power1.z</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">power1</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">power1</span><span class="p">))</span> <span class="o">/</span> <span class="n">sd</span><span class="p">(</span><span class="n">power1</span><span class="p">)</span>
+
+<span class="c1"># 同樣的道理，請同學算出「製造業自民國87年至民國91年用電量的平均數、標準差和標準分數」
+</span><span class="n">power2.mean</span> <span class="o">&lt;-</span> <span class="n">mean</span><span class="p">(</span><span class="n">power2</span><span class="p">)</span>
+<span class="n">power2.sd</span> <span class="o">&lt;-</span> <span class="n">sd</span><span class="p">(</span><span class="n">power2</span><span class="p">)</span>
+<span class="n">power2.z</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">power2</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">power2</span><span class="p">))</span> <span class="o">/</span> <span class="n">sd</span><span class="p">(</span><span class="n">power2</span><span class="p">)</span>
+
+<span class="c1"># 最後，請同學找出年度中，「社會服務業的用電量」，超過「製造業的10%用電量」的年份
+</span><span class="n">year1.answer2</span> <span class="o">&lt;-</span> <span class="n">year1</span><span class="p">[</span><span class="n">power1</span> <span class="o">&gt;</span> <span class="m">0.1</span> <span class="o">*</span> <span class="n">power2</span><span class="p">]</span>
+</code></pre>
+</div>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/10/23/R-doing-3/">20161024 [資料科學系列] R語言資料分析實務(3)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/10/16/R-doing-2/">20161017 [資料科學系列] R語言資料分析實務(2)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/10/02/R-doing-1/">20161003 [資料科學系列] R語言資料分析實務(1)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/09/17/Rggmap/">20160917 [學習筆記] 分析資料與繪製地圖，進行空間資料視覺化
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/">20160915 [R語言翻轉教室] 01-RBasic (2)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2016/08/29/about-dreams/">20160829 [社團相關] 夢想，Loading...</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/09/12/Original-Point/">20160912 [原始點療法] 操作手法教學</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2016/09/09/Rclassroom-RBasic-1/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2016/09/09/Rclassroom-RBasic-1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

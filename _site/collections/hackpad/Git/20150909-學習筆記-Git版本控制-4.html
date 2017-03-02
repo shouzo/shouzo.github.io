@@ -1,0 +1,1739 @@
+
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="origin-when-crossorigin">
+    
+    <title>20150909 [&amp;#23416;&amp;#32722;&amp;#31558;&amp;#35352;] Git&amp;#29256;&amp;#26412;&amp;#25511;&amp;#21046;(4) - hackpad.com</title>
+    <base href="https://hackpad.com/">
+    <link rel="shortcut icon" href="/static/favicon.png">
+    <link rel="apple-touch-icon" sizes="57x57"
+        href="/static/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="/static/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="/static/apple-touch-icon-144.png" />
+    <link rel="apple-touch-icon" sizes="144x144"
+        href="/static/apple-touch-icon-144.png" />
+
+    
+    <link href="https://d29bt26wntaesq.cloudfront.net/static/compressed/663fa08181a7a4f57a258b0a017889b5.css" rel="stylesheet" type="text/css" onError="this.loadError=true;" />
+    <link rel="search" type="application/opensearchdescription+xml"
+        title="hackpad" href="/static/opensearch.xml" />
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta content='hackpad.com' name='title' /><meta content='Real-time collaborative wiki' name='description' /><link href='/static/img/hackpad-logo.png' rel='image_src' /><meta name="fragment" content="!" /><meta name="robots" content="noindex, noarchive" /><link rel="alternate" type="text/xml+oembed" href="/ep/oembed/TJwPNygW2fV" title="20150909 [學習筆記] Git版本控制(4)"><link rel="canonical" href="/20150909-學習筆記-Git版本控制4-TJwPNygW2fV"><meta property="og:title" content="20150909 [學習筆記] Git版本控制(4)" /><meta property="og:description" content="整理自第 05 天：了解儲存庫、工作目錄、物件與索引之間的關係 [內容摘要] 基本觀念 -- 儲存庫、工作目錄、Git資料結構
+*（一）了解儲存庫 (Repository)
+*（二）了解工作目錄 (working directory)
+*（三）了解 Git 的資料結構
+
+
+[基本概念] 使用Git版本控制 
+*STEP 1  : 要使用 Git 版本控管，必須先建立「工作目錄」與「版本庫」。(mkdir, git init)
+*STEP 2 : 要在「工作目錄」進行開發，可能會建立目錄、建立檔案、修改檔案、刪除檔案、..." /><meta property="og:image" content="https://hackpad.com/static/img/hackpad-logo-112.png" /><meta property="fb:app_id" content="145393915506961" /><meta property="og:url" content="https://hackpad.com/20150909-Git4-TJwPNygW2fV" /><meta property="og:type" content="hackpad:pad" /><meta property="twitter:site" content="@hackpad" /><meta name="twitter:widgets:csp" content="on" />
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+
+<style type="text/css" title="dynamicsyntax"></style>
+<meta name="apple-itunes-app" content="app-id=789857184, app-argument=https://hackpad.com/20150909-Git4-TJwPNygW2fV">
+<style type="text/css" title="dynamicsyntax"></style>
+
+
+    <script nonce="ef0018f6adf330f547e417f3ce92b1fe03397807" type="text/javascript">try { document.domain = document.domain.split(".").slice(-2).join("."); } catch (ex) { console.log("error setting document.domain: " + ex); }</script>
+
+    
+  </head>
+
+  <body id="padbody" class=" desktop-web propad nonprouser  guestbanner   sitebar hasSitebar">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<button type="button"
+     id="site-toggle" 
+     data-tooltip="Workspaces" 
+    
+    
+     data-click="sitebar-open" 
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-menu-web" ></span></button>
+
+<a href="/" id="site-iphone-back" class="iphoneshow"><i class="icon-back"></i></a>
+
+<header>
+  <div id="guestbanner">
+    <div class="banner-close icon-x">
+    </div>
+    <div id="guest-banner-msg">
+      Hackpads are smart collaborative documents.
+      <a href="#join-hackpad">Join Hackpad Now</a>.
+    </div>
+  </div>
+
+  <div id="site-banner" style="background-image: url('/static/img/banner.jpg'); background-position: left 0px top -160px"></div>
+  <nav id="padbar">
+    <a href="/" id="topbarBrand">
+      <span id="topbarBrandFullName" class="iphonehide ipadhide"
+          title="hackpad">hackpad</span>
+      <span class="iphoneshow ipadshow"><strong>h</strong></span>
+    </a>
+
+    <div id="mainbar">
+      <a href="/" data-tooltip="home" id="topbarBrand2">
+        <i class="icon-home"></i>
+      </a>
+      <a href="/" id="topbarBrand3">
+        <span id="topbarBrandFullName2" class="iphonehide ipadhide"
+            title="hackpad">hackpad</span>
+      </a>
+
+      <form id="createpadform" target="_blank" action="/ep/pad/newpad">
+        <button type="submit"
+     id="createpadlink" 
+     data-tooltip="New Hackpad" 
+    
+    
+     data-click="showmodal" 
+    
+     data-modal="#page-login-box" 
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-newpad" ></span></button>
+        <input id="createpadentry-hidden" name="title"
+            value="" type="hidden"/>
+      </form>
+      <form id="createpadform2" action="/ep/pad/newpad">
+        <div id="createpadbox">
+          <i class="icon-search"></i>
+          <input id="createpadentry" name="title" type="text"
+              value="" autocomplete="off"
+              autocorrect="off" />
+          <div class="ac-loading-spinny"></div>
+        </div>
+      </form>
+
+      
+  
+  <span id="toolbar" class="iphonehide">
+    
+
+    <button type="button"
+     id="textformatbutton" 
+     data-tooltip="Formatting Options" 
+    
+    
+    
+    
+    
+    
+    
+     data-type="format" 
+    class="hp-ui-button toolbar-main  hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-textformat" ></span></button><span class="hp-ui-button-group" data-type="format">
+      <button type="button"
+     id="boldbutton" 
+     data-tooltip="Bold (Ctrl+B)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-bold" ></span></button><button type="button"
+     id="italicsbutton" 
+     data-tooltip="Italics (Ctrl+I)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-italic" ></span></button><button type="button"
+     id="underlinebutton" 
+     data-tooltip="Underline (Ctrl+U)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-underline" ></span></button><button type="button"
+     id="strikebutton" 
+     data-tooltip="Strikethrough" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-strikethrough" ></span></button>
+    </span><button type="button"
+     id="paragraphbutton" 
+     data-tooltip="Paragraph Options" 
+    
+    
+    
+    
+    
+    
+    
+     data-type="paragraph" 
+    class="hp-ui-button toolbar-main  hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-paragraph" ></span></button><span class="hp-ui-button-group" data-type="paragraph">
+      <button type="button"
+     id="commentbutton" 
+     data-tooltip="Comment (// at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-comment" ></span></button><button type="button"
+     id="taskbutton" 
+     data-tooltip="Task List (type [ ] at the beginning of a line, or Ctrl+\)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-check" ></span></button><button type="button"
+     id="listbutton" 
+     data-tooltip="Bulleted List (- or * at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-bullet" ></span></button><button type="button"
+     id="numberedlistbutton" 
+     data-tooltip="Numbered List (1.  at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-number" ></span></button><button type="button"
+     id="codebutton" 
+     data-tooltip="Code (4 spaces at the beginning of a line)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-code" ></span></button>
+    </span><span id="toolbar-indent-group" class="hp-ui-button-group"
+        data-type="paragraph">
+      <button type="button"
+     id="indentbutton" 
+     data-tooltip="Indent (press Tab)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-indent" ></span></button><button type="button"
+     id="outdentbutton" 
+     data-tooltip="Unindent (press Shift-Tab)" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-outdent" ></span></button>
+    </span><span id="toolbar-attach-group" class="hp-ui-button-group"
+        data-type="attach">
+      <button type="button"
+     id="insertimage" 
+     data-tooltip="Image" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-photo" ></span></button><button type="button"
+     id="inserttable" 
+     data-tooltip="Table" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-table" ></span></button><button type="button"
+     id="insertdropbox" 
+     data-tooltip="Dropbox File" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-dropbox" ></span></button><button type="button"
+     id="attachbutton" 
+     data-tooltip="Insert" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-insert" ></span></button>
+    </span>
+    <img id="toolbar-arrow"
+        src="https://d29bt26wntaesq.cloudfront.net/static/img/editBarTriangle@2x.png">
+  </span>
+  <button type="button"
+     id="editbutton" 
+     data-tooltip="Edit" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-edit" ></span></button>
+
+  
+  <div
+     id="settingsbutton" 
+     data-tooltip="Pad Settings" 
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-toolbar"
+><span class="hp-ui-button-content icon-gear-hollow" ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="/ep/pad/summary/TJwPNygW2fV"  
+            
+            >
+            
+              View History
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+             data-click="showembeddialog" 
+            >
+            
+              Embed
+            
+          </a></li>
+          
+        
+          
+          <li><a href="/ep/pad/static/TJwPNygW2fV"  
+            
+            >
+            
+              Print
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="pad-moderator-link" 
+            
+            >
+            
+              Moderated By
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  
+  <div id="follow-container" src="/ep/pad/pad-follow-button?padId=TJwPNygW2fV">
+    <button type="button"
+    
+     data-tooltip="Follow" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button padfollow   hp-ui-button-secondary"
+><span class="hp-ui-button-content icon-follow" ></span></button>
+    <button type="button"
+    
+     data-tooltip="Following" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button padunfollow hidden  hp-ui-button-secondary"
+><span class="hp-ui-button-content icon-follow" ></span></button>
+  </div>
+
+
+
+      
+
+      
+    </div>
+  </nav>
+</header>
+
+<nav id="sitebar">
+  <h1 id="sitebar-heading"><a href="https://hackpad.com">hackpad</a></h1>
+  <ul id="domain-list">
+    <li class="domain-item domain-item-overflow">
+      <div
+    
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-primary"
+><span class="hp-ui-button-content " >more</span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+    </li>
+    <li class="domain-item domain-item-new">
+      <a href="/ep/new-site" id="create-space">+ new workspace</a>
+    </li>
+  </ul>
+
+  <div id="account">
+    <div id="faccountnav">
+      
+        <a href="#" data-modal="#page-login-box" data-click="showmodal">
+          Sign In
+        </a>
+      
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+  <div id="padpage">
+    <div id="padeditor">
+      
+  
+  <script type="text/javascript" nonce="ef0018f6adf330f547e417f3ce92b1fe03397807">
+    window.onerror = function(message, file, line, column, errorObj) {
+      etherpad.logError(message, file, line, column, errorObj);
+    };
+    window.onfreakout = function(msg) {
+      if ($('#freakout-dialog').is(':visible')) {
+        return;
+      }
+      trackEvent('freakout', null, null, {
+        url: location.href,
+        padId: clientVars.collab_client_vars.globalPadId,
+        userId: clientVars.userId,
+        error: (msg || "").split(":")[0],
+        errorDetail: msg
+      });
+      modals.showModal("#freakout-dialog", 0, true /* not cancellable */);
+    };
+  </script>
+
+  
+  
+
+  
+
+
+
+<div id="editor" class="syntax notranslate" autocorrect="off" autocomplete="off">
+  &nbsp;
+</div>
+<div id="non-editor">
+<div id="sidediv"><!-- --></div>
+<div id="overlaysdiv"><!-- --></div>
+<div
+     id="hp-editor-lang" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-primary"
+><span class="hp-ui-button-content " ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              txt
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              html
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              coffee
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              java
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              rb
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              c
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              c++
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              js
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"  
+            
+            >
+            
+              py
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+<div
+     id="hp-editor-headings" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-primary"
+><span class="hp-ui-button-content " ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"   id="hp-editor-headings-1" 
+            
+            >
+            
+              Heading 1
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-2" 
+            
+            >
+            
+              Heading 2
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-3" 
+            
+            >
+            
+              Heading 3
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-normal" 
+            
+            >
+            
+              Normal
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="hp-editor-headings-link" 
+            
+            >
+            
+              Link to here
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+<div id="hp-editor-selection-wrapper"><button type="button"
+     id="hp-editor-selection-link" 
+     data-tooltip="Create Link" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-link" ></span></button><input id="hp-editor-selection-link-url" placeholder="Enter link URL"><button type="button"
+     id="hp-editor-selection-link-confirm" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-checkMark" ></span></button><button type="button"
+     id="hp-editor-selection-link-delete" 
+     data-tooltip="Remove Link" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-delete" ></span></button><button type="button"
+     id="hp-editor-selection-newpad" 
+     data-tooltip="Create New Hackpad" 
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-newpad" ></span></button><input id="hp-editor-selection-newpad-title" placeholder="Enter title"><button type="button"
+     id="hp-editor-selection-newpad-confirm" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-custom"
+><span class="hp-ui-button-content icon-checkMark" ></span></button></div>
+</div>
+
+
+  
+  <div id="collections-div" class="sidebar-div">
+    <div id="collection-list-div">
+      <div
+     id="add-to-collection" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-custom"
+><span class="hp-ui-button-content " >add to collection</span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"   id="collection-invite-list-item" 
+            
+            >
+            
+              <form id="collection-invite-form"><input name="xsrf" type="hidden" value="8fda1805d46d9dc5" /><input type="hidden" name="padId" value="TJwPNygW2fV" /><i class="icon-addcollection"></i><input type="text" id="collection-picker" placeholder="New or existing collection"/></form>
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+    </div>
+    <div id="collections-recent-list-wrapper">
+      <div id="collections-recent-label" class="sidebartext">
+        or choose a recent collection:
+      </div>
+      <ul id="collections-recent-list"></ul>
+    </div>
+    <div id="collection-list-overflow"></div>
+  </div>
+
+  <div id="shared-with-settings">
+    <div id="shared-with-settings-inner">
+    
+    <div
+     id="padaccess-menu" 
+    
+     role="menu" aria-haspopup="true" 
+     disabled 
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-menu  hp-ui-button-custom"
+><span class="hp-ui-button-content " ></span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+          <li><a href="#"   id="padaccess-deny" 
+            
+            >
+            
+              <i class="icon-lock"></i>invitees only
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="padaccess-link" 
+            
+            >
+            
+              <i class="icon-privacy-link"></i>anyone with link
+            
+          </a></li>
+          
+        
+          
+          <li><a href="#"   id="padaccess-allow" 
+            
+            >
+            
+              <i class="icon-privacy-public"></i>everyone (public)
+            
+          </a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+
+  <div id="editorbottombox">
+    
+  <div>
+    <a id="editor-last-changed" href="/ep/pad/summary/TJwPNygW2fV">
+      Latest change
+      <span id="last-saved-timestamp" title="2015-09-08T16:18:07.000Z"></span>
+    </a>
+  </div>
+
+  <script id="template-user-create-entry" type="text/html">
+    <div class="create">
+      <img />
+      <a class="host"></a> created this <span class="timestamp"></span>.
+    </div>
+  </script>
+
+  <script id="template-invite-user-entry" type="text/html">
+    <div class="invite">
+      <img />
+      <a class="host"></a> invited
+      <a class="user"></a>.
+      <span class="lastAccessed">Seen
+      <span class="lastAccessedTimestamp"></span>.</span>
+      <span class="timestamp"></span>
+    </div>
+  </script>
+
+  <script id="template-invite-group-entry" type="text/html">
+    <div class="invite">
+      <img />
+      <a class="host"></a> added this to collection
+      <a class="collection"></a>. <span class="timestamp"></span>
+    </div>
+  </script>
+
+  <div id="inviteLog-wrapper"><div id="inviteLog"></div></div>
+
+  </div>
+
+    </div>
+    
+  <aside id="padsidebar">
+    
+  
+  <div id="padusers" class="">
+    <div id="sharingsettings">
+      
+
+  <div id="friend-picker-div">
+    <form id="invite-form" method="get" action="">
+      <input name="xsrf" type="hidden" value="8fda1805d46d9dc5" />
+      <input type="hidden" name="padId" value="TJwPNygW2fV" />
+      <div id="friend-picker-wrapper">
+        <input type="text" id="friend-picker" class="" placeholder="invite people to this pad"/>
+        <div class="ac-loading-spinny"></div>
+        <label for="friend-picker"><i class="icon-invite"></i></label>
+      </div>
+    </form>
+  </div>
+
+
+      <div id="sharesummarywrapper" style="display: none">
+        <span class="sharesummary-with">With </span>
+        <span id="sharesummary" data-tooltip="Show list"
+            data-altTooltip="Hide List"> </span>
+      </div>
+      
+  
+  
+
+  <div id="otherusers">
+    <div id="otherusers-facepile-wrapper" data-tooltip="Show list" data-altTooltip="Hide list">
+      <img id="otherusers-facepile" src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif">
+      <span class="connected"></span>
+    </div>
+    <div id="otheruserstable-wrapper"><ul id="otheruserstable" class="popup-scrollable"></ul></div>
+  </div>
+
+  <script id="template-user-list" type="text/html">
+    <li id="XXX" title="XXX">
+      <figure>
+        <a>
+          <span class="user-image">
+            <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif" data-src="XXX" alt="XXX">
+            <span class="connected"></span>
+          </span>
+          <figcaption>
+            <span>XXX</span>
+            <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif" class="killuser"
+                alt="Remove User" role="button"
+                data-userId="XXX" data-name="XXX">
+          </figcaption>
+        </a>
+      </figure>
+    </li>
+  </script>
+
+      <div id="guestprompts"><!-- --></div>
+    </div>
+  </div>
+
+  <div id="toc-div" class="sidebar-div">
+    <ul></ul>
+  </div>
+
+
+  <div id="related-pads-div" class="sidebar-div">
+    <div class="sidebarheading">
+      <div
+     id="related-pads-menu" 
+    
+     role="menu" aria-haspopup="true" 
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button hp-ui-button-menu-reverse  hp-ui-button-menu  hp-ui-button-custom"
+><span class="hp-ui-button-content " >Related Pads</span>
+    <img src="https://d29bt26wntaesq.cloudfront.net/static/img/pixel.gif"
+        alt="Arrow" class="hp-ui-button-arrow">
+    <div class="hp-ui-button-menu-wrapper">
+      <ul class="hp-ui-button-list-ul">
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+
+    <div class="clear"></div>
+  </aside>
+
+  </div>
+  
+  <div class="connection-status iphonehide"><h3>Reconnecting...</h3></div>
+
+  <div id="modaloverlay"><div id="modaloverlay-inner"><!-- --></div></div>
+
+  <div id="mainmodals">
+    <div id="connectionbox" class="modaldialog" >
+      <h1 class="h1_disconnect">Disconnected</h1>
+      <h1 class="h1_unauth">No Authorization</h1>
+      <button type="button"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+      <div id="connectionboxinner" class="modaldialog-inner">
+        <div class="connecting">
+          Connecting...
+        </div>
+        <div class="reconnecting">
+          Reestablishing connection...
+        </div>
+        <div class="disconnected">
+          <div id="disconnected_looping">
+            <p>
+              <b>We're having trouble talking to the Hackpad synchronization
+                server.</b>
+              You may be connecting through an incompatible firewall or proxy
+              server.
+            </p>
+          </div>
+          <div id="disconnected_initsocketfail">
+            <p>
+              <b>We were unable to connect to the Hackpad synchronization
+              server.</b>
+              This may be due to an incompatibility with your web
+              browser or internet connection.
+            </p>
+          </div>
+
+          <div id="disconnected_unknown">
+            <p>
+              <b>Lost connection with Hackpad.</b>
+              This may be due to a loss of network connectivity. If you close
+              this window you may lose up to 30 seconds of unsaved work.
+            </p>
+          </div>
+          <div id="disconnected_slowcommit">
+            <p>
+              <b>Server not responding.</b>
+              This may be due to network connectivity issues or high load on
+              the server.
+            </p>
+          </div>
+          <div id="disconnected_unauth">
+            <p>
+              You are no longer allowed to access this pad. Reconnect to
+              request access.
+            </p>
+          </div>
+          <div id="reconnect_form">
+            <button type="button"
+     id="forcereconnect" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Reconnect Now</span></button>
+            <img class="loading-indicator"
+                src="/static/img/misc/status-ball.gif"/>
+            <span class="failed-indicator">Failed to reconnect.</span>
+          </div>
+          <div id="reconnect_advise">
+            <p>
+              If this continues to happen, please <a target="_blank"
+                  href="/ep/support">let us know</a>
+              (opens in new window).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="freakout-dialog" class="modaldialog">
+      <h1>How embarrassing...</h1>
+      <div id="freakout-dialog-inner" class="modaldialog-inner">
+        <div class="disconnected">
+          <div>
+            <p>
+              <b>We experienced an error on the page that is causing problems
+              with saving your work.</b>
+              Continuing to edit on the page without refreshing your browser
+              would lead to some <b>loss of your work</b>.
+            </p>
+          </div>
+          <div id="freakout-options">
+            <button type="button"
+    
+    
+    
+    
+     data-click="pagereload" 
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Refresh Now</span></button>
+            <button type="button"
+     id="freakout-copy-first" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >I want to copy my work first, please.</span></button>
+          </div>
+          <div id="freakout_advise">
+            <p>
+              If this continues to happen, please <a target="_blank"
+                  href="/ep/support">let us know</a>
+              (opens in new window).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="moderated-modal" class="modaldialog">
+      <h1>Heads Up!</h1>
+      <div id="moderated-modal-inner" class="modaldialog-inner">
+
+        <p id="moderated-modal-msg">
+          This pad is moderated.  Your changes will require owner approval.
+        </p>
+        <div class="dialog-buttons">
+          <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Cancel</span></button>
+          <button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button default  hp-ui-button-primary"
+><span class="hp-ui-button-content " >Yes! I want to edit</span></button>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div id="sharebox" class="modaldialog">
+      <div id="sharebox-inner" class="modaldialog-inner">
+      </div>
+    </div>
+
+    <div id="insertimagedialog" class="modaldialog">
+     <h1>Insert an Image</h1>
+     <div class="modaldialog-inner">
+      <form name="insert-image-form" id="insert-image-form">
+        <input name="xsrf" type="hidden" value="8fda1805d46d9dc5" />
+        <br/>
+        <div id="insertimagedialog-upload">
+          <input multiple type="file" id="web-image-upload" name="photo[]"
+              accept="image/*">
+          <div id="web-image-upload-separator">or</div>
+          <input type="text" id="web-image-url" name="web-image-url"
+              placeholder="paste a url" />
+        </div>
+        <div id="insertimagedialog-drag">
+          Tip: you can simply <b>drag&amp;drop</b> images into the editor
+          from your desktop!
+        </div>
+        <br/>
+         <div class="dialog-buttons">
+           <a href="#" data-click="hidemodal">Cancel</a>
+           <button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button default  hp-ui-button-primary"
+><span class="hp-ui-button-content " >Insert</span></button>
+         </div>
+         <div class="clear"></div>
+       </form>
+     </div>
+    </div>
+
+    
+  
+  <div id="killuser" class="modaldialog">
+    <h1>Stop sharing with <span class="name"></span>?</h1>
+    <div class="modaldialog-inner">
+      <div id="killuser-access">
+        This pad is shared with "<span class="access"></span>", so
+        <span class="name"></span> will still be able to access it.
+      </div>
+      <form id="killuser-form" action="/ep/pad/removeuser"
+          data-submit="submitmodal">
+        <input name="xsrf" type="hidden" value="8fda1805d46d9dc5" />
+        <input type="hidden" id="padId" name="padId"
+            value="TJwPNygW2fV" />
+        <input type="hidden" id="userId" name="userId" />
+        <div class="dialog-buttons">
+          <a href="#" data-click="hidemodal">Cancel</a>
+          <button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Stop Sharing</span></button>
+        </div>
+        <div class="clear"></div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="embedpaddialog" class="modaldialog">
+   <h1>Embed This Pad</h1>
+   <div class="modaldialog-inner">
+    <label for="embedpad-code">
+      Paste the following into your web page or blog:
+    </label>
+    <textarea id="embedpad-code" rows="6" readonly></textarea>
+    <br />
+    <div class="clear"></div>
+    Embed as
+    <select id="embedpad-type" onchange="pad.updateEmbedCode()">
+      <option value="">Editable Hackpad</option>
+      <option value="html">Plain HTML</option>
+      <option value="html-notitle">Plain HTML without title</option>
+    </select>
+    <div class="dialog-buttons">
+      <a class="button" href="#" data-click="hidemodal">Close</a>
+    </div>
+  </div>
+
+  </div>
+
+  
+
+  <form id="reconnectform"
+      method="post"
+      action="/ep/pad/reconnect"
+      accept-charset="UTF-8"
+      style="display: none;">
+    <input name="xsrf" type="hidden" value="8fda1805d46d9dc5" />
+    <input type="hidden" class="padId" name="padId" />
+    <input type="hidden" class="diagnosticInfo" name="diagnosticInfo" />
+    <input type="hidden" class="missedChanges" name="missedChanges" />
+  </form>
+  </div>
+
+
+
+  
+  
+<footer id="pad-page-footer" class="hide-before-pad-load iphonehide">
+  
+  &copy; Dropbox Inc.
+  
+  <a href="https://hackpad.com/83netTWokps#Hackpad-Terms-of-Service">Terms</a>
+  <a href="https://hackpad.com/RpTWPko6ER2#Hackpad-Privacy-Policy">Privacy</a>
+  <a id="footer-support-link" href="mailto:support@hackpad.com">Support</a>
+  <a href="https://hackpad.com/sIkGLftzN7c#About-Hackpad">About</a>
+  <a href="https://hackpad.com/blog">Blog</a>
+</footer>
+
+  
+<div id="page-login-box" class="modaldialog" style="right: inherit; left: 50%;">
+  <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+  <div>
+    
+    
+
+  <div id="login-form-wrapper">
+
+  
+
+  <h1 class="iphonehide">Log in / Sign up</h1>
+  <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+
+  <div class="modaldialog-body">
+
+  
+  
+
+    <div id="page-loging-lhs">
+      <img width="230" src="https://d29bt26wntaesq.cloudfront.net/static/img/pencil-love.png">
+    </div>
+
+    <div id="nofacebook" class="page-login-rhs">
+      <a id="login-google" href="https://accounts.google.com/o/oauth2/auth?client_id=261270787987-jqaig2qiho2pe21fmmis6ak34oapihhf.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fhackpad.com%2Fep%2Faccount%2Fopenid&amp;response_type=code&amp;access_type=offline&amp;scope=email%20profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts.readonly&amp;state=%7B%22nonce%22%3A%22tFoHfDkrLy%22%2C%22shortContUrl%22%3A%22https%3A%2F%2Fhackpad.com%2FTJwPNygW2fV%3Ftoken%3Dundefined%22%7D&amp;approval_prompt=force" class="google-signin-button" target="_self">
+        <img src="https://d29bt26wntaesq.cloudfront.net/static/img/goog.png">
+        <span>Sign in with <strong>Google</strong></span>
+      </a>
+
+      
+        <a id="login-facebook" class="fb-login-required" href="https://hackpad.com/20150909-Git4-TJwPNygW2fV">
+          <img class="fb-connect-button" src="https://d29bt26wntaesq.cloudfront.net/static/img/fb.png">
+          <span>Sign in with <strong>Facebook</strong></span>
+        </a>
+      
+
+      <span id="login-or"><span class="page-login-or"></span><span class="page-login-or-lbl">or</span><span class="page-login-or"></span></span>
+
+      <form id="login-form" method="post" action="/ep/account/signin">
+        <input name="xsrf" type="hidden" value="8fda1805d46d9dc5" />
+        <span id="login-email-wrapper" class="login-email-input">
+          <label for="login-email"><i class="icon-privacy-invite"></i></label>
+          <input id="login-email" name="email" type="email" placeholder="Email" autocorrect="off" autocapitalize="off">
+          <button type="button"
+     id="login-email-go" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Go</span></button>
+        </span>
+
+        <div id="login-email-secondary">
+          <i class="icon-back"></i>
+          <span id="login-password-wrapper" class="login-email-input">
+            <label for="login-password"><i class="icon-lock"></i></label>
+            <input id="login-password" name="password" type="password" placeholder="Password">
+          </span>
+          <a href="/ep/account/forgot-password" id="login-forgot-password">Forgot password?</a>
+
+          <input id="signin-remember-me" type="hidden" group="1" name="rememberMe" value="1">
+          <input type="hidden" name="cont" value="https://hackpad.com/20150909-Git4-TJwPNygW2fV">
+          
+
+          <div id="login-email-tertiary" class="modal-more-info">
+            <span id="login-full-name-wrapper" class="login-email-input">
+              <label for="login-fullname"><i class="icon-user"></i></label>
+              <input id="login-fullname" name="name" placeholder="Full Name">
+            </span>
+          </div>
+
+          <button id="login-submit" type="submit" disabled>Start using Hackpad</button>
+        </div>
+      </form>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  
+  </div>
+
+  </div>
+</div>
+
+
+  
+  <div id="connecting-to-facebook" class="modaldialog" style="padding:30px; margin-top: 100px">
+    <img alt="" src="https://d29bt26wntaesq.cloudfront.net/static/img/misc/status-ball.gif" style="float:right" />
+    <span style="font-size:21px; color:#666">Signing in using Facebook...</span>
+    <div style="margin-top:20px"><button type="submit"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button   hp-ui-button-primary"
+><span class="hp-ui-button-content " >Cancel</span></button></div>
+  </div>
+  
+
+
+
+  <button type="button"
+     id="feedbackbutton" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button iphonehide ipadhide  hp-ui-button-action"
+><span class="hp-ui-button-content " >feedback</span></button>
+  
+
+<div id="feedbackbox" class="modaldialog">
+  <h1 class="with-content">Contact Support</h1>
+
+  <button type="button"
+    
+    
+    
+    
+     data-click="hidemodal" 
+    
+    
+    
+    
+    
+    class="hp-ui-button dialog-cancel-x  hp-ui-button-custom"
+><span class="hp-ui-button-content icon-x" ></span></button>
+
+  <div class="modaldialog-inner">
+
+    <form id="feedback-form">
+      <input name="xsrf" type="hidden" value="8fda1805d46d9dc5" />
+
+
+      
+        <input type="text" name="feedbackbox-email" id="feedbackbox-email" class="modalfield" placeholder="Your email">
+        <br/>
+      
+
+      <select name="feedbackbox-topic" id="feedbackbox-topic" class="modalfield">
+        <option value="">Please select a topic</option>
+        <option value="howto">General usage / How does this work?</option>
+        <option value="feature">Feature request</option>
+        <option value="login">Login / account issue</option>
+        <option value="broken">Broken / can't load hackpad</option>
+        <option value="mobile">Mobile / iOS issue</option>
+        <option value="other">Other issue</option>
+        <option value="love">Send your love! &#9829;</option>
+      </select><br>
+
+      <div id="feedbackbox-faq">Please check out our <a href="https://hackpad.com/How-to-use-Hackpad-mlZvEsJykI5" target="_blank">How-to Guide</a> and <a href="https://hackpad.com/Hackpad-FAQ-tq56fI63mz3" target="_blank">FAQ</a> first to see if your question is already answered! :)<br><br></div>
+      <div id="feedbackbox-feature-request">If you have a feature request, please add it to <a href="https://hackpad.com/mwN5" target="_blank">this pad</a>.  Thanks!<br><br></div>
+
+      <input type="text" name="feedbackbox-subject" id="feedbackbox-subject" class="modalfield" placeholder="Summary"><br>
+      <textarea id="feedbackbox-message" rows="6" cols="40" class="modalfield" placeholder="Give as much detail as possible."></textarea>
+      <div style="text-align:right">
+        <div id="feedbackbox-response"><!-- --></div>
+        <button type="button"
+     id="feedbackbox-send" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    class="hp-ui-button default  hp-ui-button-primary"
+><span class="hp-ui-button-content " >Send</span></button>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+
+
+
+ 
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" nonce="ef0018f6adf330f547e417f3ce92b1fe03397807">
+  // <![CDATA[
+var clientVars = {"proTitle":"","creatorId":427403,"initialTitle":"20150909 [學習筆記] Git版本控制(4)","padTitle":"20150909 [學習筆記] Git版本控制(4)","collab_client_vars":{"initialAttributedText":{"text":"20150909%20%5B%u5B78%u7FD2%u7B46%u8A18%5D%20Git%u7248%u672C%u63A7%u5236%284%29%0A*%u6574%u7406%u81EA%u7B2C%2005%20%u5929%uFF1A%u4E86%u89E3%u5132%u5B58%u5EAB%u3001%u5DE5%u4F5C%u76EE%u9304%u3001%u7269%u4EF6%u8207%u7D22%u5F15%u4E4B%u9593%u7684%u95DC%u4FC2%0A%5B%u5167%u5BB9%u6458%u8981%5D%20%u57FA%u672C%u89C0%u5FF5%20--%20%u5132%u5B58%u5EAB%u3001%u5DE5%u4F5C%u76EE%u9304%u3001Git%u8CC7%u6599%u7D50%u69CB%0A*%uFF08%u4E00%uFF09%u4E86%u89E3%u5132%u5B58%u5EAB%20%28Repository%29%0A*%uFF08%u4E8C%uFF09%u4E86%u89E3%u5DE5%u4F5C%u76EE%u9304%20%28working%20directory%29%0A*%uFF08%u4E09%uFF09%u4E86%u89E3%20Git%20%u7684%u8CC7%u6599%u7D50%u69CB%0A%0A%0A%5B%u57FA%u672C%u6982%u5FF5%5D%20%u4F7F%u7528Git%u7248%u672C%u63A7%u5236%20%0A*STEP%201%20%20%3A%20%u8981%u4F7F%u7528%20Git%20%u7248%u672C%u63A7%u7BA1%uFF0C%u5FC5%u9808%u5148%u5EFA%u7ACB%u300C%u5DE5%u4F5C%u76EE%u9304%u300D%u8207%u300C%u7248%u672C%u5EAB%u300D%u3002%28mkdir%2C%20git%20init%29%0A*STEP%202%20%3A%20%u8981%u5728%u300C%u5DE5%u4F5C%u76EE%u9304%u300D%u9032%u884C%u958B%u767C%uFF0C%u53EF%u80FD%u6703%u5EFA%u7ACB%u76EE%u9304%u3001%u5EFA%u7ACB%u6A94%u6848%u3001%u4FEE%u6539%u6A94%u6848%u3001%u522A%u9664%u6A94%u6848%u3001...%20%u7B49%u64CD%u4F5C%u3002%0A*STEP%203%20%3A%20%u7136%u5F8C%u7576%u4F60%u60F3%u63D0%u4EA4%u4E00%u500B%u65B0%u7248%u672C%u5230%20Git%20%u7684%u300C%u5132%u5B58%u5EAB%u300D%u88E1%uFF0C%u4E00%u5B9A%u8981%u5148%u66F4%u65B0%u300C%u7D22%u5F15%u300D%u72C0%u614B%u3002%28git%20add%2C%20git%20mv%2C%20...%29%0A*STEP%204%20%3A%20%u7136%u5F8C%20Git%20%u6703%u4F9D%u64DA%u300C%u7D22%u5F15%u300D%u7576%u4E0B%u7684%u72C0%u614B%uFF0C%u6C7A%u5B9A%u8981%u628A%u90A3%u4E9B%u6A94%u6848%u63D0%u4EA4%u5230%20Git%20%u7684%u300C%u5132%u5B58%u5EAB%u300D%u88E1%u3002%28git%20status%29%0A*STEP%205%20%3A%20%u6700%u5F8C%u63D0%u4EA4%u8B8A%u66F4%u6642%20%28git%20commit%29%uFF0C%u624D%u6703%u628A%u7248%u672C%u8CC7%u8A0A%u5BEB%u5165%u5230%u300C%u7269%u4EF6%u5132%u5B58%u5340%u300D%u7576%u4E2D%20%28%u6B64%u6642%u5C07%u6703%u5BEB%u5165%20commit%20%u7269%u4EF6%29%u3002%0A%0A%0A%0A%0A*%uFF08%u4E00%uFF09%u4E86%u89E3%u5132%u5B58%u5EAB%20%28Repository%29%0A*%u5982%u679C%u8981%u5728%u4EFB%u610F%u4E00%u500B%u8CC7%u6599%u593E%u5EFA%u7ACB%u4E00%u500B%20Git%20%u5132%u5B58%u5EAB%uFF0C%u53EA%u8981%u8F38%u5165%u4EE5%u4E0B%u6307%u4EE4%uFF1A%0A*git%20init%0A*%u57F7%u884Cgit%20init%20%u4E4B%u5F8C%uFF0CGit%20%u6703%u81EA%u52D5%u5E6B%u6211%u5011%u5EFA%u7ACB%u4E00%u500B%u6240%u8B02%u7684%20Git%20repository%20%u5728%u8A72%u76EE%u9304%u7684%20.git%20%u76EE%u9304%u4E0B%uFF0C%u9019%u500B%20.git%20%u8CC7%u6599%u593E%uFF0C%u5C31%u662F%u4E00%u500B%u5B8C%u6574%u7684%20Git%20%u5132%u5B58%u5EAB%uFF0C%u672A%u4F86%u6240%u6709%u7248%u672C%u7684%u8B8A%u66F4%uFF0C%u90FD%u6703%u81EA%u52D5%u5132%u5B58%u5728%u9019%u500B%u8CC7%u6599%u593E%u88E1%u9762%0A*%5B%u7BC4%u4F8B%5D%20%u5728%u9019%u88E1%u76EE%u9304%u70BA%20C%3A%5CUsers%5Cuser%5CDocuments%5CGitHub%5Cgit-demo%0A**%0A%0A%0A%0A%0A*%uFF08%u4E8C%uFF09%u4E86%u89E3%u5DE5%u4F5C%u76EE%u9304%20%28working%20directory%29%0A*%u4E0A%u8FF0C%3A%5CUsers%5Cuser%5CDocuments%5CGitHub%5Cgit-demo%u6B64%u6642%u5C31%u6703%u81EA%u52D5%u6210%u70BA%u6211%u5011%u7684%u300C%u5DE5%u4F5C%u76EE%u9304%u300D%20%28working%20directory%29%u3002%0A*%u6240%u8B02%u300C%u5DE5%u4F5C%u76EE%u9304%u300D%uFF0C%u5C31%u662F%u6211%u5011%u6B63%u5728%u6E96%u5099%u958B%u767C%u7684%u5C08%u6848%u6A94%u6848%uFF0C%u672A%u4F86%u90FD%u6703%u5728%u9019%u500B%u76EE%u9304%u4E0B%u9032%u884C%u7DE8%u8F2F%uFF0C%u4F8B%u5982%20%3A%20%0A*%u65B0%u589E%u6A94%u6848%0A*%u4FEE%u6539%u6A94%u6848%0A*%u522A%u9664%u6A94%u6848%0A*%u6A94%u6848%u66F4%u540D%0A*...%u5176%u4ED6%20Git%20%u76F8%u95DC%u7684%u64CD%u4F5C%uFF0C%u90FD%u6703%u5728%u9019%u500B%u76EE%u9304%u4E0B%u5B8C%u6210%u3002%0A%0A*%u64CD%u4F5C%20Git%20%u6307%u4EE4%u53C3%u6578%u6642%uFF0C%u901A%u5E38%u90FD%u662F%u5728%u300C%u5DE5%u4F5C%u76EE%u9304%u300D%u4E0B%u57F7%u884C%u7684%u3002%0A%0A%0A%0A%0A*%uFF08%u4E09%uFF09%u4E86%u89E3%20Git%20%u7684%u8CC7%u6599%u7D50%u69CB%0A%u5728%20Git%20%u88E1%u6709%u5169%u500B%u91CD%u8981%u7684%u8CC7%u6599%u7D50%u69CB%uFF0C%u5206%u5225%u662F%u300C%u7269%u4EF6%u300D%u8207%u300C%u7D22%u5F15%u300D%u3002%0A*%u300C%u7269%u4EF6%u300D%u7528%u4F86%u4FDD%u5B58%u7248%u672C%u5EAB%u4E2D%u6240%u6709%u6A94%u6848%u8207%u7248%u672C%u7D00%u9304%0A*%u300C%u7D22%u5F15%u300D%u5247%u662F%u7528%u4F86%u4FDD%u5B58%u7576%u4E0B%u8981%u9032%u7248%u672C%u5EAB%u4E4B%u524D%u7684%u76EE%u9304%u72C0%u614B%u3002%0A%0A%0A1.%20%u95DC%u65BC%u7269%u4EF6%0A*%u6240%u8B02%u7684%u300C%u7269%u4EF6%u300D%u662F%u4E00%u500B%u300C%u7279%u5225%u7684%u6A94%u6848%u300D%uFF0C%u8A72%u6A94%u6848%u7684%u7522%u751F%u904E%u7A0B%u662F%u5C07%u4E00%u500B%u6A94%u6848%u7684%u5167%u5BB9%u4E2D%u53D6%u51FA%uFF0C%u900F%u904E%u5167%u5BB9%u7522%u751F%u4E00%u7D44%20SHA1%20%u96DC%u6E4A%u503C%uFF0C%u7136%u5F8C%u4F9D%u7167%u9019%u500B%20SHA1%20%u96DC%u6E4A%u503C%u547D%u540D%u7684%u4E00%u500B%u6A94%u6848%u3002%0A*%u5728%u4F7F%u7528%20Git%20%u9032%u884C%u7248%u672C%u63A7%u7BA1%u7684%u904E%u7A0B%u4E2D%uFF0C%u6240%u6709%u8981%u9032%u884C%u63A7%u7BA1%u7684%u76EE%u9304%u8207%u6A94%u6848%uFF0C%u90FD%u6703%u5148%u5340%u5206%u300C%u76EE%u9304%u8CC7%u8A0A%u300D%28tree%29%20%u8207%u300C%u6A94%u6848%u5167%u5BB9%u300D%28blob%29%u3002%0A*%uFF081%uFF09blob%20%u7269%u4EF6%0A*%u5C31%u662F%u628A%u539F%u672C%u7684%u300C%u6A94%u6848%u5167%u5BB9%u300D%u7576%u6210%20blob%20%u6A94%u6848%u7684%u5167%u5BB9%20%28%u6CE8%u610F%3A%20blob%20%u7269%u4EF6%u5176%u5BE6%u5C31%u662F%u4E00%u500B%u5BE6%u9AD4%u6A94%u6848%29%uFF0C%u7136%u5F8C%u518D%u5C07%u5176%u5167%u5BB9%u9032%u884C%20SHA1%20%u96DC%u6E4A%u904B%u7B97%u5F8C%u7522%u751F%u7684%u4E00%u500B%20hash%20id%uFF0C%u518D%u628A%u9019%u500B%20hash%20id%20%u7576%u6210%20blob%20%u6A94%u6848%u7684%u6A94%u540D%u3002%u7531%u6B64%u53EF%u77E5%uFF0Cblob%20%u7269%u4EF6%u662F%u4E00%u500B%u300C%u53EA%u6709%u5167%u5BB9%u300D%u7684%u6A94%u6848%uFF0C%u5176%u6A94%u540D%u53C8%u662F%u7531%u5167%u5BB9%u7522%u751F%u7684%uFF0C%u6240%u4EE5%uFF0C%u4EFB%u4F55%u4E00%u7684%u55AE%u7368%u5B58%u5728%u7684%20blob%20%u6A94%u6848%u901A%u5E38%u5C0D%u7248%u672C%u63A7%u7BA1%u6C92%u6709%u4EFB%u4F55%u5E6B%u52A9%u3002%0A*%0A*%uFF082%uFF09tree%20%u7269%u4EF6%0A*%u7528%u4F86%u5132%u5B58%u7279%u5B9A%u8CC7%u6599%u593E%u4E0B%u5305%u542B%u54EA%u4E9B%u6A94%u6848%uFF0C%u4EE5%u53CA%u8A72%u6A94%u6848%u5C0D%u61C9%u7684%20blob%20%u7269%u4EF6%u7684%u6A94%u540D%u70BA%u4F55%u3002%u5728%20tree%20%u7269%u4EF6%u4E2D%uFF0C%u9664%u4E86%u53EF%u4EE5%u5305%u542B%20blob%20%u7269%u4EF6%u7684%u6A94%u540D%u8207%u76F8%u95DC%u8CC7%u8A0A%uFF0C%u9084%u53EF%u4EE5%u5305%u542B%u5176%u4ED6%u7684%20tree%20%u7269%u4EF6%u3002%u6240%u4EE5%20tree%20%u7269%u4EF6%u5176%u5BE6%u5C31%u662F%u300C%u8CC7%u6599%u593E%u300D%u7684%u4EE3%u540D%u8A5E%u3002%0A%0A*%u7121%u8AD6%20blob%20%u7269%u4EF6%u8207%20tree%20%u7269%u4EF6%uFF0C%u9019%u4E9B%u90FD%u7B97%u662F%u7269%u4EF6%uFF0C%u9019%u4E9B%u7269%u4EF6%u90FD%u6703%u5132%u5B58%u5728%u4E00%u500B%u6240%u8B02%u7684%u300C%u7269%u4EF6%u5132%u5B58%u5340%u300D%20%28object%20storage%29%20%u4E4B%u4E2D%uFF0C%u800C%u9019%u500B%u300C%u7269%u4EF6%u5132%u5B58%u5340%u300D%u9810%u8A2D%u5C31%u5728%u300C%u5132%u5B58%u5EAB%u300D%u7684%20objects%20%u76EE%u9304%u4E0B%uFF0C%u5982%u4E0B%u5716%u793A%20%3A%20%0A**%0A%0A%0A2.%20%u95DC%u65BC%u7D22%u5F15%0A*%u300C%u7D22%u5F15%u300D%u662F%u4E00%u500B%u7D93%u5E38%u7570%u52D5%u7684%u66AB%u5B58%u6A94%uFF0C%u9019%u500B%u6A94%u6848%u901A%u5E38%u4F4D%u65BC%20.git%20%u76EE%u9304%u4E0B%u7684%u4E00%u4F4D%u540D%u70BA%20index%20%u7684%u6A94%u6848%u3002%0A*%u4E3B%u8981%u7528%u4F86%u7D00%u9304%u300C%u6709%u54EA%u4E9B%u6A94%u6848%u5373%u5C07%u8981%u88AB%u63D0%u4EA4%u5230%u4E0B%u4E00%u500B%20commit%20%u7248%u672C%u4E2D%u300D%u3002%u63DB%u53E5%u8A71%u8AAA%uFF0C%u5982%u679C%u4F60%u60F3%u8981%u63D0%u4EA4%u4E00%u500B%u7248%u672C%u5230%20Git%20%u5132%u5B58%u5EAB%uFF0C%u90A3%u9EBC%u4F60%u4E00%u5B9A%u8981%u5148%u66F4%u65B0%u7D22%u5F15%u72C0%u614B%uFF0C%u8B8A%u66F4%u624D%u6703%u88AB%u63D0%u4EA4%u51FA%u53BB%u3002%0A*%0A*%u7D22%u5F15%u6A94%u901A%u5E38%u4FDD%u5B58Git%20%u5132%u5B58%u5EAB%u4E2D%u7279%u5B9A%u7248%u672C%u7684%u72C0%u614B%uFF0C%u9019%u500B%u72C0%u614B%u53EF%u4EE5%u7531%u4EFB%u610F%u4E00%u500B%20commit%20%u7269%u4EF6%uFF0C%u4EE5%u53CA%20tree%20%u7269%u4EF6%u8868%u793A%u3002%0A%0A*%u6B63%u5E38%u60C5%u6CC1%u4E0B%u4E0D%u6703%u76F4%u63A5%u53BB%u7DE8%u8F2F%20.git%5Cindex%20%u9019%u500B%u4E8C%u9032%u4F4D%u6A94%uFF0C%u800C%u662F%u900F%u904E%u6A19%u6E96%u7684%20git%20%u6307%u4EE4%u53BB%u64CD%u4F5C%u9019%u500B%u7D22%u5F15%u6A94%uFF0C%u5C0D%u65BC%u7D22%u5F15%u6A94%u7684%u64CD%u4F5C%u6307%u4EE4%u5E38%u7528%u7684%u6709%u4EE5%u4E0B%u5E7E%u500B%20%3A%20%28%u76F8%u95DC%u8AAA%u660E%u8ACB%u770B%2020150826%20%5B%u5B78%u7FD2%u7B46%u8A18%5D%20Git%20%u7248%u672C%u63A7%u5236%283%29%20%29%0A*git%20add%0A*git%20mv%0A*git%20rm%0A*git%20status%0A*git%20commit%0A*git%20ls-files%0A%0A*%u300C%u7D22%u5F15%u300D%u662F%u4ECB%u65BC%u300C%u7269%u4EF6%u5132%u5B58%u5340%u300D%20%28object%20storage%29%20%u8207%u300C%u5DE5%u4F5C%u76EE%u9304%u300D%20%28working%20directory%29%20%u4E4B%u9593%u7684%u5A92%u4ECB%u3002%0A%0A**%0A%0A","attribs":"*0+q|1+1*0*1*2+1*0*3+3*0*4+s|1+1*0*3+v*0|1+1*0*1*5+1*0*3+l*0|1+1*0*1*5+1*0*3+t*0|1+1*0*1*5+1*0*3+f*0|3+3*0*3+h*0|1+1*0*1*6+1*0*3*7+8*0*3+1*0+g*0*3*8+f*0|1+j*0*1*6+1*0*3*7+6*0+1*0*3+1*0+h*0*3*9+j*0|1+a*0*1*6+1*0*3*7+7*0*3+1*0+5*0*3*8+w*0|1+q*0*1*6+1*0*3*7+6*0+1*0*3+1*0|1+1m*0*1*6+1*0*3*7+7*0*3+1*0+3*0*3*8+12*0|5+p*0*1*2+1*0*3+l*0|1+1*0*1*a+1*0|1+y*0*1*b+1*0*3*8+8*0|1+1*0*1*6+1*0+1q*0*3*8*9+r*0|1+q*0*1*6+1*0*3+5*0+7*0*8*7+13*0|1+1*0*1*c+1*d*0*e+1*0|5+5*0*1*2+1*0*3+9*0|1+l*0*1*a+1*0+2*0*7+13*0+b*0*3*8*9+q*0|1+2*0*1*f+1*0|1+1a*0*1*g+1*0|1+5*0*1*g+1*0|1+5*0*1*g+1*0|1+5*0*1*g+1*0|1+5*0*1*f+1*0+5*0*3*8+l*0|2+3*0*1*a+1*0|5+y*0*1*2+1*0*3+f*0|1+1*0+l*0*3*8+9*0|1+2*0*1*5+1*0|1+m*0*1*5+1*0|3+s*0*3+7*0|1+1*0*1*6+1*0|1+29*0*1*6+1*0+10*0*3+s*0|1+2*0*1*6+1*0*3*8+a*0|1+1*0*1*f+1*0*3*9+p*0|1+4e*0*1*f+1*0|1+1*0*1*6+1*0*3*8+a*0|1+1*0*1*f+1*0+2s*0*3*9+d*0|2+3*0*1*f+1*0|1+33*0*1*c+1*h*0*i+1*0|3+3*0*3+7*0|1+1*0*1*a+1*0+7*0*3+8*0+7*0*3+2*0*3*8+o*0|1+2*0*1*5+1*0+4*0*3*8+u*0|1+1g*0*1*6+1*0|1+1*0*1*5+1*0*3*8+m*0|2+12*0*1*5+1*0+x*0*3*8+k*0+u*0*3*9+r*0*3+1*0|1+2*0*1*g+1*0|1+8*0*1*g+1*0|1+7*0*1*g+1*0|1+7*0*1*g+1*0|1+b*0*1*g+1*0|1+b*0*1*g+1*0|2+e*0*1*5+1*0+5*0*3*8+1l*0|2+6*0*1*c+1*j*0*k+1|2+2"},"rev":639,"padId":"TJwPNygW2fV","globalPadId":"1$TJwPNygW2fV","historicalAuthorData":{"p.427403":{"colorId":0,"name":"羅左欣","userLink":"/ep/profile/vCS3Hx1OGOV"}},"apool":{"numToAttrib":{"0":["author","p.427403"],"1":["insertorder","first"],"2":["list","hone1"],"3":["bold","true"],"4":["link","https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/docs/05%20%E4%BA%86%E8%A7%A3%E5%84%B2%E5%AD%98%E5%BA%AB%E3%80%81%E5%B7%A5%E4%BD%9C%E7%9B%AE%E9%8C%84%E3%80%81%E7%89%A9%E4%BB%B6%E8%88%87%E7%B4%A2%E5%BC%95%E4%B9%8B%E9%96%93%E7%9A%84%E9%97%9C%E4%BF%82.markdown"],"5":["list","bullet2"],"6":["list","indent1"],"7":["italic","true"],"8":["highlight","true"],"9":["underline","true"],"10":["list","bullet1"],"11":["list","code1"],"12":["list","indent3"],"13":["attachmentKey","hackpad.com_TJwPNygW2fV_p.427403_1441726021565_undefined"],"14":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_TJwPNygW2fV_p.427403_1441726021565_undefined"],"15":["list","indent2"],"16":["list","bullet3"],"17":["attachmentKey","hackpad.com_TJwPNygW2fV_p.427403_1441727308395_undefined"],"18":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_TJwPNygW2fV_p.427403_1441727308395_undefined"],"19":["attachmentKey","hackpad.com_TJwPNygW2fV_p.427403_1441728099410_undefined"],"20":["img","https://hackpad-attachments.s3.amazonaws.com/hackpad.com_TJwPNygW2fV_p.427403_1441728099410_undefined"]},"nextNum":21},"clientIp":"203.64.104.19","clientAgent":"Python-urllib/1.17"},"friendUserIds":[],"globalPadId":"1$TJwPNygW2fV","initialOptions":{"guestPolicy":"link","isModerated":true},"initialRevisionList":[],"invitedGroupInfos":[],"invitedUserInfos":[{"name":"羅左欣","userId":"p.427403","userLink":"/ep/profile/vCS3Hx1OGOV","userPic":"https://www.gravatar.com/avatar.php?default=https%3A%2F%2Fhackpad.com%2Fstatic%2Fimg%2Fnophoto.png&gravatar_id=f6ae7264338da5d676564e9b593b19dd&size=100","status":"creator","colorId":1},{"name":"戴菱慧","userId":"p.490024","userLink":"/ep/profile/CCvd5sLQa1l","userPic":"https://www.gravatar.com/avatar.php?default=https%3A%2F%2Fhackpad.com%2Fstatic%2Fimg%2Fnophoto.png&gravatar_id=6e88da97449a7432f82933750d43500c&size=100","status":"following","colorId":1}],"isProPad":true,"isPublicPad":false,"padId":"TJwPNygW2fV","siteName":"hackpad","titleIsReadOnly":false,"userColor":1,"userName":"Guest","attachmentsBucket":"hackpad-attachments","s3BucketRoot":"s3.amazonaws.com","s3PolicyAndSig":{"s3Policy":"eyJleHBpcmF0aW9uIjoiMjAxNi0wNS0yMVQxNzoyMjo1OS41MTJaIiwiY29uZGl0aW9ucyI6W3siYnVja2V0IjoiaGFja3BhZC1hdHRhY2htZW50cyJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwiaGFja3BhZC5jb21fVEp3UE55Z1cyZlZfZy41MDMyMTFjY2NiNGM1NzA3XyJdLHsiYWNsIjoicHVibGljLXJlYWQifSxbInN0YXJ0cy13aXRoIiwiJENvbnRlbnQtVHlwZSIsImltYWdlLyJdLFsiY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMjA5NzE1MjBdLHsieC1hbXotY3JlZGVudGlhbCI6IkFLSUFJR1hGN1YzSVNEVVhJUjVRLzIwMTYwNTIxL3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDE2MDUyMVQxNzIyNTlaIn1dfQ==","s3PolicySig":"e85d7bf28a7078b52b13ef4fab3a3741dd75289da222fb938b340b02a7e18d87"},"clientIp":"203.64.104.19","colorPalette":["#2996c3","#c66c78","#53af98","#daa458","#8a6fb1","#d98175","#87b747","#c98e6a","#5888b7","#c6759f","#b5b251","#50bad3"],"disableFB":false,"facebookClientId":"145393915506961","isDesktopApp":false,"isMobileApp":false,"isMobile":false,"serverTimestamp":1463764979528,"userAgent":"Python-urllib/1.17","accountPrivs":{"maxRevisions":1000},"dropboxConnected":false,"encryptedUserId":"","shouldGetFbLoginStatus":false,"useFbChat":false,"userId":"g.503211cccb4c5707","userIsGuest":true,"userLink":"","userPic":"","initialSpaces":[{"id":1,"orgName":"hackpad","subDomain":"\x3c\x3cprivate-network>>","isDeleted":false,"lastLoginDate":0,"url":"https://hackpad.com/"}],"xsrf":"8fda1805d46d9dc5","isDogfood":false,"cdn":"https://d29bt26wntaesq.cloudfront.net"};
+  // ]]>
+</script>
+    
+
+
+
+<script type="text/javascript" nonce="ef0018f6adf330f547e417f3ce92b1fe03397807">
+//<![CDATA[
+(function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+"//cdn.mxpnl.com/libs/mixpanel-2.1.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);
+mixpanel.init("51ca7558fe905a645b2ecfaf07d08a62");
+mixpanel.identify("eb2d91326c86aa0c");
+if (clientVars && !clientVars.userIsGuest && clientVars.userName) {
+  mixpanel.name_tag(clientVars.userName);
+  mixpanel.people.identify("eb2d91326c86aa0c");
+}
+//]]>
+</script>
+<script type="text/javascript" nonce="ef0018f6adf330f547e417f3ce92b1fe03397807">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-24086041-1']);
+_gaq.push(['_setDomainName', 'hackpad.com']);
+_gaq.push(['_setCustomVar', 1, 'User Type', 'Guest', 2]);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+<script type="text/javascript" nonce="ef0018f6adf330f547e417f3ce92b1fe03397807">
+//<![CDATA[
+
+var logSearchPerformed = (function () {
+  var lastSearchPerformed = null;
+  return function (query, numResults, label) {
+    var trimmedQuery = $.trim(query);
+    $.doTimeout('log-search-query', 800, function () {
+      if (trimmedQuery && (trimmedQuery != lastSearchPerformed)) {
+        trackEvent("search_performed", null /* action */, label /* label */, { query: query, numResults: numResults });
+        lastSearchPerformed = trimmedQuery;
+      }
+    });
+  }
+})();
+
+function trackEvent(eventName, action, label, extras) {
+  var dict = extras || {};
+  dict["action"] = action;
+  dict["label"] = label;
+  mixpanel.track(eventName, dict);
+  _gaq.push(["_trackEvent", eventName, action, label]);
+}
+
+function _isMeta(e) {
+	if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) return true;
+
+	// Logic that handles checks for the middle mouse button, based
+	// on [jQuery](https://github.com/jquery/jquery/blob/master/src/event.js#L466).
+	var which = e.which, button = e.button;
+	if (!which && button !== undefined) {
+	  return (!button & 1) && (!button & 2) && (button & 4);
+	} else if (which === 2) {
+	  return true;
+	}
+	return false;
+};
+
+function trackLinks(css, eventName, extras) {
+  $(css).bind('click', function(e) {
+  	var el = this;
+  	var dict = extras || {};
+  	dict['url'] = el.href;
+
+    trackEvent(eventName, null, null, dict);
+
+  	if (el.href && el.target !== '_blank' && !_isMeta(e)) {
+      e.preventDefault();
+
+      // Navigate to the url after just enough of a timeout (300 ms).
+      setTimeout(function() {
+        window.location.href = el.href;
+      }, 300);
+    }
+  });
+}
+
+function trackPageview(optPath) {
+  optPath = optPath || document.location.path + document.location.query;
+  mixpanel.track_pageview(optPath);
+  _gaq.push(['_trackPageview', optPath]);
+}
+
+//]]>
+
+</script>
+ 
+    <script nonce="ef0018f6adf330f547e417f3ce92b1fe03397807" type="text/javascript" src="https://d29bt26wntaesq.cloudfront.net/static/compressed/5a802ad97db1995b26ccea937afa5e54.js" crossorigin="anonymous"></script>
+
+    
+      
+      
+    
+
+    <script type="text/javascript" async src="https://www.dropbox.com/static/api/1/dropins.js" id="dropboxjs" data-app-key="0d6svpz10vgp18t"></script>
+    <!--start,6 | accessPadLocal,17 | after addClientVars,46 | before data,47 | before html generation,50 | done,248-->
+    <script nonce="ef0018f6adf330f547e417f3ce92b1fe03397807" type="text/javascript">
+$(document).on("click", "a[target]", function(e) {
+  e.preventDefault();
+  var newWindow = window.open("", this.target || "_blank");
+  if (newWindow) {
+    newWindow.opener = null;
+    newWindow.location = this.href;
+    newWindow.focus();
+  }
+});
+</script>
+
+    <noscript>
+      <div>
+        You'll need to turn on JavaScript to use Hackpad in all of its
+        awesomeness. ^_^
+      </div>
+    </noscript>
+  </body>
+</html>
+ 
