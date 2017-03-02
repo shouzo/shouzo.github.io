@@ -11,7 +11,7 @@ tags: Data-Science Artificial-Intelligence
 {:toc}
 
 
-* 課程紀錄：[https://github.com/shouzo/Artificial-Intelligence_pages](https://github.com/shouzo/Artificial-Intelligence_pages)
+### 課程紀錄：[https://github.com/shouzo/Artificial-Intelligence_pages](https://github.com/shouzo/Artificial-Intelligence_pages)
 
 
 ### A：模糊理論 >> 模糊控制
