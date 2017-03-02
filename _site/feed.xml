@@ -5,19 +5,19 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Mar 2017 23:55:59 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 23:55:59 +0800</lastBuildDate>
+    <pubDate>Fri, 03 Mar 2017 00:01:30 +0800</pubDate>
+    <lastBuildDate>Fri, 03 Mar 2017 00:01:30 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>20170302 [學習筆記] 人工智慧 (1)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#a--&quot; id=&quot;markdown-toc-a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#b&quot; id=&quot;markdown-toc-b&quot;&gt;B：類神經網路&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#a---&quot; id=&quot;markdown-toc-a---&quot;&gt;A. 模糊理論 » 模糊控制&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#b-&quot; id=&quot;markdown-toc-b-&quot;&gt;B. 類神經網路&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;(一) 社團大代誌 - 社團負責人課程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/h3&gt;
+&lt;h3 id=&quot;a---&quot;&gt;A. 模糊理論 » 模糊控制&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;藉由規則庫建立專家系統
     &lt;ol&gt;
@@ -27,7 +27,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;b&quot;&gt;B：類神經網路&lt;/h3&gt;
+&lt;h3 id=&quot;b-&quot;&gt;B. 類神經網路&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;藉由學習建立網路&lt;/li&gt;
 &lt;/ul&gt;
