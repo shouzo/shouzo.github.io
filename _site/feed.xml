@@ -5,24 +5,26 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Mar 2017 23:18:11 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 23:18:11 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Mar 2017 23:21:11 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 23:21:11 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>20170302 [學習筆記] 人工智慧(1)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#a--&quot; id=&quot;markdown-toc-a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#b&quot; id=&quot;markdown-toc-b&quot;&gt;B：類神經網路&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;專家系統結構&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;智慧控制的定義&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#b&quot; id=&quot;markdown-toc-b&quot;&gt;B：類神經網路&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;專家系統結構&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;智慧控制的定義&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ul&gt;
   &lt;li&gt;課程紀錄：&lt;a href=&quot;https://github.com/shouzo/Artificial-Intelligence_pages&quot;&gt;https://github.com/shouzo/Artificial-Intelligence_pages&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/h2&gt;
+&lt;h1 id=&quot;a--&quot;&gt;A：模糊理論 » 模糊控制&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;藉由規則庫建立專家系統
     &lt;ol&gt;
@@ -32,7 +34,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;b&quot;&gt;B：類神經網路&lt;/h2&gt;
+&lt;h1 id=&quot;b&quot;&gt;B：類神經網路&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;藉由學習建立網路&lt;/li&gt;
 &lt;/ul&gt;
