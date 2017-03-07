@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 07 Mar 2017 18:19:42 +0800</pubDate>
-    <lastBuildDate>Tue, 07 Mar 2017 18:19:42 +0800</lastBuildDate>
+    <pubDate>Tue, 07 Mar 2017 18:22:53 +0800</pubDate>
+    <lastBuildDate>Tue, 07 Mar 2017 18:22:53 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -73,10 +73,14 @@
         
         <category>Linux</category>
         
+        <category>作業系統</category>
+        
         <category>程式設計</category>
         
         
         <category>Linux</category>
+        
+        <category>作業系統</category>
         
         <category>程式設計</category>
         
