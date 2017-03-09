@@ -20,11 +20,11 @@ tags: Linux 作業系統 程式設計
 
 ### (二) Process State
 ![](https://i.imgur.com/mFSgwiJ.jpg)
-    * **new**: The process is being created
-    * **running**: Instructions are being executed.
-    * **waiting**: The process is waiting for some event to occur.
-    * **ready**: The process is waiting to be assigned to a processor.
-    * **terminated**: The process has finished execution.
+   * **new**: The process is being created
+   * **running**: Instructions are being executed.
+   * **waiting**: The process is waiting for some event to occur.
+   * **ready**: The process is waiting to be assigned to a processor.
+   * **terminated**: The process has finished execution.
 
 
 ### (三) Process Control Block (PCB)
