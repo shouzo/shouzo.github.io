@@ -12,7 +12,7 @@ tags: Linux 作業系統 程式設計
 
 
 ### (一) 作業系統
-* [課程簡報 - Ch1](https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf)
+* [課程簡報 - Ch1：Introduction](https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf)
 
 
 

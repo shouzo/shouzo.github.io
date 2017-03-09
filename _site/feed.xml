@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Mar 2017 16:42:10 +0800</pubDate>
-    <lastBuildDate>Wed, 08 Mar 2017 16:42:10 +0800</lastBuildDate>
+    <pubDate>Thu, 09 Mar 2017 15:48:46 +0800</pubDate>
+    <lastBuildDate>Thu, 09 Mar 2017 15:48:46 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -18,7 +18,7 @@
 
 &lt;h3 id=&quot;section&quot;&gt;(一) 作業系統&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf&quot;&gt;課程簡報 - Ch1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf&quot;&gt;課程簡報 - Ch1：Introduction&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;linux-&quot;&gt;(二) Linux 程式設計&lt;/h3&gt;
@@ -68,8 +68,8 @@
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/TKyt2rB.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 04 Mar 2017 07:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2017/03/04/system/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2017/03/04/system/</guid>
+        <link>http://shouzo.github.io/2017/03/04/linux_system/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/03/04/linux_system/</guid>
         
         <category>Linux</category>
         
