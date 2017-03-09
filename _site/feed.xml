@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Mar 2017 18:15:31 +0800</pubDate>
-    <lastBuildDate>Thu, 09 Mar 2017 18:15:31 +0800</lastBuildDate>
+    <pubDate>Thu, 09 Mar 2017 18:36:41 +0800</pubDate>
+    <lastBuildDate>Thu, 09 Mar 2017 18:36:41 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -80,7 +80,7 @@
     &lt;p&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170303/Creating_and_Executing_Processes.pdf&quot;&gt;課程簡報 - Creating and Executing Processes&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;程式作業： &lt;code class=&quot;highlighter-rouge&quot;&gt;fork()&lt;/code&gt; 的概念&lt;/p&gt;
+    &lt;p&gt;課程作業： &lt;code class=&quot;highlighter-rouge&quot;&gt;fork()&lt;/code&gt; 的概念&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 

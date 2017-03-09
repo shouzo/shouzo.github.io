@@ -20,7 +20,7 @@ tags: Linux 作業系統 程式設計
 ### (二) Linux 程式設計
 * [課程簡報 - Creating and Executing Processes](https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170303/Creating_and_Executing_Processes.pdf)
 
-* 程式作業： `fork()` 的概念
+* 課程作業： `fork()` 的概念
 
 ```c
 #include <stdlib.h>
