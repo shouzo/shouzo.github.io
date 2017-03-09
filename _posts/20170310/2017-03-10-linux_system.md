@@ -52,23 +52,23 @@ execute.
     * Processes migrate among the various queues.
 
 ### Schedulers
-* __***Long-term scheduler***__ (or job scheduler) – selects which processes should be brought into the
+* __**Long-term scheduler**__ (or job scheduler) – selects which processes should be brought into the
 ready queue.
-* __***Short-term scheduler***__ (or CPU scheduler) – selects which process should be executed next and
+* __**Short-term scheduler**__ (or CPU scheduler) – selects which process should be executed next and
 allocates CPU.
     * Sometimes the only scheduler in a system.
-* The long-term scheduler controls the __***degree of multiprogramming***__.
-* __***Medium-term scheduler***__ can be added if degree of multiple programming needs to decrease.
+* The long-term scheduler controls the __**degree of multiprogramming**__.
+* __**Medium-term scheduler**__ can be added if degree of multiple programming needs to decrease.
     * Remove process from memory, store on disk, bring back in from disk to continue execution:
 swapping.
 
 **[Degree of multiprogramming](http://enews.open2u.com.tw/~noupd/book_up/1746/8719.htm)**：多工程度、記憶體中行程的總數量
 
 ### Processes 
-* __***I/O-bound process***__ – spends more time doing I/O than computations, many short CPU
+* __**I/O-bound process**__ – spends more time doing I/O than computations, many short CPU
 bursts.
     * 行程大部份的時間在做 I/O，只有少部份的時間在做計算。 
-* __***CPU-bound process***__ – spends more time doing computations; few very long CPU bursts.
+* __**CPU-bound process**__ – spends more time doing computations; few very long CPU bursts.
     * 行程大部份的時間在做計算，只有少部份的時間在做  I/O。
     
 ![](https://i.imgur.com/Xnhn0Sa.jpg)
