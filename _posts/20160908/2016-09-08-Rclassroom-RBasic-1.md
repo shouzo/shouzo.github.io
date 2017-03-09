@@ -3,7 +3,7 @@ layout: post
 title:  "20160908 [R語言翻轉教室] 01-RBasic (1)"
 date:   2016-09-08 23:59:59
 categories: R語言
-tags: R語言 R語言翻轉教室 Data-Science
+tags: R語言 Data-Science
 ---
 
 * content
