@@ -52,13 +52,13 @@ execute.
     * Processes migrate among the various queues.
 
 ### Schedulers
-* **++Long-term scheduler++** (or job scheduler) – selects which processes should be brought into the
+* **Long-term scheduler** (or job scheduler) – selects which processes should be brought into the
 ready queue.
-* **++Short-term scheduler++** (or CPU scheduler) – selects which process should be executed next and
+* **Short-term scheduler** (or CPU scheduler) – selects which process should be executed next and
 allocates CPU.
     * Sometimes the only scheduler in a system.
-* The long-term scheduler controls the **++degree of multiprogramming++**.
-* **++Medium-term scheduler++** can be added if degree of multiple programming needs to decrease.
+* The long-term scheduler controls the **degree of multiprogramming**.
+* **Medium-term scheduler** can be added if degree of multiple programming needs to decrease.
     * Remove process from memory, store on disk, bring back in from disk to continue execution:
 swapping.
 
@@ -96,7 +96,6 @@ int main(void) {
 /* fork a child process */
 	pid = fork();
 
-	
 	if (pid < 0) {		// erro occurred
 		fprintf(stderr, "Fork Failed");
 		return 1;
@@ -108,8 +107,7 @@ int main(void) {
 		// parent will wait for the child to complete
 		wait(NULL);
 		printf("Child Complete\n");
-	}
-	
+	}	
 	return 0;
 }
 ```
