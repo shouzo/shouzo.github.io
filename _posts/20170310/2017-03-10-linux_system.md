@@ -245,13 +245,10 @@ int main(void) {
 int sigaction(int sig,const struct sigaction *act, struct sigaction *oact);
 ```
 * 參數說明
-    * sig: 要處理的訊號,若 act 指針非空, 則根據 act 修改
-該信號的處理動作。若 oact 指針非空,則通過 oact 傳出
-該信號原來的處理動作。
+    * sig: 要處理的訊號,若 act 指針非空, 則根據 act 修改該信號的處理動作；若 oact 指針非空, 則通過 oact 傳出該信號原來的處理動作。
     * void(*)(int) sa_handler
     * sigset_t sa_mask
     * int sa_flags
     * sa_handler 代表新的信號處理。
-    * sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定
-的信號集擱置。
+    * sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定的信號集擱置。
     * sa_flags 用來設置信號處理的其他相關操作。
