@@ -5,9 +5,370 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Mar 2017 21:14:51 +0800</pubDate>
-    <lastBuildDate>Thu, 09 Mar 2017 21:14:51 +0800</lastBuildDate>
+    <pubDate>Tue, 14 Mar 2017 15:01:26 +0800</pubDate>
+    <lastBuildDate>Tue, 14 Mar 2017 15:01:26 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20170310 [學習筆記] Linux 系統程式 (2)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#process-in-memory&quot; id=&quot;markdown-toc-process-in-memory&quot;&gt;(一) Process in Memory&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#process-state&quot; id=&quot;markdown-toc-process-state&quot;&gt;(二) Process State&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#process-control-block-pcb&quot; id=&quot;markdown-toc-process-control-block-pcb&quot;&gt;(三) Process Control Block (PCB)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#process-switch&quot; id=&quot;markdown-toc-process-switch&quot;&gt;(四) Process Switch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#processthread&quot; id=&quot;markdown-toc-processthread&quot;&gt;(五) Process、Thread&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#process-scheduling&quot; id=&quot;markdown-toc-process-scheduling&quot;&gt;(六) Process Scheduling&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#schedulers&quot; id=&quot;markdown-toc-schedulers&quot;&gt;Schedulers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#processes&quot; id=&quot;markdown-toc-processes&quot;&gt;Processes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#process-creation&quot; id=&quot;markdown-toc-process-creation&quot;&gt;(七) Process Creation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#unix-system-call&quot; id=&quot;markdown-toc-unix-system-call&quot;&gt;(一) Unix system call&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#execv&quot; id=&quot;markdown-toc-execv&quot;&gt;1. execv()&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#signals&quot; id=&quot;markdown-toc-signals&quot;&gt;(二) Signals&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#unix-process-control&quot; id=&quot;markdown-toc-unix-process-control&quot;&gt;1. UNIX Process Control&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#kill-command&quot; id=&quot;markdown-toc-kill-command&quot;&gt;2. kill Command&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#function-call&quot; id=&quot;markdown-toc-function-call&quot;&gt;3. Function Call&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#linux-signal&quot; id=&quot;markdown-toc-linux-signal&quot;&gt;4. Linux Signal&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#signalh&quot; id=&quot;markdown-toc-signalh&quot;&gt;5. 訊號處理 - signal.h&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#signal&quot; id=&quot;markdown-toc-signal&quot;&gt;(1) signal()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#sigaction&quot; id=&quot;markdown-toc-sigaction&quot;&gt;(2) sigaction()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;一、作業系統&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170309/ch03.pdf&quot;&gt;課程簡報 - Ch3：Process Concept&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;process-in-memory&quot;&gt;(一) Process in Memory&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/I9HnU1O.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;process-state&quot;&gt;(二) Process State&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/mFSgwiJ.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+   * &lt;strong&gt;new&lt;/strong&gt;: The process is being created.&lt;br /&gt;
+   * &lt;strong&gt;running&lt;/strong&gt;: Instructions are being executed.&lt;br /&gt;
+   * &lt;strong&gt;waiting&lt;/strong&gt;: The process is waiting for some event to occur.&lt;br /&gt;
+   * &lt;strong&gt;ready&lt;/strong&gt;: The process is waiting to be assigned to a processor.&lt;br /&gt;
+   * &lt;strong&gt;terminated&lt;/strong&gt;: The process has finished execution.&lt;/p&gt;
+
+&lt;h3 id=&quot;process-control-block-pcb&quot;&gt;(三) Process Control Block (PCB)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/fOf7e2Q.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;process-switch&quot;&gt;(四) Process Switch&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Bto5DiZ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;processthread&quot;&gt;(五) Process、Thread&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://goo.gl/whe9F&quot;&gt;Program / Process / Thread 的差別&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://goo.gl/5BnKWN&quot;&gt;“Process 行程”、”Thread 執行緒”、”Multithreading 多執行緒” 簡介&lt;/a&gt;&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/DI9y5OS.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;process-scheduling&quot;&gt;(六) Process Scheduling&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Process scheduler selects among available processes for next execution on CPU.&lt;/li&gt;
+  &lt;li&gt;Maintains scheduling queues of processes.
+    &lt;ul&gt;
+      &lt;li&gt;Job queue – set of all processes in the system.&lt;/li&gt;
+      &lt;li&gt;Ready queue – set of all processes residing in main memory, ready and waiting to&lt;br /&gt;
+execute.&lt;/li&gt;
+      &lt;li&gt;Device queues – set of processes waiting for an I/O device.&lt;/li&gt;
+      &lt;li&gt;Processes migrate among the various queues.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;schedulers&quot;&gt;Schedulers&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Long-term scheduler&lt;/strong&gt; (or job scheduler) – selects which processes should be brought into the&lt;br /&gt;
+ready queue.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Short-term scheduler&lt;/strong&gt; (or CPU scheduler) – selects which process should be executed next and&lt;br /&gt;
+allocates CPU.
+    &lt;ul&gt;
+      &lt;li&gt;Sometimes the only scheduler in a system.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The long-term scheduler controls the &lt;strong&gt;degree of multiprogramming&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Medium-term scheduler&lt;/strong&gt; can be added if degree of multiple programming needs to decrease.
+    &lt;ul&gt;
+      &lt;li&gt;Remove process from memory, store on disk, bring back in from disk to continue execution:&lt;br /&gt;
+swapping.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://enews.open2u.com.tw/~noupd/book_up/1746/8719.htm&quot;&gt;Degree of multiprogramming&lt;/a&gt;&lt;/strong&gt;：多工程度、記憶體中行程的總數量&lt;/p&gt;
+
+&lt;h4 id=&quot;processes&quot;&gt;Processes&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;I/O-bound process&lt;/strong&gt; – spends more time doing I/O than computations, many short CPU&lt;br /&gt;
+bursts.
+    &lt;ul&gt;
+      &lt;li&gt;行程大部份的時間在做 I/O，只有少部份的時間在做計算。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CPU-bound process&lt;/strong&gt; – spends more time doing computations; few very long CPU bursts.
+    &lt;ul&gt;
+      &lt;li&gt;行程大部份的時間在做計算，只有少部份的時間在做  I/O。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Xnhn0Sa.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;process-creation&quot;&gt;(七) Process Creation&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/MDkGD81.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+* UNIX examples&lt;br /&gt;
+    * &lt;strong&gt;fork()&lt;/strong&gt;：system call creates new process&lt;br /&gt;
+    * &lt;strong&gt;exec()&lt;/strong&gt;：system call used after a fork() to replace the process’ memory space with a new program&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AxrT24a.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;課程作業&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;unistd.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;pid_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	
+&lt;span class=&quot;cm&quot;&gt;/* fork a child process */&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fork&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;// erro occurred
+&lt;/span&gt;		&lt;span class=&quot;n&quot;&gt;fprintf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Fork Failed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;// child process
+&lt;/span&gt;		&lt;span class=&quot;n&quot;&gt;execlp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/bin/ls&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;ls&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// parent process
+&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;// parent will wait for the child to complete
+&lt;/span&gt;		&lt;span class=&quot;n&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Child Complete&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;	
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/CfTMr9N.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Creating_and_Executing_Processes.pdf&quot;&gt;課程簡報 - Creating and Executing Processes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf&quot;&gt;課程練習 - Signal&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;unix-system-call&quot;&gt;(一) Unix system call&lt;/h3&gt;
+
+&lt;h4 id=&quot;execv&quot;&gt;1. execv()&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;課堂練習： &lt;code class=&quot;highlighter-rouge&quot;&gt;execv()&lt;/code&gt; 的概念&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;stdlib.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/bin/ls&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;-1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fork&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Fork error &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* Child executes here */&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;execv&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Exec error &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;		&lt;span class=&quot;cm&quot;&gt;/* Parent executes here */&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello there! &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;signals&quot;&gt;(二) Signals&lt;/h3&gt;
+
+&lt;h4 id=&quot;unix-process-control&quot;&gt;1. UNIX Process Control&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/kFzherv.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;kill-command&quot;&gt;2. kill Command&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;kill -signal pid&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Example
+    &lt;ul&gt;
+      &lt;li&gt;&lt;em&gt;kill –2 1234&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;em&gt;kill -SIGINT 1234&lt;/em&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Same as pressing Ctrl-c if process 1234 is running in foreground.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;function-call&quot;&gt;3. Function Call&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;raise()&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SIGINT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* Process commits suicide. */&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* Shouldn&#39;t get here. */&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;kill()&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;int kill(pid_t iPid, int iSig);&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pid_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iPid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getpid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* Process gets its id.*/&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;kill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iPid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SIGINT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* Process sends itself a SIGINT signal (commits suicide?) */&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;linux-signal&quot;&gt;4. Linux Signal&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.comptechdoc.org/os/linux/programming/linux_pgsignals.html&quot;&gt;Linux Signal 種類&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Ctrl-C (in older Unixes, DEL)
+        &lt;ul&gt;
+          &lt;li&gt;sends an INT signal (SIGINT)&lt;/li&gt;
+          &lt;li&gt;by default, this causes the process to terminate.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Ctrl-Z
+        &lt;ul&gt;
+          &lt;li&gt;sends a TSTP signal (SIGTSTP)&lt;/li&gt;
+          &lt;li&gt;by default, this causes the process to suspend execution.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Ctrl-\
+        &lt;ul&gt;
+          &lt;li&gt;sends a QUIT signal (SIGQUIT)&lt;/li&gt;
+          &lt;li&gt;by default, this causes the process to terminate and dump core.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;signalh&quot;&gt;5. 訊號處理 - signal.h&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;意義說明
+    &lt;ul&gt;
+      &lt;li&gt;SIGABORT    程序停止&lt;/li&gt;
+      &lt;li&gt;SIGALRM     警示&lt;/li&gt;
+      &lt;li&gt;SIGFPE      浮點數例外&lt;/li&gt;
+      &lt;li&gt;SIGHUP      掛斷&lt;/li&gt;
+      &lt;li&gt;SIGILL      非法指令&lt;/li&gt;
+      &lt;li&gt;SIGINT      終端機插斷&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;signal&quot;&gt;(1) signal()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;signal.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;攔截 Ctrl-C 訊號&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;signal.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;unistd.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ouch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;OUCH! - I got signal %d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SIGINT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SIG_DFL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SIGINT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ouch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	
+	&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;sigaction&quot;&gt;(2) sigaction()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;signal.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigaction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;act&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigaction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;oact&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;參數說明
+    &lt;ul&gt;
+      &lt;li&gt;sig: 要處理的訊號,若 act 指針非空, 則根據 act 修改&lt;br /&gt;
+該信號的處理動作。若 oact 指針非空,則通過 oact 傳出&lt;br /&gt;
+該信號原來的處理動作。&lt;/li&gt;
+      &lt;li&gt;void(*)(int) sa_handler&lt;/li&gt;
+      &lt;li&gt;sigset_t sa_mask&lt;/li&gt;
+      &lt;li&gt;int sa_flags&lt;/li&gt;
+      &lt;li&gt;sa_handler 代表新的信號處理。&lt;/li&gt;
+      &lt;li&gt;sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定&lt;br /&gt;
+的信號集擱置。&lt;/li&gt;
+      &lt;li&gt;sa_flags 用來設置信號處理的其他相關操作。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 10 Mar 2017 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/03/10/linux_system/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/03/10/linux_system/</guid>
+        
+        <category>Linux</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+        
+        <category>Linux</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+      </item>
     
       <item>
         <title>20170309 [學習筆記] 人工智慧 (2)</title>
@@ -705,170 +1066,6 @@
         <category>R語言</category>
         
         <category>Data-Science</category>
-        
-      </item>
-    
-      <item>
-        <title>20160915 [R語言翻轉教室] 01-RBasic (2)</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#rhttpdatascienceandrorg&quot; id=&quot;markdown-toc-rhttpdatascienceandrorg&quot;&gt;整理自 &lt;a href=&quot;http://datascienceandr.org/&quot;&gt;R語言翻轉教室&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#rbasic&quot; id=&quot;markdown-toc-rbasic&quot;&gt;課程進度：RBasic&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#data-structure-object&quot; id=&quot;markdown-toc-data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;物件結構&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#modelength&quot; id=&quot;markdown-toc-modelength&quot;&gt;[屬性] mode()、length()&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#attributesnamesclass&quot; id=&quot;markdown-toc-attributesnamesclass&quot;&gt;[屬性] attributes()、names()、class()&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#factors&quot; id=&quot;markdown-toc-factors&quot;&gt;(二) 04-Factors&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#factorlevels&quot; id=&quot;markdown-toc-factorlevels&quot;&gt;[屬性] factor()、levels()&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#str&quot; id=&quot;markdown-toc-str&quot;&gt;[屬性] str()&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#arrays-matrices&quot; id=&quot;markdown-toc-arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#dim&quot; id=&quot;markdown-toc-dim&quot;&gt;[屬性] dim()&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#array&quot; id=&quot;markdown-toc-array&quot;&gt;[屬性] array()&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#cbindrbind&quot; id=&quot;markdown-toc-cbindrbind&quot;&gt;[屬性] cbind()、rbind()&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;rhttpdatascienceandrorg&quot;&gt;整理自 &lt;a href=&quot;http://datascienceandr.org/&quot;&gt;R語言翻轉教室&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;版本資訊 (sha-hash：4636e186)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;rbasic&quot;&gt;課程進度：RBasic&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;01-RBasic-01-Introduction …ok&lt;/li&gt;
-  &lt;li&gt;01-RBasic-02-Data-Structure-Vectors …ok&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-03-Data-Structure-Object.html&quot;&gt;01-RBasic-03-Data-Structure-Object&lt;/a&gt; (O)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-04-Factors.html&quot;&gt;01-RBasic-04-Factors&lt;/a&gt; (O)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://datascienceandr.org/note/01-RBasic-05-Arrays-Matrices.html&quot;&gt;01-RBasic-05-Arrays-Matrices&lt;/a&gt; (O)&lt;/li&gt;
-  &lt;li&gt;01-RBasic-06-List-DataFrame&lt;/li&gt;
-  &lt;li&gt;01-RBasic-07-Loading-Dataset&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;data-structure-object&quot;&gt;(一) 03-Data-Structure-Object&lt;/h2&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;物件結構&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;向量：最基礎的『物件』。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;modelength&quot;&gt;[屬性] mode()、length()&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;mode()：查詢向量的型態。&lt;/li&gt;
-  &lt;li&gt;length()：查詢向量的值的個數。
-    &lt;ul&gt;
-      &lt;li&gt;型態：&lt;code class=&quot;highlighter-rouge&quot;&gt;logical&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;integer&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;numeric&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;complex&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;character&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;raw&lt;/code&gt;。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 用`mode`和`length`函數來查詢向量的型態和長度。
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;numeric&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;attributesnamesclass&quot;&gt;[屬性] attributes()、names()、class()&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;attributes()：查詢物件的屬性。&lt;/li&gt;
-  &lt;li&gt;names()：查詢物件的名字。&lt;/li&gt;
-  &lt;li&gt;class()：查詢物件的類別。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 用`attributes`、`names`和`class`函數來查詢向量的屬性、名稱和類別。
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;coefficients&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;residuals&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;effects&quot;&lt;/span&gt;      
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;rank&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;fitted.values&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;assign&quot;&lt;/span&gt;       
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;qr&quot;&lt;/span&gt;            &lt;span class=&quot;s2&quot;&gt;&quot;df.residual&quot;&lt;/span&gt;   &lt;span class=&quot;s2&quot;&gt;&quot;xlevels&quot;&lt;/span&gt;      
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;call&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;terms&quot;&lt;/span&gt;         &lt;span class=&quot;s2&quot;&gt;&quot;model&quot;&lt;/span&gt;        
-
-&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;lm&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;coefficients&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;residuals&quot;&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&quot;effects&quot;&lt;/span&gt;      
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;rank&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;fitted.values&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;assign&quot;&lt;/span&gt;       
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;qr&quot;&lt;/span&gt;            &lt;span class=&quot;s2&quot;&gt;&quot;df.residual&quot;&lt;/span&gt;   &lt;span class=&quot;s2&quot;&gt;&quot;xlevels&quot;&lt;/span&gt;      
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;call&quot;&lt;/span&gt;          &lt;span class=&quot;s2&quot;&gt;&quot;terms&quot;&lt;/span&gt;         &lt;span class=&quot;s2&quot;&gt;&quot;model&quot;&lt;/span&gt;        
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;lm&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;factors&quot;&gt;(二) 04-Factors&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;範例：血型分類&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blood_type&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;factorlevels&quot;&gt;[屬性] factor()、levels()&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;factor()：將資料轉為factor向量。&lt;/li&gt;
-  &lt;li&gt;levels()：取出向量中的類別。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Levels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blood_type_factor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;str&quot;&gt;[屬性] str()&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;str()：觀察factor向量的結構。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blood_type_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;Factor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AB&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;O&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;arrays-matrices&quot;&gt;(三) 05-Arrays-Matrices&lt;/h2&gt;
-&lt;p&gt;#### [屬性] matrix()&lt;/p&gt;
-
-&lt;h4 id=&quot;dim&quot;&gt;[屬性] dim()&lt;/h4&gt;
-
-&lt;h4 id=&quot;array&quot;&gt;[屬性] array()&lt;/h4&gt;
-
-&lt;h4 id=&quot;cbindrbind&quot;&gt;[屬性] cbind()、rbind()&lt;/h4&gt;
-
-</description>
-        <pubDate>Fri, 16 Sep 2016 07:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/09/16/Rclassroom-RBasic-2/</guid>
-        
-        <category>R語言</category>
-        
-        <category>Data-Science</category>
-        
-        
-        <category>R語言</category>
         
       </item>
     

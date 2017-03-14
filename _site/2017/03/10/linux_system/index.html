@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20170310 [學習筆記] Linux 系統程式 (2)</title>
+    <meta name="description" content="  一、作業系統  (一) Process in Memory  (二) Process State  (三) Process Control Block (PCB)  (四) Process Switch  (五) Process、Thread  (六) Process Scheduling          ...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2017/03/10/linux_system/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20170310 [學習筆記] Linux 系統程式 (2)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-03-10
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a></li>
+  <li><a href="#process-in-memory" id="markdown-toc-process-in-memory">(一) Process in Memory</a></li>
+  <li><a href="#process-state" id="markdown-toc-process-state">(二) Process State</a></li>
+  <li><a href="#process-control-block-pcb" id="markdown-toc-process-control-block-pcb">(三) Process Control Block (PCB)</a></li>
+  <li><a href="#process-switch" id="markdown-toc-process-switch">(四) Process Switch</a></li>
+  <li><a href="#processthread" id="markdown-toc-processthread">(五) Process、Thread</a></li>
+  <li><a href="#process-scheduling" id="markdown-toc-process-scheduling">(六) Process Scheduling</a>    <ul>
+      <li><a href="#schedulers" id="markdown-toc-schedulers">Schedulers</a></li>
+      <li><a href="#processes" id="markdown-toc-processes">Processes</a></li>
+    </ul>
+  </li>
+  <li><a href="#process-creation" id="markdown-toc-process-creation">(七) Process Creation</a></li>
+  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a></li>
+  <li><a href="#unix-system-call" id="markdown-toc-unix-system-call">(一) Unix system call</a>    <ul>
+      <li><a href="#execv" id="markdown-toc-execv">1. execv()</a></li>
+    </ul>
+  </li>
+  <li><a href="#signals" id="markdown-toc-signals">(二) Signals</a>    <ul>
+      <li><a href="#unix-process-control" id="markdown-toc-unix-process-control">1. UNIX Process Control</a></li>
+      <li><a href="#kill-command" id="markdown-toc-kill-command">2. kill Command</a></li>
+      <li><a href="#function-call" id="markdown-toc-function-call">3. Function Call</a></li>
+      <li><a href="#linux-signal" id="markdown-toc-linux-signal">4. Linux Signal</a></li>
+      <li><a href="#signalh" id="markdown-toc-signalh">5. 訊號處理 - signal.h</a>        <ul>
+          <li><a href="#signal" id="markdown-toc-signal">(1) signal()</a></li>
+          <li><a href="#sigaction" id="markdown-toc-sigaction">(2) sigaction()</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="section">一、作業系統</h3>
+<ul>
+  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170309/ch03.pdf">課程簡報 - Ch3：Process Concept</a></li>
+</ul>
+
+<h3 id="process-in-memory">(一) Process in Memory</h3>
+<p><img src="https://i.imgur.com/I9HnU1O.jpg" alt="" /></p>
+
+<h3 id="process-state">(二) Process State</h3>
+<p><img src="https://i.imgur.com/mFSgwiJ.jpg" alt="" /><br />
+   * <strong>new</strong>: The process is being created.<br />
+   * <strong>running</strong>: Instructions are being executed.<br />
+   * <strong>waiting</strong>: The process is waiting for some event to occur.<br />
+   * <strong>ready</strong>: The process is waiting to be assigned to a processor.<br />
+   * <strong>terminated</strong>: The process has finished execution.</p>
+
+<h3 id="process-control-block-pcb">(三) Process Control Block (PCB)</h3>
+<p><img src="https://i.imgur.com/fOf7e2Q.jpg" alt="" /></p>
+
+<h3 id="process-switch">(四) Process Switch</h3>
+<p><img src="https://i.imgur.com/Bto5DiZ.jpg" alt="" /></p>
+
+<h3 id="processthread">(五) Process、Thread</h3>
+<ul>
+  <li>參考資料
+    <ul>
+      <li><a href="https://goo.gl/whe9F">Program / Process / Thread 的差別</a></li>
+      <li><a href="https://goo.gl/5BnKWN">“Process 行程”、”Thread 執行緒”、”Multithreading 多執行緒” 簡介</a><br />
+<img src="https://i.imgur.com/DI9y5OS.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="process-scheduling">(六) Process Scheduling</h3>
+<ul>
+  <li>Process scheduler selects among available processes for next execution on CPU.</li>
+  <li>Maintains scheduling queues of processes.
+    <ul>
+      <li>Job queue – set of all processes in the system.</li>
+      <li>Ready queue – set of all processes residing in main memory, ready and waiting to<br />
+execute.</li>
+      <li>Device queues – set of processes waiting for an I/O device.</li>
+      <li>Processes migrate among the various queues.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="schedulers">Schedulers</h4>
+<ul>
+  <li><strong>Long-term scheduler</strong> (or job scheduler) – selects which processes should be brought into the<br />
+ready queue.</li>
+  <li><strong>Short-term scheduler</strong> (or CPU scheduler) – selects which process should be executed next and<br />
+allocates CPU.
+    <ul>
+      <li>Sometimes the only scheduler in a system.</li>
+    </ul>
+  </li>
+  <li>The long-term scheduler controls the <strong>degree of multiprogramming</strong>.</li>
+  <li><strong>Medium-term scheduler</strong> can be added if degree of multiple programming needs to decrease.
+    <ul>
+      <li>Remove process from memory, store on disk, bring back in from disk to continue execution:<br />
+swapping.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong><a href="http://enews.open2u.com.tw/~noupd/book_up/1746/8719.htm">Degree of multiprogramming</a></strong>：多工程度、記憶體中行程的總數量</p>
+
+<h4 id="processes">Processes</h4>
+<ul>
+  <li><strong>I/O-bound process</strong> – spends more time doing I/O than computations, many short CPU<br />
+bursts.
+    <ul>
+      <li>行程大部份的時間在做 I/O，只有少部份的時間在做計算。</li>
+    </ul>
+  </li>
+  <li><strong>CPU-bound process</strong> – spends more time doing computations; few very long CPU bursts.
+    <ul>
+      <li>行程大部份的時間在做計算，只有少部份的時間在做  I/O。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/Xnhn0Sa.jpg" alt="" /></p>
+
+<h3 id="process-creation">(七) Process Creation</h3>
+<p><img src="https://i.imgur.com/MDkGD81.jpg" alt="" /><br />
+* UNIX examples<br />
+    * <strong>fork()</strong>：system call creates new process<br />
+    * <strong>exec()</strong>：system call used after a fork() to replace the process’ memory space with a new program</p>
+
+<p><img src="https://i.imgur.com/AxrT24a.jpg" alt="" /></p>
+
+<ul>
+  <li>課程作業</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+	
+<span class="cm">/* fork a child process */</span>
+	<span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>		<span class="c1">// erro occurred
+</span>		<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Fork Failed"</span><span class="p">);</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// child process
+</span>		<span class="n">execlp</span><span class="p">(</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"ls"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="p">{</span>			<span class="c1">// parent process
+</span>		<span class="c1">// parent will wait for the child to complete
+</span>		<span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Child Complete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="p">}</span>	
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>執行結果</li>
+</ul>
+
+<p><img src="https://i.imgur.com/CfTMr9N.jpg" alt="" /></p>
+
+<h3 id="linux-">二、Linux 程式設計</h3>
+<ul>
+  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Creating_and_Executing_Processes.pdf">課程簡報 - Creating and Executing Processes</a></li>
+  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf">課程練習 - Signal</a></li>
+</ul>
+
+<h3 id="unix-system-call">(一) Unix system call</h3>
+
+<h4 id="execv">1. execv()</h4>
+
+<ul>
+  <li>課堂練習： <code class="highlighter-rouge">execv()</code> 的概念</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"-1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="kt">int</span> <span class="n">pid</span><span class="p">,</span> <span class="n">status</span><span class="p">;</span>
+
+	<span class="k">if</span> <span class="p">((</span><span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">())</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Fork error </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="cm">/* Child executes here */</span>
+		<span class="n">execv</span> <span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">argv</span><span class="p">);</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Exec error </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span> <span class="k">else</span>		<span class="cm">/* Parent executes here */</span>
+		<span class="n">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">status</span><span class="p">);</span>
+
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Hello there! </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="signals">(二) Signals</h3>
+
+<h4 id="unix-process-control">1. UNIX Process Control</h4>
+<p><img src="https://i.imgur.com/kFzherv.jpg" alt="" /></p>
+
+<h4 id="kill-command">2. kill Command</h4>
+<blockquote>
+  <p>kill -signal pid</p>
+</blockquote>
+
+<ul>
+  <li>Example
+    <ul>
+      <li><em>kill –2 1234</em></li>
+      <li><em>kill -SIGINT 1234</em>
+        <ul>
+          <li>Same as pressing Ctrl-c if process 1234 is running in foreground.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="function-call">3. Function Call</h4>
+<ul>
+  <li>raise()</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">raise</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">);</span> <span class="cm">/* Process commits suicide. */</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>	<span class="cm">/* Shouldn't get here. */</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>kill()</li>
+</ul>
+
+<blockquote>
+  <p>int kill(pid_t iPid, int iSig);</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pid_t</span> <span class="n">iPid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span> <span class="cm">/* Process gets its id.*/</span>
+<span class="n">kill</span><span class="p">(</span><span class="n">iPid</span><span class="p">,</span> <span class="n">SIGINT</span><span class="p">);</span>	<span class="cm">/* Process sends itself a SIGINT signal (commits suicide?) */</span>
+</code></pre>
+</div>
+
+<h4 id="linux-signal">4. Linux Signal</h4>
+<ul>
+  <li><a href="http://www.comptechdoc.org/os/linux/programming/linux_pgsignals.html">Linux Signal 種類</a>
+    <ul>
+      <li>Ctrl-C (in older Unixes, DEL)
+        <ul>
+          <li>sends an INT signal (SIGINT)</li>
+          <li>by default, this causes the process to terminate.</li>
+        </ul>
+      </li>
+      <li>Ctrl-Z
+        <ul>
+          <li>sends a TSTP signal (SIGTSTP)</li>
+          <li>by default, this causes the process to suspend execution.</li>
+        </ul>
+      </li>
+      <li>Ctrl-\
+        <ul>
+          <li>sends a QUIT signal (SIGQUIT)</li>
+          <li>by default, this causes the process to terminate and dump core.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="signalh">5. 訊號處理 - signal.h</h4>
+<ul>
+  <li>意義說明
+    <ul>
+      <li>SIGABORT    程序停止</li>
+      <li>SIGALRM     警示</li>
+      <li>SIGFPE      浮點數例外</li>
+      <li>SIGHUP      掛斷</li>
+      <li>SIGILL      非法指令</li>
+      <li>SIGINT      終端機插斷</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="signal">(1) signal()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+</span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))(</span><span class="kt">int</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>攔截 Ctrl-C 訊號</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">ouch</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"OUCH! - I got signal %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
+	<span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">SIG_DFL</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">ouch</span><span class="p">);</span>
+	
+	<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Hello World!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h5 id="sigaction">(2) sigaction()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+</span><span class="kt">int</span> <span class="n">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">act</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">oact</span><span class="p">);</span>
+</code></pre>
+</div>
+<ul>
+  <li>參數說明
+    <ul>
+      <li>sig: 要處理的訊號,若 act 指針非空, 則根據 act 修改<br />
+該信號的處理動作。若 oact 指針非空,則通過 oact 傳出<br />
+該信號原來的處理動作。</li>
+      <li>void(*)(int) sa_handler</li>
+      <li>sigset_t sa_mask</li>
+      <li>int sa_flags</li>
+      <li>sa_handler 代表新的信號處理。</li>
+      <li>sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定<br />
+的信號集擱置。</li>
+      <li>sa_flags 用來設置信號處理的其他相關操作。</li>
+    </ul>
+  </li>
+</ul>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/04/linux_system/">20170303 [學習筆記] Linux 系統程式 (1)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2017/03/09/ai/">20170309 [學習筆記] 人工智慧 (2)</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2017/03/10/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/03/10/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>
