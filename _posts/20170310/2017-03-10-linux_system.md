@@ -121,7 +121,7 @@ int main(void) {
 
 ### 二、Linux 程式設計
 * [課程簡報 - Creating and Executing Processes](https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Creating_and_Executing_Processes.pdf)
-* [課程練習 - Signal](https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf)
+* [課程簡報 - Signal](https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf)
 
 
 ### (一) Unix system call
