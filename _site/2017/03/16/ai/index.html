@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>20170303 [學習筆記] Linux 系統程式 (1)</title>
-    <meta name="description" content="  (一) 作業系統(一) 作業系統  課程簡報 - Ch1：Introduction">
+    <title>20170316 [學習筆記] 人工智慧 (3)</title>
+    <meta name="description" content="  (一)  (二)  (三)  (四)(一)(二)(三)(四)">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://shouzo.github.io/2017/03/04/linux_system/">
+    <link rel="canonical" href="http://shouzo.github.io/2017/03/16/ai/">
     <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
 
 
@@ -123,11 +123,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>20170303 [學習筆記] Linux 系統程式 (1)</h1>
+        <h1>20170316 [學習筆記] 人工智慧 (3)</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2017-03-04
+                <i class="fa fa-calendar"></i>2017-03-16
             </div>
 
             <div class="label-card">
@@ -147,11 +147,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
     
   
 
@@ -168,14 +164,8 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+        <!--a href="/tag/#%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7" title="Tag: 人工智慧" rel="tag">人工智慧</a-->
+        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
     
   
 
@@ -187,60 +177,19 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">(一) 作業系統</a></li>
-  <li><a href="#linux-" id="markdown-toc-linux-">(二) Linux 程式設計</a></li>
+  <li><a href="#section" id="markdown-toc-section">(一)</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">(二)</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">(三)</a></li>
+  <li><a href="#section-3" id="markdown-toc-section-3">(四)</a></li>
 </ul>
 
-<h3 id="section">(一) 作業系統</h3>
-<ul>
-  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf">課程簡報 - Ch1：Introduction</a></li>
-</ul>
+<h3 id="section">(一)</h3>
 
-<h3 id="linux-">(二) Linux 程式設計</h3>
-<ul>
-  <li>
-    <p><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170303/Creating_and_Executing_Processes.pdf">課程簡報 - Creating and Executing Processes</a></p>
-  </li>
-  <li>
-    <p>課程作業： <code class="highlighter-rouge">fork()</code> 的概念</p>
-  </li>
-</ul>
+<h3 id="section-1">(二)</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-<span class="cm">/* Press any Integer */</span>
-	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<h3 id="section-2">(三)</h3>
 
-<span class="cm">/* Use "fork()" to create Child's and Parent's process */</span>
-	<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
-	<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>	<span class="c1">// Set the "result" initial value
-</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// Child's entry
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">***** Child's pid = %d *****</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
-		<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">--&gt;</span> <span class="mi">0</span><span class="p">)</span>
-			<span class="n">result</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">"1 + 2 + ... + n = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
-		<span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>	<span class="c1">// Parent's entry
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"***** Parent's pid = %d *****</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">"n 的因數：%d"</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-		<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">--&gt;</span> <span class="mi">1</span><span class="p">)</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-				<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">%d"</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-		<span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-<ul>
-  <li><strong>執行結果</strong></li>
-</ul>
-
-<p><img src="https://i.imgur.com/TKyt2rB.jpg" alt="" /></p>
+<h3 id="section-3">(四)</h3>
 
         </article>
         <hr>
@@ -252,7 +201,11 @@
                 
                     
                 
+            
+                
                     
+                
+            
                 
                     
                 
@@ -267,7 +220,7 @@
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/03/10/linux_system/">20170310 [學習筆記] Linux 系統程式 (2)
+                            <a href="http://shouzo.github.io/2017/03/09/ai/">20170309 [學習筆記] 人工智慧 (2)
                             
                             </a>
                         </li>
@@ -275,7 +228,10 @@
                         
                     
                 
-                    
+            
+        
+            
+            
                 
                     
                 
@@ -283,15 +239,30 @@
                 
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
+            
+        
+            
+            
+                
                     
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/02/ai/">20170302 [學習筆記] 人工智慧 (1)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
                 
                     
                 
@@ -302,7 +273,18 @@
                 
                     
                 
+            
+        
+            
+            
+                
                     
+                
+            
+                
+                    
+                
+            
                 
                     
                 
@@ -313,7 +295,11 @@
                 
                     
                 
+            
+                
                     
+                
+            
                 
                     
                 
@@ -324,7 +310,11 @@
                 
                     
                 
+            
+                
                     
+                
+            
                 
                     
                 
@@ -335,115 +325,11 @@
                 
                     
                 
-                    
-                
-                    
-                
-            
-        
-            
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
                 
                     
                 
@@ -457,13 +343,11 @@
     
     <div class="pre">
 
-        <p><strong>上一篇</strong> <a href="/2017/03/02/ai/">20170302 [學習筆記] 人工智慧 (1)</a></p>
+        <p><strong>上一篇</strong> <a href="/2017/03/10/linux_system/">20170310 [學習筆記] Linux 系統程式 (2)</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2017/03/09/ai/">20170309 [學習筆記] 人工智慧 (2)</a></p>
         
     </div>
 </div>
@@ -481,8 +365,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://shouzo.github.io/2017/03/04/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://shouzo.github.io/2017/03/04/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://shouzo.github.io/2017/03/16/ai/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/03/16/ai/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
