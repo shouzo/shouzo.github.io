@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 14 Mar 2017 15:01:26 +0800</pubDate>
-    <lastBuildDate>Tue, 14 Mar 2017 15:01:26 +0800</lastBuildDate>
+    <pubDate>Thu, 16 Mar 2017 11:24:24 +0800</pubDate>
+    <lastBuildDate>Thu, 16 Mar 2017 11:24:24 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -176,7 +176,7 @@ bursts.
 &lt;h3 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Creating_and_Executing_Processes.pdf&quot;&gt;課程簡報 - Creating and Executing Processes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf&quot;&gt;課程練習 - Signal&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf&quot;&gt;課程簡報 - Signal&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;unix-system-call&quot;&gt;(一) Unix system call&lt;/h3&gt;
@@ -337,15 +337,12 @@ bursts.
 &lt;ul&gt;
   &lt;li&gt;參數說明
     &lt;ul&gt;
-      &lt;li&gt;sig: 要處理的訊號,若 act 指針非空, 則根據 act 修改&lt;br /&gt;
-該信號的處理動作。若 oact 指針非空,則通過 oact 傳出&lt;br /&gt;
-該信號原來的處理動作。&lt;/li&gt;
+      &lt;li&gt;sig: 要處理的訊號,若 act 指針非空, 則根據 act 修改該信號的處理動作；若 oact 指針非空, 則通過 oact 傳出該信號原來的處理動作。&lt;/li&gt;
       &lt;li&gt;void(*)(int) sa_handler&lt;/li&gt;
       &lt;li&gt;sigset_t sa_mask&lt;/li&gt;
       &lt;li&gt;int sa_flags&lt;/li&gt;
       &lt;li&gt;sa_handler 代表新的信號處理。&lt;/li&gt;
-      &lt;li&gt;sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定&lt;br /&gt;
-的信號集擱置。&lt;/li&gt;
+      &lt;li&gt;sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定的信號集擱置。&lt;/li&gt;
       &lt;li&gt;sa_flags 用來設置信號處理的其他相關操作。&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -409,8 +406,8 @@ bursts.
 
 &lt;h3 id=&quot;section-3&quot;&gt;(四) 歸屬函數&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Gpc2LC6.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;http://i.imgur.com/y4EhTeh.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;https://i.imgur.com/RyD8f4B.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/FMzkKv4.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/0xXjYx6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 09 Mar 2017 08:00:00 +0800</pubDate>
         <link>http://shouzo.github.io/2017/03/09/ai/</link>
@@ -538,8 +535,9 @@ bursts.
 &lt;img src=&quot;https://i.imgur.com/dlm1zVL.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;[範例] 模糊智慧型控制&lt;/strong&gt;&lt;br /&gt;
-* 不需要數學模型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[優點] 模糊智慧型控制&lt;/strong&gt;&lt;br /&gt;
+* 不需要數學模型。&lt;br /&gt;
+* 系統強健。&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Mar 2017 07:59:59 +0800</pubDate>
         <link>http://shouzo.github.io/2017/03/02/ai/</link>

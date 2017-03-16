@@ -351,7 +351,7 @@ bursts.
 <h3 id="linux-">二、Linux 程式設計</h3>
 <ul>
   <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Creating_and_Executing_Processes.pdf">課程簡報 - Creating and Executing Processes</a></li>
-  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf">課程練習 - Signal</a></li>
+  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf">課程簡報 - Signal</a></li>
 </ul>
 
 <h3 id="unix-system-call">(一) Unix system call</h3>
@@ -512,15 +512,12 @@ bursts.
 <ul>
   <li>參數說明
     <ul>
-      <li>sig: 要處理的訊號,若 act 指針非空, 則根據 act 修改<br />
-該信號的處理動作。若 oact 指針非空,則通過 oact 傳出<br />
-該信號原來的處理動作。</li>
+      <li>sig: 要處理的訊號,若 act 指針非空, 則根據 act 修改該信號的處理動作；若 oact 指針非空, 則通過 oact 傳出該信號原來的處理動作。</li>
       <li>void(*)(int) sa_handler</li>
       <li>sigset_t sa_mask</li>
       <li>int sa_flags</li>
       <li>sa_handler 代表新的信號處理。</li>
-      <li>sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定<br />
-的信號集擱置。</li>
+      <li>sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定的信號集擱置。</li>
       <li>sa_flags 用來設置信號處理的其他相關操作。</li>
     </ul>
   </li>
