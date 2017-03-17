@@ -5,23 +5,23 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 17 Mar 2017 18:13:11 +0800</pubDate>
-    <lastBuildDate>Fri, 17 Mar 2017 18:13:11 +0800</lastBuildDate>
+    <pubDate>Fri, 17 Mar 2017 18:21:48 +0800</pubDate>
+    <lastBuildDate>Fri, 17 Mar 2017 18:21:48 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>20170317 [學習筆記] Vim 常用技巧</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、常用功能&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;一、常用功能&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#vimrc-&quot; id=&quot;markdown-toc-vimrc-&quot;&gt;二、vimrc 設定教學&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#vim-&quot; id=&quot;markdown-toc-vim-&quot;&gt;三、將 Vim 中選取的文字複製到剪貼簿&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一、常用功能&lt;/h2&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;一、常用功能&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;引用資料
     &lt;ul&gt;
