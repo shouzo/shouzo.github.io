@@ -5,9 +5,240 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 17 Mar 2017 12:55:21 +0800</pubDate>
-    <lastBuildDate>Fri, 17 Mar 2017 12:55:21 +0800</lastBuildDate>
+    <pubDate>Fri, 17 Mar 2017 18:13:11 +0800</pubDate>
+    <lastBuildDate>Fri, 17 Mar 2017 18:13:11 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20170317 [學習筆記] Vim 常用技巧</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、常用功能&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#vimrc-&quot; id=&quot;markdown-toc-vimrc-&quot;&gt;二、vimrc 設定教學&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#vim-&quot; id=&quot;markdown-toc-vim-&quot;&gt;三、將 Vim 中選取的文字複製到剪貼簿&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;一、常用功能&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;引用資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://blog.johnsonlu.org/vim-tips/&quot;&gt;Vim小技巧&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;刪除一行 - &lt;code class=&quot;highlighter-rouge&quot;&gt;dd&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;進入編輯模式 - &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;進入VISUAL模式 - &lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;進入VISUAL BLOCK模式 - &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl&lt;/code&gt;(按鍵) + &lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;寫入(儲存) - &lt;code class=&quot;highlighter-rouge&quot;&gt;:w&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;離開 - &lt;code class=&quot;highlighter-rouge&quot;&gt;:q&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;不儲存強制離開 - &lt;code class=&quot;highlighter-rouge&quot;&gt;:q!&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;paste模式，直接貼上文字時格式不會跑掉 - &lt;code class=&quot;highlighter-rouge&quot;&gt;:set paste&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;顯示行數 - &lt;code class=&quot;highlighter-rouge&quot;&gt;:set nu&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;設定一個tab等於四個空白長度 - &lt;code class=&quot;highlighter-rouge&quot;&gt;:set tabstop=4&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;設定以後，使用tab鍵時會用空白取代(由tabstop決定) - &lt;code class=&quot;highlighter-rouge&quot;&gt;:set expandtab&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;消除Highlight - &lt;code class=&quot;highlighter-rouge&quot;&gt;:noh&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;範圍縮排(3到5行向右縮排，向左縮排用&amp;lt;) - &lt;code class=&quot;highlighter-rouge&quot;&gt;:3,5&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;將tab轉換成space - &lt;code class=&quot;highlighter-rouge&quot;&gt;:retab&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;將檔案編碼轉成utf8 - &lt;code class=&quot;highlighter-rouge&quot;&gt;:set fileencoding=utf8&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;另存新檔 - &lt;code class=&quot;highlighter-rouge&quot;&gt;:w myfilename&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;開啟檔案 - &lt;code class=&quot;highlighter-rouge&quot;&gt;:e filename&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;自動對齊 - &lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;移動到該行最前端 - &lt;code class=&quot;highlighter-rouge&quot;&gt;^&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;移動到該行最末端 - &lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;移動到下一個單字的第一個字元 - &lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;移動到前一個單字的第一個字元 - &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;移動到下一個單字的最後一個字元 - &lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;移動到下一個單字的最後一個字元(無視符號) - &lt;code class=&quot;highlighter-rouge&quot;&gt;E&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;全選(gg為游標移動到最上方，v為切換成選擇模式，G是游標移動到最下方) - &lt;code class=&quot;highlighter-rouge&quot;&gt;ggvG&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;游標移動到特定行數(移動到第三行) - &lt;code class=&quot;highlighter-rouge&quot;&gt;3G&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;複製反白的區塊(需要在VISUAL模式) - &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;複製游標所在的那行(需要在VISUAL模式) - &lt;code class=&quot;highlighter-rouge&quot;&gt;shift&lt;/code&gt;(按鍵) + &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;貼上 - &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;自動完成 (需要在編輯模式) - &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl&lt;/code&gt;(按鍵) + &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;vimrc-&quot;&gt;二、vimrc 設定教學&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;系統環境&lt;br /&gt;
+  &amp;gt; ubuntu 16.04&lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://wiki.csie.ncku.edu.tw/vim/vimrc&quot;&gt;vimrc設定教學 - 成大資工Wiki&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://note.drx.tw/2008/01/vimrc-config.html&quot;&gt;凍仁的筆記: Vim 環境設定- vimrc&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://blog.roga.tw/2010/01/2350&quot;&gt;我目前使用的 .vimrc 設定檔&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://blog.gtwang.org/tips/vim-working-with-unicode/&quot;&gt;VIM 編輯器顯示萬國碼（Unicode）文字，解決亂碼問題&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;先進入家目錄、打開 &lt;code class=&quot;highlighter-rouge&quot;&gt;vimrc&lt;/code&gt; 設定檔&lt;br /&gt;
+ &amp;gt; $ cd&lt;br /&gt;
+ &amp;gt; $ vim .vimrc&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/v4rOfdw.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;修改 vimrc 設定檔&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;將以下內容複製到 vimrc：&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set encoding=utf-8	        &quot; 設定 Vim 文字編碼方式
+set fileencodings=utf-8,cp950	&quot;設定特定檔案的編碼
+
+
+&quot; 編輯喜好設定
+syntax on                &quot; 語法上色顯示
+set nocompatible         &quot; VIM 不使用和 VI 相容的模式
+set shiftwidth=4         &quot; 設定縮排寬度 = 4 
+set tabstop=4            &quot; tab 的字元數
+set softtabstop=4
+set expandtab            &quot; 用 space 代替 tab
+
+set ruler                &quot; 顯示右下角設定值
+set backspace=2          &quot; 在 insert 也可用 backspace
+set ic                   &quot; 設定搜尋忽略大小寫
+set ru                   &quot; 第幾行第幾個字
+set hlsearch             &quot; 設定高亮度顯示搜尋結果
+set incsearch            &quot; 在關鍵字還沒完全輸入完畢前就顯示結果
+set smartindent          &quot; 設定 smartindent
+set confirm              &quot; 操作過程有衝突時，以明確的文字來詢問
+set history=100          &quot; 保留 100 個使用過的指令
+set cursorline           &quot; 顯示目前的游標位置
+set nu                   &quot; 顯示行號
+
+colorscheme torte        &quot; 設定 Vim 的顯示配色
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;完成後按下&lt;code class=&quot;highlighter-rouge&quot;&gt;Esc&lt;/code&gt;鍵，再輸入 &lt;code class=&quot;highlighter-rouge&quot;&gt;:wq&lt;/code&gt;離開 Vim。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/Ih9e153.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;vim-&quot;&gt;三、將 Vim 中選取的文字複製到剪貼簿&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;系統環境&lt;br /&gt;
+  &amp;gt; ubuntu 16.04&lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/21203154&quot;&gt;linux版的vim中如何用快捷键進行與系统剪貼簿交互的文字複製和貼上&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;需要先安裝 vim-gnome 套件&lt;br /&gt;
+ &amp;gt; $ sudo apt-get install vim-gnome&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;安裝完畢後，再打開任何一個想要複製其內容的檔案&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/Ih9e153.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;分別按下 &lt;code class=&quot;highlighter-rouge&quot;&gt;g&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;g&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;G&lt;/code&gt; (全選)，此時被選取的文字會反白&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/kYA1947.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;再按 &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&lt;/code&gt; 、&lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; (複製被選取的文字)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;此時就可以打開另一個編輯器，直接貼上剛剛複製的文字&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/f10vI8C.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 17 Mar 2017 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/03/17/vim/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/03/17/vim/</guid>
+        
+        <category>Vim</category>
+        
+        <category>程式設計</category>
+        
+        
+        <category>Vim</category>
+        
+        <category>程式設計</category>
+        
+      </item>
     
       <item>
         <title>20170317 [學習筆記] Linux 系統程式 (3)</title>
@@ -1099,46 +1330,6 @@ bursts.
         <pubDate>Sun, 23 Oct 2016 18:00:00 +0800</pubDate>
         <link>http://shouzo.github.io/2016/10/23/R-doing-3/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2016/10/23/R-doing-3/</guid>
-        
-        <category>Data-Science</category>
-        
-        <category>Data-Mining</category>
-        
-        <category>R語言</category>
-        
-        
-        <category>Data-Science</category>
-        
-        <category>R語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20161017 [資料科學系列] R語言資料分析實務(2)</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#r2&quot; id=&quot;markdown-toc-r2&quot;&gt;簡報主題：R語言資料分析實務(2)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;r2&quot;&gt;簡報主題：R語言資料分析實務(2)&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161017-R-doing-2.html#/&quot;&gt;20161017 [資料科學系列] R語言資料分析實務(2)&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;PDF簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161017-R-doing-2.pdf&quot;&gt;20161017 [資料科學系列] R語言資料分析實務(2)&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161017-r-2&quot;&gt;http://www.slideshare.net/danny200026/20161017-r-2&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20161017/R-doing-2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 16 Oct 2016 18:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/10/16/R-doing-2/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/10/16/R-doing-2/</guid>
         
         <category>Data-Science</category>
         

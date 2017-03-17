@@ -132,6 +132,178 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-17
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Vim" title="Category: Vim" rel="category">Vim</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Vim" title="Tag: Vim" rel="tag">Vim</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、常用功能</a></li>
+</ul>
+
+<ul>
+  <li>這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。</li>
+</ul>
+
+<h2 id="section">一、常用功能</h2>
+<ul>
+  <li>引用資料
+    <ul>
+      <li><a href="http://blog.johnsonlu.org/vim-tips/">Vim小技巧</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>刪除一行 - <code class="highlighter-rouge">dd</code></p>
+  </li>
+  <li>
+    <p>進入編輯模式 - <code class="highlighter-rouge">i</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL模式 - <code class="highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL BLOCK模式 - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>寫入(儲存) - <code class="highlighter-rouge">:w</code></p>
+  </li>
+  <li>
+    <p>離開 - <code class="highlighter-rouge">:q</code></p>
+  </li>
+  <li>
+    <p>不儲存強制離開 - <code class="highlighter-rouge">:q!</code></p>
+  </li>
+  <li>
+    <p>paste模式，直接貼上文字時格式不會跑掉 - <code class="highlighter-rouge">:set paste</code></p>
+  </li>
+  <li>
+    <p>顯示行數 - <code class="highlighter-rouge">:set nu</code></p>
+  </li>
+  <li>
+    <p>設定一個tab等於四個空白長度 - <code class="highlighter-rouge">:set tabstop=4</code></p>
+  </li>
+  <li>
+    <p>設定以後，使用tab鍵時會用空白取代(由tabstop決定) - <code class="highlighter-rouge">:set expandtab</code></p>
+  </li>
+  <li>
+    <p>消除Highlight - <code class="highlighter-rouge">:noh</code></p>
+  </li>
+  <li>
+    <p>範圍縮排(3到5行向右縮排，向左縮排用&lt;) - <code class="highlighter-rouge">:3,5&gt;</code></p>
+  </li>
+  <li>
+    <p>將tab轉換成space - <code class="highlighter-rouge">:retab</code></p>
+  </li>
+  <li>
+    <p>將檔案編碼轉成utf8 - <code class="highlighter-rouge">:set fileencoding=utf8</code></p>
+  </li>
+  <li>
+    <p>另存新檔 - <code class="highlighter-rouge">:w myfilename</code></p>
+  </li>
+  <li>
+    <p>開啟檔案 - <code class="highlighter-rouge">:e filename</code></p>
+  </li>
+  <li>
+    <p>自動對齊 - <code class="highlighter-rouge">==</code></p>
+  </li>
+  <li>
+    <p>移動到該行最前端 - <code class="highlighter-rouge">^</code></p>
+  </li>
+  <li>
+    <p>移動到該行最末端 - <code class="highlighter-rouge">$</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的第一個字元 - <code class="highlighter-rouge">w</code></p>
+  </li>
+  <li>
+    <p>移動到前一個單字的第一個字元 - <code class="highlighter-rouge">b</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元 - <code class="highlighter-rouge">e</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元(無視符號) - <code class="highlighter-rouge">E</code></p>
+  </li>
+  <li>
+    <p>全選(gg為游標移動到最上方，v為切換成選擇模式，G是游標移動到最下方) - <code class="highlighter-rouge">ggvG</code></p>
+  </li>
+  <li>
+    <p>游標移動到特定行數(移動到第三行) - <code class="highlighter-rouge">3G</code></p>
+  </li>
+  <li>
+    <p>複製反白的區塊(需要在VISUAL模式) - <code class="highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>複製游標所在的那行(需要在VISUAL模式) - <code class="highlighter-rouge">shift</code>(按鍵) + <code class="highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>貼上 - <code class="highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>自動完成 (需要在編輯模式) - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">p</code></p>
+  </li>
+</ol>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/17/vim/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)</a>
                 </h2>
                 <div class="label">
@@ -786,81 +958,6 @@ bursts.
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/04/linux_system/">20170303 [學習筆記] Linux 系統程式 (1)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-04
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">(一) 作業系統</a></li>
-</ul>
-
-<h3 id="section">(一) 作業系統</h3>
-<ul>
-  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf">課程簡報 - Ch1：Introduction</a></li>
-</ul>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/04/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -888,6 +985,8 @@ bursts.
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧</a></li>
+                    
                         <li><a href="/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)</a></li>
                     
                         <li><a href="/2017/03/16/ai/">20170316 [學習筆記] 人工智慧 (3)</a></li>
@@ -905,8 +1004,6 @@ bursts.
                         <li><a href="/2016/12/12/why-clubs/">20161211 [社團相關] 給社團人的一封信</a></li>
                     
                         <li><a href="/2016/10/23/R-doing-3/">20161024 [資料科學系列] R語言資料分析實務(3)</a></li>
-                    
-                        <li><a href="/2016/10/16/R-doing-2/">20161017 [資料科學系列] R語言資料分析實務(2)</a></li>
                     
                 </ul>
             </div>
@@ -1059,7 +1156,16 @@ bursts.
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">3</span>
+                            <span class="badge">4</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Vim" class="categories-list-item" cate="Vim">
+                            <span class="name">
+                                Vim
+                            </span>
+                            <span class="badge">1</span>
                         </a>
                     </li>
                     
@@ -1084,7 +1190,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#C語言" style="font-size: 14.5pt; color: #444;">C語言</a>
+                      <a href="/tag/#C語言" style="font-size: 14pt; color: #444;">C語言</a>
                     
                       
                       
@@ -1098,28 +1204,28 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#OpenCV" style="font-size: 11pt; color: #777;">OpenCV</a>
+                      <a href="/tag/#OpenCV" style="font-size: 10.5pt; color: #777;">OpenCV</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Data-Science" style="font-size: 17pt; color: #111;">Data-Science</a>
+                      <a href="/tag/#Data-Science" style="font-size: 16.5pt; color: #222;">Data-Science</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Data-Mining" style="font-size: 15.5pt; color: #333;">Data-Mining</a>
+                      <a href="/tag/#Data-Mining" style="font-size: 14.5pt; color: #333;">Data-Mining</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#R語言" style="font-size: 18pt; color: #000;">R語言</a>
+                      <a href="/tag/#R語言" style="font-size: 17pt; color: #111;">R語言</a>
                     
                       
                       
@@ -1175,7 +1281,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #555;">社團</a>
+                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #666;">社團</a>
                     
                       
                       
@@ -1196,21 +1302,28 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#人工智慧" style="font-size: 11pt; color: #777;">人工智慧</a>
+                      <a href="/tag/#人工智慧" style="font-size: 10.5pt; color: #777;">人工智慧</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Linux" style="font-size: 11pt; color: #777;">Linux</a>
+                      <a href="/tag/#Linux" style="font-size: 10.5pt; color: #777;">Linux</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#作業系統" style="font-size: 11pt; color: #777;">作業系統</a>
+                      <a href="/tag/#作業系統" style="font-size: 10.5pt; color: #777;">作業系統</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Vim" style="font-size: 9pt; color: #999;">Vim</a>
                     
                 </div>
             </div>

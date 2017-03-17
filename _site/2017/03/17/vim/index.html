@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>20170303 [學習筆記] Linux 系統程式 (1)</title>
-    <meta name="description" content="  (一) 作業系統(一) 作業系統  課程簡報 - Ch1：Introduction">
+    <title>20170317 [學習筆記] Vim 常用技巧</title>
+    <meta name="description" content="  一、常用功能  這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。一、常用功能  引用資料          Vim小技巧            刪除一行 - dd        進入編輯模式 - i       ...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://shouzo.github.io/2017/03/04/linux_system/">
+    <link rel="canonical" href="http://shouzo.github.io/2017/03/17/vim/">
     <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
 
 
@@ -125,11 +125,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>20170303 [學習筆記] Linux 系統程式 (1)</h1>
+        <h1>20170317 [學習筆記] Vim 常用技巧</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2017-03-04
+                <i class="fa fa-calendar"></i>2017-03-17
             </div>
 
             <div class="label-card">
@@ -149,9 +149,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+        <a href="/category/#Vim" title="Category: Vim" rel="category">Vim</a>&nbsp;
     
         <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
     
@@ -170,11 +168,8 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+        <!--a href="/tag/#Vim" title="Tag: Vim" rel="tag">Vim</a-->
+        <a href="/tag/#Vim" title="Tag: Vim" rel="tag">Vim</a>&nbsp;
     
         <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
         <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
@@ -189,60 +184,218 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">(一) 作業系統</a></li>
-  <li><a href="#linux-" id="markdown-toc-linux-">(二) Linux 程式設計</a></li>
+  <li><a href="#section" id="markdown-toc-section">一、常用功能</a></li>
+  <li><a href="#vimrc-" id="markdown-toc-vimrc-">二、vimrc 設定教學</a></li>
+  <li><a href="#vim-" id="markdown-toc-vim-">三、將 Vim 中選取的文字複製到剪貼簿</a></li>
 </ul>
 
-<h3 id="section">(一) 作業系統</h3>
 <ul>
-  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf">課程簡報 - Ch1：Introduction</a></li>
+  <li>這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。</li>
 </ul>
 
-<h3 id="linux-">(二) Linux 程式設計</h3>
+<h2 id="section">一、常用功能</h2>
 <ul>
+  <li>引用資料
+    <ul>
+      <li><a href="http://blog.johnsonlu.org/vim-tips/">Vim小技巧</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
   <li>
-    <p><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170303/Creating_and_Executing_Processes.pdf">課程簡報 - Creating and Executing Processes</a></p>
+    <p>刪除一行 - <code class="highlighter-rouge">dd</code></p>
   </li>
   <li>
-    <p>課程作業： <code class="highlighter-rouge">fork()</code> 的概念</p>
+    <p>進入編輯模式 - <code class="highlighter-rouge">i</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL模式 - <code class="highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL BLOCK模式 - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>寫入(儲存) - <code class="highlighter-rouge">:w</code></p>
+  </li>
+  <li>
+    <p>離開 - <code class="highlighter-rouge">:q</code></p>
+  </li>
+  <li>
+    <p>不儲存強制離開 - <code class="highlighter-rouge">:q!</code></p>
+  </li>
+  <li>
+    <p>paste模式，直接貼上文字時格式不會跑掉 - <code class="highlighter-rouge">:set paste</code></p>
+  </li>
+  <li>
+    <p>顯示行數 - <code class="highlighter-rouge">:set nu</code></p>
+  </li>
+  <li>
+    <p>設定一個tab等於四個空白長度 - <code class="highlighter-rouge">:set tabstop=4</code></p>
+  </li>
+  <li>
+    <p>設定以後，使用tab鍵時會用空白取代(由tabstop決定) - <code class="highlighter-rouge">:set expandtab</code></p>
+  </li>
+  <li>
+    <p>消除Highlight - <code class="highlighter-rouge">:noh</code></p>
+  </li>
+  <li>
+    <p>範圍縮排(3到5行向右縮排，向左縮排用&lt;) - <code class="highlighter-rouge">:3,5&gt;</code></p>
+  </li>
+  <li>
+    <p>將tab轉換成space - <code class="highlighter-rouge">:retab</code></p>
+  </li>
+  <li>
+    <p>將檔案編碼轉成utf8 - <code class="highlighter-rouge">:set fileencoding=utf8</code></p>
+  </li>
+  <li>
+    <p>另存新檔 - <code class="highlighter-rouge">:w myfilename</code></p>
+  </li>
+  <li>
+    <p>開啟檔案 - <code class="highlighter-rouge">:e filename</code></p>
+  </li>
+  <li>
+    <p>自動對齊 - <code class="highlighter-rouge">==</code></p>
+  </li>
+  <li>
+    <p>移動到該行最前端 - <code class="highlighter-rouge">^</code></p>
+  </li>
+  <li>
+    <p>移動到該行最末端 - <code class="highlighter-rouge">$</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的第一個字元 - <code class="highlighter-rouge">w</code></p>
+  </li>
+  <li>
+    <p>移動到前一個單字的第一個字元 - <code class="highlighter-rouge">b</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元 - <code class="highlighter-rouge">e</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元(無視符號) - <code class="highlighter-rouge">E</code></p>
+  </li>
+  <li>
+    <p>全選(gg為游標移動到最上方，v為切換成選擇模式，G是游標移動到最下方) - <code class="highlighter-rouge">ggvG</code></p>
+  </li>
+  <li>
+    <p>游標移動到特定行數(移動到第三行) - <code class="highlighter-rouge">3G</code></p>
+  </li>
+  <li>
+    <p>複製反白的區塊(需要在VISUAL模式) - <code class="highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>複製游標所在的那行(需要在VISUAL模式) - <code class="highlighter-rouge">shift</code>(按鍵) + <code class="highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>貼上 - <code class="highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>自動完成 (需要在編輯模式) - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">p</code></p>
+  </li>
+</ol>
+
+<h2 id="vimrc-">二、vimrc 設定教學</h2>
+<ul>
+  <li>系統環境<br />
+  &gt; ubuntu 16.04</li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://wiki.csie.ncku.edu.tw/vim/vimrc">vimrc設定教學 - 成大資工Wiki</a></li>
+      <li><a href="http://note.drx.tw/2008/01/vimrc-config.html">凍仁的筆記: Vim 環境設定- vimrc</a></li>
+      <li><a href="https://blog.roga.tw/2010/01/2350">我目前使用的 .vimrc 設定檔</a></li>
+      <li><a href="https://blog.gtwang.org/tips/vim-working-with-unicode/">VIM 編輯器顯示萬國碼（Unicode）文字，解決亂碼問題</a></li>
+    </ul>
   </li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-<span class="cm">/* Press any Integer */</span>
-	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<hr />
 
-<span class="cm">/* Use "fork()" to create Child's and Parent's process */</span>
-	<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
-	<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>	<span class="c1">// Set the "result" initial value
-</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// Child's entry
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">***** Child's pid = %d *****</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
-		<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">--&gt;</span> <span class="mi">0</span><span class="p">)</span>
-			<span class="n">result</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">"1 + 2 + ... + n = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
-		<span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>	<span class="c1">// Parent's entry
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"***** Parent's pid = %d *****</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">"n 的因數：%d"</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-		<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">--&gt;</span> <span class="mi">1</span><span class="p">)</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-				<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">%d"</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-		<span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	<span class="p">}</span>
-<span class="p">}</span>
+<ol>
+  <li>
+    <p>先進入家目錄、打開 <code class="highlighter-rouge">vimrc</code> 設定檔<br />
+ &gt; $ cd<br />
+ &gt; $ vim .vimrc</p>
+
+    <p><img src="https://i.imgur.com/v4rOfdw.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>修改 vimrc 設定檔</p>
+    <ul>
+      <li>將以下內容複製到 vimrc：</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>set encoding=utf-8	        " 設定 Vim 文字編碼方式
+set fileencodings=utf-8,cp950	"設定特定檔案的編碼
+
+
+" 編輯喜好設定
+syntax on                " 語法上色顯示
+set nocompatible         " VIM 不使用和 VI 相容的模式
+set shiftwidth=4         " 設定縮排寬度 = 4 
+set tabstop=4            " tab 的字元數
+set softtabstop=4
+set expandtab            " 用 space 代替 tab
+
+set ruler                " 顯示右下角設定值
+set backspace=2          " 在 insert 也可用 backspace
+set ic                   " 設定搜尋忽略大小寫
+set ru                   " 第幾行第幾個字
+set hlsearch             " 設定高亮度顯示搜尋結果
+set incsearch            " 在關鍵字還沒完全輸入完畢前就顯示結果
+set smartindent          " 設定 smartindent
+set confirm              " 操作過程有衝突時，以明確的文字來詢問
+set history=100          " 保留 100 個使用過的指令
+set cursorline           " 顯示目前的游標位置
+set nu                   " 顯示行號
+
+colorscheme torte        " 設定 Vim 的顯示配色
 </code></pre>
 </div>
+
+<ol>
+  <li>完成後按下<code class="highlighter-rouge">Esc</code>鍵，再輸入 <code class="highlighter-rouge">:wq</code>離開 Vim。</li>
+</ol>
+
+<p>此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。<br />
+<img src="https://i.imgur.com/Ih9e153.jpg" alt="" /></p>
+
+<h2 id="vim-">三、將 Vim 中選取的文字複製到剪貼簿</h2>
 <ul>
-  <li><strong>執行結果</strong></li>
+  <li>系統環境<br />
+  &gt; ubuntu 16.04</li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://www.zhihu.com/question/21203154">linux版的vim中如何用快捷键進行與系统剪貼簿交互的文字複製和貼上</a></li>
+    </ul>
+  </li>
 </ul>
 
-<p><img src="https://i.imgur.com/TKyt2rB.jpg" alt="" /></p>
+<hr />
+
+<ol>
+  <li>
+    <p>需要先安裝 vim-gnome 套件<br />
+ &gt; $ sudo apt-get install vim-gnome</p>
+  </li>
+  <li>
+    <p>安裝完畢後，再打開任何一個想要複製其內容的檔案<br />
+<img src="https://i.imgur.com/Ih9e153.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>分別按下 <code class="highlighter-rouge">g</code>、<code class="highlighter-rouge">g</code>、<code class="highlighter-rouge">v</code>、<code class="highlighter-rouge">G</code> (全選)，此時被選取的文字會反白<br />
+<img src="https://i.imgur.com/kYA1947.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>再按 <code class="highlighter-rouge">"</code> 、<code class="highlighter-rouge">+</code>、<code class="highlighter-rouge">y</code> (複製被選取的文字)</p>
+  </li>
+  <li>
+    <p>此時就可以打開另一個編輯器，直接貼上剛剛複製的文字<br />
+<img src="https://i.imgur.com/f10vI8C.jpg" alt="" /></p>
+  </li>
+</ol>
 
         </article>
         <hr>
@@ -256,11 +409,13 @@
                 
                     
                 
-                    
-                
             
                 
                     
+                
+                    
+                
+            
                 
                     
                 
@@ -268,22 +423,6 @@
                         
                         <h2 id="similar_posts">Similar Posts</h2>
                         <ul>
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-            
-            
-                
-                    
                         
                         <li class="relatedPost">
                             <a href="http://shouzo.github.io/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)
@@ -294,21 +433,10 @@
                         
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
+        
             
-                
-                    
+            
                 
                     
                 
@@ -323,12 +451,15 @@
                 
                     
                 
+            
+                
+                    
+                
                     
                 
             
-        
-            
-            
+                
+                    
                 
                     
                         
@@ -341,21 +472,10 @@
                         
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
+        
             
-                
-                    
+            
                 
                     
                 
@@ -370,63 +490,31 @@
                 
                     
                 
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/04/linux_system/">20170303 [學習筆記] Linux 系統程式 (1)
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
         
             
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
                 
                     
                 
@@ -441,6 +529,22 @@
                 
                     
                 
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
                     
                 
             
@@ -449,11 +553,28 @@
                 
                     
                 
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
                     
                 
             
                 
                     
+                
+                    
+                
+            
                 
                     
                 
@@ -469,13 +590,11 @@
     
     <div class="pre">
 
-        <p><strong>上一篇</strong> <a href="/2017/03/02/ai/">20170302 [學習筆記] 人工智慧 (1)</a></p>
+        <p><strong>上一篇</strong> <a href="/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2017/03/09/ai/">20170309 [學習筆記] 人工智慧 (2)</a></p>
         
     </div>
 </div>
@@ -493,8 +612,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://shouzo.github.io/2017/03/04/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://shouzo.github.io/2017/03/04/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://shouzo.github.io/2017/03/17/vim/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/03/17/vim/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
