@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>20170310 [學習筆記] Linux 系統程式 (2)</title>
-    <meta name="description" content="  一、作業系統  (一) Process in Memory  (二) Process State  (三) Process Control Block (PCB)  (四) Process Switch  (五) Process、Thread  (六) Process Scheduling          ...">
+    <meta name="description" content="  一、作業系統          (一) Process in Memory      (二) Process State      (三) Process Control Block (PCB)      (四) Process Switch      (五) Process、Thread      (六) ...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
@@ -115,6 +115,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -187,38 +189,42 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a></li>
-  <li><a href="#process-in-memory" id="markdown-toc-process-in-memory">(一) Process in Memory</a></li>
-  <li><a href="#process-state" id="markdown-toc-process-state">(二) Process State</a></li>
-  <li><a href="#process-control-block-pcb" id="markdown-toc-process-control-block-pcb">(三) Process Control Block (PCB)</a></li>
-  <li><a href="#process-switch" id="markdown-toc-process-switch">(四) Process Switch</a></li>
-  <li><a href="#processthread" id="markdown-toc-processthread">(五) Process、Thread</a></li>
-  <li><a href="#process-scheduling" id="markdown-toc-process-scheduling">(六) Process Scheduling</a>    <ul>
-      <li><a href="#schedulers" id="markdown-toc-schedulers">Schedulers</a></li>
-      <li><a href="#processes" id="markdown-toc-processes">Processes</a></li>
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#process-in-memory" id="markdown-toc-process-in-memory">(一) Process in Memory</a></li>
+      <li><a href="#process-state" id="markdown-toc-process-state">(二) Process State</a></li>
+      <li><a href="#process-control-block-pcb" id="markdown-toc-process-control-block-pcb">(三) Process Control Block (PCB)</a></li>
+      <li><a href="#process-switch" id="markdown-toc-process-switch">(四) Process Switch</a></li>
+      <li><a href="#processthread" id="markdown-toc-processthread">(五) Process、Thread</a></li>
+      <li><a href="#process-scheduling" id="markdown-toc-process-scheduling">(六) Process Scheduling</a>        <ul>
+          <li><a href="#schedulers" id="markdown-toc-schedulers">Schedulers</a></li>
+          <li><a href="#processes" id="markdown-toc-processes">Processes</a></li>
+        </ul>
+      </li>
+      <li><a href="#process-creation" id="markdown-toc-process-creation">(七) Process Creation</a></li>
     </ul>
   </li>
-  <li><a href="#process-creation" id="markdown-toc-process-creation">(七) Process Creation</a></li>
-  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a></li>
-  <li><a href="#unix-system-call" id="markdown-toc-unix-system-call">(一) Unix system call</a>    <ul>
-      <li><a href="#execv" id="markdown-toc-execv">1. execv()</a></li>
-    </ul>
-  </li>
-  <li><a href="#signals" id="markdown-toc-signals">(二) Signals</a>    <ul>
-      <li><a href="#unix-process-control" id="markdown-toc-unix-process-control">1. UNIX Process Control</a></li>
-      <li><a href="#kill-command" id="markdown-toc-kill-command">2. kill Command</a></li>
-      <li><a href="#function-call" id="markdown-toc-function-call">3. Function Call</a></li>
-      <li><a href="#linux-signal" id="markdown-toc-linux-signal">4. Linux Signal</a></li>
-      <li><a href="#signalh" id="markdown-toc-signalh">5. 訊號處理 - signal.h</a>        <ul>
-          <li><a href="#signal" id="markdown-toc-signal">(1) signal()</a></li>
-          <li><a href="#sigaction" id="markdown-toc-sigaction">(2) sigaction()</a></li>
+  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
+      <li><a href="#unix-system-call" id="markdown-toc-unix-system-call">(一) Unix system call</a>        <ul>
+          <li><a href="#execv" id="markdown-toc-execv">1. execv()</a></li>
+        </ul>
+      </li>
+      <li><a href="#signals" id="markdown-toc-signals">(二) Signals</a>        <ul>
+          <li><a href="#unix-process-control" id="markdown-toc-unix-process-control">1. UNIX Process Control</a></li>
+          <li><a href="#kill-command" id="markdown-toc-kill-command">2. kill Command</a></li>
+          <li><a href="#function-call" id="markdown-toc-function-call">3. Function Call</a></li>
+          <li><a href="#linux-signal" id="markdown-toc-linux-signal">4. Linux Signal</a></li>
+          <li><a href="#signalh" id="markdown-toc-signalh">5. 訊號處理 - signal.h</a>            <ul>
+              <li><a href="#signal" id="markdown-toc-signal">(1) signal()</a></li>
+              <li><a href="#sigaction" id="markdown-toc-sigaction">(2) sigaction()</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
 
-<h3 id="section">一、作業系統</h3>
+<h2 id="section">一、作業系統</h2>
 <ul>
   <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170309/ch03.pdf">課程簡報 - Ch3：Process Concept</a></li>
 </ul>
@@ -348,7 +354,8 @@ bursts.
 
 <p><img src="https://i.imgur.com/CfTMr9N.jpg" alt="" /></p>
 
-<h3 id="linux-">二、Linux 程式設計</h3>
+<h2 id="linux-">二、Linux 程式設計</h2>
+
 <ul>
   <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Creating_and_Executing_Processes.pdf">課程簡報 - Creating and Executing Processes</a></li>
   <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf">課程簡報 - Signal</a></li>
@@ -532,34 +539,12 @@ bursts.
             
                 
                     
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
                         
                         <h2 id="similar_posts">Similar Posts</h2>
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/03/04/linux_system/">20170303 [學習筆記] Linux 系統程式 (1)
+                            <a href="http://shouzo.github.io/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)
                             
                             </a>
                         </li>
@@ -615,6 +600,31 @@ bursts.
             
                 
                     
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/04/linux_system/">20170303 [學習筆記] Linux 系統程式 (1)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
                 
                     
                 
@@ -632,6 +642,9 @@ bursts.
                     
                 
             
+        
+            
+            
                 
                     
                 
@@ -639,6 +652,9 @@ bursts.
                 
                     
                 
+            
+        
+            
             
                 
                     

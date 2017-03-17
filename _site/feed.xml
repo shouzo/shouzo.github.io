@@ -5,9 +5,437 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 16 Mar 2017 16:39:27 +0800</pubDate>
-    <lastBuildDate>Thu, 16 Mar 2017 16:39:27 +0800</lastBuildDate>
+    <pubDate>Fri, 17 Mar 2017 12:52:15 +0800</pubDate>
+    <lastBuildDate>Fri, 17 Mar 2017 12:52:15 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20170317 [學習筆記] Linux 系統程式 (3)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#basic-concepts&quot; id=&quot;markdown-toc-basic-concepts&quot;&gt;一、Basic Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cpu-scheduler&quot; id=&quot;markdown-toc-cpu-scheduler&quot;&gt;二、CPU Scheduler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#dispatcher&quot; id=&quot;markdown-toc-dispatcher&quot;&gt;三、Dispatcher&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#scheduling-algorithm-optimization-criteria&quot; id=&quot;markdown-toc-scheduling-algorithm-optimization-criteria&quot;&gt;四、Scheduling Algorithm Optimization Criteria&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#scheduling-algorithm&quot; id=&quot;markdown-toc-scheduling-algorithm&quot;&gt;五、Scheduling Algorithm&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#shortest-job-first-sjf&quot; id=&quot;markdown-toc-shortest-job-first-sjf&quot;&gt;(二) Shortest-Job-First (SJF)：最短優先法&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#priority-scheduling-ps&quot; id=&quot;markdown-toc-priority-scheduling-ps&quot;&gt;(三) Priority Scheduling (PS)：優先權排班法&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#round-robin-rr&quot; id=&quot;markdown-toc-round-robin-rr&quot;&gt;(四) Round Robin (RR)：輪流法&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#time-quantum-and-context-switch-time&quot; id=&quot;markdown-toc-time-quantum-and-context-switch-time&quot;&gt;1. Time Quantum and Context Switch Time&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#turnaround-time-varies-with-the-time-quantum&quot; id=&quot;markdown-toc-turnaround-time-varies-with-the-time-quantum&quot;&gt;2. Turnaround Time Varies With The Time Quantum&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#multilevel&quot; id=&quot;markdown-toc-multilevel&quot;&gt;(五) Multilevel&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#feedback-queue&quot; id=&quot;markdown-toc-feedback-queue&quot;&gt;2. Feedback Queue&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#what-is-a-thread&quot; id=&quot;markdown-toc-what-is-a-thread&quot;&gt;1. What is a Thread？&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#software-developer-view&quot; id=&quot;markdown-toc-software-developer-view&quot;&gt;(2) Software developer view&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#example&quot; id=&quot;markdown-toc-example&quot;&gt;[Example]&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#process-and-thread&quot; id=&quot;markdown-toc-process-and-thread&quot;&gt;2. Process and Thread&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#threads&quot; id=&quot;markdown-toc-threads&quot;&gt;(2) Threads&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#pthreads&quot; id=&quot;markdown-toc-pthreads&quot;&gt;3. Pthreads&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-pthreads-api&quot; id=&quot;markdown-toc-the-pthreads-api&quot;&gt;(1) The Pthreads API&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#thread-management&quot; id=&quot;markdown-toc-thread-management&quot;&gt;(2) Thread management&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;課程簡報
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170316/ch05.pdf&quot;&gt;Chapter 5: Process Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.jollen.org/blog/2006/11/_scheduler_running_process.html&quot;&gt;Preemptive Process Scheduling 的觀念&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://moon.cse.yzu.edu.tw/~s981502/7/Chap4.pdf&quot;&gt;各種 CPU 排程演算法之探討&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://publish.get.com.tw/BookPre_pdf/51MG060707-2.PDF&quot;&gt;行程排程演算法&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.tutorialspoint.com/operating_system/os_process_scheduling_algorithms.htm&quot;&gt;Operating System Scheduling algorithms&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;basic-concepts&quot;&gt;一、Basic Concepts&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Maximum CPU utilization obtained with multiprogramming.&lt;/li&gt;
+  &lt;li&gt;CPU–I/O Burst Cycle – Process execution consists of a cycle of CPU execution and I/O wait.&lt;/li&gt;
+  &lt;li&gt;CPU burst followed by I/O burst.&lt;/li&gt;
+  &lt;li&gt;CPU burst distribution is of main concern.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;cpu-scheduler&quot;&gt;二、CPU Scheduler&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Short-term scheduler selects from among the processes in ready queue, and allocates the CPU to one of them.
+    &lt;ul&gt;
+      &lt;li&gt;Queue may be ordered in various ways.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CPU scheduling decisions may take place when a process:
+    &lt;ol&gt;
+      &lt;li&gt;Switches from running to waiting state&lt;/li&gt;
+      &lt;li&gt;Switches from running to ready state&lt;/li&gt;
+      &lt;li&gt;Switches from waiting to ready&lt;/li&gt;
+      &lt;li&gt;Terminates&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Scheduling under 1 and 4 is nonpreemptive.&lt;/li&gt;
+  &lt;li&gt;All other scheduling is preemptive.
+    &lt;ul&gt;
+      &lt;li&gt;Consider access to shared data.&lt;/li&gt;
+      &lt;li&gt;Consider preemption while in kernel mode.&lt;/li&gt;
+      &lt;li&gt;Consider interrupts occurring during crucial OS activities.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dispatcher&quot;&gt;三、Dispatcher&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dispatcher module gives control of the CPU to the process selected by the short-term scheduler; this involves：
+    &lt;ol&gt;
+      &lt;li&gt;switching context&lt;/li&gt;
+      &lt;li&gt;switching to user mode&lt;/li&gt;
+      &lt;li&gt;jumping to the proper location in the user program to restart that program&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Dispatch latency：time it takes for the dispatcher to stop one process and start another running.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;scheduling-algorithm-optimization-criteria&quot;&gt;四、Scheduling Algorithm Optimization Criteria&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/LuBGjEu.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+1. CPU utilization – keep the CPU as busy as possible.&lt;br /&gt;
+2. Throughput – # of processes that complete their execution per time unit.&lt;br /&gt;
+3. Turnaround time – amount of time to execute a particular process.&lt;br /&gt;
+4. Waiting time – amount of time a process has been waiting in the ready queue.&lt;br /&gt;
+5. Response time – amount of time it takes from when a request was submitted until the first response is produced, not output (for time-sharing environment).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Length of Next CPU Burst
+    &lt;ul&gt;
+      &lt;li&gt;Determining&lt;br /&gt;
+  &lt;img src=&quot;https://i.imgur.com/1GaCgCb.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Prediction&lt;br /&gt;
+  &lt;img src=&quot;https://i.imgur.com/HWSLIdj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;scheduling-algorithm&quot;&gt;五、Scheduling Algorithm&lt;/h3&gt;
+&lt;p&gt;#### (一) First-Come, First-Served (FCFS)：先到先服務法&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/xWKL0Z3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/6MIKb3Q.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Convoy effect：很多短時間的 process，都在等一個&lt;br /&gt;
+長時間的 process 時，所產生的效應 (因為等待時間很長)。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;shortest-job-first-sjf&quot;&gt;(二) Shortest-Job-First (SJF)：最短優先法&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Associate with each process the length of its next CPU burst.
+    &lt;ul&gt;
+      &lt;li&gt;Use these lengths to schedule the process with the shortest time.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SJF is optimal – gives minimum average waiting time for a given set of processes.
+    &lt;ul&gt;
+      &lt;li&gt;The difficulty is knowing the length of the next CPU request.&lt;/li&gt;
+      &lt;li&gt;Could ask the user.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Wf8bEgG.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;priority-scheduling-ps&quot;&gt;(三) Priority Scheduling (PS)：優先權排班法&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;A priority number (integer) is associated with each process.&lt;/li&gt;
+  &lt;li&gt;The CPU is allocated to the process with the highest priority (smallest integer » highest priority).
+    &lt;ul&gt;
+      &lt;li&gt;Preemptive&lt;/li&gt;
+      &lt;li&gt;Nonpreemptive&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SJF is priority scheduling where priority is the inverse of predicted next CPU burst time.&lt;/li&gt;
+  &lt;li&gt;Problem：Starvation – low priority processes may never execute.&lt;/li&gt;
+  &lt;li&gt;Solution：Aging – as time progresses increase the priority of the process.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/ZeyVmU1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;round-robin-rr&quot;&gt;(四) Round Robin (RR)：輪流法&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Each process gets a small unit of CPU time (time quantum q), usually 10-100 milliseconds. After this time has elapsed, the process is preempted and added to the end of the ready queue.&lt;/li&gt;
+  &lt;li&gt;If there are n processes in the ready queue and the time quantum is q, then each process gets 1/n of the CPU time in chunks of at most q time units at once. No process waits more than (n-1)q time units.&lt;/li&gt;
+  &lt;li&gt;Timer interrupts every quantum to schedule next process.&lt;/li&gt;
+  &lt;li&gt;Performance.
+    &lt;ul&gt;
+      &lt;li&gt;q large » FIFO.&lt;/li&gt;
+      &lt;li&gt;q small » q must be large with respect to context switch, otherwise overhead is too high.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/uu9W1cI.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;time-quantum-and-context-switch-time&quot;&gt;1. Time Quantum and Context Switch Time&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/7SMF7rd.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;turnaround-time-varies-with-the-time-quantum&quot;&gt;2. Turnaround Time Varies With The Time Quantum&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/EtNCekP.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;multilevel&quot;&gt;(五) Multilevel&lt;/h4&gt;
+&lt;p&gt;##### 1. Queue&lt;br /&gt;
+* Ready queue is partitioned into separate queues, eg:&lt;br /&gt;
+	* foreground (interactive)&lt;br /&gt;
+	* background (batch)&lt;br /&gt;
+* Process permanently in a given queue.&lt;br /&gt;
+Each queue has its own scheduling algorithm:&lt;br /&gt;
+	* foreground – RR&lt;br /&gt;
+	* background – FCFS&lt;br /&gt;
+* Scheduling must be done between the queues:&lt;br /&gt;
+	* Fixed priority scheduling; (i.e., serve all from foreground then from background). Possibility of starvation.&lt;br /&gt;
+	* Time slice – each queue gets a certain amount of CPU time which it can schedule amongst its processes; i.e., 80% to foreground in RR.&lt;br /&gt;
+	* 20% to background in FCFS.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/rW9GXTr.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;feedback-queue&quot;&gt;2. Feedback Queue&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;A process can move between the various queues; aging can be implemented this way.&lt;/li&gt;
+  &lt;li&gt;Multilevel-feedback-queue scheduler. defined by the following parameters:
+    &lt;ul&gt;
+      &lt;li&gt;number of queues.&lt;/li&gt;
+      &lt;li&gt;scheduling algorithms for each queue.&lt;/li&gt;
+      &lt;li&gt;method used to determine when to upgrade a process.&lt;/li&gt;
+      &lt;li&gt;method used to determine when to demote a process.&lt;/li&gt;
+      &lt;li&gt;method used to determine which queue a process will enter when that process needs service.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Nc2SsIQ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;課程作業&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;課程簡報
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170317/Linux_programming_pthread-1.pdf&quot;&gt;Linux_programming_pthread-1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170317/Linux_programming_pthread-2.pdf&quot;&gt;Linux_Programming_pthread-2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://computing.llnl.gov/tutorials/pthreads/&quot;&gt;POSIX Threads Programming&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;what-is-a-thread&quot;&gt;1. What is a Thread？&lt;/h3&gt;
+&lt;p&gt;#### (1) OS view&lt;br /&gt;
+* A thread is an independent stream of instructions that can be scheduled to run by&lt;br /&gt;
+the OS.&lt;/p&gt;
+
+&lt;h4 id=&quot;software-developer-view&quot;&gt;(2) Software developer view&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;a thread can be considered as a “procedure” that runs independently from the main program.
+    &lt;ul&gt;
+      &lt;li&gt;Sequential program: a single stream of instructions in&lt;br /&gt;
+a program.&lt;/li&gt;
+      &lt;li&gt;Multi-threaded program: a program with multiple streams.
+        &lt;ul&gt;
+          &lt;li&gt;Multiple threads are needed to use multiple cores/CPUs.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;example&quot;&gt;[Example]&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;Computer games
+    &lt;ul&gt;
+      &lt;li&gt;each thread controls the movement of an object.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Scientific simulations
+    &lt;ul&gt;
+      &lt;li&gt;Hurricane movement simulation: each thread simulates the hurricane in a small domain.&lt;/li&gt;
+      &lt;li&gt;Molecular dynamic: each thread simulates a subset of particulars.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Web server
+    &lt;ul&gt;
+      &lt;li&gt;Each thread handles a connection.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;process-and-thread&quot;&gt;2. Process and Thread&lt;/h3&gt;
+&lt;p&gt;#### (1) Process context&lt;br /&gt;
+* Two parts in the context: &lt;code class=&quot;highlighter-rouge&quot;&gt;self-contained domain (protection)&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;execution of instructions&lt;/code&gt;.&lt;br /&gt;
+    * Process ID, process group ID, user ID, and group ID&lt;br /&gt;
+    * Environment&lt;br /&gt;
+    * Working directory.&lt;br /&gt;
+    * Program instructions&lt;br /&gt;
+    * Registers (including PC)&lt;br /&gt;
+    * Stack&lt;br /&gt;
+    * Heap&lt;br /&gt;
+    * File descriptors&lt;br /&gt;
+    * Signal actions&lt;br /&gt;
+    * Shared libraries&lt;br /&gt;
+    * Inter-process communication tools&lt;br /&gt;
+* What are absolutely needed to support a stream of instructions, given the process context?&lt;br /&gt;
+    * Registers (including PC)&lt;br /&gt;
+    * Stack&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/6kN1sIR.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;threads&quot;&gt;(2) Threads&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Advantages&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Light-weight
+        &lt;ul&gt;
+          &lt;li&gt;Lower overhead for thread creation.&lt;/li&gt;
+          &lt;li&gt;Lower Context Switching Overhead.
+            &lt;ul&gt;
+              &lt;li&gt;Fewer OS resources&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Shared State
+        &lt;ul&gt;
+          &lt;li&gt;Don’t need IPC-like mechanism to communicate between threads of same process.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Disadvantages&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Shared State!
+        &lt;ul&gt;
+          &lt;li&gt;Global variables are shared between threads. Accidental changes can be fatal.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Many library functions are not thread-safe
+        &lt;ul&gt;
+          &lt;li&gt;Library Functions that return pointers to static internal memory. E.g. gethostbyname()&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Lack of robustness
+        &lt;ul&gt;
+          &lt;li&gt;Crash in one thread will crash the entire process.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;pthreads&quot;&gt;3. Pthreads&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hardware vendors used to implement&lt;br /&gt;
+proprietary versions of threads
+    &lt;ul&gt;
+      &lt;li&gt;Thread programs are not portable&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pthreads = POSIX threads, specified in IEEE POSIX 1003.1c (1995)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;the-pthreads-api&quot;&gt;(1) The Pthreads API&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Three types of routines:
+    &lt;ol&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Thread management&lt;/code&gt;: create, terminate, join, and detach&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Mutexes&lt;/code&gt;: mutual exclusion, creating, destroying, locking, and unlocking mutexes&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Condition variables&lt;/code&gt;: event driven synchronizaiton.
+        &lt;ul&gt;
+          &lt;li&gt;Mutexes and condition variables are concerned about synchronization.&lt;/li&gt;
+          &lt;li&gt;Why not anything related to inter-thread communication?&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The concept of opaque objects pervades the&lt;br /&gt;
+design of the API.&lt;/li&gt;
+  &lt;li&gt;API naming convention&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/euq9YUQ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;thread-management&quot;&gt;(2) Thread management&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pthread header file &lt;pthread.h&gt;&lt;/pthread.h&gt;&lt;/li&gt;
+  &lt;li&gt;Compiling pthread programs：&lt;br /&gt;
+  &amp;gt; gcc aaa.c -o aaa -lpthread&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Creation&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;pthread_create&lt;br /&gt;
+ &lt;img src=&quot;https://i.imgur.com/KZ0yaCh.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Termination&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Return&lt;/li&gt;
+      &lt;li&gt;Pthread_exit&lt;/li&gt;
+      &lt;li&gt;Can we still use exit？&lt;br /&gt;
+ &lt;img src=&quot;https://i.imgur.com/O8QpEBi.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wait (parent/child synchronization)&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;pthread_join&lt;br /&gt;
+ &lt;img src=&quot;https://i.imgur.com/bacALSV.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;課程作業&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 17 Mar 2017 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/03/17/linux_system/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/03/17/linux_system/</guid>
+        
+        <category>Linux</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+        
+        <category>Linux</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+      </item>
     
       <item>
         <title>20170316 [學習筆記] 人工智慧 (3)</title>
@@ -40,38 +468,42 @@
       <item>
         <title>20170310 [學習筆記] Linux 系統程式 (2)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#process-in-memory&quot; id=&quot;markdown-toc-process-in-memory&quot;&gt;(一) Process in Memory&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#process-state&quot; id=&quot;markdown-toc-process-state&quot;&gt;(二) Process State&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#process-control-block-pcb&quot; id=&quot;markdown-toc-process-control-block-pcb&quot;&gt;(三) Process Control Block (PCB)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#process-switch&quot; id=&quot;markdown-toc-process-switch&quot;&gt;(四) Process Switch&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#processthread&quot; id=&quot;markdown-toc-processthread&quot;&gt;(五) Process、Thread&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#process-scheduling&quot; id=&quot;markdown-toc-process-scheduling&quot;&gt;(六) Process Scheduling&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#schedulers&quot; id=&quot;markdown-toc-schedulers&quot;&gt;Schedulers&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#processes&quot; id=&quot;markdown-toc-processes&quot;&gt;Processes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#process-in-memory&quot; id=&quot;markdown-toc-process-in-memory&quot;&gt;(一) Process in Memory&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#process-state&quot; id=&quot;markdown-toc-process-state&quot;&gt;(二) Process State&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#process-control-block-pcb&quot; id=&quot;markdown-toc-process-control-block-pcb&quot;&gt;(三) Process Control Block (PCB)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#process-switch&quot; id=&quot;markdown-toc-process-switch&quot;&gt;(四) Process Switch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#processthread&quot; id=&quot;markdown-toc-processthread&quot;&gt;(五) Process、Thread&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#process-scheduling&quot; id=&quot;markdown-toc-process-scheduling&quot;&gt;(六) Process Scheduling&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#schedulers&quot; id=&quot;markdown-toc-schedulers&quot;&gt;Schedulers&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#processes&quot; id=&quot;markdown-toc-processes&quot;&gt;Processes&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#process-creation&quot; id=&quot;markdown-toc-process-creation&quot;&gt;(七) Process Creation&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#process-creation&quot; id=&quot;markdown-toc-process-creation&quot;&gt;(七) Process Creation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#unix-system-call&quot; id=&quot;markdown-toc-unix-system-call&quot;&gt;(一) Unix system call&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#execv&quot; id=&quot;markdown-toc-execv&quot;&gt;1. execv()&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#signals&quot; id=&quot;markdown-toc-signals&quot;&gt;(二) Signals&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#unix-process-control&quot; id=&quot;markdown-toc-unix-process-control&quot;&gt;1. UNIX Process Control&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#kill-command&quot; id=&quot;markdown-toc-kill-command&quot;&gt;2. kill Command&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#function-call&quot; id=&quot;markdown-toc-function-call&quot;&gt;3. Function Call&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#linux-signal&quot; id=&quot;markdown-toc-linux-signal&quot;&gt;4. Linux Signal&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#signalh&quot; id=&quot;markdown-toc-signalh&quot;&gt;5. 訊號處理 - signal.h&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#signal&quot; id=&quot;markdown-toc-signal&quot;&gt;(1) signal()&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#sigaction&quot; id=&quot;markdown-toc-sigaction&quot;&gt;(2) sigaction()&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#unix-system-call&quot; id=&quot;markdown-toc-unix-system-call&quot;&gt;(一) Unix system call&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#execv&quot; id=&quot;markdown-toc-execv&quot;&gt;1. execv()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#signals&quot; id=&quot;markdown-toc-signals&quot;&gt;(二) Signals&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#unix-process-control&quot; id=&quot;markdown-toc-unix-process-control&quot;&gt;1. UNIX Process Control&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#kill-command&quot; id=&quot;markdown-toc-kill-command&quot;&gt;2. kill Command&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#function-call&quot; id=&quot;markdown-toc-function-call&quot;&gt;3. Function Call&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#linux-signal&quot; id=&quot;markdown-toc-linux-signal&quot;&gt;4. Linux Signal&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#signalh&quot; id=&quot;markdown-toc-signalh&quot;&gt;5. 訊號處理 - signal.h&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#signal&quot; id=&quot;markdown-toc-signal&quot;&gt;(1) signal()&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#sigaction&quot; id=&quot;markdown-toc-sigaction&quot;&gt;(2) sigaction()&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;一、作業系統&lt;/h3&gt;
+&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170309/ch03.pdf&quot;&gt;課程簡報 - Ch3：Process Concept&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -201,7 +633,8 @@ bursts.
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/CfTMr9N.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h3&gt;
+&lt;h2 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Creating_and_Executing_Processes.pdf&quot;&gt;課程簡報 - Creating and Executing Processes&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf&quot;&gt;課程簡報 - Signal&lt;/a&gt;&lt;/li&gt;
@@ -706,46 +1139,6 @@ bursts.
         <pubDate>Sun, 16 Oct 2016 18:00:00 +0800</pubDate>
         <link>http://shouzo.github.io/2016/10/16/R-doing-2/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2016/10/16/R-doing-2/</guid>
-        
-        <category>Data-Science</category>
-        
-        <category>Data-Mining</category>
-        
-        <category>R語言</category>
-        
-        
-        <category>Data-Science</category>
-        
-        <category>R語言</category>
-        
-      </item>
-    
-      <item>
-        <title>20161003 [資料科學系列] R語言資料分析實務(1)</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#r1&quot; id=&quot;markdown-toc-r1&quot;&gt;簡報主題：R語言資料分析實務(1)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;r1&quot;&gt;簡報主題：R語言資料分析實務(1)&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;簡報網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161003-R-doing-1.html#/&quot;&gt;20161003 [資料科學系列] R語言資料分析實務(1)&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;PDF網址：&lt;a href=&quot;https://shouzo.github.io/collections/data-science/20161003-R-doing-1.pdf&quot;&gt;20161003 [資料科學系列] R語言資料分析實務(1)&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SlideShare：&lt;a href=&quot;http://www.slideshare.net/danny200026/20161003-r-1&quot;&gt;http://www.slideshare.net/danny200026/20161003-r-1&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;[畫面預覽]&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/20161003/R-doing-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 02 Oct 2016 18:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2016/10/02/R-doing-1/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2016/10/02/R-doing-1/</guid>
         
         <category>Data-Science</category>
         
