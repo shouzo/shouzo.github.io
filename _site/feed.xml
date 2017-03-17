@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 17 Mar 2017 18:21:48 +0800</pubDate>
-    <lastBuildDate>Fri, 17 Mar 2017 18:21:48 +0800</lastBuildDate>
+    <pubDate>Fri, 17 Mar 2017 18:24:03 +0800</pubDate>
+    <lastBuildDate>Fri, 17 Mar 2017 18:24:03 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -143,7 +143,7 @@
   &lt;li&gt;
     &lt;p&gt;先進入家目錄、打開 &lt;code class=&quot;highlighter-rouge&quot;&gt;vimrc&lt;/code&gt; 設定檔&lt;br /&gt;
  &amp;gt; $ cd&lt;br /&gt;
- &amp;gt; $ vim .vimrc&lt;/p&gt;
+ $ vim .vimrc&lt;/p&gt;
 
     &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/v4rOfdw.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
