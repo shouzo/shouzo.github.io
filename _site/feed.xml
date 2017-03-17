@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 17 Mar 2017 18:26:05 +0800</pubDate>
-    <lastBuildDate>Fri, 17 Mar 2017 18:26:05 +0800</lastBuildDate>
+    <pubDate>Fri, 17 Mar 2017 18:42:01 +0800</pubDate>
+    <lastBuildDate>Fri, 17 Mar 2017 18:42:01 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -236,8 +236,6 @@ colorscheme torte        &quot; 設定 Vim 的顯示配色
         
         <category>程式設計</category>
         
-        
-        <category>Vim</category>
         
         <category>程式設計</category>
         
