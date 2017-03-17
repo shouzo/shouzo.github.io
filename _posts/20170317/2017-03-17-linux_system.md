@@ -22,14 +22,14 @@ tags: Linux 作業系統 程式設計
     * [Operating System Scheduling algorithms](https://www.tutorialspoint.com/operating_system/os_process_scheduling_algorithms.htm)
   
 
-### 一、Basic Concepts
+### Basic Concepts
 * Maximum CPU utilization obtained with multiprogramming.
 * CPU–I/O Burst Cycle – Process execution consists of a cycle of CPU execution and I/O wait.
 * CPU burst followed by I/O burst.
 * CPU burst distribution is of main concern.
 
 
-### 二、CPU Scheduler
+### CPU Scheduler
 * Short-term scheduler selects from among the processes in ready queue, and allocates the CPU to one of them.
     * Queue may be ordered in various ways.
 * CPU scheduling decisions may take place when a process:
@@ -44,7 +44,7 @@ tags: Linux 作業系統 程式設計
     * Consider interrupts occurring during crucial OS activities.
 
 
-### 三、Dispatcher
+### Dispatcher
 * Dispatcher module gives control of the CPU to the process selected by the short-term scheduler; this involves：
     1. switching context
     2. switching to user mode
@@ -52,7 +52,7 @@ tags: Linux 作業系統 程式設計
 * Dispatch latency：time it takes for the dispatcher to stop one process and start another running.
 
 
-### 四、Scheduling Algorithm Optimization Criteria
+### Scheduling Algorithm Optimization Criteria
 ![](https://i.imgur.com/LuBGjEu.jpg)
 1. CPU utilization – keep the CPU as busy as possible.
 2. Throughput – # of processes that complete their execution per time unit.
@@ -67,7 +67,7 @@ tags: Linux 作業系統 程式設計
         ![](https://i.imgur.com/HWSLIdj.jpg)
 
 
-### 五、Scheduling Algorithm
+### Scheduling Algorithm
 #### (一) First-Come, First-Served (FCFS)：先到先服務法
 ![](https://i.imgur.com/xWKL0Z3.jpg)
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>20170317 [學習筆記] Linux 系統程式 (3)</title>
-    <meta name="description" content="  一、作業系統          一、Basic Concepts      二、CPU Scheduler      三、Dispatcher      四、Scheduling Algorithm Optimization Criteria      五、Scheduling Algorithm      ...">
+    <meta name="description" content="  一、作業系統          Basic Concepts      CPU Scheduler      Dispatcher      Scheduling Algorithm Optimization Criteria      Scheduling Algorithm                ...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
@@ -190,11 +190,11 @@
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#basic-concepts" id="markdown-toc-basic-concepts">一、Basic Concepts</a></li>
-      <li><a href="#cpu-scheduler" id="markdown-toc-cpu-scheduler">二、CPU Scheduler</a></li>
-      <li><a href="#dispatcher" id="markdown-toc-dispatcher">三、Dispatcher</a></li>
-      <li><a href="#scheduling-algorithm-optimization-criteria" id="markdown-toc-scheduling-algorithm-optimization-criteria">四、Scheduling Algorithm Optimization Criteria</a></li>
-      <li><a href="#scheduling-algorithm" id="markdown-toc-scheduling-algorithm">五、Scheduling Algorithm</a>        <ul>
+      <li><a href="#basic-concepts" id="markdown-toc-basic-concepts">Basic Concepts</a></li>
+      <li><a href="#cpu-scheduler" id="markdown-toc-cpu-scheduler">CPU Scheduler</a></li>
+      <li><a href="#dispatcher" id="markdown-toc-dispatcher">Dispatcher</a></li>
+      <li><a href="#scheduling-algorithm-optimization-criteria" id="markdown-toc-scheduling-algorithm-optimization-criteria">Scheduling Algorithm Optimization Criteria</a></li>
+      <li><a href="#scheduling-algorithm" id="markdown-toc-scheduling-algorithm">Scheduling Algorithm</a>        <ul>
           <li><a href="#shortest-job-first-sjf" id="markdown-toc-shortest-job-first-sjf">(二) Shortest-Job-First (SJF)：最短優先法</a></li>
           <li><a href="#priority-scheduling-ps" id="markdown-toc-priority-scheduling-ps">(三) Priority Scheduling (PS)：優先權排班法</a></li>
           <li><a href="#round-robin-rr" id="markdown-toc-round-robin-rr">(四) Round Robin (RR)：輪流法</a>            <ul>
@@ -246,7 +246,7 @@
   </li>
 </ul>
 
-<h3 id="basic-concepts">一、Basic Concepts</h3>
+<h3 id="basic-concepts">Basic Concepts</h3>
 <ul>
   <li>Maximum CPU utilization obtained with multiprogramming.</li>
   <li>CPU–I/O Burst Cycle – Process execution consists of a cycle of CPU execution and I/O wait.</li>
@@ -254,7 +254,7 @@
   <li>CPU burst distribution is of main concern.</li>
 </ul>
 
-<h3 id="cpu-scheduler">二、CPU Scheduler</h3>
+<h3 id="cpu-scheduler">CPU Scheduler</h3>
 <ul>
   <li>Short-term scheduler selects from among the processes in ready queue, and allocates the CPU to one of them.
     <ul>
@@ -279,7 +279,7 @@
   </li>
 </ul>
 
-<h3 id="dispatcher">三、Dispatcher</h3>
+<h3 id="dispatcher">Dispatcher</h3>
 <ul>
   <li>Dispatcher module gives control of the CPU to the process selected by the short-term scheduler; this involves：
     <ol>
@@ -291,7 +291,7 @@
   <li>Dispatch latency：time it takes for the dispatcher to stop one process and start another running.</li>
 </ul>
 
-<h3 id="scheduling-algorithm-optimization-criteria">四、Scheduling Algorithm Optimization Criteria</h3>
+<h3 id="scheduling-algorithm-optimization-criteria">Scheduling Algorithm Optimization Criteria</h3>
 <p><img src="https://i.imgur.com/LuBGjEu.jpg" alt="" /><br />
 1. CPU utilization – keep the CPU as busy as possible.<br />
 2. Throughput – # of processes that complete their execution per time unit.<br />
@@ -310,7 +310,7 @@
   </li>
 </ul>
 
-<h3 id="scheduling-algorithm">五、Scheduling Algorithm</h3>
+<h3 id="scheduling-algorithm">Scheduling Algorithm</h3>
 <p>#### (一) First-Come, First-Served (FCFS)：先到先服務法<br />
 <img src="https://i.imgur.com/xWKL0Z3.jpg" alt="" /></p>
 

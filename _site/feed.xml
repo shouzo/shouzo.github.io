@@ -5,19 +5,19 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 17 Mar 2017 12:52:15 +0800</pubDate>
-    <lastBuildDate>Fri, 17 Mar 2017 12:52:15 +0800</lastBuildDate>
+    <pubDate>Fri, 17 Mar 2017 12:55:21 +0800</pubDate>
+    <lastBuildDate>Fri, 17 Mar 2017 12:55:21 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>20170317 [學習筆記] Linux 系統程式 (3)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#basic-concepts&quot; id=&quot;markdown-toc-basic-concepts&quot;&gt;一、Basic Concepts&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#cpu-scheduler&quot; id=&quot;markdown-toc-cpu-scheduler&quot;&gt;二、CPU Scheduler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#dispatcher&quot; id=&quot;markdown-toc-dispatcher&quot;&gt;三、Dispatcher&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#scheduling-algorithm-optimization-criteria&quot; id=&quot;markdown-toc-scheduling-algorithm-optimization-criteria&quot;&gt;四、Scheduling Algorithm Optimization Criteria&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#scheduling-algorithm&quot; id=&quot;markdown-toc-scheduling-algorithm&quot;&gt;五、Scheduling Algorithm&lt;/a&gt;        &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#basic-concepts&quot; id=&quot;markdown-toc-basic-concepts&quot;&gt;Basic Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cpu-scheduler&quot; id=&quot;markdown-toc-cpu-scheduler&quot;&gt;CPU Scheduler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#dispatcher&quot; id=&quot;markdown-toc-dispatcher&quot;&gt;Dispatcher&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#scheduling-algorithm-optimization-criteria&quot; id=&quot;markdown-toc-scheduling-algorithm-optimization-criteria&quot;&gt;Scheduling Algorithm Optimization Criteria&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#scheduling-algorithm&quot; id=&quot;markdown-toc-scheduling-algorithm&quot;&gt;Scheduling Algorithm&lt;/a&gt;        &lt;ul&gt;
           &lt;li&gt;&lt;a href=&quot;#shortest-job-first-sjf&quot; id=&quot;markdown-toc-shortest-job-first-sjf&quot;&gt;(二) Shortest-Job-First (SJF)：最短優先法&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#priority-scheduling-ps&quot; id=&quot;markdown-toc-priority-scheduling-ps&quot;&gt;(三) Priority Scheduling (PS)：優先權排班法&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#round-robin-rr&quot; id=&quot;markdown-toc-round-robin-rr&quot;&gt;(四) Round Robin (RR)：輪流法&lt;/a&gt;            &lt;ul&gt;
@@ -69,7 +69,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;basic-concepts&quot;&gt;一、Basic Concepts&lt;/h3&gt;
+&lt;h3 id=&quot;basic-concepts&quot;&gt;Basic Concepts&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Maximum CPU utilization obtained with multiprogramming.&lt;/li&gt;
   &lt;li&gt;CPU–I/O Burst Cycle – Process execution consists of a cycle of CPU execution and I/O wait.&lt;/li&gt;
@@ -77,7 +77,7 @@
   &lt;li&gt;CPU burst distribution is of main concern.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;cpu-scheduler&quot;&gt;二、CPU Scheduler&lt;/h3&gt;
+&lt;h3 id=&quot;cpu-scheduler&quot;&gt;CPU Scheduler&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Short-term scheduler selects from among the processes in ready queue, and allocates the CPU to one of them.
     &lt;ul&gt;
@@ -102,7 +102,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;dispatcher&quot;&gt;三、Dispatcher&lt;/h3&gt;
+&lt;h3 id=&quot;dispatcher&quot;&gt;Dispatcher&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Dispatcher module gives control of the CPU to the process selected by the short-term scheduler; this involves：
     &lt;ol&gt;
@@ -114,7 +114,7 @@
   &lt;li&gt;Dispatch latency：time it takes for the dispatcher to stop one process and start another running.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;scheduling-algorithm-optimization-criteria&quot;&gt;四、Scheduling Algorithm Optimization Criteria&lt;/h3&gt;
+&lt;h3 id=&quot;scheduling-algorithm-optimization-criteria&quot;&gt;Scheduling Algorithm Optimization Criteria&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/LuBGjEu.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 1. CPU utilization – keep the CPU as busy as possible.&lt;br /&gt;
 2. Throughput – # of processes that complete their execution per time unit.&lt;br /&gt;
@@ -133,7 +133,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;scheduling-algorithm&quot;&gt;五、Scheduling Algorithm&lt;/h3&gt;
+&lt;h3 id=&quot;scheduling-algorithm&quot;&gt;Scheduling Algorithm&lt;/h3&gt;
 &lt;p&gt;#### (一) First-Come, First-Served (FCFS)：先到先服務法&lt;br /&gt;
 &lt;img src=&quot;https://i.imgur.com/xWKL0Z3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
