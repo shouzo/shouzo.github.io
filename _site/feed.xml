@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Mar 2017 00:24:16 +0800</pubDate>
-    <lastBuildDate>Mon, 20 Mar 2017 00:24:16 +0800</lastBuildDate>
+    <pubDate>Mon, 20 Mar 2017 01:05:47 +0800</pubDate>
+    <lastBuildDate>Mon, 20 Mar 2017 01:05:47 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -113,10 +113,16 @@
     &lt;p&gt;複製反白的區塊(需要在VISUAL模式) - &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
+    &lt;p&gt;剪下反白的區塊(需要在VISUAL模式) - &lt;code class=&quot;highlighter-rouge&quot;&gt;d&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;複製游標所在的那行(需要在VISUAL模式) - &lt;code class=&quot;highlighter-rouge&quot;&gt;shift&lt;/code&gt;(按鍵) + &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;貼上 - &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;回復 - &lt;code class=&quot;highlighter-rouge&quot;&gt;u&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;自動完成 (需要在編輯模式) - &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl&lt;/code&gt;(按鍵) + &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;&lt;/p&gt;
