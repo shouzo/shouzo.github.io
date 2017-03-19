@@ -253,3 +253,40 @@ int sigaction(int sig,const struct sigaction *act, struct sigaction *oact);
     * sa_handler 代表新的信號處理。
     * sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定的信號集擱置。
     * sa_flags 用來設置信號處理的其他相關操作。
+
+
+* 程式作業：`signal` 的處理
+![](https://i.imgur.com/1Zbog12.jpg)
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+
+
+// When the process get the "Ctrl+C" signal.
+void show_time() {
+    system("date"); // show the time.
+}
+
+// When the process gets the "Ctrl+\" signal.
+void go_default() {
+    signal(SIGINT, SIG_DFL);    // recover "Ctrl+C"
+}
+
+
+int main(void) {
+
+    signal(SIGINT, show_time);  // triggering "Ctrl+C"
+    signal(SIGQUIT, go_default);// triggering "Ctrl+\"
+
+    while(1) {
+        printf("What time is it？\n");  // Something interesting will happen if this line without "\n".
+        sleep(1);
+    }   
+}
+```
+
+* 執行結果
+
+![](https://i.imgur.com/TgkFPdi.jpg)

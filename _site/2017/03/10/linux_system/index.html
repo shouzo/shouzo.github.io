@@ -528,7 +528,44 @@ bursts.
       <li>sa_flags 用來設置信號處理的其他相關操作。</li>
     </ul>
   </li>
+  <li>程式作業：<code class="highlighter-rouge">signal</code> 的處理<br />
+<img src="https://i.imgur.com/1Zbog12.jpg" alt="" /></li>
 </ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;signal.h&gt;
+</span>
+
+<span class="c1">// When the process get the "Ctrl+C" signal.
+</span><span class="kt">void</span> <span class="nf">show_time</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">"date"</span><span class="p">);</span> <span class="c1">// show the time.
+</span><span class="p">}</span>
+
+<span class="c1">// When the process gets the "Ctrl+\" signal.
+</span><span class="kt">void</span> <span class="nf">go_default</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">SIG_DFL</span><span class="p">);</span>    <span class="c1">// recover "Ctrl+C"
+</span><span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">show_time</span><span class="p">);</span>  <span class="c1">// triggering "Ctrl+C"
+</span>    <span class="n">signal</span><span class="p">(</span><span class="n">SIGQUIT</span><span class="p">,</span> <span class="n">go_default</span><span class="p">);</span><span class="c1">// triggering "Ctrl+\"
+</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"What time is it？</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>  <span class="c1">// Something interesting will happen if this line without "\n".
+</span>        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>   
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>執行結果</li>
+</ul>
+
+<p><img src="https://i.imgur.com/TgkFPdi.jpg" alt="" /></p>
 
         </article>
         <hr>
