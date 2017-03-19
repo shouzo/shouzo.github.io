@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 17 Mar 2017 18:42:01 +0800</pubDate>
-    <lastBuildDate>Fri, 17 Mar 2017 18:42:01 +0800</lastBuildDate>
+    <pubDate>Sun, 19 Mar 2017 21:34:24 +0800</pubDate>
+    <lastBuildDate>Sun, 19 Mar 2017 21:34:24 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -120,6 +120,9 @@
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;自動完成 (需要在編輯模式) - &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl&lt;/code&gt;(按鍵) + &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;搜尋字串 - &lt;code class=&quot;highlighter-rouge&quot;&gt;/&amp;lt;字串&amp;gt;&lt;/code&gt;：向下找、&lt;code class=&quot;highlighter-rouge&quot;&gt;?&amp;lt;字串&amp;gt;&lt;/code&gt;：向上找&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
