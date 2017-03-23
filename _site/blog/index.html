@@ -132,6 +132,233 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-22
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">前言</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">一、輸出有問題</a></li>
+</ul>
+
+<h2 id="section">前言</h2>
+<p>從 1 - 100 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</p>
+
+<h2 id="section-1">一、輸出有問題</h2>
+<p>### (一) 原本的程式<br />
+```c<br />
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <semaphore.h> 
+#include <time.h></time.h></semaphore.h></pthread.h></stdlib.h></unistd.h></stdio.h></p>
+
+<p>#define NUM_THREADS 10<br />
+#define MSIZE 100</p>
+
+<p>// 找出 1 - 100 的所有質數</p>
+
+<p>static double getDoubleTime();<br />
+void *thread_function(void *arg);<br />
+pthread_mutex_t work_mutex;</p>
+
+<p>int main(void) {<br />
+	int res;<br />
+	pthread_t a_thread[NUM_THREADS];<br />
+	void *thread_result;<br />
+	int lots_of_threads;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// start to measure time...
+double start_time = getDoubleTime();
+
+// initialize mutex...
+res = pthread_mutex_init(&amp;work_mutex, NULL);
+if (res != 0) {
+   	perror("Mutex initialization failed");
+    exit(EXIT_FAILURE);
+}
+
+// pthread_create...
+for (lots_of_threads = 0; lots_of_threads &lt; NUM_THREADS; lots_of_threads ++) {
+	res = pthread_create(&amp;(a_thread[lots_of_threads]), NULL, thread_function, (void*)(long)lots_of_threads);
+
+    if (res != 0) {
+		perror("Thread creation failed");
+    		exit(EXIT_FAILURE);
+	}
+}
+
+// pthread_join...
+for (lots_of_threads = NUM_THREADS - 1; lots_of_threads &gt;= 0; lots_of_threads--) {
+    	res = pthread_join(a_thread[lots_of_threads], &amp;thread_result);
+
+        if (res != 0) {
+            perror("pthread_join failed");
+    	}
+}	
+
+printf("\nThread joined\n");
+
+// stop measuring time...
+double finish_time = getDoubleTime();
+printf("Execute Time:  %.3lf ms\n", (finish_time - start_time));
+exit(EXIT_SUCCESS); }
+</code></pre>
+</div>
+
+<p>void *thread_function(void *arg) {<br />
+    // pthread_mutex_lock(&amp;work_mutex);</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int my_num = (long)arg;
+// if (MSIZE % NUM_THREADS != 0){    printf("error");   pthread_exit(-1);    }
+
+int start_num = (MSIZE / NUM_THREADS) * my_num + 1;
+int end_num = (MSIZE / NUM_THREADS) * (my_num + 1);
+
+int i = 0, j = 0;   // Set the loop
+int count = 0;      // Set the counter
+int result = 0;     // result
+
+printf("\n\nI'm thread[%d], start_num:%d, end_num:%d\n", my_num, start_num, end_num);
+
+/* find the prime number */
+for (i = start_num; i &lt;= end_num; i++) {
+    count = 0;      // Reset counter
+
+    for (j = 1; j &lt;= i; j++) {
+        if (i % j == 0)
+            count += 1;
+    }
+    
+    if (count == 2) { 
+        result = i;
+        printf("%d\t", result);
+    }
+}
+
+// pthread_mutex_unlock(&amp;work_mutex);
+pthread_exit(0); }
+</code></pre>
+</div>
+
+<p>static double getDoubleTime() {<br />
+        struct timeval tm_tv;<br />
+        gettimeofday(&amp;tm_tv,0);<br />
+        return (double)(((double)tm_tv.tv_sec * (double)1000. + (double)(tm_tv.tv_usec)) * (double)0.001);<br />
+}</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+* [執行結果]
+![](https://i.imgur.com/HeJEnU0.jpg)
+
+
+### (二) 做個測試，來看看是怎麼一回事
+* 目前的假設
+    &gt; 當ㄧ個 thread 還沒 printf 完它所負責範圍的質數時，就被切換到另一個 thread 裡面執行。
+* 參考資料
+    * [Using mutex for pthread results in random answer](http://stackoverflow.com/questions/15811605/using-mutex-for-pthread-results-in-random-answer)
+    
+![](https://i.imgur.com/arQk9zI.jpg)
+
+* 驗證假設
+    * 為了驗證假設的正確性，我在 printf 質數時後面再補上該質數所對應的 thread number，作法如下：
+
+```c
+   /* 前面省略 */
+   
+   /* find the prime number */
+    for (i = start_num; i &lt;= end_num; i++) {
+        count = 0;      // Reset counter
+
+        for (j = 1; j &lt;= i; j++) {
+            if (i % j == 0)
+                count += 1;
+        }
+        
+        if (count == 2) { 
+            result = i;
+            printf("%d-[%d]\t", result, my_num);
+        }
+    }
+    
+    /* 後面省略 */
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>[執行結果]<br />
+<img src="https://i.imgur.com/EaWi8Mk.jpg" alt="" /></p>
+
+    <blockquote>
+      <p>看來前面的假設是正確的，但是我們該如何避免這種情形？</p>
+    </blockquote>
+  </li>
+</ul>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/22/get_prime/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧</a>
                 </h2>
                 <div class="label">
@@ -868,103 +1095,6 @@ bursts.
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/09/ai/">20170309 [學習筆記] 人工智慧 (2)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-09
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">(一) 自動控制分類：一般型式</a></li>
-  <li><a href="#section-1" id="markdown-toc-section-1">(二) 迴授控制</a></li>
-  <li><a href="#section-2" id="markdown-toc-section-2">(三) 模糊集合</a></li>
-  <li><a href="#section-3" id="markdown-toc-section-3">(四) 歸屬函數</a></li>
-</ul>
-
-<h3 id="section">(一) 自動控制分類：一般型式</h3>
-<ul>
-  <li>以下皆不用精確數學模型
-    <ol>
-      <li><strong>ON - OFF 控制</strong></li>
-      <li><strong>比例控制</strong></li>
-      <li><strong>PI 比例積分控制</strong></li>
-      <li><strong>PD 比例微分控制</strong></li>
-      <li><strong>PID 比例微分積分控制</strong></li>
-    </ol>
-  </li>
-  <li>應用範例
-    <ul>
-      <li>水塔水位控制：ON - OFF 控制</li>
-      <li>騎車：比例控制</li>
-      <li>工業製程控制：PI、PD、PID 控制</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="section-1">(二) 迴授控制</h3>
-<p><img src="https://i.imgur.com/QysvSAH.jpg" alt="" /><br />
-<img src="https://i.imgur.com/VJcsemV.jpg" alt="" /></p>
-
-<h3 id="section-2">(三) 模糊集合</h3>
-<p><img src="https://i.imgur.com/KQ9mDmH.jpg" alt="" /><br />
-<img src="https://i.imgur.com/obEt0R0.jpg" alt="" /></p>
-
-<h3 id="section-3">(四) 歸屬函數</h3>
-<p><img src="https://i.imgur.com/Gpc2LC6.jpg" alt="" /><br />
-<img src="https://i.imgur.com/fglu2Jg.jpg" alt="" /><br />
-<img src="https://i.imgur.com/XmdiO3q.jpg" alt="" /></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/09/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -992,6 +1122,8 @@ bursts.
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題</a></li>
+                    
                         <li><a href="/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧</a></li>
                     
                         <li><a href="/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)</a></li>
@@ -1009,8 +1141,6 @@ bursts.
                         <li><a href="/2017/01/19/clubmanager/">20170118 [社團相關] 社團負責人課程</a></li>
                     
                         <li><a href="/2016/12/12/why-clubs/">20161211 [社團相關] 給社團人的一封信</a></li>
-                    
-                        <li><a href="/2016/10/23/R-doing-3/">20161024 [資料科學系列] R語言資料分析實務(3)</a></li>
                     
                 </ul>
             </div>
@@ -1145,7 +1275,7 @@ bursts.
                             <span class="name">
                                 Linux
                             </span>
-                            <span class="badge">3</span>
+                            <span class="badge">4</span>
                         </a>
                     </li>
                     
@@ -1154,7 +1284,7 @@ bursts.
                             <span class="name">
                                 作業系統
                             </span>
-                            <span class="badge">3</span>
+                            <span class="badge">4</span>
                         </a>
                     </li>
                     
@@ -1163,7 +1293,7 @@ bursts.
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">4</span>
+                            <span class="badge">5</span>
                         </a>
                     </li>
                     
@@ -1188,7 +1318,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#C語言" style="font-size: 14pt; color: #444;">C語言</a>
+                      <a href="/tag/#C語言" style="font-size: 13.5pt; color: #444;">C語言</a>
                     
                       
                       
@@ -1209,21 +1339,21 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#Data-Science" style="font-size: 16.5pt; color: #222;">Data-Science</a>
+                      <a href="/tag/#Data-Science" style="font-size: 16pt; color: #222;">Data-Science</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Data-Mining" style="font-size: 14.5pt; color: #333;">Data-Mining</a>
+                      <a href="/tag/#Data-Mining" style="font-size: 14.5pt; color: #444;">Data-Mining</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#R語言" style="font-size: 17pt; color: #111;">R語言</a>
+                      <a href="/tag/#R語言" style="font-size: 16.5pt; color: #111;">R語言</a>
                     
                       
                       
@@ -1279,7 +1409,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #666;">社團</a>
+                      <a href="/tag/#社團" style="font-size: 12pt; color: #666;">社團</a>
                     
                       
                       
@@ -1307,14 +1437,14 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#Linux" style="font-size: 10.5pt; color: #777;">Linux</a>
+                      <a href="/tag/#Linux" style="font-size: 11.5pt; color: #777;">Linux</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#作業系統" style="font-size: 10.5pt; color: #777;">作業系統</a>
+                      <a href="/tag/#作業系統" style="font-size: 11.5pt; color: #777;">作業系統</a>
                     
                       
                       
