@@ -69,7 +69,7 @@ tags: Linux 作業系統 程式設計
 	* 一個工作在多核心 CPU 上運行
 
 #### 3. Concurrency vs Parallelism
-Rob Pike 用地鼠燒書做例子:
+* Rob Pike 用地鼠燒書做例子:
 ![](https://hackpad-attachments.s3.amazonaws.com/embedded2016.hackpad.com_K6DJ0ZtiecH_p.537916_1460613009716_task.jpg)
 
 * 如果今天增加多一只地鼠，一個推車或多一個焚燒盧，這樣有機會作到更好的資源使用率，但我們不能保證兩只或更多地鼠會同時進行 (可能只有有限的火爐)。在單核系統中只能允許一次進行一次的燒書工作，那樣就沒有效率了。
@@ -90,7 +90,7 @@ Rob Pike 用地鼠燒書做例子:
 * 一個工作在多核心 CPU 上運行
 
 #### 4. 相關整理
-線上教材 [Introduction to OpenMP](https://www.youtube.com/watch?v=6jFkNjhJ-Z4) 做了以下整理:
+線上教材 [Introduction to OpenMP](https://www.youtube.com/watch?v=6jFkNjhJ-Z4) 做了以下整理：
 
 (1) Concurrent (並行)
 * 工作可拆分成「獨立執行」的部份，這樣「可以」讓很多事情一起做，但是「不一定」要真的同時做。下方情境：
@@ -98,11 +98,10 @@ Rob Pike 用地鼠燒書做例子:
     * 展示具有並行性，但不去同時執行。
     * 並行性是種「架構程式」的概念。寫下一段程式之前，思考問題架構時就決定好的。 
 
-
-- [ ] Parallel (平行)
+(2) Parallel (平行)
 * 把規劃好、能夠並行的程式，分配給不同執行緒，並讓他們同時執行。
 ![](https://i.imgur.com/Oom3wM5.png)
-    * 「平行」是一種選擇。
+   * 「平行」是一種選擇。
 
 
 ### 三、Single and Multithreaded Processes
@@ -204,9 +203,9 @@ int pthread_join(pthread_t th, void **thread_return);
 
 
 ### 課程作業
-從 1 - 10000 之間取出所有的質數，利用 threads 來分配計算質數的範圍。
+* 從 1 - 10000 之間取出所有的質數，利用 threads 來分配計算質數的範圍。
 
-```clike=
+```c
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
