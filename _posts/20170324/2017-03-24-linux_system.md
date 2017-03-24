@@ -332,3 +332,204 @@ static double getDoubleTime() {
 
 
 ## 二、Linux 程式設計
+## 20170324
+* 課程簡報
+    * [Linux Programming - Pthread](https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170324/Linux_programming_pthread.pdf)
+* 參考資料
+    * [Toward Concurrency](https://hackmd.io/s/Skh_AaVix)
+    * [Mutexes and Semaphores Demystified](https://barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore)
+    * [Mutex vs. Semaphores – Part 1: Semaphores](https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-1-semaphores/)
+    * [Mutex vs. Semaphores – Part 2: The Mutex](https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-2-the-mutex/)
+    * [Mutex vs. Semaphores – Part 3: Mutual Exclusion Problems](https://blog.feabhas.com/2009/10/mutex-vs-semaphores-%E2%80%93-part-3-final-part-mutual-exclusion-problems/)
+
+
+### 一、Pthreads
+* May be provided either as user-level or kernel-level.
+* A POSIX standard (IEEE 1003.1c) API for thread creation and synchronization.
+* **Specification, not implementation.**
+* API specifies behavior of the thread library, implementation is up to development of the library.
+* Common in UNIX operating systems (Solaris, Linux, Mac OS X).
+
+#### pthread.h
+```c
+#include <pthread.h>
+
+int pthread_create(pthread_t *thread, pthread_attr_t
+*attr, void *(*start_routine)(void *), void *arg);
+//create a thread
+
+
+void pthread_exit(void *retval);
+//terminate a thread
+
+
+int pthread_join(pthread_t th, void **thread_return);
+//wait for thread termination
+
+
+int pthread_cancel(pthread_t thread);
+//cancel a thread
+
+
+int pthread_setcancelstate(int state, int *oldstate);
+//set cancellation state
+
+
+int pthread_setcanceltype(int type, int *oldtype);
+//set cancellation type
+```
+
+##### pthread_create()
+```c
+int pthread_create(pthread_t *thread,
+pthread_attr_t *attr, void *(*start_routine)(void
+*), void *arg);
+```
+* `pthread_t *thread`：thread 的識別字
+* `pthread_attr_t *attr`：thread 的屬性，設定為 NULL 表示使用預設值
+* `void *(*start_routine)(void*)`：thread 要執行的 function
+* `void *arg`：傳遞給 thread 的參數
+
+##### pthread_exit()
+```c
+void pthread_exit(void *retval);
+```
+* `void *retval`：thread 結束時回傳的變數
+
+##### pthread_join()
+```c
+int pthread_join(pthread_t th, void **thread_return);
+```
+* `pthread_t th`：thread 識別字
+* `void **thread_return`：接收 pthread_exit 傳回的變數
+
+##### pthread_setcancelstate()
+```c
+int pthread_setcancelstate(int state, int *oldstate);
+```
+* `int state`：設定為 PTHREAD_CANCEL_ENABLE 即表示允許取消 thread 的請求；設定為 PTHREAD_CANCEL_DISABLE 即表示忽略取消的請求。
+* `int *oldstate`：此指標指向前一個狀態
+
+##### pthread_setcanceltype()
+```c
+int pthread_setcanceltype(int type, int *oldtype);
+```
+* `int type`：設定為 PTHREAD_CANCEL_ASYNCHRONOUS 則立即取消 thread；設定為 PTHREAD_CANCEL_DEFERRED 則會遇到取消點才會取消 thread。
+    * 取消點即是下列函數：`pthread_join`、`pthread_cond_wait`、`pthread_testcancel`...等
+* `int *oldtype`：此指標指向前一個型態。
+
+
+### 二、Condition Variables
+#### pthread_cond_init (condition, attr)
+* [pthread_cond_init](https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_init.txt)
+
+#### pthread_cond_destroy (condition)
+* [pthread_cond_destroy](https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_destroy.txt)
+
+#### pthread_condattr_init (attr)
+* [pthread_condattr_init](https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_init.txt)
+
+#### pthread_condattr_destroy (attr)
+* [pthread_condattr_destroy](https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_destroy.txt)
+
+
+### 三、Thread Synchronization
+### 1. Semaphore
+#### semaphore.h
+```c
+#include <semaphore.h>
+
+int sem_init(sem_t *sem, int pshared, unsigned int value);
+//create a semaphore
+
+
+int sem_wait(sem_t *sem);
+//lock a semaphore
+
+
+int sem_post(sem_t *sem);
+//unlock a semaphore
+
+
+int sem_destroy(sem_t *sem);
+//delete a semaphore
+```
+
+##### sem_init()
+```c
+int sem_init(sem_t *sem, int pshared, unsigned
+int value);
+```
+* `sem_t *sem`：semaphore 識別字
+* `int pshared`：設定為 0 表示僅供目前的 process 及其 thread 使用。非 0 表示此 semaphore 與其他 process 共用
+* `unsigned int value`：semaphore 的初始值
+
+##### sem_wait()
+```c
+int sem_wait(sem_t *sem);
+```
+* 若 semaphore 為非 0，則 semaphore 值減
+1；若 semaphore 為 0，則呼叫此 function
+的 thread 會被 block ，直到 semaphore 值不
+為 0。
+
+##### sem_post()
+```c
+int sem_post(sem_t *sem);
+```
+* 對 semaphore 值加 1 。
+
+##### sem_destroy()
+```c
+int sem_destroy(sem_t *sem);
+//delete a semaphore
+```
+
+
+
+
+### 2. Mutex
+#### pthread.h
+```c
+#include <pthread.h>
+
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr);
+//create a mutex
+
+
+int pthread_mutex_lock(pthread_mutex_t *mutex);
+//lock a mutex
+
+
+int pthread_mutex_unlock(pthread_mutex_t *mutex);
+//unlock a mutex
+
+
+int pthread_mutex_destroy(pthread_mutex_t *mutex);
+//delete a mutex
+```
+
+##### pthread_mutex_init()
+```c
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr);
+```
+* `pthread_mutex_t *mutex`：mutex 識別字
+* `const pthread_mutexattr_t *mutexattr`：mutex 的屬性。設定為 NULL 表示使用預設。
+
+##### pthread_mutex_lock()
+```c
+int pthread_mutex_lock(pthread_mutex_t *mutex);
+//lock a mutex
+```
+
+##### pthread_mutex_unlock()
+```c
+int pthread_mutex_unlock(pthread_mutex_t *mutex);
+//unlock a mutex
+```
+
+##### pthread_mutex_destroy()
+```c
+int pthread_mutex_destroy(pthread_mutex_t *mutex);
+//delete a mutex
+```
