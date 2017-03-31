@@ -248,6 +248,7 @@
           <li><a href="#pthreadmutexdestroy" id="markdown-toc-pthreadmutexdestroy">pthread_mutex_destroy()</a></li>
         </ul>
       </li>
+      <li><a href="#section-3" id="markdown-toc-section-3">課程作業</a></li>
     </ul>
   </li>
 </ul>
@@ -646,15 +647,22 @@
 </ul>
 
 <h2 id="linux-">二、Linux 程式設計</h2>
-<p>## 20170324<br />
-* 課程簡報<br />
-    * <a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170324/Linux_programming_pthread.pdf">Linux Programming - Pthread</a><br />
-* 參考資料<br />
-    * <a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a><br />
-    * <a href="https://barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore">Mutexes and Semaphores Demystified</a><br />
-    * <a href="https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-1-semaphores/">Mutex vs. Semaphores – Part 1: Semaphores</a><br />
-    * <a href="https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-2-the-mutex/">Mutex vs. Semaphores – Part 2: The Mutex</a><br />
-    * <a href="https://blog.feabhas.com/2009/10/mutex-vs-semaphores-%E2%80%93-part-3-final-part-mutual-exclusion-problems/">Mutex vs. Semaphores – Part 3: Mutual Exclusion Problems</a></p>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170324/Linux_programming_pthread.pdf">Linux Programming - Pthread</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
+      <li><a href="https://barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore">Mutexes and Semaphores Demystified</a></li>
+      <li><a href="https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-1-semaphores/">Mutex vs. Semaphores – Part 1: Semaphores</a></li>
+      <li><a href="https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-2-the-mutex/">Mutex vs. Semaphores – Part 2: The Mutex</a></li>
+      <li><a href="https://blog.feabhas.com/2009/10/mutex-vs-semaphores-%E2%80%93-part-3-final-part-mutual-exclusion-problems/">Mutex vs. Semaphores – Part 3: Mutual Exclusion Problems</a></li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="pthreads-1">一、Pthreads</h3>
 <ul>
@@ -865,6 +873,104 @@
 </span></code></pre>
 </div>
 
+<h3 id="section-3">課程作業</h3>
+<ul>
+  <li>Producer - Consumer<br />
+```c<br />
+/*</li>
+  <li>Solution to Producer Consumer Problem</li>
+  <li>Using Ptheads, a mutex and condition variables</li>
+  <li>From Tanenbaum, Modern Operating Systems, 3rd Ed.<br />
+ */</li>
+</ul>
+
+<p>/*<br />
+    In this version the buffer is a single number.<br />
+    The producer is putting numbers into the shared buffer<br />
+    (in this case sequentially)<br />
+    And the consumer is taking them out.<br />
+    If the buffer contains zero, that indicates that the buffer is empty.<br />
+    Any other value is valid.<br />
+*/</p>
+
+<p>#include <stdio.h>
+#include <pthread.h></pthread.h></stdio.h></p>
+
+<p>#define MAX 10   /* Numbers to produce */<br />
+#define buf_max 5</p>
+
+<p>pthread_mutex_t the_mutex;<br />
+pthread_cond_t condc, condp;<br />
+int buffer[5];<br />
+int in = 0;<br />
+int count = 0;</p>
+
+<p>void *producer(void *ptr) {<br />
+    int i = 0;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for (i = 1; i &lt;= MAX; i++) {
+    pthread_mutex_lock(&amp;the_mutex);	    /* protect buffer */
+    while (count == buf_max)    /* If there is something in the buffer then wait */
+        pthread_cond_wait(&amp;condp, &amp;the_mutex);
+
+    in++;
+    buffer[in] = i;
+    printf("ProBuffer[%d]：%2d\n", in, buffer[in]);
+    count++;
+
+    pthread_cond_signal(&amp;condc);	    /* wake up consumer */
+    pthread_mutex_unlock(&amp;the_mutex);	/* release the buffer */
+}
+pthread_exit(0); }
+</code></pre>
+</div>
+
+<p>void *consumer(void *ptr) {<br />
+    int i = 0;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for (i = 1; i &lt;= MAX; i++) {
+    pthread_mutex_lock(&amp;the_mutex);	    /* protect buffer */
+    while (count == 0)			    /* If there is nothing in the buffer then wait */
+        pthread_cond_wait(&amp;condc, &amp;the_mutex);
+    
+    printf("ConBuffer[%d]：%2d\n", in, buffer[in]);
+    buffer[in] = 0;
+    in--;
+    count--;
+    pthread_cond_signal(&amp;condp);	    /* wake up consumer */
+
+    pthread_mutex_unlock(&amp;the_mutex);	/* release the buffer */
+}
+pthread_exit(0); }
+</code></pre>
+</div>
+
+<p>int main(int argc, char **argv) {<br />
+    pthread_t pro, con;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// Initialize the mutex and condition variables
+/* What's the NULL for ??? */
+pthread_mutex_init(&amp;the_mutex, NULL);	
+pthread_cond_init(&amp;condc, NULL);		/* Initialize consumer condition variable */
+pthread_cond_init(&amp;condp, NULL);		/* Initialize producer condition variable */
+
+// Create the threads
+pthread_create(&amp;con, NULL, consumer, NULL);
+pthread_create(&amp;pro, NULL, producer, NULL);
+
+// Wait for the threads to finish
+// Otherwise main might run to the end
+// and kill the entire process when it exits.
+pthread_join(con, NULL);
+pthread_join(pro, NULL);
+
+// Cleanup -- would happen automatically at end of program
+pthread_mutex_destroy(&amp;the_mutex);	/* Free up the_mutex */
+pthread_cond_destroy(&amp;condc);		/* Free up consumer condition variable */
+pthread_cond_destroy(&amp;condp);		/* Free up producer condition variable */ } ``` * 執行結果 ![](https://i.imgur.com/OCVTU3V.jpg)
+</code></pre>
+</div>
+
         </article>
         <hr>
 
@@ -874,31 +980,67 @@
             
                 
                     
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
                         
                         <h2 id="similar_posts">Similar Posts</h2>
                         <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
                         
                         <li class="relatedPost">
                             <a href="http://shouzo.github.io/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題
@@ -1079,17 +1221,6 @@
                 
                     
                 
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
             
                 
                     

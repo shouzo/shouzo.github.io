@@ -5,9 +5,39 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Mar 2017 17:11:07 +0800</pubDate>
-    <lastBuildDate>Thu, 30 Mar 2017 17:11:07 +0800</lastBuildDate>
+    <pubDate>Fri, 31 Mar 2017 17:51:52 +0800</pubDate>
+    <lastBuildDate>Fri, 31 Mar 2017 17:51:52 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>20170331 [學習筆記] Linux 系統程式 (5)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
+
+&lt;h2 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h2&gt;
+</description>
+        <pubDate>Fri, 31 Mar 2017 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/03/31/linux_system/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/03/31/linux_system/</guid>
+        
+        <category>Linux</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+        
+        <category>Linux</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+      </item>
     
       <item>
         <title>20170330 [學習筆記] 人工智慧 (5)</title>
@@ -207,6 +237,7 @@
           &lt;li&gt;&lt;a href=&quot;#pthreadmutexdestroy&quot; id=&quot;markdown-toc-pthreadmutexdestroy&quot;&gt;pthread_mutex_destroy()&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;課程作業&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -605,15 +636,22 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h2&gt;
-&lt;p&gt;## 20170324&lt;br /&gt;
-* 課程簡報&lt;br /&gt;
-    * &lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170324/Linux_programming_pthread.pdf&quot;&gt;Linux Programming - Pthread&lt;/a&gt;&lt;br /&gt;
-* 參考資料&lt;br /&gt;
-    * &lt;a href=&quot;https://hackmd.io/s/Skh_AaVix&quot;&gt;Toward Concurrency&lt;/a&gt;&lt;br /&gt;
-    * &lt;a href=&quot;https://barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore&quot;&gt;Mutexes and Semaphores Demystified&lt;/a&gt;&lt;br /&gt;
-    * &lt;a href=&quot;https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-1-semaphores/&quot;&gt;Mutex vs. Semaphores – Part 1: Semaphores&lt;/a&gt;&lt;br /&gt;
-    * &lt;a href=&quot;https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-2-the-mutex/&quot;&gt;Mutex vs. Semaphores – Part 2: The Mutex&lt;/a&gt;&lt;br /&gt;
-    * &lt;a href=&quot;https://blog.feabhas.com/2009/10/mutex-vs-semaphores-%E2%80%93-part-3-final-part-mutual-exclusion-problems/&quot;&gt;Mutex vs. Semaphores – Part 3: Mutual Exclusion Problems&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;課程簡報
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170324/Linux_programming_pthread.pdf&quot;&gt;Linux Programming - Pthread&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://hackmd.io/s/Skh_AaVix&quot;&gt;Toward Concurrency&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore&quot;&gt;Mutexes and Semaphores Demystified&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-1-semaphores/&quot;&gt;Mutex vs. Semaphores – Part 1: Semaphores&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://blog.feabhas.com/2009/09/mutex-vs-semaphores-%E2%80%93-part-2-the-mutex/&quot;&gt;Mutex vs. Semaphores – Part 2: The Mutex&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://blog.feabhas.com/2009/10/mutex-vs-semaphores-%E2%80%93-part-3-final-part-mutual-exclusion-problems/&quot;&gt;Mutex vs. Semaphores – Part 3: Mutual Exclusion Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;pthreads-1&quot;&gt;一、Pthreads&lt;/h3&gt;
 &lt;ul&gt;
@@ -822,6 +860,104 @@
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pthread_mutex_destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pthread_mutex_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;//delete a mutex
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;課程作業&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Producer - Consumer&lt;br /&gt;
+```c&lt;br /&gt;
+/*&lt;/li&gt;
+  &lt;li&gt;Solution to Producer Consumer Problem&lt;/li&gt;
+  &lt;li&gt;Using Ptheads, a mutex and condition variables&lt;/li&gt;
+  &lt;li&gt;From Tanenbaum, Modern Operating Systems, 3rd Ed.&lt;br /&gt;
+ */&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;/*&lt;br /&gt;
+    In this version the buffer is a single number.&lt;br /&gt;
+    The producer is putting numbers into the shared buffer&lt;br /&gt;
+    (in this case sequentially)&lt;br /&gt;
+    And the consumer is taking them out.&lt;br /&gt;
+    If the buffer contains zero, that indicates that the buffer is empty.&lt;br /&gt;
+    Any other value is valid.&lt;br /&gt;
+*/&lt;/p&gt;
+
+&lt;p&gt;#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;&lt;/pthread.h&gt;&lt;/stdio.h&gt;&lt;/p&gt;
+
+&lt;p&gt;#define MAX 10   /* Numbers to produce */&lt;br /&gt;
+#define buf_max 5&lt;/p&gt;
+
+&lt;p&gt;pthread_mutex_t the_mutex;&lt;br /&gt;
+pthread_cond_t condc, condp;&lt;br /&gt;
+int buffer[5];&lt;br /&gt;
+int in = 0;&lt;br /&gt;
+int count = 0;&lt;/p&gt;
+
+&lt;p&gt;void *producer(void *ptr) {&lt;br /&gt;
+    int i = 0;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for (i = 1; i &amp;lt;= MAX; i++) {
+    pthread_mutex_lock(&amp;amp;the_mutex);	    /* protect buffer */
+    while (count == buf_max)    /* If there is something in the buffer then wait */
+        pthread_cond_wait(&amp;amp;condp, &amp;amp;the_mutex);
+
+    in++;
+    buffer[in] = i;
+    printf(&quot;ProBuffer[%d]：%2d\n&quot;, in, buffer[in]);
+    count++;
+
+    pthread_cond_signal(&amp;amp;condc);	    /* wake up consumer */
+    pthread_mutex_unlock(&amp;amp;the_mutex);	/* release the buffer */
+}
+pthread_exit(0); }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;void *consumer(void *ptr) {&lt;br /&gt;
+    int i = 0;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for (i = 1; i &amp;lt;= MAX; i++) {
+    pthread_mutex_lock(&amp;amp;the_mutex);	    /* protect buffer */
+    while (count == 0)			    /* If there is nothing in the buffer then wait */
+        pthread_cond_wait(&amp;amp;condc, &amp;amp;the_mutex);
+    
+    printf(&quot;ConBuffer[%d]：%2d\n&quot;, in, buffer[in]);
+    buffer[in] = 0;
+    in--;
+    count--;
+    pthread_cond_signal(&amp;amp;condp);	    /* wake up consumer */
+
+    pthread_mutex_unlock(&amp;amp;the_mutex);	/* release the buffer */
+}
+pthread_exit(0); }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;int main(int argc, char **argv) {&lt;br /&gt;
+    pthread_t pro, con;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Initialize the mutex and condition variables
+/* What&#39;s the NULL for ??? */
+pthread_mutex_init(&amp;amp;the_mutex, NULL);	
+pthread_cond_init(&amp;amp;condc, NULL);		/* Initialize consumer condition variable */
+pthread_cond_init(&amp;amp;condp, NULL);		/* Initialize producer condition variable */
+
+// Create the threads
+pthread_create(&amp;amp;con, NULL, consumer, NULL);
+pthread_create(&amp;amp;pro, NULL, producer, NULL);
+
+// Wait for the threads to finish
+// Otherwise main might run to the end
+// and kill the entire process when it exits.
+pthread_join(con, NULL);
+pthread_join(pro, NULL);
+
+// Cleanup -- would happen automatically at end of program
+pthread_mutex_destroy(&amp;amp;the_mutex);	/* Free up the_mutex */
+pthread_cond_destroy(&amp;amp;condc);		/* Free up consumer condition variable */
+pthread_cond_destroy(&amp;amp;condp);		/* Free up producer condition variable */ } ``` * 執行結果 ![](https://i.imgur.com/OCVTU3V.jpg)
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
         <pubDate>Fri, 24 Mar 2017 08:00:00 +0800</pubDate>
@@ -2717,83 +2853,6 @@ bursts.
         
         
         <category>人工智慧</category>
-        
-      </item>
-    
-      <item>
-        <title>20170303 [學習筆記] Linux 系統程式 (1)</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;(一) 作業系統&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;(二) Linux 程式設計&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;(一) 作業系統&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf&quot;&gt;課程簡報 - Ch1：Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;linux-&quot;&gt;(二) Linux 程式設計&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170303/Creating_and_Executing_Processes.pdf&quot;&gt;課程簡報 - Creating and Executing Processes&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;課程作業： &lt;code class=&quot;highlighter-rouge&quot;&gt;fork()&lt;/code&gt; 的概念&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdlib.h&amp;gt;
-#include &amp;lt;stdio.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;/* Press any Integer */&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;scanf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;cm&quot;&gt;/* Use &quot;fork()&quot; to create Child&#39;s and Parent&#39;s process */&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fork&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;// Set the &quot;result&quot; initial value
-&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;// Child&#39;s entry
-&lt;/span&gt;		&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;***** Child&#39;s pid = %d *****&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getpid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1 + 2 + ... + n = %d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;// Parent&#39;s entry
-&lt;/span&gt;		&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;***** Parent&#39;s pid = %d *****&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getpid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;n 的因數：%d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;%d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;執行結果&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/TKyt2rB.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 04 Mar 2017 07:59:59 +0800</pubDate>
-        <link>http://shouzo.github.io/2017/03/04/linux_system/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2017/03/04/linux_system/</guid>
-        
-        <category>Linux</category>
-        
-        <category>作業系統</category>
-        
-        <category>程式設計</category>
-        
-        
-        <category>Linux</category>
-        
-        <category>作業系統</category>
-        
-        <category>程式設計</category>
         
       </item>
     
