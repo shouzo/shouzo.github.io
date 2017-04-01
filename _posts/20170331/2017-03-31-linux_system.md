@@ -311,6 +311,7 @@ int main(int argc, char **argv) {
 
 #### Example
 * `server` 部份
+
 ```c
 /*  Make the necessary includes and set up the variables.  */
 
@@ -367,6 +368,7 @@ int main()
 ```
 
 * `client` 部份
+
 ```c
 /*  Make the necessary includes and set up the variables.  */
 
@@ -421,6 +423,7 @@ int main()
 * 利用Socket Programming，將 client 端的整數陣列傳送給 server 端排序，並將排序後的結果回傳給 client 端顯示。
 
 * `server` 部份
+
 ```c
 /*  Make the necessary includes and set up the variables.  */
 
@@ -494,6 +497,7 @@ int main()
 
 
 * `client` 部份
+
 ```c
 /*  Make the necessary includes and set up the variables.  */
 
