@@ -191,10 +191,306 @@
                 </div>
                 <div class="excerpt">
                     <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a></li>
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#thread-synchronization" id="markdown-toc-thread-synchronization">(一) Thread Synchronization</a>        <ul>
+          <li><a href="#seminit" id="markdown-toc-seminit">sem_init()</a></li>
+          <li><a href="#semwait" id="markdown-toc-semwait">sem_wait()</a></li>
+          <li><a href="#sempost" id="markdown-toc-sempost">sem_post()</a></li>
+          <li><a href="#semdestroy" id="markdown-toc-semdestroy">sem_destroy()</a></li>
+        </ul>
+      </li>
+      <li><a href="#mutex" id="markdown-toc-mutex">2. Mutex</a>        <ul>
+          <li><a href="#pthreadmutexinit" id="markdown-toc-pthreadmutexinit">pthread_mutex_init()</a></li>
+          <li><a href="#pthreadmutexlock" id="markdown-toc-pthreadmutexlock">pthread_mutex_lock()</a></li>
+          <li><a href="#pthreadmutexunlock" id="markdown-toc-pthreadmutexunlock">pthread_mutex_unlock()</a></li>
+          <li><a href="#pthreadmutexdestroy" id="markdown-toc-pthreadmutexdestroy">pthread_mutex_destroy()</a></li>
+        </ul>
+      </li>
+      <li><a href="#condition-variables" id="markdown-toc-condition-variables">3. Condition Variables</a>        <ul>
+          <li><a href="#pthreadconddestroy-condition" id="markdown-toc-pthreadconddestroy-condition">pthread_cond_destroy (condition)</a></li>
+          <li><a href="#pthreadcondattrinit-attr" id="markdown-toc-pthreadcondattrinit-attr">pthread_condattr_init (attr)</a></li>
+          <li><a href="#pthreadcondattrdestroy-attr" id="markdown-toc-pthreadcondattrdestroy-attr">pthread_condattr_destroy (attr)</a></li>
+        </ul>
+      </li>
+      <li><a href="#barrier" id="markdown-toc-barrier">4. Barrier</a></li>
+      <li><a href="#producer-consumer-problem" id="markdown-toc-producer-consumer-problem">(二) Producer-Consumer Problem</a>        <ul>
+          <li><a href="#consumer" id="markdown-toc-consumer">2. Consumer</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-1" id="markdown-toc-section-1">課程作業</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="section">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/ch04.pdf">Chapter 4: Mutithread Programming</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/ch05.pdf">Chapter 5: Process Scheduling</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/Linux_programming_pthread.pdf">Linux_programming_pthread</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
+      <li><a href="http://tuxthink.blogspot.tw/2013/01/using-condition-variables-in-pthreads.html">Using condition variables in pthreads</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="thread-synchronization">(一) Thread Synchronization</h3>
+<p>### 1. Semaphore<br />
+#### semaphore.h<br />
+```c<br />
+#include <semaphore.h></semaphore.h></p>
+
+<p>int sem_init(sem_t *sem, int pshared, unsigned int value);<br />
+//create a semaphore</p>
+
+<p>int sem_wait(sem_t *sem);<br />
+//lock a semaphore</p>
+
+<p>int sem_post(sem_t *sem);<br />
+//unlock a semaphore</p>
+
+<p>int sem_destroy(sem_t *sem);<br />
+//delete a semaphore<br />
+```</p>
+
+<h5 id="seminit">sem_init()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span>
+<span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+</code></pre>
+</div>
+<ul>
+  <li><code class="highlighter-rouge">sem_t *sem</code>：semaphore 識別字</li>
+  <li><code class="highlighter-rouge">int pshared</code>：設定為 0 表示僅供目前的 process 及其 thread 使用。非 0 表示此 semaphore 與其他 process 共用</li>
+  <li><code class="highlighter-rouge">unsigned int value</code>：semaphore 的初始值</li>
+</ul>
+
+<h5 id="semwait">sem_wait()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre>
+</div>
+<ul>
+  <li>若 semaphore 為非 0，則 semaphore 值減<br />
+1；若 semaphore 為 0，則呼叫此 function<br />
+的 thread 會被 block ，直到 semaphore 值不<br />
+為 0。</li>
+</ul>
+
+<h5 id="sempost">sem_post()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre>
+</div>
+<ul>
+  <li>對 semaphore 值加 1 。</li>
+</ul>
+
+<h5 id="semdestroy">sem_destroy()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<span class="c1">//delete a semaphore
+</span></code></pre>
+</div>
+
+<h3 id="mutex">2. Mutex</h3>
+<p>#### pthread.h<br />
+```c<br />
+#include <pthread.h></pthread.h></p>
+
+<p>int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr);<br />
+//create a mutex</p>
+
+<p>int pthread_mutex_lock(pthread_mutex_t *mutex);<br />
+//lock a mutex</p>
+
+<p>int pthread_mutex_unlock(pthread_mutex_t *mutex);<br />
+//unlock a mutex</p>
+
+<p>int pthread_mutex_destroy(pthread_mutex_t *mutex);<br />
+//delete a mutex<br />
+```</p>
+
+<h5 id="pthreadmutexinit">pthread_mutex_init()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
+</code></pre>
+</div>
+<ul>
+  <li><code class="highlighter-rouge">pthread_mutex_t *mutex</code>：mutex 識別字</li>
+  <li><code class="highlighter-rouge">const pthread_mutexattr_t *mutexattr</code>：mutex 的屬性。設定為 NULL 表示使用預設。</li>
+</ul>
+
+<h5 id="pthreadmutexlock">pthread_mutex_lock()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//lock a mutex
+</span></code></pre>
+</div>
+
+<h5 id="pthreadmutexunlock">pthread_mutex_unlock()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//unlock a mutex
+</span></code></pre>
+</div>
+
+<h5 id="pthreadmutexdestroy">pthread_mutex_destroy()</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//delete a mutex
+</span></code></pre>
+</div>
+
+<h3 id="condition-variables">3. Condition Variables</h3>
+<p>#### pthread_cond_init (condition, attr)<br />
+* <a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_init.txt">pthread_cond_init</a></p>
+
+<h4 id="pthreadconddestroy-condition">pthread_cond_destroy (condition)</h4>
+<ul>
+  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_destroy.txt">pthread_cond_destroy</a></li>
+</ul>
+
+<h4 id="pthreadcondattrinit-attr">pthread_condattr_init (attr)</h4>
+<ul>
+  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_init.txt">pthread_condattr_init</a></li>
+</ul>
+
+<h4 id="pthreadcondattrdestroy-attr">pthread_condattr_destroy (attr)</h4>
+<ul>
+  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_destroy.txt">pthread_condattr_destroy</a></li>
+</ul>
+
+<h3 id="barrier">4. Barrier</h3>
+<ul>
+  <li><a href="http://angelonotes.blogspot.tw/2012/02/pthreadbarrier.html">Using barriers in pthreads</a></li>
+  <li><a href="http://angelonotes.blogspot.tw/2012/02/pthreadbarrier.html">pthread︰barrier</a></li>
+</ul>
+
+<h3 id="producer-consumer-problem">(二) Producer-Consumer Problem</h3>
+<p>#### 1. Producer<br />
+```c<br />
+item next produced;<br />
+while (true) {<br />
+    /* produce an item in next produced */</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>while (((in + 1) % BUFFER SIZE) == out)
+; /* do nothing */
+    
+buffer[in] = next produced;
+in = (in + 1) % BUFFER SIZE; } ```
+</code></pre>
+</div>
+
+<h4 id="consumer">2. Consumer</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">item</span> <span class="n">next</span> <span class="n">consumed</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
+    <span class="p">;</span> <span class="cm">/* do nothing */</span>
+    
+    <span class="n">next</span> <span class="n">consumed</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">;</span>
+    
+    <span class="cm">/* consume the item in next consumed */</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="section-1">課程作業</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
+ *  Solution to Producer Consumer Problem
+ *  Using Ptheads, a mutex and condition variables
+ *  From Tanenbaum, Modern Operating Systems, 3rd Ed.
+ */</span>
+
+<span class="cm">/*
+    In this version the buffer is a single number.
+    The producer is putting numbers into the shared buffer
+    (in this case sequentially)
+    And the consumer is taking them out.
+    If the buffer contains zero, that indicates that the buffer is empty.
+    Any other value is valid.
+*/</span>
+
+<span class="cp">#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+</span>
+<span class="cp">#define MAX 10//000000			</span><span class="cm">/* Numbers to produce */</span><span class="cp">
+#define BUFFER_SIZE 5
+</span>
+<span class="n">pthread_mutex_t</span> <span class="n">the_mutex</span><span class="p">;</span>
+<span class="n">pthread_cond_t</span> <span class="n">condc</span><span class="p">,</span> <span class="n">condp</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">in</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">producer</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* protect buffer */</span>
+        
+        <span class="k">while</span> <span class="p">(((</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>		       <span class="cm">/* If there is something in the buffer then wait */</span>
+            <span class="n">pthread_cond_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>
+
+        <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"ProBuffer[%d]：%2d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]);</span>
+        <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+   
+        <span class="n">pthread_cond_signal</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">);</span>	<span class="cm">/* wake up consumer */</span>
+        <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* release the buffer */</span>
+    <span class="p">}</span>
+
+    <span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">consumer</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* protect buffer */</span>
+    
+        <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>			<span class="cm">/* If there is nothing in the buffer then wait */</span>
+            <span class="n">pthread_cond_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>
+    
+        <span class="n">printf</span><span class="p">(</span><span class="s">"ConBuffer[%d]：%2d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">]);</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+        <span class="n">pthread_cond_signal</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">);</span>	<span class="cm">/* wake up consumer */</span>
+        <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* release the buffer */</span>
+    <span class="p">}</span>
+    <span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">pthread_t</span> <span class="n">pro</span><span class="p">,</span> <span class="n">con</span><span class="p">;</span>
+
+    <span class="c1">// Initialize the mutex and condition variables
+</span>    <span class="cm">/* What's the NULL for ??? */</span>
+    <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>	
+    <span class="n">pthread_cond_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>		<span class="cm">/* Initialize consumer condition variable */</span>
+    <span class="n">pthread_cond_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>		<span class="cm">/* Initialize producer condition variable */</span>
+
+    <span class="c1">// Create the threads
+</span>    <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">con</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">consumer</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pro</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">producer</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="c1">// Wait for the threads to finish
+</span>    <span class="c1">// Otherwise main might run to the end
+</span>    <span class="c1">// and kill the entire process when it exits.
+</span>    <span class="n">pthread_join</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">pthread_join</span><span class="p">(</span><span class="n">pro</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="c1">// Cleanup -- would happen automatically at end of program
+</span>    <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* Free up the_mutex */</span>
+    <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">);</span>		<span class="cm">/* Free up consumer condition variable */</span>
+    <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">);</span>		<span class="cm">/* Free up producer condition variable */</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>執行結果<br />
+<img src="https://i.imgur.com/6miNt1O.jpg" alt="" /></li>
+</ul>
 
 
                 </div>

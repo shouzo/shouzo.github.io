@@ -5,20 +5,667 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 31 Mar 2017 17:51:52 +0800</pubDate>
-    <lastBuildDate>Fri, 31 Mar 2017 17:51:52 +0800</lastBuildDate>
+    <pubDate>Sat, 01 Apr 2017 18:19:49 +0800</pubDate>
+    <lastBuildDate>Sat, 01 Apr 2017 18:19:49 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>20170331 [學習筆記] Linux 系統程式 (5)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#thread-synchronization&quot; id=&quot;markdown-toc-thread-synchronization&quot;&gt;(一) Thread Synchronization&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#seminit&quot; id=&quot;markdown-toc-seminit&quot;&gt;sem_init()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#semwait&quot; id=&quot;markdown-toc-semwait&quot;&gt;sem_wait()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#sempost&quot; id=&quot;markdown-toc-sempost&quot;&gt;sem_post()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#semdestroy&quot; id=&quot;markdown-toc-semdestroy&quot;&gt;sem_destroy()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#mutex&quot; id=&quot;markdown-toc-mutex&quot;&gt;2. Mutex&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#pthreadmutexinit&quot; id=&quot;markdown-toc-pthreadmutexinit&quot;&gt;pthread_mutex_init()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#pthreadmutexlock&quot; id=&quot;markdown-toc-pthreadmutexlock&quot;&gt;pthread_mutex_lock()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#pthreadmutexunlock&quot; id=&quot;markdown-toc-pthreadmutexunlock&quot;&gt;pthread_mutex_unlock()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#pthreadmutexdestroy&quot; id=&quot;markdown-toc-pthreadmutexdestroy&quot;&gt;pthread_mutex_destroy()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#condition-variables&quot; id=&quot;markdown-toc-condition-variables&quot;&gt;3. Condition Variables&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#pthreadconddestroy-condition&quot; id=&quot;markdown-toc-pthreadconddestroy-condition&quot;&gt;pthread_cond_destroy (condition)&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#pthreadcondattrinit-attr&quot; id=&quot;markdown-toc-pthreadcondattrinit-attr&quot;&gt;pthread_condattr_init (attr)&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#pthreadcondattrdestroy-attr&quot; id=&quot;markdown-toc-pthreadcondattrdestroy-attr&quot;&gt;pthread_condattr_destroy (attr)&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#barrier&quot; id=&quot;markdown-toc-barrier&quot;&gt;4. Barrier&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#producer-consumer-problem&quot; id=&quot;markdown-toc-producer-consumer-problem&quot;&gt;(二) Producer-Consumer Problem&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#consumer&quot; id=&quot;markdown-toc-consumer&quot;&gt;2. Consumer&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;課程作業&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#socket-programming&quot; id=&quot;markdown-toc-socket-programming&quot;&gt;Socket Programming&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#two-essential-types-of-sockets&quot; id=&quot;markdown-toc-two-essential-types-of-sockets&quot;&gt;2. Two essential types of sockets&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#sockstream&quot; id=&quot;markdown-toc-sockstream&quot;&gt;(1) SOCK_STREAM&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#sockdgram&quot; id=&quot;markdown-toc-sockdgram&quot;&gt;(2) SOCK_DGRAM&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#example&quot; id=&quot;markdown-toc-example&quot;&gt;Example&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;課程作業&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;課程簡報
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/ch04.pdf&quot;&gt;Chapter 4: Mutithread Programming&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/ch05.pdf&quot;&gt;Chapter 5: Process Scheduling&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/Linux_programming_pthread.pdf&quot;&gt;Linux_programming_pthread&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://hackmd.io/s/Skh_AaVix&quot;&gt;Toward Concurrency&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://tuxthink.blogspot.tw/2013/01/using-condition-variables-in-pthreads.html&quot;&gt;Using condition variables in pthreads&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;thread-synchronization&quot;&gt;(一) Thread Synchronization&lt;/h3&gt;
+&lt;p&gt;### 1. Semaphore&lt;br /&gt;
+#### semaphore.h&lt;br /&gt;
+```c&lt;br /&gt;
+#include &lt;semaphore.h&gt;&lt;/semaphore.h&gt;&lt;/p&gt;
+
+&lt;p&gt;int sem_init(sem_t *sem, int pshared, unsigned int value);&lt;br /&gt;
+//create a semaphore&lt;/p&gt;
+
+&lt;p&gt;int sem_wait(sem_t *sem);&lt;br /&gt;
+//lock a semaphore&lt;/p&gt;
+
+&lt;p&gt;int sem_post(sem_t *sem);&lt;br /&gt;
+//unlock a semaphore&lt;/p&gt;
+
+&lt;p&gt;int sem_destroy(sem_t *sem);&lt;br /&gt;
+//delete a semaphore&lt;br /&gt;
+```&lt;/p&gt;
+
+&lt;h5 id=&quot;seminit&quot;&gt;sem_init()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sem_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sem_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pshared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sem_t *sem&lt;/code&gt;：semaphore 識別字&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int pshared&lt;/code&gt;：設定為 0 表示僅供目前的 process 及其 thread 使用。非 0 表示此 semaphore 與其他 process 共用&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;unsigned int value&lt;/code&gt;：semaphore 的初始值&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;semwait&quot;&gt;sem_wait()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sem_wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sem_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;若 semaphore 為非 0，則 semaphore 值減&lt;br /&gt;
+1；若 semaphore 為 0，則呼叫此 function&lt;br /&gt;
+的 thread 會被 block ，直到 semaphore 值不&lt;br /&gt;
+為 0。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;sempost&quot;&gt;sem_post()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sem_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sem_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;對 semaphore 值加 1 。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;semdestroy&quot;&gt;sem_destroy()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sem_destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sem_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//delete a semaphore
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;mutex&quot;&gt;2. Mutex&lt;/h3&gt;
+&lt;p&gt;#### pthread.h&lt;br /&gt;
+```c&lt;br /&gt;
+#include &lt;pthread.h&gt;&lt;/pthread.h&gt;&lt;/p&gt;
+
+&lt;p&gt;int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr);&lt;br /&gt;
+//create a mutex&lt;/p&gt;
+
+&lt;p&gt;int pthread_mutex_lock(pthread_mutex_t *mutex);&lt;br /&gt;
+//lock a mutex&lt;/p&gt;
+
+&lt;p&gt;int pthread_mutex_unlock(pthread_mutex_t *mutex);&lt;br /&gt;
+//unlock a mutex&lt;/p&gt;
+
+&lt;p&gt;int pthread_mutex_destroy(pthread_mutex_t *mutex);&lt;br /&gt;
+//delete a mutex&lt;br /&gt;
+```&lt;/p&gt;
+
+&lt;h5 id=&quot;pthreadmutexinit&quot;&gt;pthread_mutex_init()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pthread_mutex_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pthread_mutex_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pthread_mutexattr_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutexattr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pthread_mutex_t *mutex&lt;/code&gt;：mutex 識別字&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;const pthread_mutexattr_t *mutexattr&lt;/code&gt;：mutex 的屬性。設定為 NULL 表示使用預設。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;pthreadmutexlock&quot;&gt;pthread_mutex_lock()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pthread_mutex_lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pthread_mutex_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//lock a mutex
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;pthreadmutexunlock&quot;&gt;pthread_mutex_unlock()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pthread_mutex_unlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pthread_mutex_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//unlock a mutex
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;pthreadmutexdestroy&quot;&gt;pthread_mutex_destroy()&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pthread_mutex_destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pthread_mutex_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//delete a mutex
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;condition-variables&quot;&gt;3. Condition Variables&lt;/h3&gt;
+&lt;p&gt;#### pthread_cond_init (condition, attr)&lt;br /&gt;
+* &lt;a href=&quot;https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_init.txt&quot;&gt;pthread_cond_init&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;pthreadconddestroy-condition&quot;&gt;pthread_cond_destroy (condition)&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_destroy.txt&quot;&gt;pthread_cond_destroy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;pthreadcondattrinit-attr&quot;&gt;pthread_condattr_init (attr)&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_init.txt&quot;&gt;pthread_condattr_init&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;pthreadcondattrdestroy-attr&quot;&gt;pthread_condattr_destroy (attr)&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_destroy.txt&quot;&gt;pthread_condattr_destroy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;barrier&quot;&gt;4. Barrier&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://angelonotes.blogspot.tw/2012/02/pthreadbarrier.html&quot;&gt;Using barriers in pthreads&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://angelonotes.blogspot.tw/2012/02/pthreadbarrier.html&quot;&gt;pthread︰barrier&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;producer-consumer-problem&quot;&gt;(二) Producer-Consumer Problem&lt;/h3&gt;
+&lt;p&gt;#### 1. Producer&lt;br /&gt;
+```c&lt;br /&gt;
+item next produced;&lt;br /&gt;
+while (true) {&lt;br /&gt;
+    /* produce an item in next produced */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;while (((in + 1) % BUFFER SIZE) == out)
+; /* do nothing */
+    
+buffer[in] = next produced;
+in = (in + 1) % BUFFER SIZE; } ```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;consumer&quot;&gt;2. Consumer&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;consumed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* do nothing */&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;consumed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SIZE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;cm&quot;&gt;/* consume the item in next consumed */&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;課程作業&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/*
+ *  Solution to Producer Consumer Problem
+ *  Using Ptheads, a mutex and condition variables
+ *  From Tanenbaum, Modern Operating Systems, 3rd Ed.
+ */&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/*
+    In this version the buffer is a single number.
+    The producer is putting numbers into the shared buffer
+    (in this case sequentially)
+    And the consumer is taking them out.
+    If the buffer contains zero, that indicates that the buffer is empty.
+    Any other value is valid.
+*/&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;pthread.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define MAX 10//000000			&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/* Numbers to produce */&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;
+#define BUFFER_SIZE 5
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pthread_mutex_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pthread_cond_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;condc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;condp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BUFFER_SIZE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;producer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MAX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pthread_mutex_lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* protect buffer */&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER_SIZE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;		       &lt;span class=&quot;cm&quot;&gt;/* If there is something in the buffer then wait */&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;pthread_cond_wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ProBuffer[%d]：%2d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER_SIZE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   
+        &lt;span class=&quot;n&quot;&gt;pthread_cond_signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* wake up consumer */&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pthread_mutex_unlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* release the buffer */&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;pthread_exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MAX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pthread_mutex_lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* protect buffer */&lt;/span&gt;
+    
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;			&lt;span class=&quot;cm&quot;&gt;/* If there is nothing in the buffer then wait */&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;pthread_cond_wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+        &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ConBuffer[%d]：%2d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER_SIZE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+        &lt;span class=&quot;n&quot;&gt;pthread_cond_signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* wake up consumer */&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pthread_mutex_unlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* release the buffer */&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread_exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Initialize the mutex and condition variables
+&lt;/span&gt;    &lt;span class=&quot;cm&quot;&gt;/* What&#39;s the NULL for ??? */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread_mutex_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	
+    &lt;span class=&quot;n&quot;&gt;pthread_cond_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;		&lt;span class=&quot;cm&quot;&gt;/* Initialize consumer condition variable */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread_cond_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;		&lt;span class=&quot;cm&quot;&gt;/* Initialize producer condition variable */&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Create the threads
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;pthread_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;producer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Wait for the threads to finish
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// Otherwise main might run to the end
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// and kill the entire process when it exits.
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;pthread_join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread_join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Cleanup -- would happen automatically at end of program
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;pthread_mutex_destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* Free up the_mutex */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread_cond_destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;		&lt;span class=&quot;cm&quot;&gt;/* Free up consumer condition variable */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread_cond_destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;		&lt;span class=&quot;cm&quot;&gt;/* Free up producer condition variable */&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/6miNt1O.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;課程簡報
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170331/Socket_Programming.pdf&quot;&gt;Socket_Programming&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170331/Linux-Programming_Socket_1.pdf&quot;&gt;Linux-Programming_Socket_1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170331/Linux-Programming_Socket_2.pdf&quot;&gt;Linux-Programming_Socket_2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;socket-programming&quot;&gt;Socket Programming&lt;/h3&gt;
+&lt;p&gt;#### 1. What is a socket？&lt;br /&gt;
+* An interface between application and network.&lt;br /&gt;
+    * The application creates a socket.&lt;br /&gt;
+    * The socket type dictates the style of communication.&lt;br /&gt;
+        * &lt;code class=&quot;highlighter-rouge&quot;&gt;reliable&lt;/code&gt; vs. &lt;code class=&quot;highlighter-rouge&quot;&gt;best effort&lt;/code&gt;&lt;br /&gt;
+        * &lt;code class=&quot;highlighter-rouge&quot;&gt;connection-oriented&lt;/code&gt; vs. &lt;code class=&quot;highlighter-rouge&quot;&gt;connectionless&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Once configured the application can
+    &lt;ul&gt;
+      &lt;li&gt;pass data to the socket for network transmission&lt;/li&gt;
+      &lt;li&gt;receive data from the socket (transmitted through the network by some other host)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;two-essential-types-of-sockets&quot;&gt;2. Two essential types of sockets&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HMu29e3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;sockstream&quot;&gt;(1) SOCK_STREAM&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;a.k.a. TCP&lt;/li&gt;
+  &lt;li&gt;reliable delivery&lt;/li&gt;
+  &lt;li&gt;in-order guaranteed&lt;/li&gt;
+  &lt;li&gt;connection-oriented&lt;/li&gt;
+  &lt;li&gt;bidirectional&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;sockdgram&quot;&gt;(2) SOCK_DGRAM&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;a.k.a. UDP&lt;/li&gt;
+  &lt;li&gt;unreliable delivery&lt;/li&gt;
+  &lt;li&gt;no order guarantees&lt;/li&gt;
+  &lt;li&gt;no notion of “connection” – app indicates dest. for each packet&lt;/li&gt;
+  &lt;li&gt;can send or receive&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;example&quot;&gt;Example&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt; 部份&lt;br /&gt;
+```c&lt;br /&gt;
+/*  Make the necessary includes and set up the variables.  */&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;#include &amp;lt;sys/types.h&amp;gt;&lt;br /&gt;
+#include &amp;lt;sys/socket.h&amp;gt;&lt;br /&gt;
+#include &lt;stdio.h&gt;
+#include &amp;lt;netinet/in.h&amp;gt;
+#include &amp;lt;arpa/inet.h&amp;gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;&lt;/stdlib.h&gt;&lt;/unistd.h&gt;&lt;/stdio.h&gt;&lt;/p&gt;
+
+&lt;p&gt;int main()&lt;br /&gt;
+{&lt;br /&gt;
+    int server_sockfd, client_sockfd;&lt;br /&gt;
+    int server_len, client_len;&lt;br /&gt;
+    struct sockaddr_in server_address;&lt;br /&gt;
+    struct sockaddr_in client_address;&lt;/p&gt;
+
+&lt;p&gt;/*  Create an unnamed socket for the server.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Name the socket.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_address.sin_family = AF_INET;
+server_address.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);
+server_address.sin_port = 9734;
+server_len = sizeof(server_address);
+bind(server_sockfd, (struct sockaddr *)&amp;amp;server_address, server_len);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Create a connection queue and wait for clients.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen(server_sockfd, 5);
+while(1) {
+    char ch;
+
+    printf(&quot;server waiting\n&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Accept a connection.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    client_len = sizeof(client_address);
+    client_sockfd = accept(server_sockfd, 
+        (struct sockaddr *)&amp;amp;client_address, &amp;amp;client_len);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  We can now read/write to client on client_sockfd.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    read(client_sockfd, &amp;amp;ch, 1);
+    printf(&quot;receive from client = %c\n&quot;, ch);
+    ch++;
+    write(client_sockfd, &amp;amp;ch, 1);
+    close(client_sockfd);
+} } ```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;client&lt;/code&gt; 部份&lt;br /&gt;
+```c&lt;br /&gt;
+/*  Make the necessary includes and set up the variables.  */&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;#include &amp;lt;sys/types.h&amp;gt;&lt;br /&gt;
+#include &amp;lt;sys/socket.h&amp;gt;&lt;br /&gt;
+#include &lt;stdio.h&gt;
+#include &amp;lt;netinet/in.h&amp;gt;
+#include &amp;lt;arpa/inet.h&amp;gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;&lt;/stdlib.h&gt;&lt;/unistd.h&gt;&lt;/stdio.h&gt;&lt;/p&gt;
+
+&lt;p&gt;int main()&lt;br /&gt;
+{&lt;br /&gt;
+    int sockfd;&lt;br /&gt;
+    int len;&lt;br /&gt;
+    struct sockaddr_in address;&lt;br /&gt;
+    int result;&lt;br /&gt;
+    char ch = ‘A’;&lt;/p&gt;
+
+&lt;p&gt;/*  Create a socket for the client.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sockfd = socket(AF_INET, SOCK_STREAM, 0);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Name the socket, as agreed with the server.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;address.sin_family = AF_INET;
+address.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);
+address.sin_port = 9734;
+len = sizeof(address);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Now connect our socket to the server’s socket.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;result = connect(sockfd, (struct sockaddr *)&amp;amp;address, len);
+
+if(result == -1) {
+    perror(&quot;oops: client2&quot;);
+    exit(1);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  We can now read/write via sockfd.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;write(sockfd, &amp;amp;ch, 1);
+read(sockfd, &amp;amp;ch, 1);
+printf(&quot;char from server = %c\n&quot;, ch);
+close(sockfd);
+exit(0); } ```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;課程作業&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;利用Socket Programming，將 client 端的整數陣列傳送給 server 端排序，並將排序後的結果回傳給 client 端顯示。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt; 部份&lt;br /&gt;
+```c&lt;br /&gt;
+/*  Make the necessary includes and set up the variables.  */&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;#include &amp;lt;sys/types.h&amp;gt;&lt;br /&gt;
+#include &amp;lt;sys/socket.h&amp;gt;&lt;br /&gt;
+#include &lt;stdio.h&gt;
+#include &amp;lt;netinet/in.h&amp;gt;
+#include &amp;lt;arpa/inet.h&amp;gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;&lt;/stdlib.h&gt;&lt;/unistd.h&gt;&lt;/stdio.h&gt;&lt;/p&gt;
+
+&lt;p&gt;int main()&lt;br /&gt;
+{&lt;br /&gt;
+    int server_sockfd, client_sockfd;&lt;br /&gt;
+    int server_len, client_len;&lt;br /&gt;
+    struct sockaddr_in server_address;&lt;br /&gt;
+    struct sockaddr_in client_address;&lt;/p&gt;
+
+&lt;p&gt;/*  Create an unnamed socket for the server.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Name the socket.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_address.sin_family = AF_INET;
+server_address.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);
+server_address.sin_port = 9734;
+server_len = sizeof(server_address);
+bind(server_sockfd, (struct sockaddr *)&amp;amp;server_address, server_len);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Create a connection queue and wait for clients.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen(server_sockfd, 5);    
+
+while(1) {
+    printf(&quot;\nserver waiting\n&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Accept a connection.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    client_len = sizeof(client_address);
+    client_sockfd = accept(server_sockfd, (struct sockaddr *)&amp;amp;client_address, &amp;amp;client_len);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  We can now read/write to client on client_sockfd.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    int i, j, tmp = 0, get_n;
+    int *buf;
+    
+    read(client_sockfd, &amp;amp;get_n, sizeof(get_n));
+    buf = (int *) malloc(get_n * sizeof(int));
+    read(client_sockfd, buf, get_n * sizeof(int));
+    printf(&quot;sort arr[%d] from client:\n&quot;, get_n);
+ 
+    for (i = 0; i &amp;lt; get_n; i++) {
+        for (j = 0; j &amp;lt; get_n; j++) {
+            if (buf[i] &amp;lt; buf[j]) {
+                tmp = buf[i];
+                buf[i] = buf[j];
+                buf[j] = tmp;
+            }
+        }
+    }
+ 
+    for (i = 0; i &amp;lt; get_n; i++)
+        printf(&quot;arr[%d] = %d\n&quot;, i, buf[i]);
+    
+    write(client_sockfd, buf, get_n * sizeof(buf));
+    close(client_sockfd);
+} } ```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;client&lt;/code&gt; 部份&lt;br /&gt;
+```c&lt;br /&gt;
+/*  Make the necessary includes and set up the variables.  */&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;#include &amp;lt;sys/types.h&amp;gt;&lt;br /&gt;
+#include &amp;lt;sys/socket.h&amp;gt;&lt;br /&gt;
+#include &lt;stdio.h&gt;
+#include &amp;lt;netinet/in.h&amp;gt;
+#include &amp;lt;arpa/inet.h&amp;gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;&lt;/stdlib.h&gt;&lt;/unistd.h&gt;&lt;/stdio.h&gt;&lt;/p&gt;
+
+&lt;p&gt;#define SIZE 5&lt;/p&gt;
+
+&lt;p&gt;int main()&lt;br /&gt;
+{&lt;br /&gt;
+    int sockfd;&lt;br /&gt;
+    int len;&lt;br /&gt;
+    struct sockaddr_in address;&lt;br /&gt;
+    int result, n;&lt;/p&gt;
+
+&lt;p&gt;/*  Create a socket for the client.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sockfd = socket(AF_INET, SOCK_STREAM, 0);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Name the socket, as agreed with the server.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;address.sin_family = AF_INET;
+address.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);
+address.sin_port = 9734;
+len = sizeof(address);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  Now connect our socket to the server’s socket.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;result = connect(sockfd, (struct sockaddr *)&amp;amp;address, len);
+
+if (result == -1) {
+    perror(&quot;oops: client!&quot;);
+    exit(1);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*  We can now read/write via sockfd.  */&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int i, j, tmp = 0, s = SIZE;
+int arr[SIZE] = {4, 7, 1, 8, 3};
+int rec[SIZE] = {0, 0, 0, 0, 0};
+printf(&quot;%d\n&quot;, s);
+
+write(sockfd, &amp;amp;s, sizeof(int));
+printf(&quot;\noriginal from client - arr[]\n&quot;); 
+for (i = 0; i &amp;lt; SIZE; i++)
+	printf(&quot;arr[%d] = %d\n&quot;, i, arr[i]);
+
+write(sockfd, arr, sizeof(arr));
+   
+   
+read(sockfd, rec, SIZE * sizeof(rec));    
+printf(&quot;\nresult from server - rec[]\n&quot;);
+
+for (i = 0; i &amp;lt; SIZE; i++)
+    printf(&quot;rec[%d] = %d\n&quot;, i, rec[i]); 
+
+
+close(sockfd);
+exit(0); } ```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果&lt;br /&gt;
+&lt;img src=&quot;https://i.imgur.com/AhJZRLN.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Fri, 31 Mar 2017 08:00:00 +0800</pubDate>
         <link>http://shouzo.github.io/2017/03/31/linux_system/</link>
