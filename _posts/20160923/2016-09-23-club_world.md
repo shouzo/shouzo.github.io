@@ -52,4 +52,4 @@ tags: 社團 心情記事
 **我並不要求什麼回報，只是希望在社團圈受益的同學們，能夠給予其他正在為這個環境努力的社團人，一個鼓勵和掌聲。**
 
 
-## 我的故事：https://goo.gl/AMMcfP
+## 我的故事：[https://goo.gl/AMMcfP](https://goo.gl/AMMcfP)

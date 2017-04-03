@@ -73,4 +73,4 @@ tags: 心情記事
 **備註：這是短篇故事，可不是抱怨文啊...**
 
 
-## 我的故事https://goo.gl/AMMcfP
+## 我的故事：[https://goo.gl/AMMcfP](https://goo.gl/AMMcfP)
