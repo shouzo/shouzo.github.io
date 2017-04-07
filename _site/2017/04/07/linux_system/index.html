@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20170407 [學習筆記] Linux 系統程式 (6)</title>
+    <meta name="description" content="  一、作業系統          (一) Thread Pools      (二) OpenMP                  #pragma omp parallel          Example                    (三) Threading Issues            ...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2017/04/07/linux_system/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20170407 [學習筆記] Linux 系統程式 (6)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-04-07
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#thread-pools" id="markdown-toc-thread-pools">(一) Thread Pools</a></li>
+      <li><a href="#openmp" id="markdown-toc-openmp">(二) OpenMP</a>        <ul>
+          <li><a href="#pragma-omp-parallel" id="markdown-toc-pragma-omp-parallel"><code class="highlighter-rouge">#pragma omp parallel</code></a></li>
+          <li><a href="#example" id="markdown-toc-example">Example</a></li>
+        </ul>
+      </li>
+      <li><a href="#threading-issues" id="markdown-toc-threading-issues">(三) Threading Issues</a>        <ul>
+          <li><a href="#semantics-of-fork-and-exec" id="markdown-toc-semantics-of-fork-and-exec">1. Semantics of fork() and exec()</a></li>
+          <li><a href="#signal-handling" id="markdown-toc-signal-handling">2. Signal Handling</a></li>
+          <li><a href="#thread-cancellation" id="markdown-toc-thread-cancellation">3. Thread Cancellation</a></li>
+          <li><a href="#thread-local-storage" id="markdown-toc-thread-local-storage">4. Thread-Local Storage</a></li>
+          <li><a href="#scheduler-activations" id="markdown-toc-scheduler-activations">5. Scheduler Activations</a></li>
+        </ul>
+      </li>
+      <li><a href="#thread-scheduling" id="markdown-toc-thread-scheduling">(四) Thread Scheduling</a></li>
+      <li><a href="#pthread-scheduling" id="markdown-toc-pthread-scheduling">(五) Pthread Scheduling</a></li>
+      <li><a href="#multiple-processor-scheduling" id="markdown-toc-multiple-processor-scheduling">(六) Multiple-Processor Scheduling</a></li>
+      <li><a href="#socket---message-passing" id="markdown-toc-socket---message-passing">(七) Socket - Message Passing</a>        <ul>
+          <li><a href="#what-is-a-socket" id="markdown-toc-what-is-a-socket">1. What is a socket？</a></li>
+          <li><a href="#two-essential-types-of-sockets" id="markdown-toc-two-essential-types-of-sockets">2. Two essential types of sockets</a></li>
+          <li><a href="#sockstream" id="markdown-toc-sockstream">(1) SOCK_STREAM</a></li>
+          <li><a href="#sockdgram" id="markdown-toc-sockdgram">(2) SOCK_DGRAM</a></li>
+          <li><a href="#connection-setup" id="markdown-toc-connection-setup">3. Connection setup</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-1" id="markdown-toc-section-1">課程作業</a></li>
+    </ul>
+  </li>
+  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
+      <li><a href="#section-2" id="markdown-toc-section-2">課堂練習 (一)</a></li>
+      <li><a href="#section-3" id="markdown-toc-section-3">課堂練習 (二)</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">課堂作業</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/ch04.pdf">Chapter 4: Mutithread Programming</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/ch05.pdf">Chapter 5: Process Scheduling</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/Socket_Programming.pdf">Socket_Programming</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/Linux-Programming_Socket_1.pdf">Linux-Programming_Socket_1</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/Linux-Programming_Socket_2.pdf">Linux-Programming_Socket_2</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://goo.gl/Rs9JgE">簡易的程式平行化方法－OpenMP（一）簡介</a></li>
+      <li><a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="thread-pools">(一) Thread Pools</h3>
+<ul>
+  <li>Create a number of threads in a pool where they await work.</li>
+  <li>Advantages:
+    <ul>
+      <li>Usually slightly faster to service a request with an existing thread than create a new thread.</li>
+      <li>Allows the number of threads in the application(s) to be bound to the size of the pool.</li>
+      <li>Separating task to be performed from mechanics of creating task allows different strategies for running task.
+        <ul>
+          <li>Tasks could be scheduled to run periodically.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="openmp">(二) OpenMP</h3>
+<ul>
+  <li>Set of compiler directives and an API for C, C++, FORTRAN.</li>
+  <li>Provides support for parallel programming in shared-memory environments.</li>
+  <li>Identifies <code class="highlighter-rouge">parallel regions</code> – blocks of code that can run in parallel.</li>
+</ul>
+
+<h4 id="pragma-omp-parallel"><code class="highlighter-rouge">#pragma omp parallel</code></h4>
+<ul>
+  <li>Create as many threads as there are cores.</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#pragma omp parallel for
+</span><span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="c1">// Run for loop in parallel
+</span></code></pre>
+</div>
+
+<h4 id="example">Example</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;omp.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="cm">/* sequential code */</span>
+    
+    <span class="cp">#pragma omp parallel
+</span>    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"I am a parallel region."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* sequential code */</span>
+    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="threading-issues">(三) Threading Issues</h3>
+
+<h4 id="semantics-of-fork-and-exec">1. Semantics of fork() and exec()</h4>
+
+<ul>
+  <li>Does fork() duplicate only the calling thread or all threads?
+    <ul>
+      <li>Some UNIXes have two versions of fork</li>
+    </ul>
+  </li>
+  <li>Exec() usually works as normal – replace the running process including all threads.</li>
+</ul>
+
+<h4 id="signal-handling">2. Signal Handling</h4>
+<ul>
+  <li>Signals are used in UNIX systems to notify a process that a particular event has occurred.</li>
+  <li>A <code class="highlighter-rouge">signal handler</code> is used to process signals.
+    <ol>
+      <li>Signal is generated by particular event</li>
+      <li>Signal is delivered to a process</li>
+      <li>Signal is handled by one of two signal handlers:
+        <ol>
+          <li>default</li>
+          <li>user-defined</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Every signal has <code class="highlighter-rouge">default handler</code> that kernel runs when handling signal.
+    <ul>
+      <li>User-defined signal handler can override default.</li>
+      <li>For single-threaded, signal delivered to process.</li>
+    </ul>
+  </li>
+  <li>Where should a signal be delivered for multi-threaded?
+    <ul>
+      <li>Deliver the signal to the thread to which the signal applies.</li>
+      <li>Deliver the signal to every thread in the process.</li>
+      <li>Deliver the signal to certain threads in the process.</li>
+      <li>Assign a specific thread to receive all signals for the process.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="thread-cancellation">3. Thread Cancellation</h4>
+<ul>
+  <li>Terminating a thread before it has finished.</li>
+  <li>Thread to be canceled is target thread.</li>
+  <li>Two general approaches:
+    <ul>
+      <li><code class="highlighter-rouge">Asynchronous cancellation</code> terminates the target thread immediately.</li>
+      <li><code class="highlighter-rouge">Deferred cancellation</code> allows the target thread to periodically check if it should be cancelled.</li>
+    </ul>
+  </li>
+  <li>Pthread code to create and cancel a thread:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pthread_t</span> <span class="n">tid</span><span class="p">;</span>
+
+<span class="cm">/* Create the thread */</span>
+<span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">worker</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="cm">/* Cancel the thread */</span>
+<span class="n">pthread_cancel</span><span class="p">(</span><span class="n">tid</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h4 id="thread-local-storage">4. Thread-Local Storage</h4>
+<ul>
+  <li><code class="highlighter-rouge">Thread-local storage (TLS)</code> allows each thread to have its own copy of data.</li>
+  <li>Useful when you do not have control over the thread creation process (i.e., when using a thread).</li>
+  <li>Different from local variables
+    <ul>
+      <li>Local variables visible only during single function invocation.</li>
+      <li>TLS visible across function invocations</li>
+    </ul>
+  </li>
+  <li>Similar to static data
+    <ul>
+      <li>TLS is unique to each thread.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="scheduler-activations">5. Scheduler Activations</h4>
+<ul>
+  <li>Both M:M and Two-level models require communication to maintain the appropriate number of kernel threads allocated to the application.</li>
+  <li>Typically use an intermediate data structure between user and kernel threads – <code class="highlighter-rouge">lightweight process (LWP)</code><br />
+<img src="http://i.imgur.com/N1XOvDn.jpg" alt="" />
+    <ul>
+      <li>Appears to be a virtual processor on which process can schedule user thread to run</li>
+      <li>Each LWP attached to kernel thread.</li>
+      <li>How many LWPs to create?</li>
+    </ul>
+  </li>
+  <li>Scheduler activations provide <code class="highlighter-rouge">upcalls</code> - a communication mechanism from the kernel to the <code class="highlighter-rouge">upcall handler</code> in the thread library.</li>
+  <li>This communication allows an application to maintain the correct number kernel threads.</li>
+</ul>
+
+<h3 id="thread-scheduling">(四) Thread Scheduling</h3>
+<ul>
+  <li>Distinction between user-level and kernel-level threads.</li>
+  <li>When threads supported, threads scheduled, not processes.</li>
+  <li>Many-to-one and many-to-many models, thread library schedules user-level threads to run on LWP.
+    <ul>
+      <li>Known as <code class="highlighter-rouge">process-contention scope (PCS)</code> since scheduling competition is within the process.</li>
+      <li>Typically done via priority set by programmer.</li>
+    </ul>
+  </li>
+  <li>Kernel thread scheduled onto available CPU is <code class="highlighter-rouge">system-contention scope (SCS)</code> – competition among all threads in system.</li>
+</ul>
+
+<h3 id="pthread-scheduling">(五) Pthread Scheduling</h3>
+<ul>
+  <li>API allows specifying either PCS or SCS during thread creation.
+    <ul>
+      <li><code class="highlighter-rouge">PTHREAD_SCOPE_PROCESS</code> schedules threads using PCS scheduling.</li>
+      <li><code class="highlighter-rouge">PTHREAD_SCOPE_SYSTEM</code> schedules threads using SCS scheduling.</li>
+    </ul>
+  </li>
+  <li>Can be limited by OS – Linux and Mac OS X only allow <code class="highlighter-rouge">PTHREAD_SCOPE_SYSTEM</code>.</li>
+</ul>
+
+<h3 id="multiple-processor-scheduling">(六) Multiple-Processor Scheduling</h3>
+<p><img src="https://i.imgur.com/0nuvCJs.jpg" alt="" /></p>
+
+<ul>
+  <li>CPU scheduling more complex when multiple CPUs are available.</li>
+  <li><code class="highlighter-rouge">Homogeneous processors</code> within a multiprocessor.</li>
+  <li><code class="highlighter-rouge">Asymmetric multiprocessing</code> – only one processor accesses the system data structures, alleviating the need for data sharing.</li>
+  <li><code class="highlighter-rouge">Symmetric multiprocessing (SMP)</code> – each processor is self-scheduling, all processes in common ready queue, or each has its own private queue of ready processes.
+    <ul>
+      <li>Currently, most common</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">Processor affinity</code> – process has affinity for processor on which it is currently running.
+    <ul>
+      <li>soft affinity</li>
+      <li>hard affinity</li>
+      <li>Variations including <code class="highlighter-rouge">processor sets</code></li>
+    </ul>
+  </li>
+  <li><strong>Load Balancing</strong> - attempts to keep workload evenly distributed.
+    <ul>
+      <li><code class="highlighter-rouge">Push migration</code> – periodic task checks load on each processor, and if found pushes task from overloaded CPU to other CPUs.</li>
+      <li><code class="highlighter-rouge">Pull migration</code> – idle processors pulls waiting task from busy processor.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="socket---message-passing">(七) Socket - Message Passing</h3>
+
+<h4 id="what-is-a-socket">1. What is a socket？</h4>
+
+<ul>
+  <li>An interface between application and network.
+    <ul>
+      <li>The application creates a socket.</li>
+      <li>The socket type dictates the style of communication.
+        <ul>
+          <li><code class="highlighter-rouge">reliable</code> vs. <code class="highlighter-rouge">best effort</code></li>
+          <li><code class="highlighter-rouge">connection-oriented</code> vs. <code class="highlighter-rouge">connectionless</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Once configured the application can
+    <ul>
+      <li>pass data to the socket for network transmission</li>
+      <li>receive data from the socket (transmitted through the network by some other host)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="two-essential-types-of-sockets">2. Two essential types of sockets</h4>
+<p><img src="https://i.imgur.com/HMu29e3.jpg" alt="" /></p>
+
+<h4 id="sockstream">(1) SOCK_STREAM</h4>
+<ul>
+  <li>a.k.a. TCP</li>
+  <li>reliable delivery</li>
+  <li>in-order guaranteed</li>
+  <li>connection-oriented</li>
+  <li>bidirectional</li>
+</ul>
+
+<h4 id="sockdgram">(2) SOCK_DGRAM</h4>
+<ul>
+  <li>a.k.a. UDP</li>
+  <li>unreliable delivery</li>
+  <li>no order guarantees</li>
+  <li>no notion of “connection” – app indicates dest. for each packet</li>
+  <li>can send or receive</li>
+</ul>
+
+<h4 id="connection-setup">3. Connection setup</h4>
+<p><img src="https://i.imgur.com/Je3VTRz.png" alt="" /></p>
+
+<h3 id="section-1">課程作業</h3>
+<ul>
+  <li>
+    <p>自 Client 端輸入一整數，將數字傳至 Server 端判斷是否為質數，再將結果回傳自 Client。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">client</code> 部份</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+
+<span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sockfd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">address</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">in</span><span class="p">;</span>     <span class="c1">// integer
+</span>    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+    <span class="c1">// char ch = 'A';
+</span>  
+
+<span class="cm">/*  Create a socket for the client.  */</span>
+
+    <span class="n">sockfd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="cm">/*  Name the socket, as agreed with the server.  */</span>
+
+    <span class="n">address</span><span class="p">.</span><span class="n">sin_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+    <span class="n">address</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span> <span class="o">=</span> <span class="n">inet_addr</span><span class="p">(</span><span class="s">"127.0.0.1"</span><span class="p">);</span>
+    <span class="n">address</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="mi">9453</span><span class="p">;</span>
+    <span class="n">len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
+
+<span class="cm">/*  Now connect our socket to the server's socket.  */</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"oops: Client"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="cm">/*  We can now read/write via sockfd.  */</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Please key in an integer："</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">);</span>
+
+    <span class="n">write</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">read</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Result from Server：數字'是質數'</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"result from server：數字'不是質數'</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+    <span class="n">close</span><span class="p">(</span><span class="n">sockfd</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><code class="highlighter-rouge">server</code> 部份</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+
+<span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">server_sockfd</span><span class="p">,</span> <span class="n">client_sockfd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">server_len</span><span class="p">,</span> <span class="n">client_len</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">server_address</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">client_address</span><span class="p">;</span>
+
+<span class="cm">/*  Create an unnamed socket for the server.  */</span>
+
+    <span class="n">server_sockfd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="cm">/*  Name the socket.  */</span>
+
+    <span class="n">server_address</span><span class="p">.</span><span class="n">sin_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+    <span class="n">server_address</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span> <span class="o">=</span> <span class="n">inet_addr</span><span class="p">(</span><span class="s">"127.0.0.1"</span><span class="p">);</span>
+    <span class="n">server_address</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="mi">9453</span><span class="p">;</span>
+    <span class="n">server_len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">server_address</span><span class="p">);</span>
+    <span class="n">bind</span><span class="p">(</span><span class="n">server_sockfd</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">server_address</span><span class="p">,</span> <span class="n">server_len</span><span class="p">);</span>
+
+<span class="cm">/*  Create a connection queue and wait for clients.  */</span>
+
+    <span class="n">listen</span><span class="p">(</span><span class="n">server_sockfd</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// Set loop
+</span>        <span class="kt">char</span> <span class="n">in</span><span class="p">;</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Server waiting...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+<span class="cm">/*  Accept a connection.  */</span>
+
+        <span class="n">client_len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">client_address</span><span class="p">);</span>
+        <span class="n">client_sockfd</span> <span class="o">=</span> <span class="n">accept</span><span class="p">(</span><span class="n">server_sockfd</span><span class="p">,</span> 
+            <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">client_address</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">client_len</span><span class="p">);</span>
+
+<span class="cm">/*  We can now read/write to client on client_sockfd.  */</span>
+
+        <span class="n">read</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Input from Client = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">in</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">in</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">in</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">in</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">in</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+     
+        <span class="n">write</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+        <span class="n">close</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>執行結果<br />
+<img src="https://i.imgur.com/vCZaRoc.jpg" alt="" /></li>
+</ul>
+
+<h2 id="linux-">二、Linux 程式設計</h2>
+
+<h3 id="section-2">課堂練習 (一)</h3>
+
+<ul>
+  <li>
+    <p>將 Socket 以 multithread 的方式執行：</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Server</code> 部份</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+
+<span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+</span>
+<span class="kt">void</span> <span class="o">*</span><span class="n">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">server_sockfd</span><span class="p">,</span> <span class="n">client_sockfd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">server_len</span><span class="p">,</span> <span class="n">client_len</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">server_address</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">client_address</span><span class="p">;</span>
+    
+    <span class="n">pthread_t</span> <span class="n">a_thread</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">thread_result</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
+
+<span class="cm">/*  Create an unnamed socket for the server.  */</span>
+
+    <span class="n">server_sockfd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="cm">/*  Name the socket.  */</span>
+
+    <span class="n">server_address</span><span class="p">.</span><span class="n">sin_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+    <span class="n">server_address</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span> <span class="o">=</span> <span class="n">inet_addr</span><span class="p">(</span><span class="s">"127.0.0.1"</span><span class="p">);</span>
+    <span class="n">server_address</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="mi">9734</span><span class="p">;</span>
+    <span class="n">server_len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">server_address</span><span class="p">);</span>
+    <span class="n">bind</span><span class="p">(</span><span class="n">server_sockfd</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">server_address</span><span class="p">,</span> <span class="n">server_len</span><span class="p">);</span>
+
+<span class="cm">/*  Create a connection queue and wait for clients.  */</span>
+
+    <span class="n">listen</span><span class="p">(</span><span class="n">server_sockfd</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>    
+    
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Server waiting...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+<span class="cm">/*  Accept a connection.  */</span>
+
+        <span class="n">client_len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">client_address</span><span class="p">);</span>
+        <span class="n">client_sockfd</span> <span class="o">=</span> <span class="n">accept</span><span class="p">(</span><span class="n">server_sockfd</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">client_address</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">client_len</span><span class="p">);</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a_thread</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">thread_function</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">client_sockfd</span><span class="p">);</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">perror</span><span class="p">(</span><span class="s">"Thread creation failed"</span><span class="p">);</span>
+            <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="cm">/*  We can now read/write to client on client_sockfd.  */</span>
+<span class="kt">void</span> <span class="o">*</span><span class="nf">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">get_n</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">client_sockfd</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">buf</span><span class="p">;</span>
+        
+    <span class="n">read</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">get_n</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">get_n</span><span class="p">));</span>
+    <span class="n">buf</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">get_n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">read</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">get_n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sort arr[%d] from client:</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">get_n</span><span class="p">);</span>
+     
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">get_n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">get_n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">buf</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">buf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">get_n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"arr[%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+    <span class="c1">// sleep(3);
+</span>    <span class="n">write</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">get_n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">));</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">);</span>
+    <span class="n">pthread_detach</span><span class="p">(</span><span class="n">pthread_self</span><span class="p">());</span>
+    <span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><code class="highlighter-rouge">Client</code> 部份</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+
+<span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="cp">#define SIZE 5
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sockfd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">address</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+
+<span class="cm">/*  Create a socket for the client.  */</span>
+
+    <span class="n">sockfd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="cm">/*  Name the socket, as agreed with the server.  */</span>
+
+    <span class="n">address</span><span class="p">.</span><span class="n">sin_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+    <span class="n">address</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span> <span class="o">=</span> <span class="n">inet_addr</span><span class="p">(</span><span class="s">"127.0.0.1"</span><span class="p">);</span>
+    <span class="n">address</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="mi">9734</span><span class="p">;</span>
+    <span class="n">len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
+
+<span class="cm">/*  Now connect our socket to the server's socket.  */</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"oops: client!"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="cm">/*  We can now read/write via sockfd.  */</span>
+
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">SIZE</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="n">SIZE</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">rec</span><span class="p">[</span><span class="n">SIZE</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+
+    <span class="n">write</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">original from client - arr[]</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> 
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    	<span class="n">printf</span><span class="p">(</span><span class="s">"arr[%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+    <span class="n">write</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">));</span>
+   
+   
+    <span class="n">read</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="n">SIZE</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">rec</span><span class="p">));</span>    
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">result from server - rec[]</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"rec[%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">rec</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> 
+    
+
+    <span class="n">close</span><span class="p">(</span><span class="n">sockfd</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>執行結果<br />
+<img src="https://i.imgur.com/PaWoNZx.jpg" alt="" /></li>
+</ul>
+
+<h3 id="section-3">課堂練習 (二)</h3>
+<ul>
+  <li>矩陣相乘</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;time.h&gt;
+#define NUM_THREADS 5
+#define MSIZE 10
+</span>
+<span class="k">static</span> <span class="kt">double</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+<span class="c1">// void check();
+</span>
+<span class="kt">void</span> <span class="o">*</span><span class="n">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+<span class="c1">// srand(time(NULL));
+// int a = (rand() % 10) + 1;
+</span><span class="kt">int</span> <span class="n">A</span><span class="p">[</span><span class="n">MSIZE</span><span class="p">][</span><span class="n">MSIZE</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">B</span><span class="p">[</span><span class="n">MSIZE</span><span class="p">][</span><span class="n">MSIZE</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">C</span><span class="p">[</span><span class="n">MSIZE</span><span class="p">][</span><span class="n">MSIZE</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">D</span><span class="p">[</span><span class="n">MSIZE</span><span class="p">][</span><span class="n">MSIZE</span><span class="p">];</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+	<span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MSIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">MSIZE</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="c1">// (rand() % 10) + 1;
+</span>			<span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>    <span class="c1">// (rand() % 10) + 1;
+</span>		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="n">pthread_t</span> <span class="n">a_thread</span><span class="p">[</span><span class="n">NUM_THREADS</span><span class="p">];</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">thread_result</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">lots_of_threads</span><span class="p">;</span>
+
+	<span class="kt">double</span> <span class="n">start_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&lt;</span> <span class="n">NUM_THREADS</span><span class="p">;</span> <span class="n">lots_of_threads</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">]),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">thread_function</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">lots_of_threads</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">perror</span><span class="p">(</span><span class="s">"Thread creation failed"</span><span class="p">);</span>
+			<span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="c1">// sleep(1);
+</span>	<span class="p">}</span>
+
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Waiting for threads to finish...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	
+    <span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="n">NUM_THREADS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">thread_result</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">printf</span><span class="p">(</span><span class="s">"Picked up a thread[%d]</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">lots_of_threads</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="n">perror</span><span class="p">(</span><span class="s">"pthread_join failed"</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="kt">double</span> <span class="n">finish_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"All done</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+	<span class="c1">// check();
+</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Execute Time:  %.3lf ms</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">));</span>
+	<span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">my_number</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Thread Number[%d]</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">my_number</span><span class="p">);</span> 
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="n">my_number</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">((</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="n">my_number</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">MSIZE</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">MSIZE</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+			    <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+			
+            <span class="n">printf</span><span class="p">(</span><span class="s">"C[%d][%d]:{ %d } = A[%d][%d]:{ %d } * B[%d][%d]:{ %d }</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="n">pthread_exit</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="k">static</span> <span class="kt">double</span> <span class="nf">getDoubleTime</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">struct</span> <span class="n">timeval</span> <span class="n">tm_tv</span><span class="p">;</span>
+	<span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm_tv</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+	<span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">/*</span>
+<span class="kt">void</span> <span class="n">check</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MSIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">MSIZE</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">MSIZE</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+			    <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MSIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">MSIZE</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">((</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">count</span><span class="o">++</span><span class="p">;</span>
+				<span class="n">printf</span><span class="p">(</span><span class="s">"Error[%d][%d] = [%d]</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Different = [%d]</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>執行結果<br />
+<img src="https://i.imgur.com/g61ccDI.jpg" alt="" /></li>
+</ul>
+
+<h3 id="section-4">課堂作業</h3>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/24/linux_system/">20170324 [學習筆記] Linux 系統程式 (4)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/10/linux_system/">20170310 [學習筆記] Linux 系統程式 (2)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2017/04/03/university_interesting/">20170403 [有感而發] 求學就像是吃餅，怎麼可能一口氣吃得完？當然是要從最有興趣的地方開始慢慢吃啊！</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2017/04/07/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/04/07/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

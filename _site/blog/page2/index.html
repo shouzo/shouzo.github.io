@@ -136,6 +136,181 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/03/23/ai/">20170323 [學習筆記] 人工智慧 (4)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-23
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">用程式實現歸屬函數的判定</a></li>
+</ul>
+
+<h3 id="section">用程式實現歸屬函數的判定</h3>
+<ul>
+  <li>請分別輸入 NB、NM、NS、PS、PM、PB 的數值，再輸入欲判定的值，輸出其 <strong>歸屬函數(membership function, mf)</strong> 的值。
+    <ol>
+      <li>直線 mf</li>
+      <li>S函數 mf</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// Set loop
+</span>    <span class="kt">float</span> <span class="n">mf</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">tmp</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">input</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ua</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ub</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"NB"</span><span class="p">,</span> <span class="s">"NM"</span><span class="p">,</span> <span class="s">"NS"</span><span class="p">,</span> <span class="s">"ZR"</span><span class="p">,</span> <span class="s">"PS"</span><span class="p">,</span> <span class="s">"PM"</span><span class="p">,</span> <span class="s">"PB"</span><span class="p">};</span>
+
+    <span class="cm">/* Key the value of name */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Please define NS、NM、NB value (smaller than 0)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+      
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Please define PS、PM、PB value (bigger than 0)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// Set the ZR value
+</span>
+
+    <span class="cm">/* Sort the numbers */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">mf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="p">{</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mf</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">mf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+            <span class="p">}</span>
+       <span class="p">}</span>
+    <span class="p">}</span>
+
+
+    <span class="cm">/* The entry */</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* Key the value of x */</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">Please key in the value of 'Input'</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Input = "</span><span class="p">);</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">);</span>
+
+
+        <span class="cm">/* Calculate the linear μ */</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">****The membership function****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// input = mf
+</span>            <span class="k">if</span> <span class="p">(((</span><span class="n">input</span> <span class="o">==</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span> <span class="p">{</span> 
+                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// input bigger than the max's mf
+</span>            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]))</span> <span class="p">{</span> 
+                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">/</span> <span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]));</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// input smaller than the min's mf
+</span>            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span> 
+                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Calculate...
+</span>            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+                <span class="cm">/* linear area */</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The linear****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                <span class="n">ua</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">input</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span>
+                <span class="n">ub</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">input</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span> 
+                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua</span><span class="p">);</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub</span><span class="p">);</span>
+                
+                <span class="cm">/* non-linear area */</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The non-linear (S-function)****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="p">((</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="n">sa</span> <span class="o">=</span> <span class="p">(((</span><span class="n">input</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])));</span>
+                    <span class="n">ua</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sa</span> <span class="o">*</span> <span class="n">sa</span><span class="p">);</span>
+                    <span class="n">ub</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ua</span><span class="p">;</span>
+                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua</span><span class="p">);</span>
+                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&gt;=</span> <span class="p">((</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+                    <span class="n">sa</span> <span class="o">=</span> <span class="p">(((</span><span class="n">input</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])));</span>
+                    <span class="n">ua</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sa</span> <span class="o">*</span> <span class="n">sa</span><span class="p">);</span>
+                    <span class="n">ub</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ua</span><span class="p">;</span>
+                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua</span><span class="p">);</span>
+                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>執行結果<br />
+<img src="https://i.imgur.com/0Zc0QN0.jpg" alt="" /><br />
+<img src="https://i.imgur.com/VTDsGpm.jpg" alt="" /></li>
+</ul>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/23/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題</a>
                 </h2>
                 <div class="label">
@@ -886,219 +1061,6 @@ Each queue has its own scheduling algorithm:<br />
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/10/linux_system/">20170310 [學習筆記] Linux 系統程式 (2)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-10
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#process-in-memory" id="markdown-toc-process-in-memory">(一) Process in Memory</a></li>
-      <li><a href="#process-state" id="markdown-toc-process-state">(二) Process State</a></li>
-      <li><a href="#process-control-block-pcb" id="markdown-toc-process-control-block-pcb">(三) Process Control Block (PCB)</a></li>
-      <li><a href="#process-switch" id="markdown-toc-process-switch">(四) Process Switch</a></li>
-      <li><a href="#processthread" id="markdown-toc-processthread">(五) Process、Thread</a></li>
-      <li><a href="#process-scheduling" id="markdown-toc-process-scheduling">(六) Process Scheduling</a>        <ul>
-          <li><a href="#schedulers" id="markdown-toc-schedulers">Schedulers</a></li>
-          <li><a href="#processes" id="markdown-toc-processes">Processes</a></li>
-        </ul>
-      </li>
-      <li><a href="#process-creation" id="markdown-toc-process-creation">(七) Process Creation</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="section">一、作業系統</h2>
-<ul>
-  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170309/ch03.pdf">課程簡報 - Ch3：Process Concept</a></li>
-</ul>
-
-<h3 id="process-in-memory">(一) Process in Memory</h3>
-<p><img src="https://i.imgur.com/I9HnU1O.jpg" alt="" /></p>
-
-<h3 id="process-state">(二) Process State</h3>
-<p><img src="https://i.imgur.com/mFSgwiJ.jpg" alt="" /><br />
-   * <strong>new</strong>: The process is being created.<br />
-   * <strong>running</strong>: Instructions are being executed.<br />
-   * <strong>waiting</strong>: The process is waiting for some event to occur.<br />
-   * <strong>ready</strong>: The process is waiting to be assigned to a processor.<br />
-   * <strong>terminated</strong>: The process has finished execution.</p>
-
-<h3 id="process-control-block-pcb">(三) Process Control Block (PCB)</h3>
-<p><img src="https://i.imgur.com/fOf7e2Q.jpg" alt="" /></p>
-
-<h3 id="process-switch">(四) Process Switch</h3>
-<p><img src="https://i.imgur.com/Bto5DiZ.jpg" alt="" /></p>
-
-<h3 id="processthread">(五) Process、Thread</h3>
-<ul>
-  <li>參考資料
-    <ul>
-      <li><a href="https://goo.gl/whe9F">Program / Process / Thread 的差別</a></li>
-      <li><a href="https://goo.gl/5BnKWN">“Process 行程”、”Thread 執行緒”、”Multithreading 多執行緒” 簡介</a><br />
-<img src="https://i.imgur.com/DI9y5OS.jpg" alt="" /></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="process-scheduling">(六) Process Scheduling</h3>
-<ul>
-  <li>Process scheduler selects among available processes for next execution on CPU.</li>
-  <li>Maintains scheduling queues of processes.
-    <ul>
-      <li>Job queue – set of all processes in the system.</li>
-      <li>Ready queue – set of all processes residing in main memory, ready and waiting to<br />
-execute.</li>
-      <li>Device queues – set of processes waiting for an I/O device.</li>
-      <li>Processes migrate among the various queues.</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="schedulers">Schedulers</h4>
-<ul>
-  <li><strong>Long-term scheduler</strong> (or job scheduler) – selects which processes should be brought into the<br />
-ready queue.</li>
-  <li><strong>Short-term scheduler</strong> (or CPU scheduler) – selects which process should be executed next and<br />
-allocates CPU.
-    <ul>
-      <li>Sometimes the only scheduler in a system.</li>
-    </ul>
-  </li>
-  <li>The long-term scheduler controls the <strong>degree of multiprogramming</strong>.</li>
-  <li><strong>Medium-term scheduler</strong> can be added if degree of multiple programming needs to decrease.
-    <ul>
-      <li>Remove process from memory, store on disk, bring back in from disk to continue execution:<br />
-swapping.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><strong><a href="http://enews.open2u.com.tw/~noupd/book_up/1746/8719.htm">Degree of multiprogramming</a></strong>：多工程度、記憶體中行程的總數量</p>
-
-<h4 id="processes">Processes</h4>
-<ul>
-  <li><strong>I/O-bound process</strong> – spends more time doing I/O than computations, many short CPU<br />
-bursts.
-    <ul>
-      <li>行程大部份的時間在做 I/O，只有少部份的時間在做計算。</li>
-    </ul>
-  </li>
-  <li><strong>CPU-bound process</strong> – spends more time doing computations; few very long CPU bursts.
-    <ul>
-      <li>行程大部份的時間在做計算，只有少部份的時間在做  I/O。</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/Xnhn0Sa.jpg" alt="" /></p>
-
-<h3 id="process-creation">(七) Process Creation</h3>
-<p><img src="https://i.imgur.com/MDkGD81.jpg" alt="" /><br />
-* UNIX examples<br />
-    * <strong>fork()</strong>：system call creates new process<br />
-    * <strong>exec()</strong>：system call used after a fork() to replace the process’ memory space with a new program</p>
-
-<p><img src="https://i.imgur.com/AxrT24a.jpg" alt="" /></p>
-
-<ul>
-  <li>課程作業</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">pid_t</span> <span class="n">pid</span><span class="p">;</span>
-	
-<span class="cm">/* fork a child process */</span>
-	<span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
-
-	<span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>		<span class="c1">// erro occurred
-</span>		<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Fork Failed"</span><span class="p">);</span>
-		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// child process
-</span>		<span class="n">execlp</span><span class="p">(</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"ls"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-	<span class="p">}</span>
-	<span class="k">else</span> <span class="p">{</span>			<span class="c1">// parent process
-</span>		<span class="c1">// parent will wait for the child to complete
-</span>		<span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">"Child Complete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="p">}</span>	
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<ul>
-  <li>執行結果</li>
-</ul>
-
-<p><img src="https://i.imgur.com/CfTMr9N.jpg" alt="" /></p>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/10/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1126,6 +1088,8 @@ bursts.
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2017/04/07/linux_system/">20170407 [學習筆記] Linux 系統程式 (6)</a></li>
+                    
                         <li><a href="/2017/04/03/university_interesting/">20170403 [有感而發] 求學就像是吃餅，怎麼可能一口氣吃得完？當然是要從最有興趣的地方開始慢慢吃啊！</a></li>
                     
                         <li><a href="/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)</a></li>
@@ -1143,8 +1107,6 @@ bursts.
                         <li><a href="/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)</a></li>
                     
                         <li><a href="/2017/03/16/ai/">20170316 [學習筆記] 人工智慧 (3)</a></li>
-                    
-                        <li><a href="/2017/03/10/linux_system/">20170310 [學習筆記] Linux 系統程式 (2)</a></li>
                     
                 </ul>
             </div>
@@ -1288,7 +1250,7 @@ bursts.
                             <span class="name">
                                 Linux
                             </span>
-                            <span class="badge">6</span>
+                            <span class="badge">7</span>
                         </a>
                     </li>
                     
@@ -1297,7 +1259,7 @@ bursts.
                             <span class="name">
                                 作業系統
                             </span>
-                            <span class="badge">6</span>
+                            <span class="badge">7</span>
                         </a>
                     </li>
                     
@@ -1306,7 +1268,7 @@ bursts.
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">7</span>
+                            <span class="badge">8</span>
                         </a>
                     </li>
                     
@@ -1331,7 +1293,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#C語言" style="font-size: 13pt; color: #555;">C語言</a>
+                      <a href="/tag/#C語言" style="font-size: 12.5pt; color: #555;">C語言</a>
                     
                       
                       
@@ -1345,28 +1307,28 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#OpenCV" style="font-size: 10.5pt; color: #888;">OpenCV</a>
+                      <a href="/tag/#OpenCV" style="font-size: 10pt; color: #888;">OpenCV</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Data-Science" style="font-size: 15pt; color: #333;">Data-Science</a>
+                      <a href="/tag/#Data-Science" style="font-size: 14.5pt; color: #444;">Data-Science</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Data-Mining" style="font-size: 13.5pt; color: #444;">Data-Mining</a>
+                      <a href="/tag/#Data-Mining" style="font-size: 13pt; color: #555;">Data-Mining</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#R語言" style="font-size: 15.5pt; color: #333;">R語言</a>
+                      <a href="/tag/#R語言" style="font-size: 15pt; color: #333;">R語言</a>
                     
                       
                       
@@ -1422,7 +1384,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#社團" style="font-size: 13pt; color: #555;">社團</a>
+                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #555;">社團</a>
                     
                       
                       
@@ -1450,21 +1412,21 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#人工智慧" style="font-size: 11.5pt; color: #666;">人工智慧</a>
+                      <a href="/tag/#人工智慧" style="font-size: 11.5pt; color: #777;">人工智慧</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Linux" style="font-size: 12pt; color: #666;">Linux</a>
+                      <a href="/tag/#Linux" style="font-size: 12.5pt; color: #555;">Linux</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#作業系統" style="font-size: 12pt; color: #666;">作業系統</a>
+                      <a href="/tag/#作業系統" style="font-size: 12.5pt; color: #555;">作業系統</a>
                     
                       
                       
