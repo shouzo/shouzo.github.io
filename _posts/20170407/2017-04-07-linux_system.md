@@ -644,6 +644,3 @@ void check() {
 
 * 執行結果
 ![](https://i.imgur.com/g61ccDI.jpg)
-
-
-### 課堂作業
