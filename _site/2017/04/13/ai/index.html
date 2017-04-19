@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>20160419 [學習筆記] OpenCV - 程式設計介紹(1)：讀取圖片檔案</title>
+    <title>20170413 [學習筆記] 人工智慧 (7)</title>
     <meta name="description" content="">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://shouzo.github.io/2016/04/20/opencv_yester-place1/">
+    <link rel="canonical" href="http://shouzo.github.io/2017/04/13/ai/">
     <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
 
 
@@ -129,11 +129,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>20160419 [學習筆記] OpenCV - 程式設計介紹(1)：讀取圖片檔案</h1>
+        <h1>20170413 [學習筆記] 人工智慧 (7)</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2016-04-20
+                <i class="fa fa-calendar"></i>2017-04-13
             </div>
 
             <div class="label-card">
@@ -153,9 +153,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#OpenCV" title="Category: OpenCV" rel="category">OpenCV</a>&nbsp;
-    
-        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>
+        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
     
   
 
@@ -172,14 +170,8 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#C%E8%AA%9E%E8%A8%80" title="Tag: C語言" rel="tag">C語言</a-->
-        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
-    
-        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>&nbsp;
-    
-        <!--a href="/tag/#OpenCV" title="Tag: OpenCV" rel="tag">OpenCV</a-->
-        <a href="/tag/#OpenCV" title="Tag: OpenCV" rel="tag">OpenCV</a>
+        <!--a href="/tag/#%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7" title="Tag: 人工智慧" rel="tag">人工智慧</a-->
+        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
     
   
 
@@ -190,99 +182,10 @@
         </div>
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
-        <ul id="markdown-toc">
-  <li><a href="#opencv1httpyester-placeblogspottw200806opencvhtml" id="markdown-toc-opencv1httpyester-placeblogspottw200806opencvhtml">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv.html">OpenCV程式設計介紹(1)</a></a>    <ul>
-      <li><a href="#section" id="markdown-toc-section">[ 背景知識 ]</a>        <ul>
-          <li><a href="#opencv---open-source-computer-vision" id="markdown-toc-opencv---open-source-computer-vision">（一）OpenCV - Open Source Computer Vision</a></li>
-          <li><a href="#section-1" id="markdown-toc-section-1">（二）常用的函式庫</a></li>
-        </ul>
-      </li>
-      <li><a href="#iplimage" id="markdown-toc-iplimage">（三）基本資料結構：IplImage</a></li>
-      <li><a href="#section-2" id="markdown-toc-section-2">[ 範例程式 ] 讀取圖片檔案</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="opencv1httpyester-placeblogspottw200806opencvhtml">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv.html">OpenCV程式設計介紹(1)</a></h2>
-
-<h3 id="section">[ 背景知識 ]</h3>
-
-<h4 id="opencv---open-source-computer-vision">（一）OpenCV - Open Source Computer Vision</h4>
-<ul>
-  <li>由Intel開發，Open Source圖形演算法的函式庫(Image Process Libary)。</li>
-  <li>可製作圖片,視訊,矩陣運算,統計,圖論,資料儲存的相關C語言程式設計。</li>
-  <li>常見的應用領域:影像處理、電腦視覺、圖形識別、電腦圖學、資訊檢索或遊戲設計。</li>
-  <li>其他的應用領域(較知名)：物體追蹤、人臉辨識、傅立葉轉換、紋理分析,應用在靜態圖片(BMP,JPG,TIF,PNG),動態Webcam影像處理。</li>
-</ul>
-
-<h4 id="section-1">（二）常用的函式庫</h4>
-<p><strong>1. “cv.h”：電腦視覺函式庫</strong></p>
-
-<p><strong>2. “highgui.h”：GUI 介面函式庫</strong></p>
-
-<p><strong>3. “cxcore.h”</strong></p>
-
-<p><strong>4. “cvaux.h”</strong></p>
-
-<p><strong>[ 函式庫載入方式 ]</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;cv.h&gt;
-#include &lt;highgui.h&gt;
-#include &lt;cxcore.h&gt;
-#include &lt;cvaux.h&gt;
-</span></code></pre>
-</div>
-
-<h3 id="iplimage">（三）基本資料結構：IplImage</h3>
-<ul>
-  <li>
-    <p>相關資料：<a href="http://yester-place.blogspot.tw/2008/07/iplimage1.html">http://yester-place.blogspot.tw/2008/07/iplimage1.html</a></p>
-  </li>
-  <li>
-    <p>藉由 “cvLoadImage()” 所轉換的自定義格式<br />
-<img src="/assets/20160419/lplImage.jpg" alt="" /></p>
-    <ul>
-      <li>圖片來源 : <a href="http://3.bp.blogspot.com/_HcQD5f5sLPc/SLapjIwe9iI/AAAAAAAABG0/q_uh0L9LnB4/s400/%E7%B9%AA%E5%9C%962.jpg">http://3.bp.blogspot.com/_HcQD5f5sLPc/SLapjIwe9iI/AAAAAAAABG0/q_uh0L9LnB4/s400/%E7%B9%AA%E5%9C%962.jpg</a></li>
-    </ul>
-  </li>
-</ul>
-
-<hr />
-
-<h3 id="section-2">[ 範例程式 ] 讀取圖片檔案</h3>
-<ul>
-  <li>程式碼(GitHub)：<a href="https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/1">https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/1</a></li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Introduce_1.cpp
-</span><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;cv.h&gt;
-#include &lt;highgui.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="kt">char</span> <span class="n">FileName</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="s">"danny.jpg"</span><span class="p">;</span>			   <span class="c1">// 要顯示的影像名稱(在此為"danny.jpg")
-</span>	<span class="n">IplImage</span> <span class="o">*</span><span class="n">Image1</span> <span class="o">=</span> <span class="n">cvLoadImage</span><span class="p">(</span><span class="n">FileName</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// 存入影像
-</span>
-
-    <span class="n">cvNamedWindow</span><span class="p">(</span><span class="s">"Show Image"</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>			   <span class="c1">// 命名顯示在螢幕上的視窗名稱
-</span>	<span class="n">cvResizeWindow</span><span class="p">(</span><span class="s">"Show Image"</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">800</span><span class="p">);</span>		<span class="c1">// 設定視窗的大小
-</span>	<span class="n">cvShowImage</span><span class="p">(</span><span class="s">"Show Image"</span><span class="p">,</span><span class="n">Image1</span><span class="p">);</span>			<span class="c1">// 顯示視窗
-</span>	<span class="n">cvWaitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>						        <span class="c1">// 鍵盤事件(阻斷)
-</span>
-
-<span class="cm">/* 進行記憶體回收的動作 */</span>
-	<span class="n">cvDestroyWindow</span><span class="p">(</span><span class="s">"Show Image"</span><span class="p">);</span>		   	<span class="c1">// 銷毀視窗	
-</span>	<span class="n">cvReleaseImage</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Image1</span><span class="p">);</span>				     <span class="c1">// 釋放記憶體
-</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p><strong>&lt; 執行結果 &gt;</strong><br />
-<img src="/assets/20160419/001.png" alt="" /><br />
-[ 註 ] 圖片檔需和程式碼檔放在同一個目錄下，再編譯執行！</p>
+        
+<p><img src="https://i.imgur.com/qG4dyGw.jpg" alt="" /><br />
+<img src="https://i.imgur.com/j6P9oCu.jpg" alt="" /><br />
+<img src="https://i.imgur.com/CrkrvpT.jpg" alt="" /></p>
 
         </article>
         <hr>
@@ -294,7 +197,7 @@
                 
                     
                 
-                    
+            
                 
                     
                 
@@ -302,13 +205,25 @@
                 
                     
                 
-                    
+            
+        
+            
+            
                 
                     
                 
             
                 
                     
+                
+            
+                
+                    
+                
+            
+        
+            
+            
                 
                     
                         
@@ -316,7 +231,7 @@
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)
+                            <a href="http://shouzo.github.io/2017/04/06/ai/">20170406 [學習筆記] 人工智慧 (6)
                             
                             </a>
                         </li>
@@ -324,6 +239,11 @@
                         
                     
                 
+            
+        
+            
+            
+                
                     
                 
             
@@ -333,7 +253,11 @@
                 
                     
                 
+            
+                
                     
+                
+            
                 
                     
                 
@@ -341,29 +265,11 @@
         
             
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
                 
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/04/07/linux_system/">20170407 [學習筆記] Linux 系統程式 (6)
+                            <a href="http://shouzo.github.io/2017/03/30/ai/">20170330 [學習筆記] 人工智慧 (5)
                             
                             </a>
                         </li>
@@ -371,8 +277,6 @@
                         
                     
                 
-                    
-                
             
         
             
@@ -380,7 +284,11 @@
                 
                     
                 
+            
+                
                     
+                
+            
                 
                     
                 
@@ -388,40 +296,11 @@
         
             
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
                 
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)
+                            <a href="http://shouzo.github.io/2017/03/23/ai/">20170323 [學習筆記] 人工智慧 (4)
                             
                             </a>
                         </li>
@@ -429,8 +308,6 @@
                         
                     
                 
-                    
-                
             
         
             
@@ -438,43 +315,11 @@
                 
                     
                 
-                    
-                
-                    
-                
-            
-        
-            
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/03/24/linux_system/">20170324 [學習筆記] Linux 系統程式 (4)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
                     
                 
@@ -485,43 +330,7 @@
                 
                     
                 
-                    
-                
-                    
-                
             
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
                     
                 
@@ -535,13 +344,13 @@
     
     <div class="pre">
 
-        <p><strong>上一篇</strong> <a href="/2016/04/06/c-programming-book4/">20160405 [學習筆記] 由片語學習C程式設計(4) -- 判斷</a></p>
+        <p><strong>上一篇</strong> <a href="/2017/04/07/linux_system/">20170407 [學習筆記] Linux 系統程式 (6)</a></p>
         
     </div>
     <div class="nex">
 
         
-        <p><strong>下一篇</strong> <a href="/2016/04/20/opencv_yester-place2/">20160419 [學習筆記] OpenCV - 程式設計介紹(2)：視訊鏡頭的使用</a></p>
+        <p><strong>下一篇</strong> <a href="/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)</a></p>
         
     </div>
 </div>
@@ -559,8 +368,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://shouzo.github.io/2016/04/20/opencv_yester-place1/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://shouzo.github.io/2016/04/20/opencv_yester-place1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://shouzo.github.io/2017/04/13/ai/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/04/13/ai/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
