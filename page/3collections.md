@@ -43,6 +43,8 @@ icon: bookmark
 3. [20160829 夢想，Loading...](/collections/clubs/20160829-about-dreams.html)
 4. [20161211 給社團人的一封信](/collections/clubs/20161211-why-clubs.html)
 5. [20170118 社團大代誌 - 社團負責人課程](/collections/clubs/20170118-clubmanager.pdf)
+6. [20170422 原始點醫學分享](/collections/clubs/20170422-Original_Point.pdf)
+7. [20170427 關於社團傳承，你必須要知道的事情...](/collections/clubs/20170427-club_inheritance.pdf)
 
 
 
