@@ -121,6 +121,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -133,6 +135,254 @@
         <small>菜鳥的學習紀錄</small>
         <hr>
         <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-04-28
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#race-condition" id="markdown-toc-race-condition">Race Condition</a></li>
+      <li><a href="#critical-section-problem" id="markdown-toc-critical-section-problem">(一) Critical-Section Problem</a></li>
+      <li><a href="#solution-to-critical-section-problem" id="markdown-toc-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</a></li>
+      <li><a href="#petersons-solution" id="markdown-toc-petersons-solution">(三) Peterson’s Solution</a></li>
+      <li><a href="#synchronization-hardware" id="markdown-toc-synchronization-hardware">(四) Synchronization Hardware</a>        <ul>
+          <li><a href="#testandset-instruction" id="markdown-toc-testandset-instruction">1. test_and_set Instruction</a></li>
+          <li><a href="#compareandswap-instruction" id="markdown-toc-compareandswap-instruction">2. compare_and_swap Instruction</a></li>
+        </ul>
+      </li>
+      <li><a href="#mutex-locks" id="markdown-toc-mutex-locks">(五) Mutex Locks</a>        <ul>
+          <li><a href="#acquire-and-release" id="markdown-toc-acquire-and-release">acquire() and release()</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170427/ch06.pdf">Chapter 6: Process Scheduling</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="race-condition">Race Condition</h3>
+<ul>
+  <li>
+    <p>Consumer<br />
+<img src="https://i.imgur.com/07kx1WD.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Producer<br />
+<img src="https://i.imgur.com/eBPWPyb.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Race Condition<br />
+<img src="https://i.imgur.com/Q5qf9Xi.jpg" alt="" /></p>
+  </li>
+</ul>
+
+<h3 id="critical-section-problem">(一) Critical-Section Problem</h3>
+<ul>
+  <li>General Structure：<br />
+<img src="https://i.imgur.com/yVVaplo.jpg" alt="" /><br />
+<img src="https://i.imgur.com/dWa1ujd.jpg" alt="" /></li>
+</ul>
+
+<h3 id="solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</h3>
+<ol>
+  <li>
+    <p><strong>Mutual Exclusion</strong> - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.</p>
+  </li>
+  <li>
+    <p><strong>Progress</strong> - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely.</p>
+  </li>
+  <li><strong>Bounded Waiting</strong> - A bound must exist on the number of times that other processes are allowed to enter their critical sections.
+    <ul>
+      <li>Assume that each process executes at a nonzero speed.</li>
+      <li>No assumption concerning relative speed of the n processes.</li>
+    </ul>
+  </li>
+  <li>Two approaches depending on if kernel is preemptive or non-preemptive.
+    <ul>
+      <li><strong>Preemptive</strong> – allows preemption of process when running in kernel mode.</li>
+      <li><strong>Non-preemptive</strong> – runs until exits kernel mode, blocks, or voluntarily yields CPU.
+        <ul>
+          <li>Essentially free of race conditions in kernel mode.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="petersons-solution">(三) Peterson’s Solution</h3>
+<ul>
+  <li>Good algorithmic description of solving the problem.</li>
+  <li>Two process solution</li>
+  <li>Assume that the load and store instructions are atomic; that is, cannot be interrupted</li>
+  <li>The two processes share two variables：
+    <ul>
+      <li>int turn;</li>
+      <li>Boolean flag[2]</li>
+    </ul>
+  </li>
+  <li>The variable turn indicates whose turn it is to enter the critical section</li>
+  <li>The flag array is used to indicate if a process is ready to enter the critical section.</li>
+  <li><code class="highlighter-rouge">flag[i] = true</code> implies that process Pi is ready!</li>
+</ul>
+
+<p><img src="https://i.imgur.com/VjV8Owl.jpg" alt="" /></p>
+
+<ul>
+  <li>Provable that
+    <ol>
+      <li>Mutual exclusion is preserved.</li>
+      <li>Progress requirement is satisfied.</li>
+      <li>Bounded-waiting requirement is met.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="synchronization-hardware">(四) Synchronization Hardware</h3>
+<ul>
+  <li>Many systems provide hardware support for critical section code.</li>
+  <li>All solutions below based on idea of <strong>locking</strong>.
+    <ul>
+      <li>Protecting critical regions via locks.</li>
+    </ul>
+  </li>
+  <li>Uniprocessors – could disable interrupts
+    <ul>
+      <li>Currently running code would execute without preemption.</li>
+      <li>Generally too inefficient on multiprocessor systems.
+        <ul>
+          <li>Operating systems using this not broadly scalable.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Modern machines provide special atomic hardware instructions.
+    <ul>
+      <li><strong>Atomic</strong> = non-interruptible
+        <ul>
+          <li>Either test memory word and set value.</li>
+          <li>Or swap contents of two memory words.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="testandset-instruction">1. test_and_set Instruction</h4>
+<p><img src="https://i.imgur.com/HP1PMeH.jpg" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Solution using test_and_set()<br />
+  <img src="https://i.imgur.com/5SMn8ix.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Bounded-waiting Mutual Exclusion with test_and_set<br />
+  <img src="https://i.imgur.com/wGOMFdV.jpg" alt="" /></p>
+  </li>
+</ul>
+
+<h4 id="compareandswap-instruction">2. compare_and_swap Instruction</h4>
+<p><img src="https://i.imgur.com/7neEbLe.jpg" alt="" /></p>
+
+<ul>
+  <li>Solution using compare_and_swap<br />
+  <img src="https://i.imgur.com/37TZRjA.jpg" alt="" /></li>
+</ul>
+
+<h3 id="mutex-locks">(五) Mutex Locks</h3>
+<ul>
+  <li>Previous solutions are complicated and generally inaccessible to application programmers.</li>
+  <li>OS designers build software tools to solve critical section problem.</li>
+  <li>Simplest is mutex lock</li>
+  <li>Product critical regions with it by first <strong>acquire()</strong> a lock then <strong>release()</strong> it.
+    <ul>
+      <li>Boolean variable indicating if lock is available or not</li>
+    </ul>
+  </li>
+  <li>Calls to <strong>acquire()</strong> and <strong>release()</strong> must be atomic.
+    <ul>
+      <li>Usually implemented via hardware atomic instructions</li>
+    </ul>
+  </li>
+  <li>But this solution requires <strong>busy waiting</strong>.
+    <ul>
+      <li>This lock therefore called a <strong>spinlock</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="acquire-and-release">acquire() and release()</h4>
+<p><img src="https://i.imgur.com/stNKbbR.jpg" alt="" /></p>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/04/28/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
             
               <li>
                 <h2>
@@ -1275,108 +1525,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/04/03/university_interesting/">20170403 [有感而發] 求學就像是吃餅，怎麼可能一口氣吃得完？當然是要從最有興趣的地方開始慢慢吃啊！</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-04-03
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#未分類" title="Category: 未分類" rel="category">未分類</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#心情記事" title="Tag: 心情記事" rel="tag">心情記事</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">求學，就像是吃一塊漫無邊際的大餅</a></li>
-  <li><a href="#section-1" id="markdown-toc-section-1">怎麼可能無所不知？不懂就只能坦白承認啦！</a></li>
-</ul>
-
-<p><img src="https://i.imgur.com/DOD1Y4C.jpg" alt="" /></p>
-
-<p>今天不談社團，來聊聊其他的。剛剛在看到 Jserv 在網路上發的一篇文：<a href="https://www.facebook.com/microjserv/posts/10155154029752389">https://www.facebook.com/microjserv/posts/10155154029752389</a></p>
-
-<p>讓我聯想到之前國、高中上課發問時的情景 (通常得到的答覆和上文差不多)。但是直到現在大四下學期，我發現自己在大學系上課程中得知的東西仍然有限。我可不希望以後詞窮被問了類似的問題 (以下對話參考自上方連結之原文)：</p>
-
-<p><strong>兒子好奇：「 爸，什麼是電腦？為什麼電腦可以運作？」</strong></p>
-
-<p><strong>我卻只能回答：「 因為爸爸認真工作，乖乖繳交電費，讓你可以使用電腦。 」</strong></p>
-
-<p><strong>兒子不爽：「 … 原來你大學讀電機資訊系就學這些啊，讀了書卻無法正面回答我的問題，這樣讀書有什麼意思呢？你自己讀書沒用，又何必要求我讀書呢？」</strong></p>
-
-<p>上述情境當然有很多地方值得探討，但是以 <strong>「 在體制教育內的求學期間不知道學了些什麼 」</strong> 這個面向來看卻格外諷刺…</p>
-
-<p>而我後來在進行一些更深入的實作和研究時，漸漸發現某些科目學問存在的重要性 (各個領域之間其實彼此都相互連結)。但是那些科目當初在授課時 <strong>「 根本沒有學過 」，</strong> 或者教授說 <strong>「 那些東西在研究所時才會教 」</strong> …。</p>
-
-<p>這時候又會想到那一句老話：「 師父領進門，修行在個人。」我個人認為這句話不完全正確，要是遇到那種 <strong>「 師父不引你進門，卻帶你用頭去撞門。」</strong> 的情況該怎麼辦呢？(還真的得算自己倒霉，認賠殺出？)</p>
-
-<p>(… 唉，又講到傷心事了，回歸正題。)</p>
-
-<h2 id="section">求學，就像是吃一塊漫無邊際的大餅</h2>
-<p>我以目前自己所在的電資領域為出發點，先摒除掉「 因為分數剛好，所以就到這裡 」、「 學非所願 」、「 唸到一半才發現這不是我想讀的科系 」…等等原因。</p>
-
-<p>求學就像是吃一塊大得漫無邊際的餅，有無限種吃法，就看你自己想要怎麼吃。試著想像一下：「 這裡有一塊餅，你沒辦法一口氣吃完，該怎麼辦？」</p>
-
-<p>廢話！這麼大塊的餅乾，怎麼可能一口氣吃得完？當然是要從你自己最有興趣的地方開始慢慢吃啊！</p>
-
-<p>一門領域要學的東西有多少，才短短幾年怎麼可能全部都會？至少得從喜歡或者是一個不排斥的東西開始吧？</p>
-
-<h2 id="section-1">怎麼可能無所不知？不懂就只能坦白承認啦！</h2>
-<p>…回到最一開始的那一段對話，假設我真的不知道背後的原理，被這樣酸了：</p>
-
-<p><strong>兒子不爽：「 … 原來你大學讀電機資訊系就學這些啊，讀了書卻無法正面回答我的問題，這樣讀書有什麼意思呢？你自己讀書沒用，又何必要求我讀書呢？」</strong></p>
-
-<p>我希望這時候的我可以這樣回答：</p>
-
-<p><strong>我：「 這個東西爸爸不懂，但是你不覺得這個問題很有趣嗎？我們一起來研究為什麼吧！ 」</strong></p>
-
-<p><strong>求學讀書不應該是為了考試，而是為了要更加瞭解這個世界，同時也應該是一件發自內心想要去完成的事情。</strong></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/04/03/university_interesting/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1387,10 +1535,10 @@
             <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
             <span class="previous disable"><i class="fa fa-angle-left"></i></span>
           
-          <span class="page_number ">1/9</span>
+          <span class="page_number ">1/10</span>
           
             <a href="/blog/page2/" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="/blog/page9" class="next"><i class="fa fa-angle-double-right"></i></a>
+            <a href="/blog/page10" class="next"><i class="fa fa-angle-double-right"></i></a>
           
         </div>
     </div>
@@ -1403,6 +1551,8 @@
                     Recent Posts
                 </div>
                 <ul class="content-ul" recent>
+                    
+                        <li><a href="/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)</a></li>
                     
                         <li><a href="/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)</a></li>
                     
@@ -1421,8 +1571,6 @@
                         <li><a href="/2017/03/24/linux_system/">20170324 [學習筆記] Linux 系統程式 (4)</a></li>
                     
                         <li><a href="/2017/03/23/ai/">20170323 [學習筆記] 人工智慧 (4)</a></li>
-                    
-                        <li><a href="/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題</a></li>
                     
                 </ul>
             </div>
@@ -1566,7 +1714,7 @@
                             <span class="name">
                                 Linux
                             </span>
-                            <span class="badge">8</span>
+                            <span class="badge">9</span>
                         </a>
                     </li>
                     
@@ -1575,7 +1723,7 @@
                             <span class="name">
                                 作業系統
                             </span>
-                            <span class="badge">8</span>
+                            <span class="badge">9</span>
                         </a>
                     </li>
                     
@@ -1584,7 +1732,7 @@
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">9</span>
+                            <span class="badge">10</span>
                         </a>
                     </li>
                     
@@ -1609,7 +1757,7 @@
                       
                       
                       
-                      <a href="/tag/#C語言" style="font-size: 12.5pt; color: #666;">C語言</a>
+                      <a href="/tag/#C語言" style="font-size: 12pt; color: #666;">C語言</a>
                     
                       
                       
@@ -1637,14 +1785,14 @@
                       
                       
                       
-                      <a href="/tag/#Data-Mining" style="font-size: 13pt; color: #555;">Data-Mining</a>
+                      <a href="/tag/#Data-Mining" style="font-size: 12.5pt; color: #555;">Data-Mining</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#R語言" style="font-size: 14.5pt; color: #333;">R語言</a>
+                      <a href="/tag/#R語言" style="font-size: 14.5pt; color: #444;">R語言</a>
                     
                       
                       
@@ -1700,7 +1848,7 @@
                       
                       
                       
-                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #666;">社團</a>
+                      <a href="/tag/#社團" style="font-size: 12pt; color: #666;">社團</a>
                     
                       
                       
@@ -1728,7 +1876,7 @@
                       
                       
                       
-                      <a href="/tag/#人工智慧" style="font-size: 12.5pt; color: #666;">人工智慧</a>
+                      <a href="/tag/#人工智慧" style="font-size: 12pt; color: #666;">人工智慧</a>
                     
                       
                       

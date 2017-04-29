@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20170428 [學習筆記] Linux 系統程式 (8)</title>
+    <meta name="description" content="  一、作業系統          Race Condition      (一) Critical-Section Problem      (二) Solution to Critical-Section Problem      (三) Peterson’s Solution      (四) Synchr...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2017/04/28/linux_system/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20170428 [學習筆記] Linux 系統程式 (8)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-04-28
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#race-condition" id="markdown-toc-race-condition">Race Condition</a></li>
+      <li><a href="#critical-section-problem" id="markdown-toc-critical-section-problem">(一) Critical-Section Problem</a></li>
+      <li><a href="#solution-to-critical-section-problem" id="markdown-toc-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</a></li>
+      <li><a href="#petersons-solution" id="markdown-toc-petersons-solution">(三) Peterson’s Solution</a></li>
+      <li><a href="#synchronization-hardware" id="markdown-toc-synchronization-hardware">(四) Synchronization Hardware</a>        <ul>
+          <li><a href="#testandset-instruction" id="markdown-toc-testandset-instruction">1. test_and_set Instruction</a></li>
+          <li><a href="#compareandswap-instruction" id="markdown-toc-compareandswap-instruction">2. compare_and_swap Instruction</a></li>
+        </ul>
+      </li>
+      <li><a href="#mutex-locks" id="markdown-toc-mutex-locks">(五) Mutex Locks</a>        <ul>
+          <li><a href="#acquire-and-release" id="markdown-toc-acquire-and-release">acquire() and release()</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
+      <li><a href="#low-level-file-access" id="markdown-toc-low-level-file-access">(一) Low-level file access</a>        <ul>
+          <li><a href="#open" id="markdown-toc-open">1. open</a></li>
+          <li><a href="#read" id="markdown-toc-read">2. read</a></li>
+          <li><a href="#write" id="markdown-toc-write">3. write</a></li>
+          <li><a href="#example-file-copy" id="markdown-toc-example-file-copy">[Example] File copy</a></li>
+        </ul>
+      </li>
+      <li><a href="#standard-io-library" id="markdown-toc-standard-io-library">(二) Standard I/O Library</a>        <ul>
+          <li><a href="#fopen" id="markdown-toc-fopen">fopen</a></li>
+          <li><a href="#printf-sprintf-fprintf" id="markdown-toc-printf-sprintf-fprintf">2. printf, sprintf, fprintf</a></li>
+          <li><a href="#scanf-fscanf-sscanf" id="markdown-toc-scanf-fscanf-sscanf">3. scanf, fscanf, sscanf</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170427/ch06.pdf">Chapter 6: Process Scheduling</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="race-condition">Race Condition</h3>
+<ul>
+  <li>
+    <p>Consumer<br />
+<img src="https://i.imgur.com/07kx1WD.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Producer<br />
+<img src="https://i.imgur.com/eBPWPyb.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Race Condition<br />
+<img src="https://i.imgur.com/Q5qf9Xi.jpg" alt="" /></p>
+  </li>
+</ul>
+
+<h3 id="critical-section-problem">(一) Critical-Section Problem</h3>
+<ul>
+  <li>General Structure：<br />
+<img src="https://i.imgur.com/yVVaplo.jpg" alt="" /><br />
+<img src="https://i.imgur.com/dWa1ujd.jpg" alt="" /></li>
+</ul>
+
+<h3 id="solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</h3>
+<ol>
+  <li>
+    <p><strong>Mutual Exclusion</strong> - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.</p>
+  </li>
+  <li>
+    <p><strong>Progress</strong> - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely.</p>
+  </li>
+  <li><strong>Bounded Waiting</strong> - A bound must exist on the number of times that other processes are allowed to enter their critical sections.
+    <ul>
+      <li>Assume that each process executes at a nonzero speed.</li>
+      <li>No assumption concerning relative speed of the n processes.</li>
+    </ul>
+  </li>
+  <li>Two approaches depending on if kernel is preemptive or non-preemptive.
+    <ul>
+      <li><strong>Preemptive</strong> – allows preemption of process when running in kernel mode.</li>
+      <li><strong>Non-preemptive</strong> – runs until exits kernel mode, blocks, or voluntarily yields CPU.
+        <ul>
+          <li>Essentially free of race conditions in kernel mode.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="petersons-solution">(三) Peterson’s Solution</h3>
+<ul>
+  <li>Good algorithmic description of solving the problem.</li>
+  <li>Two process solution</li>
+  <li>Assume that the load and store instructions are atomic; that is, cannot be interrupted</li>
+  <li>The two processes share two variables：
+    <ul>
+      <li>int turn;</li>
+      <li>Boolean flag[2]</li>
+    </ul>
+  </li>
+  <li>The variable turn indicates whose turn it is to enter the critical section</li>
+  <li>The flag array is used to indicate if a process is ready to enter the critical section.</li>
+  <li><code class="highlighter-rouge">flag[i] = true</code> implies that process Pi is ready!</li>
+</ul>
+
+<p><img src="https://i.imgur.com/VjV8Owl.jpg" alt="" /></p>
+
+<ul>
+  <li>Provable that
+    <ol>
+      <li>Mutual exclusion is preserved.</li>
+      <li>Progress requirement is satisfied.</li>
+      <li>Bounded-waiting requirement is met.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="synchronization-hardware">(四) Synchronization Hardware</h3>
+<ul>
+  <li>Many systems provide hardware support for critical section code.</li>
+  <li>All solutions below based on idea of <strong>locking</strong>.
+    <ul>
+      <li>Protecting critical regions via locks.</li>
+    </ul>
+  </li>
+  <li>Uniprocessors – could disable interrupts
+    <ul>
+      <li>Currently running code would execute without preemption.</li>
+      <li>Generally too inefficient on multiprocessor systems.
+        <ul>
+          <li>Operating systems using this not broadly scalable.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Modern machines provide special atomic hardware instructions.
+    <ul>
+      <li><strong>Atomic</strong> = non-interruptible
+        <ul>
+          <li>Either test memory word and set value.</li>
+          <li>Or swap contents of two memory words.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="testandset-instruction">1. test_and_set Instruction</h4>
+<p><img src="https://i.imgur.com/HP1PMeH.jpg" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Solution using test_and_set()<br />
+  <img src="https://i.imgur.com/5SMn8ix.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Bounded-waiting Mutual Exclusion with test_and_set<br />
+  <img src="https://i.imgur.com/wGOMFdV.jpg" alt="" /></p>
+  </li>
+</ul>
+
+<h4 id="compareandswap-instruction">2. compare_and_swap Instruction</h4>
+<p><img src="https://i.imgur.com/7neEbLe.jpg" alt="" /></p>
+
+<ul>
+  <li>Solution using compare_and_swap<br />
+  <img src="https://i.imgur.com/37TZRjA.jpg" alt="" /></li>
+</ul>
+
+<h3 id="mutex-locks">(五) Mutex Locks</h3>
+<ul>
+  <li>Previous solutions are complicated and generally inaccessible to application programmers.</li>
+  <li>OS designers build software tools to solve critical section problem.</li>
+  <li>Simplest is mutex lock</li>
+  <li>Product critical regions with it by first <strong>acquire()</strong> a lock then <strong>release()</strong> it.
+    <ul>
+      <li>Boolean variable indicating if lock is available or not</li>
+    </ul>
+  </li>
+  <li>Calls to <strong>acquire()</strong> and <strong>release()</strong> must be atomic.
+    <ul>
+      <li>Usually implemented via hardware atomic instructions</li>
+    </ul>
+  </li>
+  <li>But this solution requires <strong>busy waiting</strong>.
+    <ul>
+      <li>This lock therefore called a <strong>spinlock</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="acquire-and-release">acquire() and release()</h4>
+<p><img src="https://i.imgur.com/stNKbbR.jpg" alt="" /></p>
+
+<h2 id="linux-">二、Linux 程式設計</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="">Working with Files</a></li>
+      <li><a href="http://advancedlinuxprogramming.com/alp-folder/alp-apB-low-level-io.pdf">Low-Level I/O</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="low-level-file-access">(一) Low-level file access</h3>
+<p>Header：<code class="highlighter-rouge">#include &lt;unistd.h&gt;</code></p>
+
+<ul>
+  <li>Action
+    <ul>
+      <li>open</li>
+      <li>read</li>
+      <li>write</li>
+      <li>close</li>
+      <li>ioctl</li>
+    </ul>
+  </li>
+  <li>Status
+    <ul>
+      <li>0：standard input</li>
+      <li>1：standard output</li>
+      <li>2：standard error</li>
+    </ul>
+  </li>
+  <li>Permission
+    <ul>
+      <li>S_IRUSR</li>
+      <li>S_IWUSR</li>
+      <li>S_IXUSR</li>
+      <li>S_IRGRP</li>
+      <li>S_IWGRP</li>
+      <li>S_IWGRP</li>
+      <li>S_IROTH</li>
+      <li>S_IWOTH</li>
+      <li>S_IXOTH</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="open">1. open</h4>
+<ul>
+  <li><code class="highlighter-rouge">int open(const char* path, int oflags);</code></li>
+  <li><code class="highlighter-rouge">int open(const char* path, int oflags, mode_t mode);</code></li>
+  <li>Mode
+    <ul>
+      <li>O_RDONLY</li>
+      <li>O_WRONLY</li>
+      <li>O_RDWR</li>
+    </ul>
+  </li>
+  <li>Oflags
+    <ul>
+      <li>O_APPEND</li>
+      <li>O_TRUNC ( 放棄現有的內容、長度歸零)</li>
+      <li>O_CREAT</li>
+      <li>O_EXCL (確保呼叫者可以產生檔案)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="read">2. read</h4>
+<ul>
+  <li><code class="highlighter-rouge">size_t read(int fildes, void* buf, size_t nbytes);</code></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">nread</span><span class="p">;</span>
+    
+    <span class="n">nread</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="mi">128</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">nread</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">"A read error has occurred</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">26</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">((</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">nread</span><span class="p">))</span> <span class="o">!=</span> <span class="n">nread</span><span class="p">)</span>
+        <span class="n">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">"A write error has occurred</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">27</span><span class="p">);</span>
+        
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="write">3. write</h4>
+<ul>
+  <li><code class="highlighter-rouge">size_t write(int fildes, void* buf, size_t n
+bytes);</code></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Here is some data</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">18</span>
+<span class="p">)</span>
+    <span class="n">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">"A write error has occurred on file descriptor 1</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="mi">46</span><span class="p">);</span>
+
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="example-file-copy">[Example] File copy</h4>
+<ul>
+  <li>Example 1</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span><span class="p">;</span>
+    
+    <span class="n">in</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">"file.in"</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="p">);</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">"file.out"</span><span class="p">,</span> <span class="n">O_WRONLY</span><span class="o">|</span><span class="n">O_CREAT</span><span class="p">,</span> <span class="n">S_IRUSR</span><span class="o">|</span><span class="n">S_IWUSR</span><span class="p">);</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="n">in</span><span class="p">,</span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">write</span><span class="p">(</span><span class="n">out</span><span class="p">,</span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+        
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Example2</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">block</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">nread</span><span class="p">;</span>
+    
+    <span class="n">in</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">"file.in"</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="p">);</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">"file.out"</span><span class="p">,</span> <span class="n">O_WRONLY</span><span class="o">|</span><span class="n">O_CREAT</span><span class="p">,</span> <span class="n">S_IRUSR</span><span class="o">|</span><span class="n">S_IWUSR</span><span class="p">);</span>
+    <span class="k">while</span><span class="p">((</span><span class="n">nread</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">in</span><span class="p">,</span><span class="n">block</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">block</span><span class="p">)))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">write</span><span class="p">(</span><span class="n">out</span><span class="p">,</span><span class="n">block</span><span class="p">,</span><span class="n">nread</span><span class="p">);</span>
+
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="standard-io-library">(二) Standard I/O Library</h3>
+<p>Header：<code class="highlighter-rouge">#include &lt;stdio.h&gt;</code></p>
+
+<ul>
+  <li><code class="highlighter-rouge">fopen</code>, <code class="highlighter-rouge">fclose</code>
+    <ul>
+      <li>int fclose(FILE* stream);</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">fread</code>, <code class="highlighter-rouge">fwrite</code>
+    <ul>
+      <li>size_t fread(void* ptr, size_t size, size_t nitems, FILE* stream);</li>
+      <li>size_t fwrite(void* ptr, size_t size, size_t nitems, FILE* stream);</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">fflush</code>
+    <ul>
+      <li>int fflush(FLIE* stream);</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">fseek</code>
+    <ul>
+      <li>int fseek(FILE* stream, long int offset, int whence);</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">fgetc</code>, <code class="highlighter-rouge">getc</code>, <code class="highlighter-rouge">getchar</code>
+    <ul>
+      <li>int fgetc(FILE* stream);</li>
+      <li>int getc(FILE* stream);</li>
+      <li>int getchar();</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">fputc</code>, <code class="highlighter-rouge">putc</code>, <code class="highlighter-rouge">putchar</code>
+    <ul>
+      <li>int fputc(int c, FILE* stream);</li>
+      <li>int putc(int c, FILE* stream);</li>
+      <li>int putchar(int c);</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">fgets</code>, <code class="highlighter-rouge">gets</code>
+    <ul>
+      <li>char* fgets(char<em>s, int n, FILE</em> stream);</li>
+      <li>char* gets(char*s);</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">printf</code>, <code class="highlighter-rouge">fprintf</code>, <code class="highlighter-rouge">sprintf</code></p>
+  </li>
+  <li><code class="highlighter-rouge">scanf</code>, <code class="highlighter-rouge">fscanf</code>, <code class="highlighter-rouge">sscanf</code></li>
+</ul>
+
+<h4 id="fopen">fopen</h4>
+<ul>
+  <li><code class="highlighter-rouge">FILE *fopen(const char *filename, const
+char* mode);</code>
+    <ul>
+      <li><code class="highlighter-rouge">r</code> (唯讀模式)</li>
+      <li><code class="highlighter-rouge">w</code> (寫入模式、長度歸零)</li>
+      <li><code class="highlighter-rouge">a</code> (寫入模式、附加)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="printf-sprintf-fprintf">2. printf, sprintf, fprintf</h4>
+<p>%d, %o, %x, %c ,%s ,%f (float) ,%e (double) ,%g (double)</p>
+
+<h4 id="scanf-fscanf-sscanf">3. scanf, fscanf, sscanf</h4>
+<p>%d, %o, %x, %f, %e, %g, %c, %s, %[] (掃瞄特定字元), %% (掃瞄 % 的字元)</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/04/07/linux_system/">20170407 [學習筆記] Linux 系統程式 (6)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/24/linux_system/">20170324 [學習筆記] Linux 系統程式 (4)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2017/04/28/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/04/28/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>
