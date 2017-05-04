@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 04 May 2017 17:57:59 +0800</pubDate>
-    <lastBuildDate>Thu, 04 May 2017 17:57:59 +0800</lastBuildDate>
+    <pubDate>Thu, 04 May 2017 18:00:06 +0800</pubDate>
+    <lastBuildDate>Thu, 04 May 2017 18:00:06 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -18,7 +18,7 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
-&lt;p&gt;最近剛重灌 Ubuntu，在此紀錄個人安裝 Vim 時常用介面設定。&lt;/p&gt;
+&lt;p&gt;最近剛重灌 Ubuntu，在此紀錄個人安裝 Vim 時常用的設定與外掛。&lt;/p&gt;
 
 &lt;h2 id=&quot;vimrc-&quot;&gt;一、vimrc 慣用設定&lt;/h2&gt;
 &lt;ul&gt;
