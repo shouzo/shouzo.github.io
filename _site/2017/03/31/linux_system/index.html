@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>20170331 [學習筆記] Linux 系統程式 (5)</title>
-    <meta name="description" content="  一、作業系統          (一) Thread Synchronization                  sem_init()          sem_wait()          sem_post()          sem_destroy()                    2....">
+    <meta name="description" content="  一、作業系統          (一) Thread Synchronization      1. Semaphore                  semaphore.h                          sem_init()              sem_wait()      ...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
@@ -196,21 +196,29 @@
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#thread-synchronization" id="markdown-toc-thread-synchronization">(一) Thread Synchronization</a>        <ul>
-          <li><a href="#seminit" id="markdown-toc-seminit">sem_init()</a></li>
-          <li><a href="#semwait" id="markdown-toc-semwait">sem_wait()</a></li>
-          <li><a href="#sempost" id="markdown-toc-sempost">sem_post()</a></li>
-          <li><a href="#semdestroy" id="markdown-toc-semdestroy">sem_destroy()</a></li>
+      <li><a href="#thread-synchronization" id="markdown-toc-thread-synchronization">(一) Thread Synchronization</a></li>
+      <li><a href="#semaphore" id="markdown-toc-semaphore">1. Semaphore</a>        <ul>
+          <li><a href="#semaphoreh" id="markdown-toc-semaphoreh">semaphore.h</a>            <ul>
+              <li><a href="#seminit" id="markdown-toc-seminit">sem_init()</a></li>
+              <li><a href="#semwait" id="markdown-toc-semwait">sem_wait()</a></li>
+              <li><a href="#sempost" id="markdown-toc-sempost">sem_post()</a></li>
+              <li><a href="#semdestroy" id="markdown-toc-semdestroy">sem_destroy()</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li><a href="#mutex" id="markdown-toc-mutex">2. Mutex</a>        <ul>
-          <li><a href="#pthreadmutexinit" id="markdown-toc-pthreadmutexinit">pthread_mutex_init()</a></li>
-          <li><a href="#pthreadmutexlock" id="markdown-toc-pthreadmutexlock">pthread_mutex_lock()</a></li>
-          <li><a href="#pthreadmutexunlock" id="markdown-toc-pthreadmutexunlock">pthread_mutex_unlock()</a></li>
-          <li><a href="#pthreadmutexdestroy" id="markdown-toc-pthreadmutexdestroy">pthread_mutex_destroy()</a></li>
+          <li><a href="#pthreadh" id="markdown-toc-pthreadh">pthread.h</a>            <ul>
+              <li><a href="#pthreadmutexinit" id="markdown-toc-pthreadmutexinit">pthread_mutex_init()</a></li>
+              <li><a href="#pthreadmutexlock" id="markdown-toc-pthreadmutexlock">pthread_mutex_lock()</a></li>
+              <li><a href="#pthreadmutexunlock" id="markdown-toc-pthreadmutexunlock">pthread_mutex_unlock()</a></li>
+              <li><a href="#pthreadmutexdestroy" id="markdown-toc-pthreadmutexdestroy">pthread_mutex_destroy()</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li><a href="#condition-variables" id="markdown-toc-condition-variables">3. Condition Variables</a>        <ul>
+          <li><a href="#pthreadcondinit-condition-attr" id="markdown-toc-pthreadcondinit-condition-attr">pthread_cond_init (condition, attr)</a></li>
           <li><a href="#pthreadconddestroy-condition" id="markdown-toc-pthreadconddestroy-condition">pthread_cond_destroy (condition)</a></li>
           <li><a href="#pthreadcondattrinit-attr" id="markdown-toc-pthreadcondattrinit-attr">pthread_condattr_init (attr)</a></li>
           <li><a href="#pthreadcondattrdestroy-attr" id="markdown-toc-pthreadcondattrdestroy-attr">pthread_condattr_destroy (attr)</a></li>
@@ -218,6 +226,7 @@
       </li>
       <li><a href="#barrier" id="markdown-toc-barrier">4. Barrier</a></li>
       <li><a href="#producer-consumer-problem" id="markdown-toc-producer-consumer-problem">(二) Producer-Consumer Problem</a>        <ul>
+          <li><a href="#producer" id="markdown-toc-producer">1. Producer</a></li>
           <li><a href="#consumer" id="markdown-toc-consumer">2. Consumer</a></li>
         </ul>
       </li>
@@ -226,6 +235,7 @@
   </li>
   <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
       <li><a href="#socket-programming" id="markdown-toc-socket-programming">Socket Programming</a>        <ul>
+          <li><a href="#what-is-a-socket" id="markdown-toc-what-is-a-socket">1. What is a socket？</a></li>
           <li><a href="#two-essential-types-of-sockets" id="markdown-toc-two-essential-types-of-sockets">2. Two essential types of sockets</a></li>
           <li><a href="#sockstream" id="markdown-toc-sockstream">(1) SOCK_STREAM</a></li>
           <li><a href="#sockdgram" id="markdown-toc-sockdgram">(2) SOCK_DGRAM</a></li>
@@ -255,29 +265,30 @@
 </ul>
 
 <h3 id="thread-synchronization">(一) Thread Synchronization</h3>
-<p>### 1. Semaphore<br />
-#### semaphore.h<br />
-```c<br />
-#include <semaphore.h></semaphore.h></p>
+<h3 id="semaphore">1. Semaphore</h3>
+<h4 id="semaphoreh">semaphore.h</h4>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;semaphore.h&gt;
+</span>
+<span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+<span class="c1">//create a semaphore
+</span>
 
-<p>int sem_init(sem_t *sem, int pshared, unsigned int value);<br />
-//create a semaphore</p>
+<span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<span class="c1">//lock a semaphore
+</span>
 
-<p>int sem_wait(sem_t *sem);<br />
-//lock a semaphore</p>
+<span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<span class="c1">//unlock a semaphore
+</span>
 
-<p>int sem_post(sem_t *sem);<br />
-//unlock a semaphore</p>
-
-<p>int sem_destroy(sem_t *sem);<br />
-//delete a semaphore<br />
-```</p>
+<span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<span class="c1">//delete a semaphore
+</span></code></pre></div>
 
 <h5 id="seminit">sem_init()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span>
 <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div>
 <ul>
   <li><code class="highlighter-rouge">sem_t *sem</code>：semaphore 識別字</li>
   <li><code class="highlighter-rouge">int pshared</code>：設定為 0 表示僅供目前的 process 及其 thread 使用。非 0 表示此 semaphore 與其他 process 共用</li>
@@ -285,78 +296,75 @@
 </ul>
 
 <h5 id="semwait">sem_wait()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre></div>
 <ul>
-  <li>若 semaphore 為非 0，則 semaphore 值減<br />
-1；若 semaphore 為 0，則呼叫此 function<br />
-的 thread 會被 block ，直到 semaphore 值不<br />
+  <li>若 semaphore 為非 0，則 semaphore 值減
+1；若 semaphore 為 0，則呼叫此 function
+的 thread 會被 block ，直到 semaphore 值不
 為 0。</li>
 </ul>
 
 <h5 id="sempost">sem_post()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre></div>
 <ul>
   <li>對 semaphore 值加 1 。</li>
 </ul>
 
 <h5 id="semdestroy">sem_destroy()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
 <span class="c1">//delete a semaphore
-</span></code></pre>
-</div>
+</span></code></pre></div>
 
 <h3 id="mutex">2. Mutex</h3>
-<p>#### pthread.h<br />
-```c<br />
-#include <pthread.h></pthread.h></p>
+<h4 id="pthreadh">pthread.h</h4>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;pthread.h&gt;
+</span>
+<span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
+<span class="c1">//create a mutex
+</span>
 
-<p>int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr);<br />
-//create a mutex</p>
+<span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//lock a mutex
+</span>
 
-<p>int pthread_mutex_lock(pthread_mutex_t *mutex);<br />
-//lock a mutex</p>
+<span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//unlock a mutex
+</span>
 
-<p>int pthread_mutex_unlock(pthread_mutex_t *mutex);<br />
-//unlock a mutex</p>
-
-<p>int pthread_mutex_destroy(pthread_mutex_t *mutex);<br />
-//delete a mutex<br />
-```</p>
+<span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//delete a mutex
+</span></code></pre></div>
 
 <h5 id="pthreadmutexinit">pthread_mutex_init()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
+</code></pre></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_mutex_t *mutex</code>：mutex 識別字</li>
   <li><code class="highlighter-rouge">const pthread_mutexattr_t *mutexattr</code>：mutex 的屬性。設定為 NULL 表示使用預設。</li>
 </ul>
 
 <h5 id="pthreadmutexlock">pthread_mutex_lock()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//lock a mutex
-</span></code></pre>
-</div>
+</span></code></pre></div>
 
 <h5 id="pthreadmutexunlock">pthread_mutex_unlock()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//unlock a mutex
-</span></code></pre>
-</div>
+</span></code></pre></div>
 
 <h5 id="pthreadmutexdestroy">pthread_mutex_destroy()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//delete a mutex
-</span></code></pre>
-</div>
+</span></code></pre></div>
 
 <h3 id="condition-variables">3. Condition Variables</h3>
-<p>#### pthread_cond_init (condition, attr)<br />
-* <a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_init.txt">pthread_cond_init</a></p>
+<h4 id="pthreadcondinit-condition-attr">pthread_cond_init (condition, attr)</h4>
+<ul>
+  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_init.txt">pthread_cond_init</a></li>
+</ul>
 
 <h4 id="pthreadconddestroy-condition">pthread_cond_destroy (condition)</h4>
 <ul>
@@ -380,22 +388,21 @@
 </ul>
 
 <h3 id="producer-consumer-problem">(二) Producer-Consumer Problem</h3>
-<p>#### 1. Producer<br />
-```c<br />
-item next produced;<br />
-while (true) {<br />
-    /* produce an item in next produced */</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>while (((in + 1) % BUFFER SIZE) == out)
-; /* do nothing */
+<h4 id="producer">1. Producer</h4>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">item</span> <span class="n">next</span> <span class="n">produced</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* produce an item in next produced */</span>
     
-buffer[in] = next produced;
-in = (in + 1) % BUFFER SIZE; } ```
-</code></pre>
-</div>
+    <span class="k">while</span> <span class="p">(((</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
+    <span class="p">;</span> <span class="cm">/* do nothing */</span>
+        
+    <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next</span> <span class="n">produced</span><span class="p">;</span>
+    <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h4 id="consumer">2. Consumer</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">item</span> <span class="n">next</span> <span class="n">consumed</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">item</span> <span class="n">next</span> <span class="n">consumed</span><span class="p">;</span>
 <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
     <span class="p">;</span> <span class="cm">/* do nothing */</span>
@@ -405,11 +412,10 @@ in = (in + 1) % BUFFER SIZE; } ```
     
     <span class="cm">/* consume the item in next consumed */</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h3 id="section-1">課程作業</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*
  *  Solution to Producer Consumer Problem
  *  Using Ptheads, a mutex and condition variables
  *  From Tanenbaum, Modern Operating Systems, 3rd Ed.
@@ -499,11 +505,10 @@ in = (in + 1) % BUFFER SIZE; } ```
     <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">);</span>		<span class="cm">/* Free up consumer condition variable */</span>
     <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">);</span>		<span class="cm">/* Free up producer condition variable */</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
-  <li>執行結果<br />
+  <li>執行結果
 <img src="https://i.imgur.com/6miNt1O.jpg" alt="" /></li>
 </ul>
 
@@ -519,14 +524,19 @@ in = (in + 1) % BUFFER SIZE; } ```
 </ul>
 
 <h3 id="socket-programming">Socket Programming</h3>
-<p>#### 1. What is a socket？<br />
-* An interface between application and network.<br />
-    * The application creates a socket.<br />
-    * The socket type dictates the style of communication.<br />
-        * <code class="highlighter-rouge">reliable</code> vs. <code class="highlighter-rouge">best effort</code><br />
-        * <code class="highlighter-rouge">connection-oriented</code> vs. <code class="highlighter-rouge">connectionless</code></p>
-
+<h4 id="what-is-a-socket">1. What is a socket？</h4>
 <ul>
+  <li>An interface between application and network.
+    <ul>
+      <li>The application creates a socket.</li>
+      <li>The socket type dictates the style of communication.
+        <ul>
+          <li><code class="highlighter-rouge">reliable</code> vs. <code class="highlighter-rouge">best effort</code></li>
+          <li><code class="highlighter-rouge">connection-oriented</code> vs. <code class="highlighter-rouge">connectionless</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
   <li>Once configured the application can
     <ul>
       <li>pass data to the socket for network transmission</li>
@@ -561,7 +571,7 @@ in = (in + 1) % BUFFER SIZE; } ```
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -613,14 +623,13 @@ in = (in + 1) % BUFFER SIZE; } ```
         <span class="n">close</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li><code class="highlighter-rouge">client</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -666,8 +675,7 @@ in = (in + 1) % BUFFER SIZE; } ```
     <span class="n">close</span><span class="p">(</span><span class="n">sockfd</span><span class="p">);</span>
     <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h3 id="section-2">課程作業</h3>
 <ul>
@@ -679,7 +687,7 @@ in = (in + 1) % BUFFER SIZE; } ```
   </li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -747,14 +755,13 @@ in = (in + 1) % BUFFER SIZE; } ```
         <span class="n">close</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li><code class="highlighter-rouge">client</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -818,11 +825,10 @@ in = (in + 1) % BUFFER SIZE; } ```
     <span class="n">close</span><span class="p">(</span><span class="n">sockfd</span><span class="p">);</span>
     <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
-  <li>執行結果<br />
+  <li>執行結果
 <img src="https://i.imgur.com/AhJZRLN.jpg" alt="" /></li>
 </ul>
 
@@ -830,6 +836,17 @@ in = (in + 1) % BUFFER SIZE; } ```
         <hr>
 
         
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
         
             
             
@@ -998,42 +1015,6 @@ in = (in + 1) % BUFFER SIZE; } ```
             
         
             
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/03/24/linux_system/">20170324 [學習筆記] Linux 系統程式 (4)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
             
                 
                     

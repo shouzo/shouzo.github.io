@@ -138,6 +138,151 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/05/04/vim/">20170504 [個人紀錄] Vim 慣用設定</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-05-04
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Vim" title="Tag: Vim" rel="tag">Vim</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">前言</a></li>
+  <li><a href="#vimrc-" id="markdown-toc-vimrc-">一、vimrc 慣用設定</a></li>
+  <li><a href="#vim-" id="markdown-toc-vim-">二、安裝 Vim 外掛</a></li>
+</ul>
+
+<h2 id="section">前言</h2>
+<p>最近剛重灌 Ubuntu，在此紀錄個人安裝 Vim 時常用介面設定。</p>
+
+<h2 id="vimrc-">一、vimrc 慣用設定</h2>
+<ul>
+  <li>系統環境
+    <blockquote>
+      <p>ubuntu 17.04</p>
+    </blockquote>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://wiki.csie.ncku.edu.tw/vim/vimrc">vimrc設定教學 - 成大資工Wiki</a></li>
+      <li><a href="http://note.drx.tw/2008/01/vimrc-config.html">凍仁的筆記: Vim 環境設定- vimrc</a></li>
+      <li><a href="https://blog.roga.tw/2010/01/2350">我目前使用的 .vimrc 設定檔</a></li>
+      <li><a href="https://blog.gtwang.org/tips/vim-working-with-unicode/">VIM 編輯器顯示萬國碼（Unicode）文字，解決亂碼問題</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<ol>
+  <li><code class="highlighter-rouge">vimrc</code> 設定檔
+    <blockquote>
+      <p>$ cd</p>
+    </blockquote>
+
+    <blockquote>
+      <p>$ vim .vimrc</p>
+    </blockquote>
+
+    <p><img src="https://i.imgur.com/v4rOfdw.jpg" alt="" /></p>
+  </li>
+  <li>修改 vimrc 設定檔
+    <ul>
+      <li>將以下內容複製到 vimrc：</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>" 檔案編碼
+set encoding=utf-8
+set fileencodings=utf-8,cp950
+
+" 編輯喜好設定 
+syntax on        " 語法上色顯示
+set nocompatible " VIM 不使用和 VI 相容的模式
+"set ai           " 自動縮排
+set shiftwidth=4 " 設定縮排寬度 = 4 
+set tabstop=4    " tab 的字元數
+set softtabstop=4
+set expandtab    " 用 space 代替 tab
+set nu		     " 顯示行號 
+set ruler        " 顯示右下角設定值
+set backspace=2  " 在 insert 也可用 backspace
+set ic           " 設定搜尋忽略大小寫
+set ru           " 第幾行第幾個字
+set hlsearch     " 設定高亮度顯示搜尋結果
+set incsearch    " 在關鍵字還沒完全輸入完畢前就顯示結果
+set smartindent  " 設定 smartindent
+set confirm      " 操作過程有衝突時，以明確的文字來詢問
+set history=100  " 保留 100 個使用過的指令
+set cursorline   " 顯示目前的游標位置
+set laststatus=2
+</code></pre></div>
+
+<ol>
+  <li>完成後按下<code class="highlighter-rouge">Esc</code>鍵，再輸入 <code class="highlighter-rouge">:wq</code>離開 Vim 。
+此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。</li>
+</ol>
+
+<h2 id="vim-">二、安裝 Vim 外掛</h2>
+<ul>
+  <li>請參考兩個連結，安裝 Vim 外掛：
+    <ul>
+      <li><a href="https://github.com/junegunn/vim-plug">vim-plug</a></li>
+      <li><a href="https://github.com/sickill/vim-monokai">有 monokai 風格的 vim 外掛</a></li>
+    </ul>
+  </li>
+</ul>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/05/04/vim/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)</a>
                 </h2>
                 <div class="label">
@@ -225,23 +370,23 @@
 <h3 id="race-condition">Race Condition</h3>
 <ul>
   <li>
-    <p>Consumer<br />
+    <p>Consumer
 <img src="https://i.imgur.com/07kx1WD.jpg" alt="" /></p>
   </li>
   <li>
-    <p>Producer<br />
+    <p>Producer
 <img src="https://i.imgur.com/eBPWPyb.jpg" alt="" /></p>
   </li>
   <li>
-    <p>Race Condition<br />
+    <p>Race Condition
 <img src="https://i.imgur.com/Q5qf9Xi.jpg" alt="" /></p>
   </li>
 </ul>
 
 <h3 id="critical-section-problem">(一) Critical-Section Problem</h3>
 <ul>
-  <li>General Structure：<br />
-<img src="https://i.imgur.com/yVVaplo.jpg" alt="" /><br />
+  <li>General Structure：
+<img src="https://i.imgur.com/yVVaplo.jpg" alt="" />
 <img src="https://i.imgur.com/dWa1ujd.jpg" alt="" /></li>
 </ul>
 
@@ -334,11 +479,11 @@
 
 <ul>
   <li>
-    <p>Solution using test_and_set()<br />
+    <p>Solution using test_and_set()
   <img src="https://i.imgur.com/5SMn8ix.jpg" alt="" /></p>
   </li>
   <li>
-    <p>Bounded-waiting Mutual Exclusion with test_and_set<br />
+    <p>Bounded-waiting Mutual Exclusion with test_and_set
   <img src="https://i.imgur.com/wGOMFdV.jpg" alt="" /></p>
   </li>
 </ul>
@@ -347,7 +492,7 @@
 <p><img src="https://i.imgur.com/7neEbLe.jpg" alt="" /></p>
 
 <ul>
-  <li>Solution using compare_and_swap<br />
+  <li>Solution using compare_and_swap
   <img src="https://i.imgur.com/37TZRjA.jpg" alt="" /></li>
 </ul>
 
@@ -448,7 +593,7 @@
   </li>
 </ul>
 
-<p><strong>[畫面預覽]</strong><br />
+<p><strong>[畫面預覽]</strong>
 <img src="/assets/20170427/club_inheritance.jpg" alt="" /></p>
 
                 </div>
@@ -522,7 +667,7 @@
   </li>
 </ul>
 
-<p><strong>[畫面預覽]</strong><br />
+<p><strong>[畫面預覽]</strong>
 <img src="/assets/20170422/Original_Point.jpg" alt="" /></p>
 
                 </div>
@@ -717,11 +862,11 @@
 <ul>
   <li>Queue of messages attached to the link; implemented in one of three ways
     <ol>
-      <li>Zero capacity – 0 messages<br />
+      <li>Zero capacity – 0 messages
   Sender must wait for receiver (rendezvous)</li>
-      <li>Bounded capacity – finite length of n messages<br />
+      <li>Bounded capacity – finite length of n messages
   Sender must wait if link full</li>
-      <li>Unbounded capacity – infinite length<br />
+      <li>Unbounded capacity – infinite length
   Sender never waits</li>
     </ol>
   </li>
@@ -833,7 +978,7 @@
   </li>
 </ul>
 
-<p><img src="https://i.imgur.com/W3b5HkN.jpg" alt="" /><br />
+<p><img src="https://i.imgur.com/W3b5HkN.jpg" alt="" />
 <img src="https://i.imgur.com/c18pKq0.jpg" alt="" /></p>
 
 <h3 id="section-1">課堂作業</h3>
@@ -841,7 +986,7 @@
   <li><code class="highlighter-rouge">client</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
@@ -912,14 +1057,13 @@
     <span class="p">}</span>
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
  (the size of our shared memory structure) is created with a call to shmget,
@@ -998,11 +1142,10 @@
 
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
-  <li>執行結果<br />
+  <li>執行結果
 <img src="https://i.imgur.com/rPMcs2j.jpg" alt="" /></li>
 </ul>
 
@@ -1010,68 +1153,6 @@
                 </div>
                 <div class="read-all">
                     <a  href="/2017/04/14/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/04/13/ai/">20170413 [學習筆記] 人工智慧 (7)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-04-13
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    
-<p><img src="https://i.imgur.com/qG4dyGw.jpg" alt="" /><br />
-<img src="https://i.imgur.com/j6P9oCu.jpg" alt="" /><br />
-<img src="https://i.imgur.com/CrkrvpT.jpg" alt="" /></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/04/13/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
@@ -1103,6 +1184,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2017/05/04/vim/">20170504 [個人紀錄] Vim 慣用設定</a></li>
+                    
                         <li><a href="/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)</a></li>
                     
                         <li><a href="/2017/04/27/club_inheritance/">20170427 [社團相關] 關於社團傳承，你必須要知道的事情...</a></li>
@@ -1120,8 +1203,6 @@
                         <li><a href="/2017/04/03/university_interesting/">20170403 [有感而發] 求學就像是吃餅，怎麼可能一口氣吃得完？當然是要從最有興趣的地方開始慢慢吃啊！</a></li>
                     
                         <li><a href="/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)</a></li>
-                    
-                        <li><a href="/2017/03/30/ai/">20170330 [學習筆記] 人工智慧 (5)</a></li>
                     
                 </ul>
             </div>
@@ -1283,7 +1364,7 @@
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">10</span>
+                            <span class="badge">11</span>
                         </a>
                     </li>
                     
@@ -1448,7 +1529,7 @@
                       
                       
                       
-                      <a href="/tag/#Vim" style="font-size: 9pt; color: #999;">Vim</a>
+                      <a href="/tag/#Vim" style="font-size: 9.5pt; color: #888;">Vim</a>
                     
                 </div>
             </div>

@@ -247,7 +247,7 @@
 
 <h2 id="section">[ 筆記內容 ]</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>（一）if 判斷
+<div class="highlighter-rouge"><pre class="codehilite"><code>（一）if 判斷
   1.  if then
     [ 範例 4-1 ] 只顯示正數
     [ 範例 4-2 ] 檢查 i 及 j 的乘積是否為正數
@@ -282,8 +282,7 @@
     [ 作業 4-19 ]
     [ 作業 4-20 ]
     [ 作業 4-21 ]
-</code></pre>
-</div>
+</code></pre></div>
 
 <h3 id="github">[ 範例程式碼 ] GitHub</h3>
 <ul>
@@ -300,15 +299,14 @@
   <li>根據條件(condition)決定是否執行敘述(statement)。如果條件為真（非零），則會執行敘述；如果條件為偽（零），則不會執行敘述。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// if then 判斷
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// if then 判斷
 </span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
     <span class="n">statement</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h5 id="section-1">[ 範例 4-1 ] 只顯示正數</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-1.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-1.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -318,26 +316,24 @@
     <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-1.png" alt="" /></p>
 
 <ul>
   <li>複合敘述：將一組敘述合在一起當成一個敘述使用。兩個以上的敘述要用”大括號{}”包起來，而且句尾都有分號。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// if 複合敘述
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// if 複合敘述
 </span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">staement1</span><span class="p">;</span>
     <span class="n">staement2</span><span class="p">;</span>
     <span class="n">staement3</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h5 id="i--j-">[ 範例 4-2 ] 檢查 i 及 j 的乘積是否為正數</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-2.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-2.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -352,9 +348,8 @@
         <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-2.png" alt="" /></p>
 
 <h4 id="if-then-else">2.  if then else</h4>
@@ -363,17 +358,16 @@
   <li>如果條件為真（非零），則會執行敘述1；如果條件為偽（零），則會執行敘述2。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// if then else 判斷
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// if then else 判斷
 </span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
     <span class="n">statement1</span><span class="p">;</span>
 <span class="k">else</span>
     <span class="n">statement2</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h5 id="section-2">[ 範例 4-3 ] 顯示絕對值</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-3.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-3.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -388,17 +382,16 @@
 
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-3.png" alt="" /></p>
 
 <ul>
   <li>將較大值設為 max</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// 將 i 及 j 的較大值設為 max
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// 將 i 及 j 的較大值設為 max
 </span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">)</span>
     <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
     <span class="k">else</span>
@@ -406,12 +399,11 @@
 <span class="c1">// 將 i 及 max 的較大值設為 max
 </span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">)</span>
     <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h5 id="section-3">[ 範例 4-4 ] 決定三個數中的最大值</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-4.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-4.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -427,17 +419,16 @@
 		<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-4.png" alt="" /></p>
 
 <ul>
   <li>在 then 和 else 的部份使用複合敘述</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// 在 then 和 else 的部份使用複合敘述
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// 在 then 和 else 的部份使用複合敘述
 </span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">statement1</span><span class="p">;</span>   
     <span class="n">statement2</span><span class="p">;</span>
@@ -448,12 +439,11 @@
     <span class="n">statement5</span><span class="p">;</span>
     <span class="n">statement6</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h5 id="section-4">[ 範例 4-5 ] 讀入兩個整數並由小到大印出</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-5.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-5.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -469,9 +459,8 @@
 		<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-5.png" alt="" /></p>
 
 <h4 id="if-then-else-if">3.  if then else if</h4>
@@ -479,15 +468,14 @@
   <li>“多層次的 if-then-else” 結構也稱為 “巢狀 if-then-else”</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// else if
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// else if
 </span><span class="k">if</span> <span class="p">(</span><span class="n">condition1</span><span class="p">)</span>
     <span class="n">statement1</span><span class="p">;</span>
 <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition2</span><span class="p">)</span>
     <span class="n">statement2</span><span class="p">;</span>
 <span class="k">else</span>
     <span class="n">statement3</span><span class="p">;</span>   
-</code></pre>
-</div>
+</code></pre></div>
 
 <h5 id="section-5">[ 用法說明 ]</h5>
 <ul>
@@ -505,7 +493,7 @@
   <li>使用 else if 判定閏年，把判定的結果存在 k 中。如果 k 為 1，則 year 為閏年；如果 k 為 0，則 year 為平年。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-6.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-6.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -521,9 +509,8 @@
 
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>	
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-6.png" alt="" /></p>
 
 <h5 id="if--1">[ 範例 4-7 ] 使用多層 if 判定閏年</h5>
@@ -531,7 +518,7 @@
   <li>一個 else 會對應到往上最近的一個尚未對應的 if。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-7.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-7.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -548,9 +535,8 @@
 	
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-7.png" alt="" /></p>
 
 <h4 id="section-6">4.  判斷式值</h4>
@@ -558,14 +544,13 @@
   <li>如果”條件(condition)”為真，則”變數(variable)”的值設為”算式1(expression1)，否則設為”算式2(expression2)。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// 判斷式值
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// 判斷式值
 </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="o">?</span><span class="n">expression1</span><span class="o">:</span><span class="n">expression2</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h5 id="section-7">[ 範例 4-8 ] 顯示絕對值(利用判斷式值精簡化)</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-8.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-8.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -575,14 +560,13 @@
 	<span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">?</span> <span class="n">i</span> <span class="o">:</span> <span class="o">-</span><span class="n">i</span><span class="p">;</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-8.png" alt="" /></p>
 
 <h5 id="section-8">[ 範例 4-9 ] 決定三個數中的最大值(利用判斷式值精簡化)</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-9.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-9.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -596,14 +580,13 @@
 		<span class="n">max</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">max</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-9.png" alt="" /></p>
 
 <h5 id="section-9">[ 範例 4-10 ] 判斷平閏年(利用判斷式值精簡化)</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-10.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-10.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -616,9 +599,8 @@
 	<span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(((</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">))</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-10.png" alt="" /></p>
 
 <hr />
@@ -628,7 +610,7 @@
   <li>switch 判斷會根據一個旗標變數的”值”，在許多個可能中選擇一個來執行。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// 使用 switch 判斷
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// 使用 switch 判斷
 </span><span class="k">switch</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">case</span> <span class="mi">1</span> <span class="p">:</span>
         <span class="n">statement1</span><span class="p">;</span>
@@ -646,8 +628,7 @@
     <span class="k">default</span> <span class="o">:</span>
         <span class="n">default_statement</span><span class="p">;</span>
     <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h4 id="section-10">[ 用法說明 ]</h4>
 <ol>
@@ -659,7 +640,7 @@
 
 <h5 id="switch--power-">[ 範例 4-11 ] 使用 switch 依據 power 值做不同的事</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-11.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-11.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -682,14 +663,13 @@
 	<span class="p">}</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-11.png" alt="" /></p>
 
 <h5 id="switch--power--break">[ 範例 4-12 ] 使用 switch 依據 power 值做不同的事(少寫一個 break)</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-12.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-12.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -711,14 +691,13 @@
 	<span class="p">}</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-12.png" alt="" /></p>
 
 <h5 id="section-11">[ 範例 4-13 ] 決定一個月的天數</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-13.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-13.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -747,9 +726,8 @@
 	<span class="p">}</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">days</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-13.png" alt="" /></p>
 
 <hr />
@@ -764,7 +742,7 @@
   <li>寫一個程式讀入三個正整數 a、b、c。計算並印出其中的最小值。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -780,9 +758,8 @@
 	
 	<span class="n">printf</span><span class="p">(</span><span class="s">"min = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">min</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-14.png" alt="" /></p>
 
 <h5 id="section-14">[ 作業 4-15 ]</h5>
@@ -790,7 +767,7 @@
   <li>寫一個程式讀入三個平面上的點座標，然後印出其中距離原點最遠的點。如果兩個或多個點有相同的距離，輸出最先出現的點座標。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">la</span><span class="p">;</span>	<span class="c1">// 點 a(a1, a2)、與原點距離 la
@@ -818,9 +795,8 @@
 		<span class="n">printf</span><span class="p">(</span><span class="s">"min = c(%d, %d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">);</span>
 	<span class="p">}</span>		
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-15.png" alt="" /></p>
 
 <h5 id="section-15">[ 作業 4-16 ]</h5>
@@ -828,7 +804,7 @@
   <li>寫一個程式讀入四個整數a、b、c、d。計算以 (a，b) 及 (c，d) 為兩對角頂點的長方形面積。注意 (a，b) 及 (c，d) 若是水平或是垂直共線則面積為 0 。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-16.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-16.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -850,9 +826,8 @@
 
 	<span class="n">printf</span><span class="p">(</span><span class="s">"面積為：%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">area</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-16.png" alt="" /></p>
 
 <h5 id="section-16">[ 作業 4-17 ]</h5>
@@ -860,7 +835,7 @@
   <li>寫一個程式讀入四個整數a、b、c、d。本題保證 (a，b) 及 (c，d) 不會水平或是垂直共線。請計算以 (a，b) 及 (c，d) 為兩對角頂點的長方形周長。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-17.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-17.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -899,9 +874,8 @@
 		<span class="n">printf</span><span class="p">(</span><span class="s">"周長為：%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-17.png" alt="" /></p>
 
 <h5 id="section-17">[ 作業 4-18 ]</h5>
@@ -909,7 +883,7 @@
   <li>寫一個程式讀入三個非零整數 a、b、c。如果 f(x) = ax^2 + bx + c = 0 有重根則輸出 0 ，有兩相異實根輸出 1 ，有兩相異虛根則輸出 -1。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-18.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-18.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -926,9 +900,8 @@
 	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷是否為兩相異實根
 </span>		<span class="n">printf</span><span class="p">(</span><span class="s">"1"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-18.png" alt="" /></p>
 
 <h5 id="section-18">[ 作業 4-19 ]</h5>
@@ -936,7 +909,7 @@
   <li>寫一個程式讀入三個正整數 a、b、c。如果邊長為 a、b、c 的三角形不存在則輸出 0，否則輸出 1。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-19.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-19.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -950,9 +923,8 @@
 	<span class="k">else</span>
 		<span class="n">printf</span><span class="p">(</span><span class="s">"0</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-19.png" alt="" /></p>
 
 <h5 id="section-19">[ 作業 4-20 ]</h5>
@@ -960,7 +932,7 @@
   <li>寫一個程式讀入兩個整數 a、b 並計算由 a 加到 b 的和。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-20.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-20.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -977,9 +949,8 @@
 
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-20.png" alt="" /></p>
 
 <h5 id="section-20">[ 作業 4-21 ]</h5>
@@ -987,7 +958,7 @@
   <li>寫一個程式讀入三個正整數 a、b、c 並判定由 a、b、c 為邊長的三角形為銳角、鈍角或是直角三角形。如為銳角三角形則輸出 1，鈍角三角形則輸出 2，直角三角形則輸出 3。題目保證 a、b、c 可形成一個三角形。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-21.c"
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// "4-21.c"
 </span><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -1020,15 +991,23 @@
 	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>	<span class="c1">// 判定是否為直角三角形
 </span>		<span class="n">printf</span><span class="p">(</span><span class="s">"此為直角三角形：3</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-<p><strong>&lt; 執行結果 &gt;</strong><br />
+</code></pre></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-21.png" alt="" /></p>
 
         </article>
         <hr>
 
         
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
         
             
             
@@ -1194,15 +1173,6 @@
                         </li>
                         
                         
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
                     
                 
             

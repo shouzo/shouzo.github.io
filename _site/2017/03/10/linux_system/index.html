@@ -239,12 +239,14 @@
 <p><img src="https://i.imgur.com/I9HnU1O.jpg" alt="" /></p>
 
 <h3 id="process-state">(二) Process State</h3>
-<p><img src="https://i.imgur.com/mFSgwiJ.jpg" alt="" /><br />
-   * <strong>new</strong>: The process is being created.<br />
-   * <strong>running</strong>: Instructions are being executed.<br />
-   * <strong>waiting</strong>: The process is waiting for some event to occur.<br />
-   * <strong>ready</strong>: The process is waiting to be assigned to a processor.<br />
-   * <strong>terminated</strong>: The process has finished execution.</p>
+<p><img src="https://i.imgur.com/mFSgwiJ.jpg" alt="" /></p>
+<ul>
+  <li><strong>new</strong>: The process is being created.</li>
+  <li><strong>running</strong>: Instructions are being executed.</li>
+  <li><strong>waiting</strong>: The process is waiting for some event to occur.</li>
+  <li><strong>ready</strong>: The process is waiting to be assigned to a processor.</li>
+  <li><strong>terminated</strong>: The process has finished execution.</li>
+</ul>
 
 <h3 id="process-control-block-pcb">(三) Process Control Block (PCB)</h3>
 <p><img src="https://i.imgur.com/fOf7e2Q.jpg" alt="" /></p>
@@ -257,7 +259,7 @@
   <li>參考資料
     <ul>
       <li><a href="https://goo.gl/whe9F">Program / Process / Thread 的差別</a></li>
-      <li><a href="https://goo.gl/5BnKWN">“Process 行程”、”Thread 執行緒”、”Multithreading 多執行緒” 簡介</a><br />
+      <li><a href="https://goo.gl/5BnKWN">“Process 行程”、”Thread 執行緒”、”Multithreading 多執行緒” 簡介</a>
 <img src="https://i.imgur.com/DI9y5OS.jpg" alt="" /></li>
     </ul>
   </li>
@@ -269,7 +271,7 @@
   <li>Maintains scheduling queues of processes.
     <ul>
       <li>Job queue – set of all processes in the system.</li>
-      <li>Ready queue – set of all processes residing in main memory, ready and waiting to<br />
+      <li>Ready queue – set of all processes residing in main memory, ready and waiting to
 execute.</li>
       <li>Device queues – set of processes waiting for an I/O device.</li>
       <li>Processes migrate among the various queues.</li>
@@ -279,9 +281,9 @@ execute.</li>
 
 <h4 id="schedulers">Schedulers</h4>
 <ul>
-  <li><strong>Long-term scheduler</strong> (or job scheduler) – selects which processes should be brought into the<br />
+  <li><strong>Long-term scheduler</strong> (or job scheduler) – selects which processes should be brought into the
 ready queue.</li>
-  <li><strong>Short-term scheduler</strong> (or CPU scheduler) – selects which process should be executed next and<br />
+  <li><strong>Short-term scheduler</strong> (or CPU scheduler) – selects which process should be executed next and
 allocates CPU.
     <ul>
       <li>Sometimes the only scheduler in a system.</li>
@@ -290,7 +292,7 @@ allocates CPU.
   <li>The long-term scheduler controls the <strong>degree of multiprogramming</strong>.</li>
   <li><strong>Medium-term scheduler</strong> can be added if degree of multiple programming needs to decrease.
     <ul>
-      <li>Remove process from memory, store on disk, bring back in from disk to continue execution:<br />
+      <li>Remove process from memory, store on disk, bring back in from disk to continue execution:
 swapping.</li>
     </ul>
   </li>
@@ -300,7 +302,7 @@ swapping.</li>
 
 <h4 id="processes">Processes</h4>
 <ul>
-  <li><strong>I/O-bound process</strong> – spends more time doing I/O than computations, many short CPU<br />
+  <li><strong>I/O-bound process</strong> – spends more time doing I/O than computations, many short CPU
 bursts.
     <ul>
       <li>行程大部份的時間在做 I/O，只有少部份的時間在做計算。</li>
@@ -316,10 +318,15 @@ bursts.
 <p><img src="https://i.imgur.com/Xnhn0Sa.jpg" alt="" /></p>
 
 <h3 id="process-creation">(七) Process Creation</h3>
-<p><img src="https://i.imgur.com/MDkGD81.jpg" alt="" /><br />
-* UNIX examples<br />
-    * <strong>fork()</strong>：system call creates new process<br />
-    * <strong>exec()</strong>：system call used after a fork() to replace the process’ memory space with a new program</p>
+<p><img src="https://i.imgur.com/MDkGD81.jpg" alt="" /></p>
+<ul>
+  <li>UNIX examples
+    <ul>
+      <li><strong>fork()</strong>：system call creates new process</li>
+      <li><strong>exec()</strong>：system call used after a fork() to replace the process’ memory space with a new program</li>
+    </ul>
+  </li>
+</ul>
 
 <p><img src="https://i.imgur.com/AxrT24a.jpg" alt="" /></p>
 
@@ -327,7 +334,7 @@ bursts.
   <li>課程作業</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 </span>
@@ -351,8 +358,7 @@ bursts.
 	<span class="p">}</span>	
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li>執行結果</li>
@@ -375,7 +381,7 @@ bursts.
   <li>課堂練習： <code class="highlighter-rouge">execv()</code> 的概念</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 </span>
 <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"-1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
@@ -398,8 +404,7 @@ bursts.
 	<span class="n">printf</span><span class="p">(</span><span class="s">"Hello there! </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h3 id="signals">(二) Signals</h3>
 
@@ -429,10 +434,9 @@ bursts.
   <li>raise()</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">raise</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">);</span> <span class="cm">/* Process commits suicide. */</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">raise</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">);</span> <span class="cm">/* Process commits suicide. */</span>
 <span class="n">assert</span><span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>	<span class="cm">/* Shouldn't get here. */</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li>kill()</li>
@@ -442,10 +446,9 @@ bursts.
   <p>int kill(pid_t iPid, int iSig);</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pid_t</span> <span class="n">iPid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span> <span class="cm">/* Process gets its id.*/</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">pid_t</span> <span class="n">iPid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span> <span class="cm">/* Process gets its id.*/</span>
 <span class="n">kill</span><span class="p">(</span><span class="n">iPid</span><span class="p">,</span> <span class="n">SIGINT</span><span class="p">);</span>	<span class="cm">/* Process sends itself a SIGINT signal (commits suicide?) */</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h4 id="linux-signal">4. Linux Signal</h4>
 <ul>
@@ -488,16 +491,15 @@ bursts.
 </ul>
 
 <h5 id="signal">(1) signal()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;signal.h&gt;
 </span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))(</span><span class="kt">int</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li>攔截 Ctrl-C 訊號</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;signal.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 </span>
@@ -514,14 +516,12 @@ bursts.
 		<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h5 id="sigaction">(2) sigaction()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;signal.h&gt;
 </span><span class="kt">int</span> <span class="n">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">act</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">oact</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div>
 <ul>
   <li>參數說明
     <ul>
@@ -534,11 +534,11 @@ bursts.
       <li>sa_flags 用來設置信號處理的其他相關操作。</li>
     </ul>
   </li>
-  <li>程式作業：<code class="highlighter-rouge">signal</code> 的處理<br />
+  <li>程式作業：<code class="highlighter-rouge">signal</code> 的處理
 <img src="https://i.imgur.com/1Zbog12.jpg" alt="" /></li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;signal.h&gt;
 </span>
@@ -564,8 +564,7 @@ bursts.
 </span>        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
     <span class="p">}</span>   
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li>執行結果</li>
@@ -577,6 +576,17 @@ bursts.
         <hr>
 
         
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
         
             
             
@@ -770,17 +780,6 @@ bursts.
                 
                     
                 
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
             
                 
                     

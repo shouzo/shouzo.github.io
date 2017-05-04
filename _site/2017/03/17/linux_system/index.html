@@ -201,6 +201,7 @@
       <li><a href="#dispatcher" id="markdown-toc-dispatcher">Dispatcher</a></li>
       <li><a href="#scheduling-algorithm-optimization-criteria" id="markdown-toc-scheduling-algorithm-optimization-criteria">Scheduling Algorithm Optimization Criteria</a></li>
       <li><a href="#scheduling-algorithm" id="markdown-toc-scheduling-algorithm">Scheduling Algorithm</a>        <ul>
+          <li><a href="#first-come-first-served-fcfs" id="markdown-toc-first-come-first-served-fcfs">(一) First-Come, First-Served (FCFS)：先到先服務法</a></li>
           <li><a href="#shortest-job-first-sjf" id="markdown-toc-shortest-job-first-sjf">(二) Shortest-Job-First (SJF)：最短優先法</a></li>
           <li><a href="#priority-scheduling-ps" id="markdown-toc-priority-scheduling-ps">(三) Priority Scheduling (PS)：優先權排班法</a></li>
           <li><a href="#round-robin-rr" id="markdown-toc-round-robin-rr">(四) Round Robin (RR)：輪流法</a>            <ul>
@@ -209,6 +210,7 @@
             </ul>
           </li>
           <li><a href="#multilevel" id="markdown-toc-multilevel">(五) Multilevel</a>            <ul>
+              <li><a href="#queue" id="markdown-toc-queue">1. Queue</a></li>
               <li><a href="#feedback-queue" id="markdown-toc-feedback-queue">2. Feedback Queue</a></li>
             </ul>
           </li>
@@ -218,11 +220,13 @@
   </li>
   <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
       <li><a href="#what-is-a-thread" id="markdown-toc-what-is-a-thread">1. What is a Thread？</a>        <ul>
+          <li><a href="#os-view" id="markdown-toc-os-view">(1) OS view</a></li>
           <li><a href="#software-developer-view" id="markdown-toc-software-developer-view">(2) Software developer view</a></li>
           <li><a href="#example" id="markdown-toc-example">[Example]</a></li>
         </ul>
       </li>
       <li><a href="#process-and-thread" id="markdown-toc-process-and-thread">2. Process and Thread</a>        <ul>
+          <li><a href="#process-context" id="markdown-toc-process-context">(1) Process context</a></li>
           <li><a href="#threads" id="markdown-toc-threads">(2) Threads</a></li>
         </ul>
       </li>
@@ -298,34 +302,36 @@
 </ul>
 
 <h3 id="scheduling-algorithm-optimization-criteria">Scheduling Algorithm Optimization Criteria</h3>
-<p><img src="https://i.imgur.com/LuBGjEu.jpg" alt="" /><br />
-1. CPU utilization – keep the CPU as busy as possible.<br />
-2. Throughput – # of processes that complete their execution per time unit.<br />
-3. Turnaround time – amount of time to execute a particular process.<br />
-4. Waiting time – amount of time a process has been waiting in the ready queue.<br />
-5. Response time – amount of time it takes from when a request was submitted until the first response is produced, not output (for time-sharing environment).</p>
+<p><img src="https://i.imgur.com/LuBGjEu.jpg" alt="" /></p>
+<ol>
+  <li>CPU utilization – keep the CPU as busy as possible.</li>
+  <li>Throughput – # of processes that complete their execution per time unit.</li>
+  <li>Turnaround time – amount of time to execute a particular process.</li>
+  <li>Waiting time – amount of time a process has been waiting in the ready queue.</li>
+  <li>Response time – amount of time it takes from when a request was submitted until the first response is produced, not output (for time-sharing environment).</li>
+</ol>
 
 <ul>
   <li>Length of Next CPU Burst
     <ul>
-      <li>Determining<br />
+      <li>Determining
   <img src="https://i.imgur.com/1GaCgCb.jpg" alt="" /></li>
-      <li>Prediction<br />
+      <li>Prediction
   <img src="https://i.imgur.com/HWSLIdj.jpg" alt="" /></li>
     </ul>
   </li>
 </ul>
 
 <h3 id="scheduling-algorithm">Scheduling Algorithm</h3>
-<p>#### (一) First-Come, First-Served (FCFS)：先到先服務法<br />
-<img src="https://i.imgur.com/xWKL0Z3.jpg" alt="" /></p>
+<h4 id="first-come-first-served-fcfs">(一) First-Come, First-Served (FCFS)：先到先服務法</h4>
+<p><img src="https://i.imgur.com/xWKL0Z3.jpg" alt="" /></p>
 
 <hr />
 
 <p><img src="https://i.imgur.com/6MIKb3Q.jpg" alt="" /></p>
 
 <ul>
-  <li>Convoy effect：很多短時間的 process，都在等一個<br />
+  <li>Convoy effect：很多短時間的 process，都在等一個
 長時間的 process 時，所產生的效應 (因為等待時間很長)。</li>
 </ul>
 
@@ -384,18 +390,29 @@
 <p><img src="http://i.imgur.com/EtNCekP.jpg" alt="" /></p>
 
 <h4 id="multilevel">(五) Multilevel</h4>
-<p>##### 1. Queue<br />
-* Ready queue is partitioned into separate queues, eg:<br />
-	* foreground (interactive)<br />
-	* background (batch)<br />
-* Process permanently in a given queue.<br />
-Each queue has its own scheduling algorithm:<br />
-	* foreground – RR<br />
-	* background – FCFS<br />
-* Scheduling must be done between the queues:<br />
-	* Fixed priority scheduling; (i.e., serve all from foreground then from background). Possibility of starvation.<br />
-	* Time slice – each queue gets a certain amount of CPU time which it can schedule amongst its processes; i.e., 80% to foreground in RR.<br />
-	* 20% to background in FCFS.</p>
+<h5 id="queue">1. Queue</h5>
+<ul>
+  <li>Ready queue is partitioned into separate queues, eg:
+    <ul>
+      <li>foreground (interactive)</li>
+      <li>background (batch)</li>
+    </ul>
+  </li>
+  <li>Process permanently in a given queue.
+Each queue has its own scheduling algorithm:
+    <ul>
+      <li>foreground – RR</li>
+      <li>background – FCFS</li>
+    </ul>
+  </li>
+  <li>Scheduling must be done between the queues:
+    <ul>
+      <li>Fixed priority scheduling; (i.e., serve all from foreground then from background). Possibility of starvation.</li>
+      <li>Time slice – each queue gets a certain amount of CPU time which it can schedule amongst its processes; i.e., 80% to foreground in RR.</li>
+      <li>20% to background in FCFS.</li>
+    </ul>
+  </li>
+</ul>
 
 <p><img src="https://i.imgur.com/rW9GXTr.jpg" alt="" /></p>
 
@@ -435,15 +452,17 @@ Each queue has its own scheduling algorithm:<br />
 </ul>
 
 <h3 id="what-is-a-thread">1. What is a Thread？</h3>
-<p>#### (1) OS view<br />
-* A thread is an independent stream of instructions that can be scheduled to run by<br />
-the OS.</p>
+<h4 id="os-view">(1) OS view</h4>
+<ul>
+  <li>A thread is an independent stream of instructions that can be scheduled to run by
+the OS.</li>
+</ul>
 
 <h4 id="software-developer-view">(2) Software developer view</h4>
 <ul>
   <li>a thread can be considered as a “procedure” that runs independently from the main program.
     <ul>
-      <li>Sequential program: a single stream of instructions in<br />
+      <li>Sequential program: a single stream of instructions in
 a program.</li>
       <li>Multi-threaded program: a program with multiple streams.
         <ul>
@@ -475,22 +494,30 @@ a program.</li>
 </ol>
 
 <h3 id="process-and-thread">2. Process and Thread</h3>
-<p>#### (1) Process context<br />
-* Two parts in the context: <code class="highlighter-rouge">self-contained domain (protection)</code> and <code class="highlighter-rouge">execution of instructions</code>.<br />
-    * Process ID, process group ID, user ID, and group ID<br />
-    * Environment<br />
-    * Working directory.<br />
-    * Program instructions<br />
-    * Registers (including PC)<br />
-    * Stack<br />
-    * Heap<br />
-    * File descriptors<br />
-    * Signal actions<br />
-    * Shared libraries<br />
-    * Inter-process communication tools<br />
-* What are absolutely needed to support a stream of instructions, given the process context?<br />
-    * Registers (including PC)<br />
-    * Stack</p>
+<h4 id="process-context">(1) Process context</h4>
+<ul>
+  <li>Two parts in the context: <code class="highlighter-rouge">self-contained domain (protection)</code> and <code class="highlighter-rouge">execution of instructions</code>.
+    <ul>
+      <li>Process ID, process group ID, user ID, and group ID</li>
+      <li>Environment</li>
+      <li>Working directory.</li>
+      <li>Program instructions</li>
+      <li>Registers (including PC)</li>
+      <li>Stack</li>
+      <li>Heap</li>
+      <li>File descriptors</li>
+      <li>Signal actions</li>
+      <li>Shared libraries</li>
+      <li>Inter-process communication tools</li>
+    </ul>
+  </li>
+  <li>What are absolutely needed to support a stream of instructions, given the process context?
+    <ul>
+      <li>Registers (including PC)</li>
+      <li>Stack</li>
+    </ul>
+  </li>
+</ul>
 
 <p><img src="https://i.imgur.com/6kN1sIR.jpg" alt="" /></p>
 
@@ -538,7 +565,7 @@ a program.</li>
 
 <h3 id="pthreads">3. Pthreads</h3>
 <ul>
-  <li>Hardware vendors used to implement<br />
+  <li>Hardware vendors used to implement
 proprietary versions of threads
     <ul>
       <li>Thread programs are not portable</li>
@@ -561,23 +588,26 @@ proprietary versions of threads
       </li>
     </ol>
   </li>
-  <li>The concept of opaque objects pervades the<br />
+  <li>The concept of opaque objects pervades the
 design of the API.</li>
-  <li>API naming convention<br />
+  <li>API naming convention
 <img src="https://i.imgur.com/euq9YUQ.jpg" alt="" /></li>
 </ul>
 
 <h4 id="thread-management">(2) Thread management</h4>
 <ul>
   <li>Pthread header file <pthread.h></pthread.h></li>
-  <li>Compiling pthread programs：<br />
-  &gt; gcc aaa.c -o aaa -lpthread</li>
+  <li>Compiling pthread programs：
+    <blockquote>
+      <p>gcc aaa.c -o aaa -lpthread</p>
+    </blockquote>
+  </li>
 </ul>
 
 <ol>
   <li><code class="highlighter-rouge">Creation</code>
     <ul>
-      <li>pthread_create<br />
+      <li>pthread_create
  <img src="https://i.imgur.com/KZ0yaCh.jpg" alt="" /></li>
     </ul>
   </li>
@@ -585,13 +615,13 @@ design of the API.</li>
     <ul>
       <li>Return</li>
       <li>Pthread_exit</li>
-      <li>Can we still use exit？<br />
+      <li>Can we still use exit？
  <img src="https://i.imgur.com/O8QpEBi.jpg" alt="" /></li>
     </ul>
   </li>
   <li><code class="highlighter-rouge">Wait (parent/child synchronization)</code>
     <ul>
-      <li>pthread_join<br />
+      <li>pthread_join
  <img src="https://i.imgur.com/bacALSV.jpg" alt="" /></li>
     </ul>
   </li>
@@ -601,7 +631,7 @@ design of the API.</li>
   <li>課程作業：找出 1 - 100 的所有質數</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -718,8 +748,7 @@ design of the API.</li>
         <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm_tv</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
         <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li>執行結果</li>
@@ -733,6 +762,17 @@ design of the API.</li>
         <hr>
 
         
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
         
             
             
@@ -926,17 +966,6 @@ design of the API.</li>
                 
                     
                 
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
             
                 
                     

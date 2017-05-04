@@ -333,11 +333,11 @@
 <ul>
   <li>Queue of messages attached to the link; implemented in one of three ways
     <ol>
-      <li>Zero capacity – 0 messages<br />
+      <li>Zero capacity – 0 messages
   Sender must wait for receiver (rendezvous)</li>
-      <li>Bounded capacity – finite length of n messages<br />
+      <li>Bounded capacity – finite length of n messages
   Sender must wait if link full</li>
-      <li>Unbounded capacity – infinite length<br />
+      <li>Unbounded capacity – infinite length
   Sender never waits</li>
     </ol>
   </li>
@@ -449,7 +449,7 @@
   </li>
 </ul>
 
-<p><img src="https://i.imgur.com/W3b5HkN.jpg" alt="" /><br />
+<p><img src="https://i.imgur.com/W3b5HkN.jpg" alt="" />
 <img src="https://i.imgur.com/c18pKq0.jpg" alt="" /></p>
 
 <h3 id="section-1">課堂作業</h3>
@@ -457,7 +457,7 @@
   <li><code class="highlighter-rouge">client</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
@@ -528,14 +528,13 @@
     <span class="p">}</span>
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
  (the size of our shared memory structure) is created with a call to shmget,
@@ -614,11 +613,10 @@
 
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
-  <li>執行結果<br />
+  <li>執行結果
 <img src="https://i.imgur.com/rPMcs2j.jpg" alt="" /></li>
 </ul>
 
@@ -633,12 +631,12 @@
 
 <h3 id="shared-memory-concept">(一) Shared Memory Concept</h3>
 <ul>
-  <li>共享記憶體是由 IPC 為一程序所建立的特殊記憶體位址，其他的程序可以將此相同的 shared memory 區段納入自己的位址空間中，所有的程序皆可存取這些記憶體位址，就像是由自己定址一樣。<br />
+  <li>共享記憶體是由 IPC 為一程序所建立的特殊記憶體位址，其他的程序可以將此相同的 shared memory 區段納入自己的位址空間中，所有的程序皆可存取這些記憶體位址，就像是由自己定址一樣。
 <img src="https://i.imgur.com/ctobLbA.jpg" alt="" /></li>
 </ul>
 
 <h3 id="shared-memory-function">(二) Shared Memory Function</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;sys/sem.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;sys/sem.h&gt;
 #include &lt;sys/type.h&gt;
 #include &lt;sys/ipc.h&gt;
 </span>
@@ -657,13 +655,11 @@
 
 <span class="kt">int</span> <span class="n">shmctl</span><span class="p">(</span> <span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span> <span class="p">);</span>
     <span class="c1">// 用來改變 shared memory 。
-</span></code></pre>
-</div>
+</span></code></pre></div>
 
 <h4 id="shmget">shmget()</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+</code></pre></div>
 <ul>
   <li>key: 用來為 shared memory 命名。</li>
   <li>size: 需要的 shared memory 大小，以 byte 為單位。</li>
@@ -671,9 +667,8 @@
 </ul>
 
 <h4 id="shmat">*shmat()</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="o">*</span><span class="n">shmat</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">void</span> <span class="o">*</span><span class="n">shmat</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+</code></pre></div>
 <ul>
   <li>shm_id: Shared memory id.</li>
   <li>shm_addr: Shared memory 加到目前程序中的位址，通常為一 null 指標。</li>
@@ -681,37 +676,34 @@
 </ul>
 
 <h4 id="shmdt">shmdt()</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmdt</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">shmdt</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">);</span>
+</code></pre></div>
 <ul>
   <li>shm_addr: shmat 傳回的位址。</li>
 </ul>
 
 <h4 id="shmctl">shmctl()</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmctl</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">shmctl</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+</code></pre></div>
 <ul>
   <li>shm_id: Shared memory id.</li>
   <li>cmd:IPC_RMID: 刪除 shared memory 區段。</li>
   <li>struct shmid_ds:</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">shmid_ds</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">struct</span> <span class="n">shmid_ds</span> <span class="p">{</span>
     <span class="n">uid_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">uid</span><span class="p">;</span>
     <span class="n">uid_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">gid</span><span class="p">;</span>
     <span class="n">mode_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">mode</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h3 id="section-2">課堂作業</h3>
 <ul>
   <li><code class="highlighter-rouge">client</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
@@ -803,14 +795,13 @@
     <span class="p">}</span>
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
  (the size of our shared memory structure) is created with a call to shmget,
@@ -908,11 +899,10 @@
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
-  <li>執行結果<br />
+  <li>執行結果
 <img src="https://i.imgur.com/6VYmXyg.jpg" alt="" /></li>
 </ul>
 
@@ -920,6 +910,17 @@
         <hr>
 
         
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
         
             
             
@@ -1088,42 +1089,6 @@
             
         
             
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/03/24/linux_system/">20170324 [學習筆記] Linux 系統程式 (4)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
             
                 
                     

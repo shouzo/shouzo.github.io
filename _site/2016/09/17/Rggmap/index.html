@@ -234,28 +234,26 @@
 <h3 id="section-3">1. 顯示基本地圖</h3>
 <p>我先參考 <a href="https://blog.gtwang.org/r/r-ggmap-package-spatial-data-visualization/">R 的 ggmap 套件：繪製地圖與資料分佈圖，空間資料視覺化</a> 的內容，將相關的套件安裝好後並加以載入︰</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">install.packages</span><span class="p">(</span><span class="s2">"ggmap"</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">install.packages</span><span class="p">(</span><span class="s2">"mapproj"</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">library</span><span class="p">(</span><span class="n">ggmap</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">library</span><span class="p">(</span><span class="n">mapproj</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">install.packages</span><span class="p">(</span><span class="s2">"ggmap"</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">install.packages</span><span class="p">(</span><span class="s2">"mapproj"</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">library</span><span class="p">(</span><span class="n">ggmap</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">library</span><span class="p">(</span><span class="n">mapproj</span><span class="p">)</span><span class="w">
+</span></code></pre></div>
 
-<p>之後，先試著用 <code class="highlighter-rouge">ggmap()</code> 抓一個地點來看看：<br />
+<p>之後，先試著用 <code class="highlighter-rouge">ggmap()</code> 抓一個地點來看看：
 	* 在這裡使用 “加拿大(Canada)” 作為示範。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1"># 使用 get_map() 設定要抓的地點，以及地圖放大的比例。
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="c1"># 使用 get_map() 設定要抓的地點，以及地圖放大的比例。
 # location：要抓的地點
 # zoom：調整地圖縮放的參數，需要視需求調整
 # 在地圖上顯示的文字語言
-</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">&lt;-</span> <span class="n">get_map</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="s1">'Canada'</span><span class="p">,</span> <span class="n">zoom</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">language</span> <span class="o">=</span> <span class="s2">"zh-TW"</span><span class="p">)</span>
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">get_map</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Canada'</span><span class="p">,</span><span class="w"> </span><span class="n">zoom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"zh-TW"</span><span class="p">)</span><span class="w">
 
-<span class="c1"># 將地圖顯示出來
-</span><span class="o">&gt;</span> <span class="n">ggmap</span><span class="p">(</span><span class="n">map</span><span class="p">)</span>
-</code></pre>
-</div>
+</span><span class="c1"># 將地圖顯示出來
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ggmap</span><span class="p">(</span><span class="n">map</span><span class="p">)</span><span class="w">
+</span></code></pre></div>
 
-<p><strong>[顯示結果]</strong><br />
+<p><strong>[顯示結果]</strong>
 <img src="/assets/20160917/1.png" alt="" /></p>
 
 <ul>
@@ -263,8 +261,8 @@
 </ul>
 
 <h3 id="section-4">2. 再精確一點的地區</h3>
-<p>整個北美洲太大了，我想要針對指定的地區(城市)進行顯示，在這裡以”溫哥華(Vancouver)”為例。<br />
-但是如果直接在<code class="highlighter-rouge">location</code>參數上輸入<code class="highlighter-rouge">Vancouver</code>(溫哥華)，地圖會偏掉。<br />
+<p>整個北美洲太大了，我想要針對指定的地區(城市)進行顯示，在這裡以”溫哥華(Vancouver)”為例。
+但是如果直接在<code class="highlighter-rouge">location</code>參數上輸入<code class="highlighter-rouge">Vancouver</code>(溫哥華)，地圖會偏掉。
 這時候可以改用經緯度座標來指定：</p>
 
 <ul>
@@ -272,14 +270,13 @@
   <li><strong>[範例]</strong> 經度：<code class="highlighter-rouge">49.27894861</code>、緯度：<code class="highlighter-rouge">-123.11536789</code></li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1"># lon：設定座標，緯度(longitude)、lat：經度(latitude)
-</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">&lt;-</span> <span class="n">get_map</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">lon</span> <span class="o">=</span> <span class="m">-123.11536789</span><span class="p">,</span> <span class="n">lat</span> <span class="o">=</span> <span class="m">49.27894861</span><span class="p">),</span> <span class="n">zoom</span> <span class="o">=</span> <span class="m">12</span><span class="p">,</span> <span class="n">language</span> <span class="o">=</span> <span class="s2">"zh-TW"</span><span class="p">)</span>
-<span class="o">&gt;</span> 
-<span class="o">&gt;</span> <span class="n">ggmap</span><span class="p">(</span><span class="n">map</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="c1"># lon：設定座標，緯度(longitude)、lat：經度(latitude)
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">get_map</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">lon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-123.11536789</span><span class="p">,</span><span class="w"> </span><span class="n">lat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">49.27894861</span><span class="p">),</span><span class="w"> </span><span class="n">zoom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="n">language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"zh-TW"</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ggmap</span><span class="p">(</span><span class="n">map</span><span class="p">)</span><span class="w">
+</span></code></pre></div>
 
-<p><strong>[顯示結果]</strong><br />
+<p><strong>[顯示結果]</strong>
 <img src="/assets/20160917/2.png" alt="" /></p>
 
 <ul>
@@ -304,67 +301,64 @@
     <p>在這裡我使用 <a href="http://open.canada.ca/data/en/dataset/a50a7360-d986-4d12-b940-67266a2fa980">Rail occurrence data from January 2004 to present</a> 作為資料來源。(剛好可以對照加拿大的地圖)</p>
   </li>
   <li>
-    <p>加拿大地圖(省份) <br />
+    <p>加拿大地圖(省份) 
 <img src="/assets/20160917/7.png" alt="" /></p>
   </li>
 </ul>
 
-<p>讓我們先下載原始資料檔和說明檔：<br />
-<img src="/assets/20160917/4.png" alt="" /><br />
+<p>讓我們先下載原始資料檔和說明檔：
+<img src="/assets/20160917/4.png" alt="" />
 <img src="/assets/20160917/5.png" alt="" /></p>
 
 <h3 id="section-6">2. 檢視資料，取得我們要用的資訊</h3>
 
-<p>先看一下欄位名稱：<br />
+<p>先看一下欄位名稱：
 <img src="/assets/20160917/6.png" alt="" /></p>
 
-<p>詳細的欄位資訊都在說明檔裡，我們在這裡只需要 <code class="highlighter-rouge">OCC_TYPE</code>、<code class="highlighter-rouge">ACC_INC_TYPE</code>、<code class="highlighter-rouge">PROVINCE</code>(省份) 這三個欄位的資料。<br />
+<p>詳細的欄位資訊都在說明檔裡，我們在這裡只需要 <code class="highlighter-rouge">OCC_TYPE</code>、<code class="highlighter-rouge">ACC_INC_TYPE</code>、<code class="highlighter-rouge">PROVINCE</code>(省份) 這三個欄位的資料。
 首先要檢查工作目錄的位置是否正確，如果不正確則需要調整：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">getwd</span><span class="p">()</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"/home/shouzo"</span>
-<span class="o">&gt;</span> 
-<span class="o">&gt;</span> <span class="n">setwd</span><span class="p">(</span><span class="s2">"/home/shouzo/r_test"</span><span class="p">)</span>	<span class="c1"># 切換工作目錄
-</span><span class="o">&gt;</span> <span class="n">getwd</span><span class="p">()</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"/home/shouzo/r_test"</span>
-<span class="o">&gt;</span> 
-<span class="o">&gt;</span> 
-<span class="o">&gt;</span> <span class="n">dir</span><span class="p">()</span>		<span class="c1"># 確認目錄裡的檔案
-</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"dd-20150217.csv"</span> <span class="s2">"Rail_Eng.csv"</span>   
-<span class="o">&gt;</span> 
-</code></pre>
-</div>
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">getwd</span><span class="p">()</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"/home/shouzo"</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">setwd</span><span class="p">(</span><span class="s2">"/home/shouzo/r_test"</span><span class="p">)</span><span class="w">	</span><span class="c1"># 切換工作目錄
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getwd</span><span class="p">()</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"/home/shouzo/r_test"</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dir</span><span class="p">()</span><span class="w">		</span><span class="c1"># 確認目錄裡的檔案
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"dd-20150217.csv"</span><span class="w"> </span><span class="s2">"Rail_Eng.csv"</span><span class="w">   
+</span><span class="o">&gt;</span><span class="w"> 
+</span></code></pre></div>
 
 <p>我們試著讀取 <code class="highlighter-rouge">Rail_Eng.csv</code> 的檔案內容，你可以看到這個檔案裡的資料有一萬多筆。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">read.csv</span><span class="p">(</span><span class="s2">"Rail_Eng.csv"</span><span class="p">)</span>
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"Rail_Eng.csv"</span><span class="p">)</span><span class="w">
 
-<span class="c1"># 中間省略...
-</span>
-<span class="m">450</span>                                   <span class="n">N</span><span class="o">/</span><span class="n">A</span> <span class="m">2016-09-15</span><span class="n">T09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span>
-<span class="m">451</span>                                   <span class="n">N</span><span class="o">/</span><span class="n">A</span> <span class="m">2016-09-15</span><span class="n">T09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span>
-<span class="m">452</span>                                   <span class="n">N</span><span class="o">/</span><span class="n">A</span> <span class="m">2016-09-15</span><span class="n">T09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span>
-<span class="m">453</span>                                   <span class="n">N</span><span class="o">/</span><span class="n">A</span> <span class="m">2016-09-15</span><span class="n">T09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span>
-<span class="m">454</span>       <span class="n">FLASHING</span> <span class="n">LIGHT</span> <span class="n">SIGNALS</span> <span class="n">AND</span> <span class="n">BELL</span> <span class="m">2016-09-15</span><span class="n">T09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span>
- <span class="p">[</span> <span class="n">reached</span> <span class="n">getOption</span><span class="p">(</span><span class="s2">"max.print"</span><span class="p">)</span> <span class="o">--</span> <span class="n">omitted</span> <span class="m">17653</span> <span class="n">rows</span> <span class="p">]</span>
-</code></pre>
-</div>
+</span><span class="c1"># 中間省略...
+</span><span class="w">
+</span><span class="m">450</span><span class="w">                                   </span><span class="n">N</span><span class="o">/</span><span class="n">A</span><span class="w"> </span><span class="m">2016-09-15</span><span class="nb">T</span><span class="m">09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span><span class="w">
+</span><span class="m">451</span><span class="w">                                   </span><span class="n">N</span><span class="o">/</span><span class="n">A</span><span class="w"> </span><span class="m">2016-09-15</span><span class="nb">T</span><span class="m">09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span><span class="w">
+</span><span class="m">452</span><span class="w">                                   </span><span class="n">N</span><span class="o">/</span><span class="n">A</span><span class="w"> </span><span class="m">2016-09-15</span><span class="nb">T</span><span class="m">09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span><span class="w">
+</span><span class="m">453</span><span class="w">                                   </span><span class="n">N</span><span class="o">/</span><span class="n">A</span><span class="w"> </span><span class="m">2016-09-15</span><span class="nb">T</span><span class="m">09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span><span class="w">
+</span><span class="m">454</span><span class="w">       </span><span class="n">FLASHING</span><span class="w"> </span><span class="n">LIGHT</span><span class="w"> </span><span class="n">SIGNALS</span><span class="w"> </span><span class="n">AND</span><span class="w"> </span><span class="n">BELL</span><span class="w"> </span><span class="m">2016-09-15</span><span class="nb">T</span><span class="m">09</span><span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">21</span><span class="w">
+ </span><span class="p">[</span><span class="w"> </span><span class="n">reached</span><span class="w"> </span><span class="n">getOption</span><span class="p">(</span><span class="s2">"max.print"</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">omitted</span><span class="w"> </span><span class="m">17653</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></code></pre></div>
 
 <p>因為我們只需要 <code class="highlighter-rouge">OCC_TYPE</code>、<code class="highlighter-rouge">ACC_INC_TYPE</code>、<code class="highlighter-rouge">PROVINCE</code> 這三個欄位的資料，所以要稍微加以細分：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 將整個檔案裡的資料檔存入變數 "Ori_Data"
-</span><span class="o">&gt;</span> <span class="n">Ori_Data</span> <span class="o">&lt;-</span> <span class="n">read.csv</span><span class="p">(</span><span class="s2">"Rail_Eng.csv"</span><span class="p">)</span>
-<span class="o">&gt;</span>
-<span class="o">&gt;</span> <span class="c1"># 取得並存放 "OCC_TYPE" 欄位的資料
-</span><span class="o">&gt;</span> <span class="n">OCC_TYPE</span> <span class="o">&lt;-</span> <span class="n">Ori_Data</span><span class="o">$</span><span class="n">OCC_TYPE</span>
-<span class="o">&gt;</span> 
-<span class="o">&gt;</span> <span class="c1"># 取得並存放 "ACC_INC_TYPE" 欄位的資料
-</span><span class="o">&gt;</span> <span class="n">ACC_INC_TYPE</span> <span class="o">&lt;-</span> <span class="n">Ori_Data</span><span class="o">$</span><span class="n">ACC_INC_TYPE</span>
-<span class="o">&gt;</span>
-<span class="o">&gt;</span> <span class="c1"># 取得並存放 "PROVINCE" 欄位的資料
-</span><span class="o">&gt;</span> <span class="n">PROVINCE</span> <span class="o">&lt;-</span> <span class="n">Ori_Data</span><span class="o">$</span><span class="n">PROVINCE</span>
-</code></pre>
-</div>
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 將整個檔案裡的資料檔存入變數 "Ori_Data"
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Ori_Data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"Rail_Eng.csv"</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 取得並存放 "OCC_TYPE" 欄位的資料
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OCC_TYPE</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Ori_Data</span><span class="o">$</span><span class="n">OCC_TYPE</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 取得並存放 "ACC_INC_TYPE" 欄位的資料
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ACC_INC_TYPE</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Ori_Data</span><span class="o">$</span><span class="n">ACC_INC_TYPE</span><span class="w">
+</span><span class="o">&gt;</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 取得並存放 "PROVINCE" 欄位的資料
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PROVINCE</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Ori_Data</span><span class="o">$</span><span class="n">PROVINCE</span><span class="w">
+</span></code></pre></div>
 
 <p>剛剛我們分別對 <code class="highlighter-rouge">OCC_TYPE</code>、<code class="highlighter-rouge">ACC_INC_TYPE</code>、<code class="highlighter-rouge">PROVINCE</code> 進行資料的存放和處理，現在我們來看看裡面有哪些內容。</p>
 
@@ -372,77 +366,80 @@
   <li>查看 <code class="highlighter-rouge">OCC_TYPE</code>：</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 查看 OCC_TYPE 裡面有哪些資料類型
-</span><span class="o">&gt;</span> <span class="n">levels</span><span class="p">(</span><span class="n">OCC_TYPE</span><span class="p">)</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">"ACCIDENT"</span> <span class="s2">"INCIDENT"</span>
-<span class="o">&gt;</span> 
-</code></pre>
-</div>
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 查看 OCC_TYPE 裡面有哪些資料類型
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">levels</span><span class="p">(</span><span class="n">OCC_TYPE</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"ACCIDENT"</span><span class="w"> </span><span class="s2">"INCIDENT"</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> 
+</span></code></pre></div>
 
 <ul>
   <li>查看 <code class="highlighter-rouge">ACC_INC_TYPE</code>：</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 查看 ACC_INC_TYPE 裡面有哪些資料類型
-</span><span class="o">&gt;</span> <span class="n">levels</span><span class="p">(</span><span class="n">ACC_INC_TYPE</span><span class="p">)</span>
- <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">""</span>                                      
- <span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="s2">"COLLISION INVOLVING TRACK UNIT"</span>        
- <span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="s2">"CREW MEMBER INCAPACITATED"</span>             
- <span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="s2">"CROSSING"</span>                              
- <span class="p">[</span><span class="m">5</span><span class="p">]</span> <span class="s2">"DERAILMENT INVOLVING TRACK UNIT"</span>       
- <span class="p">[</span><span class="m">6</span><span class="p">]</span> <span class="s2">"DG LEAKER"</span>                             
- <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s2">"EMPLOYEE"</span>                              
- <span class="p">[</span><span class="m">8</span><span class="p">]</span> <span class="s2">"FIRE"</span>                                  
- <span class="p">[</span><span class="m">9</span><span class="p">]</span> <span class="s2">"MAIN-TRACK SWITCH IN ABNORMAL POSITION"</span>
-<span class="p">[</span><span class="m">10</span><span class="p">]</span> <span class="s2">"MAIN-TRACK TRAIN COLLISION"</span>            
-<span class="p">[</span><span class="m">11</span><span class="p">]</span> <span class="s2">"MAIN-TRACK TRAIN DERAILMENT"</span>           
-<span class="p">[</span><span class="m">12</span><span class="p">]</span> <span class="s2">"MOVEMENT EXCEEDS LIMITS OF AUTHORITY"</span>  
-<span class="p">[</span><span class="m">13</span><span class="p">]</span> <span class="s2">"NON-MAIN-TRACK TRAIN COLLISION"</span>        
-<span class="p">[</span><span class="m">14</span><span class="p">]</span> <span class="s2">"NON-MAIN-TRACK TRAIN DERAILMENT"</span>       
-<span class="p">[</span><span class="m">15</span><span class="p">]</span> <span class="s2">"PASSENGER"</span>                             
-<span class="p">[</span><span class="m">16</span><span class="p">]</span> <span class="s2">"R/S COLL. WITH ABANDONED VEHICLE"</span>      
-<span class="p">[</span><span class="m">17</span><span class="p">]</span> <span class="s2">"R/S COLL. WITH OBJECT"</span>                 
-<span class="p">[</span><span class="m">18</span><span class="p">]</span> <span class="s2">"R/S DAMAGE WITHOUT DERAIL./COLL."</span>      
-<span class="p">[</span><span class="m">19</span><span class="p">]</span> <span class="s2">"RUNAWAY ROLLING STOCK"</span>                 
-<span class="p">[</span><span class="m">20</span><span class="p">]</span> <span class="s2">"SIGNAL LESS RESTRICTIVE THAN REQUIRED"</span> 
-<span class="p">[</span><span class="m">21</span><span class="p">]</span> <span class="s2">"TRESPASSER"</span>                            
-<span class="p">[</span><span class="m">22</span><span class="p">]</span> <span class="s2">"UNPROTECTED OVERLAP OF AUTHORITIES"</span>    
-<span class="o">&gt;</span> 
-</code></pre>
-</div>
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 查看 ACC_INC_TYPE 裡面有哪些資料類型
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">levels</span><span class="p">(</span><span class="n">ACC_INC_TYPE</span><span class="p">)</span><span class="w">
+ </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">""</span><span class="w">                                      
+ </span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="s2">"COLLISION INVOLVING TRACK UNIT"</span><span class="w">        
+ </span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="s2">"CREW MEMBER INCAPACITATED"</span><span class="w">             
+ </span><span class="p">[</span><span class="m">4</span><span class="p">]</span><span class="w"> </span><span class="s2">"CROSSING"</span><span class="w">                              
+ </span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="s2">"DERAILMENT INVOLVING TRACK UNIT"</span><span class="w">       
+ </span><span class="p">[</span><span class="m">6</span><span class="p">]</span><span class="w"> </span><span class="s2">"DG LEAKER"</span><span class="w">                             
+ </span><span class="p">[</span><span class="m">7</span><span class="p">]</span><span class="w"> </span><span class="s2">"EMPLOYEE"</span><span class="w">                              
+ </span><span class="p">[</span><span class="m">8</span><span class="p">]</span><span class="w"> </span><span class="s2">"FIRE"</span><span class="w">                                  
+ </span><span class="p">[</span><span class="m">9</span><span class="p">]</span><span class="w"> </span><span class="s2">"MAIN-TRACK SWITCH IN ABNORMAL POSITION"</span><span class="w">
+</span><span class="p">[</span><span class="m">10</span><span class="p">]</span><span class="w"> </span><span class="s2">"MAIN-TRACK TRAIN COLLISION"</span><span class="w">            
+</span><span class="p">[</span><span class="m">11</span><span class="p">]</span><span class="w"> </span><span class="s2">"MAIN-TRACK TRAIN DERAILMENT"</span><span class="w">           
+</span><span class="p">[</span><span class="m">12</span><span class="p">]</span><span class="w"> </span><span class="s2">"MOVEMENT EXCEEDS LIMITS OF AUTHORITY"</span><span class="w">  
+</span><span class="p">[</span><span class="m">13</span><span class="p">]</span><span class="w"> </span><span class="s2">"NON-MAIN-TRACK TRAIN COLLISION"</span><span class="w">        
+</span><span class="p">[</span><span class="m">14</span><span class="p">]</span><span class="w"> </span><span class="s2">"NON-MAIN-TRACK TRAIN DERAILMENT"</span><span class="w">       
+</span><span class="p">[</span><span class="m">15</span><span class="p">]</span><span class="w"> </span><span class="s2">"PASSENGER"</span><span class="w">                             
+</span><span class="p">[</span><span class="m">16</span><span class="p">]</span><span class="w"> </span><span class="s2">"R/S COLL. WITH ABANDONED VEHICLE"</span><span class="w">      
+</span><span class="p">[</span><span class="m">17</span><span class="p">]</span><span class="w"> </span><span class="s2">"R/S COLL. WITH OBJECT"</span><span class="w">                 
+</span><span class="p">[</span><span class="m">18</span><span class="p">]</span><span class="w"> </span><span class="s2">"R/S DAMAGE WITHOUT DERAIL./COLL."</span><span class="w">      
+</span><span class="p">[</span><span class="m">19</span><span class="p">]</span><span class="w"> </span><span class="s2">"RUNAWAY ROLLING STOCK"</span><span class="w">                 
+</span><span class="p">[</span><span class="m">20</span><span class="p">]</span><span class="w"> </span><span class="s2">"SIGNAL LESS RESTRICTIVE THAN REQUIRED"</span><span class="w"> 
+</span><span class="p">[</span><span class="m">21</span><span class="p">]</span><span class="w"> </span><span class="s2">"TRESPASSER"</span><span class="w">                            
+</span><span class="p">[</span><span class="m">22</span><span class="p">]</span><span class="w"> </span><span class="s2">"UNPROTECTED OVERLAP OF AUTHORITIES"</span><span class="w">    
+</span><span class="o">&gt;</span><span class="w"> 
+</span></code></pre></div>
 
 <ul>
   <li>查看 <code class="highlighter-rouge">PROVINCE</code>：</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="c1"># 查看 PROVINCE 裡面有哪些資料類型
-</span><span class="o">&gt;</span> <span class="n">levels</span><span class="p">(</span><span class="n">PROVINCE</span><span class="p">)</span>
- <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s2">""</span>     <span class="s2">"ALBERTA"</span>     <span class="s2">"BRITISH COLUMBIA"</span>     
- <span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="s2">"MANITOBA"</span>     <span class="s2">"NEW BRUNSWICK"</span>     <span class="s2">"NEWFOUNDLAND"</span>         
- <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s2">"NORTHWEST TERRITORIES"</span>     <span class="s2">"NOVA SCOTIA"</span>     <span class="s2">"ONTARIO"</span>
-<span class="p">[</span><span class="m">10</span><span class="p">]</span> <span class="s2">"QU\xc9BEC"</span>     <span class="s2">"SASKATCHEWAN"</span>
-<span class="o">&gt;</span> 
-</code></pre>
-</div>
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 查看 PROVINCE 裡面有哪些資料類型
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">levels</span><span class="p">(</span><span class="n">PROVINCE</span><span class="p">)</span><span class="w">
+ </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">""</span><span class="w">     </span><span class="s2">"ALBERTA"</span><span class="w">     </span><span class="s2">"BRITISH COLUMBIA"</span><span class="w">     
+ </span><span class="p">[</span><span class="m">4</span><span class="p">]</span><span class="w"> </span><span class="s2">"MANITOBA"</span><span class="w">     </span><span class="s2">"NEW BRUNSWICK"</span><span class="w">     </span><span class="s2">"NEWFOUNDLAND"</span><span class="w">         
+ </span><span class="p">[</span><span class="m">7</span><span class="p">]</span><span class="w"> </span><span class="s2">"NORTHWEST TERRITORIES"</span><span class="w">     </span><span class="s2">"NOVA SCOTIA"</span><span class="w">     </span><span class="s2">"ONTARIO"</span><span class="w">
+</span><span class="p">[</span><span class="m">10</span><span class="p">]</span><span class="w"> </span><span class="s2">"QU\xc9BEC"</span><span class="w">     </span><span class="s2">"SASKATCHEWAN"</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> 
+</span></code></pre></div>
 
 <h3 id="section-7">3. 先想一下︰我們用這些資料要做什麼？</h3>
 <p>這份是源自於加拿大的 OpenData 資料，而我現在想要用這些資料去 <strong>觀察</strong> 各省份地鐵事故分佈的情形，可以怎麼做？</p>
 
-<p>這個問題可以從幾個觀點來看(由簡單到複雜)：<br />
-1. 哪一個地區比較常發生事故？<br />
-2. 哪一個地區比較常發生”何種類型”的事故？<br />
-3. …其他的之後可以再想想</p>
+<p>這個問題可以從幾個觀點來看(由簡單到複雜)：</p>
+<ol>
+  <li>哪一個地區比較常發生事故？</li>
+  <li>哪一個地區比較常發生”何種類型”的事故？</li>
+  <li>…其他的之後可以再想想</li>
+</ol>
 
-<p>這一次先探討上方的第1點，我個人的想法如下：<br />
-『 根據事故發生的次數，以 “點狀圖” 的方式去凸顯發生頻率。』<br />
-* <strong>點越大，就代表事故發生的次數越多。</strong></p>
+<p>這一次先探討上方的第1點，我個人的想法如下：
+『 根據事故發生的次數，以 “點狀圖” 的方式去凸顯發生頻率。』</p>
+<ul>
+  <li><strong>點越大，就代表事故發生的次數越多。</strong></li>
+</ul>
 
-<p>就像是這張圖：<br />
+<p>就像是這張圖：
 <img src="/assets/20160917/8.png" alt="" /></p>
 
 <h2 id="section-8">(三) 將分類後的資料放在地圖上，進行視覺化</h2>
-<p>我們從 <code class="highlighter-rouge">PROVINCE</code> 這個欄位中知道資料分別來自 9 個省份 (扣除兩項無法辨別的資料)；讓我們先個別幫這些地區定義座標，這樣在之後便可以精準的定位：<br />
-* 只要在各省份中隨意找一個地點設為座標即可，詳情請見 <a href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&amp;hl=zh-Hant">搜尋和取得座標</a></p>
+<p>我們從 <code class="highlighter-rouge">PROVINCE</code> 這個欄位中知道資料分別來自 9 個省份 (扣除兩項無法辨別的資料)；讓我們先個別幫這些地區定義座標，這樣在之後便可以精準的定位：</p>
+<ul>
+  <li>只要在各省份中隨意找一個地點設為座標即可，詳情請見 <a href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&amp;hl=zh-Hant">搜尋和取得座標</a></li>
+</ul>
 
 <ol>
   <li><strong>ALBERTA</strong>
@@ -494,18 +491,17 @@
 
 <p>接著，讓我們看看這些地區在資料中出現的次數：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">summary</span><span class="p">(</span><span class="n">PROVINCE</span><span class="p">)</span>
-                                    <span class="n">ALBERTA</span>      <span class="n">BRITISH</span> <span class="n">COLUMBIA</span> 
-                    <span class="m">1</span>                  <span class="m">3758</span>                  <span class="m">3082</span> 
-             <span class="n">MANITOBA</span>         <span class="n">NEW</span> <span class="n">BRUNSWICK</span>          <span class="n">NEWFOUNDLAND</span> 
-                 <span class="m">1711</span>                   <span class="m">324</span>                    <span class="m">69</span> 
-<span class="n">NORTHWEST</span> <span class="n">TERRITORIES</span>           <span class="n">NOVA</span> <span class="n">SCOTIA</span>               <span class="n">ONTARIO</span> 
-                   <span class="m">19</span>                   <span class="m">152</span>                  <span class="m">4819</span> 
-            <span class="n">QU</span><span class="err">\</span><span class="n">xc9BEC</span>          <span class="n">SASKATCHEWAN</span> 
-                 <span class="m">2399</span>                  <span class="m">1773</span> 
-<span class="o">&gt;</span> 
-</code></pre>
-</div>
+<div class="language-r highlighter-rouge"><pre class="codehilite"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">PROVINCE</span><span class="p">)</span><span class="w">
+                                    </span><span class="n">ALBERTA</span><span class="w">      </span><span class="n">BRITISH</span><span class="w"> </span><span class="n">COLUMBIA</span><span class="w"> 
+                    </span><span class="m">1</span><span class="w">                  </span><span class="m">3758</span><span class="w">                  </span><span class="m">3082</span><span class="w"> 
+             </span><span class="n">MANITOBA</span><span class="w">         </span><span class="n">NEW</span><span class="w"> </span><span class="n">BRUNSWICK</span><span class="w">          </span><span class="n">NEWFOUNDLAND</span><span class="w"> 
+                 </span><span class="m">1711</span><span class="w">                   </span><span class="m">324</span><span class="w">                    </span><span class="m">69</span><span class="w"> 
+</span><span class="n">NORTHWEST</span><span class="w"> </span><span class="n">TERRITORIES</span><span class="w">           </span><span class="n">NOVA</span><span class="w"> </span><span class="n">SCOTIA</span><span class="w">               </span><span class="n">ONTARIO</span><span class="w"> 
+                   </span><span class="m">19</span><span class="w">                   </span><span class="m">152</span><span class="w">                  </span><span class="m">4819</span><span class="w"> 
+            </span><span class="n">QU</span><span class="err">\</span><span class="n">xc9BEC</span><span class="w">          </span><span class="n">SASKATCHEWAN</span><span class="w"> 
+                 </span><span class="m">2399</span><span class="w">                  </span><span class="m">1773</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> 
+</span></code></pre></div>
 
 
         </article>
@@ -523,82 +519,6 @@
                     
                 
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
         
             
             
@@ -677,6 +597,82 @@
             
         
             
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
             
                 
                     

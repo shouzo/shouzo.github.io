@@ -310,8 +310,11 @@
 
 <h2 id="vimrc-">二、vimrc 設定教學</h2>
 <ul>
-  <li>系統環境<br />
-  &gt; ubuntu 16.04</li>
+  <li>系統環境
+    <blockquote>
+      <p>ubuntu 16.04</p>
+    </blockquote>
+  </li>
   <li>參考資料
     <ul>
       <li><a href="http://wiki.csie.ncku.edu.tw/vim/vimrc">vimrc設定教學 - 成大資工Wiki</a></li>
@@ -325,9 +328,10 @@
 <hr />
 
 <ol>
-  <li>
-    <p>先進入家目錄、打開 <code class="highlighter-rouge">vimrc</code> 設定檔<br />
- &gt; $ cd</p>
+  <li>先進入家目錄、打開 <code class="highlighter-rouge">vimrc</code> 設定檔
+    <blockquote>
+      <p>$ cd</p>
+    </blockquote>
 
     <blockquote>
       <p>$ vim .vimrc</p>
@@ -335,15 +339,14 @@
 
     <p><img src="https://i.imgur.com/v4rOfdw.jpg" alt="" /></p>
   </li>
-  <li>
-    <p>修改 vimrc 設定檔</p>
+  <li>修改 vimrc 設定檔
     <ul>
       <li>將以下內容複製到 vimrc：</li>
     </ul>
   </li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>set encoding=utf-8	        " 設定 Vim 文字編碼方式
+<div class="highlighter-rouge"><pre class="codehilite"><code>set encoding=utf-8	        " 設定 Vim 文字編碼方式
 set fileencodings=utf-8,cp950	"設定特定檔案的編碼
 
 
@@ -368,20 +371,22 @@ set cursorline           " 顯示目前的游標位置
 set nu                   " 顯示行號
 
 colorscheme torte        " 設定 Vim 的顯示配色
-</code></pre>
-</div>
+</code></pre></div>
 
 <ol>
   <li>完成後按下<code class="highlighter-rouge">Esc</code>鍵，再輸入 <code class="highlighter-rouge">:wq</code>離開 Vim。</li>
 </ol>
 
-<p>此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。<br />
+<p>此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。
 <img src="https://i.imgur.com/Ih9e153.jpg" alt="" /></p>
 
 <h2 id="vim-">三、將 Vim 中選取的文字複製到剪貼簿</h2>
 <ul>
-  <li>系統環境<br />
-  &gt; ubuntu 16.04</li>
+  <li>系統環境
+    <blockquote>
+      <p>ubuntu 16.04</p>
+    </blockquote>
+  </li>
   <li>參考資料
     <ul>
       <li><a href="https://www.zhihu.com/question/21203154">linux版的vim中如何用快捷键進行與系统剪貼簿交互的文字複製和貼上</a></li>
@@ -392,25 +397,24 @@ colorscheme torte        " 設定 Vim 的顯示配色
 <hr />
 
 <ol>
-  <li>
-    <p>需要先安裝 vim-gnome 套件<br />
- &gt; $ sudo apt-get install vim-gnome</p>
+  <li>需要先安裝 vim-gnome 套件
+    <blockquote>
+      <p>$ sudo apt-get install vim-gnome</p>
+    </blockquote>
   </li>
   <li>
-    <p>安裝完畢後，再打開任何一個想要複製其內容的檔案<br />
+    <p>安裝完畢後，再打開任何一個想要複製其內容的檔案
 <img src="https://i.imgur.com/Ih9e153.jpg" alt="" /></p>
   </li>
   <li>
-    <p>分別按下 <code class="highlighter-rouge">g</code>、<code class="highlighter-rouge">g</code>、<code class="highlighter-rouge">v</code>、<code class="highlighter-rouge">G</code> (全選)，此時被選取的文字會反白<br />
+    <p>分別按下 <code class="highlighter-rouge">g</code>、<code class="highlighter-rouge">g</code>、<code class="highlighter-rouge">v</code>、<code class="highlighter-rouge">G</code> (全選)，此時被選取的文字會反白
 <img src="https://i.imgur.com/kYA1947.jpg" alt="" /></p>
   </li>
   <li>
     <p>再按 <code class="highlighter-rouge">"</code> 、<code class="highlighter-rouge">+</code>、<code class="highlighter-rouge">y</code> (複製被選取的文字)</p>
   </li>
-  <li>
-    <p>此時就可以打開另一個編輯器，直接貼上剛剛複製的文字<br />
-<img src="https://i.imgur.com/f10vI8C.jpg" alt="" /></p>
-  </li>
+  <li>此時就可以打開另一個編輯器，直接貼上剛剛複製的文字
+<img src="https://i.imgur.com/f10vI8C.jpg" alt="" /></li>
 </ol>
 
         </article>
@@ -422,23 +426,41 @@ colorscheme torte        " 設定 Vim 的顯示配色
             
                 
                     
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
                         
                         <h2 id="similar_posts">Similar Posts</h2>
                         <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/05/04/vim/">20170504 [個人紀錄] Vim 慣用設定
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
                         
                         <li class="relatedPost">
                             <a href="http://shouzo.github.io/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)
@@ -582,15 +604,6 @@ colorscheme torte        " 設定 Vim 的顯示配色
                         </li>
                         
                         
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
                     
                 
             

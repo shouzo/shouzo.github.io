@@ -138,6 +138,69 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/03/30/ai/">20170330 [學習筆記] 人工智慧 (5)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-30
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+<p><img src="https://i.imgur.com/wSK7bFu.jpg" alt="" /></p>
+
+<p><img src="https://i.imgur.com/xaRQW1r.jpg" alt="" /></p>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/30/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/03/24/linux_system/">20170324 [學習筆記] Linux 系統程式 (4)</a>
                 </h2>
                 <div class="label">
@@ -239,11 +302,13 @@
 </ul>
 
 <h3 id="multithread-architecture">Multithread Architecture</h3>
-<p><img src="https://i.imgur.com/8ICdvBz.jpg" alt="" /><br />
-* <strong>Responsiveness</strong> – may allow continued execution if part of process is blocked, especially important for user interfaces.<br />
-* <strong>Resource Sharing</strong> – threads share resources of process, easier than shared memory or message passing.<br />
-* <strong>Economy</strong> – cheaper than process creation, thread switching lower overhead than context switching.<br />
-* <strong>Scalability</strong> – process can take advantage of multiprocessor architectures.</p>
+<p><img src="https://i.imgur.com/8ICdvBz.jpg" alt="" /></p>
+<ul>
+  <li><strong>Responsiveness</strong> – may allow continued execution if part of process is blocked, especially important for user interfaces.</li>
+  <li><strong>Resource Sharing</strong> – threads share resources of process, easier than shared memory or message passing.</li>
+  <li><strong>Economy</strong> – cheaper than process creation, thread switching lower overhead than context switching.</li>
+  <li><strong>Scalability</strong> – process can take advantage of multiprocessor architectures.</li>
+</ul>
 
 <h3 id="multicore-programming">一、Multicore Programming</h3>
 <ul>
@@ -319,42 +384,56 @@
 <h4 id="concurrency-vs-parallelism-1">3. Concurrency vs Parallelism</h4>
 <ul>
   <li>
-    <p>Rob Pike 用地鼠燒書做例子:<br />
+    <p>Rob Pike 用地鼠燒書做例子:
 <img src="https://hackpad-attachments.s3.amazonaws.com/embedded2016.hackpad.com_K6DJ0ZtiecH_p.537916_1460613009716_task.jpg" alt="" /></p>
   </li>
   <li>
-    <p>如果今天增加多一只地鼠，一個推車或多一個焚燒盧，這樣有機會作到更好的資源使用率，但我們不能保證兩只或更多地鼠會同時進行 (可能只有有限的火爐)。在單核系統中只能允許一次進行一次的燒書工作，那樣就沒有效率了。<br />
-<img src="https://i.imgur.com/XTGAK98.jpg" alt="" /><br />
-以 Concurrency 的方式去作業，能夠以不同的解構方式去進行，可以是三個地鼠分別負責一部分的工作 (decomposition)<br />
-<img src="https://i.imgur.com/w5Eugs7.jpg" alt="" /><br />
-其中也可以 Parallelism:<br />
-<img src="https://i.imgur.com/3IHX5BT.jpg" alt="" /><br />
-或<br />
+    <p>如果今天增加多一只地鼠，一個推車或多一個焚燒盧，這樣有機會作到更好的資源使用率，但我們不能保證兩只或更多地鼠會同時進行 (可能只有有限的火爐)。在單核系統中只能允許一次進行一次的燒書工作，那樣就沒有效率了。
+<img src="https://i.imgur.com/XTGAK98.jpg" alt="" />
+以 Concurrency 的方式去作業，能夠以不同的解構方式去進行，可以是三個地鼠分別負責一部分的工作 (decomposition)
+<img src="https://i.imgur.com/w5Eugs7.jpg" alt="" />
+其中也可以 Parallelism:
+<img src="https://i.imgur.com/3IHX5BT.jpg" alt="" />
+或
 <img src="https://i.imgur.com/duEVvNK.jpg" alt="" /></p>
   </li>
 </ul>
 
-<p><strong>Concurrency:</strong> 是指程式架構，將程式拆開成多個可獨立運作的工作，像是驅動程式都可獨立運作，但不需要平行化<br />
-* 拆開多個的工作不一定要同時運行<br />
-* 多個工作在單核心 CPU 上運行</p>
+<p><strong>Concurrency:</strong> 是指程式架構，將程式拆開成多個可獨立運作的工作，像是驅動程式都可獨立運作，但不需要平行化</p>
+<ul>
+  <li>拆開多個的工作不一定要同時運行</li>
+  <li>多個工作在單核心 CPU 上運行</li>
+</ul>
 
-<p><strong>Parallelism:</strong> 是指程式執行，同時執行多個程式。Concurrency 可能會用到 parallelism，但不一定要用 parallelism 才能實現 concurrency。eg：Vector dot product<br />
-* 程式會同時執行 (例如：fork 後，同時執行，再收集結果 [join])<br />
-* 一個工作在多核心 CPU 上運行</p>
+<p><strong>Parallelism:</strong> 是指程式執行，同時執行多個程式。Concurrency 可能會用到 parallelism，但不一定要用 parallelism 才能實現 concurrency。eg：Vector dot product</p>
+<ul>
+  <li>程式會同時執行 (例如：fork 後，同時執行，再收集結果 [join])</li>
+  <li>一個工作在多核心 CPU 上運行</li>
+</ul>
 
 <h4 id="section-1">4. 相關整理</h4>
 <p>線上教材 <a href="https://www.youtube.com/watch?v=6jFkNjhJ-Z4">Introduction to OpenMP</a> 做了以下整理：</p>
 
-<p>(1) Concurrent (並行)<br />
-* 工作可拆分成「獨立執行」的部份，這樣「可以」讓很多事情一起做，但是「不一定」要真的同時做。下方情境：<br />
-<img src="https://i.imgur.com/rweOyiD.png" alt="" /><br />
-    * 展示具有並行性，但不去同時執行。<br />
-    * 並行性是種「架構程式」的概念。寫下一段程式之前，思考問題架構時就決定好的。</p>
+<p>(1) Concurrent (並行)</p>
+<ul>
+  <li>工作可拆分成「獨立執行」的部份，這樣「可以」讓很多事情一起做，但是「不一定」要真的同時做。下方情境：
+<img src="https://i.imgur.com/rweOyiD.png" alt="" />
+    <ul>
+      <li>展示具有並行性，但不去同時執行。</li>
+      <li>並行性是種「架構程式」的概念。寫下一段程式之前，思考問題架構時就決定好的。</li>
+    </ul>
+  </li>
+</ul>
 
-<p>(2) Parallel (平行)<br />
-* 把規劃好、能夠並行的程式，分配給不同執行緒，並讓他們同時執行。<br />
-<img src="https://i.imgur.com/Oom3wM5.png" alt="" /><br />
-   * 「平行」是一種選擇。</p>
+<p>(2) Parallel (平行)</p>
+<ul>
+  <li>把規劃好、能夠並行的程式，分配給不同執行緒，並讓他們同時執行。
+<img src="https://i.imgur.com/Oom3wM5.png" alt="" />
+    <ul>
+      <li>「平行」是一種選擇。</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="single-and-multithreaded-processes">三、Single and Multithreaded Processes</h3>
 <p><img src="https://i.imgur.com/KLVunhJ.jpg" alt="" /></p>
@@ -362,7 +441,7 @@
 <ul>
   <li><strong>Amdahl’s Law</strong>
     <ul>
-      <li>針對系統裡面某一個特定的元件予以最佳化，對於整體系統有多少的效能改變。<br />
+      <li>針對系統裡面某一個特定的元件予以最佳化，對於整體系統有多少的效能改變。
   <img src="https://i.imgur.com/E1L6ODN.jpg" alt="" /></li>
       <li>分成兩部份
         <ul>
@@ -396,7 +475,7 @@
       <li>Many user-level threads mapped to single kernel thread.</li>
       <li><strong>One thread blocking causes all to block.</strong></li>
       <li>Multiple threads may not run in parallel on muticore system because only one may be in kernel at a time.</li>
-      <li>Examples：<code class="highlighter-rouge">Solaris Green Threads</code>、<code class="highlighter-rouge">GNU Portable Threads</code><br />
+      <li>Examples：<code class="highlighter-rouge">Solaris Green Threads</code>、<code class="highlighter-rouge">GNU Portable Threads</code>
 <img src="https://i.imgur.com/dwfuxrT.jpg" alt="" /></li>
     </ul>
   </li>
@@ -406,7 +485,7 @@
       <li><strong>Creating a user-level thread creates a kernel thread.</strong></li>
       <li>More concurrency than many-to-one.</li>
       <li>Number of threads per process sometimes restricted due to overhead.</li>
-      <li>Examples：<code class="highlighter-rouge">Windows NT/XP/2000</code>、<code class="highlighter-rouge">Linux</code>、<code class="highlighter-rouge">Solaris 9 and later</code><br />
+      <li>Examples：<code class="highlighter-rouge">Windows NT/XP/2000</code>、<code class="highlighter-rouge">Linux</code>、<code class="highlighter-rouge">Solaris 9 and later</code>
 <img src="https://i.imgur.com/Fh9QH0S.jpg" alt="" /></li>
     </ul>
   </li>
@@ -415,14 +494,14 @@
       <li>Allows many user level threads to be mapped to many kernel threads.</li>
       <li>Allows the operating system to create a sufficient number of kernel threads.</li>
       <li>Solaris prior to version 9.</li>
-      <li>Example：<code class="highlighter-rouge">Windows NT/2000 with the ThreadFiber package</code><br />
+      <li>Example：<code class="highlighter-rouge">Windows NT/2000 with the ThreadFiber package</code>
 <img src="https://i.imgur.com/hWCuKOk.jpg" alt="" /></li>
     </ul>
   </li>
   <li><strong>Two-level</strong>
     <ul>
       <li>Similar to M:M, except that it allows a user thread to be bound to kernel thread.</li>
-      <li>Examples：<code class="highlighter-rouge">IRIX</code>、<code class="highlighter-rouge">HP-UX</code>、<code class="highlighter-rouge">Tru64 UNIX</code>、<code class="highlighter-rouge">Solaris 8 and earlier</code><br />
+      <li>Examples：<code class="highlighter-rouge">IRIX</code>、<code class="highlighter-rouge">HP-UX</code>、<code class="highlighter-rouge">Tru64 UNIX</code>、<code class="highlighter-rouge">Solaris 8 and earlier</code>
 <img src="https://i.imgur.com/iRt3Xj2.jpg" alt="" /></li>
     </ul>
   </li>
@@ -438,7 +517,7 @@
 </ul>
 
 <h4 id="pthreadh">pthread.h</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;pthread.h&gt;
 </span>
 <span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span> <span class="n">pthread_attr_t</span>
 <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
@@ -452,15 +531,13 @@
 <span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
 <span class="c1">//wait for thread termination
 </span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h5 id="pthreadcreate">pthread_create()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
 <span class="n">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span>
 <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_t *thread</code>：thread 的識別字</li>
   <li><code class="highlighter-rouge">pthread_attr_t *attr</code>：thread 的屬性，設定為 NULL 表示使用預設值</li>
@@ -469,17 +546,15 @@
 </ul>
 
 <h5 id="pthreadexit">pthread_exit()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
+</code></pre></div>
 <ul>
   <li><code class="highlighter-rouge">void *retval</code>：thread 結束時回傳的變數</li>
 </ul>
 
 <h5 id="pthreadjoin">pthread_join()</h5>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
+</code></pre></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_t th</code>：thread 識別字</li>
   <li><code class="highlighter-rouge">void **thread_return</code>：接收 pthread_exit 傳回的變數</li>
@@ -490,7 +565,7 @@
   <li>從 1 - 10000 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -608,10 +683,9 @@
         <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
 <span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div>
 <ul>
-  <li>執行結果<br />
+  <li>執行結果
 <img src="https://i.imgur.com/jw2pSxj.jpg" alt="" /></li>
 </ul>
 
@@ -687,7 +761,7 @@
   </li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
@@ -782,12 +856,11 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
-  <li>執行結果<br />
-<img src="https://i.imgur.com/0Zc0QN0.jpg" alt="" /><br />
+  <li>執行結果
+<img src="https://i.imgur.com/0Zc0QN0.jpg" alt="" />
 <img src="https://i.imgur.com/VTDsGpm.jpg" alt="" /></li>
 </ul>
 
@@ -858,157 +931,174 @@
                 <div class="excerpt">
                     <ul id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">前言</a></li>
-  <li><a href="#section-1" id="markdown-toc-section-1">一、輸出有問題</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">一、輸出有問題</a>    <ul>
+      <li><a href="#section-2" id="markdown-toc-section-2">(一) 原本的程式</a></li>
+      <li><a href="#section-3" id="markdown-toc-section-3">(二) 做個測試，來看看是怎麼一回事</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="section">前言</h2>
 <p>從 1 - 100 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</p>
 
 <h2 id="section-1">一、輸出有問題</h2>
-<p>### (一) 原本的程式<br />
-```c<br />
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <pthread.h>
-#include <semaphore.h> 
-#include <time.h></time.h></semaphore.h></pthread.h></stdlib.h></unistd.h></stdio.h></p>
+<h3 id="section-2">(一) 原本的程式</h3>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;semaphore.h&gt; 
+#include &lt;time.h&gt;
+</span>
+<span class="cp">#define NUM_THREADS 10
+#define MSIZE 100
+</span>
+<span class="c1">// 找出 1 - 100 的所有質數
+</span>
+<span class="k">static</span> <span class="kt">double</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+<span class="kt">void</span> <span class="o">*</span><span class="n">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+<span class="n">pthread_mutex_t</span> <span class="n">work_mutex</span><span class="p">;</span>
 
-<p>#define NUM_THREADS 10<br />
-#define MSIZE 100</p>
 
-<p>// 找出 1 - 100 的所有質數</p>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
+	<span class="n">pthread_t</span> <span class="n">a_thread</span><span class="p">[</span><span class="n">NUM_THREADS</span><span class="p">];</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">thread_result</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">lots_of_threads</span><span class="p">;</span>
+	
+	<span class="c1">// start to measure time...
+</span>	<span class="kt">double</span> <span class="n">start_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+	
+	<span class="c1">// initialize mutex...
+</span>	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">work_mutex</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+       	<span class="n">perror</span><span class="p">(</span><span class="s">"Mutex initialization failed"</span><span class="p">);</span>
+	    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
 
-<p>static double getDoubleTime();<br />
-void *thread_function(void *arg);<br />
-pthread_mutex_t work_mutex;</p>
+	<span class="c1">// pthread_create...
+</span>	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&lt;</span> <span class="n">NUM_THREADS</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">]),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">thread_function</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">lots_of_threads</span><span class="p">);</span>
+	
+        <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">perror</span><span class="p">(</span><span class="s">"Thread creation failed"</span><span class="p">);</span>
+        		<span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-<p>int main(void) {<br />
-	int res;<br />
-	pthread_t a_thread[NUM_THREADS];<br />
-	void *thread_result;<br />
-	int lots_of_threads;</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>// start to measure time...
-double start_time = getDoubleTime();
-
-// initialize mutex...
-res = pthread_mutex_init(&amp;work_mutex, NULL);
-if (res != 0) {
-   	perror("Mutex initialization failed");
-    exit(EXIT_FAILURE);
-}
-
-// pthread_create...
-for (lots_of_threads = 0; lots_of_threads &lt; NUM_THREADS; lots_of_threads ++) {
-	res = pthread_create(&amp;(a_thread[lots_of_threads]), NULL, thread_function, (void*)(long)lots_of_threads);
-
-    if (res != 0) {
-		perror("Thread creation failed");
-    		exit(EXIT_FAILURE);
-	}
-}
-
-// pthread_join...
-for (lots_of_threads = NUM_THREADS - 1; lots_of_threads &gt;= 0; lots_of_threads--) {
-    	res = pthread_join(a_thread[lots_of_threads], &amp;thread_result);
-
-        if (res != 0) {
-            perror("pthread_join failed");
-    	}
-}	
-
-printf("\nThread joined\n");
-
-// stop measuring time...
-double finish_time = getDoubleTime();
-printf("Execute Time:  %.3lf ms\n", (finish_time - start_time));
-exit(EXIT_SUCCESS); }
-</code></pre>
-</div>
-
-<p>void *thread_function(void *arg) {<br />
-    // pthread_mutex_lock(&amp;work_mutex);</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>int my_num = (long)arg;
-// if (MSIZE % NUM_THREADS != 0){    printf("error");   pthread_exit(-1);    }
-
-int start_num = (MSIZE / NUM_THREADS) * my_num + 1;
-int end_num = (MSIZE / NUM_THREADS) * (my_num + 1);
-
-int i = 0, j = 0;   // Set the loop
-int count = 0;      // Set the counter
-int result = 0;     // result
-
-printf("\n\nI'm thread[%d], start_num:%d, end_num:%d\n", my_num, start_num, end_num);
-
-/* find the prime number */
-for (i = start_num; i &lt;= end_num; i++) {
-    count = 0;      // Reset counter
-
-    for (j = 1; j &lt;= i; j++) {
-        if (i % j == 0)
-            count += 1;
-    }
+	<span class="c1">// pthread_join...
+</span>	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="n">NUM_THREADS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">thread_result</span><span class="p">);</span>
     
-    if (count == 2) { 
-        result = i;
-        printf("%d\t", result);
-    }
-}
+            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+	            <span class="n">perror</span><span class="p">(</span><span class="s">"pthread_join failed"</span><span class="p">);</span>
+        	<span class="p">}</span>
+    <span class="p">}</span>	
 
-// pthread_mutex_unlock(&amp;work_mutex);
-pthread_exit(0); }
-</code></pre>
-</div>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Thread joined</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 
-<p>static double getDoubleTime() {<br />
-        struct timeval tm_tv;<br />
-        gettimeofday(&amp;tm_tv,0);<br />
-        return (double)(((double)tm_tv.tv_sec * (double)1000. + (double)(tm_tv.tv_usec)) * (double)0.001);<br />
-}</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>
-* [執行結果]
-![](https://i.imgur.com/HeJEnU0.jpg)
+	<span class="c1">// stop measuring time...
+</span>	<span class="kt">double</span> <span class="n">finish_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Execute Time:  %.3lf ms</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">));</span>
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-### (二) 做個測試，來看看是怎麼一回事
-* 目前的假設
-    &gt; 當ㄧ個 thread 還沒 printf 完它所負責範圍的質數時，就被切換到另一個 thread 裡面執行。
-* 參考資料
-    * [Using mutex for pthread results in random answer](http://stackoverflow.com/questions/15811605/using-mutex-for-pthread-results-in-random-answer)
-    
-![](https://i.imgur.com/arQk9zI.jpg)
+<span class="kt">void</span> <span class="o">*</span><span class="nf">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// pthread_mutex_lock(&amp;work_mutex);
+</span>	
+    <span class="kt">int</span> <span class="n">my_num</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
+	<span class="c1">// if (MSIZE % NUM_THREADS != 0){    printf("error");   pthread_exit(-1);    }
+</span>
+    <span class="kt">int</span> <span class="n">start_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">end_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 
-* 驗證假設
-    * 為了驗證假設的正確性，我在 printf 質數時後面再補上該質數所對應的 thread number，作法如下：
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// Set the loop
+</span>    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Set the counter
+</span>    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// result
+</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">I'm thread[%d], start_num:%d, end_num:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">my_num</span><span class="p">,</span> <span class="n">start_num</span><span class="p">,</span> <span class="n">end_num</span><span class="p">);</span>
 
-```c
-   /* 前面省略 */
-   
-   /* find the prime number */
-    for (i = start_num; i &lt;= end_num; i++) {
-        count = 0;      // Reset counter
-
-        for (j = 1; j &lt;= i; j++) {
-            if (i % j == 0)
-                count += 1;
-        }
+    <span class="cm">/* find the prime number */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Reset counter
+</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
         
-        if (count == 2) { 
-            result = i;
-            printf("%d-[%d]\t", result, my_num);
-        }
-    }
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="n">result</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// pthread_mutex_unlock(&amp;work_mutex);
+</span>	<span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="k">static</span> <span class="kt">double</span> <span class="nf">getDoubleTime</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tm_tv</span><span class="p">;</span>
+        <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm_tv</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div>
+
+<ul>
+  <li>[執行結果]
+<img src="https://i.imgur.com/HeJEnU0.jpg" alt="" /></li>
+</ul>
+
+<h3 id="section-3">(二) 做個測試，來看看是怎麼一回事</h3>
+<ul>
+  <li>目前的假設
+    <blockquote>
+      <p>當ㄧ個 thread 還沒 printf 完它所負責範圍的質數時，就被切換到另一個 thread 裡面執行。</p>
+    </blockquote>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://stackoverflow.com/questions/15811605/using-mutex-for-pthread-results-in-random-answer">Using mutex for pthread results in random answer</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/arQk9zI.jpg" alt="" /></p>
+
+<ul>
+  <li>驗證假設
+    <ul>
+      <li>為了驗證假設的正確性，我在 printf 質數時後面再補上該質數所對應的 thread number，作法如下：</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code>   <span class="cm">/* 前面省略 */</span>
+   
+   <span class="cm">/* find the prime number */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Reset counter
+</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="n">result</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"%d-[%d]</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">my_num</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    /* 後面省略 */
-</code></pre>
-</div>
+    <span class="cm">/* 後面省略 */</span>
+</code></pre></div>
 
 <ul>
   <li>
-    <p>[執行結果]<br />
+    <p>[執行結果]
 <img src="https://i.imgur.com/EaWi8Mk.jpg" alt="" /></p>
 
     <blockquote>
@@ -1204,280 +1294,6 @@ pthread_exit(0); }
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-17
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#basic-concepts" id="markdown-toc-basic-concepts">Basic Concepts</a></li>
-      <li><a href="#cpu-scheduler" id="markdown-toc-cpu-scheduler">CPU Scheduler</a></li>
-      <li><a href="#dispatcher" id="markdown-toc-dispatcher">Dispatcher</a></li>
-      <li><a href="#scheduling-algorithm-optimization-criteria" id="markdown-toc-scheduling-algorithm-optimization-criteria">Scheduling Algorithm Optimization Criteria</a></li>
-      <li><a href="#scheduling-algorithm" id="markdown-toc-scheduling-algorithm">Scheduling Algorithm</a>        <ul>
-          <li><a href="#shortest-job-first-sjf" id="markdown-toc-shortest-job-first-sjf">(二) Shortest-Job-First (SJF)：最短優先法</a></li>
-          <li><a href="#priority-scheduling-ps" id="markdown-toc-priority-scheduling-ps">(三) Priority Scheduling (PS)：優先權排班法</a></li>
-          <li><a href="#round-robin-rr" id="markdown-toc-round-robin-rr">(四) Round Robin (RR)：輪流法</a>            <ul>
-              <li><a href="#time-quantum-and-context-switch-time" id="markdown-toc-time-quantum-and-context-switch-time">1. Time Quantum and Context Switch Time</a></li>
-              <li><a href="#turnaround-time-varies-with-the-time-quantum" id="markdown-toc-turnaround-time-varies-with-the-time-quantum">2. Turnaround Time Varies With The Time Quantum</a></li>
-            </ul>
-          </li>
-          <li><a href="#multilevel" id="markdown-toc-multilevel">(五) Multilevel</a>            <ul>
-              <li><a href="#feedback-queue" id="markdown-toc-feedback-queue">2. Feedback Queue</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="section">一、作業系統</h2>
-<ul>
-  <li>課程簡報
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170316/ch05.pdf">Chapter 5: Process Scheduling</a></li>
-    </ul>
-  </li>
-  <li>參考資料
-    <ul>
-      <li><a href="http://www.jollen.org/blog/2006/11/_scheduler_running_process.html">Preemptive Process Scheduling 的觀念</a></li>
-      <li><a href="http://moon.cse.yzu.edu.tw/~s981502/7/Chap4.pdf">各種 CPU 排程演算法之探討</a></li>
-      <li><a href="http://publish.get.com.tw/BookPre_pdf/51MG060707-2.PDF">行程排程演算法</a></li>
-      <li><a href="https://www.tutorialspoint.com/operating_system/os_process_scheduling_algorithms.htm">Operating System Scheduling algorithms</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="basic-concepts">Basic Concepts</h3>
-<ul>
-  <li>Maximum CPU utilization obtained with multiprogramming.</li>
-  <li>CPU–I/O Burst Cycle – Process execution consists of a cycle of CPU execution and I/O wait.</li>
-  <li>CPU burst followed by I/O burst.</li>
-  <li>CPU burst distribution is of main concern.</li>
-</ul>
-
-<h3 id="cpu-scheduler">CPU Scheduler</h3>
-<ul>
-  <li>Short-term scheduler selects from among the processes in ready queue, and allocates the CPU to one of them.
-    <ul>
-      <li>Queue may be ordered in various ways.</li>
-    </ul>
-  </li>
-  <li>CPU scheduling decisions may take place when a process:
-    <ol>
-      <li>Switches from running to waiting state</li>
-      <li>Switches from running to ready state</li>
-      <li>Switches from waiting to ready</li>
-      <li>Terminates</li>
-    </ol>
-  </li>
-  <li>Scheduling under 1 and 4 is nonpreemptive.</li>
-  <li>All other scheduling is preemptive.
-    <ul>
-      <li>Consider access to shared data.</li>
-      <li>Consider preemption while in kernel mode.</li>
-      <li>Consider interrupts occurring during crucial OS activities.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="dispatcher">Dispatcher</h3>
-<ul>
-  <li>Dispatcher module gives control of the CPU to the process selected by the short-term scheduler; this involves：
-    <ol>
-      <li>switching context</li>
-      <li>switching to user mode</li>
-      <li>jumping to the proper location in the user program to restart that program</li>
-    </ol>
-  </li>
-  <li>Dispatch latency：time it takes for the dispatcher to stop one process and start another running.</li>
-</ul>
-
-<h3 id="scheduling-algorithm-optimization-criteria">Scheduling Algorithm Optimization Criteria</h3>
-<p><img src="https://i.imgur.com/LuBGjEu.jpg" alt="" /><br />
-1. CPU utilization – keep the CPU as busy as possible.<br />
-2. Throughput – # of processes that complete their execution per time unit.<br />
-3. Turnaround time – amount of time to execute a particular process.<br />
-4. Waiting time – amount of time a process has been waiting in the ready queue.<br />
-5. Response time – amount of time it takes from when a request was submitted until the first response is produced, not output (for time-sharing environment).</p>
-
-<ul>
-  <li>Length of Next CPU Burst
-    <ul>
-      <li>Determining<br />
-  <img src="https://i.imgur.com/1GaCgCb.jpg" alt="" /></li>
-      <li>Prediction<br />
-  <img src="https://i.imgur.com/HWSLIdj.jpg" alt="" /></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="scheduling-algorithm">Scheduling Algorithm</h3>
-<p>#### (一) First-Come, First-Served (FCFS)：先到先服務法<br />
-<img src="https://i.imgur.com/xWKL0Z3.jpg" alt="" /></p>
-
-<hr />
-
-<p><img src="https://i.imgur.com/6MIKb3Q.jpg" alt="" /></p>
-
-<ul>
-  <li>Convoy effect：很多短時間的 process，都在等一個<br />
-長時間的 process 時，所產生的效應 (因為等待時間很長)。</li>
-</ul>
-
-<h4 id="shortest-job-first-sjf">(二) Shortest-Job-First (SJF)：最短優先法</h4>
-<ul>
-  <li>Associate with each process the length of its next CPU burst.
-    <ul>
-      <li>Use these lengths to schedule the process with the shortest time.</li>
-    </ul>
-  </li>
-  <li>SJF is optimal – gives minimum average waiting time for a given set of processes.
-    <ul>
-      <li>The difficulty is knowing the length of the next CPU request.</li>
-      <li>Could ask the user.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/Wf8bEgG.jpg" alt="" /></p>
-
-<h4 id="priority-scheduling-ps">(三) Priority Scheduling (PS)：優先權排班法</h4>
-<ul>
-  <li>A priority number (integer) is associated with each process.</li>
-  <li>The CPU is allocated to the process with the highest priority (smallest integer » highest priority).
-    <ul>
-      <li>Preemptive</li>
-      <li>Nonpreemptive</li>
-    </ul>
-  </li>
-  <li>SJF is priority scheduling where priority is the inverse of predicted next CPU burst time.</li>
-  <li>Problem：Starvation – low priority processes may never execute.</li>
-  <li>Solution：Aging – as time progresses increase the priority of the process.</li>
-</ul>
-
-<p><img src="https://i.imgur.com/ZeyVmU1.jpg" alt="" /></p>
-
-<h4 id="round-robin-rr">(四) Round Robin (RR)：輪流法</h4>
-<ul>
-  <li>Each process gets a small unit of CPU time (time quantum q), usually 10-100 milliseconds. After this time has elapsed, the process is preempted and added to the end of the ready queue.</li>
-  <li>If there are n processes in the ready queue and the time quantum is q, then each process gets 1/n of the CPU time in chunks of at most q time units at once. No process waits more than (n-1)q time units.</li>
-  <li>Timer interrupts every quantum to schedule next process.</li>
-  <li>Performance.
-    <ul>
-      <li>q large » FIFO.</li>
-      <li>q small » q must be large with respect to context switch, otherwise overhead is too high.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/uu9W1cI.jpg" alt="" /></p>
-
-<h5 id="time-quantum-and-context-switch-time">1. Time Quantum and Context Switch Time</h5>
-<p><img src="http://i.imgur.com/7SMF7rd.jpg" alt="" /></p>
-
-<h5 id="turnaround-time-varies-with-the-time-quantum">2. Turnaround Time Varies With The Time Quantum</h5>
-<p><img src="http://i.imgur.com/EtNCekP.jpg" alt="" /></p>
-
-<h4 id="multilevel">(五) Multilevel</h4>
-<p>##### 1. Queue<br />
-* Ready queue is partitioned into separate queues, eg:<br />
-	* foreground (interactive)<br />
-	* background (batch)<br />
-* Process permanently in a given queue.<br />
-Each queue has its own scheduling algorithm:<br />
-	* foreground – RR<br />
-	* background – FCFS<br />
-* Scheduling must be done between the queues:<br />
-	* Fixed priority scheduling; (i.e., serve all from foreground then from background). Possibility of starvation.<br />
-	* Time slice – each queue gets a certain amount of CPU time which it can schedule amongst its processes; i.e., 80% to foreground in RR.<br />
-	* 20% to background in FCFS.</p>
-
-<p><img src="https://i.imgur.com/rW9GXTr.jpg" alt="" /></p>
-
-<h5 id="feedback-queue">2. Feedback Queue</h5>
-<ul>
-  <li>A process can move between the various queues; aging can be implemented this way.</li>
-  <li>Multilevel-feedback-queue scheduler. defined by the following parameters:
-    <ul>
-      <li>number of queues.</li>
-      <li>scheduling algorithms for each queue.</li>
-      <li>method used to determine when to upgrade a process.</li>
-      <li>method used to determine when to demote a process.</li>
-      <li>method used to determine which queue a process will enter when that process needs service.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/Nc2SsIQ.jpg" alt="" /></p>
-
-<ul>
-  <li>課程作業</li>
-</ul>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/17/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1505,6 +1321,8 @@ Each queue has its own scheduling algorithm:<br />
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2017/05/04/vim/">20170504 [個人紀錄] Vim 慣用設定</a></li>
+                    
                         <li><a href="/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)</a></li>
                     
                         <li><a href="/2017/04/27/club_inheritance/">20170427 [社團相關] 關於社團傳承，你必須要知道的事情...</a></li>
@@ -1522,8 +1340,6 @@ Each queue has its own scheduling algorithm:<br />
                         <li><a href="/2017/04/03/university_interesting/">20170403 [有感而發] 求學就像是吃餅，怎麼可能一口氣吃得完？當然是要從最有興趣的地方開始慢慢吃啊！</a></li>
                     
                         <li><a href="/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)</a></li>
-                    
-                        <li><a href="/2017/03/30/ai/">20170330 [學習筆記] 人工智慧 (5)</a></li>
                     
                 </ul>
             </div>
@@ -1685,7 +1501,7 @@ Each queue has its own scheduling algorithm:<br />
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">10</span>
+                            <span class="badge">11</span>
                         </a>
                     </li>
                     
@@ -1850,7 +1666,7 @@ Each queue has its own scheduling algorithm:<br />
                       
                       
                       
-                      <a href="/tag/#Vim" style="font-size: 9pt; color: #999;">Vim</a>
+                      <a href="/tag/#Vim" style="font-size: 9.5pt; color: #888;">Vim</a>
                     
                 </div>
             </div>

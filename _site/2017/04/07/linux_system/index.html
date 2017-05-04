@@ -278,17 +278,16 @@
   <li>Create as many threads as there are cores.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#pragma omp parallel for
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#pragma omp parallel for
 </span><span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <span class="p">}</span>
 <span class="c1">// Run for loop in parallel
-</span></code></pre>
-</div>
+</span></code></pre></div>
 
 <h4 id="example">Example</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;omp.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;omp.h&gt;
 #include &lt;stdio.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
@@ -303,8 +302,7 @@
     
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h3 id="threading-issues">(三) Threading Issues</h3>
 
@@ -363,7 +361,7 @@
   <li>Pthread code to create and cancel a thread:</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pthread_t</span> <span class="n">tid</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">pthread_t</span> <span class="n">tid</span><span class="p">;</span>
 
 <span class="cm">/* Create the thread */</span>
 <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">worker</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
@@ -372,8 +370,7 @@
 
 <span class="cm">/* Cancel the thread */</span>
 <span class="n">pthread_cancel</span><span class="p">(</span><span class="n">tid</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <h4 id="thread-local-storage">4. Thread-Local Storage</h4>
 <ul>
@@ -395,7 +392,7 @@
 <h4 id="scheduler-activations">5. Scheduler Activations</h4>
 <ul>
   <li>Both M:M and Two-level models require communication to maintain the appropriate number of kernel threads allocated to the application.</li>
-  <li>Typically use an intermediate data structure between user and kernel threads – <code class="highlighter-rouge">lightweight process (LWP)</code><br />
+  <li>Typically use an intermediate data structure between user and kernel threads – <code class="highlighter-rouge">lightweight process (LWP)</code>
 <img src="http://i.imgur.com/N1XOvDn.jpg" alt="" />
     <ul>
       <li>Appears to be a virtual processor on which process can schedule user thread to run</li>
@@ -516,7 +513,7 @@
   </li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -572,14 +569,13 @@
     <span class="n">close</span><span class="p">(</span><span class="n">sockfd</span><span class="p">);</span>
     <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -641,11 +637,10 @@
         <span class="n">close</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
-  <li>執行結果<br />
+  <li>執行結果
 <img src="https://i.imgur.com/vCZaRoc.jpg" alt="" /></li>
 </ul>
 
@@ -662,7 +657,7 @@
   </li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -751,14 +746,13 @@
     <span class="n">pthread_detach</span><span class="p">(</span><span class="n">pthread_self</span><span class="p">());</span>
     <span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
   <li><code class="highlighter-rouge">Client</code> 部份</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -822,11 +816,10 @@
     <span class="n">close</span><span class="p">(</span><span class="n">sockfd</span><span class="p">);</span>
     <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
-  <li>執行結果<br />
+  <li>執行結果
 <img src="https://i.imgur.com/PaWoNZx.jpg" alt="" /></li>
 </ul>
 
@@ -835,7 +828,7 @@
   <li>矩陣相乘</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -949,11 +942,10 @@
 
 	<span class="n">printf</span><span class="p">(</span><span class="s">"Different = [%d]</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 <ul>
-  <li>執行結果<br />
+  <li>執行結果
 <img src="https://i.imgur.com/g61ccDI.jpg" alt="" /></li>
 </ul>
 
@@ -961,6 +953,17 @@
         <hr>
 
         
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
         
             
             
@@ -1129,42 +1132,6 @@
             
         
             
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/03/24/linux_system/">20170324 [學習筆記] Linux 系統程式 (4)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
             
                 
                     
