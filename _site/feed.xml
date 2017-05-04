@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 04 May 2017 17:55:28 +0800</pubDate>
-    <lastBuildDate>Thu, 04 May 2017 17:55:28 +0800</lastBuildDate>
+    <pubDate>Thu, 04 May 2017 17:57:59 +0800</pubDate>
+    <lastBuildDate>Thu, 04 May 2017 17:57:59 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -84,14 +84,12 @@ set cursorline   &quot; 顯示目前的游標位置
 set laststatus=2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;完成後按下&lt;code class=&quot;highlighter-rouge&quot;&gt;Esc&lt;/code&gt;鍵，再輸入 &lt;code class=&quot;highlighter-rouge&quot;&gt;:wq&lt;/code&gt;離開 Vim 。
-此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;完成後按下&lt;code class=&quot;highlighter-rouge&quot;&gt;Esc&lt;/code&gt;鍵，再輸入 &lt;code class=&quot;highlighter-rouge&quot;&gt;:wq&lt;/code&gt;離開 Vim 。
+此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。&lt;/p&gt;
 
 &lt;h2 id=&quot;vim-&quot;&gt;二、安裝 Vim 外掛&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;請參考兩個連結，安裝 Vim 外掛：
+  &lt;li&gt;請參考以下連結，安裝 Vim 外掛：
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/junegunn/vim-plug&quot;&gt;vim-plug&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/sickill/vim-monokai&quot;&gt;有 monokai 風格的 vim 外掛&lt;/a&gt;&lt;/li&gt;
