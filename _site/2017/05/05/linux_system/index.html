@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20170505 [學習筆記] Linux 系統程式 (9)</title>
+    <meta name="description" content="  一、作業系統          Race Condition      (一) Critical-Section Problem      (二) Solution to Critical-Section Problem      (三) Peterson’s Solution      (四) Synchr...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2017/05/05/linux_system/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20170505 [學習筆記] Linux 系統程式 (9)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-05-05
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#race-condition" id="markdown-toc-race-condition">Race Condition</a></li>
+      <li><a href="#critical-section-problem" id="markdown-toc-critical-section-problem">(一) Critical-Section Problem</a></li>
+      <li><a href="#solution-to-critical-section-problem" id="markdown-toc-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</a></li>
+      <li><a href="#petersons-solution" id="markdown-toc-petersons-solution">(三) Peterson’s Solution</a></li>
+      <li><a href="#synchronization-hardware" id="markdown-toc-synchronization-hardware">(四) Synchronization Hardware</a>        <ul>
+          <li><a href="#testandset-instruction" id="markdown-toc-testandset-instruction">1. test_and_set Instruction</a></li>
+          <li><a href="#compareandswap-instruction" id="markdown-toc-compareandswap-instruction">2. compare_and_swap Instruction</a></li>
+        </ul>
+      </li>
+      <li><a href="#mutex-locks" id="markdown-toc-mutex-locks">(五) Mutex Locks</a>        <ul>
+          <li><a href="#acquire-and-release" id="markdown-toc-acquire-and-release">acquire() and release()</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#section-1" id="markdown-toc-section-1">20170504</a>    <ul>
+      <li><a href="#semaphore" id="markdown-toc-semaphore">(一) Semaphore</a>        <ul>
+          <li><a href="#usage" id="markdown-toc-usage">1. Usage</a></li>
+          <li><a href="#implementation" id="markdown-toc-implementation">2. Implementation</a>            <ul>
+              <li><a href="#busy-waiting" id="markdown-toc-busy-waiting">(1) Busy waiting</a></li>
+              <li><a href="#with-no-busy-waiting" id="markdown-toc-with-no-busy-waiting">(2) with no Busy waiting</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#deadlock-and-starvation" id="markdown-toc-deadlock-and-starvation">(二) Deadlock and Starvation</a></li>
+      <li><a href="#classical-problems-of-synchronization" id="markdown-toc-classical-problems-of-synchronization">(三) Classical Problems of Synchronization</a>        <ul>
+          <li><a href="#bounded-buffer-problem" id="markdown-toc-bounded-buffer-problem">1. Bounded-Buffer Problem</a>            <ul>
+              <li><a href="#the-structure-of-the-producer-process" id="markdown-toc-the-structure-of-the-producer-process">(1) The structure of the producer process</a></li>
+              <li><a href="#the-structure-of-the-consumer-process" id="markdown-toc-the-structure-of-the-consumer-process">(2) The structure of the consumer process</a></li>
+            </ul>
+          </li>
+          <li><a href="#readers-writers-problem" id="markdown-toc-readers-writers-problem">2. Readers-Writers Problem</a>            <ul>
+              <li><a href="#the-structure-of-a-writer-process" id="markdown-toc-the-structure-of-a-writer-process">(1) The structure of a writer process</a></li>
+              <li><a href="#the-structure-of-a-reader-process" id="markdown-toc-the-structure-of-a-reader-process">(2) The structure of a reader process</a></li>
+              <li><a href="#problem" id="markdown-toc-problem">(3) Problem</a></li>
+            </ul>
+          </li>
+          <li><a href="#dining-philosophers-problem" id="markdown-toc-dining-philosophers-problem">3. Dining-Philosophers Problem</a>            <ul>
+              <li><a href="#in-the-case-of-5-philosophers" id="markdown-toc-in-the-case-of-5-philosophers">(1) In the case of 5 philosophers</a></li>
+              <li><a href="#monitors" id="markdown-toc-monitors">(2) Monitors</a></li>
+              <li><a href="#monitors-implementation" id="markdown-toc-monitors-implementation">Monitors Implementation</a>                <ul>
+                  <li><a href="#using-semaphores" id="markdown-toc-using-semaphores">1. Using Semaphores</a></li>
+                  <li><a href="#condition-variables" id="markdown-toc-condition-variables">2. Condition Variables</a></li>
+                  <li><a href="#resuming-processes" id="markdown-toc-resuming-processes">Resuming Processes</a></li>
+                  <li><a href="#allocate-single-resource" id="markdown-toc-allocate-single-resource">Allocate Single Resource</a></li>
+                </ul>
+              </li>
+              <li><a href="#solution" id="markdown-toc-solution">(3) Solution</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
+      <li><a href="#mmap" id="markdown-toc-mmap">(一) mmap</a></li>
+      <li><a href="#msync" id="markdown-toc-msync">(二) msync</a></li>
+      <li><a href="#munmap" id="markdown-toc-munmap">(三) munmap</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">課堂作業</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170427/ch06.pdf">Chapter 6: Process Scheduling</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="race-condition">Race Condition</h3>
+<ul>
+  <li>
+    <p>Consumer
+<img src="https://i.imgur.com/07kx1WD.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Producer
+<img src="https://i.imgur.com/eBPWPyb.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Race Condition
+<img src="https://i.imgur.com/Q5qf9Xi.jpg" alt="" /></p>
+  </li>
+</ul>
+
+<h3 id="critical-section-problem">(一) Critical-Section Problem</h3>
+<ul>
+  <li>General Structure：
+<img src="https://i.imgur.com/yVVaplo.jpg" alt="" />
+<img src="https://i.imgur.com/dWa1ujd.jpg" alt="" /></li>
+</ul>
+
+<h3 id="solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</h3>
+<ol>
+  <li>
+    <p><strong>Mutual Exclusion</strong> - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.</p>
+  </li>
+  <li>
+    <p><strong>Progress</strong> - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely.</p>
+  </li>
+  <li><strong>Bounded Waiting</strong> - A bound must exist on the number of times that other processes are allowed to enter their critical sections.
+    <ul>
+      <li>Assume that each process executes at a nonzero speed.</li>
+      <li>No assumption concerning relative speed of the n processes.</li>
+    </ul>
+  </li>
+  <li>Two approaches depending on if kernel is preemptive or non-preemptive.
+    <ul>
+      <li><strong>Preemptive</strong> – allows preemption of process when running in kernel mode.</li>
+      <li><strong>Non-preemptive</strong> – runs until exits kernel mode, blocks, or voluntarily yields CPU.
+        <ul>
+          <li>Essentially free of race conditions in kernel mode.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="petersons-solution">(三) Peterson’s Solution</h3>
+<ul>
+  <li>Good algorithmic description of solving the problem.</li>
+  <li>Two process solution</li>
+  <li>Assume that the load and store instructions are atomic; that is, cannot be interrupted</li>
+  <li>The two processes share two variables：
+    <ul>
+      <li>int turn;</li>
+      <li>Boolean flag[2]</li>
+    </ul>
+  </li>
+  <li>The variable turn indicates whose turn it is to enter the critical section</li>
+  <li>The flag array is used to indicate if a process is ready to enter the critical section.</li>
+  <li><code class="highlighter-rouge">flag[i] = true</code> implies that process Pi is ready!</li>
+</ul>
+
+<p><img src="https://i.imgur.com/VjV8Owl.jpg" alt="" /></p>
+<ul>
+  <li>Provable that
+    <ol>
+      <li>Mutual exclusion is preserved.</li>
+      <li>Progress requirement is satisfied.</li>
+      <li>Bounded-waiting requirement is met.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="synchronization-hardware">(四) Synchronization Hardware</h3>
+<ul>
+  <li>Many systems provide hardware support for critical section code.</li>
+  <li>All solutions below based on idea of <strong>locking</strong>.
+    <ul>
+      <li>Protecting critical regions via locks.</li>
+    </ul>
+  </li>
+  <li>Uniprocessors – could disable interrupts
+    <ul>
+      <li>Currently running code would execute without preemption.</li>
+      <li>Generally too inefficient on multiprocessor systems.
+        <ul>
+          <li>Operating systems using this not broadly scalable.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Modern machines provide special atomic hardware instructions.
+    <ul>
+      <li><strong>Atomic</strong> = non-interruptible
+        <ul>
+          <li>Either test memory word and set value.</li>
+          <li>Or swap contents of two memory words.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="testandset-instruction">1. test_and_set Instruction</h4>
+<p><img src="https://i.imgur.com/HP1PMeH.jpg" alt="" /></p>
+<ul>
+  <li>Solution using test_and_set()
+  <img src="https://i.imgur.com/5SMn8ix.jpg" alt="" /></li>
+  <li>Bounded-waiting Mutual Exclusion with test_and_set
+  <img src="https://i.imgur.com/wGOMFdV.jpg" alt="" /></li>
+</ul>
+
+<h4 id="compareandswap-instruction">2. compare_and_swap Instruction</h4>
+<p><img src="https://i.imgur.com/7neEbLe.jpg" alt="" /></p>
+<ul>
+  <li>Solution using compare_and_swap
+  <img src="https://i.imgur.com/37TZRjA.jpg" alt="" /></li>
+</ul>
+
+<h3 id="mutex-locks">(五) Mutex Locks</h3>
+<ul>
+  <li>Previous solutions are complicated and generally inaccessible to application programmers.</li>
+  <li>OS designers build software tools to solve critical section problem.</li>
+  <li>Simplest is mutex lock</li>
+  <li>Product critical regions with it by first <strong>acquire()</strong> a lock then <strong>release()</strong> it.
+    <ul>
+      <li>Boolean variable indicating if lock is available or not</li>
+    </ul>
+  </li>
+  <li>Calls to <strong>acquire()</strong> and <strong>release()</strong> must be atomic.
+    <ul>
+      <li>Usually implemented via hardware atomic instructions</li>
+    </ul>
+  </li>
+  <li>But this solution requires <strong>busy waiting</strong>.
+    <ul>
+      <li>This lock therefore called a <strong>spinlock</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="acquire-and-release">acquire() and release()</h4>
+<p><img src="https://i.imgur.com/stNKbbR.jpg" alt="" /></p>
+
+<h2 id="section-1">20170504</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170504/ch06.pdf">Chapter 6: Process Scheduling</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="semaphore">(一) Semaphore</h3>
+<ul>
+  <li>Synchronization tool that does not require busy waiting.</li>
+  <li>Semaphore S – integer variable</li>
+  <li>Two standard operations modify S: <code class="highlighter-rouge">wait()</code> and <code class="highlighter-rouge">signal()</code></li>
+  <li>Less complicated</li>
+  <li>Can only be accessed via two indivisible (atomic) operations</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">S</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">;</span> <span class="c1">//busy wait
+</span>    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">S</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="usage">1. Usage</h4>
+<ul>
+  <li><strong>Counting semaphore</strong> – integer value can range over an unrestricted domain</li>
+  <li><strong>Binary semaphore</strong> – integer value can range only between 0 and 1
+    <ul>
+      <li>Then a <code class="highlighter-rouge">mutex lock</code></li>
+    </ul>
+  </li>
+  <li>Can implement a counting semaphore S as a binary semaphore</li>
+  <li>Can solve various synchronization problems</li>
+  <li>Consider P1 and P2 that require S1 to happen before S2</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="nl">P1:</span>
+    <span class="n">S1</span><span class="p">;</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
+<span class="n">P2</span><span class="o">:</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
+    <span class="n">S2</span><span class="p">;</span>
+</code></pre></div>
+
+<h4 id="implementation">2. Implementation</h4>
+<h5 id="busy-waiting">(1) Busy waiting</h5>
+<ul>
+  <li>
+    <p>Must guarantee that no two processes can execute <code class="highlighter-rouge">wait()</code> and <code class="highlighter-rouge">signal()</code> on the same semaphore at the same time</p>
+  </li>
+  <li>Thus, implementation becomes the critical section problem where the wait and signal code are placed in the critical section</li>
+  <li>Could now have <strong>busy waiting</strong> in critical section implementation
+    <ul>
+      <li>But implementation code is short</li>
+      <li>Little busy waiting if critical section rarely occupied</li>
+    </ul>
+  </li>
+  <li>Note that applications may spend lots of time in critical sections and therefore this is not a good solution</li>
+</ul>
+
+<h5 id="with-no-busy-waiting">(2) with no Busy waiting</h5>
+<ul>
+  <li>With each semaphore there is an associated waiting queue</li>
+  <li>Each entry in a waiting queue has two data items:
+    <ul>
+      <li>value (of type integer)</li>
+      <li>pointer to next record in the list</li>
+    </ul>
+  </li>
+  <li>Two operations:
+    <ul>
+      <li><code class="highlighter-rouge">block</code> – place the process invoking the operation on the appropriate waiting queue</li>
+      <li><code class="highlighter-rouge">wakeup</code> – remove one of processes in the waiting queue and place it in the ready queue</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">process</span> <span class="o">*</span><span class="n">list</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">semaphore</span><span class="p">;</span>
+
+<span class="n">wait</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// add this process to S-&gt;list;
+</span>        <span class="n">block</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">signal</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// remove a process P from S-&gt;list;
+</span>        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="deadlock-and-starvation">(二) Deadlock and Starvation</h3>
+<ul>
+  <li><strong>Deadlock</strong> – two or more processes are waiting indefinitely for an event that can be caused by only one of the waiting processes</li>
+  <li>
+    <p>Let S and Q be two semaphores initialized to 1
+<img src="https://i.imgur.com/9cUghpD.png" alt="" /></p>
+  </li>
+  <li><strong>Starvation</strong> – indefinite blocking
+    <ul>
+      <li>A process may never be removed from the semaphore queue in which it is suspended</li>
+    </ul>
+  </li>
+  <li><strong>Priority Inversion</strong>
+    <ul>
+      <li>Scheduling problem when lower-priority process holds a lock needed by higher-priority process</li>
+      <li>Solved via <strong>priority-inheritance protocol</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="classical-problems-of-synchronization">(三) Classical Problems of Synchronization</h3>
+<h4 id="bounded-buffer-problem">1. Bounded-Buffer Problem</h4>
+<ul>
+  <li>n buffers, each can hold one item
+    <ul>
+      <li>Semaphore <code class="highlighter-rouge">mutex</code> initialized to the value 1</li>
+      <li>Semaphore <code class="highlighter-rouge">full</code> initialized to the value 0</li>
+      <li>Semaphore <code class="highlighter-rouge">empty</code> initialized to the value n</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="the-structure-of-the-producer-process">(1) The structure of the producer process</h5>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="cm">/* produce an item in next_produced */</span>
+    <span class="p">...</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    
+    <span class="p">...</span>
+    <span class="cm">/* add next produced to the buffer */</span>
+    <span class="p">...</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</code></pre></div>
+
+<h5 id="the-structure-of-the-consumer-process">(2) The structure of the consumer process</h5>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+
+    <span class="p">...</span>
+    <span class="cm">/* remove an item from buffer to next_consumed */</span>
+    <span class="p">...</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
+
+    <span class="p">...</span>
+    <span class="cm">/* consume the item in next consumed */</span>
+    <span class="p">...</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</code></pre></div>
+
+<h4 id="readers-writers-problem">2. Readers-Writers Problem</h4>
+<ul>
+  <li>A data set is shared among a number of concurrent processes
+    <ul>
+      <li><strong>Readers</strong> - only read the data set; they do not perform any updates</li>
+      <li><strong>Writers</strong> - can both read and write</li>
+    </ul>
+  </li>
+  <li><strong>Problem</strong> - allow multiple readers to read at the same time</li>
+  <li>Several variations of how readers and writers are treated – all involve priorities</li>
+  <li>Shared Data
+    <ul>
+      <li>Data set</li>
+      <li>Semaphore <code class="highlighter-rouge">rw_mutex</code> initialized to 1</li>
+      <li>Semaphore <code class="highlighter-rouge">mutex</code> initialized to 1</li>
+      <li>Integer <code class="highlighter-rouge">read_count</code> initialized to 0</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="the-structure-of-a-writer-process">(1) The structure of a writer process</h5>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    
+    <span class="p">...</span>
+    <span class="cm">/* writing is performed */</span>
+    <span class="p">...</span>
+    
+    <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</code></pre></div>
+
+<h5 id="the-structure-of-a-reader-process">(2) The structure of a reader process</h5>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">read_count</span><span class="o">++</span><span class="p">;</span>
+    
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1">// only for the first reader entering
+</span>        <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+        
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>    <span class="c1">// if the first reader wait for rw_mutex, other readers will be blocked on wait(mutex)
+</span>        
+    <span class="p">...</span>
+    <span class="cm">/* reading is performed */</span>
+    <span class="p">...</span>
+        
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">read_count</span><span class="o">--</span><span class="p">;</span>
+        
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1">// only for the last reader leaving
+</span>        <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+</code></pre></div>
+
+<h5 id="problem">(3) Problem</h5>
+<ul>
+  <li><strong>First variation</strong> – no reader kept waiting unless writer has permission to use shared object</li>
+  <li><strong>Second variation</strong> – once writer is ready, it performs write asap</li>
+  <li>Both may have starvation leading to even more variations</li>
+  <li>Problem is solved on some systems by kernel providing <code class="highlighter-rouge">reader-writer locks</code></li>
+</ul>
+
+<h4 id="dining-philosophers-problem">3. Dining-Philosophers Problem</h4>
+<ul>
+  <li>Philosophers spend their lives thinking and eating</li>
+  <li>Don’t interact with their neighbors, occasionally try to pick up 2 chopsticks (one at a time) to eat from bowl
+    <ul>
+      <li>Need both to eat, then release both when done
+<img src="https://i.imgur.com/9W4qi3z.png" alt="" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="in-the-case-of-5-philosophers">(1) In the case of 5 philosophers</h5>
+<ul>
+  <li>Shared data
+    <ul>
+      <li>Bowl of rice (data set)</li>
+      <li>Semaphore chopstick [5] initialized to 1</li>
+    </ul>
+  </li>
+  <li>The structure of Philosopher i:</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
+    <span class="n">wait</span> <span class="p">(</span> <span class="n">chopStick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
+    
+    <span class="c1">// eat
+</span>
+    <span class="n">signal</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
+    <span class="n">signal</span> <span class="p">(</span><span class="n">chopstick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
+    
+    <span class="c1">// think
+</span>    
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+  <li>Incorrect use of semaphore operations:
+    <ul>
+      <li>signal (mutex) …. wait (mutex)</li>
+      <li>wait (mutex) … wait (mutex)</li>
+      <li>Omitting of wait (mutex) or signal (mutex) (or both)</li>
+    </ul>
+  </li>
+  <li>Deadlock and starvation</li>
+</ul>
+
+<h5 id="monitors">(2) Monitors</h5>
+<p><img src="https://i.imgur.com/Et1mwXN.png" alt="" /></p>
+
+<ul>
+  <li>A high-level abstraction that provides a convenient and effective mechanism for process synchronization</li>
+  <li>Abstract data type, internal variables only accessible by code within the procedure</li>
+  <li>Only one process may be active within the monitor at a time</li>
+  <li>But not powerful enough to model some synchronization schemes</li>
+</ul>
+
+<h5 id="monitors-implementation">Monitors Implementation</h5>
+<h6 id="using-semaphores">1. Using Semaphores</h6>
+<ul>
+  <li>Variables</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">semaphore</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// (initially = 1)
+</span><span class="n">semaphore</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// (initially = 0)
+</span><span class="kt">int</span> <span class="n">next_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+
+<ul>
+  <li>Each procedure F will be replaced by</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+
+<span class="p">...</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">F</span><span class="p">;</span>
+<span class="p">...</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+</code></pre></div>
+
+<ul>
+  <li>Mutual exclusion within a monitor is ensured</li>
+</ul>
+
+<h6 id="condition-variables">2. Condition Variables</h6>
+
+<ul>
+  <li>For each condition variable x, we have:</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">semaphore</span> <span class="n">x_sem</span><span class="p">;</span> <span class="c1">// (initially = 0)
+</span><span class="kt">int</span> <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+
+<ul>
+  <li>The operation <code class="highlighter-rouge">x.wait</code> can be implemented as:</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+<span class="n">wait</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
+<span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
+</code></pre></div>
+
+<h6 id="resuming-processes">Resuming Processes</h6>
+<ul>
+  <li>If several processes queued on condition x, and x.signal() executed, which should be resumed?</li>
+  <li>FCFS frequently not adequate</li>
+  <li><strong>conditional-wait</strong> construct of the form x.wait(c)
+    <ul>
+      <li>Where c is <strong>priority number</strong></li>
+      <li>Process with lowest number (highest priority) is scheduled next</li>
+    </ul>
+  </li>
+</ul>
+
+<h6 id="allocate-single-resource">Allocate Single Resource</h6>
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">monitor</span> <span class="n">ResourceAllocator</span>
+<span class="p">{</span>
+    <span class="n">boolean</span> <span class="n">busy</span><span class="p">;</span>
+    <span class="n">condition</span> <span class="n">x</span><span class="p">;</span>
+    
+    <span class="kt">void</span> <span class="nf">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">busy</span><span class="p">)</span>
+            <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
+        <span class="n">busy</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="nf">release</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
+        <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="n">initialization</span> <span class="nf">code</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h5 id="solution">(3) Solution</h5>
+<ul>
+  <li>Each philosopher i invokes the operations <code class="highlighter-rouge">pickup()</code> and <code class="highlighter-rouge">putdown()</code> in the following sequence:
+    <ul>
+      <li>No deadlock, but starvation is possible.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">EAT</span>
+<span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</code></pre></div>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">monitor</span> <span class="n">DiningPhilosophers</span>
+<span class="p">{</span>
+    <span class="k">enum</span> <span class="p">{</span> <span class="n">THINKING</span><span class="p">;</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">state</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">;</span>
+    <span class="n">condition</span> <span class="n">self</span> <span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+
+    <span class="kt">void</span> <span class="nf">pickup</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">HUNGRY</span><span class="p">;</span>
+        <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">self</span> <span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="nf">putdown</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
+    
+        <span class="cm">/* test left and right neighbors */</span>
+        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>
+        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">test</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+<span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">HUNGRY</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+<span class="p">(</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">EATING</span><span class="p">;</span>
+            <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">signal</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+    <span class="n">initialization_code</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="linux-">二、Linux 程式設計</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170505/Working-with-files.pdf">Working-with-files</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="mmap">(一) mmap</h3>
+<ul>
+  <li><code class="highlighter-rouge">void *mmap(void *addr, size_t len, int port, int flags, int fildes, off_t off);</code>
+    <ul>
+      <li>PORT_READ</li>
+      <li>PORT_WRITE</li>
+      <li>PORT_EXEC</li>
+      <li>PORT_NONE</li>
+      <li>MAP_PRIVATE</li>
+      <li>MAP_SHARED</li>
+      <li>MAP_FIXED</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="msync">(二) msync</h3>
+<ul>
+  <li><code class="highlighter-rouge">int msync(void* addr, size_t len, int flags);</code>
+    <ul>
+      <li>MS_AYSNC (非同步寫入)</li>
+      <li>MS_SYNC (同步寫入)</li>
+      <li>MS_INVALIDATE (再從檔案讀)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="munmap">(三) munmap</h3>
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">int munmap(void * addr, size_t len);</code></p>
+  </li>
+  <li><code class="highlighter-rouge">fprintf.c</code>
+    <div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#define SIZE 100
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kt">FILE</span> <span class="o">*</span><span class="n">fptr</span><span class="p">,</span> <span class="o">*</span><span class="n">fptr2</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+  <span class="n">fptr</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"ans.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fptr</span><span class="p">){</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"open error </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"open success, start writing into file</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">a</span> <span class="o">=</span> <span class="p">((</span><span class="kt">float</span><span class="p">)</span><span class="n">rand</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">RAND_MAX</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"[%3d] = %3.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+      <span class="n">fprintf</span><span class="p">(</span><span class="n">fptr</span><span class="p">,</span> <span class="s">"%3.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">fclose</span><span class="p">(</span><span class="n">fptr</span><span class="p">);</span>
+  <span class="cm">/*---------------------------------------------------------- */</span>
+  <span class="n">fptr2</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"ans.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">fptr2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"open error</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"open success, start reading from file</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">fscanf</span><span class="p">(</span><span class="n">fptr2</span><span class="p">,</span> <span class="s">"%6f"</span> <span class="p">,</span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"[%3d] = %3.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+	
+  <span class="n">fclose</span><span class="p">(</span><span class="n">fptr2</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>    </div>
+  </li>
+  <li>執行結果</li>
+</ul>
+
+<p><img src="https://i.imgur.com/WkwKXZJ.png" alt="" /></p>
+
+<p><img src="https://i.imgur.com/vFysQAi.png" alt="" /></p>
+
+<h3 id="section-2">課堂作業</h3>
+<ul>
+  <li>給予一個資料檔，計算其平均值與標準差。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;math.h&gt;
+#define SIZE 100
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kt">FILE</span> <span class="o">*</span><span class="n">fptr1</span><span class="p">,</span> <span class="o">*</span><span class="n">fptr2</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+	<span class="kt">float</span> <span class="n">a</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">total</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">avg</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">sigma</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+
+    <span class="cm">/* Use fptr1 to calculate total and average */</span>
+    <span class="n">fptr1</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"ans.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fptr1</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"open error</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span> 
+    
+    <span class="k">else</span> <span class="p">{</span>
+	    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">open success, fptr1 starts reading from file</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="p">}</span>
+
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">fscanf</span><span class="p">(</span><span class="n">fptr1</span><span class="p">,</span> <span class="s">"%6f"</span> <span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"[%3d] = %3.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="p">}</span>
+	<span class="n">avg</span> <span class="o">=</span> <span class="p">(</span><span class="n">total</span> <span class="o">/</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">fptr1</span><span class="p">);</span>
+
+
+
+
+    <span class="cm">/* Use fptr2 to calculate standard deviation */</span>
+    <span class="n">fptr2</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"ans.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fptr2</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"open error</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span> 
+    
+    <span class="k">else</span> <span class="p">{</span>
+	    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">open success, fptr2 starts reading from file</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="p">}</span>
+
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">fscanf</span><span class="p">(</span><span class="n">fptr2</span><span class="p">,</span> <span class="s">"%6f"</span> <span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sigma</span> <span class="o">+=</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">avg</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">avg</span><span class="p">);</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">sd</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">sigma</span> <span class="o">/</span> <span class="n">i</span><span class="p">);</span> 
+    <span class="n">fclose</span><span class="p">(</span><span class="n">fptr2</span><span class="p">);</span>
+
+
+
+
+    <span class="cm">/* Output */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">The average = %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">avg</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"The standard deviation = %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sd</span><span class="p">);</span>
+
+
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/W17ixQD.png" alt="" /></li>
+</ul>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/04/07/linux_system/">20170407 [學習筆記] Linux 系統程式 (6)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2017/05/04/vim/">20170504 [個人紀錄] Vim 慣用設定</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2017/05/05/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/05/05/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>
