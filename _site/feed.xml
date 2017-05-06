@@ -5,30 +5,14 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 06 May 2017 21:57:46 +0800</pubDate>
-    <lastBuildDate>Sat, 06 May 2017 21:57:46 +0800</lastBuildDate>
+    <pubDate>Sat, 06 May 2017 22:04:48 +0800</pubDate>
+    <lastBuildDate>Sat, 06 May 2017 22:04:48 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>20170505 [學習筆記] Linux 系統程式 (9)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#race-condition&quot; id=&quot;markdown-toc-race-condition&quot;&gt;Race Condition&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#critical-section-problem&quot; id=&quot;markdown-toc-critical-section-problem&quot;&gt;(一) Critical-Section Problem&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#solution-to-critical-section-problem&quot; id=&quot;markdown-toc-solution-to-critical-section-problem&quot;&gt;(二) Solution to Critical-Section Problem&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#petersons-solution&quot; id=&quot;markdown-toc-petersons-solution&quot;&gt;(三) Peterson’s Solution&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#synchronization-hardware&quot; id=&quot;markdown-toc-synchronization-hardware&quot;&gt;(四) Synchronization Hardware&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#testandset-instruction&quot; id=&quot;markdown-toc-testandset-instruction&quot;&gt;1. test_and_set Instruction&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#compareandswap-instruction&quot; id=&quot;markdown-toc-compareandswap-instruction&quot;&gt;2. compare_and_swap Instruction&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#mutex-locks&quot; id=&quot;markdown-toc-mutex-locks&quot;&gt;(五) Mutex Locks&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#acquire-and-release&quot; id=&quot;markdown-toc-acquire-and-release&quot;&gt;acquire() and release()&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;20170504&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#semaphore&quot; id=&quot;markdown-toc-semaphore&quot;&gt;(一) Semaphore&lt;/a&gt;        &lt;ul&gt;
           &lt;li&gt;&lt;a href=&quot;#usage&quot; id=&quot;markdown-toc-usage&quot;&gt;1. Usage&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#implementation&quot; id=&quot;markdown-toc-implementation&quot;&gt;2. Implementation&lt;/a&gt;            &lt;ul&gt;
@@ -72,168 +56,12 @@
       &lt;li&gt;&lt;a href=&quot;#mmap&quot; id=&quot;markdown-toc-mmap&quot;&gt;(一) mmap&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#msync&quot; id=&quot;markdown-toc-msync&quot;&gt;(二) msync&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#munmap&quot; id=&quot;markdown-toc-munmap&quot;&gt;(三) munmap&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;課堂作業&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;課堂作業&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;課程簡報
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170427/ch06.pdf&quot;&gt;Chapter 6: Process Scheduling&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;race-condition&quot;&gt;Race Condition&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Consumer
-&lt;img src=&quot;https://i.imgur.com/07kx1WD.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Producer
-&lt;img src=&quot;https://i.imgur.com/eBPWPyb.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Race Condition
-&lt;img src=&quot;https://i.imgur.com/Q5qf9Xi.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;critical-section-problem&quot;&gt;(一) Critical-Section Problem&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;General Structure：
-&lt;img src=&quot;https://i.imgur.com/yVVaplo.jpg&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;https://i.imgur.com/dWa1ujd.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;solution-to-critical-section-problem&quot;&gt;(二) Solution to Critical-Section Problem&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Mutual Exclusion&lt;/strong&gt; - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Progress&lt;/strong&gt; - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Bounded Waiting&lt;/strong&gt; - A bound must exist on the number of times that other processes are allowed to enter their critical sections.
-    &lt;ul&gt;
-      &lt;li&gt;Assume that each process executes at a nonzero speed.&lt;/li&gt;
-      &lt;li&gt;No assumption concerning relative speed of the n processes.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Two approaches depending on if kernel is preemptive or non-preemptive.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Preemptive&lt;/strong&gt; – allows preemption of process when running in kernel mode.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Non-preemptive&lt;/strong&gt; – runs until exits kernel mode, blocks, or voluntarily yields CPU.
-        &lt;ul&gt;
-          &lt;li&gt;Essentially free of race conditions in kernel mode.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;petersons-solution&quot;&gt;(三) Peterson’s Solution&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Good algorithmic description of solving the problem.&lt;/li&gt;
-  &lt;li&gt;Two process solution&lt;/li&gt;
-  &lt;li&gt;Assume that the load and store instructions are atomic; that is, cannot be interrupted&lt;/li&gt;
-  &lt;li&gt;The two processes share two variables：
-    &lt;ul&gt;
-      &lt;li&gt;int turn;&lt;/li&gt;
-      &lt;li&gt;Boolean flag[2]&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The variable turn indicates whose turn it is to enter the critical section&lt;/li&gt;
-  &lt;li&gt;The flag array is used to indicate if a process is ready to enter the critical section.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;flag[i] = true&lt;/code&gt; implies that process Pi is ready!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/VjV8Owl.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Provable that
-    &lt;ol&gt;
-      &lt;li&gt;Mutual exclusion is preserved.&lt;/li&gt;
-      &lt;li&gt;Progress requirement is satisfied.&lt;/li&gt;
-      &lt;li&gt;Bounded-waiting requirement is met.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;synchronization-hardware&quot;&gt;(四) Synchronization Hardware&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Many systems provide hardware support for critical section code.&lt;/li&gt;
-  &lt;li&gt;All solutions below based on idea of &lt;strong&gt;locking&lt;/strong&gt;.
-    &lt;ul&gt;
-      &lt;li&gt;Protecting critical regions via locks.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Uniprocessors – could disable interrupts
-    &lt;ul&gt;
-      &lt;li&gt;Currently running code would execute without preemption.&lt;/li&gt;
-      &lt;li&gt;Generally too inefficient on multiprocessor systems.
-        &lt;ul&gt;
-          &lt;li&gt;Operating systems using this not broadly scalable.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Modern machines provide special atomic hardware instructions.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Atomic&lt;/strong&gt; = non-interruptible
-        &lt;ul&gt;
-          &lt;li&gt;Either test memory word and set value.&lt;/li&gt;
-          &lt;li&gt;Or swap contents of two memory words.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;testandset-instruction&quot;&gt;1. test_and_set Instruction&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HP1PMeH.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Solution using test_and_set()
-  &lt;img src=&quot;https://i.imgur.com/5SMn8ix.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Bounded-waiting Mutual Exclusion with test_and_set
-  &lt;img src=&quot;https://i.imgur.com/wGOMFdV.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;compareandswap-instruction&quot;&gt;2. compare_and_swap Instruction&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/7neEbLe.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Solution using compare_and_swap
-  &lt;img src=&quot;https://i.imgur.com/37TZRjA.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;mutex-locks&quot;&gt;(五) Mutex Locks&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Previous solutions are complicated and generally inaccessible to application programmers.&lt;/li&gt;
-  &lt;li&gt;OS designers build software tools to solve critical section problem.&lt;/li&gt;
-  &lt;li&gt;Simplest is mutex lock&lt;/li&gt;
-  &lt;li&gt;Product critical regions with it by first &lt;strong&gt;acquire()&lt;/strong&gt; a lock then &lt;strong&gt;release()&lt;/strong&gt; it.
-    &lt;ul&gt;
-      &lt;li&gt;Boolean variable indicating if lock is available or not&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Calls to &lt;strong&gt;acquire()&lt;/strong&gt; and &lt;strong&gt;release()&lt;/strong&gt; must be atomic.
-    &lt;ul&gt;
-      &lt;li&gt;Usually implemented via hardware atomic instructions&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;But this solution requires &lt;strong&gt;busy waiting&lt;/strong&gt;.
-    &lt;ul&gt;
-      &lt;li&gt;This lock therefore called a &lt;strong&gt;spinlock&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;acquire-and-release&quot;&gt;acquire() and release()&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/stNKbbR.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;20170504&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;課程簡報
     &lt;ul&gt;
@@ -762,7 +590,7 @@
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/vFysQAi.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;課堂作業&lt;/h3&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;課堂作業&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;給予一個資料檔，計算其平均值與標準差。&lt;/li&gt;
 &lt;/ul&gt;
