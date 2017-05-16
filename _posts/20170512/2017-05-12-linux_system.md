@@ -390,6 +390,7 @@ exit 0
 ```
 
 * 執行結果
+![](https://i.imgur.com/POqHcOx.png)
 
 
 ### 課堂作業

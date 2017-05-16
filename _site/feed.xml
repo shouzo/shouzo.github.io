@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 May 2017 14:44:39 +0800</pubDate>
-    <lastBuildDate>Tue, 16 May 2017 14:44:39 +0800</lastBuildDate>
+    <pubDate>Tue, 16 May 2017 18:28:58 +0800</pubDate>
+    <lastBuildDate>Tue, 16 May 2017 18:28:58 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -507,7 +507,8 @@ rm –f file_one
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;執行結果&lt;/li&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/POqHcOx.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;課堂作業&lt;/h3&gt;
