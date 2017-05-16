@@ -5,9 +5,533 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 06 May 2017 22:04:48 +0800</pubDate>
-    <lastBuildDate>Sat, 06 May 2017 22:04:48 +0800</lastBuildDate>
+    <pubDate>Tue, 16 May 2017 14:44:39 +0800</pubDate>
+    <lastBuildDate>Tue, 16 May 2017 14:44:39 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>20170512 [學習筆記] Linux 系統程式 (10)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#deadlock-characterization&quot; id=&quot;markdown-toc-deadlock-characterization&quot;&gt;(一) Deadlock Characterization&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#resource-allocation-graph&quot; id=&quot;markdown-toc-resource-allocation-graph&quot;&gt;(二) Resource-Allocation Graph&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#example&quot; id=&quot;markdown-toc-example&quot;&gt;1. Example&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#basic-facts&quot; id=&quot;markdown-toc-basic-facts&quot;&gt;2. Basic Facts&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#methods-for-handling-deadlocks&quot; id=&quot;markdown-toc-methods-for-handling-deadlocks&quot;&gt;3. Methods for Handling Deadlocks&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#deadlock-prevention&quot; id=&quot;markdown-toc-deadlock-prevention&quot;&gt;(三) Deadlock Prevention&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-1&quot; id=&quot;markdown-toc-example-1&quot;&gt;1. Example&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#deadlock-avoidance&quot; id=&quot;markdown-toc-deadlock-avoidance&quot;&gt;2. Deadlock Avoidance&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#safe-state&quot; id=&quot;markdown-toc-safe-state&quot;&gt;3. Safe State&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#basic-facts-1&quot; id=&quot;markdown-toc-basic-facts-1&quot;&gt;4. Basic Facts&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#safe-unsafe-deadlock-state&quot; id=&quot;markdown-toc-safe-unsafe-deadlock-state&quot;&gt;5. Safe, Unsafe, Deadlock State&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#avoidance-algorithms&quot; id=&quot;markdown-toc-avoidance-algorithms&quot;&gt;6. Avoidance algorithms&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#resource-allocation-graph-1&quot; id=&quot;markdown-toc-resource-allocation-graph-1&quot;&gt;7. Resource-Allocation Graph&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#algorithm&quot; id=&quot;markdown-toc-algorithm&quot;&gt;8. Algorithm&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#data-structures-for-the-bankers-algorithm&quot; id=&quot;markdown-toc-data-structures-for-the-bankers-algorithm&quot;&gt;(1) Data Structures for the Banker’s Algorithm&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#safety-algorithm&quot; id=&quot;markdown-toc-safety-algorithm&quot;&gt;(2) Safety Algorithm&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#shell-&quot; id=&quot;markdown-toc-shell-&quot;&gt;(一) Shell 簡介&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#variables&quot; id=&quot;markdown-toc-variables&quot;&gt;(二) 變數 (variables)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#quoting&quot; id=&quot;markdown-toc-quoting&quot;&gt;(三) 引號 (quoting)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#condition&quot; id=&quot;markdown-toc-condition&quot;&gt;(四) 條件判斷 (condition)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#if&quot; id=&quot;markdown-toc-if&quot;&gt;(五) 控制結構 - if&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#elif&quot; id=&quot;markdown-toc-elif&quot;&gt;(六) 控制結構 - elif&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#for&quot; id=&quot;markdown-toc-for&quot;&gt;(七) 控制結構 - for&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-1&quot; id=&quot;markdown-toc-example-1&quot;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-2&quot; id=&quot;markdown-toc-example-2&quot;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#while&quot; id=&quot;markdown-toc-while&quot;&gt;(八) 控制結構 - while&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-1-1&quot; id=&quot;markdown-toc-example-1-1&quot;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-2-1&quot; id=&quot;markdown-toc-example-2-1&quot;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-3&quot; id=&quot;markdown-toc-example-3&quot;&gt;Example 3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#case&quot; id=&quot;markdown-toc-case&quot;&gt;(九) 控制結構 - case&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-1-2&quot; id=&quot;markdown-toc-example-1-2&quot;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-2-2&quot; id=&quot;markdown-toc-example-2-2&quot;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#and&quot; id=&quot;markdown-toc-and&quot;&gt;(十) 控制結構 - AND&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-1-3&quot; id=&quot;markdown-toc-example-1-3&quot;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#or&quot; id=&quot;markdown-toc-or&quot;&gt;(十一) 控制結構 - OR&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#example-1-4&quot; id=&quot;markdown-toc-example-1-4&quot;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;課堂作業&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;課堂講義
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170511/ch07.pdf&quot;&gt;Chapter 7: Deadlocks&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;deadlock-characterization&quot;&gt;(一) Deadlock Characterization&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Mutual exclusion&lt;/strong&gt;：only one process at a time can use a resource.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Hold and wait&lt;/strong&gt;：a process holding at least one resource is waiting to acquire additional resources held by other processes.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;No preemption&lt;/strong&gt;：a resource can be released only voluntarily by the process holding it, after that process has completed its task.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Circular wait&lt;/strong&gt;：there exists a set {P0, P1, …, Pn } of waiting processes such that P0 is waiting for a resource that is held by P1, P1 is waiting for a resource that is held by P2 , …, Pn–1 is waiting for a resource that is held by Pn, and Pn is waiting for a resource that is held by P0.&lt;/li&gt;
+  &lt;li&gt;Deadlocks can occur via system calls, locking, etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;resource-allocation-graph&quot;&gt;(二) Resource-Allocation Graph&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/ruQSE03.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://i.imgur.com/jSnZ1nO.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;example&quot;&gt;1. Example&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Resource Allocation Graph
+&lt;img src=&quot;https://i.imgur.com/e10FFPp.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Resource Allocation Graph With A Deadlock
+&lt;img src=&quot;https://i.imgur.com/t2UkKLi.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Graph With A Cycle But No Deadlock
+&lt;img src=&quot;https://i.imgur.com/3mqHz5J.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;basic-facts&quot;&gt;2. Basic Facts&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;If graph contains no cycles » no deadlock&lt;/li&gt;
+  &lt;li&gt;If graph contains a cycle
+    &lt;ul&gt;
+      &lt;li&gt;if only one instance per resource type, then deadlock&lt;/li&gt;
+      &lt;li&gt;if several instances per resource type, possibility of deadlock&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;methods-for-handling-deadlocks&quot;&gt;3. Methods for Handling Deadlocks&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ensure that the system will never enter a deadlock state&lt;/li&gt;
+  &lt;li&gt;Allow the system to enter a deadlock state and then recover&lt;/li&gt;
+  &lt;li&gt;Ignore the problem and pretend that deadlocks never occur in the system; used by most operating systems, including UNIX&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;deadlock-prevention&quot;&gt;(三) Deadlock Prevention&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Mutual Exclusion&lt;/strong&gt;：not required for sharable resources; must hold for nonsharable resources&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Hold and Wait&lt;/strong&gt;：must guarantee that whenever a process requests a resource, it does not hold any other resources
+    &lt;ul&gt;
+      &lt;li&gt;Require process to request and be allocated all its resources before it begins execution, or allow process to request resources only when the process has none&lt;/li&gt;
+      &lt;li&gt;Low resource utilization; starvation possible&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;No Preemption&lt;/strong&gt;：
+    &lt;ul&gt;
+      &lt;li&gt;If a process that is holding some resources requests another resource that cannot be immediately allocated to it, then all resources currently being held are released&lt;/li&gt;
+      &lt;li&gt;Preempted resources are added to the list of resources for which the process is waiting&lt;/li&gt;
+      &lt;li&gt;Process will be restarted only when it can regain its old resources, as well as the new ones that it is requesting&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Circular Wait&lt;/strong&gt;：impose a total ordering of all resource types, and require that each process requests resources in an increasing order of enumeration&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;example-1&quot;&gt;1. Example&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Deadlock Example&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/* thread one runs in this function */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;work&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;one&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;cm&quot;&gt;/** * Do some work */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/* thread two runs in this function */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;work&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;two&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;cm&quot;&gt;/** * Do some work */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pthread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Deadlock Example with Lock Ordering&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mutex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lock1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lock2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lock1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lock2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lock1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lock2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;withdraw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;deposit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lock2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lock1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;deadlock-avoidance&quot;&gt;2. Deadlock Avoidance&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Requires that the system has some additional a priori information available
+    &lt;ul&gt;
+      &lt;li&gt;Simplest and most useful model requires that each process declare the &lt;strong&gt;maximum number&lt;/strong&gt; of resources of each type that it may need&lt;/li&gt;
+      &lt;li&gt;The deadlock-avoidance algorithm dynamically examines the resource-allocation state to ensure that there can never be a circular-wait condition&lt;/li&gt;
+      &lt;li&gt;Resource-allocation state is defined by the number of available and allocated resources, and the maximum demands of the processes&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;safe-state&quot;&gt;3. Safe State&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Qzeh5D8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;basic-facts-1&quot;&gt;4. Basic Facts&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;If a system is in safe state » no deadlocks&lt;/li&gt;
+  &lt;li&gt;If a system is in unsafe state » possibility of deadlock&lt;/li&gt;
+  &lt;li&gt;Avoidance » ensure that a system will never enter an unsafe state&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;safe-unsafe-deadlock-state&quot;&gt;5. Safe, Unsafe, Deadlock State&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Y7KEMVp.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;avoidance-algorithms&quot;&gt;6. Avoidance algorithms&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Single instance of a resource type
+    &lt;ul&gt;
+      &lt;li&gt;Use a resource-allocation graph&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Multiple instances of a resource type
+    &lt;ul&gt;
+      &lt;li&gt;Use the banker’s algorithm&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;resource-allocation-graph-1&quot;&gt;7. Resource-Allocation Graph&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/aUkipvw.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;http://i.imgur.com/RtDzuXQ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;algorithm&quot;&gt;8. Algorithm&lt;/h4&gt;
+&lt;h5 id=&quot;data-structures-for-the-bankers-algorithm&quot;&gt;(1) Data Structures for the Banker’s Algorithm&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Z9SQSCC.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Example
+&lt;img src=&quot;http://i.imgur.com/IMSADSw.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;http://i.imgur.com/CnQFX9s.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;safety-algorithm&quot;&gt;(2) Safety Algorithm&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/V6oA8hC.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;課程簡報
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170512/Linux_shell.pdf&quot;&gt;Linux_shell&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170512/Shell_practice.pdf&quot;&gt;Shell_practice&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://linux.vbird.org/linux_basic/0340bashshell-scripts.php#script_why&quot;&gt;學習 Shell Scripts&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;shell-&quot;&gt;(一) Shell 簡介&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Shell 是使用者與 Linux 系統的介面，可以輸入命令，交由作業系統去執行。
+    &lt;ul&gt;
+      &lt;li&gt;Shell 快速且簡單&lt;/li&gt;
+      &lt;li&gt;Shell 一般稱為 script&lt;/li&gt;
+      &lt;li&gt;直譯式執行，容易除錯&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/xadWBBf.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;variables&quot;&gt;(二) 變數 (variables)&lt;/h3&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;salutation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Hello
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$salutation&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;salutation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Yes Dear&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$salutation&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;salutation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;7+5
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$salutation&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/jaY3g8G.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;quoting&quot;&gt;(三) 引號 (quoting)&lt;/h3&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;myvar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hi there&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$myvar&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$myvar&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;$myvar&#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\$&lt;/span&gt;myvar
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Please enter something...&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;myvar
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$myvar&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/NobGb6l.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;condition&quot;&gt;(四) 條件判斷 (condition)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/enjX7FA.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://i.imgur.com/nVZTV1F.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;if&quot;&gt;(五) 控制結構 - if&lt;/h3&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Is it morning ?&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;timeofday
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$timeofday&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;yes&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good morning&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good afternoon&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/lSzTfpI.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;elif&quot;&gt;(六) 控制結構 - elif&lt;/h3&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Is it morning ?&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;timeofday
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$timeofday&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;yes&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good morning&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$timeofday&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;no&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good afternoon&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;else
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Sorry, &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$timeofday&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; not recognized&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/6T6jDMe.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;for&quot;&gt;(七) 控制結構 - for&lt;/h3&gt;
+&lt;h5 id=&quot;example-1&quot;&gt;Example 1&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;foo &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;bar fud 43
+&lt;span class=&quot;k&quot;&gt;do
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$foo&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/rfV1Ra5.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;example-2&quot;&gt;Example 2&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;i &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;1 2 3
+&lt;span class=&quot;k&quot;&gt;do
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/0h1Rraa.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;while&quot;&gt;(八) 控制結構 - while&lt;/h3&gt;
+&lt;h5 id=&quot;example-1-1&quot;&gt;Example 1&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Enter password&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;trythis
+    
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$trythis&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; !&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;secret&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;do
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Sorry, try again&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;trythis
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/bLumx82.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;example-2-1&quot;&gt;Example 2&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$foo&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -le 20 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;do
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Here we go again&quot;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/tr0Zi4C.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;example-3&quot;&gt;Example 3&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -ne 10 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;do
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/eeuK6q3.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;case&quot;&gt;(九) 控制結構 - case&lt;/h3&gt;
+&lt;h5 id=&quot;example-1-2&quot;&gt;Example 1&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Is it morning? Please answer &#39;Yes&#39;、&#39;y&#39;、&#39;No&#39;、&#39;n&#39;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;timeofday
+
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$timeofday&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
+	&lt;/span&gt;Yes&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good Morning&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+	No&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good Aftrenoon&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+	y&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good Morning&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+	n&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good Aftrenoon&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Sorry, answer not recognized&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/Hnaa66Y.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;example-2-2&quot;&gt;Example 2&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Is it morning? Please answer &#39;Yes&#39;、&#39;Y...&#39;、&#39;y&#39;、&#39;No&#39;、&#39;N...&#39;、&#39;n&#39;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;timeofday
+
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$timeofday&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
+    &lt;/span&gt;Y&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; y &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; Yes&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good Morning&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    N&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; n &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; No&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good Aftrenoon&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Sorry, answer not recognized&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/Opd1dfC.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;and&quot;&gt;(十) 控制結構 - AND&lt;/h3&gt;
+&lt;h5 id=&quot;example-1-3&quot;&gt;Example 1&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+touch file_one
+rm file_two
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -f file_one &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -f file_two &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;there&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;then 
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;in if&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;in else&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi
+
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/P3wITc9.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;or&quot;&gt;(十一) 控制結構 - OR&lt;/h3&gt;
+&lt;h5 id=&quot;example-1-4&quot;&gt;Example 1&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+rm –f file_one
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -f file_one &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;there&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;in if&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;in else&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi
+
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;執行結果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;課堂作業&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/UYMl9ZM.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 12 May 2017 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/05/12/linux_system/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/05/12/linux_system/</guid>
+        
+        <category>Linux</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+        
+        <category>Linux</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+      </item>
     
       <item>
         <title>20170505 [學習筆記] Linux 系統程式 (9)</title>
@@ -2859,64 +3383,6 @@ char* mode);&lt;/code&gt;
         
         
         <category>人工智慧</category>
-        
-      </item>
-    
-      <item>
-        <title>20170403 [有感而發] 求學就像是吃餅，怎麼可能一口氣吃得完？當然是要從最有興趣的地方開始慢慢吃啊！</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;求學，就像是吃一塊漫無邊際的大餅&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;怎麼可能無所不知？不懂就只能坦白承認啦！&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/DOD1Y4C.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;今天不談社團，來聊聊其他的。剛剛在看到 Jserv 在網路上發的一篇文：&lt;a href=&quot;https://www.facebook.com/microjserv/posts/10155154029752389&quot;&gt;https://www.facebook.com/microjserv/posts/10155154029752389&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;讓我聯想到之前國、高中上課發問時的情景 (通常得到的答覆和上文差不多)。但是直到現在大四下學期，我發現自己在大學系上課程中得知的東西仍然有限。我可不希望以後詞窮被問了類似的問題 (以下對話參考自上方連結之原文)：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;兒子好奇：「 爸，什麼是電腦？為什麼電腦可以運作？」&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;我卻只能回答：「 因為爸爸認真工作，乖乖繳交電費，讓你可以使用電腦。 」&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;兒子不爽：「 … 原來你大學讀電機資訊系就學這些啊，讀了書卻無法正面回答我的問題，這樣讀書有什麼意思呢？你自己讀書沒用，又何必要求我讀書呢？」&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;上述情境當然有很多地方值得探討，但是以 &lt;strong&gt;「 在體制教育內的求學期間不知道學了些什麼 」&lt;/strong&gt; 這個面向來看卻格外諷刺…&lt;/p&gt;
-
-&lt;p&gt;而我後來在進行一些更深入的實作和研究時，漸漸發現某些科目學問存在的重要性 (各個領域之間其實彼此都相互連結)。但是那些科目當初在授課時 &lt;strong&gt;「 根本沒有學過 」，&lt;/strong&gt; 或者教授說 &lt;strong&gt;「 那些東西在研究所時才會教 」&lt;/strong&gt; …。&lt;/p&gt;
-
-&lt;p&gt;這時候又會想到那一句老話：「 師父領進門，修行在個人。」我個人認為這句話不完全正確，要是遇到那種 &lt;strong&gt;「 師父不引你進門，卻帶你用頭去撞門。」&lt;/strong&gt; 的情況該怎麼辦呢？(還真的得算自己倒霉，認賠殺出？)&lt;/p&gt;
-
-&lt;p&gt;(… 唉，又講到傷心事了，回歸正題。)&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;求學，就像是吃一塊漫無邊際的大餅&lt;/h2&gt;
-&lt;p&gt;我以目前自己所在的電資領域為出發點，先摒除掉「 因為分數剛好，所以就到這裡 」、「 學非所願 」、「 唸到一半才發現這不是我想讀的科系 」…等等原因。&lt;/p&gt;
-
-&lt;p&gt;求學就像是吃一塊大得漫無邊際的餅，有無限種吃法，就看你自己想要怎麼吃。試著想像一下：「 這裡有一塊餅，你沒辦法一口氣吃完，該怎麼辦？」&lt;/p&gt;
-
-&lt;p&gt;廢話！這麼大塊的餅乾，怎麼可能一口氣吃得完？當然是要從你自己最有興趣的地方開始慢慢吃啊！&lt;/p&gt;
-
-&lt;p&gt;一門領域要學的東西有多少，才短短幾年怎麼可能全部都會？至少得從喜歡或者是一個不排斥的東西開始吧？&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;怎麼可能無所不知？不懂就只能坦白承認啦！&lt;/h2&gt;
-&lt;p&gt;…回到最一開始的那一段對話，假設我真的不知道背後的原理，被這樣酸了：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;兒子不爽：「 … 原來你大學讀電機資訊系就學這些啊，讀了書卻無法正面回答我的問題，這樣讀書有什麼意思呢？你自己讀書沒用，又何必要求我讀書呢？」&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;我希望這時候的我可以這樣回答：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;我：「 這個東西爸爸不懂，但是你不覺得這個問題很有趣嗎？我們一起來研究為什麼吧！ 」&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;求學讀書不應該是為了考試，而是為了要更加瞭解這個世界，同時也應該是一件發自內心想要去完成的事情。&lt;/strong&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 03 Apr 2017 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2017/04/03/university_interesting/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2017/04/03/university_interesting/</guid>
-        
-        <category>心情記事</category>
-        
-        
-        <category>未分類</category>
         
       </item>
     
