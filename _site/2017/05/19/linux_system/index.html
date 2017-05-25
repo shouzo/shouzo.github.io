@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20170519 [學習筆記] Linux 系統程式 (11)</title>
+    <meta name="description" content="  一、作業系統          (一) Deadlock Detection      (二) Detection Algorithm      (三) Recovery from Deadlock                  1. Process Termination          2. Res...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2017/05/19/linux_system/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20170519 [學習筆記] Linux 系統程式 (11)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-05-19
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#deadlock-detection" id="markdown-toc-deadlock-detection">(一) Deadlock Detection</a></li>
+      <li><a href="#detection-algorithm" id="markdown-toc-detection-algorithm">(二) Detection Algorithm</a></li>
+      <li><a href="#recovery-from-deadlock" id="markdown-toc-recovery-from-deadlock">(三) Recovery from Deadlock</a>        <ul>
+          <li><a href="#process-termination" id="markdown-toc-process-termination">1. Process Termination</a></li>
+          <li><a href="#resource-preemption" id="markdown-toc-resource-preemption">2. Resource Preemption</a></li>
+        </ul>
+      </li>
+      <li><a href="#memory-management" id="markdown-toc-memory-management">(四) Memory-Management</a></li>
+    </ul>
+  </li>
+  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
+      <li><a href="#function" id="markdown-toc-function">(一) 函數 (Function)</a></li>
+      <li><a href="#command" id="markdown-toc-command">(二) 命令 (command)</a>        <ul>
+          <li><a href="#example-1" id="markdown-toc-example-1">Example 1</a></li>
+          <li><a href="#example-2" id="markdown-toc-example-2">Example 2</a></li>
+          <li><a href="#section-1" id="markdown-toc-section-1">其他命令</a></li>
+        </ul>
+      </li>
+      <li><a href="#command---find" id="markdown-toc-command---find">(三) 命令 (command) - find</a></li>
+      <li><a href="#command---grep" id="markdown-toc-command---grep">(四) 命令 (command) - grep</a>        <ul>
+          <li><a href="#section-2" id="markdown-toc-section-2">正規表示式</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170518/ch07.pdf">Chapter 7: Deadlocks</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170518/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://www3.nd.edu/~dthain/courses/classconf/worts2006/WangLiu.ppt">Static Linking VS. Dynamic Linking</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="deadlock-detection">(一) Deadlock Detection</h3>
+<ul>
+  <li>Allow system to enter deadlock state</li>
+  <li>Detection algorithm</li>
+  <li>Recovery scheme</li>
+</ul>
+
+<h3 id="detection-algorithm">(二) Detection Algorithm</h3>
+<p><img src="https://i.imgur.com/LRO7qdP.png" alt="" />
+<img src="https://i.imgur.com/ZG7BUjD.png" alt="" /></p>
+
+<ul>
+  <li><strong>Example</strong></li>
+</ul>
+
+<p><img src="https://i.imgur.com/PBYJ62y.png" alt="" />
+<img src="https://i.imgur.com/rt4bsYL.png" alt="" /></p>
+
+<ul>
+  <li><strong>Usage</strong>
+    <ul>
+      <li>When, and how often, to invoke depends on
+        <ul>
+          <li>How often a deadlock is likely to occur?</li>
+          <li>How many processes will need to be rolled back?
+            <ul>
+              <li>one for each disjoint cycle</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>If detection algorithm is invoked arbitrarily, there may be many cycles in the resource graph and so we would not be able to tell which of the many deadlocked processes “caused” the deadlock.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="recovery-from-deadlock">(三) Recovery from Deadlock</h3>
+<h4 id="process-termination">1. Process Termination</h4>
+<ul>
+  <li>Abort all deadlocked processes</li>
+  <li>Abort one process at a time until the deadlock cycle is eliminated</li>
+  <li>In which order should we choose to abort?
+    <ol>
+      <li>Priority of the process</li>
+      <li>How long process has computed, and how much longer to completion</li>
+      <li>Resources the process has used</li>
+      <li>Resources process needs to complete</li>
+      <li>How many processes will need to be terminated</li>
+      <li>Is process interactive or batch?</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="resource-preemption">2. Resource Preemption</h4>
+<ul>
+  <li><strong>Selecting a victim</strong> - minimize cost</li>
+  <li><strong>Rollback</strong> - return to some safe state, restart process for that state</li>
+  <li><strong>Starvation</strong> - same process may always be picked as victim, include number of rollback in cost factor</li>
+</ul>
+
+<h3 id="memory-management">(四) Memory-Management</h3>
+<ul>
+  <li>Program must be brought (from disk) into memory and placed within a process for it to be run</li>
+  <li>Main memory and registers are only storage CPU can access directly</li>
+  <li>Memory unit only sees a stream of <code class="highlighter-rouge">addresses + read requests</code>, or <code class="highlighter-rouge">address + data and write requests</code></li>
+  <li>Register access in one CPU clock (or less)</li>
+  <li>Main memory can take many cycles, causing a <strong>stall</strong></li>
+  <li><strong>Cache</strong> sits between main memory and CPU registers</li>
+  <li>Protection of memory required to ensure correct operation</li>
+</ul>
+
+<ol>
+  <li><strong>Base and Limit Registers</strong>
+    <ul>
+      <li>A pair of <strong>base</strong> and limit <strong>registers</strong> define the logical address space</li>
+      <li>
+        <p>CPU must check every memory access generated in user mode to be sure it is between base and limit for that user
+ <img src="https://i.imgur.com/mxLWZHF.png" alt="" /></p>
+      </li>
+      <li>Hardware Address Protection with Base and Limit Registers
+ <img src="https://i.imgur.com/ztutE6h.png" alt="" /></li>
+    </ul>
+  </li>
+  <li><strong>Address Binding</strong>
+    <ul>
+      <li>Programs on disk, ready to be brought into memory to execute form an <strong>input queue</strong>
+        <ul>
+          <li>Without support, must be loaded into address 0000</li>
+        </ul>
+      </li>
+      <li>Inconvenient to have first user process physical address always at 0000
+        <ul>
+          <li>How can it not be?</li>
+        </ul>
+      </li>
+      <li>Further, addresses represented in different ways at different stages of a program’s life
+        <ul>
+          <li>Source code addresses usually symbolic</li>
+          <li>Compiled code addresses <strong>bind</strong> to relocatable addresses
+            <ul>
+              <li>i.e. “14 bytes from beginning of this module”</li>
+            </ul>
+          </li>
+          <li>Linker or loader will bind relocatable addresses to absolute addresses
+            <ul>
+              <li>i.e. 74014</li>
+            </ul>
+          </li>
+          <li>Each binding maps one address space to another</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="https://i.imgur.com/cXzBuNp.jpg" alt="" /></p>
+
+<ol>
+  <li>
+    <p><strong>Logical vs. Physical Address Space</strong>
+<img src="https://i.imgur.com/LwA18UW.png" alt="" /></p>
+  </li>
+  <li><strong>Memory-Management Unit (MMU)</strong>
+    <ul>
+      <li>Hardware device that at run time maps virtual to physical address</li>
+      <li>Many methods possible, covered in the rest of this chapter</li>
+      <li>To start, consider simple scheme where the value in the relocation register is added to every address generated by a user process at the time it is sent to memory
+        <ul>
+          <li>Base register now called <strong>relocation register</strong></li>
+          <li>MS-DOS on Intel 80x86 used 4 relocation registers</li>
+        </ul>
+      </li>
+      <li>The user program deals with logical addresses; it never sees the real physical addresses
+        <ul>
+          <li>Execution-time binding occurs when reference is made to location in memory</li>
+          <li>Logical address bound to physical addresses</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Dynamic relocation</strong>
+    <ul>
+      <li>Using a relocation register
+<img src="https://i.imgur.com/RICsWcf.png" alt="" /></li>
+    </ul>
+  </li>
+  <li><strong>Dynamic Linking</strong>
+    <ul>
+      <li><strong>Static linking</strong> - system libraries and program code combined by the loader into the binary program image</li>
+      <li><strong>Dynamic linking</strong> – linking postponed until execution time</li>
+      <li>Small piece of code, <strong>stub</strong>, used to locate the appropriate memory-resident library routine</li>
+      <li>Stub replaces itself with the address of the routine, and executes the routine</li>
+      <li>Operating system checks if routine is in processes’ memory address
+        <ul>
+          <li>If not in address space, add to address space</li>
+        </ul>
+      </li>
+      <li>Dynamic linking is particularly useful for libraries</li>
+      <li>System also known as <strong>shared libraries</strong></li>
+      <li>Consider applicability to patching system libraries
+        <ul>
+          <li>Versioning may be needed</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Swapping</strong>
+    <ul>
+      <li>A process can be swapped temporarily out of memory to a backing store, and then brought back into memory for continued execution
+        <ul>
+          <li>Total physical memory space of processes can exceed physical memory</li>
+        </ul>
+      </li>
+      <li><strong>Backing store</strong> – fast disk large enough to accommodate copies of all memory images for all users; must provide direct access to these memory images</li>
+      <li><strong>Roll out, roll in</strong> – swapping variant used for priority-based scheduling algorithms; lower-priority process is swapped out so higher-priority process can be loaded and executed</li>
+      <li>Major part of swap time is transfer time; total transfer time is directly proportional to the amount of memory swapped</li>
+      <li>System maintains a <strong>ready queue</strong> of ready-to-run processes which have memory images on disk</li>
+      <li>Does the swapped out process need to swap back in to same physical addresses?
+        <ul>
+          <li>Depends on address binding method
+            <ul>
+              <li>Plus consider pending <code class="highlighter-rouge">I/O</code> to <code class="highlighter-rouge">/</code> from process memory space</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Modified versions of swapping are found on many systems (i.e., UNIX, Linux, and Windows)
+        <ul>
+          <li>Swapping normally disabled</li>
+          <li>Started if more than threshold amount of memory allocated</li>
+          <li>Disabled again once memory demand reduced below threshold</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="https://i.imgur.com/hptlmlg.png" alt="" /></p>
+
+<h2 id="linux-">二、Linux 程式設計</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170512/Linux_shell.pdf">Linux_shell</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170512/Shell_practice.pdf">Shell_practice</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://linux.vbird.org/linux_basic/0340bashshell-scripts.php#script_why">學習 Shell Scripts</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="function">(一) 函數 (Function)</h3>
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code><span class="c">#!/bin/sh</span>
+
+foo<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"Function foo is excuting"</span>
+<span class="o">}</span>
+
+<span class="nb">echo</span> <span class="s2">"Script starting"</span>
+foo
+<span class="nb">echo</span> <span class="s2">"Script ending"</span>
+</code></pre></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/WPrf3XF.png" alt="" /></li>
+</ul>
+
+<h3 id="command">(二) 命令 (command)</h3>
+<h5 id="example-1">Example 1</h5>
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code><span class="c">#!/bin/sh</span>
+
+<span class="k">for </span>x <span class="k">in </span>1 2 3
+<span class="k">do 
+    </span><span class="nb">echo </span>before <span class="nv">$x</span>
+    <span class="k">continue
+    </span><span class="nb">echo </span>after <span class="nv">$x</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/3WgXZOC.png" alt="" /></li>
+</ul>
+
+<h5 id="example-2">Example 2</h5>
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code><span class="c">#!/bin/sh</span>
+
+<span class="k">for </span>x <span class="k">in </span>1 2 3
+<span class="k">do 
+    </span><span class="nb">echo </span>before <span class="nv">$x</span>
+    <span class="nb">break
+    echo </span>after <span class="nv">$x</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/DVLkGCC.png" alt="" /></li>
+</ul>
+
+<h4 id="section-1">其他命令</h4>
+<ul>
+  <li>exit</li>
+  <li>export</li>
+  <li>expr</li>
+  <li>printf</li>
+  <li>return</li>
+  <li>set</li>
+  <li>shift</li>
+</ul>
+
+<h3 id="command---find">(三) 命令 (command) - find</h3>
+<div class="highlighter-rouge"><pre class="codehilite"><code>-atime N           檔案最後存取時間是 N 天以前
+-mtime N           檔案最後修改時間是 N 天以前
+-newer otherfle    檔案比 otherfle 還要新
+-name pattern      搜尋 pattern 名稱的檔案
+-type C            檔案型態是 C 的檔案
+-user username     檔案為 username 使用者所擁有
+</code></pre></div>
+
+<blockquote>
+  <p>find / -name test -print
+find . -newer test -print</p>
+</blockquote>
+
+<h3 id="command---grep">(四) 命令 (command) - grep</h3>
+<div class="highlighter-rouge"><pre class="codehilite"><code>-c    不印出吻合的那一行,只印出吻合的數量
+-E    開啟延伸表示式
+-h    輸出的結果不顯示檔案名稱
+-I    忽略大小寫
+-l    只列出檔案名稱
+-v    反向比對,排除吻合樣本的結果
+</code></pre></div>
+
+<blockquote>
+  <p>grep in word.txt
+grep -c in word.txt word2.txt</p>
+</blockquote>
+
+<h4 id="section-2">正規表示式</h4>
+<p><img src="https://i.imgur.com/ZL5A5xf.png" alt="" />
+<img src="https://i.imgur.com/rLplSSh.png" alt="" /></p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/05/05/linux_system/">20170505 [學習筆記] Linux 系統程式 (9)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/04/07/linux_system/">20170407 [學習筆記] Linux 系統程式 (6)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2017/05/19/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/05/19/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

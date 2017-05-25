@@ -140,6 +140,225 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/03/10/linux_system/">20170310 [學習筆記] Linux 系統程式 (2)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-10
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#process-in-memory" id="markdown-toc-process-in-memory">(一) Process in Memory</a></li>
+      <li><a href="#process-state" id="markdown-toc-process-state">(二) Process State</a></li>
+      <li><a href="#process-control-block-pcb" id="markdown-toc-process-control-block-pcb">(三) Process Control Block (PCB)</a></li>
+      <li><a href="#process-switch" id="markdown-toc-process-switch">(四) Process Switch</a></li>
+      <li><a href="#processthread" id="markdown-toc-processthread">(五) Process、Thread</a></li>
+      <li><a href="#process-scheduling" id="markdown-toc-process-scheduling">(六) Process Scheduling</a>        <ul>
+          <li><a href="#schedulers" id="markdown-toc-schedulers">Schedulers</a></li>
+          <li><a href="#processes" id="markdown-toc-processes">Processes</a></li>
+        </ul>
+      </li>
+      <li><a href="#process-creation" id="markdown-toc-process-creation">(七) Process Creation</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section">一、作業系統</h2>
+<ul>
+  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170309/ch03.pdf">課程簡報 - Ch3：Process Concept</a></li>
+</ul>
+
+<h3 id="process-in-memory">(一) Process in Memory</h3>
+<p><img src="https://i.imgur.com/I9HnU1O.jpg" alt="" /></p>
+
+<h3 id="process-state">(二) Process State</h3>
+<p><img src="https://i.imgur.com/mFSgwiJ.jpg" alt="" /></p>
+<ul>
+  <li><strong>new</strong>: The process is being created.</li>
+  <li><strong>running</strong>: Instructions are being executed.</li>
+  <li><strong>waiting</strong>: The process is waiting for some event to occur.</li>
+  <li><strong>ready</strong>: The process is waiting to be assigned to a processor.</li>
+  <li><strong>terminated</strong>: The process has finished execution.</li>
+</ul>
+
+<h3 id="process-control-block-pcb">(三) Process Control Block (PCB)</h3>
+<p><img src="https://i.imgur.com/fOf7e2Q.jpg" alt="" /></p>
+
+<h3 id="process-switch">(四) Process Switch</h3>
+<p><img src="https://i.imgur.com/Bto5DiZ.jpg" alt="" /></p>
+
+<h3 id="processthread">(五) Process、Thread</h3>
+<ul>
+  <li>參考資料
+    <ul>
+      <li><a href="https://goo.gl/whe9F">Program / Process / Thread 的差別</a></li>
+      <li><a href="https://goo.gl/5BnKWN">“Process 行程”、”Thread 執行緒”、”Multithreading 多執行緒” 簡介</a>
+<img src="https://i.imgur.com/DI9y5OS.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="process-scheduling">(六) Process Scheduling</h3>
+<ul>
+  <li>Process scheduler selects among available processes for next execution on CPU.</li>
+  <li>Maintains scheduling queues of processes.
+    <ul>
+      <li>Job queue – set of all processes in the system.</li>
+      <li>Ready queue – set of all processes residing in main memory, ready and waiting to
+execute.</li>
+      <li>Device queues – set of processes waiting for an I/O device.</li>
+      <li>Processes migrate among the various queues.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="schedulers">Schedulers</h4>
+<ul>
+  <li><strong>Long-term scheduler</strong> (or job scheduler) – selects which processes should be brought into the
+ready queue.</li>
+  <li><strong>Short-term scheduler</strong> (or CPU scheduler) – selects which process should be executed next and
+allocates CPU.
+    <ul>
+      <li>Sometimes the only scheduler in a system.</li>
+    </ul>
+  </li>
+  <li>The long-term scheduler controls the <strong>degree of multiprogramming</strong>.</li>
+  <li><strong>Medium-term scheduler</strong> can be added if degree of multiple programming needs to decrease.
+    <ul>
+      <li>Remove process from memory, store on disk, bring back in from disk to continue execution:
+swapping.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong><a href="http://enews.open2u.com.tw/~noupd/book_up/1746/8719.htm">Degree of multiprogramming</a></strong>：多工程度、記憶體中行程的總數量</p>
+
+<h4 id="processes">Processes</h4>
+<ul>
+  <li><strong>I/O-bound process</strong> – spends more time doing I/O than computations, many short CPU
+bursts.
+    <ul>
+      <li>行程大部份的時間在做 I/O，只有少部份的時間在做計算。</li>
+    </ul>
+  </li>
+  <li><strong>CPU-bound process</strong> – spends more time doing computations; few very long CPU bursts.
+    <ul>
+      <li>行程大部份的時間在做計算，只有少部份的時間在做  I/O。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/Xnhn0Sa.jpg" alt="" /></p>
+
+<h3 id="process-creation">(七) Process Creation</h3>
+<p><img src="https://i.imgur.com/MDkGD81.jpg" alt="" /></p>
+<ul>
+  <li>UNIX examples
+    <ul>
+      <li><strong>fork()</strong>：system call creates new process</li>
+      <li><strong>exec()</strong>：system call used after a fork() to replace the process’ memory space with a new program</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/AxrT24a.jpg" alt="" /></p>
+
+<ul>
+  <li>課程作業</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+	
+<span class="cm">/* fork a child process */</span>
+	<span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>		<span class="c1">// erro occurred
+</span>		<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Fork Failed"</span><span class="p">);</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// child process
+</span>		<span class="n">execlp</span><span class="p">(</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"ls"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="p">{</span>			<span class="c1">// parent process
+</span>		<span class="c1">// parent will wait for the child to complete
+</span>		<span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Child Complete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="p">}</span>	
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<ul>
+  <li>執行結果</li>
+</ul>
+
+<p><img src="https://i.imgur.com/CfTMr9N.jpg" alt="" /></p>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/10/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/03/09/ai/">20170309 [學習筆記] 人工智慧 (2)</a>
                 </h2>
                 <div class="label">
@@ -483,99 +702,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2016/12/26/normal_club/">20161225 [社團相關] 我是個普通的社團人，只是我不小心擔任了兩個不同社團的負責人</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2016-12-26
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#社團" title="Category: 社團" rel="category">社團</a>&nbsp;
-    
-        <a href="/category/#未分類" title="Category: 未分類" rel="category">未分類</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#社團" title="Tag: 社團" rel="tag">社團</a>&nbsp;
-    
-        <a href="/tag/#心情記事" title="Tag: 心情記事" rel="tag">心情記事</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    
-<p><img src="https://i.imgur.com/TWQnstK.jpg" alt="" /></p>
-
-<p>其實我在事前就已經規劃好第105級的社評晚會要怎麼出場了。在這兩年(哦不對，嚴格來講是兩年半，因為得再加上半年的創社草期)的負責人任期裡剛好集滿 兩件官服和一件學士袍，我想說用一個比較不一樣的出場方式，既省錢又有意思 (看來台下觀眾的反應還不錯)。</p>
-
-<p>這三件衣服都有特殊的意義，而當時穿在最裡面的學士袍意思是：『 從社團畢業 』。</p>
-
-<p>在進入大學以前我從未想過自己會
-在學生團體裡面發展，現在所擁有的身份、地位，是當年未曾想過的。</p>
-
-<p>每當我扛起頭銜背後所要承受的重量時，壓力就如同海嘯般襲捲而來，它源自於課業、同儕、師長、家人、環境、自我要求…，讓我終年一直和恐懼、憤怒、焦慮、絕望這些情緒為伍。</p>
-
-<p>我試著在任何壓力下都表現著冷靜、堅毅、果斷的態度，可是我越是這樣內心就越是藏不住真實的情緒。這時候我才深刻體認到自己其實是多麼的無能為力，但同時也因為這樣，我才能夠在大學生涯中重新認識自己。</p>
-
-<p>社團負責人是一份沒有薪資的職位，但是卻值得為了這個頭銜背後所守護的東西和現實搏命。</p>
-
-<p>俗話說：「 當過社長之後才知道怎麼當社長 」。我當過兩次社長，我非常認同這句話。</p>
-
-<p>我發覺雖然當過社長之後才知道怎麼當社長，但是比起只有自己知道，再進一步把經驗分享給後輩、或是再度以自身能力回饋或改變整個環境，是一件更重要的事情。</p>
-
-<p>所以我認為「 當過社長之後才知道怎麼當社長 」的下一個階段是：「 成為有能力提攜後進的開拓者 」先找到自己的路，再替後來的人開路。</p>
-
-<p>而這兩個階段的任務，我如今也已經達成了。</p>
-
-<p>謝謝所有從我大一入學開始至今，曾經出現在我生命中的所有社團夥伴們。因為你們，我才能夠重新認識我自己，也才讓我有動力回饋和改善這個培育我的社團圈。</p>
-
-<p>我的社團故事到這裡算是正式告一段落了，接下來換你們創造屬於你們自己的傳奇了。</p>
-
-<p><strong>「 我是個普通的社團人，只是我不小心擔任了兩個不同社團的負責人。」</strong> …就用這句話作為本篇文章的標題好了。</p>
-
-<p>(本篇完)</p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2016/12/26/normal_club/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -603,6 +729,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2017/05/19/linux_system/">20170519 [學習筆記] Linux 系統程式 (11)</a></li>
+                    
                         <li><a href="/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)</a></li>
                     
                         <li><a href="/2017/05/05/linux_system/">20170505 [學習筆記] Linux 系統程式 (9)</a></li>
@@ -620,8 +748,6 @@
                         <li><a href="/2017/04/13/ai/">20170413 [學習筆記] 人工智慧 (7)</a></li>
                     
                         <li><a href="/2017/04/07/linux_system/">20170407 [學習筆記] Linux 系統程式 (6)</a></li>
-                    
-                        <li><a href="/2017/04/06/ai/">20170406 [學習筆記] 人工智慧 (6)</a></li>
                     
                 </ul>
             </div>
@@ -765,7 +891,7 @@
                             <span class="name">
                                 Linux
                             </span>
-                            <span class="badge">11</span>
+                            <span class="badge">12</span>
                         </a>
                     </li>
                     
@@ -774,7 +900,7 @@
                             <span class="name">
                                 作業系統
                             </span>
-                            <span class="badge">11</span>
+                            <span class="badge">12</span>
                         </a>
                     </li>
                     
@@ -783,7 +909,7 @@
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">13</span>
+                            <span class="badge">14</span>
                         </a>
                     </li>
                     
@@ -808,7 +934,7 @@
                       
                       
                       
-                      <a href="/tag/#C語言" style="font-size: 12pt; color: #666;">C語言</a>
+                      <a href="/tag/#C語言" style="font-size: 11.5pt; color: #666;">C語言</a>
                     
                       
                       
@@ -829,14 +955,14 @@
                       
                       
                       
-                      <a href="/tag/#Data-Science" style="font-size: 13.5pt; color: #555;">Data-Science</a>
+                      <a href="/tag/#Data-Science" style="font-size: 13pt; color: #555;">Data-Science</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Data-Mining" style="font-size: 12.5pt; color: #666;">Data-Mining</a>
+                      <a href="/tag/#Data-Mining" style="font-size: 12pt; color: #666;">Data-Mining</a>
                     
                       
                       
@@ -899,7 +1025,7 @@
                       
                       
                       
-                      <a href="/tag/#社團" style="font-size: 13pt; color: #555;">社團</a>
+                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #555;">社團</a>
                     
                       
                       
@@ -927,21 +1053,21 @@
                       
                       
                       
-                      <a href="/tag/#人工智慧" style="font-size: 12pt; color: #666;">人工智慧</a>
+                      <a href="/tag/#人工智慧" style="font-size: 11.5pt; color: #666;">人工智慧</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Linux" style="font-size: 13.5pt; color: #444;">Linux</a>
+                      <a href="/tag/#Linux" style="font-size: 14pt; color: #444;">Linux</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#作業系統" style="font-size: 13.5pt; color: #444;">作業系統</a>
+                      <a href="/tag/#作業系統" style="font-size: 14pt; color: #444;">作業系統</a>
                     
                       
                       
