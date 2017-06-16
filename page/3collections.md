@@ -21,7 +21,13 @@ icon: bookmark
 
 ---
 
-# (三) 學習簡報
+# (三) Linux 系統程式筆記總整理
+* [Operating_System (作業系統)](/collections/linux_system/Operating_System.html)
+* [Linux_Programming  (Linux 程式設計)](/collections/linux_system/Linux_Programming.html)
+
+---
+
+# (四) 學習簡報
 * 這裡整理著自己製作的學習簡報：
 
 ## 資料科學 Data Science 系列
@@ -37,7 +43,7 @@ icon: bookmark
 ---
 
 
-# (四) 社團筆記
+# (五) 社團筆記
 1. [20160802 那些年，關於大學的那些事...](/collections/clubs/20160802-about-university.html)
 2. [20160803 社團創社經驗分享與交流](/collections/clubs/20160803-clubs-share.html)
 3. [20160829 夢想，Loading...](/collections/clubs/20160829-about-dreams.html)
