@@ -17,7 +17,7 @@ tags: 版本控制 程式設計 Hackpad Git Python語言 R語言
 
 ## (學習) 程式設計 - R 語言
 
-### 一、主要連結(Hackpad)
+### 一、主要連結(Hackpad)(已轉址為 Dropbox Paper)
 1. [20150823 [Coursera] R Programming (1)](https://hackpad.com/20150823-Coursera-R-Programming-1-NM7k7ShG8ff)
 2. [20150823 [Coursera] R Programming (2)](https://hackpad.com/20150823-Coursera-R-Programming-2-aGnnTv7LL7g)
 3. [20150824 [學習筆記] R與資料探勘 (1)](https://hackpad.com/20150824-R-1-x2J0pTujKM2)
@@ -40,7 +40,7 @@ tags: 版本控制 程式設計 Hackpad Git Python語言 R語言
 20. [20151211 [R基礎與應用] Ch10：迴圈 - 疊代元素的傳統作法](https://hackpad.com/20151211-R-Ch10--mY7cl7qgymF)
 21. [20151216 [Coursera] R Programming (11)](https://hackpad.com/20151216-Coursera-R-Programming-11-1yj3UwzvDtu)
 
-### 二、備用連結
+### 二、備用連結(已失效)
 1. [20150823 [Coursera] R Programming (1)](/collections/hackpad/R/20150823-Coursera-R-Programming-1.html)
 2. [20150823 [Coursera] R Programming (2)](/collections/hackpad/R/20150823-Coursera-R-Programming-2.html)
 3. [20150824 [學習筆記] R與資料探勘 (1)](/collections/hackpad/R/20150824-學習筆記-R與資料探勘-1.html)
@@ -68,7 +68,7 @@ tags: 版本控制 程式設計 Hackpad Git Python語言 R語言
 
 ## (學習) 程式設計 - Python 語言
 
-### 一、主要連結(Hackpad)
+### 一、主要連結(Hackpad)(已轉址為 Dropbox Paper)
 1. [20150929 [KUASITC] Python社課簡報 (1)](https://hackpad.com/20150929-Python1-wzPhZKTKKtW)
 2. [20150929 [KUASITC] Python社課筆記 (1)](https://hackpad.com/20150929-Python1-lJjREF9XpuQ)
 3. [20151007 [KUASITC] Python社課簡報 (2)](https://hackpad.com/20151007-KUASITC-Python2-xEDRDkDIpA8)
@@ -78,7 +78,7 @@ tags: 版本控制 程式設計 Hackpad Git Python語言 R語言
 7. [20151019 [KUASITC] Python遊戲 (1)和(2)](https://hackpad.com/20151019-KUASITC-Python12-cWCTs27r3sJ)
 8. [20160131 [Codecademy] Python (1)](https://hackpad.com/20160131-Codecademy-Python1-4ajqH1ABjOH#:h=%EF%BC%88%E5%85%AD%EF%BC%89Tip-Calculator)
 
-### 二、備用連結
+### 二、備用連結(已失效)
 1. [20150929 [KUASITC] Python社課簡報 (1)](/collections/hackpad/Python/20150929-KUASITC-Python社課簡報-1.html)
 2. [20150929 [KUASITC] Python社課筆記 (1)](/collections/hackpad/Python/20150929-KUASITC-Python社課筆記-1.html)
 3. [20151007 [KUASITC] Python社課簡報 (2)](/collections/hackpad/Python/20151007-KUASITC-Python社課簡報-2.html)
@@ -93,7 +93,7 @@ tags: 版本控制 程式設計 Hackpad Git Python語言 R語言
 
 ## (學習) 版本控制 - Git
 
-### 一、主要連結(Hackpad)
+### 一、主要連結(Hackpad)(已轉址為 Dropbox Paper)
 1. [20150821 [學習筆記] Git版本控制 (1)](https://hackpad.com/20150821-Git-1-6xni2q5QsyV)
 2. [20150822 [學習筆記] Git版本控制 (2)](https://hackpad.com/20150822-Git-2-2bPrp84VcI3)
 3. [20150826 [學習筆記] Git版本控制 (3)](https://hackpad.com/20150826-Git-3-KmXDMewNGuj)
@@ -103,7 +103,7 @@ tags: 版本控制 程式設計 Hackpad Git Python語言 R語言
 7. [20151025 [學習筆記] Git版本控制 (7)](https://hackpad.com/20151025-Git7-AtAsZ3LezDE)
 8. [20151230 [學習筆記] Git版本控制 (8)](https://hackpad.com/20151230-Git8-Xr2uEa0ltpO)
 
-### 二、備用連結
+### 二、備用連結(已失效)
 1. [20150821 [學習筆記] Git版本控制 (1)](/collections/hackpad/Git/20150821-學習筆記-Git版本控制-1.html)
 2. [20150822 [學習筆記] Git版本控制 (2)](/collections/hackpad/Git/20150822-學習筆記-Git版本控制-2.html)
 3. [20150826 [學習筆記] Git版本控制 (3)](/collections/hackpad/Git/20150826-學習筆記-Git版本控制-3.html)
