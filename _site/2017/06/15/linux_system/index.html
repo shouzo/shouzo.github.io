@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20170615 [學習筆記] Linux 系統程式 (15)</title>
+    <meta name="description" content="  一、作業系統          (一) Allocation of Frames                  1. Fixed Allocation          2. Priority Allocation          3. Global vs. Local Allocation      ...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2017/06/15/linux_system/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20170615 [學習筆記] Linux 系統程式 (15)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-06-15
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#allocation-of-frames" id="markdown-toc-allocation-of-frames">(一) Allocation of Frames</a>        <ul>
+          <li><a href="#fixed-allocation" id="markdown-toc-fixed-allocation">1. Fixed Allocation</a></li>
+          <li><a href="#priority-allocation" id="markdown-toc-priority-allocation">2. Priority Allocation</a></li>
+          <li><a href="#global-vs-local-allocation" id="markdown-toc-global-vs-local-allocation">3. Global vs. Local Allocation</a></li>
+          <li><a href="#non-uniform-memory-access" id="markdown-toc-non-uniform-memory-access">4. Non-Uniform Memory Access</a></li>
+          <li><a href="#thrashing" id="markdown-toc-thrashing">5. Thrashing</a></li>
+          <li><a href="#demand-paging-and-thrashing" id="markdown-toc-demand-paging-and-thrashing">6. Demand Paging and Thrashing</a></li>
+          <li><a href="#working-set-model" id="markdown-toc-working-set-model">7. Working-Set Model</a></li>
+          <li><a href="#page-fault-frequency" id="markdown-toc-page-fault-frequency">8. Page-Fault Frequency</a></li>
+        </ul>
+      </li>
+      <li><a href="#memory-mapped-files" id="markdown-toc-memory-mapped-files">(二) Memory-Mapped Files</a></li>
+      <li><a href="#other-considerations----prepaging" id="markdown-toc-other-considerations----prepaging">(三) Other Considerations – Prepaging</a></li>
+      <li><a href="#other-issues" id="markdown-toc-other-issues">(四) Other Issues</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170615/ch09.pdf">Chapter 9: Virtual-Memory Management</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="allocation-of-frames">(一) Allocation of Frames</h3>
+<ul>
+  <li>Each process needs minimum number of frames</li>
+  <li>Example: IBM 370 – 6 pages to handle SS MOVE instruction:
+    <ul>
+      <li>instruction is 6 bytes, might span 2 pages</li>
+      <li>2 pages to handle from</li>
+      <li>2 pages to handle to</li>
+    </ul>
+  </li>
+  <li>Maximum of course is total frames in the system</li>
+  <li>Two major allocation schemes
+    <ul>
+      <li>fixed allocation</li>
+      <li>priority allocation</li>
+    </ul>
+  </li>
+  <li>Many variations</li>
+</ul>
+
+<h4 id="fixed-allocation">1. Fixed Allocation</h4>
+<ul>
+  <li>Equal allocation – For example, if there are 100 frames (after allocating frames for the OS) and 5 processes, give each process 20 frames
+    <ul>
+      <li>Keep some as free frame buffer pool</li>
+    </ul>
+  </li>
+  <li>Proportional allocation – Allocate according to the size of process
+    <ul>
+      <li>Dynamic as degree of multiprogramming, process sizes change</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/EwupsLy.png" alt="" /></p>
+
+<h4 id="priority-allocation">2. Priority Allocation</h4>
+<ul>
+  <li>Use a proportional allocation scheme using priorities rather than size</li>
+  <li>If process P i generates a page fault,
+    <ul>
+      <li>select for replacement one of its frames</li>
+      <li>select for replacement a frame from a process with lower priority number</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="global-vs-local-allocation">3. Global vs. Local Allocation</h4>
+<ul>
+  <li><strong>Global replacement</strong> – process selects a replacement frame from the set of all frames; one process can take a frame from another
+    <ul>
+      <li>But then process execution time can vary greatly</li>
+      <li>But greater throughput so more common</li>
+    </ul>
+  </li>
+  <li><strong>Local replacement</strong> – each process selects from only its own set of allocated frames
+    <ul>
+      <li>More consistent per-process performance</li>
+      <li>But possibly underutilized memory</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="non-uniform-memory-access">4. Non-Uniform Memory Access</h4>
+<ul>
+  <li>So far all memory accessed equally</li>
+  <li>Many systems are NUMA – speed of access to memory varies
+    <ul>
+      <li>Consider system boards containing CPUs and memory, interconnected over a system bus</li>
+    </ul>
+  </li>
+  <li>Optimal performance comes from allocating memory “close to” the CPU on which the thread is scheduled
+    <ul>
+      <li>And modifying the scheduler to schedule the thread on the same system board when possible</li>
+      <li>Solved by Solaris by creating <strong>lgroups</strong>
+        <ul>
+          <li>Structure to track CPU / Memory low latency groups</li>
+          <li>Used my schedule and pager</li>
+          <li>When possible schedule all threads of a process and allocate all memory for that process within the lgroup</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="thrashing">5. Thrashing</h4>
+<ul>
+  <li>If a process does not have “enough” pages, the page-fault rate is very high
+    <ul>
+      <li>Page fault to get page</li>
+      <li>Replace existing frame</li>
+      <li>But quickly need replaced frame back</li>
+      <li>This leads to:
+        <ul>
+          <li>Low CPU utilization</li>
+          <li>Operating system thinking that it needs to increase the degree of multiprogramming</li>
+          <li>Another process added to the system</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Thrashing</strong> - a process is busy swapping pages in and out</li>
+</ul>
+
+<p><img src="https://i.imgur.com/jBcF8pC.png" alt="" /></p>
+
+<h4 id="demand-paging-and-thrashing">6. Demand Paging and Thrashing</h4>
+<ul>
+  <li>Why does demand paging work? <strong>Locality model</strong>
+    <ul>
+      <li>Process migrates from one locality to another</li>
+      <li>Localities may overlap</li>
+    </ul>
+  </li>
+  <li>Why does thrashing occur? <strong>size of locality &gt; total memory size</strong>
+    <ul>
+      <li>Limit effects by using local or priority page replacement</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="working-set-model">7. Working-Set Model</h4>
+<p><img src="https://i.imgur.com/Nsrm3Lw.png" alt="" />
+<img src="https://i.imgur.com/Xy48qM2.png" alt="" /></p>
+
+<ul>
+  <li><strong>Keeping Track of the Working Set</strong>
+<img src="https://i.imgur.com/QHoALdo.png" alt="" /></li>
+</ul>
+
+<h4 id="page-fault-frequency">8. Page-Fault Frequency</h4>
+<ul>
+  <li>More direct approach than WSS</li>
+  <li>Establish “acceptable” <strong>page-fault frequency</strong> rate and use local replacement policy
+    <ul>
+      <li>If actual rate too low, process loses frame</li>
+      <li>If actual rate too high, process gains frame</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/ws4FmRA.png" alt="" />
+<img src="https://i.imgur.com/ujHWuKv.png" alt="" /></p>
+
+<h3 id="memory-mapped-files">(二) Memory-Mapped Files</h3>
+<ul>
+  <li>Memory-mapped file I/O allows file I/O to be treated as routine memory access by <strong>mapping</strong> a disk block to a page in memory</li>
+  <li>A file is initially read using demand paging
+    <ul>
+      <li>A page-sized portion of the file is read from the file system into a physical page</li>
+      <li>Subsequent reads/writes to/from the file are treated as ordinary memory accesses</li>
+    </ul>
+  </li>
+  <li>Simplifies and speeds file access by driving file I/O through memory rather than <code class="highlighter-rouge">read()</code> and <code class="highlighter-rouge">write()</code> system calls</li>
+  <li>Also allows several processes to map the same file allowing the pages in memory to be shared</li>
+  <li>But when does written data make it to disk?
+    <ul>
+      <li>Periodically and / or at file <code class="highlighter-rouge">close()</code> time</li>
+      <li>For example, when the pager scans for dirty pages</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/zWof78r.png" alt="" /></p>
+
+<h3 id="other-considerations----prepaging">(三) Other Considerations – Prepaging</h3>
+<ul>
+  <li>To reduce the large number of page faults that occurs at process startup</li>
+  <li>Prepage all or some of the pages a process will need, before they are referenced</li>
+  <li>But if prepaged pages are unused, I/O and memory was wasted</li>
+  <li>Assume s pages are prepaged and α of the pages is used
+    <ul>
+      <li>Is cost of <code class="highlighter-rouge">s * α</code> save pages faults <code class="highlighter-rouge">&gt;</code> or <code class="highlighter-rouge">&lt;</code> than the cost of prepaging <code class="highlighter-rouge">s * (1-α)</code> unnecessary pages?</li>
+      <li>α near zero » prepaging loses</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="other-issues">(四) Other Issues</h3>
+<p><img src="https://i.imgur.com/289vIx7.png" alt="" />
+—
+<img src="https://i.imgur.com/AzOr7n2.png" alt="" />
+—
+<img src="https://i.imgur.com/9ZuU18h.png" alt="" />
+—
+<img src="https://i.imgur.com/cHTpyGG.png" alt="" /></p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/05/25/linux_system/">20170525 [學習筆記] Linux 系統程式 (12)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/05/19/linux_system/">20170519 [學習筆記] Linux 系統程式 (11)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2017/06/15/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/06/15/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

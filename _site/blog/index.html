@@ -125,6 +125,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -140,11 +142,78 @@
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2017/05/19/linux_system/">20170519 [學習筆記] Linux 系統程式 (11)</a>
+                  <a class="post-link" href="/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-05-19
+                        <i class="fa fa-calendar"></i>2017-06-22
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/06/22/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/06/15/linux_system/">20170615 [學習筆記] Linux 系統程式 (15)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-06-15
                     </div>
                     <div class="label-card">
                         
@@ -198,14 +267,20 @@
                 <div class="excerpt">
                     <ul id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#deadlock-detection" id="markdown-toc-deadlock-detection">(一) Deadlock Detection</a></li>
-      <li><a href="#detection-algorithm" id="markdown-toc-detection-algorithm">(二) Detection Algorithm</a></li>
-      <li><a href="#recovery-from-deadlock" id="markdown-toc-recovery-from-deadlock">(三) Recovery from Deadlock</a>        <ul>
-          <li><a href="#process-termination" id="markdown-toc-process-termination">1. Process Termination</a></li>
-          <li><a href="#resource-preemption" id="markdown-toc-resource-preemption">2. Resource Preemption</a></li>
+      <li><a href="#allocation-of-frames" id="markdown-toc-allocation-of-frames">(一) Allocation of Frames</a>        <ul>
+          <li><a href="#fixed-allocation" id="markdown-toc-fixed-allocation">1. Fixed Allocation</a></li>
+          <li><a href="#priority-allocation" id="markdown-toc-priority-allocation">2. Priority Allocation</a></li>
+          <li><a href="#global-vs-local-allocation" id="markdown-toc-global-vs-local-allocation">3. Global vs. Local Allocation</a></li>
+          <li><a href="#non-uniform-memory-access" id="markdown-toc-non-uniform-memory-access">4. Non-Uniform Memory Access</a></li>
+          <li><a href="#thrashing" id="markdown-toc-thrashing">5. Thrashing</a></li>
+          <li><a href="#demand-paging-and-thrashing" id="markdown-toc-demand-paging-and-thrashing">6. Demand Paging and Thrashing</a></li>
+          <li><a href="#working-set-model" id="markdown-toc-working-set-model">7. Working-Set Model</a></li>
+          <li><a href="#page-fault-frequency" id="markdown-toc-page-fault-frequency">8. Page-Fault Frequency</a></li>
         </ul>
       </li>
-      <li><a href="#memory-management" id="markdown-toc-memory-management">(四) Memory-Management</a></li>
+      <li><a href="#memory-mapped-files" id="markdown-toc-memory-mapped-files">(二) Memory-Mapped Files</a></li>
+      <li><a href="#other-considerations----prepaging" id="markdown-toc-other-considerations----prepaging">(三) Other Considerations – Prepaging</a></li>
+      <li><a href="#other-issues" id="markdown-toc-other-issues">(四) Other Issues</a></li>
     </ul>
   </li>
 </ul>
@@ -214,231 +289,212 @@
 <ul>
   <li>課堂講義
     <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170518/ch07.pdf">Chapter 7: Deadlocks</a></li>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170518/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
-    </ul>
-  </li>
-  <li>參考資料
-    <ul>
-      <li><a href="https://www3.nd.edu/~dthain/courses/classconf/worts2006/WangLiu.ppt">Static Linking VS. Dynamic Linking</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170615/ch09.pdf">Chapter 9: Virtual-Memory Management</a></li>
     </ul>
   </li>
 </ul>
 
-<h3 id="deadlock-detection">(一) Deadlock Detection</h3>
+<h3 id="allocation-of-frames">(一) Allocation of Frames</h3>
 <ul>
-  <li>Allow system to enter deadlock state</li>
-  <li>Detection algorithm</li>
-  <li>Recovery scheme</li>
+  <li>Each process needs minimum number of frames</li>
+  <li>Example: IBM 370 – 6 pages to handle SS MOVE instruction:
+    <ul>
+      <li>instruction is 6 bytes, might span 2 pages</li>
+      <li>2 pages to handle from</li>
+      <li>2 pages to handle to</li>
+    </ul>
+  </li>
+  <li>Maximum of course is total frames in the system</li>
+  <li>Two major allocation schemes
+    <ul>
+      <li>fixed allocation</li>
+      <li>priority allocation</li>
+    </ul>
+  </li>
+  <li>Many variations</li>
 </ul>
 
-<h3 id="detection-algorithm">(二) Detection Algorithm</h3>
-<p><img src="https://i.imgur.com/LRO7qdP.png" alt="" />
-<img src="https://i.imgur.com/ZG7BUjD.png" alt="" /></p>
+<h4 id="fixed-allocation">1. Fixed Allocation</h4>
+<ul>
+  <li>Equal allocation – For example, if there are 100 frames (after allocating frames for the OS) and 5 processes, give each process 20 frames
+    <ul>
+      <li>Keep some as free frame buffer pool</li>
+    </ul>
+  </li>
+  <li>Proportional allocation – Allocate according to the size of process
+    <ul>
+      <li>Dynamic as degree of multiprogramming, process sizes change</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/EwupsLy.png" alt="" /></p>
+
+<h4 id="priority-allocation">2. Priority Allocation</h4>
+<ul>
+  <li>Use a proportional allocation scheme using priorities rather than size</li>
+  <li>If process P i generates a page fault,
+    <ul>
+      <li>select for replacement one of its frames</li>
+      <li>select for replacement a frame from a process with lower priority number</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="global-vs-local-allocation">3. Global vs. Local Allocation</h4>
+<ul>
+  <li><strong>Global replacement</strong> – process selects a replacement frame from the set of all frames; one process can take a frame from another
+    <ul>
+      <li>But then process execution time can vary greatly</li>
+      <li>But greater throughput so more common</li>
+    </ul>
+  </li>
+  <li><strong>Local replacement</strong> – each process selects from only its own set of allocated frames
+    <ul>
+      <li>More consistent per-process performance</li>
+      <li>But possibly underutilized memory</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="non-uniform-memory-access">4. Non-Uniform Memory Access</h4>
+<ul>
+  <li>So far all memory accessed equally</li>
+  <li>Many systems are NUMA – speed of access to memory varies
+    <ul>
+      <li>Consider system boards containing CPUs and memory, interconnected over a system bus</li>
+    </ul>
+  </li>
+  <li>Optimal performance comes from allocating memory “close to” the CPU on which the thread is scheduled
+    <ul>
+      <li>And modifying the scheduler to schedule the thread on the same system board when possible</li>
+      <li>Solved by Solaris by creating <strong>lgroups</strong>
+        <ul>
+          <li>Structure to track CPU / Memory low latency groups</li>
+          <li>Used my schedule and pager</li>
+          <li>When possible schedule all threads of a process and allocate all memory for that process within the lgroup</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="thrashing">5. Thrashing</h4>
+<ul>
+  <li>If a process does not have “enough” pages, the page-fault rate is very high
+    <ul>
+      <li>Page fault to get page</li>
+      <li>Replace existing frame</li>
+      <li>But quickly need replaced frame back</li>
+      <li>This leads to:
+        <ul>
+          <li>Low CPU utilization</li>
+          <li>Operating system thinking that it needs to increase the degree of multiprogramming</li>
+          <li>Another process added to the system</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Thrashing</strong> - a process is busy swapping pages in and out</li>
+</ul>
+
+<p><img src="https://i.imgur.com/jBcF8pC.png" alt="" /></p>
+
+<h4 id="demand-paging-and-thrashing">6. Demand Paging and Thrashing</h4>
+<ul>
+  <li>Why does demand paging work? <strong>Locality model</strong>
+    <ul>
+      <li>Process migrates from one locality to another</li>
+      <li>Localities may overlap</li>
+    </ul>
+  </li>
+  <li>Why does thrashing occur? <strong>size of locality &gt; total memory size</strong>
+    <ul>
+      <li>Limit effects by using local or priority page replacement</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="working-set-model">7. Working-Set Model</h4>
+<p><img src="https://i.imgur.com/Nsrm3Lw.png" alt="" />
+<img src="https://i.imgur.com/Xy48qM2.png" alt="" /></p>
 
 <ul>
-  <li><strong>Example</strong></li>
+  <li><strong>Keeping Track of the Working Set</strong>
+<img src="https://i.imgur.com/QHoALdo.png" alt="" /></li>
 </ul>
 
-<p><img src="https://i.imgur.com/PBYJ62y.png" alt="" />
-<img src="https://i.imgur.com/rt4bsYL.png" alt="" /></p>
-
+<h4 id="page-fault-frequency">8. Page-Fault Frequency</h4>
 <ul>
-  <li><strong>Usage</strong>
+  <li>More direct approach than WSS</li>
+  <li>Establish “acceptable” <strong>page-fault frequency</strong> rate and use local replacement policy
     <ul>
-      <li>When, and how often, to invoke depends on
-        <ul>
-          <li>How often a deadlock is likely to occur?</li>
-          <li>How many processes will need to be rolled back?
-            <ul>
-              <li>one for each disjoint cycle</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>If detection algorithm is invoked arbitrarily, there may be many cycles in the resource graph and so we would not be able to tell which of the many deadlocked processes “caused” the deadlock.</li>
+      <li>If actual rate too low, process loses frame</li>
+      <li>If actual rate too high, process gains frame</li>
     </ul>
   </li>
 </ul>
 
-<h3 id="recovery-from-deadlock">(三) Recovery from Deadlock</h3>
-<h4 id="process-termination">1. Process Termination</h4>
+<p><img src="https://i.imgur.com/ws4FmRA.png" alt="" />
+<img src="https://i.imgur.com/ujHWuKv.png" alt="" /></p>
+
+<h3 id="memory-mapped-files">(二) Memory-Mapped Files</h3>
 <ul>
-  <li>Abort all deadlocked processes</li>
-  <li>Abort one process at a time until the deadlock cycle is eliminated</li>
-  <li>In which order should we choose to abort?
-    <ol>
-      <li>Priority of the process</li>
-      <li>How long process has computed, and how much longer to completion</li>
-      <li>Resources the process has used</li>
-      <li>Resources process needs to complete</li>
-      <li>How many processes will need to be terminated</li>
-      <li>Is process interactive or batch?</li>
-    </ol>
+  <li>Memory-mapped file I/O allows file I/O to be treated as routine memory access by <strong>mapping</strong> a disk block to a page in memory</li>
+  <li>A file is initially read using demand paging
+    <ul>
+      <li>A page-sized portion of the file is read from the file system into a physical page</li>
+      <li>Subsequent reads/writes to/from the file are treated as ordinary memory accesses</li>
+    </ul>
+  </li>
+  <li>Simplifies and speeds file access by driving file I/O through memory rather than <code class="highlighter-rouge">read()</code> and <code class="highlighter-rouge">write()</code> system calls</li>
+  <li>Also allows several processes to map the same file allowing the pages in memory to be shared</li>
+  <li>But when does written data make it to disk?
+    <ul>
+      <li>Periodically and / or at file <code class="highlighter-rouge">close()</code> time</li>
+      <li>For example, when the pager scans for dirty pages</li>
+    </ul>
   </li>
 </ul>
 
-<h4 id="resource-preemption">2. Resource Preemption</h4>
+<p><img src="https://i.imgur.com/zWof78r.png" alt="" /></p>
+
+<h3 id="other-considerations----prepaging">(三) Other Considerations – Prepaging</h3>
 <ul>
-  <li><strong>Selecting a victim</strong> - minimize cost</li>
-  <li><strong>Rollback</strong> - return to some safe state, restart process for that state</li>
-  <li><strong>Starvation</strong> - same process may always be picked as victim, include number of rollback in cost factor</li>
+  <li>To reduce the large number of page faults that occurs at process startup</li>
+  <li>Prepage all or some of the pages a process will need, before they are referenced</li>
+  <li>But if prepaged pages are unused, I/O and memory was wasted</li>
+  <li>Assume s pages are prepaged and α of the pages is used
+    <ul>
+      <li>Is cost of <code class="highlighter-rouge">s * α</code> save pages faults <code class="highlighter-rouge">&gt;</code> or <code class="highlighter-rouge">&lt;</code> than the cost of prepaging <code class="highlighter-rouge">s * (1-α)</code> unnecessary pages?</li>
+      <li>α near zero » prepaging loses</li>
+    </ul>
+  </li>
 </ul>
 
-<h3 id="memory-management">(四) Memory-Management</h3>
-<ul>
-  <li>Program must be brought (from disk) into memory and placed within a process for it to be run</li>
-  <li>Main memory and registers are only storage CPU can access directly</li>
-  <li>Memory unit only sees a stream of <code class="highlighter-rouge">addresses + read requests</code>, or <code class="highlighter-rouge">address + data and write requests</code></li>
-  <li>Register access in one CPU clock (or less)</li>
-  <li>Main memory can take many cycles, causing a <strong>stall</strong></li>
-  <li><strong>Cache</strong> sits between main memory and CPU registers</li>
-  <li>Protection of memory required to ensure correct operation</li>
-</ul>
-
-<ol>
-  <li><strong>Base and Limit Registers</strong>
-    <ul>
-      <li>A pair of <strong>base</strong> and limit <strong>registers</strong> define the logical address space</li>
-      <li>
-        <p>CPU must check every memory access generated in user mode to be sure it is between base and limit for that user
- <img src="https://i.imgur.com/mxLWZHF.png" alt="" /></p>
-      </li>
-      <li>Hardware Address Protection with Base and Limit Registers
- <img src="https://i.imgur.com/ztutE6h.png" alt="" /></li>
-    </ul>
-  </li>
-  <li><strong>Address Binding</strong>
-    <ul>
-      <li>Programs on disk, ready to be brought into memory to execute form an <strong>input queue</strong>
-        <ul>
-          <li>Without support, must be loaded into address 0000</li>
-        </ul>
-      </li>
-      <li>Inconvenient to have first user process physical address always at 0000
-        <ul>
-          <li>How can it not be?</li>
-        </ul>
-      </li>
-      <li>Further, addresses represented in different ways at different stages of a program’s life
-        <ul>
-          <li>Source code addresses usually symbolic</li>
-          <li>Compiled code addresses <strong>bind</strong> to relocatable addresses
-            <ul>
-              <li>i.e. “14 bytes from beginning of this module”</li>
-            </ul>
-          </li>
-          <li>Linker or loader will bind relocatable addresses to absolute addresses
-            <ul>
-              <li>i.e. 74014</li>
-            </ul>
-          </li>
-          <li>Each binding maps one address space to another</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<p><img src="https://i.imgur.com/cXzBuNp.jpg" alt="" /></p>
-
-<ol>
-  <li>
-    <p><strong>Logical vs. Physical Address Space</strong>
-<img src="https://i.imgur.com/LwA18UW.png" alt="" /></p>
-  </li>
-  <li><strong>Memory-Management Unit (MMU)</strong>
-    <ul>
-      <li>Hardware device that at run time maps virtual to physical address</li>
-      <li>Many methods possible, covered in the rest of this chapter</li>
-      <li>To start, consider simple scheme where the value in the relocation register is added to every address generated by a user process at the time it is sent to memory
-        <ul>
-          <li>Base register now called <strong>relocation register</strong></li>
-          <li>MS-DOS on Intel 80x86 used 4 relocation registers</li>
-        </ul>
-      </li>
-      <li>The user program deals with logical addresses; it never sees the real physical addresses
-        <ul>
-          <li>Execution-time binding occurs when reference is made to location in memory</li>
-          <li>Logical address bound to physical addresses</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Dynamic relocation</strong>
-    <ul>
-      <li>Using a relocation register
-<img src="https://i.imgur.com/RICsWcf.png" alt="" /></li>
-    </ul>
-  </li>
-  <li><strong>Dynamic Linking</strong>
-    <ul>
-      <li><strong>Static linking</strong> - system libraries and program code combined by the loader into the binary program image</li>
-      <li><strong>Dynamic linking</strong> – linking postponed until execution time</li>
-      <li>Small piece of code, <strong>stub</strong>, used to locate the appropriate memory-resident library routine</li>
-      <li>Stub replaces itself with the address of the routine, and executes the routine</li>
-      <li>Operating system checks if routine is in processes’ memory address
-        <ul>
-          <li>If not in address space, add to address space</li>
-        </ul>
-      </li>
-      <li>Dynamic linking is particularly useful for libraries</li>
-      <li>System also known as <strong>shared libraries</strong></li>
-      <li>Consider applicability to patching system libraries
-        <ul>
-          <li>Versioning may be needed</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Swapping</strong>
-    <ul>
-      <li>A process can be swapped temporarily out of memory to a backing store, and then brought back into memory for continued execution
-        <ul>
-          <li>Total physical memory space of processes can exceed physical memory</li>
-        </ul>
-      </li>
-      <li><strong>Backing store</strong> – fast disk large enough to accommodate copies of all memory images for all users; must provide direct access to these memory images</li>
-      <li><strong>Roll out, roll in</strong> – swapping variant used for priority-based scheduling algorithms; lower-priority process is swapped out so higher-priority process can be loaded and executed</li>
-      <li>Major part of swap time is transfer time; total transfer time is directly proportional to the amount of memory swapped</li>
-      <li>System maintains a <strong>ready queue</strong> of ready-to-run processes which have memory images on disk</li>
-      <li>Does the swapped out process need to swap back in to same physical addresses?
-        <ul>
-          <li>Depends on address binding method
-            <ul>
-              <li>Plus consider pending <code class="highlighter-rouge">I/O</code> to <code class="highlighter-rouge">/</code> from process memory space</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>Modified versions of swapping are found on many systems (i.e., UNIX, Linux, and Windows)
-        <ul>
-          <li>Swapping normally disabled</li>
-          <li>Started if more than threshold amount of memory allocated</li>
-          <li>Disabled again once memory demand reduced below threshold</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<p><img src="https://i.imgur.com/hptlmlg.png" alt="" /></p>
-
+<h3 id="other-issues">(四) Other Issues</h3>
+<p><img src="https://i.imgur.com/289vIx7.png" alt="" />
+—
+<img src="https://i.imgur.com/AzOr7n2.png" alt="" />
+—
+<img src="https://i.imgur.com/9ZuU18h.png" alt="" />
+—
+<img src="https://i.imgur.com/cHTpyGG.png" alt="" /></p>
 
                 </div>
                 <div class="read-all">
-                    <a  href="/2017/05/19/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a  href="/2017/06/15/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)</a>
+                  <a class="post-link" href="/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-05-12
+                        <i class="fa fa-calendar"></i>2017-06-08
                     </div>
                     <div class="label-card">
                         
@@ -492,24 +548,33 @@
                 <div class="excerpt">
                     <ul id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#deadlock-characterization" id="markdown-toc-deadlock-characterization">(一) Deadlock Characterization</a></li>
-      <li><a href="#resource-allocation-graph" id="markdown-toc-resource-allocation-graph">(二) Resource-Allocation Graph</a>        <ul>
-          <li><a href="#example" id="markdown-toc-example">1. Example</a></li>
-          <li><a href="#basic-facts" id="markdown-toc-basic-facts">2. Basic Facts</a></li>
-          <li><a href="#methods-for-handling-deadlocks" id="markdown-toc-methods-for-handling-deadlocks">3. Methods for Handling Deadlocks</a></li>
+      <li><a href="#background" id="markdown-toc-background">(一) Background</a></li>
+      <li><a href="#virtual-address-space" id="markdown-toc-virtual-address-space">(二) Virtual Address Space</a></li>
+      <li><a href="#demand-paging" id="markdown-toc-demand-paging">(三) Demand Paging</a>        <ul>
+          <li><a href="#valid-invalid-bit" id="markdown-toc-valid-invalid-bit">1. Valid-Invalid Bit</a></li>
+          <li><a href="#example" id="markdown-toc-example">2. Example</a></li>
+          <li><a href="#optimizations" id="markdown-toc-optimizations">3. Optimizations</a></li>
         </ul>
       </li>
-      <li><a href="#deadlock-prevention" id="markdown-toc-deadlock-prevention">(三) Deadlock Prevention</a>        <ul>
-          <li><a href="#example-1" id="markdown-toc-example-1">1. Example</a></li>
-          <li><a href="#deadlock-avoidance" id="markdown-toc-deadlock-avoidance">2. Deadlock Avoidance</a></li>
-          <li><a href="#safe-state" id="markdown-toc-safe-state">3. Safe State</a></li>
-          <li><a href="#basic-facts-1" id="markdown-toc-basic-facts-1">4. Basic Facts</a></li>
-          <li><a href="#safe-unsafe-deadlock-state" id="markdown-toc-safe-unsafe-deadlock-state">5. Safe, Unsafe, Deadlock State</a></li>
-          <li><a href="#avoidance-algorithms" id="markdown-toc-avoidance-algorithms">6. Avoidance algorithms</a></li>
-          <li><a href="#resource-allocation-graph-1" id="markdown-toc-resource-allocation-graph-1">7. Resource-Allocation Graph</a></li>
-          <li><a href="#algorithm" id="markdown-toc-algorithm">8. Algorithm</a>            <ul>
-              <li><a href="#data-structures-for-the-bankers-algorithm" id="markdown-toc-data-structures-for-the-bankers-algorithm">(1) Data Structures for the Banker’s Algorithm</a></li>
-              <li><a href="#safety-algorithm" id="markdown-toc-safety-algorithm">(2) Safety Algorithm</a></li>
+      <li><a href="#page-fault" id="markdown-toc-page-fault">(四) Page Fault</a>        <ul>
+          <li><a href="#aspects-of-demand-paging" id="markdown-toc-aspects-of-demand-paging">1. Aspects of Demand Paging</a></li>
+          <li><a href="#instruction-restart" id="markdown-toc-instruction-restart">2. Instruction Restart</a>            <ul>
+              <li><a href="#performance-of-demand-paging" id="markdown-toc-performance-of-demand-paging">Performance of Demand Paging</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#copy-on-write" id="markdown-toc-copy-on-write">(五) Copy-on-Write</a></li>
+      <li><a href="#page-replacement" id="markdown-toc-page-replacement">(六) Page Replacement</a>        <ul>
+          <li><a href="#what-happens-if-there-is-no-free-frame" id="markdown-toc-what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</a></li>
+          <li><a href="#basic-page-replacement" id="markdown-toc-basic-page-replacement">2. Basic Page Replacement</a></li>
+          <li><a href="#page-and-frame-replacement-algorithms" id="markdown-toc-page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</a>            <ul>
+              <li><a href="#first-in-first-out-fifo-algorithm" id="markdown-toc-first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</a></li>
+              <li><a href="#optimal-algorithm" id="markdown-toc-optimal-algorithm">(2) Optimal Algorithm</a></li>
+              <li><a href="#least-recently-used-lru-algorithm" id="markdown-toc-least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</a></li>
+              <li><a href="#lru-approximation-algorithms" id="markdown-toc-lru-approximation-algorithms">(4) LRU Approximation Algorithms</a></li>
+              <li><a href="#counting-algorithms" id="markdown-toc-counting-algorithms">(5) Counting Algorithms</a></li>
+              <li><a href="#page-buffering-algorithms" id="markdown-toc-page-buffering-algorithms">(6) Page-Buffering Algorithms</a></li>
             </ul>
           </li>
         </ul>
@@ -522,193 +587,441 @@
 <ul>
   <li>課堂講義
     <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170511/ch07.pdf">Chapter 7: Deadlocks</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170608/ch09.pdf">Chapter 9: Virtual-Memory Management</a></li>
     </ul>
   </li>
 </ul>
 
-<h3 id="deadlock-characterization">(一) Deadlock Characterization</h3>
+<h3 id="background">(一) Background</h3>
 <ul>
-  <li><strong>Mutual exclusion</strong>：only one process at a time can use a resource.</li>
-  <li><strong>Hold and wait</strong>：a process holding at least one resource is waiting to acquire additional resources held by other processes.</li>
-  <li><strong>No preemption</strong>：a resource can be released only voluntarily by the process holding it, after that process has completed its task.</li>
-  <li><strong>Circular wait</strong>：there exists a set {P0, P1, …, Pn } of waiting processes such that P0 is waiting for a resource that is held by P1, P1 is waiting for a resource that is held by P2 , …, Pn–1 is waiting for a resource that is held by Pn, and Pn is waiting for a resource that is held by P0.</li>
-  <li>Deadlocks can occur via system calls, locking, etc</li>
-</ul>
-
-<h3 id="resource-allocation-graph">(二) Resource-Allocation Graph</h3>
-<p><img src="https://i.imgur.com/ruQSE03.png" alt="" />
-<img src="https://i.imgur.com/jSnZ1nO.png" alt="" /></p>
-
-<h4 id="example">1. Example</h4>
-<ul>
-  <li>
-    <p>Resource Allocation Graph
-<img src="https://i.imgur.com/e10FFPp.png" alt="" /></p>
-  </li>
-  <li>
-    <p>Resource Allocation Graph With A Deadlock
-<img src="https://i.imgur.com/t2UkKLi.png" alt="" /></p>
-  </li>
-  <li>
-    <p>Graph With A Cycle But No Deadlock
-<img src="https://i.imgur.com/3mqHz5J.png" alt="" /></p>
-  </li>
-</ul>
-
-<h4 id="basic-facts">2. Basic Facts</h4>
-<ul>
-  <li>If graph contains no cycles » no deadlock</li>
-  <li>If graph contains a cycle
+  <li>Code needs to be in memory to execute, but entire program rarely used
     <ul>
-      <li>if only one instance per resource type, then deadlock</li>
-      <li>if several instances per resource type, possibility of deadlock</li>
+      <li>Error code, unusual routines, large data structures</li>
     </ul>
   </li>
-</ul>
-
-<h4 id="methods-for-handling-deadlocks">3. Methods for Handling Deadlocks</h4>
-<ul>
-  <li>Ensure that the system will never enter a deadlock state</li>
-  <li>Allow the system to enter a deadlock state and then recover</li>
-  <li>Ignore the problem and pretend that deadlocks never occur in the system; used by most operating systems, including UNIX</li>
-</ul>
-
-<h3 id="deadlock-prevention">(三) Deadlock Prevention</h3>
-<ul>
-  <li><strong>Mutual Exclusion</strong>：not required for sharable resources; must hold for nonsharable resources</li>
-  <li><strong>Hold and Wait</strong>：must guarantee that whenever a process requests a resource, it does not hold any other resources
+  <li>Entire program code not needed at same time</li>
+  <li>Consider ability to execute partially-loaded program
     <ul>
-      <li>Require process to request and be allocated all its resources before it begins execution, or allow process to request resources only when the process has none</li>
-      <li>Low resource utilization; starvation possible</li>
+      <li>Program no longer constrained by limits of physical memory</li>
+      <li>Program and programs could be larger than physical memory</li>
     </ul>
   </li>
-  <li><strong>No Preemption</strong>：
+  <li><strong>Virtual memory</strong> – separation of user logical memory from physical memory
     <ul>
-      <li>If a process that is holding some resources requests another resource that cannot be immediately allocated to it, then all resources currently being held are released</li>
-      <li>Preempted resources are added to the list of resources for which the process is waiting</li>
-      <li>Process will be restarted only when it can regain its old resources, as well as the new ones that it is requesting</li>
+      <li>Only part of the program needs to be in memory for execution</li>
+      <li>Logical address space can therefore be much larger than physical address space</li>
+      <li>Allows address spaces to be shared by several processes</li>
+      <li>Allows for more efficient process creation</li>
+      <li>More programs running concurrently</li>
+      <li>Less I/O needed to load or swap processes</li>
     </ul>
   </li>
-  <li><strong>Circular Wait</strong>：impose a total ordering of all resource types, and require that each process requests resources in an increasing order of enumeration</li>
-</ul>
-
-<h4 id="example-1">1. Example</h4>
-<ul>
-  <li>Deadlock Example</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* thread one runs in this function */</span>
-<span class="kt">void</span> <span class="o">*</span><span class="k">do</span> <span class="n">work</span> <span class="nf">one</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="cm">/** * Do some work */</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="cm">/* thread two runs in this function */</span>
-<span class="kt">void</span> <span class="o">*</span><span class="k">do</span> <span class="n">work</span> <span class="nf">two</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="cm">/** * Do some work */</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<ul>
-  <li>Deadlock Example with Lock Ordering</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">void</span> <span class="nf">transaction</span><span class="p">(</span><span class="n">Account</span> <span class="n">from</span><span class="p">,</span> <span class="n">Account</span> <span class="n">to</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">mutex</span> <span class="n">lock1</span><span class="p">,</span> <span class="n">lock2</span><span class="p">;</span>
-    <span class="n">lock1</span> <span class="o">=</span> <span class="n">get</span> <span class="n">lock</span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
-    <span class="n">lock2</span> <span class="o">=</span> <span class="n">get</span> <span class="n">lock</span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
-    <span class="n">acquire</span><span class="p">(</span><span class="n">lock1</span><span class="p">);</span>
-    <span class="n">acquire</span><span class="p">(</span><span class="n">lock2</span><span class="p">);</span>
-    <span class="n">withdraw</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">amount</span><span class="p">);</span>
-    <span class="n">deposit</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">amount</span><span class="p">);</span>
-    <span class="n">release</span><span class="p">(</span><span class="n">lock2</span><span class="p">);</span>
-    <span class="n">release</span><span class="p">(</span><span class="n">lock1</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h4 id="deadlock-avoidance">2. Deadlock Avoidance</h4>
-<ul>
-  <li>Requires that the system has some additional a priori information available
+  <li>Virtual memory can be implemented via
     <ul>
-      <li>Simplest and most useful model requires that each process declare the <strong>maximum number</strong> of resources of each type that it may need</li>
-      <li>The deadlock-avoidance algorithm dynamically examines the resource-allocation state to ensure that there can never be a circular-wait condition</li>
-      <li>Resource-allocation state is defined by the number of available and allocated resources, and the maximum demands of the processes</li>
+      <li>Demand paging</li>
+      <li>Demand segmentation</li>
     </ul>
   </li>
 </ul>
 
-<h4 id="safe-state">3. Safe State</h4>
-<p><img src="https://i.imgur.com/Qzeh5D8.png" alt="" /></p>
+<h3 id="virtual-address-space">(二) Virtual Address Space</h3>
+<p><img src="http://i.imgur.com/DkDhsAx.jpg" alt="" /></p>
 
-<h4 id="basic-facts-1">4. Basic Facts</h4>
 <ul>
-  <li>If a system is in safe state » no deadlocks</li>
-  <li>If a system is in unsafe state » possibility of deadlock</li>
-  <li>Avoidance » ensure that a system will never enter an unsafe state</li>
+  <li>Enables <strong>sparse</strong> address spaces with holes left for growth, dynamically linked libraries, etc</li>
+  <li>System libraries shared via mapping into virtual address space</li>
+  <li>Shared memory by mapping pages read-write into virtual address space</li>
+  <li>Pages can be shared during <code class="highlighter-rouge">fork()</code>, speeding process creation</li>
 </ul>
 
-<h4 id="safe-unsafe-deadlock-state">5. Safe, Unsafe, Deadlock State</h4>
-<p><img src="https://i.imgur.com/Y7KEMVp.png" alt="" /></p>
+<p><img src="http://i.imgur.com/3jsjqeH.png" alt="" /></p>
 
-<h4 id="avoidance-algorithms">6. Avoidance algorithms</h4>
+<h3 id="demand-paging">(三) Demand Paging</h3>
 <ul>
-  <li>Single instance of a resource type
+  <li>Could bring entire process into memory at load time</li>
+  <li>Or bring a page into memory only when it is needed
     <ul>
-      <li>Use a resource-allocation graph</li>
+      <li>Less I/O needed, no unnecessary I/O</li>
+      <li>Less memory needed</li>
+      <li>Faster response</li>
+      <li>More users</li>
     </ul>
   </li>
-  <li>Multiple instances of a resource type
+  <li>Page is needed » reference to it
     <ul>
-      <li>Use the banker’s algorithm</li>
+      <li>invalid reference » abort</li>
+      <li>not-in-memory » bring to memory</li>
+    </ul>
+  </li>
+  <li><strong>Lazy swapper</strong> – never swaps a page into memory unless page will be needed
+    <ul>
+      <li>Swapper that deals with pages is a <strong>pager</strong></li>
     </ul>
   </li>
 </ul>
 
-<h4 id="resource-allocation-graph-1">7. Resource-Allocation Graph</h4>
-<p><img src="https://i.imgur.com/aUkipvw.png" alt="" />
-<img src="http://i.imgur.com/RtDzuXQ.jpg" alt="" /></p>
+<p><img src="https://i.imgur.com/aLRTern.png" alt="" /></p>
 
-<h4 id="algorithm">8. Algorithm</h4>
-<h5 id="data-structures-for-the-bankers-algorithm">(1) Data Structures for the Banker’s Algorithm</h5>
-<p><img src="http://i.imgur.com/Z9SQSCC.png" alt="" /></p>
+<h4 id="valid-invalid-bit">1. Valid-Invalid Bit</h4>
+<ul>
+  <li>With each page table entry a valid–invalid bit is associated (<strong>v</strong> » in-memory – <strong>memory resident</strong>, <strong>i</strong> » not-in-memory)</li>
+  <li>Initially valid–invalid bit is set to <strong>i</strong> on all entries</li>
+</ul>
+
+<p><img src="https://i.imgur.com/0Fk929T.jpg" alt="" /></p>
+
+<h4 id="example">2. Example</h4>
+<ul>
+  <li>Memory access time = 200 nanoseconds</li>
+  <li>Average page-fault service time = 8 milliseconds
+    <blockquote>
+      <p>EAT = (1 – p) x 200 + p (8 milliseconds)
+= (1 – p) x 200 + p x 8,000,000
+= 200 + p x 7,999,800</p>
+    </blockquote>
+  </li>
+  <li>If one access out of 1,000 causes a page fault, then EAT = 8.2 microseconds. (This is a slowdown by a factor of 40)</li>
+  <li>If want performance degradation &lt; 10 percent
+    <ul>
+      <li>220 &gt; 200 + 7,999,800 x p</li>
+      <li>20 &gt; 7,999,800 x p</li>
+      <li>p &lt; .0000025 (&lt; one page fault in every 400,000 memory accesses)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="optimizations">3. Optimizations</h4>
+<ul>
+  <li>Copy entire process image to swap space at process load time
+    <ul>
+      <li>Then page in and out of swap space</li>
+      <li>Used in older BSD Unix</li>
+    </ul>
+  </li>
+  <li>Demand page in from program binary on disk, but discard rather than paging out when freeing frame
+    <ul>
+      <li>Used in Solaris and current BSD</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="page-fault">(四) Page Fault</h3>
+<ul>
+  <li>If there is a reference to a page, first reference to that page will trap to operating system
+    <ul>
+      <li><strong>page fault</strong></li>
+    </ul>
+  </li>
+  <li>Operating system looks at another table to decide
+    <ul>
+      <li>Invalid reference » abort</li>
+      <li>Just not in memory</li>
+    </ul>
+  </li>
+  <li>Get empty frame</li>
+  <li>Swap page into frame via scheduled disk operation</li>
+  <li>Reset tables to indicate page now in memory Set validation bit = <strong>v</strong></li>
+  <li>Restart the instruction that caused the page fault</li>
+</ul>
+
+<p><img src="https://i.imgur.com/98V6oNY.png" alt="" /></p>
+
+<h4 id="aspects-of-demand-paging">1. Aspects of Demand Paging</h4>
+<ul>
+  <li>Extreme case – start process with no pages in memory
+    <ul>
+      <li>OS sets instruction pointer to first instruction of process, non-memory-resident -&gt; page fault</li>
+      <li>And for every other process pages on first access</li>
+      <li><strong>Pure demand paging</strong></li>
+    </ul>
+  </li>
+  <li>Actually, a given instruction could access multiple pages -&gt; multiple page faults
+    <ul>
+      <li>Pain decreased because of <strong>locality of reference</strong></li>
+    </ul>
+  </li>
+  <li>Hardware support needed for demand paging
+    <ul>
+      <li>Page table with valid / invalid bit</li>
+      <li>Secondary memory (swap device with <strong>swap space</strong>)</li>
+      <li>Instruction restart</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="instruction-restart">2. Instruction Restart</h4>
+<ul>
+  <li>Consider an instruction that could access several different locations
+    <ul>
+      <li>block move</li>
+      <li>auto increment/decrement location</li>
+      <li>Restart the whole operation?
+        <ul>
+          <li>What if source and destination overlap?</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="performance-of-demand-paging">Performance of Demand Paging</h5>
+<ul>
+  <li>Stages in Demand Paging
+    <blockquote>
+      <ol>
+        <li>Trap to the operating system</li>
+        <li>Save the user registers and process state</li>
+        <li>Determine that the interrupt was a page fault</li>
+        <li>Check that the page reference was legal and determine the location of the page on the disk</li>
+        <li>Issue a read from the disk to a free frame:
+(1) Wait in a queue for this device until the read request is serviced
+(2) Wait for the device seek and/or latency time
+(3) Begin the transfer of the page to a free frame</li>
+        <li>While waiting, allocate the CPU to some other user</li>
+        <li>Receive an interrupt from the disk I/O subsystem (I/O completed)</li>
+        <li>Save the registers and process state for the other user</li>
+        <li>Determine that the interrupt was from the disk</li>
+        <li>Correct the page table and other tables to show page is now in memory</li>
+        <li>Wait for the CPU to be allocated to this process again</li>
+        <li>Restore the user registers, process state, and new page table, and then resume the interrupted instruction</li>
+      </ol>
+    </blockquote>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/HA817pb.png" alt="" /></p>
+
+<h3 id="copy-on-write">(五) Copy-on-Write</h3>
+<ul>
+  <li><strong>Copy-on-Write</strong> (COW) allows both parent and child processes to initially share the same pages in memory
+    <ul>
+      <li>If either process modifies a shared page, only then is the page copied</li>
+    </ul>
+  </li>
+  <li>COW allows more efficient process creation as only modified pages are copied</li>
+  <li>In general, free pages are allocated from a <strong>pool</strong> of <strong>zero-fill-on-demand</strong> pages
+    <ul>
+      <li>Why zero-out a page before allocating it?</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">vfork()</code> variation on <code class="highlighter-rouge">fork()</code> system call has parent suspend and child using copy-on-write address space of parent
+    <ul>
+      <li>Designed to have child call <code class="highlighter-rouge">exec()</code></li>
+      <li>Very efficient</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="http://i.imgur.com/LABMPPo.jpg" alt="" /></p>
+
+<h3 id="page-replacement">(六) Page Replacement</h3>
+<ul>
+  <li>Prevent over-allocation of memory by modifying page-fault service routine to include page replacement</li>
+  <li>Use <strong>modify (dirty) bit</strong> to reduce overhead of page transfers – only modified pages are written to disk</li>
+  <li>Page replacement completes separation between logical memory and physical memory – large virtual memory can be provided on a smaller physical memory</li>
+</ul>
+
+<h4 id="what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</h4>
+<ul>
+  <li>Used up by process pages</li>
+  <li>Also in demand from the kernel, I/O buffers, etc</li>
+  <li>How much to allocate to each?</li>
+  <li>Page replacement – find some page in memory, but not really in use, page it out
+    <ul>
+      <li>Algorithm – terminate? swap out? replace the page?</li>
+      <li>Performance – want an algorithm which will result in minimum number of page faults</li>
+    </ul>
+  </li>
+  <li>Same page may be brought into memory several times</li>
+</ul>
+
+<p><img src="https://i.imgur.com/eFpQyPv.png" alt="" /></p>
+
+<h4 id="basic-page-replacement">2. Basic Page Replacement</h4>
+<blockquote>
+  <ol>
+    <li>Find the location of the desired page on disk</li>
+    <li>Find a free frame:
+      <blockquote>
+        <p>a. If there is a free frame, use it
+b. If there is no free frame, use a page replacement algorithm to select a <strong>victim frame</strong>
+c. Write victim frame to disk if dirty</p>
+      </blockquote>
+    </li>
+    <li>Bring the desired page into the (newly) free frame; update the page and frame tables</li>
+    <li>Continue the process by restarting the instruction that caused the trap
+      <ul>
+        <li>Note now potentially 2 page transfers for page fault – increasing EAT</li>
+      </ul>
+    </li>
+  </ol>
+</blockquote>
+
+<p><img src="https://i.imgur.com/Hm6MvuN.png" alt="" /></p>
+
+<h4 id="page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</h4>
+<ul>
+  <li><strong>Frame-allocation algorithm</strong> determines
+    <ul>
+      <li>How many frames to give each process</li>
+      <li>Which frames to replace</li>
+    </ul>
+  </li>
+  <li><strong>Page-replacement algorithm</strong>
+    <ul>
+      <li>Want lowest page-fault rate on both first access and re-access</li>
+    </ul>
+  </li>
+  <li>Evaluate algorithm by running it on a particular string of memory references (reference string) and computing the number of page faults on that string
+    <ul>
+      <li>String is just page numbers, not full addresses</li>
+      <li>Repeated access to the same page does not cause a page fault</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</h5>
+<p><img src="https://i.imgur.com/cSezcCO.png" alt="" />
+<img src="https://i.imgur.com/NVa4BTe.png" alt="" />
+<img src="https://i.imgur.com/6VeXbGw.png" alt="" /></p>
+
+<h5 id="optimal-algorithm">(2) Optimal Algorithm</h5>
+<ul>
+  <li>Replace page that will not be used for longest period of time
+    <ul>
+      <li>9 is optimal for the example on the next slide</li>
+    </ul>
+  </li>
+  <li>How do you know this?
+    <ul>
+      <li>Can’t read the future</li>
+    </ul>
+  </li>
+  <li>Used for measuring how well your algorithm performs</li>
+</ul>
+
+<p><img src="https://i.imgur.com/1jc2ngr.png" alt="" /></p>
+
+<h5 id="least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</h5>
+<ul>
+  <li>Use past knowledge rather than future</li>
+  <li>Replace page that has not been used in the most amount of time</li>
+  <li>Associate time of last use with each page</li>
+</ul>
+
+<p><img src="https://i.imgur.com/RiLxhrF.png" alt="" /></p>
 
 <ul>
-  <li>Example
-<img src="http://i.imgur.com/IMSADSw.png" alt="" />
-<img src="http://i.imgur.com/CnQFX9s.png" alt="" /></li>
+  <li>Counter implementation
+    <ul>
+      <li>Every page entry has a counter; every time page is referenced through this entry, copy the clock into the counter</li>
+      <li>When a page needs to be changed, look at the counters to find smallest value
+        <ul>
+          <li>Search through table needed</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Stack implementation
+    <ul>
+      <li>Keep a stack of page numbers in a double link form:</li>
+      <li>Page referenced:
+        <ul>
+          <li>move it to the top</li>
+          <li>requires 6 pointers to be changed</li>
+        </ul>
+      </li>
+      <li>But each update more expensive</li>
+      <li>No search for replacement</li>
+    </ul>
+  </li>
+  <li>LRU and OPT are cases of <strong>stack algorithms</strong> that don’t have Belady’s Anomaly</li>
 </ul>
 
-<h5 id="safety-algorithm">(2) Safety Algorithm</h5>
-<p><img src="http://i.imgur.com/V6oA8hC.png" alt="" /></p>
+<p><img src="http://i.imgur.com/yvsGPvm.jpg" alt="" /></p>
 
+<h5 id="lru-approximation-algorithms">(4) LRU Approximation Algorithms</h5>
+<ul>
+  <li>LRU needs special hardware and still slow</li>
+  <li><strong>Reference bit</strong>
+    <ul>
+      <li>With each page associate a bit, initially = 0</li>
+      <li>When page is referenced bit set to 1</li>
+      <li>Replace any with reference bit = 0 (if one exists)
+        <ul>
+          <li>We do not know the order, however</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Second-chance algorithm</strong>
+    <ul>
+      <li>Generally FIFO, plus hardware-provided reference bit</li>
+      <li>Clock replacement</li>
+      <li>If page to be replaced has
+        <ul>
+          <li>Reference bit = 0 -&gt; replace it</li>
+          <li>reference bit = 1 then:
+            <ul>
+              <li>set reference bit 0, leave page in memory</li>
+              <li>replace next page, subject to same rules</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="http://i.imgur.com/jInNXqt.png" alt="" /></p>
+
+<h5 id="counting-algorithms">(5) Counting Algorithms</h5>
+<ul>
+  <li>Keep a counter of the number of references that have been made to each page
+    <ul>
+      <li>Not common</li>
+    </ul>
+  </li>
+  <li><strong>LFU Algorithm</strong>: replaces page with smallest count</li>
+  <li><strong>MFU Algorithm</strong>: based on the argument that the page with the smallest count was probably just brought in and has yet to be used</li>
+</ul>
+
+<h5 id="page-buffering-algorithms">(6) Page-Buffering Algorithms</h5>
+<ul>
+  <li>Keep a pool of free frames, always
+    <ul>
+      <li>Then frame available when needed, not found at fault time</li>
+      <li>Read page into free frame and select victim to evict and add to free pool</li>
+      <li>When convenient, evict victim</li>
+    </ul>
+  </li>
+  <li>Possibly, keep list of modified pages
+    <ul>
+      <li>When backing store otherwise idle, write pages there and set to non-dirty</li>
+    </ul>
+  </li>
+  <li>Possibly, keep free frame contents intact and note what is in them
+    <ul>
+      <li>If referenced again before reused, no need to load contents again from disk</li>
+      <li>Generally useful to reduce penalty if wrong victim frame selected</li>
+    </ul>
+  </li>
+</ul>
 
                 </div>
                 <div class="read-all">
-                    <a  href="/2017/05/12/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a  href="/2017/06/08/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2017/05/05/linux_system/">20170505 [學習筆記] Linux 系統程式 (9)</a>
+                  <a class="post-link" href="/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-05-05
+                        <i class="fa fa-calendar"></i>2017-06-01
                     </div>
                     <div class="label-card">
                         
@@ -762,41 +1075,18 @@
                 <div class="excerpt">
                     <ul id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#semaphore" id="markdown-toc-semaphore">(一) Semaphore</a>        <ul>
-          <li><a href="#usage" id="markdown-toc-usage">1. Usage</a></li>
-          <li><a href="#implementation" id="markdown-toc-implementation">2. Implementation</a>            <ul>
-              <li><a href="#busy-waiting" id="markdown-toc-busy-waiting">(1) Busy waiting</a></li>
-              <li><a href="#with-no-busy-waiting" id="markdown-toc-with-no-busy-waiting">(2) with no Busy waiting</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#deadlock-and-starvation" id="markdown-toc-deadlock-and-starvation">(二) Deadlock and Starvation</a></li>
-      <li><a href="#classical-problems-of-synchronization" id="markdown-toc-classical-problems-of-synchronization">(三) Classical Problems of Synchronization</a>        <ul>
-          <li><a href="#bounded-buffer-problem" id="markdown-toc-bounded-buffer-problem">1. Bounded-Buffer Problem</a>            <ul>
-              <li><a href="#the-structure-of-the-producer-process" id="markdown-toc-the-structure-of-the-producer-process">(1) The structure of the producer process</a></li>
-              <li><a href="#the-structure-of-the-consumer-process" id="markdown-toc-the-structure-of-the-consumer-process">(2) The structure of the consumer process</a></li>
-            </ul>
-          </li>
-          <li><a href="#readers-writers-problem" id="markdown-toc-readers-writers-problem">2. Readers-Writers Problem</a>            <ul>
-              <li><a href="#the-structure-of-a-writer-process" id="markdown-toc-the-structure-of-a-writer-process">(1) The structure of a writer process</a></li>
-              <li><a href="#the-structure-of-a-reader-process" id="markdown-toc-the-structure-of-a-reader-process">(2) The structure of a reader process</a></li>
-              <li><a href="#problem" id="markdown-toc-problem">(3) Problem</a></li>
-            </ul>
-          </li>
-          <li><a href="#dining-philosophers-problem" id="markdown-toc-dining-philosophers-problem">3. Dining-Philosophers Problem</a>            <ul>
-              <li><a href="#in-the-case-of-5-philosophers" id="markdown-toc-in-the-case-of-5-philosophers">(1) In the case of 5 philosophers</a></li>
-              <li><a href="#monitors" id="markdown-toc-monitors">(2) Monitors</a></li>
-              <li><a href="#monitors-implementation" id="markdown-toc-monitors-implementation">Monitors Implementation</a>                <ul>
-                  <li><a href="#using-semaphores" id="markdown-toc-using-semaphores">1. Using Semaphores</a></li>
-                  <li><a href="#condition-variables" id="markdown-toc-condition-variables">2. Condition Variables</a></li>
-                  <li><a href="#resuming-processes" id="markdown-toc-resuming-processes">Resuming Processes</a></li>
-                  <li><a href="#allocate-single-resource" id="markdown-toc-allocate-single-resource">Allocate Single Resource</a></li>
-                </ul>
-              </li>
-              <li><a href="#solution" id="markdown-toc-solution">(3) Solution</a></li>
-            </ul>
-          </li>
+      <li><a href="#paging" id="markdown-toc-paging">(一) Paging</a></li>
+      <li><a href="#address-translation-scheme" id="markdown-toc-address-translation-scheme">(二) Address Translation Scheme</a></li>
+      <li><a href="#implementation-of-page-table" id="markdown-toc-implementation-of-page-table">(三) Implementation of Page Table</a></li>
+      <li><a href="#effective-access-time" id="markdown-toc-effective-access-time">(四) Effective Access Time</a></li>
+      <li><a href="#memory-protection" id="markdown-toc-memory-protection">(五) Memory Protection</a></li>
+      <li><a href="#shared-pages" id="markdown-toc-shared-pages">(六) Shared Pages</a></li>
+      <li><a href="#structure-of-the-page-table" id="markdown-toc-structure-of-the-page-table">(七) Structure of the Page Table</a>        <ul>
+          <li><a href="#hierarchical-page-tables" id="markdown-toc-hierarchical-page-tables">Hierarchical Page Tables</a></li>
+          <li><a href="#two-level-page-table-scheme" id="markdown-toc-two-level-page-table-scheme">Two-Level Page-Table Scheme</a></li>
+          <li><a href="#three-level-paging-scheme" id="markdown-toc-three-level-paging-scheme">Three-level Paging Scheme</a></li>
+          <li><a href="#hashed-page-tables" id="markdown-toc-hashed-page-tables">Hashed Page Tables</a></li>
+          <li><a href="#inverted-page-table" id="markdown-toc-inverted-page-table">Inverted Page Table</a></li>
         </ul>
       </li>
     </ul>
@@ -805,548 +1095,247 @@
 
 <h2 id="section">一、作業系統</h2>
 <ul>
-  <li>課程簡報
+  <li>課堂講義
     <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170504/ch06.pdf">Chapter 6: Process Scheduling</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170601/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
     </ul>
   </li>
 </ul>
 
-<h3 id="semaphore">(一) Semaphore</h3>
+<h3 id="paging">(一) Paging</h3>
 <ul>
-  <li>Synchronization tool that does not require busy waiting.</li>
-  <li>Semaphore S – integer variable</li>
-  <li>Two standard operations modify S: <code class="highlighter-rouge">wait()</code> and <code class="highlighter-rouge">signal()</code></li>
-  <li>Less complicated</li>
-  <li>Can only be accessed via two indivisible (atomic) operations</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">S</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="p">;</span> <span class="c1">//busy wait
-</span>    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">S</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h4 id="usage">1. Usage</h4>
-<ul>
-  <li><strong>Counting semaphore</strong> – integer value can range over an unrestricted domain</li>
-  <li><strong>Binary semaphore</strong> – integer value can range only between 0 and 1
+  <li>Physical address space of a process can be noncontiguous; process is allocated physical memory whenever the latter is available
     <ul>
-      <li>Then a <code class="highlighter-rouge">mutex lock</code></li>
+      <li>Avoids external fragmentation</li>
+      <li>Avoids problem of varying sized memory chunks</li>
     </ul>
   </li>
-  <li>Can implement a counting semaphore S as a binary semaphore</li>
-  <li>Can solve various synchronization problems</li>
-  <li>Consider P1 and P2 that require S1 to happen before S2</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="nl">P1:</span>
-    <span class="n">S1</span><span class="p">;</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
-<span class="n">P2</span><span class="o">:</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
-    <span class="n">S2</span><span class="p">;</span>
-</code></pre></div>
-
-<h4 id="implementation">2. Implementation</h4>
-<h5 id="busy-waiting">(1) Busy waiting</h5>
-<ul>
-  <li>
-    <p>Must guarantee that no two processes can execute <code class="highlighter-rouge">wait()</code> and <code class="highlighter-rouge">signal()</code> on the same semaphore at the same time</p>
-  </li>
-  <li>Thus, implementation becomes the critical section problem where the wait and signal code are placed in the critical section</li>
-  <li>Could now have <strong>busy waiting</strong> in critical section implementation
+  <li>Divide physical memory into fixed-sized blocks called <strong>frames</strong>
     <ul>
-      <li>But implementation code is short</li>
-      <li>Little busy waiting if critical section rarely occupied</li>
+      <li>Size is power of 2, between 512 bytes and 16 Mbytes</li>
     </ul>
   </li>
-  <li>Note that applications may spend lots of time in critical sections and therefore this is not a good solution</li>
-</ul>
-
-<h5 id="with-no-busy-waiting">(2) with no Busy waiting</h5>
-<ul>
-  <li>With each semaphore there is an associated waiting queue</li>
-  <li>Each entry in a waiting queue has two data items:
+  <li>Divide logical memory into blocks of same size called <strong>pages</strong></li>
+  <li>Keep track of all free frames</li>
+  <li>To run a program of size <code class="highlighter-rouge">N</code> pages, need to find <code class="highlighter-rouge">N</code> free frames and load program</li>
+  <li>Set up a page table to translate logical to physical addresses</li>
+  <li>Backing store likewise split into pages</li>
+  <li>Still have Internal fragmentation</li>
+  <li>Calculating internal fragmentation
     <ul>
-      <li>value (of type integer)</li>
-      <li>pointer to next record in the list</li>
+      <li>Page size = 2,048 bytes</li>
+      <li>Process size = 72,766 bytes</li>
+      <li>35 pages + 1,086 bytes</li>
+      <li>Internal fragmentation of 2,048 - 1,086 = 962 bytes</li>
+      <li>On average fragmentation = 1 / 2 frame size</li>
+      <li>So small frame sizes desirable?</li>
+      <li>But each page table entry takes memory to track</li>
+      <li>Page sizes growing over time
+        <ul>
+          <li>Solaris supports two page sizes – 8 KB and 4 MB</li>
+        </ul>
+      </li>
     </ul>
   </li>
-  <li>Two operations:
+  <li>Process view and physical memory now very different</li>
+  <li>By implementation process can only access its own memory</li>
+</ul>
+
+<h3 id="address-translation-scheme">(二) Address Translation Scheme</h3>
+<p><img src="http://i.imgur.com/rbuMKKY.png" alt="" /></p>
+
+<ul>
+  <li>Address generated by CPU is divided into
     <ul>
-      <li><code class="highlighter-rouge">block</code> – place the process invoking the operation on the appropriate waiting queue</li>
-      <li><code class="highlighter-rouge">wakeup</code> – remove one of processes in the waiting queue and place it in the ready queue</li>
+      <li><strong>Page number <code class="highlighter-rouge">p</code></strong> – used as an index into a <strong>page table</strong> which contains base address of each page in physical memory</li>
+      <li><strong>Page offset <code class="highlighter-rouge">d</code></strong> – combined with base address to define the physical memory address that is sent to the memory unit</li>
     </ul>
   </li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
-    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">process</span> <span class="o">*</span><span class="n">list</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">semaphore</span><span class="p">;</span>
+<p><img src="http://i.imgur.com/hY3zgAC.png" alt="" />
+<img src="http://i.imgur.com/ASgBcxX.png" alt="" />
+<img src="https://i.imgur.com/tLepGb4.png" alt="" /></p>
 
-<span class="n">wait</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// add this process to S-&gt;list;
-</span>        <span class="n">block</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">signal</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// remove a process P from S-&gt;list;
-</span>        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h3 id="deadlock-and-starvation">(二) Deadlock and Starvation</h3>
+<h3 id="implementation-of-page-table">(三) Implementation of Page Table</h3>
 <ul>
-  <li><strong>Deadlock</strong> – two or more processes are waiting indefinitely for an event that can be caused by only one of the waiting processes</li>
-  <li>
-    <p>Let S and Q be two semaphores initialized to 1
-<img src="https://i.imgur.com/9cUghpD.png" alt="" /></p>
-  </li>
-  <li><strong>Starvation</strong> – indefinite blocking
+  <li>Page table is kept in main memory</li>
+  <li><strong>Page-table base register (PTBR)</strong> points to the page table</li>
+  <li><strong>Page-table length register (PTLR)</strong> indicates size of the page table</li>
+  <li>In this scheme every data/instruction access requires two memory accesses
     <ul>
-      <li>A process may never be removed from the semaphore queue in which it is suspended</li>
+      <li>One for the page table and one for the data / instruction</li>
     </ul>
   </li>
-  <li><strong>Priority Inversion</strong>
+  <li>The two memory access problem can be solved by the use of a special fast-lookup hardware cache called <strong>associative memory</strong> or <strong>translation look-aside buffers (TLBs)</strong></li>
+  <li>Some TLBs store <strong>address-space identifiers (ASIDs)</strong> in each TLB entry – uniquely identifies each process to provide address-space protection for that process
     <ul>
-      <li>Scheduling problem when lower-priority process holds a lock needed by higher-priority process</li>
-      <li>Solved via <strong>priority-inheritance protocol</strong></li>
+      <li>Otherwise need to flush at every context switch</li>
+    </ul>
+  </li>
+  <li>TLBs typically small (64 to 1,024 entries)</li>
+  <li>On a TLB miss, value is loaded into the TLB for faster access next time
+    <ul>
+      <li>Replacement policies must be considered</li>
+      <li>Some entries can be <strong>wired down</strong> for permanent fast access</li>
     </ul>
   </li>
 </ul>
 
-<h3 id="classical-problems-of-synchronization">(三) Classical Problems of Synchronization</h3>
-<h4 id="bounded-buffer-problem">1. Bounded-Buffer Problem</h4>
+<p><img src="https://i.imgur.com/aH3Zg2J.png" alt="" />
+<img src="https://i.imgur.com/923AOvB.png" alt="" /></p>
+
+<h3 id="effective-access-time">(四) Effective Access Time</h3>
+<p><img src="https://i.imgur.com/Y0mMzTR.png" alt="" /></p>
+
+<h3 id="memory-protection">(五) Memory Protection</h3>
 <ul>
-  <li>n buffers, each can hold one item
+  <li>Memory protection implemented by associating protection bit with each frame to indicate if read-only or read-write access is allowed
     <ul>
-      <li>Semaphore <code class="highlighter-rouge">mutex</code> initialized to the value 1</li>
-      <li>Semaphore <code class="highlighter-rouge">full</code> initialized to the value 0</li>
-      <li>Semaphore <code class="highlighter-rouge">empty</code> initialized to the value n</li>
+      <li>Can also add more bits to indicate page execute-only, and so on</li>
+    </ul>
+  </li>
+  <li><strong>Valid-invalid</strong> bit attached to each entry in the page table
+    <ul>
+      <li><code class="highlighter-rouge">valid</code> indicates that the associated page is in the process’ logical address space, and is thus a legal page</li>
+      <li><code class="highlighter-rouge">invalid</code> indicates that the page is not in the process’ logical address space</li>
+      <li>Or use <strong>page-table length register (PTLR)</strong></li>
+    </ul>
+  </li>
+  <li>Any violations result in a trap to the kernel</li>
+</ul>
+
+<p><img src="http://i.imgur.com/3UtvoGB.png" alt="" /></p>
+
+<h3 id="shared-pages">(六) Shared Pages</h3>
+<ul>
+  <li><strong>Shared code</strong>
+    <ul>
+      <li>One copy of read-only (<strong>reentrant</strong>) code shared among processes (i.e., text editors, compilers, window systems)</li>
+      <li>Similar to multiple threads sharing the same process space</li>
+      <li>Also useful for interprocess communication if sharing of read-write pages is allowed</li>
+    </ul>
+  </li>
+  <li><strong>Private code and data</strong>
+    <ul>
+      <li>Each process keeps a separate copy of the code and data</li>
+      <li>The pages for the private code and data can appear anywhere in the logical address space</li>
     </ul>
   </li>
 </ul>
 
-<h5 id="the-structure-of-the-producer-process">(1) The structure of the producer process</h5>
+<p><img src="http://i.imgur.com/JYNkQQT.png" alt="" /></p>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
-    <span class="p">...</span>
-    <span class="cm">/* produce an item in next_produced */</span>
-    <span class="p">...</span>
-    
-    <span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-    
-    <span class="p">...</span>
-    <span class="cm">/* add next produced to the buffer */</span>
-    <span class="p">...</span>
-
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-</code></pre></div>
-
-<h5 id="the-structure-of-the-consumer-process">(2) The structure of the consumer process</h5>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-
-    <span class="p">...</span>
-    <span class="cm">/* remove an item from buffer to next_consumed */</span>
-    <span class="p">...</span>
-
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
-
-    <span class="p">...</span>
-    <span class="cm">/* consume the item in next consumed */</span>
-    <span class="p">...</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-</code></pre></div>
-
-<h4 id="readers-writers-problem">2. Readers-Writers Problem</h4>
+<h3 id="structure-of-the-page-table">(七) Structure of the Page Table</h3>
 <ul>
-  <li>A data set is shared among a number of concurrent processes
+  <li>Memory structures for paging can get huge using straight-forward methods
     <ul>
-      <li><strong>Readers</strong> - only read the data set; they do not perform any updates</li>
-      <li><strong>Writers</strong> - can both read and write</li>
+      <li>Consider a 32-bit logical address space as on modern computers</li>
+      <li>Page size of 4 KB (2^12^)</li>
+      <li>Page table would have 1 million entries (2^32^ / 2^12^)</li>
+      <li>If each entry is 4 bytes -&gt; 4 MB of physical address space / memory for page table alone lot
+        <ul>
+          <li>Don’t want to allocate that contiguously in main memory</li>
+        </ul>
+      </li>
     </ul>
   </li>
-  <li><strong>Problem</strong> - allow multiple readers to read at the same time</li>
-  <li>Several variations of how readers and writers are treated – all involve priorities</li>
-  <li>Shared Data
+  <li>Hierarchical Paging</li>
+  <li>Hashed Page Tables</li>
+  <li>Inverted Page Tables</li>
+</ul>
+
+<h4 id="hierarchical-page-tables">Hierarchical Page Tables</h4>
+<ul>
+  <li>Break up the logical address space into multiple page tables</li>
+  <li>A simple technique is a two-level page table</li>
+  <li>We then page the page table</li>
+</ul>
+
+<h4 id="two-level-page-table-scheme">Two-Level Page-Table Scheme</h4>
+<p><img src="http://i.imgur.com/EXa669R.png" alt="" /></p>
+
+<ul>
+  <li><strong>Example</strong>
     <ul>
-      <li>Data set</li>
-      <li>Semaphore <code class="highlighter-rouge">rw_mutex</code> initialized to 1</li>
-      <li>Semaphore <code class="highlighter-rouge">mutex</code> initialized to 1</li>
-      <li>Integer <code class="highlighter-rouge">read_count</code> initialized to 0</li>
+      <li>A logical address (on 32-bit machine with 1K page size) is divided into
+        <ul>
+          <li>a page number consisting of 22 bits</li>
+          <li>a page offset consisting of 10 bits</li>
+        </ul>
+      </li>
+      <li>Since the page table is paged, the page number is further divided into
+        <ul>
+          <li>a 12-bit page number</li>
+          <li>a 10-bit page offset</li>
+        </ul>
+      </li>
+      <li>Thus, a logical address is as follows
+<img src="http://i.imgur.com/uwG3NvI.png" alt="" /></li>
+      <li>where p 1 is an index into the outer page table, and p 2 is the displacement within the page of the inner page table</li>
+      <li>Known as <strong>forward-mapped page table</strong></li>
     </ul>
   </li>
 </ul>
 
-<h5 id="the-structure-of-a-writer-process">(1) The structure of a writer process</h5>
+<h4 id="three-level-paging-scheme">Three-level Paging Scheme</h4>
+<p><img src="http://i.imgur.com/LYA2JD3.png" alt="" /></p>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
-    
-    <span class="p">...</span>
-    <span class="cm">/* writing is performed */</span>
-    <span class="p">...</span>
-    
-    <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-</code></pre></div>
-
-<h5 id="the-structure-of-a-reader-process">(2) The structure of a reader process</h5>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-    <span class="n">read_count</span><span class="o">++</span><span class="p">;</span>
-    
-    
-    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1">// only for the first reader entering
-</span>        <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
-        
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>    <span class="c1">// if the first reader wait for rw_mutex, other readers will be blocked on wait(mutex)
-</span>        
-    <span class="p">...</span>
-    <span class="cm">/* reading is performed */</span>
-    <span class="p">...</span>
-        
-    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-    <span class="n">read_count</span><span class="o">--</span><span class="p">;</span>
-        
-    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1">// only for the last reader leaving
-</span>        <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
-    
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-</code></pre></div>
-
-<h5 id="problem">(3) Problem</h5>
+<h4 id="hashed-page-tables">Hashed Page Tables</h4>
+<p><img src="https://i.imgur.com/itaf25z.png" alt="" /></p>
 <ul>
-  <li><strong>First variation</strong> – no reader kept waiting unless writer has permission to use shared object</li>
-  <li><strong>Second variation</strong> – once writer is ready, it performs write asap</li>
-  <li>Both may have starvation leading to even more variations</li>
-  <li>Problem is solved on some systems by kernel providing <code class="highlighter-rouge">reader-writer locks</code></li>
-</ul>
-
-<h4 id="dining-philosophers-problem">3. Dining-Philosophers Problem</h4>
-<ul>
-  <li>Philosophers spend their lives thinking and eating</li>
-  <li>Don’t interact with their neighbors, occasionally try to pick up 2 chopsticks (one at a time) to eat from bowl
+  <li>Common in address spaces &gt; 32 bits</li>
+  <li>The virtual page number is hashed into a page table
     <ul>
-      <li>Need both to eat, then release both when done
-<img src="https://i.imgur.com/9W4qi3z.png" alt="" /></li>
+      <li>This page table contains a chain of elements hashing to the same location</li>
+    </ul>
+  </li>
+  <li>Each element contains (1) the virtual page number (2) the value of the mapped page frame (3) a pointer to the next element</li>
+  <li>Virtual page numbers are compared in this chain searching for a match
+    <ul>
+      <li>If a match is found, the corresponding physical frame is extracted</li>
+    </ul>
+  </li>
+  <li>Variation for 64-bit addresses is <strong>clustered page tables</strong>
+    <ul>
+      <li>Similar to hashed but each entry refers to several pages (such as 16) rather than 1</li>
+      <li>Especially useful for <strong>sparse</strong> address spaces (where memory references are non-contiguous and scattered)</li>
     </ul>
   </li>
 </ul>
 
-<h5 id="in-the-case-of-5-philosophers">(1) In the case of 5 philosophers</h5>
+<h4 id="inverted-page-table">Inverted Page Table</h4>
 <ul>
-  <li>Shared data
+  <li>Rather than each process having a page table and keeping track of all possible logical pages, track all physical pages</li>
+  <li>One entry for each real page of memory</li>
+  <li>Entry consists of the virtual address of the page stored in that real memory location, with information about the process that owns that page</li>
+  <li>Decreases memory needed to store each page table, but increases time needed to search the table when a page reference occurs</li>
+  <li>Use hash table to limit the search to one — or at most a few — page-table entries
     <ul>
-      <li>Bowl of rice (data set)</li>
-      <li>Semaphore chopstick [5] initialized to 1</li>
+      <li>TLB can accelerate access</li>
     </ul>
   </li>
-  <li>The structure of Philosopher i:</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">wait</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
-    <span class="n">wait</span> <span class="p">(</span> <span class="n">chopStick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
-    
-    <span class="c1">// eat
-</span>
-    <span class="n">signal</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
-    <span class="n">signal</span> <span class="p">(</span><span class="n">chopstick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
-    
-    <span class="c1">// think
-</span>    
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
-</code></pre></div>
-<ul>
-  <li>Incorrect use of semaphore operations:
+  <li>But how to implement shared memory?
     <ul>
-      <li>signal (mutex) …. wait (mutex)</li>
-      <li>wait (mutex) … wait (mutex)</li>
-      <li>Omitting of wait (mutex) or signal (mutex) (or both)</li>
-    </ul>
-  </li>
-  <li>Deadlock and starvation</li>
-</ul>
-
-<h5 id="monitors">(2) Monitors</h5>
-<p><img src="https://i.imgur.com/Et1mwXN.png" alt="" /></p>
-
-<ul>
-  <li>A high-level abstraction that provides a convenient and effective mechanism for process synchronization</li>
-  <li>Abstract data type, internal variables only accessible by code within the procedure</li>
-  <li>Only one process may be active within the monitor at a time</li>
-  <li>But not powerful enough to model some synchronization schemes</li>
-</ul>
-
-<h5 id="monitors-implementation">Monitors Implementation</h5>
-<h6 id="using-semaphores">1. Using Semaphores</h6>
-<ul>
-  <li>Variables</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">semaphore</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// (initially = 1)
-</span><span class="n">semaphore</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// (initially = 0)
-</span><span class="kt">int</span> <span class="n">next_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</code></pre></div>
-
-<ul>
-  <li>Each procedure F will be replaced by</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-
-<span class="p">...</span>
-<span class="n">body</span> <span class="n">of</span> <span class="n">F</span><span class="p">;</span>
-<span class="p">...</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">)</span>
-<span class="k">else</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-</code></pre></div>
-
-<ul>
-  <li>Mutual exclusion within a monitor is ensured</li>
-</ul>
-
-<h6 id="condition-variables">2. Condition Variables</h6>
-
-<ul>
-  <li>For each condition variable x, we have:</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">semaphore</span> <span class="n">x_sem</span><span class="p">;</span> <span class="c1">// (initially = 0)
-</span><span class="kt">int</span> <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</code></pre></div>
-
-<ul>
-  <li>The operation <code class="highlighter-rouge">x.wait</code> can be implemented as:</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
-<span class="k">else</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-<span class="n">wait</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
-<span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
-</code></pre></div>
-
-<h6 id="resuming-processes">Resuming Processes</h6>
-<ul>
-  <li>If several processes queued on condition x, and x.signal() executed, which should be resumed?</li>
-  <li>FCFS frequently not adequate</li>
-  <li><strong>conditional-wait</strong> construct of the form x.wait(c)
-    <ul>
-      <li>Where c is <strong>priority number</strong></li>
-      <li>Process with lowest number (highest priority) is scheduled next</li>
+      <li>One mapping of a virtual address to the shared physical address</li>
     </ul>
   </li>
 </ul>
-
-<h6 id="allocate-single-resource">Allocate Single Resource</h6>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">monitor</span> <span class="n">ResourceAllocator</span>
-<span class="p">{</span>
-    <span class="n">boolean</span> <span class="n">busy</span><span class="p">;</span>
-    <span class="n">condition</span> <span class="n">x</span><span class="p">;</span>
-    
-    <span class="kt">void</span> <span class="nf">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">busy</span><span class="p">)</span>
-            <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
-        <span class="n">busy</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
-    <span class="p">}</span>
-    
-    <span class="kt">void</span> <span class="nf">release</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
-        <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
-    <span class="p">}</span>
-    
-    <span class="n">initialization</span> <span class="nf">code</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h5 id="solution">(3) Solution</h5>
-<ul>
-  <li>Each philosopher i invokes the operations <code class="highlighter-rouge">pickup()</code> and <code class="highlighter-rouge">putdown()</code> in the following sequence:
-    <ul>
-      <li>No deadlock, but starvation is possible.</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="n">EAT</span>
-<span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-</code></pre></div>
-
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">monitor</span> <span class="n">DiningPhilosophers</span>
-<span class="p">{</span>
-    <span class="k">enum</span> <span class="p">{</span> <span class="n">THINKING</span><span class="p">;</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">state</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">;</span>
-    <span class="n">condition</span> <span class="n">self</span> <span class="p">[</span><span class="mi">5</span><span class="p">];</span>
-
-    <span class="kt">void</span> <span class="nf">pickup</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">HUNGRY</span><span class="p">;</span>
-        <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">self</span> <span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">;</span>
-    <span class="p">}</span>
-    
-    <span class="kt">void</span> <span class="nf">putdown</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
-    
-        <span class="cm">/* test left and right neighbors */</span>
-        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>
-        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="nf">test</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-<span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">HUNGRY</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-<span class="p">(</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">))</span> <span class="p">{</span>
-            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">EATING</span><span class="p">;</span>
-            <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">signal</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-    <span class="n">initialization_code</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
 
                 </div>
                 <div class="read-all">
-                    <a  href="/2017/05/05/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a  href="/2017/06/01/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2017/05/04/vim/">20170504 [個人紀錄] Vim 慣用設定</a>
+                  <a class="post-link" href="/2017/05/25/linux_system/">20170525 [學習筆記] Linux 系統程式 (12)</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-05-04
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Vim" title="Tag: Vim" rel="tag">Vim</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">前言</a></li>
-  <li><a href="#vimrc-" id="markdown-toc-vimrc-">一、vimrc 慣用設定</a></li>
-</ul>
-
-<h2 id="section">前言</h2>
-<p>最近剛重灌 Ubuntu，在此紀錄個人安裝 Vim 時常用的設定與外掛。</p>
-
-<h2 id="vimrc-">一、vimrc 慣用設定</h2>
-<ul>
-  <li>系統環境
-    <blockquote>
-      <p>ubuntu 17.04</p>
-    </blockquote>
-  </li>
-  <li>參考資料
-    <ul>
-      <li><a href="http://wiki.csie.ncku.edu.tw/vim/vimrc">vimrc設定教學 - 成大資工Wiki</a></li>
-      <li><a href="http://note.drx.tw/2008/01/vimrc-config.html">凍仁的筆記: Vim 環境設定- vimrc</a></li>
-      <li><a href="https://blog.roga.tw/2010/01/2350">我目前使用的 .vimrc 設定檔</a></li>
-      <li><a href="https://blog.gtwang.org/tips/vim-working-with-unicode/">VIM 編輯器顯示萬國碼（Unicode）文字，解決亂碼問題</a></li>
-    </ul>
-  </li>
-</ul>
-
-<hr />
-<ul>
-  <li>
-    <p>個人常用的 Prompt 顏色格式</p>
-
-    <blockquote>
-      <p>PS1=’[\e[1;33m]\u@\h[\e[m]:[\e[1;34m]\W[\e[1;32m]$[\e[m]’</p>
-    </blockquote>
-  </li>
-</ul>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/05/04/vim/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-04-28
+                        <i class="fa fa-calendar"></i>2017-05-25
                     </div>
                     <div class="label-card">
                         
@@ -1400,17 +1389,11 @@
                 <div class="excerpt">
                     <ul id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#race-condition" id="markdown-toc-race-condition">Race Condition</a></li>
-      <li><a href="#critical-section-problem" id="markdown-toc-critical-section-problem">(一) Critical-Section Problem</a></li>
-      <li><a href="#solution-to-critical-section-problem" id="markdown-toc-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</a></li>
-      <li><a href="#petersons-solution" id="markdown-toc-petersons-solution">(三) Peterson’s Solution</a></li>
-      <li><a href="#synchronization-hardware" id="markdown-toc-synchronization-hardware">(四) Synchronization Hardware</a>        <ul>
-          <li><a href="#testandset-instruction" id="markdown-toc-testandset-instruction">1. test_and_set Instruction</a></li>
-          <li><a href="#compareandswap-instruction" id="markdown-toc-compareandswap-instruction">2. compare_and_swap Instruction</a></li>
-        </ul>
-      </li>
-      <li><a href="#mutex-locks" id="markdown-toc-mutex-locks">(五) Mutex Locks</a>        <ul>
-          <li><a href="#acquire-and-release" id="markdown-toc-acquire-and-release">acquire() and release()</a></li>
+      <li><a href="#contiguous-allocation" id="markdown-toc-contiguous-allocation">(一) Contiguous Allocation</a></li>
+      <li><a href="#dynamic-storage-allocation-problem" id="markdown-toc-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</a></li>
+      <li><a href="#fragmentation" id="markdown-toc-fragmentation">(三) Fragmentation</a></li>
+      <li><a href="#segmentation" id="markdown-toc-segmentation">(四) Segmentation</a>        <ul>
+          <li><a href="#segmentation-architecture" id="markdown-toc-segmentation-architecture">Segmentation Architecture</a></li>
         </ul>
       </li>
     </ul>
@@ -1419,171 +1402,147 @@
 
 <h2 id="section">一、作業系統</h2>
 <ul>
-  <li>課程簡報
+  <li>課堂講義
     <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170427/ch06.pdf">Chapter 6: Process Scheduling</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170525/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
     </ul>
   </li>
 </ul>
 
-<h3 id="race-condition">Race Condition</h3>
+<h3 id="contiguous-allocation">(一) Contiguous Allocation</h3>
 <ul>
+  <li>Main memory must support both OS and user processes</li>
+  <li>Limited resource, must allocate efficiently</li>
   <li>
-    <p>Consumer
-<img src="https://i.imgur.com/07kx1WD.jpg" alt="" /></p>
+    <p>Contiguous allocation is one early method</p>
   </li>
-  <li>
-    <p>Producer
-<img src="https://i.imgur.com/eBPWPyb.jpg" alt="" /></p>
-  </li>
-  <li>
-    <p>Race Condition
-<img src="https://i.imgur.com/Q5qf9Xi.jpg" alt="" /></p>
-  </li>
-</ul>
-
-<h3 id="critical-section-problem">(一) Critical-Section Problem</h3>
-<ul>
-  <li>General Structure：
-<img src="https://i.imgur.com/yVVaplo.jpg" alt="" />
-<img src="https://i.imgur.com/dWa1ujd.jpg" alt="" /></li>
-</ul>
-
-<h3 id="solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</h3>
-<ol>
-  <li>
-    <p><strong>Mutual Exclusion</strong> - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.</p>
-  </li>
-  <li>
-    <p><strong>Progress</strong> - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely.</p>
-  </li>
-  <li><strong>Bounded Waiting</strong> - A bound must exist on the number of times that other processes are allowed to enter their critical sections.
+  <li>Main memory usually into two <strong>partitions</strong>
     <ul>
-      <li>Assume that each process executes at a nonzero speed.</li>
-      <li>No assumption concerning relative speed of the n processes.</li>
+      <li>Resident operating system, usually held in low memory with interrupt vector</li>
+      <li>User processes then held in high memory</li>
+      <li>Each process contained in single contiguous section of memory</li>
     </ul>
   </li>
-  <li>Two approaches depending on if kernel is preemptive or non-preemptive.
+  <li>Relocation registers used to protect user processes from each other, and from changing operating-system code and data
     <ul>
-      <li><strong>Preemptive</strong> – allows preemption of process when running in kernel mode.</li>
-      <li><strong>Non-preemptive</strong> – runs until exits kernel mode, blocks, or voluntarily yields CPU.
+      <li>Base register contains value of smallest physical address</li>
+      <li>Limit register contains range of logical addresses – each logical address must be less than the limit register</li>
+      <li>MMU maps logical address dynamically</li>
+      <li>Can then allow actions such as kernel code being <code class="highlighter-rouge">transient</code> and kernel changing size</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/z3R2FCC.png" alt="" /></p>
+
+<ul>
+  <li>Multiple-partition allocation
+    <ul>
+      <li>Degree of multiprogramming limited by number of partitions</li>
+      <li>Variable-partition sizes for efficiency (sized to a given process’ needs)</li>
+      <li>Hole – block of available memory; holes of various size are scattered throughout memory</li>
+      <li>When a process arrives, it is allocated memory from a hole large enough to accommodate it</li>
+      <li>Process exiting frees its partition, adjacent free partitions combined</li>
+      <li>Operating system maintains information about
         <ul>
-          <li>Essentially free of race conditions in kernel mode.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="petersons-solution">(三) Peterson’s Solution</h3>
-<ul>
-  <li>Good algorithmic description of solving the problem.</li>
-  <li>Two process solution</li>
-  <li>Assume that the load and store instructions are atomic; that is, cannot be interrupted</li>
-  <li>The two processes share two variables：
-    <ul>
-      <li>int turn;</li>
-      <li>Boolean flag[2]</li>
-    </ul>
-  </li>
-  <li>The variable turn indicates whose turn it is to enter the critical section</li>
-  <li>The flag array is used to indicate if a process is ready to enter the critical section.</li>
-  <li><code class="highlighter-rouge">flag[i] = true</code> implies that process Pi is ready!</li>
-</ul>
-
-<p><img src="https://i.imgur.com/VjV8Owl.jpg" alt="" /></p>
-
-<ul>
-  <li>Provable that
-    <ol>
-      <li>Mutual exclusion is preserved.</li>
-      <li>Progress requirement is satisfied.</li>
-      <li>Bounded-waiting requirement is met.</li>
-    </ol>
-  </li>
-</ul>
-
-<h3 id="synchronization-hardware">(四) Synchronization Hardware</h3>
-<ul>
-  <li>Many systems provide hardware support for critical section code.</li>
-  <li>All solutions below based on idea of <strong>locking</strong>.
-    <ul>
-      <li>Protecting critical regions via locks.</li>
-    </ul>
-  </li>
-  <li>Uniprocessors – could disable interrupts
-    <ul>
-      <li>Currently running code would execute without preemption.</li>
-      <li>Generally too inefficient on multiprocessor systems.
-        <ul>
-          <li>Operating systems using this not broadly scalable.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Modern machines provide special atomic hardware instructions.
-    <ul>
-      <li><strong>Atomic</strong> = non-interruptible
-        <ul>
-          <li>Either test memory word and set value.</li>
-          <li>Or swap contents of two memory words.</li>
+          <li>(a) allocated partitions</li>
+          <li>(b) free partitions (hole)</li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
 
-<h4 id="testandset-instruction">1. test_and_set Instruction</h4>
-<p><img src="https://i.imgur.com/HP1PMeH.jpg" alt="" /></p>
+<p><img src="https://i.imgur.com/JQ1uTUe.png" alt="" /></p>
+
+<h3 id="dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</h3>
+<ul>
+  <li><strong>First-fit</strong>：Allocate the <code class="highlighter-rouge">first</code> hole that is big enough</li>
+  <li><strong>Best-fit</strong>：Allocate the <code class="highlighter-rouge">smallest</code> hole that is big enough; must search entire list, unless ordered by size
+    <ul>
+      <li>Produces the smallest leftover hole</li>
+    </ul>
+  </li>
+  <li><strong>Worst-fit</strong>：Allocate the <code class="highlighter-rouge">largest</code> hole; must also search entire list
+    <ul>
+      <li>Produces the largest leftover hole</li>
+    </ul>
+  </li>
+  <li>First-fit and best-fit better than worst-fit in terms of speed and storage utilization</li>
+</ul>
+
+<h3 id="fragmentation">(三) Fragmentation</h3>
+<ul>
+  <li><strong>External Fragmentation</strong> – total memory space exists to satisfy a request, but it is not contiguous</li>
+  <li><strong>Internal Fragmentation</strong> – allocated memory may be slightly larger than requested memory; this size difference is memory internal to a partition, but not being used</li>
+  <li>First fit analysis reveals that given N blocks allocated, 0.5 N blocks lost to fragmentation
+    <ul>
+      <li>1/3 may be unusable -&gt; <strong>50-percent rule</strong></li>
+    </ul>
+  </li>
+  <li>Reduce external fragmentation by <strong>compaction</strong>
+    <ul>
+      <li>Shuffle memory contents to place all free memory together in one large block</li>
+      <li>Compaction is possible only if relocation is dynamic, and is done at execution time</li>
+      <li>I/O problem
+        <ul>
+          <li>Latch job in memory while it is involved in I/O</li>
+          <li>Do I/O only into OS buffers</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Now consider that backing store has same fragmentation problems</li>
+</ul>
+
+<h3 id="segmentation">(四) Segmentation</h3>
+<ul>
+  <li>Memory-management scheme that supports user view of memory</li>
+</ul>
+
+<p><img src="https://i.imgur.com/hiMN3YJ.png" alt="" /></p>
 
 <ul>
-  <li>
-    <p>Solution using test_and_set()
-  <img src="https://i.imgur.com/5SMn8ix.jpg" alt="" /></p>
-  </li>
-  <li>
-    <p>Bounded-waiting Mutual Exclusion with test_and_set
-  <img src="https://i.imgur.com/wGOMFdV.jpg" alt="" /></p>
+  <li>A program is a collection of segments
+    <ul>
+      <li>A segment is a logical unit such as：<code class="highlighter-rouge">main program</code>、<code class="highlighter-rouge">procedure</code>、<code class="highlighter-rouge">function</code>、<code class="highlighter-rouge">method</code>、<code class="highlighter-rouge">object</code>、<code class="highlighter-rouge">local variables</code>、<code class="highlighter-rouge">global variables</code>、<code class="highlighter-rouge">common block</code>、<code class="highlighter-rouge">stack</code>、<code class="highlighter-rouge">symbol table</code>、<code class="highlighter-rouge">arrays</code></li>
+    </ul>
   </li>
 </ul>
 
-<h4 id="compareandswap-instruction">2. compare_and_swap Instruction</h4>
-<p><img src="https://i.imgur.com/7neEbLe.jpg" alt="" /></p>
+<p><img src="https://i.imgur.com/PKuwv70.png" alt="" /></p>
 
+<h4 id="segmentation-architecture">Segmentation Architecture</h4>
 <ul>
-  <li>Solution using compare_and_swap
-  <img src="https://i.imgur.com/37TZRjA.jpg" alt="" /></li>
+  <li>Logical address consists of a two tuple：<code class="highlighter-rouge">&lt;segment-number, offset&gt;</code></li>
+  <li><strong>Segment table</strong> – maps two-dimensional physical addresses; each table entry has
+    <ul>
+      <li><strong>base</strong> – contains the starting physical address where the segments reside in memory</li>
+      <li><strong>limit</strong> – specifies the length of the segment</li>
+    </ul>
+  </li>
+  <li><strong>Segment-table base register (STBR)</strong> points to the segment table’s location in memory</li>
+  <li><strong>Segment-table length register (STLR)</strong> indicates number of segments used by a program：<code class="highlighter-rouge">segment number s is legal if s &lt; STLR</code></li>
+  <li>Protection
+    <ul>
+      <li>With each entry in segment table associate
+        <ul>
+          <li>validation bit = 0 » illegal segment</li>
+          <li>read/write/execute privileges</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Protection bits associated with segments; code sharing occurs at segment level</li>
+  <li>Since segments vary in length, memory allocation is a dynamic storage-allocation problem</li>
+  <li>A segmentation example is shown in the following diagram</li>
 </ul>
 
-<h3 id="mutex-locks">(五) Mutex Locks</h3>
-<ul>
-  <li>Previous solutions are complicated and generally inaccessible to application programmers.</li>
-  <li>OS designers build software tools to solve critical section problem.</li>
-  <li>Simplest is mutex lock</li>
-  <li>Product critical regions with it by first <strong>acquire()</strong> a lock then <strong>release()</strong> it.
-    <ul>
-      <li>Boolean variable indicating if lock is available or not</li>
-    </ul>
-  </li>
-  <li>Calls to <strong>acquire()</strong> and <strong>release()</strong> must be atomic.
-    <ul>
-      <li>Usually implemented via hardware atomic instructions</li>
-    </ul>
-  </li>
-  <li>But this solution requires <strong>busy waiting</strong>.
-    <ul>
-      <li>This lock therefore called a <strong>spinlock</strong></li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="acquire-and-release">acquire() and release()</h4>
-<p><img src="https://i.imgur.com/stNKbbR.jpg" alt="" /></p>
-
+<p><img src="https://i.imgur.com/raq8eDi.png" alt="" /></p>
 
                 </div>
                 <div class="read-all">
-                    <a  href="/2017/04/28/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a  href="/2017/05/25/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
@@ -1598,10 +1557,10 @@
             <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
             <span class="previous disable"><i class="fa fa-angle-left"></i></span>
           
-          <span class="page_number ">1/11</span>
+          <span class="page_number ">1/12</span>
           
             <a href="/blog/page2/" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="/blog/page11" class="next"><i class="fa fa-angle-double-right"></i></a>
+            <a href="/blog/page12" class="next"><i class="fa fa-angle-double-right"></i></a>
           
         </div>
     </div>
@@ -1615,6 +1574,16 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理</a></li>
+                    
+                        <li><a href="/2017/06/15/linux_system/">20170615 [學習筆記] Linux 系統程式 (15)</a></li>
+                    
+                        <li><a href="/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)</a></li>
+                    
+                        <li><a href="/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)</a></li>
+                    
+                        <li><a href="/2017/05/25/linux_system/">20170525 [學習筆記] Linux 系統程式 (12)</a></li>
+                    
                         <li><a href="/2017/05/19/linux_system/">20170519 [學習筆記] Linux 系統程式 (11)</a></li>
                     
                         <li><a href="/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)</a></li>
@@ -1624,16 +1593,6 @@
                         <li><a href="/2017/05/04/vim/">20170504 [個人紀錄] Vim 慣用設定</a></li>
                     
                         <li><a href="/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)</a></li>
-                    
-                        <li><a href="/2017/04/27/club_inheritance/">20170427 [社團相關] 關於社團傳承，你必須要知道的事情...</a></li>
-                    
-                        <li><a href="/2017/04/22/Original_Point/">20170422 [社團相關] 原始點醫學分享</a></li>
-                    
-                        <li><a href="/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)</a></li>
-                    
-                        <li><a href="/2017/04/13/ai/">20170413 [學習筆記] 人工智慧 (7)</a></li>
-                    
-                        <li><a href="/2017/04/07/linux_system/">20170407 [學習筆記] Linux 系統程式 (6)</a></li>
                     
                 </ul>
             </div>
@@ -1777,7 +1736,7 @@
                             <span class="name">
                                 Linux
                             </span>
-                            <span class="badge">12</span>
+                            <span class="badge">17</span>
                         </a>
                     </li>
                     
@@ -1786,7 +1745,7 @@
                             <span class="name">
                                 作業系統
                             </span>
-                            <span class="badge">12</span>
+                            <span class="badge">17</span>
                         </a>
                     </li>
                     
@@ -1795,7 +1754,7 @@
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">14</span>
+                            <span class="badge">19</span>
                         </a>
                     </li>
                     
@@ -1820,7 +1779,7 @@
                       
                       
                       
-                      <a href="/tag/#C語言" style="font-size: 11.5pt; color: #666;">C語言</a>
+                      <a href="/tag/#C語言" style="font-size: 11pt; color: #777;">C語言</a>
                     
                       
                       
@@ -1834,28 +1793,28 @@
                       
                       
                       
-                      <a href="/tag/#OpenCV" style="font-size: 10pt; color: #888;">OpenCV</a>
+                      <a href="/tag/#OpenCV" style="font-size: 9.5pt; color: #888;">OpenCV</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Data-Science" style="font-size: 13pt; color: #555;">Data-Science</a>
+                      <a href="/tag/#Data-Science" style="font-size: 12pt; color: #666;">Data-Science</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Data-Mining" style="font-size: 12pt; color: #666;">Data-Mining</a>
+                      <a href="/tag/#Data-Mining" style="font-size: 11.5pt; color: #666;">Data-Mining</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#R語言" style="font-size: 13.5pt; color: #444;">R語言</a>
+                      <a href="/tag/#R語言" style="font-size: 12.5pt; color: #555;">R語言</a>
                     
                       
                       
@@ -1911,7 +1870,7 @@
                       
                       
                       
-                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #555;">社團</a>
+                      <a href="/tag/#社團" style="font-size: 12pt; color: #666;">社團</a>
                     
                       
                       
@@ -1932,28 +1891,28 @@
                       
                       
                       
-                      <a href="/tag/#心情記事" style="font-size: 10.5pt; color: #888;">心情記事</a>
+                      <a href="/tag/#心情記事" style="font-size: 10pt; color: #888;">心情記事</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#人工智慧" style="font-size: 11.5pt; color: #666;">人工智慧</a>
+                      <a href="/tag/#人工智慧" style="font-size: 11pt; color: #777;">人工智慧</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#Linux" style="font-size: 14pt; color: #444;">Linux</a>
+                      <a href="/tag/#Linux" style="font-size: 15pt; color: #333;">Linux</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#作業系統" style="font-size: 14pt; color: #444;">作業系統</a>
+                      <a href="/tag/#作業系統" style="font-size: 15pt; color: #333;">作業系統</a>
                     
                       
                       

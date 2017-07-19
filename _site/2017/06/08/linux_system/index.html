@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20170608 [學習筆記] Linux 系統程式 (14)</title>
+    <meta name="description" content="  一、作業系統          (一) Background      (二) Virtual Address Space      (三) Demand Paging                  1. Valid-Invalid Bit          2. Example          3. ...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2017/06/08/linux_system/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>Be strong to Be useful！</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20170608 [學習筆記] Linux 系統程式 (14)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-06-08
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#background" id="markdown-toc-background">(一) Background</a></li>
+      <li><a href="#virtual-address-space" id="markdown-toc-virtual-address-space">(二) Virtual Address Space</a></li>
+      <li><a href="#demand-paging" id="markdown-toc-demand-paging">(三) Demand Paging</a>        <ul>
+          <li><a href="#valid-invalid-bit" id="markdown-toc-valid-invalid-bit">1. Valid-Invalid Bit</a></li>
+          <li><a href="#example" id="markdown-toc-example">2. Example</a></li>
+          <li><a href="#optimizations" id="markdown-toc-optimizations">3. Optimizations</a></li>
+        </ul>
+      </li>
+      <li><a href="#page-fault" id="markdown-toc-page-fault">(四) Page Fault</a>        <ul>
+          <li><a href="#aspects-of-demand-paging" id="markdown-toc-aspects-of-demand-paging">1. Aspects of Demand Paging</a></li>
+          <li><a href="#instruction-restart" id="markdown-toc-instruction-restart">2. Instruction Restart</a>            <ul>
+              <li><a href="#performance-of-demand-paging" id="markdown-toc-performance-of-demand-paging">Performance of Demand Paging</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#copy-on-write" id="markdown-toc-copy-on-write">(五) Copy-on-Write</a></li>
+      <li><a href="#page-replacement" id="markdown-toc-page-replacement">(六) Page Replacement</a>        <ul>
+          <li><a href="#what-happens-if-there-is-no-free-frame" id="markdown-toc-what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</a></li>
+          <li><a href="#basic-page-replacement" id="markdown-toc-basic-page-replacement">2. Basic Page Replacement</a></li>
+          <li><a href="#page-and-frame-replacement-algorithms" id="markdown-toc-page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</a>            <ul>
+              <li><a href="#first-in-first-out-fifo-algorithm" id="markdown-toc-first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</a></li>
+              <li><a href="#optimal-algorithm" id="markdown-toc-optimal-algorithm">(2) Optimal Algorithm</a></li>
+              <li><a href="#least-recently-used-lru-algorithm" id="markdown-toc-least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</a></li>
+              <li><a href="#lru-approximation-algorithms" id="markdown-toc-lru-approximation-algorithms">(4) LRU Approximation Algorithms</a></li>
+              <li><a href="#counting-algorithms" id="markdown-toc-counting-algorithms">(5) Counting Algorithms</a></li>
+              <li><a href="#page-buffering-algorithms" id="markdown-toc-page-buffering-algorithms">(6) Page-Buffering Algorithms</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170608/ch09.pdf">Chapter 9: Virtual-Memory Management</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="background">(一) Background</h3>
+<ul>
+  <li>Code needs to be in memory to execute, but entire program rarely used
+    <ul>
+      <li>Error code, unusual routines, large data structures</li>
+    </ul>
+  </li>
+  <li>Entire program code not needed at same time</li>
+  <li>Consider ability to execute partially-loaded program
+    <ul>
+      <li>Program no longer constrained by limits of physical memory</li>
+      <li>Program and programs could be larger than physical memory</li>
+    </ul>
+  </li>
+  <li><strong>Virtual memory</strong> – separation of user logical memory from physical memory
+    <ul>
+      <li>Only part of the program needs to be in memory for execution</li>
+      <li>Logical address space can therefore be much larger than physical address space</li>
+      <li>Allows address spaces to be shared by several processes</li>
+      <li>Allows for more efficient process creation</li>
+      <li>More programs running concurrently</li>
+      <li>Less I/O needed to load or swap processes</li>
+    </ul>
+  </li>
+  <li>Virtual memory can be implemented via
+    <ul>
+      <li>Demand paging</li>
+      <li>Demand segmentation</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="virtual-address-space">(二) Virtual Address Space</h3>
+<p><img src="http://i.imgur.com/DkDhsAx.jpg" alt="" /></p>
+
+<ul>
+  <li>Enables <strong>sparse</strong> address spaces with holes left for growth, dynamically linked libraries, etc</li>
+  <li>System libraries shared via mapping into virtual address space</li>
+  <li>Shared memory by mapping pages read-write into virtual address space</li>
+  <li>Pages can be shared during <code class="highlighter-rouge">fork()</code>, speeding process creation</li>
+</ul>
+
+<p><img src="http://i.imgur.com/3jsjqeH.png" alt="" /></p>
+
+<h3 id="demand-paging">(三) Demand Paging</h3>
+<ul>
+  <li>Could bring entire process into memory at load time</li>
+  <li>Or bring a page into memory only when it is needed
+    <ul>
+      <li>Less I/O needed, no unnecessary I/O</li>
+      <li>Less memory needed</li>
+      <li>Faster response</li>
+      <li>More users</li>
+    </ul>
+  </li>
+  <li>Page is needed » reference to it
+    <ul>
+      <li>invalid reference » abort</li>
+      <li>not-in-memory » bring to memory</li>
+    </ul>
+  </li>
+  <li><strong>Lazy swapper</strong> – never swaps a page into memory unless page will be needed
+    <ul>
+      <li>Swapper that deals with pages is a <strong>pager</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/aLRTern.png" alt="" /></p>
+
+<h4 id="valid-invalid-bit">1. Valid-Invalid Bit</h4>
+<ul>
+  <li>With each page table entry a valid–invalid bit is associated (<strong>v</strong> » in-memory – <strong>memory resident</strong>, <strong>i</strong> » not-in-memory)</li>
+  <li>Initially valid–invalid bit is set to <strong>i</strong> on all entries</li>
+</ul>
+
+<p><img src="https://i.imgur.com/0Fk929T.jpg" alt="" /></p>
+
+<h4 id="example">2. Example</h4>
+<ul>
+  <li>Memory access time = 200 nanoseconds</li>
+  <li>Average page-fault service time = 8 milliseconds
+    <blockquote>
+      <p>EAT = (1 – p) x 200 + p (8 milliseconds)
+= (1 – p) x 200 + p x 8,000,000
+= 200 + p x 7,999,800</p>
+    </blockquote>
+  </li>
+  <li>If one access out of 1,000 causes a page fault, then EAT = 8.2 microseconds. (This is a slowdown by a factor of 40)</li>
+  <li>If want performance degradation &lt; 10 percent
+    <ul>
+      <li>220 &gt; 200 + 7,999,800 x p</li>
+      <li>20 &gt; 7,999,800 x p</li>
+      <li>p &lt; .0000025 (&lt; one page fault in every 400,000 memory accesses)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="optimizations">3. Optimizations</h4>
+<ul>
+  <li>Copy entire process image to swap space at process load time
+    <ul>
+      <li>Then page in and out of swap space</li>
+      <li>Used in older BSD Unix</li>
+    </ul>
+  </li>
+  <li>Demand page in from program binary on disk, but discard rather than paging out when freeing frame
+    <ul>
+      <li>Used in Solaris and current BSD</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="page-fault">(四) Page Fault</h3>
+<ul>
+  <li>If there is a reference to a page, first reference to that page will trap to operating system
+    <ul>
+      <li><strong>page fault</strong></li>
+    </ul>
+  </li>
+  <li>Operating system looks at another table to decide
+    <ul>
+      <li>Invalid reference » abort</li>
+      <li>Just not in memory</li>
+    </ul>
+  </li>
+  <li>Get empty frame</li>
+  <li>Swap page into frame via scheduled disk operation</li>
+  <li>Reset tables to indicate page now in memory Set validation bit = <strong>v</strong></li>
+  <li>Restart the instruction that caused the page fault</li>
+</ul>
+
+<p><img src="https://i.imgur.com/98V6oNY.png" alt="" /></p>
+
+<h4 id="aspects-of-demand-paging">1. Aspects of Demand Paging</h4>
+<ul>
+  <li>Extreme case – start process with no pages in memory
+    <ul>
+      <li>OS sets instruction pointer to first instruction of process, non-memory-resident -&gt; page fault</li>
+      <li>And for every other process pages on first access</li>
+      <li><strong>Pure demand paging</strong></li>
+    </ul>
+  </li>
+  <li>Actually, a given instruction could access multiple pages -&gt; multiple page faults
+    <ul>
+      <li>Pain decreased because of <strong>locality of reference</strong></li>
+    </ul>
+  </li>
+  <li>Hardware support needed for demand paging
+    <ul>
+      <li>Page table with valid / invalid bit</li>
+      <li>Secondary memory (swap device with <strong>swap space</strong>)</li>
+      <li>Instruction restart</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="instruction-restart">2. Instruction Restart</h4>
+<ul>
+  <li>Consider an instruction that could access several different locations
+    <ul>
+      <li>block move</li>
+      <li>auto increment/decrement location</li>
+      <li>Restart the whole operation?
+        <ul>
+          <li>What if source and destination overlap?</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="performance-of-demand-paging">Performance of Demand Paging</h5>
+<ul>
+  <li>Stages in Demand Paging
+    <blockquote>
+      <ol>
+        <li>Trap to the operating system</li>
+        <li>Save the user registers and process state</li>
+        <li>Determine that the interrupt was a page fault</li>
+        <li>Check that the page reference was legal and determine the location of the page on the disk</li>
+        <li>Issue a read from the disk to a free frame:
+(1) Wait in a queue for this device until the read request is serviced
+(2) Wait for the device seek and/or latency time
+(3) Begin the transfer of the page to a free frame</li>
+        <li>While waiting, allocate the CPU to some other user</li>
+        <li>Receive an interrupt from the disk I/O subsystem (I/O completed)</li>
+        <li>Save the registers and process state for the other user</li>
+        <li>Determine that the interrupt was from the disk</li>
+        <li>Correct the page table and other tables to show page is now in memory</li>
+        <li>Wait for the CPU to be allocated to this process again</li>
+        <li>Restore the user registers, process state, and new page table, and then resume the interrupted instruction</li>
+      </ol>
+    </blockquote>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/HA817pb.png" alt="" /></p>
+
+<h3 id="copy-on-write">(五) Copy-on-Write</h3>
+<ul>
+  <li><strong>Copy-on-Write</strong> (COW) allows both parent and child processes to initially share the same pages in memory
+    <ul>
+      <li>If either process modifies a shared page, only then is the page copied</li>
+    </ul>
+  </li>
+  <li>COW allows more efficient process creation as only modified pages are copied</li>
+  <li>In general, free pages are allocated from a <strong>pool</strong> of <strong>zero-fill-on-demand</strong> pages
+    <ul>
+      <li>Why zero-out a page before allocating it?</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">vfork()</code> variation on <code class="highlighter-rouge">fork()</code> system call has parent suspend and child using copy-on-write address space of parent
+    <ul>
+      <li>Designed to have child call <code class="highlighter-rouge">exec()</code></li>
+      <li>Very efficient</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="http://i.imgur.com/LABMPPo.jpg" alt="" /></p>
+
+<h3 id="page-replacement">(六) Page Replacement</h3>
+<ul>
+  <li>Prevent over-allocation of memory by modifying page-fault service routine to include page replacement</li>
+  <li>Use <strong>modify (dirty) bit</strong> to reduce overhead of page transfers – only modified pages are written to disk</li>
+  <li>Page replacement completes separation between logical memory and physical memory – large virtual memory can be provided on a smaller physical memory</li>
+</ul>
+
+<h4 id="what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</h4>
+<ul>
+  <li>Used up by process pages</li>
+  <li>Also in demand from the kernel, I/O buffers, etc</li>
+  <li>How much to allocate to each?</li>
+  <li>Page replacement – find some page in memory, but not really in use, page it out
+    <ul>
+      <li>Algorithm – terminate? swap out? replace the page?</li>
+      <li>Performance – want an algorithm which will result in minimum number of page faults</li>
+    </ul>
+  </li>
+  <li>Same page may be brought into memory several times</li>
+</ul>
+
+<p><img src="https://i.imgur.com/eFpQyPv.png" alt="" /></p>
+
+<h4 id="basic-page-replacement">2. Basic Page Replacement</h4>
+<blockquote>
+  <ol>
+    <li>Find the location of the desired page on disk</li>
+    <li>Find a free frame:
+      <blockquote>
+        <p>a. If there is a free frame, use it
+b. If there is no free frame, use a page replacement algorithm to select a <strong>victim frame</strong>
+c. Write victim frame to disk if dirty</p>
+      </blockquote>
+    </li>
+    <li>Bring the desired page into the (newly) free frame; update the page and frame tables</li>
+    <li>Continue the process by restarting the instruction that caused the trap
+      <ul>
+        <li>Note now potentially 2 page transfers for page fault – increasing EAT</li>
+      </ul>
+    </li>
+  </ol>
+</blockquote>
+
+<p><img src="https://i.imgur.com/Hm6MvuN.png" alt="" /></p>
+
+<h4 id="page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</h4>
+<ul>
+  <li><strong>Frame-allocation algorithm</strong> determines
+    <ul>
+      <li>How many frames to give each process</li>
+      <li>Which frames to replace</li>
+    </ul>
+  </li>
+  <li><strong>Page-replacement algorithm</strong>
+    <ul>
+      <li>Want lowest page-fault rate on both first access and re-access</li>
+    </ul>
+  </li>
+  <li>Evaluate algorithm by running it on a particular string of memory references (reference string) and computing the number of page faults on that string
+    <ul>
+      <li>String is just page numbers, not full addresses</li>
+      <li>Repeated access to the same page does not cause a page fault</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</h5>
+<p><img src="https://i.imgur.com/cSezcCO.png" alt="" />
+<img src="https://i.imgur.com/NVa4BTe.png" alt="" />
+<img src="https://i.imgur.com/6VeXbGw.png" alt="" /></p>
+
+<h5 id="optimal-algorithm">(2) Optimal Algorithm</h5>
+<ul>
+  <li>Replace page that will not be used for longest period of time
+    <ul>
+      <li>9 is optimal for the example on the next slide</li>
+    </ul>
+  </li>
+  <li>How do you know this?
+    <ul>
+      <li>Can’t read the future</li>
+    </ul>
+  </li>
+  <li>Used for measuring how well your algorithm performs</li>
+</ul>
+
+<p><img src="https://i.imgur.com/1jc2ngr.png" alt="" /></p>
+
+<h5 id="least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</h5>
+<ul>
+  <li>Use past knowledge rather than future</li>
+  <li>Replace page that has not been used in the most amount of time</li>
+  <li>Associate time of last use with each page</li>
+</ul>
+
+<p><img src="https://i.imgur.com/RiLxhrF.png" alt="" /></p>
+
+<ul>
+  <li>Counter implementation
+    <ul>
+      <li>Every page entry has a counter; every time page is referenced through this entry, copy the clock into the counter</li>
+      <li>When a page needs to be changed, look at the counters to find smallest value
+        <ul>
+          <li>Search through table needed</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Stack implementation
+    <ul>
+      <li>Keep a stack of page numbers in a double link form:</li>
+      <li>Page referenced:
+        <ul>
+          <li>move it to the top</li>
+          <li>requires 6 pointers to be changed</li>
+        </ul>
+      </li>
+      <li>But each update more expensive</li>
+      <li>No search for replacement</li>
+    </ul>
+  </li>
+  <li>LRU and OPT are cases of <strong>stack algorithms</strong> that don’t have Belady’s Anomaly</li>
+</ul>
+
+<p><img src="http://i.imgur.com/yvsGPvm.jpg" alt="" /></p>
+
+<h5 id="lru-approximation-algorithms">(4) LRU Approximation Algorithms</h5>
+<ul>
+  <li>LRU needs special hardware and still slow</li>
+  <li><strong>Reference bit</strong>
+    <ul>
+      <li>With each page associate a bit, initially = 0</li>
+      <li>When page is referenced bit set to 1</li>
+      <li>Replace any with reference bit = 0 (if one exists)
+        <ul>
+          <li>We do not know the order, however</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Second-chance algorithm</strong>
+    <ul>
+      <li>Generally FIFO, plus hardware-provided reference bit</li>
+      <li>Clock replacement</li>
+      <li>If page to be replaced has
+        <ul>
+          <li>Reference bit = 0 -&gt; replace it</li>
+          <li>reference bit = 1 then:
+            <ul>
+              <li>set reference bit 0, leave page in memory</li>
+              <li>replace next page, subject to same rules</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="http://i.imgur.com/jInNXqt.png" alt="" /></p>
+
+<h5 id="counting-algorithms">(5) Counting Algorithms</h5>
+<ul>
+  <li>Keep a counter of the number of references that have been made to each page
+    <ul>
+      <li>Not common</li>
+    </ul>
+  </li>
+  <li><strong>LFU Algorithm</strong>: replaces page with smallest count</li>
+  <li><strong>MFU Algorithm</strong>: based on the argument that the page with the smallest count was probably just brought in and has yet to be used</li>
+</ul>
+
+<h5 id="page-buffering-algorithms">(6) Page-Buffering Algorithms</h5>
+<ul>
+  <li>Keep a pool of free frames, always
+    <ul>
+      <li>Then frame available when needed, not found at fault time</li>
+      <li>Read page into free frame and select victim to evict and add to free pool</li>
+      <li>When convenient, evict victim</li>
+    </ul>
+  </li>
+  <li>Possibly, keep list of modified pages
+    <ul>
+      <li>When backing store otherwise idle, write pages there and set to non-dirty</li>
+    </ul>
+  </li>
+  <li>Possibly, keep free frame contents intact and note what is in them
+    <ul>
+      <li>If referenced again before reused, no need to load contents again from disk</li>
+      <li>Generally useful to reduce penalty if wrong victim frame selected</li>
+    </ul>
+  </li>
+</ul>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/06/15/linux_system/">20170615 [學習筆記] Linux 系統程式 (15)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/05/25/linux_system/">20170525 [學習筆記] Linux 系統程式 (12)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/05/19/linux_system/">20170519 [學習筆記] Linux 系統程式 (11)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/06/15/linux_system/">20170615 [學習筆記] Linux 系統程式 (15)</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2017/06/08/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2017/06/08/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>
