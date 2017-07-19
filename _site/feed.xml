@@ -5,9 +5,426 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Jul 2017 18:25:30 +0800</pubDate>
-    <lastBuildDate>Wed, 19 Jul 2017 18:25:30 +0800</lastBuildDate>
+    <pubDate>Wed, 19 Jul 2017 18:46:05 +0800</pubDate>
+    <lastBuildDate>Wed, 19 Jul 2017 18:46:05 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>20170719 [學習筆記] 30天作業自作入門筆記 (2)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#day2&quot; id=&quot;markdown-toc-day2&quot;&gt;20170719 - Day_2&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#helloosnas&quot; id=&quot;markdown-toc-helloosnas&quot;&gt;一、修改 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#helloosnas-1&quot; id=&quot;markdown-toc-helloosnas-1&quot;&gt;二、編譯 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#osimg&quot; id=&quot;markdown-toc-osimg&quot;&gt;三、啟動虛擬機，讀取 &lt;code class=&quot;highlighter-rouge&quot;&gt;os.img&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;工作環境
+    &lt;ul&gt;
+      &lt;li&gt;Lubuntu 17.04&lt;/li&gt;
+      &lt;li&gt;VMware Workstation 12.5.2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;Linux 版本筆記：&lt;a href=&quot;http://lengly.top/archives/85&quot;&gt;http://lengly.top/archives/85&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;day2&quot;&gt;20170719 - Day_2&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;進度摘要
+    &lt;ul&gt;
+      &lt;li&gt;簡易 IPL 製作。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;完整專案
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20170719&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20170719&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://blog.gtwang.org/linux/dd-command-examples/&quot;&gt;dd 指令教學與實用範例，備份與回復資料的小工具&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;helloosnas&quot;&gt;一、修改 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESB	0x7dfe-$&lt;/code&gt; 此行無法通過編譯，故修改成 &lt;code class=&quot;highlighter-rouge&quot;&gt;TIMES 510-($-$$)    DB    0&lt;/code&gt;。
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt; 代表目前行的位址，&lt;code class=&quot;highlighter-rouge&quot;&gt;$$&lt;/code&gt; 為目前 section 的位址。(TIMES 意思為重複，先決定次數再確定重複的內容)。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-asm&quot;&gt;; hello-os
+; TAB=4
+
+ORG		0x7c00			; 指定從 0x7c00 開始執行
+
+;   以下是為了標準 FAT12 格式的軟式磁碟片的記述
+
+    JMP		entry
+    DB		0x90
+    DB		&quot;HELLOIPL&quot;		
+    DW		512				
+    DB		1				
+    DW		1				
+    DB		2				
+    DW		224				
+    DW		2880			
+    DB		0xf0			
+    DW		9				
+    DW		18				
+    DW		2				
+    DD		0				
+    DD		2880			
+    DB		0,0,0x29		
+    DD		0xffffffff		
+    DB		&quot;HELLO-OS   &quot;	
+    DB		&quot;FAT12   &quot;		
+    RESB	18				
+
+
+; 程式碼本身
+
+entry:
+    MOV		AX,0			; 暫存器初始化
+    MOV		SS,AX
+    MOV		SP,0x7c00
+    MOV		DS,AX
+    MOV		ES,AX
+
+    MOV		SI,msg
+
+
+putloop:
+    MOV		AL,[SI]
+    ADD		SI,1			; 在 SI 加 1
+    CMP		AL,0
+    JE		fin
+    MOV		AH,0x0e			; 一個文字表示功能
+    MOV		BX,15			; 顏色代碼 (color code)
+    INT		0x10			; 呼叫視訊 BIOS
+    JMP		putloop
+
+
+fin:
+    HLT						; 直到有了某個物件就將 CPU 停止
+    JMP		fin				; 無限迴圈
+
+
+msg:
+    DB		0x0a, 0x0a		; 連續兩個換行
+    DB		&quot;hello, world&quot;
+    DB		0x0a			; 換行 
+    DB		0
+
+    ; RESB	0x7dfe-$	       ; 此行編譯無法通過，故修改成 &quot;TIMES 510-($-$$)    DB    0&quot;
+    TIMES 510-($-$$)    DB    0      ; &quot;$&quot; 代表目前行的位址，&quot;$$&quot; 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
+
+    DB		0x55, 0xaa
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;helloosnas-1&quot;&gt;二、編譯 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;編譯 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;，在輸出 &lt;code class=&quot;highlighter-rouge&quot;&gt;bootloader&lt;/code&gt; 的同時也輸出列表檔案 &lt;code class=&quot;highlighter-rouge&quot;&gt;ipl.lst&lt;/code&gt;。
+    &lt;blockquote&gt;
+      &lt;p&gt;nasm -o bootloader -l ipl.lst helloos.nas&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/KfOYHIM.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;在 Linux 系統下使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;dd&lt;/code&gt; 指令產生 &lt;code class=&quot;highlighter-rouge&quot;&gt;.img&lt;/code&gt; 檔案。
+    &lt;ul&gt;
+      &lt;li&gt;先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。&lt;/li&gt;
+      &lt;li&gt;一個軟碟片容量：++1.44MB = 512KB * 2880++&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;dd if=/dev/zero of=os.img bs=512 count=2880
+dd if=bootloader of=os.img bs=512 count=1&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;if：指定輸入檔案
+of：指定輸出檔案
+bs：指定 block size，一次讀取與寫入 N 個位元組的資料
+count：處理 N 個輸入區塊
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/DbKECqo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;如果打開 &lt;code class=&quot;highlighter-rouge&quot;&gt;ipl.lst&lt;/code&gt; ，可以檢視組合語言轉換成機械碼的情形。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-asm&quot;&gt;     1                                  ; hello-os
+     2                                  ; TAB=4
+     3                                  
+     4                                  ORG		0x7c00			    ;   指定從 0x7c00 開始執行
+     5                                  
+     6                                  ;   以下是為了標準 FAT12 格式的軟式磁碟片的記述
+     7                                  
+     8 00000000 EB4E                        JMP		entry
+     9 00000002 90                          DB		0x90
+    10 00000003 48454C4C4F49504C            DB		&quot;HELLOIPL&quot;		
+    11 0000000B 0002                        DW		512				
+    12 0000000D 01                          DB		1				
+    13 0000000E 0100                        DW		1				
+    14 00000010 02                          DB		2				
+    15 00000011 E000                        DW		224				
+    16 00000013 400B                        DW		2880			
+    17 00000015 F0                          DB		0xf0			
+    18 00000016 0900                        DW		9				
+    19 00000018 1200                        DW		18				
+    20 0000001A 0200                        DW		2				
+    21 0000001C 00000000                    DD		0				
+    22 00000020 400B0000                    DD		2880			
+    23 00000024 000029                      DB		0,0,0x29		
+    24 00000027 FFFFFFFF                    DD		0xffffffff		
+    25 0000002B 48454C4C4F2D4F5320-         DB		&quot;HELLO-OS   &quot;	
+    25 00000034 2020               
+    26 00000036 4641543132202020            DB		&quot;FAT12   &quot;		
+    27 0000003E &amp;lt;res 00000012&amp;gt;              RESB	18				
+    27          ******************       warning: uninitialized space declared in .text section: zeroing
+    28                                  
+    29                                  
+    30                                  
+    31                                  
+    32                                  ; 程式碼本身
+    33                                  
+    34                                  entry:
+    35 00000050 B80000                      MOV		AX,0			;   暫存器初始化
+    36 00000053 8ED0                        MOV		SS,AX
+    37 00000055 BC007C                      MOV		SP,0x7c00
+    38 00000058 8ED8                        MOV		DS,AX
+    39 0000005A 8EC0                        MOV		ES,AX
+    40                                  
+    41 0000005C BE[7400]                    MOV		SI,msg
+    42                                  
+    43                                  
+    44                                  putloop:
+    45 0000005F 8A04                        MOV		AL,[SI]
+    46 00000061 83C601                      ADD		SI,1			;   在 SI 加 1
+    47 00000064 3C00                        CMP		AL,0
+    48 00000066 7409                        JE		fin
+    49 00000068 B40E                        MOV		AH,0x0e			;   一個文字表示功能
+    50 0000006A BB0F00                      MOV		BX,15			;   顏色代碼 (color code)
+    51 0000006D CD10                        INT		0x10			;   呼叫視訊 BIOS
+    52 0000006F EBEE                        JMP		putloop
+    53                                  
+    54                                  
+    55                                  fin:
+    56 00000071 F4                          HLT						;   直到有了某個物件就將 CPU 停止
+    57 00000072 EBFD                        JMP		fin				;   無限迴圈
+    58                                  
+    59                                  
+    60                                  msg:
+    61 00000074 0A0A                        DB		0x0a, 0x0a		;   連續兩個換行
+    62 00000076 68656C6C6F2C20776F-         DB		&quot;hello, world&quot;
+    62 0000007F 726C64             
+    63 00000082 0A                          DB		0x0a			;   換行 
+    64 00000083 00                          DB		0
+    65                                  
+    66                                      ;   RESB	0x7dfe-$	;   此行編譯無法通過，故修改成 &quot;TIMES 510-($-$$)      DB      0&quot;
+    67 00000084 00&amp;lt;rept&amp;gt;                    TIMES 510-($-$$)    DB      0   ;   &#39;$&#39; 代表目前行的位址，&#39;$$&#39; 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
+    68                                  
+    69 000001FE 55AA                        DB		0x55, 0xaa
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;osimg&quot;&gt;三、啟動虛擬機，讀取 &lt;code class=&quot;highlighter-rouge&quot;&gt;os.img&lt;/code&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/ZwHRrHj.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Wed, 19 Jul 2017 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/07/19/30OS_day2/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/07/19/30OS_day2/</guid>
+        
+        <category>組合語言</category>
+        
+        <category>C語言</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+        
+        <category>組合語言</category>
+        
+        <category>C語言</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+      </item>
+    
+      <item>
+        <title>20170714 [學習筆記] 30天作業自作入門筆記 (1)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#day1&quot; id=&quot;markdown-toc-day1&quot;&gt;20170714 - Day_1&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#nasm-&quot; id=&quot;markdown-toc-nasm-&quot;&gt;一、安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;nasm&lt;/code&gt; ，編譯映像檔&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;二、新增虛擬機、載入映像檔&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;三、改變螢幕上面的字&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;工作環境
+    &lt;ul&gt;
+      &lt;li&gt;Lubuntu 17.04&lt;/li&gt;
+      &lt;li&gt;VMware Workstation 12.5.2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;Linux 版本筆記：&lt;a href=&quot;http://lengly.top/archives/85&quot;&gt;http://lengly.top/archives/85&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;day1&quot;&gt;20170714 - Day_1&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;進度摘要
+    &lt;ul&gt;
+      &lt;li&gt;使用 nasm 編譯映像檔，使用虛擬機模擬。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;完整專案
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20170714&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20170714&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.nasm.us/&quot;&gt;NASM&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.smalljacky.com/introduction-to-computer/carry-digital-system-conversion/&quot;&gt;數字系統_進制轉換教學&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/FAT&quot;&gt;FAT - 維基百科&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%BC%95%E5%AF%BC%E6%89%87%E5%8C%BA&quot;&gt;開機(啟動)磁區&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://flyeast-personal-area.blogspot.tw/2010/08/ipl-initial-program-loader.html&quot;&gt;IPL - Initial Program Loader&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.lifewire.com/what-does-booting-mean-2625799&quot;&gt;What Does Booting Mean?&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;nasm-&quot;&gt;一、安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;nasm&lt;/code&gt; ，編譯映像檔&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. 在終端上輸入以下指令，安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;nasm&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;sudo apt install nasm&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/lqQOAyY.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 用 vim 檢視 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt; 的內容&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-asm&quot;&gt;DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
+DB	0x49, 0x50, 0x4c, 0x00, 0x02, 0x01, 0x01, 0x00
+DB	0x02, 0xe0, 0x00, 0x40, 0x0b, 0xf0, 0x09, 0x00
+DB	0x12, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00
+DB	0x40, 0x0b, 0x00, 0x00, 0x00, 0x00, 0x29, 0xff
+DB	0xff, 0xff, 0xff, 0x48, 0x45, 0x4c, 0x4c, 0x4f
+DB	0x2d, 0x4f, 0x53, 0x20, 0x20, 0x20, 0x46, 0x41
+DB	0x54, 0x31, 0x32, 0x20, 0x20, 0x20, 0x00, 0x00
+RESB	16
+DB	0xb8, 0x00, 0x00, 0x8e, 0xd0, 0xbc, 0x00, 0x7c
+DB	0x8e, 0xd8, 0x8e, 0xc0, 0xbe, 0x74, 0x7c, 0x8a
+DB	0x04, 0x83, 0xc6, 0x01, 0x3c, 0x00, 0x74, 0x09
+DB	0xb4, 0x0e, 0xbb, 0x0f, 0x00, 0xcd, 0x10, 0xeb
+DB	0xee, 0xf4, 0xeb, 0xfd, 0x0a, 0x0a, 0x68, 0x65
+DB	0x6c, 0x6c, 0x6f, 0x2c, 0x20, 0x77, 0x6f, 0x72
+DB	0x6c, 0x64, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00
+RESB	368
+DB	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x55, 0xaa
+DB	0xf0, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00
+RESB	4600
+DB	0xf0, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00
+RESB	1469432
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/lTRNdvC.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;好吧，我發現自己看不懂…得找找相關的組合語言書籍。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 將 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt; 編譯成映像檔 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.img&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;nasm -o helloos.img helloos.nas&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/mof2KcD.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;二、新增虛擬機、載入映像檔&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. 環境配置 » 記憶體：256MB、硬碟：8GB&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/l0LDEAg.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 設定虛擬機欲讀取的映像檔位置&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;在書本範例上是使用 “軟碟機” 讀取映像檔 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.img&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Ng6nstQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 啟動虛擬機&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;可以看到螢幕上顯示 &lt;code class=&quot;highlighter-rouge&quot;&gt;hello, world&lt;/code&gt; 後畫面停滯不動，觀察完後便可將虛擬機關機。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/I3ap9DE.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;三、改變螢幕上面的字&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. 用 vim 修改 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.img&lt;/code&gt; 映像檔&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;將內文中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;hello, world&lt;/code&gt; 改成 &lt;code class=&quot;highlighter-rouge&quot;&gt;Hello, shouzo. Be Strong to Be Useful.&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/qv125bc.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;編輯完成後，將映像檔另存成 &lt;code class=&quot;highlighter-rouge&quot;&gt;hello_shouzo.img&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 設定新的映像檔讀取位置後，啟動虛擬機&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;本次將欲讀取的映像檔改成 &lt;code class=&quot;highlighter-rouge&quot;&gt;hello_shouzo.img&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/avcdhdB.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 14 Jul 2017 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2017/07/14/30OS_day1/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2017/07/14/30OS_day1/</guid>
+        
+        <category>組合語言</category>
+        
+        <category>C語言</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+        
+        <category>組合語言</category>
+        
+        <category>C語言</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+      </item>
     
       <item>
         <title>20170622 [學習筆記] Linux 系統程式筆記總整理</title>
@@ -2771,556 +3188,6 @@ rm –f file_one
         <pubDate>Fri, 05 May 2017 08:00:00 +0800</pubDate>
         <link>http://shouzo.github.io/2017/05/05/linux_system/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2017/05/05/linux_system/</guid>
-        
-        <category>Linux</category>
-        
-        <category>作業系統</category>
-        
-        <category>程式設計</category>
-        
-        
-        <category>Linux</category>
-        
-        <category>作業系統</category>
-        
-        <category>程式設計</category>
-        
-      </item>
-    
-      <item>
-        <title>20170504 [個人紀錄] Vim 慣用設定</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#vimrc-&quot; id=&quot;markdown-toc-vimrc-&quot;&gt;一、vimrc 慣用設定&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#vim-&quot; id=&quot;markdown-toc-vim-&quot;&gt;二、安裝 Vim 外掛&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
-&lt;p&gt;最近剛重灌 Ubuntu，在此紀錄個人安裝 Vim 時常用的設定與外掛。&lt;/p&gt;
-
-&lt;h2 id=&quot;vimrc-&quot;&gt;一、vimrc 慣用設定&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;系統環境
-    &lt;blockquote&gt;
-      &lt;p&gt;ubuntu 17.04&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;參考資料
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;http://wiki.csie.ncku.edu.tw/vim/vimrc&quot;&gt;vimrc設定教學 - 成大資工Wiki&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;http://note.drx.tw/2008/01/vimrc-config.html&quot;&gt;凍仁的筆記: Vim 環境設定- vimrc&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://blog.roga.tw/2010/01/2350&quot;&gt;我目前使用的 .vimrc 設定檔&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://blog.gtwang.org/tips/vim-working-with-unicode/&quot;&gt;VIM 編輯器顯示萬國碼（Unicode）文字，解決亂碼問題&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;個人常用的 Prompt 顏色格式&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;PS1=’[\e[1;33m]\u@\h[\e[m]:[\e[1;34m]\W[\e[1;32m]$[\e[m]’&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vimrc&lt;/code&gt; 設定檔
-    &lt;blockquote&gt;
-      &lt;p&gt;$ cd&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;$ vim .vimrc&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/v4rOfdw.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;修改 vimrc 設定檔
-    &lt;ul&gt;
-      &lt;li&gt;將以下內容複製到 vimrc：&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&quot; 檔案編碼
-set encoding=utf-8
-set fileencodings=utf-8,cp950
-
-&quot; 編輯喜好設定 
-syntax on        &quot; 語法上色顯示
-set nocompatible &quot; VIM 不使用和 VI 相容的模式
-&quot;set ai           &quot; 自動縮排
-set shiftwidth=4 &quot; 設定縮排寬度 = 4 
-set tabstop=4    &quot; tab 的字元數
-set softtabstop=4
-set expandtab    &quot; 用 space 代替 tab
-set nu		     &quot; 顯示行號 
-set ruler        &quot; 顯示右下角設定值
-set backspace=2  &quot; 在 insert 也可用 backspace
-set ic           &quot; 設定搜尋忽略大小寫
-set ru           &quot; 第幾行第幾個字
-set hlsearch     &quot; 設定高亮度顯示搜尋結果
-set incsearch    &quot; 在關鍵字還沒完全輸入完畢前就顯示結果
-set smartindent  &quot; 設定 smartindent
-set confirm      &quot; 操作過程有衝突時，以明確的文字來詢問
-set history=100  &quot; 保留 100 個使用過的指令
-set cursorline   &quot; 顯示目前的游標位置
-set laststatus=2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;完成後按下&lt;code class=&quot;highlighter-rouge&quot;&gt;Esc&lt;/code&gt;鍵，再輸入 &lt;code class=&quot;highlighter-rouge&quot;&gt;:wq&lt;/code&gt;離開 Vim 。
-此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。&lt;/p&gt;
-
-&lt;h2 id=&quot;vim-&quot;&gt;二、安裝 Vim 外掛&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;請參考以下連結，安裝 Vim 外掛：
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/junegunn/vim-plug&quot;&gt;vim-plug&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/sickill/vim-monokai&quot;&gt;有 monokai 風格的 vim 外掛&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 04 May 2017 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2017/05/04/vim/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2017/05/04/vim/</guid>
-        
-        <category>Vim</category>
-        
-        
-        <category>程式設計</category>
-        
-      </item>
-    
-      <item>
-        <title>20170428 [學習筆記] Linux 系統程式 (8)</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#race-condition&quot; id=&quot;markdown-toc-race-condition&quot;&gt;Race Condition&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#critical-section-problem&quot; id=&quot;markdown-toc-critical-section-problem&quot;&gt;(一) Critical-Section Problem&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#solution-to-critical-section-problem&quot; id=&quot;markdown-toc-solution-to-critical-section-problem&quot;&gt;(二) Solution to Critical-Section Problem&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#petersons-solution&quot; id=&quot;markdown-toc-petersons-solution&quot;&gt;(三) Peterson’s Solution&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#synchronization-hardware&quot; id=&quot;markdown-toc-synchronization-hardware&quot;&gt;(四) Synchronization Hardware&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#testandset-instruction&quot; id=&quot;markdown-toc-testandset-instruction&quot;&gt;1. test_and_set Instruction&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#compareandswap-instruction&quot; id=&quot;markdown-toc-compareandswap-instruction&quot;&gt;2. compare_and_swap Instruction&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#mutex-locks&quot; id=&quot;markdown-toc-mutex-locks&quot;&gt;(五) Mutex Locks&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#acquire-and-release&quot; id=&quot;markdown-toc-acquire-and-release&quot;&gt;acquire() and release()&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#low-level-file-access&quot; id=&quot;markdown-toc-low-level-file-access&quot;&gt;(一) Low-level file access&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#open&quot; id=&quot;markdown-toc-open&quot;&gt;1. open&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#read&quot; id=&quot;markdown-toc-read&quot;&gt;2. read&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#write&quot; id=&quot;markdown-toc-write&quot;&gt;3. write&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#example-file-copy&quot; id=&quot;markdown-toc-example-file-copy&quot;&gt;[Example] File copy&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#standard-io-library&quot; id=&quot;markdown-toc-standard-io-library&quot;&gt;(二) Standard I/O Library&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#fopen&quot; id=&quot;markdown-toc-fopen&quot;&gt;fopen&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#printf-sprintf-fprintf&quot; id=&quot;markdown-toc-printf-sprintf-fprintf&quot;&gt;2. printf, sprintf, fprintf&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#scanf-fscanf-sscanf&quot; id=&quot;markdown-toc-scanf-fscanf-sscanf&quot;&gt;3. scanf, fscanf, sscanf&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;課程簡報
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170427/ch06.pdf&quot;&gt;Chapter 6: Process Scheduling&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;race-condition&quot;&gt;Race Condition&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Consumer
-&lt;img src=&quot;https://i.imgur.com/07kx1WD.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Producer
-&lt;img src=&quot;https://i.imgur.com/eBPWPyb.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Race Condition
-&lt;img src=&quot;https://i.imgur.com/Q5qf9Xi.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;critical-section-problem&quot;&gt;(一) Critical-Section Problem&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;General Structure：
-&lt;img src=&quot;https://i.imgur.com/yVVaplo.jpg&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;https://i.imgur.com/dWa1ujd.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;solution-to-critical-section-problem&quot;&gt;(二) Solution to Critical-Section Problem&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Mutual Exclusion&lt;/strong&gt; - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Progress&lt;/strong&gt; - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Bounded Waiting&lt;/strong&gt; - A bound must exist on the number of times that other processes are allowed to enter their critical sections.
-    &lt;ul&gt;
-      &lt;li&gt;Assume that each process executes at a nonzero speed.&lt;/li&gt;
-      &lt;li&gt;No assumption concerning relative speed of the n processes.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Two approaches depending on if kernel is preemptive or non-preemptive.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Preemptive&lt;/strong&gt; – allows preemption of process when running in kernel mode.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Non-preemptive&lt;/strong&gt; – runs until exits kernel mode, blocks, or voluntarily yields CPU.
-        &lt;ul&gt;
-          &lt;li&gt;Essentially free of race conditions in kernel mode.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;petersons-solution&quot;&gt;(三) Peterson’s Solution&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Good algorithmic description of solving the problem.&lt;/li&gt;
-  &lt;li&gt;Two process solution&lt;/li&gt;
-  &lt;li&gt;Assume that the load and store instructions are atomic; that is, cannot be interrupted&lt;/li&gt;
-  &lt;li&gt;The two processes share two variables：
-    &lt;ul&gt;
-      &lt;li&gt;int turn;&lt;/li&gt;
-      &lt;li&gt;Boolean flag[2]&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The variable turn indicates whose turn it is to enter the critical section&lt;/li&gt;
-  &lt;li&gt;The flag array is used to indicate if a process is ready to enter the critical section.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;flag[i] = true&lt;/code&gt; implies that process Pi is ready!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/VjV8Owl.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Provable that
-    &lt;ol&gt;
-      &lt;li&gt;Mutual exclusion is preserved.&lt;/li&gt;
-      &lt;li&gt;Progress requirement is satisfied.&lt;/li&gt;
-      &lt;li&gt;Bounded-waiting requirement is met.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;synchronization-hardware&quot;&gt;(四) Synchronization Hardware&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Many systems provide hardware support for critical section code.&lt;/li&gt;
-  &lt;li&gt;All solutions below based on idea of &lt;strong&gt;locking&lt;/strong&gt;.
-    &lt;ul&gt;
-      &lt;li&gt;Protecting critical regions via locks.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Uniprocessors – could disable interrupts
-    &lt;ul&gt;
-      &lt;li&gt;Currently running code would execute without preemption.&lt;/li&gt;
-      &lt;li&gt;Generally too inefficient on multiprocessor systems.
-        &lt;ul&gt;
-          &lt;li&gt;Operating systems using this not broadly scalable.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Modern machines provide special atomic hardware instructions.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Atomic&lt;/strong&gt; = non-interruptible
-        &lt;ul&gt;
-          &lt;li&gt;Either test memory word and set value.&lt;/li&gt;
-          &lt;li&gt;Or swap contents of two memory words.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;testandset-instruction&quot;&gt;1. test_and_set Instruction&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HP1PMeH.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Solution using test_and_set()
-  &lt;img src=&quot;https://i.imgur.com/5SMn8ix.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Bounded-waiting Mutual Exclusion with test_and_set
-  &lt;img src=&quot;https://i.imgur.com/wGOMFdV.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;compareandswap-instruction&quot;&gt;2. compare_and_swap Instruction&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/7neEbLe.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Solution using compare_and_swap
-  &lt;img src=&quot;https://i.imgur.com/37TZRjA.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;mutex-locks&quot;&gt;(五) Mutex Locks&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Previous solutions are complicated and generally inaccessible to application programmers.&lt;/li&gt;
-  &lt;li&gt;OS designers build software tools to solve critical section problem.&lt;/li&gt;
-  &lt;li&gt;Simplest is mutex lock&lt;/li&gt;
-  &lt;li&gt;Product critical regions with it by first &lt;strong&gt;acquire()&lt;/strong&gt; a lock then &lt;strong&gt;release()&lt;/strong&gt; it.
-    &lt;ul&gt;
-      &lt;li&gt;Boolean variable indicating if lock is available or not&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Calls to &lt;strong&gt;acquire()&lt;/strong&gt; and &lt;strong&gt;release()&lt;/strong&gt; must be atomic.
-    &lt;ul&gt;
-      &lt;li&gt;Usually implemented via hardware atomic instructions&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;But this solution requires &lt;strong&gt;busy waiting&lt;/strong&gt;.
-    &lt;ul&gt;
-      &lt;li&gt;This lock therefore called a &lt;strong&gt;spinlock&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;acquire-and-release&quot;&gt;acquire() and release()&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/stNKbbR.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;課程簡報
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Working with Files&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;http://advancedlinuxprogramming.com/alp-folder/alp-apB-low-level-io.pdf&quot;&gt;Low-Level I/O&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;low-level-file-access&quot;&gt;(一) Low-level file access&lt;/h3&gt;
-&lt;p&gt;Header：&lt;code class=&quot;highlighter-rouge&quot;&gt;#include &amp;lt;unistd.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Action
-    &lt;ul&gt;
-      &lt;li&gt;open&lt;/li&gt;
-      &lt;li&gt;read&lt;/li&gt;
-      &lt;li&gt;write&lt;/li&gt;
-      &lt;li&gt;close&lt;/li&gt;
-      &lt;li&gt;ioctl&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Status
-    &lt;ul&gt;
-      &lt;li&gt;0：standard input&lt;/li&gt;
-      &lt;li&gt;1：standard output&lt;/li&gt;
-      &lt;li&gt;2：standard error&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Permission
-    &lt;ul&gt;
-      &lt;li&gt;S_IRUSR&lt;/li&gt;
-      &lt;li&gt;S_IWUSR&lt;/li&gt;
-      &lt;li&gt;S_IXUSR&lt;/li&gt;
-      &lt;li&gt;S_IRGRP&lt;/li&gt;
-      &lt;li&gt;S_IWGRP&lt;/li&gt;
-      &lt;li&gt;S_IWGRP&lt;/li&gt;
-      &lt;li&gt;S_IROTH&lt;/li&gt;
-      &lt;li&gt;S_IWOTH&lt;/li&gt;
-      &lt;li&gt;S_IXOTH&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;open&quot;&gt;1. open&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int open(const char* path, int oflags);&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int open(const char* path, int oflags, mode_t mode);&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Mode
-    &lt;ul&gt;
-      &lt;li&gt;O_RDONLY&lt;/li&gt;
-      &lt;li&gt;O_WRONLY&lt;/li&gt;
-      &lt;li&gt;O_RDWR&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Oflags
-    &lt;ul&gt;
-      &lt;li&gt;O_APPEND&lt;/li&gt;
-      &lt;li&gt;O_TRUNC ( 放棄現有的內容、長度歸零)&lt;/li&gt;
-      &lt;li&gt;O_CREAT&lt;/li&gt;
-      &lt;li&gt;O_EXCL (確保呼叫者可以產生檔案)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;read&quot;&gt;2. read&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;size_t read(int fildes, void* buf, size_t nbytes);&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;unistd.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;A read error has occurred&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;A write error has occurred&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        
-    &lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;write&quot;&gt;3. write&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;size_t write(int fildes, void* buf, size_t n
-bytes);&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;unistd.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Here is some data&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;A write error has occurred on file descriptor 1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;46&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;example-file-copy&quot;&gt;[Example] File copy&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Example 1&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;unistd.h&amp;gt;
-#include &amp;lt;sys/stat.h&amp;gt;
-#include &amp;lt;fcntl.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file.in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O_RDONLY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file.out&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O_WRONLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;O_CREAT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;S_IRUSR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S_IWUSR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        
-    &lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Example2&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;unistd.h&amp;gt;
-#include &amp;lt;sys/stat.h&amp;gt;
-#include &amp;lt;fcntl.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file.in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O_RDONLY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file.out&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;O_WRONLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;O_CREAT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;S_IRUSR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S_IWUSR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sizeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;standard-io-library&quot;&gt;(二) Standard I/O Library&lt;/h3&gt;
-&lt;p&gt;Header：&lt;code class=&quot;highlighter-rouge&quot;&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fopen&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;fclose&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;int fclose(FILE* stream);&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fread&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;fwrite&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;size_t fread(void* ptr, size_t size, size_t nitems, FILE* stream);&lt;/li&gt;
-      &lt;li&gt;size_t fwrite(void* ptr, size_t size, size_t nitems, FILE* stream);&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fflush&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;int fflush(FLIE* stream);&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fseek&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;int fseek(FILE* stream, long int offset, int whence);&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fgetc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;getc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;getchar&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;int fgetc(FILE* stream);&lt;/li&gt;
-      &lt;li&gt;int getc(FILE* stream);&lt;/li&gt;
-      &lt;li&gt;int getchar();&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fputc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;putc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;putchar&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;int fputc(int c, FILE* stream);&lt;/li&gt;
-      &lt;li&gt;int putc(int c, FILE* stream);&lt;/li&gt;
-      &lt;li&gt;int putchar(int c);&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fgets&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;gets&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;char* fgets(char&lt;em&gt;s, int n, FILE&lt;/em&gt; stream);&lt;/li&gt;
-      &lt;li&gt;char* gets(char*s);&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;printf&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;fprintf&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sprintf&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scanf&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;fscanf&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sscanf&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;fopen&quot;&gt;fopen&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FILE *fopen(const char *filename, const
-char* mode);&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r&lt;/code&gt; (唯讀模式)&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt; (寫入模式、長度歸零)&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; (寫入模式、附加)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;printf-sprintf-fprintf&quot;&gt;2. printf, sprintf, fprintf&lt;/h4&gt;
-&lt;p&gt;%d, %o, %x, %c ,%s ,%f (float) ,%e (double) ,%g (double)&lt;/p&gt;
-
-&lt;h4 id=&quot;scanf-fscanf-sscanf&quot;&gt;3. scanf, fscanf, sscanf&lt;/h4&gt;
-&lt;p&gt;%d, %o, %x, %f, %e, %g, %c, %s, %[] (掃瞄特定字元), %% (掃瞄 % 的字元)&lt;/p&gt;
-</description>
-        <pubDate>Fri, 28 Apr 2017 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2017/04/28/linux_system/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2017/04/28/linux_system/</guid>
         
         <category>Linux</category>
         
