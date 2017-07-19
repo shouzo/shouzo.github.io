@@ -333,17 +333,18 @@ msg:
 <p><img src="https://i.imgur.com/KfOYHIM.png" alt="" /></p>
 
 <ol>
-  <li>在 Linux 系統下使用 <code class="highlighter-rouge">dd</code> 指令產生 <code class="highlighter-rouge">.img</code> 檔案。
+  <li>在 Linux 系統下使用 <code class="highlighter-rouge">dd</code> 指令產生 <code class="highlighter-rouge">os.img</code> 檔案。
     <ul>
       <li>先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。</li>
-      <li>一個軟碟片容量：++1.44MB = 512KB * 2880++</li>
+      <li>一個軟碟片容量：<strong>1.44MB = 512KB * 2880</strong></li>
     </ul>
   </li>
 </ol>
 
 <blockquote>
-  <p>dd if=/dev/zero of=os.img bs=512 count=2880
-dd if=bootloader of=os.img bs=512 count=1</p>
+  <p>dd if=/dev/zero of=os.img bs=512 count=2880</p>
+
+  <p>dd if=bootloader of=os.img bs=512 count=1</p>
 </blockquote>
 
 <div class="highlighter-rouge"><pre class="codehilite"><code>if：指定輸入檔案
