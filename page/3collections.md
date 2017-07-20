@@ -8,6 +8,8 @@ icon: bookmark
 * content
 {:toc}
 
+O(n^3^)
+
 
 # (一) GitBook 電子書
 * 這裡儲存所有學習到的知識和內容，將會分門別類的存放在這裡：

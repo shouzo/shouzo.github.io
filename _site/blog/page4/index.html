@@ -142,6 +142,486 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-04-14
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+      <li><a href="#direct-communication" id="markdown-toc-direct-communication">(一) Direct Communication</a></li>
+      <li><a href="#indirect-communication" id="markdown-toc-indirect-communication">(二) Indirect Communication</a></li>
+      <li><a href="#synchronization" id="markdown-toc-synchronization">(三) Synchronization</a></li>
+      <li><a href="#buffering" id="markdown-toc-buffering">(四) Buffering</a></li>
+      <li><a href="#examples-of-ipc-systems" id="markdown-toc-examples-of-ipc-systems">Examples of IPC Systems</a>        <ul>
+          <li><a href="#posix" id="markdown-toc-posix">1. POSIX</a></li>
+          <li><a href="#mach" id="markdown-toc-mach">2. Mach</a></li>
+          <li><a href="#windows" id="markdown-toc-windows">3. Windows</a></li>
+        </ul>
+      </li>
+      <li><a href="#communications-in-client-server-systems" id="markdown-toc-communications-in-client-server-systems">(五) Communications in Client-Server Systems</a>        <ul>
+          <li><a href="#sockets" id="markdown-toc-sockets">1. Sockets</a></li>
+          <li><a href="#remote-procedure-calls" id="markdown-toc-remote-procedure-calls">2. Remote Procedure Calls</a></li>
+          <li><a href="#pipes" id="markdown-toc-pipes">3. Pipes</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-1" id="markdown-toc-section-1">課堂作業</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170413/ch03.pdf">Chapter 3: Process Concept</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="direct-communication">(一) Direct Communication</h3>
+<ul>
+  <li>Processes must name each other explicitly：
+    <ul>
+      <li>send(P, message) – send a message to process P</li>
+      <li>receive(Q, message) – receive a message from process Q</li>
+    </ul>
+  </li>
+  <li>Properties of communication link
+    <ul>
+      <li>Links are established automatically</li>
+      <li>A link is associated with exactly one pair of communicating processes</li>
+      <li>Between each pair there exists exactly one link</li>
+      <li>The link may be unidirectional, but is usually bi-directional</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="indirect-communication">(二) Indirect Communication</h3>
+<ul>
+  <li>Messages are directed and received from mailboxes (also referred to as ports)
+    <ul>
+      <li>Each mailbox has a unique id</li>
+      <li>Processes can communicate only if they share a mailbox</li>
+    </ul>
+  </li>
+  <li>Properties of communication link
+    <ul>
+      <li>Link established only if processes share a common mailbox</li>
+      <li>A link may be associated with many processes</li>
+      <li>Each pair of processes may share several communication links</li>
+      <li>Link may be unidirectional or bi-directional</li>
+    </ul>
+  </li>
+  <li>Operations
+    <ul>
+      <li>create a new mailbox</li>
+      <li>send and receive messages through mailbox</li>
+      <li>destroy a mailbox</li>
+    </ul>
+  </li>
+  <li>Primitives are defined as：
+    <ul>
+      <li>send(A, message) – send a message to mailbox A</li>
+      <li>receive(A, message) – receive a message from mailbox A</li>
+    </ul>
+  </li>
+  <li>Mailbox sharing
+    <ul>
+      <li>Who gets the message？
+        <ul>
+          <li>P 1 , P 2 , and P 3 share mailbox A</li>
+          <li>P 1 , sends; P 2 and P 3 receive</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Solutions
+    <ul>
+      <li>Allow a link to be associated with at most two processes.</li>
+      <li>Allow only one process at a time to execute a receive operation.</li>
+      <li>Allow the system to select arbitrarily the receiver. Sender is notified who the receiver was.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="synchronization">(三) Synchronization</h3>
+<ul>
+  <li>
+    <p>Message passing may be either blocking or non-blocking</p>
+  </li>
+  <li><strong>Blocking</strong> is considered <strong>synchronous</strong>
+    <ul>
+      <li><code class="highlighter-rouge">Blocking send</code> has the sender block until the message is received</li>
+      <li><code class="highlighter-rouge">Blocking receive</code> has the receiver block until a message is available</li>
+    </ul>
+  </li>
+  <li><strong>Non-blocking</strong> is considered <strong>asynchronous</strong>
+    <ul>
+      <li><code class="highlighter-rouge">Non-blocking send</code> has the sender send the message and continue</li>
+      <li><code class="highlighter-rouge">Non-blocking receive</code> has the receiver receive a valid message or null</li>
+    </ul>
+  </li>
+  <li>Different combinations possible
+    <ul>
+      <li>If both send and receive are blocking, we have a rendezvous</li>
+    </ul>
+  </li>
+  <li>Producer-consumer becomes trivial</li>
+</ul>
+
+<h3 id="buffering">(四) Buffering</h3>
+<ul>
+  <li>Queue of messages attached to the link; implemented in one of three ways
+    <ol>
+      <li>Zero capacity – 0 messages
+  Sender must wait for receiver (rendezvous)</li>
+      <li>Bounded capacity – finite length of n messages
+  Sender must wait if link full</li>
+      <li>Unbounded capacity – infinite length
+  Sender never waits</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="examples-of-ipc-systems">Examples of IPC Systems</h3>
+
+<h4 id="posix">1. POSIX</h4>
+<ul>
+  <li>POSIX Shared Memory
+    <ul>
+      <li>Process first creates shared memory segment：<code class="highlighter-rouge">shm_fd = shm_open(name, O CREAT | O RDRW, 0666);</code></li>
+      <li>Also used to open an existing segment to share it</li>
+      <li>Set the size of the object：<code class="highlighter-rouge">ftruncate(shm fd, 4096);</code></li>
+      <li>Now the process could write to the shared memory：<code class="highlighter-rouge">sprintf(shared memory, "Writing to shared memory");</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="mach">2. Mach</h4>
+<ul>
+  <li>Mach communication is message based
+    <ul>
+      <li>Even system calls are messages</li>
+      <li>Each task gets two mailboxes at creation- Kernel and Notify</li>
+      <li>Only three system calls needed for message transfer：<code class="highlighter-rouge">msg_send()</code>, <code class="highlighter-rouge">msg_receive()</code>, <code class="highlighter-rouge">msg_rpc()</code></li>
+      <li>Mailboxes needed for commuication, created via：<code class="highlighter-rouge">port_allocate()</code></li>
+      <li>Send and receive are flexible, for example four options if mailbox full：
+        <ul>
+          <li>Wait indefinitely</li>
+          <li>Wait at most n milliseconds</li>
+          <li>Return immediately</li>
+          <li>Temporarily cache a message</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="windows">3. Windows</h4>
+<ul>
+  <li>Message-passing centric via <code class="highlighter-rouge">advanced local procedure call (LPC)</code> facility
+    <ul>
+      <li>Only works between processes on the same system</li>
+      <li>Uses ports (like mailboxes) to establish and maintain communication channels</li>
+      <li>Communication works as follows：
+        <ul>
+          <li>The client opens a handle to the subsystem’s <code class="highlighter-rouge">connection port</code> object.</li>
+          <li>The client sends a connection request.</li>
+          <li>The server creates two private <code class="highlighter-rouge">communication ports</code> and returns the handle to one of them to the client.</li>
+          <li>The client and server use the corresponding port handle to send messages or callbacks and to listen for replies.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="communications-in-client-server-systems">(五) Communications in Client-Server Systems</h3>
+
+<h4 id="sockets">1. Sockets</h4>
+<ul>
+  <li>A socket is defined as an endpoint for communication</li>
+  <li>Concatenation of <code class="highlighter-rouge">IP address</code> and <code class="highlighter-rouge">port</code> – a number included at start of message packet to differentiate network services on a host
+    <ul>
+      <li>The socket 161.25.19.8:1625 refers to port 1625 on host 161.25.19.8</li>
+    </ul>
+  </li>
+  <li>Communication consists between a pair of sockets</li>
+  <li>All ports below 1024 are well known, used for standard services</li>
+  <li>Special IP address <code class="highlighter-rouge">127.0.0.1 (loopback)</code> to refer to system on which process is running</li>
+</ul>
+
+<h4 id="remote-procedure-calls">2. Remote Procedure Calls</h4>
+<ul>
+  <li>Remote procedure call (RPC) abstracts procedure calls between processes on networked systems
+    <ul>
+      <li>Again uses ports for service differentiation</li>
+    </ul>
+  </li>
+  <li><strong>Stubs</strong> – client-side proxy for the actual procedure on the server</li>
+  <li>The client-side stub locates the server and <strong>marshalls</strong> the parameters</li>
+  <li>The server-side stub receives this message, unpacks the marshalled parameters, and performs the procedure on the server</li>
+  <li>On Windows, stub code compile from specification written in <strong>Microsoft Interface Definition Language (MIDL)</strong></li>
+  <li>Data representation handled via <strong>External Data Representation (XDL)</strong> format to account for different architectures
+    <ul>
+      <li><code class="highlighter-rouge">Big-endian</code> and <code class="highlighter-rouge">little-endian</code></li>
+    </ul>
+  </li>
+  <li>Remote communication has more failure scenarios than local
+    <ul>
+      <li>Messages can be delivered <code class="highlighter-rouge">exactly once</code> rather than <code class="highlighter-rouge">at most once</code></li>
+    </ul>
+  </li>
+  <li>OS typically provides a rendezvous (or <strong>matchmaker</strong>) service to connect client and server</li>
+</ul>
+
+<p><img src="https://i.imgur.com/fvjj3rR.jpg" alt="" /></p>
+
+<h4 id="pipes">3. Pipes</h4>
+<ul>
+  <li>Acts as a conduit allowing two processes to communicate</li>
+  <li><strong>Issues</strong>
+    <ul>
+      <li>Is communication unidirectional or bidirectional?</li>
+      <li>In the case of two-way communication, is it half or full-duplex?</li>
+      <li>Must there exist a relationship (i.e. parent-child) between the communicating processes?</li>
+      <li>Can the pipes be used over a network?</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/W3b5HkN.jpg" alt="" />
+<img src="https://i.imgur.com/c18pKq0.jpg" alt="" /></p>
+
+<h3 id="section-1">課堂作業</h3>
+<ul>
+  <li><code class="highlighter-rouge">client</code> 部份</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
+*/</span>
+<span class="cm">/* The second program is the producer and allows us to enter data for consumers.
+ It's very similar to shm1.c and looks like this. */</span>
+
+<span class="cp">#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+</span>
+<span class="cp">#include &lt;sys/shm.h&gt;
+</span>
+<span class="cp">#include "shm_com.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">running</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">shared_memory</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="n">shared_stuff</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">shmid</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rand_arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+    <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">((</span><span class="n">key_t</span><span class="p">)</span><span class="mi">1234</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span><span class="p">),</span> <span class="mo">0666</span> <span class="o">|</span> <span class="n">IPC_CREAT</span><span class="p">);</span>
+	
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmget failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">shared_memory</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmat failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Memory attached at %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">);</span>
+
+    <span class="n">shared_stuff</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>            
+            <span class="n">printf</span><span class="p">(</span><span class="s">"waiting for client...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="cm">/*
+        printf("\nPress Enter to continue...");
+        while (getchar() != '\n');
+        // fgets(buffer, BUFSIZ, stdin);
+        */</span>
+
+        <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"[%d]%d </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+        <span class="c1">//  strncpy(shared_stuff-&gt;some_text, &amp;rand_arr, TEXT_SZ);
+</span>        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmdt</span><span class="p">(</span><span class="n">shared_memory</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmdt failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<ul>
+  <li><code class="highlighter-rouge">server</code> 部份</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
+*/</span>
+<span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
+ (the size of our shared memory structure) is created with a call to shmget,
+ with the IPC_CREAT bit specified. */</span>
+
+<span class="cp">#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+</span>
+<span class="cp">#include &lt;sys/shm.h&gt;
+</span>
+<span class="cp">#include "shm_com.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">running</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">shared_memory</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="n">shared_stuff</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">shmid</span><span class="p">;</span>
+
+    <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">getpid</span><span class="p">());</span>    
+
+    <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">((</span><span class="n">key_t</span><span class="p">)</span><span class="mi">1234</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span><span class="p">),</span> <span class="mo">0666</span> <span class="o">|</span> <span class="n">IPC_CREAT</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmget failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="cm">/* We now make the shared memory accessible to the program. */</span>
+
+    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">shared_memory</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmat failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Memory attached at %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">);</span>
+
+<span class="cm">/* The next portion of the program assigns the shared_memory segment to shared_stuff,
+ which then prints out any text in written_by_you. The loop continues until end is found
+ in written_by_you. The call to sleep forces the consumer to sit in its critical section,
+ which makes the producer wait. */</span>
+
+    <span class="n">shared_stuff</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">;</span>
+    <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You wrote:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+            
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"[%d]%d </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+            <span class="n">sleep</span><span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">4</span><span class="p">);</span> <span class="cm">/* make the other process wait for us ! */</span>
+            <span class="c1">// shared_stuff-&gt;written_by_you = 0;
+</span>            
+        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cm">/* Lastly, the shared memory is detached and then deleted. */</span>
+
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmdt</span><span class="p">(</span><span class="n">shared_memory</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmdt failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmctl</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="n">IPC_RMID</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmctl(IPC_RMID) failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/rPMcs2j.jpg" alt="" /></li>
+</ul>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/04/14/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/04/13/ai/">20170413 [學習筆記] 人工智慧 (7)</a>
                 </h2>
                 <div class="label">
@@ -896,378 +1376,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-31
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#thread-synchronization" id="markdown-toc-thread-synchronization">(一) Thread Synchronization</a></li>
-      <li><a href="#semaphore" id="markdown-toc-semaphore">1. Semaphore</a>        <ul>
-          <li><a href="#semaphoreh" id="markdown-toc-semaphoreh">semaphore.h</a>            <ul>
-              <li><a href="#seminit" id="markdown-toc-seminit">sem_init()</a></li>
-              <li><a href="#semwait" id="markdown-toc-semwait">sem_wait()</a></li>
-              <li><a href="#sempost" id="markdown-toc-sempost">sem_post()</a></li>
-              <li><a href="#semdestroy" id="markdown-toc-semdestroy">sem_destroy()</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#mutex" id="markdown-toc-mutex">2. Mutex</a>        <ul>
-          <li><a href="#pthreadh" id="markdown-toc-pthreadh">pthread.h</a>            <ul>
-              <li><a href="#pthreadmutexinit" id="markdown-toc-pthreadmutexinit">pthread_mutex_init()</a></li>
-              <li><a href="#pthreadmutexlock" id="markdown-toc-pthreadmutexlock">pthread_mutex_lock()</a></li>
-              <li><a href="#pthreadmutexunlock" id="markdown-toc-pthreadmutexunlock">pthread_mutex_unlock()</a></li>
-              <li><a href="#pthreadmutexdestroy" id="markdown-toc-pthreadmutexdestroy">pthread_mutex_destroy()</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#condition-variables" id="markdown-toc-condition-variables">3. Condition Variables</a>        <ul>
-          <li><a href="#pthreadcondinit-condition-attr" id="markdown-toc-pthreadcondinit-condition-attr">pthread_cond_init (condition, attr)</a></li>
-          <li><a href="#pthreadconddestroy-condition" id="markdown-toc-pthreadconddestroy-condition">pthread_cond_destroy (condition)</a></li>
-          <li><a href="#pthreadcondattrinit-attr" id="markdown-toc-pthreadcondattrinit-attr">pthread_condattr_init (attr)</a></li>
-          <li><a href="#pthreadcondattrdestroy-attr" id="markdown-toc-pthreadcondattrdestroy-attr">pthread_condattr_destroy (attr)</a></li>
-        </ul>
-      </li>
-      <li><a href="#barrier" id="markdown-toc-barrier">4. Barrier</a></li>
-      <li><a href="#producer-consumer-problem" id="markdown-toc-producer-consumer-problem">(二) Producer-Consumer Problem</a>        <ul>
-          <li><a href="#producer" id="markdown-toc-producer">1. Producer</a></li>
-          <li><a href="#consumer" id="markdown-toc-consumer">2. Consumer</a></li>
-        </ul>
-      </li>
-      <li><a href="#section-1" id="markdown-toc-section-1">課程作業</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="section">一、作業系統</h2>
-<ul>
-  <li>課程簡報
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/ch04.pdf">Chapter 4: Mutithread Programming</a></li>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/ch05.pdf">Chapter 5: Process Scheduling</a></li>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/Linux_programming_pthread.pdf">Linux_programming_pthread</a></li>
-    </ul>
-  </li>
-  <li>參考資料
-    <ul>
-      <li><a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
-      <li><a href="http://tuxthink.blogspot.tw/2013/01/using-condition-variables-in-pthreads.html">Using condition variables in pthreads</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="thread-synchronization">(一) Thread Synchronization</h3>
-<h3 id="semaphore">1. Semaphore</h3>
-<h4 id="semaphoreh">semaphore.h</h4>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;semaphore.h&gt;
-</span>
-<span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
-<span class="c1">//create a semaphore
-</span>
-
-<span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-<span class="c1">//lock a semaphore
-</span>
-
-<span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-<span class="c1">//unlock a semaphore
-</span>
-
-<span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-<span class="c1">//delete a semaphore
-</span></code></pre></div>
-
-<h5 id="seminit">sem_init()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span>
-<span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
-</code></pre></div>
-<ul>
-  <li><code class="highlighter-rouge">sem_t *sem</code>：semaphore 識別字</li>
-  <li><code class="highlighter-rouge">int pshared</code>：設定為 0 表示僅供目前的 process 及其 thread 使用。非 0 表示此 semaphore 與其他 process 共用</li>
-  <li><code class="highlighter-rouge">unsigned int value</code>：semaphore 的初始值</li>
-</ul>
-
-<h5 id="semwait">sem_wait()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-</code></pre></div>
-<ul>
-  <li>若 semaphore 為非 0，則 semaphore 值減
-1；若 semaphore 為 0，則呼叫此 function
-的 thread 會被 block ，直到 semaphore 值不
-為 0。</li>
-</ul>
-
-<h5 id="sempost">sem_post()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-</code></pre></div>
-<ul>
-  <li>對 semaphore 值加 1 。</li>
-</ul>
-
-<h5 id="semdestroy">sem_destroy()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-<span class="c1">//delete a semaphore
-</span></code></pre></div>
-
-<h3 id="mutex">2. Mutex</h3>
-<h4 id="pthreadh">pthread.h</h4>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;pthread.h&gt;
-</span>
-<span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
-<span class="c1">//create a mutex
-</span>
-
-<span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
-<span class="c1">//lock a mutex
-</span>
-
-<span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
-<span class="c1">//unlock a mutex
-</span>
-
-<span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
-<span class="c1">//delete a mutex
-</span></code></pre></div>
-
-<h5 id="pthreadmutexinit">pthread_mutex_init()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
-</code></pre></div>
-<ul>
-  <li><code class="highlighter-rouge">pthread_mutex_t *mutex</code>：mutex 識別字</li>
-  <li><code class="highlighter-rouge">const pthread_mutexattr_t *mutexattr</code>：mutex 的屬性。設定為 NULL 表示使用預設。</li>
-</ul>
-
-<h5 id="pthreadmutexlock">pthread_mutex_lock()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
-<span class="c1">//lock a mutex
-</span></code></pre></div>
-
-<h5 id="pthreadmutexunlock">pthread_mutex_unlock()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
-<span class="c1">//unlock a mutex
-</span></code></pre></div>
-
-<h5 id="pthreadmutexdestroy">pthread_mutex_destroy()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
-<span class="c1">//delete a mutex
-</span></code></pre></div>
-
-<h3 id="condition-variables">3. Condition Variables</h3>
-<h4 id="pthreadcondinit-condition-attr">pthread_cond_init (condition, attr)</h4>
-<ul>
-  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_init.txt">pthread_cond_init</a></li>
-</ul>
-
-<h4 id="pthreadconddestroy-condition">pthread_cond_destroy (condition)</h4>
-<ul>
-  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_destroy.txt">pthread_cond_destroy</a></li>
-</ul>
-
-<h4 id="pthreadcondattrinit-attr">pthread_condattr_init (attr)</h4>
-<ul>
-  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_init.txt">pthread_condattr_init</a></li>
-</ul>
-
-<h4 id="pthreadcondattrdestroy-attr">pthread_condattr_destroy (attr)</h4>
-<ul>
-  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_destroy.txt">pthread_condattr_destroy</a></li>
-</ul>
-
-<h3 id="barrier">4. Barrier</h3>
-<ul>
-  <li><a href="http://angelonotes.blogspot.tw/2012/02/pthreadbarrier.html">Using barriers in pthreads</a></li>
-  <li><a href="http://angelonotes.blogspot.tw/2012/02/pthreadbarrier.html">pthread︰barrier</a></li>
-</ul>
-
-<h3 id="producer-consumer-problem">(二) Producer-Consumer Problem</h3>
-<h4 id="producer">1. Producer</h4>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">item</span> <span class="n">next</span> <span class="n">produced</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/* produce an item in next produced */</span>
-    
-    <span class="k">while</span> <span class="p">(((</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
-    <span class="p">;</span> <span class="cm">/* do nothing */</span>
-        
-    <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next</span> <span class="n">produced</span><span class="p">;</span>
-    <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h4 id="consumer">2. Consumer</h4>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">item</span> <span class="n">next</span> <span class="n">consumed</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
-    <span class="p">;</span> <span class="cm">/* do nothing */</span>
-    
-    <span class="n">next</span> <span class="n">consumed</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">;</span>
-    
-    <span class="cm">/* consume the item in next consumed */</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h3 id="section-1">課程作業</h3>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/*
- *  Solution to Producer Consumer Problem
- *  Using Ptheads, a mutex and condition variables
- *  From Tanenbaum, Modern Operating Systems, 3rd Ed.
- */</span>
-
-<span class="cm">/*
-    In this version the buffer is a single number.
-    The producer is putting numbers into the shared buffer
-    (in this case sequentially)
-    And the consumer is taking them out.
-    If the buffer contains zero, that indicates that the buffer is empty.
-    Any other value is valid.
-*/</span>
-
-<span class="cp">#include &lt;stdio.h&gt;
-#include &lt;pthread.h&gt;
-</span>
-<span class="cp">#define MAX 10//000000			</span><span class="cm">/* Numbers to produce */</span><span class="cp">
-#define BUFFER_SIZE 5
-</span>
-<span class="n">pthread_mutex_t</span> <span class="n">the_mutex</span><span class="p">;</span>
-<span class="n">pthread_cond_t</span> <span class="n">condc</span><span class="p">,</span> <span class="n">condp</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">in</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="o">*</span><span class="nf">producer</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* protect buffer */</span>
-        
-        <span class="k">while</span> <span class="p">(((</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>		       <span class="cm">/* If there is something in the buffer then wait */</span>
-            <span class="n">pthread_cond_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>
-
-        <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"ProBuffer[%d]：%2d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]);</span>
-        <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
-   
-        <span class="n">pthread_cond_signal</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">);</span>	<span class="cm">/* wake up consumer */</span>
-        <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* release the buffer */</span>
-    <span class="p">}</span>
-
-    <span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="kt">void</span> <span class="o">*</span><span class="nf">consumer</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* protect buffer */</span>
-    
-        <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>			<span class="cm">/* If there is nothing in the buffer then wait */</span>
-            <span class="n">pthread_cond_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>
-    
-        <span class="n">printf</span><span class="p">(</span><span class="s">"ConBuffer[%d]：%2d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">]);</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
-        <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    
-        <span class="n">pthread_cond_signal</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">);</span>	<span class="cm">/* wake up consumer */</span>
-        <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* release the buffer */</span>
-    <span class="p">}</span>
-    <span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">pthread_t</span> <span class="n">pro</span><span class="p">,</span> <span class="n">con</span><span class="p">;</span>
-
-    <span class="c1">// Initialize the mutex and condition variables
-</span>    <span class="cm">/* What's the NULL for ??? */</span>
-    <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>	
-    <span class="n">pthread_cond_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>		<span class="cm">/* Initialize consumer condition variable */</span>
-    <span class="n">pthread_cond_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>		<span class="cm">/* Initialize producer condition variable */</span>
-
-    <span class="c1">// Create the threads
-</span>    <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">con</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">consumer</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-    <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pro</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">producer</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-
-    <span class="c1">// Wait for the threads to finish
-</span>    <span class="c1">// Otherwise main might run to the end
-</span>    <span class="c1">// and kill the entire process when it exits.
-</span>    <span class="n">pthread_join</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-    <span class="n">pthread_join</span><span class="p">(</span><span class="n">pro</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-
-    <span class="c1">// Cleanup -- would happen automatically at end of program
-</span>    <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* Free up the_mutex */</span>
-    <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">);</span>		<span class="cm">/* Free up consumer condition variable */</span>
-    <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">);</span>		<span class="cm">/* Free up producer condition variable */</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<ul>
-  <li>執行結果
-<img src="https://i.imgur.com/6miNt1O.jpg" alt="" /></li>
-</ul>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/31/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1295,6 +1403,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)</a></li>
+                    
                         <li><a href="/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)</a></li>
                     
                         <li><a href="/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)</a></li>
@@ -1313,8 +1423,6 @@
                     
                         <li><a href="/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)</a></li>
                     
-                        <li><a href="/2017/05/05/linux_system/">20170505 [學習筆記] Linux 系統程式 (9)</a></li>
-                    
                 </ul>
             </div>
 
@@ -1331,7 +1439,7 @@
                             <span class="name">
                                 C語言
                             </span>
-                            <span class="badge">9</span>
+                            <span class="badge">10</span>
                         </a>
                     </li>
                     
@@ -1475,7 +1583,7 @@
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">21</span>
+                            <span class="badge">22</span>
                         </a>
                     </li>
                     
@@ -1485,6 +1593,24 @@
                                 組合語言
                             </span>
                             <span class="badge">2</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#資料結構" class="categories-list-item" cate="資料結構">
+                            <span class="name">
+                                資料結構
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#演算法" class="categories-list-item" cate="演算法">
+                            <span class="name">
+                                演算法
+                            </span>
+                            <span class="badge">1</span>
                         </a>
                     </li>
                     
@@ -1509,7 +1635,7 @@
                       
                       
                       
-                      <a href="/tag/#C語言" style="font-size: 11.5pt; color: #666;">C語言</a>
+                      <a href="/tag/#C語言" style="font-size: 12pt; color: #666;">C語言</a>
                     
                       
                       
@@ -1544,7 +1670,7 @@
                       
                       
                       
-                      <a href="/tag/#R語言" style="font-size: 12.5pt; color: #666;">R語言</a>
+                      <a href="/tag/#R語言" style="font-size: 12pt; color: #666;">R語言</a>
                     
                       
                       
@@ -1635,7 +1761,7 @@
                       
                       
                       
-                      <a href="/tag/#Linux" style="font-size: 14.5pt; color: #444;">Linux</a>
+                      <a href="/tag/#Linux" style="font-size: 14pt; color: #444;">Linux</a>
                     
                       
                       
@@ -1657,6 +1783,20 @@
                       
                       
                       <a href="/tag/#組合語言" style="font-size: 9.5pt; color: #999;">組合語言</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#資料結構" style="font-size: 9pt; color: #999;">資料結構</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#演算法" style="font-size: 9pt; color: #999;">演算法</a>
                     
                 </div>
             </div>
