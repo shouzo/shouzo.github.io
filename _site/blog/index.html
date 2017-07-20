@@ -127,6 +127,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -814,11 +816,11 @@ RESB	1469432
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2017/06/15/linux_system/">20170615 [學習筆記] Linux 系統程式 (15)</a>
+                  <a class="post-link" href="/2017/06/16/university_life/">20170616 [有感而發] 這四年我誤入歧途、又不務正業，但活得像是個人</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-06-15
+                        <i class="fa fa-calendar"></i>2017-06-16
                     </div>
                     <div class="label-card">
                         
@@ -836,11 +838,7 @@ RESB	1469432
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+        <a href="/category/#社團" title="Category: 社團" rel="category">社團</a>
     
   
 
@@ -857,11 +855,9 @@ RESB	1469432
   <i class="fa fa-tags"></i>
   
     
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+        <a href="/tag/#心情記事" title="Tag: 心情記事" rel="tag">心情記事</a>&nbsp;
     
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+        <a href="/tag/#社團" title="Tag: 社團" rel="tag">社團</a>
     
   
 
@@ -871,224 +867,55 @@ RESB	1469432
                 </div>
                 <div class="excerpt">
                     <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#allocation-of-frames" id="markdown-toc-allocation-of-frames">(一) Allocation of Frames</a>        <ul>
-          <li><a href="#fixed-allocation" id="markdown-toc-fixed-allocation">1. Fixed Allocation</a></li>
-          <li><a href="#priority-allocation" id="markdown-toc-priority-allocation">2. Priority Allocation</a></li>
-          <li><a href="#global-vs-local-allocation" id="markdown-toc-global-vs-local-allocation">3. Global vs. Local Allocation</a></li>
-          <li><a href="#non-uniform-memory-access" id="markdown-toc-non-uniform-memory-access">4. Non-Uniform Memory Access</a></li>
-          <li><a href="#thrashing" id="markdown-toc-thrashing">5. Thrashing</a></li>
-          <li><a href="#demand-paging-and-thrashing" id="markdown-toc-demand-paging-and-thrashing">6. Demand Paging and Thrashing</a></li>
-          <li><a href="#working-set-model" id="markdown-toc-working-set-model">7. Working-Set Model</a></li>
-          <li><a href="#page-fault-frequency" id="markdown-toc-page-fault-frequency">8. Page-Fault Frequency</a></li>
-        </ul>
-      </li>
-      <li><a href="#memory-mapped-files" id="markdown-toc-memory-mapped-files">(二) Memory-Mapped Files</a></li>
-      <li><a href="#other-considerations----prepaging" id="markdown-toc-other-considerations----prepaging">(三) Other Considerations – Prepaging</a></li>
-      <li><a href="#other-issues" id="markdown-toc-other-issues">(四) Other Issues</a></li>
+  <li><a href="#section" id="markdown-toc-section">來自四年前的期許</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">命運的分歧點</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">有什麼改變了</a></li>
+      <li><a href="#section-3" id="markdown-toc-section-3">參與社會化的體現：社團</a></li>
     </ul>
   </li>
 </ul>
 
-<h2 id="section">一、作業系統</h2>
-<ul>
-  <li>課堂講義
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170615/ch09.pdf">Chapter 9: Virtual-Memory Management</a></li>
-    </ul>
-  </li>
-</ul>
+<p>前幾天是我們學校的畢業典禮，許多即將畢業的準學士生在校園各地穿著“學位服”和親朋好友拍照打卡；也因為這個緣故，這幾天臉書的動態牆上都被同學的畢業文洗版。</p>
 
-<h3 id="allocation-of-frames">(一) Allocation of Frames</h3>
-<ul>
-  <li>Each process needs minimum number of frames</li>
-  <li>Example: IBM 370 – 6 pages to handle SS MOVE instruction:
-    <ul>
-      <li>instruction is 6 bytes, might span 2 pages</li>
-      <li>2 pages to handle from</li>
-      <li>2 pages to handle to</li>
-    </ul>
-  </li>
-  <li>Maximum of course is total frames in the system</li>
-  <li>Two major allocation schemes
-    <ul>
-      <li>fixed allocation</li>
-      <li>priority allocation</li>
-    </ul>
-  </li>
-  <li>Many variations</li>
-</ul>
+<p>我是“形式上”的應屆畢業生，同時也是典禮幕後的工作人員(畢聯會)，當天照樣要處理各類雜事、應付奇葩的畢業生；雖說畢業典禮對我而言只是個“形式”，但它在其他應屆畢業生的心裡象徵著人生階段性的完成。這時候不發個畢業感言好像說不過去，可是我還在準備期末考(好掙扎阿)。</p>
 
-<h4 id="fixed-allocation">1. Fixed Allocation</h4>
-<ul>
-  <li>Equal allocation – For example, if there are 100 frames (after allocating frames for the OS) and 5 processes, give each process 20 frames
-    <ul>
-      <li>Keep some as free frame buffer pool</li>
-    </ul>
-  </li>
-  <li>Proportional allocation – Allocate according to the size of process
-    <ul>
-      <li>Dynamic as degree of multiprogramming, process sizes change</li>
-    </ul>
-  </li>
-</ul>
+<p>…算了，但還是來回顧一下這幾年的積累吧！</p>
 
-<p><img src="https://i.imgur.com/EwupsLy.png" alt="" /></p>
+<h2 id="section">來自四年前的期許</h2>
+<p>在高中時期，我習慣用筆記本記下每天發生的事情。後來 Facebook 崛起，就漸漸將一些事情放上 Facebook。
+當時也做了來高雄之前的心情紀事…(<a href="https://www.facebook.com/danny200026/posts/368693933257313">這四年，不知道我又會訂下什麼目標</a>)</p>
 
-<h4 id="priority-allocation">2. Priority Allocation</h4>
-<ul>
-  <li>Use a proportional allocation scheme using priorities rather than size</li>
-  <li>If process P i generates a page fault,
-    <ul>
-      <li>select for replacement one of its frames</li>
-      <li>select for replacement a frame from a process with lower priority number</li>
-    </ul>
-  </li>
-</ul>
+<h3 id="section-1">命運的分歧點</h3>
+<p>我想最關鍵的還是當年大一，在陰錯陽差之下擔任了社團的負責人。
+原先只打算在這四年好好學習，把“唸書”定位為本業學好學滿，就這樣度過這四年。…就像個普通學生一樣，將自己埋首於書堆之中。…(<a href="https://www.facebook.com/danny200026/media_set?set=a.912476945545673.100003501287209&amp;type=3">夢想，Loading…</a>)
+自從“誤入”社團之後，命運就改變了…(<a href="https://www.facebook.com/danny200026/media_set?set=a.1135413809918651.1073741847.100003501287209&amp;type=3">社團人生回顧系列</a>)</p>
 
-<h4 id="global-vs-local-allocation">3. Global vs. Local Allocation</h4>
-<ul>
-  <li><strong>Global replacement</strong> – process selects a replacement frame from the set of all frames; one process can take a frame from another
-    <ul>
-      <li>But then process execution time can vary greatly</li>
-      <li>But greater throughput so more common</li>
-    </ul>
-  </li>
-  <li><strong>Local replacement</strong> – each process selects from only its own set of allocated frames
-    <ul>
-      <li>More consistent per-process performance</li>
-      <li>But possibly underutilized memory</li>
-    </ul>
-  </li>
-</ul>
+<h3 id="section-2">有什麼改變了</h3>
+<p>原先只活在自己世界的我迫於職務上的需求，發展了與人應對進退的能力，也開始學習和接觸未曾接觸的領域；原先只在意自己生活的我，開始學會關注社團成員和周遭朋友的生活；原先只願意為自己而行動的我，開始為了其他人發起從未有人嘗試的事情；也在經歷社團生活的旅途中，曾經有過一段感情。</p>
 
-<h4 id="non-uniform-memory-access">4. Non-Uniform Memory Access</h4>
-<ul>
-  <li>So far all memory accessed equally</li>
-  <li>Many systems are NUMA – speed of access to memory varies
-    <ul>
-      <li>Consider system boards containing CPUs and memory, interconnected over a system bus</li>
-    </ul>
-  </li>
-  <li>Optimal performance comes from allocating memory “close to” the CPU on which the thread is scheduled
-    <ul>
-      <li>And modifying the scheduler to schedule the thread on the same system board when possible</li>
-      <li>Solved by Solaris by creating <strong>lgroups</strong>
-        <ul>
-          <li>Structure to track CPU / Memory low latency groups</li>
-          <li>Used my schedule and pager</li>
-          <li>When possible schedule all threads of a process and allocate all memory for that process within the lgroup</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+<p>我漸漸發覺︰「當年的陰錯陽差，讓我得以出現在某些人的生命裡，它或多或少改變了某些人的生活，同時也改變了我。」</p>
 
-<h4 id="thrashing">5. Thrashing</h4>
-<ul>
-  <li>If a process does not have “enough” pages, the page-fault rate is very high
-    <ul>
-      <li>Page fault to get page</li>
-      <li>Replace existing frame</li>
-      <li>But quickly need replaced frame back</li>
-      <li>This leads to:
-        <ul>
-          <li>Low CPU utilization</li>
-          <li>Operating system thinking that it needs to increase the degree of multiprogramming</li>
-          <li>Another process added to the system</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Thrashing</strong> - a process is busy swapping pages in and out</li>
-</ul>
+<p><strong>或許對於某些人而言，我是高應大的社團狂人、是體委傳奇；但是在卸下了頭上那名為“社團”的光環之後，我只是個“不務正業”的人而已。</strong></p>
 
-<p><img src="https://i.imgur.com/jBcF8pC.png" alt="" /></p>
+<p>怎麼個不務正業？</p>
 
-<h4 id="demand-paging-and-thrashing">6. Demand Paging and Thrashing</h4>
-<ul>
-  <li>Why does demand paging work? <strong>Locality model</strong>
-    <ul>
-      <li>Process migrates from one locality to another</li>
-      <li>Localities may overlap</li>
-    </ul>
-  </li>
-  <li>Why does thrashing occur? <strong>size of locality &gt; total memory size</strong>
-    <ul>
-      <li>Limit effects by using local or priority page replacement</li>
-    </ul>
-  </li>
-</ul>
+<p>「不被現有體制框架限制、脫離體制安排，透過獨立思考後瞭解現階段自己真正需要的究竟是什麼，再自行去學習為了滿足需求而必備的技能。」</p>
 
-<h4 id="working-set-model">7. Working-Set Model</h4>
-<p><img src="https://i.imgur.com/Nsrm3Lw.png" alt="" />
-<img src="https://i.imgur.com/Xy48qM2.png" alt="" /></p>
+<h3 id="section-3">參與社會化的體現：社團</h3>
+<p>「社團到底在學什麼？古今中外為何有這麼多人願意以學分作為籌碼，投注其中？」這裡有一篇文章寫得很有意思…(<a href="https://www.facebook.com/makarove.iluete/posts/1503318633074386">誰給的出尊嚴，誰就能留住人</a>)</p>
 
-<ul>
-  <li><strong>Keeping Track of the Working Set</strong>
-<img src="https://i.imgur.com/QHoALdo.png" alt="" /></li>
-</ul>
+<p>從大一被半銃康接任國術社、在大二升上大三之際創立跑酷社、大四被網羅去畢聯會…，社團生活佔滿我將近全部的大學生涯，而我從中到底學了什麼？</p>
 
-<h4 id="page-fault-frequency">8. Page-Fault Frequency</h4>
-<ul>
-  <li>More direct approach than WSS</li>
-  <li>Establish “acceptable” <strong>page-fault frequency</strong> rate and use local replacement policy
-    <ul>
-      <li>If actual rate too low, process loses frame</li>
-      <li>If actual rate too high, process gains frame</li>
-    </ul>
-  </li>
-</ul>
+<p>我從中 “粗淺地” 習得了兩大技能：<strong>思維模式</strong>、<strong>人際互動</strong>。</p>
 
-<p><img src="https://i.imgur.com/ws4FmRA.png" alt="" />
-<img src="https://i.imgur.com/ujHWuKv.png" alt="" /></p>
+<p>我自認自己是個內向的人，在某些時刻甚至會刻意離群索居，因為獨處讓我感到平靜。而我從參與社團的過程中找到了專屬於自己的開關，在必要時切換模式 (而任何模式下都是真實的自己，只是呈現的型態不一樣)。 <strong>久而久之我發現「參與社團的過程中，其實相當於參與社會化的過程」，而我也發現「唯有走入人群，才更能夠明白該如何真正的隱遁於人群之中」。</strong></p>
 
-<h3 id="memory-mapped-files">(二) Memory-Mapped Files</h3>
-<ul>
-  <li>Memory-mapped file I/O allows file I/O to be treated as routine memory access by <strong>mapping</strong> a disk block to a page in memory</li>
-  <li>A file is initially read using demand paging
-    <ul>
-      <li>A page-sized portion of the file is read from the file system into a physical page</li>
-      <li>Subsequent reads/writes to/from the file are treated as ordinary memory accesses</li>
-    </ul>
-  </li>
-  <li>Simplifies and speeds file access by driving file I/O through memory rather than <code class="highlighter-rouge">read()</code> and <code class="highlighter-rouge">write()</code> system calls</li>
-  <li>Also allows several processes to map the same file allowing the pages in memory to be shared</li>
-  <li>But when does written data make it to disk?
-    <ul>
-      <li>Periodically and / or at file <code class="highlighter-rouge">close()</code> time</li>
-      <li>For example, when the pager scans for dirty pages</li>
-    </ul>
-  </li>
-</ul>
+<p>說穿了，“外展” 和 “內斂” 只不過是一體的兩面。</p>
 
-<p><img src="https://i.imgur.com/zWof78r.png" alt="" /></p>
-
-<h3 id="other-considerations----prepaging">(三) Other Considerations – Prepaging</h3>
-<ul>
-  <li>To reduce the large number of page faults that occurs at process startup</li>
-  <li>Prepage all or some of the pages a process will need, before they are referenced</li>
-  <li>But if prepaged pages are unused, I/O and memory was wasted</li>
-  <li>Assume s pages are prepaged and α of the pages is used
-    <ul>
-      <li>Is cost of <code class="highlighter-rouge">s * α</code> save pages faults <code class="highlighter-rouge">&gt;</code> or <code class="highlighter-rouge">&lt;</code> than the cost of prepaging <code class="highlighter-rouge">s * (1-α)</code> unnecessary pages?</li>
-      <li>α near zero » prepaging loses</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="other-issues">(四) Other Issues</h3>
-<p><img src="https://i.imgur.com/289vIx7.png" alt="" />
-—
-<img src="https://i.imgur.com/AzOr7n2.png" alt="" />
-—
-<img src="https://i.imgur.com/9ZuU18h.png" alt="" />
-—
-<img src="https://i.imgur.com/cHTpyGG.png" alt="" /></p>
 
                 </div>
                 <div class="read-all">
-                    <a  href="/2017/06/15/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a  href="/2017/06/16/university_life/"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
@@ -1103,10 +930,10 @@ RESB	1469432
             <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
             <span class="previous disable"><i class="fa fa-angle-left"></i></span>
           
-          <span class="page_number ">1/12</span>
+          <span class="page_number ">1/13</span>
           
             <a href="/blog/page2/" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="/blog/page12" class="next"><i class="fa fa-angle-double-right"></i></a>
+            <a href="/blog/page13" class="next"><i class="fa fa-angle-double-right"></i></a>
           
         </div>
     </div>
@@ -1128,17 +955,17 @@ RESB	1469432
                     
                         <li><a href="/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理</a></li>
                     
+                        <li><a href="/2017/06/16/university_life/">20170616 [有感而發] 這四年我誤入歧途、又不務正業，但活得像是個人</a></li>
+                    
                         <li><a href="/2017/06/15/linux_system/">20170615 [學習筆記] Linux 系統程式 (15)</a></li>
                     
                         <li><a href="/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)</a></li>
                     
+                        <li><a href="/2017/06/07/university_choice/">20170607 [有感而發] 一切都只是選擇，那你自己的戰場是什麼？</a></li>
+                    
                         <li><a href="/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)</a></li>
                     
                         <li><a href="/2017/05/25/linux_system/">20170525 [學習筆記] Linux 系統程式 (12)</a></li>
-                    
-                        <li><a href="/2017/05/19/linux_system/">20170519 [學習筆記] Linux 系統程式 (11)</a></li>
-                    
-                        <li><a href="/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)</a></li>
                     
                 </ul>
             </div>
@@ -1246,7 +1073,7 @@ RESB	1469432
                             <span class="name">
                                 社團
                             </span>
-                            <span class="badge">9</span>
+                            <span class="badge">10</span>
                         </a>
                     </li>
                     
@@ -1264,7 +1091,7 @@ RESB	1469432
                             <span class="name">
                                 未分類
                             </span>
-                            <span class="badge">4</span>
+                            <span class="badge">5</span>
                         </a>
                     </li>
                     
@@ -1443,7 +1270,7 @@ RESB	1469432
                       
                       
                       
-                      <a href="/tag/#社團" style="font-size: 11.5pt; color: #666;">社團</a>
+                      <a href="/tag/#社團" style="font-size: 12pt; color: #666;">社團</a>
                     
                       
                       
@@ -1464,7 +1291,7 @@ RESB	1469432
                       
                       
                       
-                      <a href="/tag/#心情記事" style="font-size: 10pt; color: #888;">心情記事</a>
+                      <a href="/tag/#心情記事" style="font-size: 10.5pt; color: #777;">心情記事</a>
                     
                       
                       
