@@ -205,10 +205,10 @@
                 </div>
                 <div class="excerpt">
                     <ul id="markdown-toc">
-  <li><a href="#ch1" id="markdown-toc-ch1">20170720 - Ch1_導論</a></li>
+  <li><a href="#20170720---ch1_導論" id="markdown-toc-20170720---ch1_導論">20170720 - Ch1_導論</a></li>
 </ul>
 
-<h1 id="ch1">20170720 - Ch1_導論</h1>
+<h1 id="20170720---ch1_導論">20170720 - Ch1_導論</h1>
 <ul>
   <li>進度摘要
     <ul>
@@ -249,7 +249,7 @@
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)</a>
+                  <a class="post-link" href="/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
@@ -310,9 +310,9 @@
                 </div>
                 <div class="excerpt">
                     <ul id="markdown-toc">
-  <li><a href="#day2" id="markdown-toc-day2">20170719 - Day_2</a>    <ul>
-      <li><a href="#helloosnas" id="markdown-toc-helloosnas">一、修改 <code class="highlighter-rouge">helloos.nas</code></a></li>
-      <li><a href="#helloosnas-1" id="markdown-toc-helloosnas-1">二、編譯 <code class="highlighter-rouge">helloos.nas</code></a></li>
+  <li><a href="#20170719---day_2" id="markdown-toc-20170719---day_2">20170719 - Day_2</a>    <ul>
+      <li><a href="#一修改-helloosnas" id="markdown-toc-一修改-helloosnas">一、修改 <code class="highlighter-rouge">helloos.nas</code></a></li>
+      <li><a href="#二編譯-helloosnas" id="markdown-toc-二編譯-helloosnas">二、編譯 <code class="highlighter-rouge">helloos.nas</code></a></li>
     </ul>
   </li>
 </ul>
@@ -331,7 +331,7 @@
   </li>
 </ul>
 
-<h1 id="day2">20170719 - Day_2</h1>
+<h1 id="20170719---day_2">20170719 - Day_2</h1>
 <ul>
   <li>進度摘要
     <ul>
@@ -350,7 +350,7 @@
   </li>
 </ul>
 
-<h2 id="helloosnas">一、修改 <code class="highlighter-rouge">helloos.nas</code></h2>
+<h2 id="一修改-helloosnas">一、修改 <code class="highlighter-rouge">helloos.nas</code></h2>
 <ul>
   <li><code class="highlighter-rouge">RESB	0x7dfe-$</code> 此行無法通過編譯，故修改成 <code class="highlighter-rouge">TIMES 510-($-$$)    DB    0</code>。
     <ul>
@@ -359,7 +359,7 @@
   </li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>; hello-os
+<div class="highlighter-rouge"><pre class="highlight"><code>; hello-os
 ; TAB=4
 
 ORG		0x7c00			; 指定從 0x7c00 開始執行
@@ -428,7 +428,7 @@ msg:
     DB		0x55, 0xaa
 </code></pre></div>
 
-<h2 id="helloosnas-1">二、編譯 <code class="highlighter-rouge">helloos.nas</code></h2>
+<h2 id="二編譯-helloosnas">二、編譯 <code class="highlighter-rouge">helloos.nas</code></h2>
 <ol>
   <li>編譯 <code class="highlighter-rouge">helloos.nas</code>，在輸出 <code class="highlighter-rouge">bootloader</code> 的同時也輸出列表檔案 <code class="highlighter-rouge">ipl.lst</code>。</li>
 </ol>
@@ -443,6 +443,8 @@ msg:
   <li>在 Linux 系統下使用 <code class="highlighter-rouge">dd</code> 指令產生 <code class="highlighter-rouge">os.img</code> 檔案。
     <ul>
       <li>先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。</li>
+    </ul>
+    <ul>
       <li>一個軟碟片容量：<strong>1.44MB = 512KB * 2880</strong></li>
     </ul>
   </li>
@@ -454,7 +456,7 @@ msg:
   <p>dd if=bootloader of=os.img bs=512 count=1</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>if：指定輸入檔案
+<div class="highlighter-rouge"><pre class="highlight"><code>if：指定輸入檔案
 of：指定輸出檔案
 bs：指定 block size，一次讀取與寫入 N 個位元組的資料
 count：處理 N 個輸入區塊
@@ -466,7 +468,7 @@ count：處理 N 個輸入區塊
   <li>如果打開 <code class="highlighter-rouge">ipl.lst</code> ，可以檢視組合語言轉換成機械碼的情形。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>     1                                  ; hello-os
+<div class="highlighter-rouge"><pre class="highlight"><code>     1                                  ; hello-os
      2                                  ; TAB=4
      3                                  
      4                                  ORG		0x7c00			    ;   指定從 0x7c00 開始執行
@@ -550,7 +552,7 @@ count：處理 N 個輸入區塊
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)</a>
+                  <a class="post-link" href="/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
@@ -611,10 +613,10 @@ count：處理 N 個輸入區塊
                 </div>
                 <div class="excerpt">
                     <ul id="markdown-toc">
-  <li><a href="#day1" id="markdown-toc-day1">20170714 - Day_1</a>    <ul>
-      <li><a href="#nasm-" id="markdown-toc-nasm-">一、安裝 <code class="highlighter-rouge">nasm</code> ，編譯映像檔</a></li>
-      <li><a href="#section" id="markdown-toc-section">二、新增虛擬機、載入映像檔</a></li>
-      <li><a href="#section-1" id="markdown-toc-section-1">三、改變螢幕上面的字</a></li>
+  <li><a href="#20170714---day_1" id="markdown-toc-20170714---day_1">20170714 - Day_1</a>    <ul>
+      <li><a href="#一安裝-nasm-編譯映像檔" id="markdown-toc-一安裝-nasm-編譯映像檔">一、安裝 <code class="highlighter-rouge">nasm</code> ，編譯映像檔</a></li>
+      <li><a href="#二新增虛擬機載入映像檔" id="markdown-toc-二新增虛擬機載入映像檔">二、新增虛擬機、載入映像檔</a></li>
+      <li><a href="#三改變螢幕上面的字" id="markdown-toc-三改變螢幕上面的字">三、改變螢幕上面的字</a></li>
     </ul>
   </li>
 </ul>
@@ -633,7 +635,7 @@ count：處理 N 個輸入區塊
   </li>
 </ul>
 
-<h1 id="day1">20170714 - Day_1</h1>
+<h1 id="20170714---day_1">20170714 - Day_1</h1>
 <ul>
   <li>進度摘要
     <ul>
@@ -657,7 +659,7 @@ count：處理 N 個輸入區塊
   </li>
 </ul>
 
-<h2 id="nasm-">一、安裝 <code class="highlighter-rouge">nasm</code> ，編譯映像檔</h2>
+<h2 id="一安裝-nasm-編譯映像檔">一、安裝 <code class="highlighter-rouge">nasm</code> ，編譯映像檔</h2>
 <p><strong>1. 在終端上輸入以下指令，安裝 <code class="highlighter-rouge">nasm</code></strong></p>
 <blockquote>
   <p>sudo apt install nasm</p>
@@ -667,7 +669,7 @@ count：處理 N 個輸入區塊
 
 <p><strong>2. 用 vim 檢視 <code class="highlighter-rouge">helloos.nas</code> 的內容</strong></p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
+<div class="highlighter-rouge"><pre class="highlight"><code>DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
 DB	0x49, 0x50, 0x4c, 0x00, 0x02, 0x01, 0x01, 0x00
 DB	0x02, 0xe0, 0x00, 0x40, 0x0b, 0xf0, 0x09, 0x00
 DB	0x12, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -701,7 +703,7 @@ RESB	1469432
 
 <p><img src="https://i.imgur.com/mof2KcD.png" alt="" /></p>
 
-<h2 id="section">二、新增虛擬機、載入映像檔</h2>
+<h2 id="二新增虛擬機載入映像檔">二、新增虛擬機、載入映像檔</h2>
 <p><strong>1. 環境配置 » 記憶體：256MB、硬碟：8GB</strong></p>
 
 <p><img src="https://i.imgur.com/l0LDEAg.png" alt="" /></p>
@@ -720,7 +722,7 @@ RESB	1469432
 
 <p><img src="https://i.imgur.com/I3ap9DE.png" alt="" /></p>
 
-<h2 id="section-1">三、改變螢幕上面的字</h2>
+<h2 id="三改變螢幕上面的字">三、改變螢幕上面的字</h2>
 <p><strong>1. 用 vim 修改 <code class="highlighter-rouge">helloos.img</code> 映像檔</strong></p>
 <ul>
   <li>將內文中的 <code class="highlighter-rouge">hello, world</code> 改成 <code class="highlighter-rouge">Hello, shouzo. Be Strong to Be Useful.</code>。</li>
@@ -867,10 +869,10 @@ RESB	1469432
                 </div>
                 <div class="excerpt">
                     <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">來自四年前的期許</a>    <ul>
-      <li><a href="#section-1" id="markdown-toc-section-1">命運的分歧點</a></li>
-      <li><a href="#section-2" id="markdown-toc-section-2">有什麼改變了</a></li>
-      <li><a href="#section-3" id="markdown-toc-section-3">參與社會化的體現：社團</a></li>
+  <li><a href="#來自四年前的期許" id="markdown-toc-來自四年前的期許">來自四年前的期許</a>    <ul>
+      <li><a href="#命運的分歧點" id="markdown-toc-命運的分歧點">命運的分歧點</a></li>
+      <li><a href="#有什麼改變了" id="markdown-toc-有什麼改變了">有什麼改變了</a></li>
+      <li><a href="#參與社會化的體現社團" id="markdown-toc-參與社會化的體現社團">參與社會化的體現：社團</a></li>
     </ul>
   </li>
 </ul>
@@ -881,16 +883,16 @@ RESB	1469432
 
 <p>…算了，但還是來回顧一下這幾年的積累吧！</p>
 
-<h2 id="section">來自四年前的期許</h2>
+<h2 id="來自四年前的期許">來自四年前的期許</h2>
 <p>在高中時期，我習慣用筆記本記下每天發生的事情。後來 Facebook 崛起，就漸漸將一些事情放上 Facebook。
 當時也做了來高雄之前的心情紀事…(<a href="https://www.facebook.com/danny200026/posts/368693933257313">這四年，不知道我又會訂下什麼目標</a>)</p>
 
-<h3 id="section-1">命運的分歧點</h3>
+<h3 id="命運的分歧點">命運的分歧點</h3>
 <p>我想最關鍵的還是當年大一，在陰錯陽差之下擔任了社團的負責人。
 原先只打算在這四年好好學習，把“唸書”定位為本業學好學滿，就這樣度過這四年。…就像個普通學生一樣，將自己埋首於書堆之中。…(<a href="https://www.facebook.com/danny200026/media_set?set=a.912476945545673.100003501287209&amp;type=3">夢想，Loading…</a>)
 自從“誤入”社團之後，命運就改變了…(<a href="https://www.facebook.com/danny200026/media_set?set=a.1135413809918651.1073741847.100003501287209&amp;type=3">社團人生回顧系列</a>)</p>
 
-<h3 id="section-2">有什麼改變了</h3>
+<h3 id="有什麼改變了">有什麼改變了</h3>
 <p>原先只活在自己世界的我迫於職務上的需求，發展了與人應對進退的能力，也開始學習和接觸未曾接觸的領域；原先只在意自己生活的我，開始學會關注社團成員和周遭朋友的生活；原先只願意為自己而行動的我，開始為了其他人發起從未有人嘗試的事情；也在經歷社團生活的旅途中，曾經有過一段感情。</p>
 
 <p>我漸漸發覺︰「當年的陰錯陽差，讓我得以出現在某些人的生命裡，它或多或少改變了某些人的生活，同時也改變了我。」</p>
@@ -901,7 +903,7 @@ RESB	1469432
 
 <p>「不被現有體制框架限制、脫離體制安排，透過獨立思考後瞭解現階段自己真正需要的究竟是什麼，再自行去學習為了滿足需求而必備的技能。」</p>
 
-<h3 id="section-3">參與社會化的體現：社團</h3>
+<h3 id="參與社會化的體現社團">參與社會化的體現：社團</h3>
 <p>「社團到底在學什麼？古今中外為何有這麼多人願意以學分作為籌碼，投注其中？」這裡有一篇文章寫得很有意思…(<a href="https://www.facebook.com/makarove.iluete/posts/1503318633074386">誰給的出尊嚴，誰就能留住人</a>)</p>
 
 <p>從大一被半銃康接任國術社、在大二升上大三之際創立跑酷社、大四被網羅去畢聯會…，社團生活佔滿我將近全部的大學生涯，而我從中到底學了什麼？</p>
@@ -949,9 +951,9 @@ RESB	1469432
                     
                         <li><a href="/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)</a></li>
                     
-                        <li><a href="/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)</a></li>
+                        <li><a href="/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)</a></li>
                     
-                        <li><a href="/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)</a></li>
+                        <li><a href="/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)</a></li>
                     
                         <li><a href="/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理</a></li>
                     

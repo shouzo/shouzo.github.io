@@ -201,26 +201,26 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">前言</a></li>
-  <li><a href="#section-1" id="markdown-toc-section-1">一、輸出有問題</a>    <ul>
-      <li><a href="#section-2" id="markdown-toc-section-2">(一) 原本的程式</a></li>
-      <li><a href="#section-3" id="markdown-toc-section-3">(二) 做個測試，來看看是怎麼一回事</a></li>
+  <li><a href="#前言" id="markdown-toc-前言">前言</a></li>
+  <li><a href="#一輸出有問題" id="markdown-toc-一輸出有問題">一、輸出有問題</a>    <ul>
+      <li><a href="#一-原本的程式" id="markdown-toc-一-原本的程式">(一) 原本的程式</a></li>
+      <li><a href="#二-做個測試來看看是怎麼一回事" id="markdown-toc-二-做個測試來看看是怎麼一回事">(二) 做個測試，來看看是怎麼一回事</a></li>
     </ul>
   </li>
-  <li><a href="#section-4" id="markdown-toc-section-4">二、輸出正確</a>    <ul>
-      <li><a href="#main-" id="markdown-toc-main-">(一) 利用陣列儲存質數、在 main() 裡面輸出陣列</a></li>
-      <li><a href="#pthreadmutexlockpthreadmutexunlock" id="markdown-toc-pthreadmutexlockpthreadmutexunlock">(二) 加上 <code class="highlighter-rouge">pthread_mutex_lock()</code>、<code class="highlighter-rouge">pthread_mutex_unlock()</code></a></li>
+  <li><a href="#二輸出正確" id="markdown-toc-二輸出正確">二、輸出正確</a>    <ul>
+      <li><a href="#一-利用陣列儲存質數在-main-裡面輸出陣列" id="markdown-toc-一-利用陣列儲存質數在-main-裡面輸出陣列">(一) 利用陣列儲存質數、在 main() 裡面輸出陣列</a></li>
+      <li><a href="#二-加上-pthread_mutex_lockpthread_mutex_unlock" id="markdown-toc-二-加上-pthread_mutex_lockpthread_mutex_unlock">(二) 加上 <code class="highlighter-rouge">pthread_mutex_lock()</code>、<code class="highlighter-rouge">pthread_mutex_unlock()</code></a></li>
     </ul>
   </li>
-  <li><a href="#section-5" id="markdown-toc-section-5">三、取質數的範例程式</a></li>
+  <li><a href="#三取質數的範例程式" id="markdown-toc-三取質數的範例程式">三、取質數的範例程式</a></li>
 </ul>
 
-<h2 id="section">前言</h2>
+<h2 id="前言">前言</h2>
 <p>從 1 - 100 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</p>
 
-<h2 id="section-1">一、輸出有問題</h2>
-<h3 id="section-2">(一) 原本的程式</h3>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
+<h2 id="一輸出有問題">一、輸出有問題</h2>
+<h3 id="一-原本的程式">(一) 原本的程式</h3>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -329,7 +329,7 @@
 <img src="https://i.imgur.com/HeJEnU0.jpg" alt="" /></li>
 </ul>
 
-<h3 id="section-3">(二) 做個測試，來看看是怎麼一回事</h3>
+<h3 id="二-做個測試來看看是怎麼一回事">(二) 做個測試，來看看是怎麼一回事</h3>
 <ul>
   <li>目前的假設
     <blockquote>
@@ -353,7 +353,7 @@
   </li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code>   <span class="cm">/* 前面省略 */</span>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code>   <span class="cm">/* 前面省略 */</span>
    
    <span class="cm">/* find the prime number */</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -384,13 +384,13 @@
   </li>
 </ul>
 
-<h2 id="section-4">二、輸出正確</h2>
-<h3 id="main-">(一) 利用陣列儲存質數、在 main() 裡面輸出陣列</h3>
+<h2 id="二輸出正確">二、輸出正確</h2>
+<h3 id="一-利用陣列儲存質數在-main-裡面輸出陣列">(一) 利用陣列儲存質數、在 main() 裡面輸出陣列</h3>
 <ul>
   <li>這個方法比較繁瑣，需要事先宣告陣列來儲存質數。在執行 threads 時將對應的質數儲存至陣列，接著再回到 main() 裡面輸出結果。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -517,12 +517,12 @@
 
 <p><img src="https://i.imgur.com/CGXHTue.jpg" alt="" /></p>
 
-<h3 id="pthreadmutexlockpthreadmutexunlock">(二) 加上 <code class="highlighter-rouge">pthread_mutex_lock()</code>、<code class="highlighter-rouge">pthread_mutex_unlock()</code></h3>
+<h3 id="二-加上-pthread_mutex_lockpthread_mutex_unlock">(二) 加上 <code class="highlighter-rouge">pthread_mutex_lock()</code>、<code class="highlighter-rouge">pthread_mutex_unlock()</code></h3>
 <ul>
   <li>在 <code class="highlighter-rouge">void *thread_function(void *arg) { ... }</code> 裡面的開頭和結尾分別加上 <code class="highlighter-rouge">pthread_mutex_lock(&amp;work_mutex);</code> 和 <code class="highlighter-rouge">pthread_mutex_unlock(&amp;work_mutex);</code></li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -631,8 +631,8 @@
 <img src="https://i.imgur.com/mk5tlsx.jpg" alt="" /></li>
 </ul>
 
-<h2 id="section-5">三、取質數的範例程式</h2>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
+<h2 id="三取質數的範例程式">三、取質數的範例程式</h2>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 </span>
 <span class="c1">// 找出所有質數
@@ -740,7 +740,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)
+                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
                             
                             </a>
                         </li>
@@ -784,7 +784,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)
+                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
                             
                             </a>
                         </li>

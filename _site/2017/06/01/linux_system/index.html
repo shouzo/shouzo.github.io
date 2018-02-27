@@ -201,14 +201,14 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#paging" id="markdown-toc-paging">(一) Paging</a></li>
-      <li><a href="#address-translation-scheme" id="markdown-toc-address-translation-scheme">(二) Address Translation Scheme</a></li>
-      <li><a href="#implementation-of-page-table" id="markdown-toc-implementation-of-page-table">(三) Implementation of Page Table</a></li>
-      <li><a href="#effective-access-time" id="markdown-toc-effective-access-time">(四) Effective Access Time</a></li>
-      <li><a href="#memory-protection" id="markdown-toc-memory-protection">(五) Memory Protection</a></li>
-      <li><a href="#shared-pages" id="markdown-toc-shared-pages">(六) Shared Pages</a></li>
-      <li><a href="#structure-of-the-page-table" id="markdown-toc-structure-of-the-page-table">(七) Structure of the Page Table</a>        <ul>
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-paging" id="markdown-toc-一-paging">(一) Paging</a></li>
+      <li><a href="#二-address-translation-scheme" id="markdown-toc-二-address-translation-scheme">(二) Address Translation Scheme</a></li>
+      <li><a href="#三-implementation-of-page-table" id="markdown-toc-三-implementation-of-page-table">(三) Implementation of Page Table</a></li>
+      <li><a href="#四-effective-access-time" id="markdown-toc-四-effective-access-time">(四) Effective Access Time</a></li>
+      <li><a href="#五-memory-protection" id="markdown-toc-五-memory-protection">(五) Memory Protection</a></li>
+      <li><a href="#六-shared-pages" id="markdown-toc-六-shared-pages">(六) Shared Pages</a></li>
+      <li><a href="#七-structure-of-the-page-table" id="markdown-toc-七-structure-of-the-page-table">(七) Structure of the Page Table</a>        <ul>
           <li><a href="#hierarchical-page-tables" id="markdown-toc-hierarchical-page-tables">Hierarchical Page Tables</a></li>
           <li><a href="#two-level-page-table-scheme" id="markdown-toc-two-level-page-table-scheme">Two-Level Page-Table Scheme</a></li>
           <li><a href="#three-level-paging-scheme" id="markdown-toc-three-level-paging-scheme">Three-level Paging Scheme</a></li>
@@ -220,7 +220,7 @@
   </li>
 </ul>
 
-<h2 id="section">一、作業系統</h2>
+<h2 id="一作業系統">一、作業系統</h2>
 <ul>
   <li>課堂講義
     <ul>
@@ -229,7 +229,7 @@
   </li>
 </ul>
 
-<h3 id="paging">(一) Paging</h3>
+<h3 id="一-paging">(一) Paging</h3>
 <ul>
   <li>Physical address space of a process can be noncontiguous; process is allocated physical memory whenever the latter is available
     <ul>
@@ -268,7 +268,7 @@
   <li>By implementation process can only access its own memory</li>
 </ul>
 
-<h3 id="address-translation-scheme">(二) Address Translation Scheme</h3>
+<h3 id="二-address-translation-scheme">(二) Address Translation Scheme</h3>
 <p><img src="http://i.imgur.com/rbuMKKY.png" alt="" /></p>
 
 <ul>
@@ -284,7 +284,7 @@
 <img src="http://i.imgur.com/ASgBcxX.png" alt="" />
 <img src="https://i.imgur.com/tLepGb4.png" alt="" /></p>
 
-<h3 id="implementation-of-page-table">(三) Implementation of Page Table</h3>
+<h3 id="三-implementation-of-page-table">(三) Implementation of Page Table</h3>
 <ul>
   <li>Page table is kept in main memory</li>
   <li><strong>Page-table base register (PTBR)</strong> points to the page table</li>
@@ -312,10 +312,10 @@
 <p><img src="https://i.imgur.com/aH3Zg2J.png" alt="" />
 <img src="https://i.imgur.com/923AOvB.png" alt="" /></p>
 
-<h3 id="effective-access-time">(四) Effective Access Time</h3>
+<h3 id="四-effective-access-time">(四) Effective Access Time</h3>
 <p><img src="https://i.imgur.com/Y0mMzTR.png" alt="" /></p>
 
-<h3 id="memory-protection">(五) Memory Protection</h3>
+<h3 id="五-memory-protection">(五) Memory Protection</h3>
 <ul>
   <li>Memory protection implemented by associating protection bit with each frame to indicate if read-only or read-write access is allowed
     <ul>
@@ -334,7 +334,7 @@
 
 <p><img src="http://i.imgur.com/3UtvoGB.png" alt="" /></p>
 
-<h3 id="shared-pages">(六) Shared Pages</h3>
+<h3 id="六-shared-pages">(六) Shared Pages</h3>
 <ul>
   <li><strong>Shared code</strong>
     <ul>
@@ -353,7 +353,7 @@
 
 <p><img src="http://i.imgur.com/JYNkQQT.png" alt="" /></p>
 
-<h3 id="structure-of-the-page-table">(七) Structure of the Page Table</h3>
+<h3 id="七-structure-of-the-page-table">(七) Structure of the Page Table</h3>
 <ul>
   <li>Memory structures for paging can get huge using straight-forward methods
     <ul>
@@ -525,7 +525,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)
+                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
                             
                             </a>
                         </li>
@@ -569,7 +569,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)
+                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
                             
                             </a>
                         </li>

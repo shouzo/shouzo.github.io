@@ -5,38 +5,38 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Nov 2017 07:12:54 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Nov 2017 07:12:54 +0800</lastBuildDate>
+    <pubDate>Tue, 27 Feb 2018 13:34:05 +0800</pubDate>
+    <lastBuildDate>Tue, 27 Feb 2018 13:34:05 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>20170720 [學習筆記] 細談資料結構_6th (1)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#ch1&quot; id=&quot;markdown-toc-ch1&quot;&gt;20170720 - Ch1_導論&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#dikw-&quot; id=&quot;markdown-toc-dikw-&quot;&gt;一、DIKW 模型&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;二、定義與表示&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;[範例] 歐幾里得演算法&lt;/a&gt;            &lt;ul&gt;
-              &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;&lt;strong&gt;(1) 描述過程 (3個敘述)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;&lt;strong&gt;(2) 將原先的 3個敘述 改為 5個敘述&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#stepwise-trace-&quot; id=&quot;markdown-toc-stepwise-trace-&quot;&gt;&lt;strong&gt;(3) 以 逐步追蹤法 (Stepwise trace) 驗證敘述過程&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#20170720---ch1_導論&quot; id=&quot;markdown-toc-20170720---ch1_導論&quot;&gt;20170720 - Ch1_導論&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#一dikw-模型&quot; id=&quot;markdown-toc-一dikw-模型&quot;&gt;一、DIKW 模型&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二定義與表示&quot; id=&quot;markdown-toc-二定義與表示&quot;&gt;二、定義與表示&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#範例-歐幾里得演算法&quot; id=&quot;markdown-toc-範例-歐幾里得演算法&quot;&gt;[範例] 歐幾里得演算法&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#1-描述過程-3個敘述&quot; id=&quot;markdown-toc-1-描述過程-3個敘述&quot;&gt;&lt;strong&gt;(1) 描述過程 (3個敘述)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#2-將原先的-3個敘述-改為-5個敘述&quot; id=&quot;markdown-toc-2-將原先的-3個敘述-改為-5個敘述&quot;&gt;&lt;strong&gt;(2) 將原先的 3個敘述 改為 5個敘述&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#3-以-逐步追蹤法-stepwise-trace-驗證敘述過程&quot; id=&quot;markdown-toc-3-以-逐步追蹤法-stepwise-trace-驗證敘述過程&quot;&gt;&lt;strong&gt;(3) 以 逐步追蹤法 (Stepwise trace) 驗證敘述過程&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
           &lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#flow-chart&quot; id=&quot;markdown-toc-flow-chart&quot;&gt;(一) 流程圖 (flow chart)&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#pseudo-code&quot; id=&quot;markdown-toc-pseudo-code&quot;&gt;(二) 虛擬碼 (pseudo code)&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#一-流程圖-flow-chart&quot; id=&quot;markdown-toc-一-流程圖-flow-chart&quot;&gt;(一) 流程圖 (flow chart)&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#二-虛擬碼-pseudo-code&quot; id=&quot;markdown-toc-二-虛擬碼-pseudo-code&quot;&gt;(二) 虛擬碼 (pseudo code)&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;三、程式的分析&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#big-o-&quot; id=&quot;markdown-toc-big-o-&quot;&gt;四、Big-O 符號&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;(一) 時間複雜度等級&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;(二) 大小排序&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;(三) 範例&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三程式的分析&quot; id=&quot;markdown-toc-三程式的分析&quot;&gt;三、程式的分析&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#四big-o-符號&quot; id=&quot;markdown-toc-四big-o-符號&quot;&gt;四、Big-O 符號&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#一-時間複雜度等級&quot; id=&quot;markdown-toc-一-時間複雜度等級&quot;&gt;(一) 時間複雜度等級&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#二-大小排序&quot; id=&quot;markdown-toc-二-大小排序&quot;&gt;(二) 大小排序&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#三-範例&quot; id=&quot;markdown-toc-三-範例&quot;&gt;(三) 範例&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;ch1&quot;&gt;20170720 - Ch1_導論&lt;/h1&gt;
+&lt;h1 id=&quot;20170720---ch1_導論&quot;&gt;20170720 - Ch1_導論&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;進度摘要
     &lt;ul&gt;
@@ -67,7 +67,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;dikw-&quot;&gt;一、DIKW 模型&lt;/h2&gt;
+&lt;h2 id=&quot;一dikw-模型&quot;&gt;一、DIKW 模型&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;資料 (Data) - &lt;strong&gt;D&lt;/strong&gt;
     &lt;ul&gt;
@@ -93,7 +93,7 @@
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Ia8Tc7E.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;二、定義與表示&lt;/h2&gt;
+&lt;h2 id=&quot;二定義與表示&quot;&gt;二、定義與表示&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/KvTLhQo.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -114,12 +114,12 @@
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/QOe1t5m.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;[範例] 歐幾里得演算法&lt;/h3&gt;
+&lt;h3 id=&quot;範例-歐幾里得演算法&quot;&gt;[範例] 歐幾里得演算法&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;計算兩個自然數的「最大公因數 (Greatest Common Divisor, GCD)」&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;&lt;strong&gt;(1) 描述過程 (3個敘述)&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;1-描述過程-3個敘述&quot;&gt;&lt;strong&gt;(1) 描述過程 (3個敘述)&lt;/strong&gt;&lt;/h4&gt;
 &lt;ol&gt;
   &lt;li&gt;輸入兩個自然數。&lt;/li&gt;
   &lt;li&gt;作輾轉相除直到餘數為零。
@@ -130,7 +130,7 @@
   &lt;li&gt;除數即為 GCD。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;&lt;strong&gt;(2) 將原先的 3個敘述 改為 5個敘述&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;2-將原先的-3個敘述-改為-5個敘述&quot;&gt;&lt;strong&gt;(2) 將原先的 3個敘述 改為 5個敘述&lt;/strong&gt;&lt;/h4&gt;
 &lt;ol&gt;
   &lt;li&gt;輸入兩個自然數 A, B。&lt;/li&gt;
   &lt;li&gt;A 除以 B 餘數為 R。&lt;/li&gt;
@@ -139,7 +139,7 @@
   &lt;li&gt;B 即為 GCD。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&quot;stepwise-trace-&quot;&gt;&lt;strong&gt;(3) 以 逐步追蹤法 (Stepwise trace) 驗證敘述過程&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;3-以-逐步追蹤法-stepwise-trace-驗證敘述過程&quot;&gt;&lt;strong&gt;(3) 以 逐步追蹤法 (Stepwise trace) 驗證敘述過程&lt;/strong&gt;&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;假設 &lt;code class=&quot;highlighter-rouge&quot;&gt;A = 18&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;B = 12&lt;/code&gt;
     &lt;ol&gt;
@@ -155,7 +155,7 @@
   &lt;li&gt;由過程可以得知這些敘述符合明確性、有限性、正確性和具有結果的輸出。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;flow-chart&quot;&gt;(一) 流程圖 (flow chart)&lt;/h3&gt;
+&lt;h3 id=&quot;一-流程圖-flow-chart&quot;&gt;(一) 流程圖 (flow chart)&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/MBTLY3p.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -176,14 +176,14 @@
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/LU4WcQ5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;pseudo-code&quot;&gt;(二) 虛擬碼 (pseudo code)&lt;/h3&gt;
+&lt;h3 id=&quot;二-虛擬碼-pseudo-code&quot;&gt;(二) 虛擬碼 (pseudo code)&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;以比較口語的描述法加上「迴圈」及「條件判斷」等結構敘述來表達演算法的執行過程，藉以增加可讀性。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;[範例] 從 1 加到 10 演算法的虛擬程式碼&lt;/strong&gt; (如下所示)&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;counter = 1
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;counter = 1
 total = 0
 while counter &amp;lt;= 10
 {
@@ -193,7 +193,7 @@ while counter &amp;lt;= 10
 output total
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;三、程式的分析&lt;/h2&gt;
+&lt;h2 id=&quot;三程式的分析&quot;&gt;三、程式的分析&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;一個好的程式必須滿足以下條件：
     &lt;ol&gt;
@@ -251,7 +251,7 @@ output total
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;big-o-&quot;&gt;四、Big-O 符號&lt;/h2&gt;
+&lt;h2 id=&quot;四big-o-符號&quot;&gt;四、Big-O 符號&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Big-O：時間複雜度 (time complexity)&lt;/strong&gt;
     &lt;ul&gt;
@@ -262,14 +262,14 @@ output total
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section-5&quot;&gt;(一) 時間複雜度等級&lt;/h3&gt;
+&lt;h3 id=&quot;一-時間複雜度等級&quot;&gt;(一) 時間複雜度等級&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/d5Gw2H2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-6&quot;&gt;(二) 大小排序&lt;/h3&gt;
+&lt;h3 id=&quot;二-大小排序&quot;&gt;(二) 大小排序&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/4BfZu1g.png&quot; alt=&quot;&quot; /&gt;
 &lt;img src=&quot;https://i.imgur.com/9tz4yMA.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-7&quot;&gt;(三) 範例&lt;/h3&gt;
+&lt;h3 id=&quot;三-範例&quot;&gt;(三) 範例&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/eWmEGTs.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 20 Jul 2017 08:00:00 +0800</pubDate>
@@ -296,12 +296,12 @@ output total
       </item>
     
       <item>
-        <title>20170719 [學習筆記] 30天作業自作入門筆記 (2)</title>
+        <title>20170719 [學習筆記] 30天作業系統自作入門筆記 (2)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#day2&quot; id=&quot;markdown-toc-day2&quot;&gt;20170719 - Day_2&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#helloosnas&quot; id=&quot;markdown-toc-helloosnas&quot;&gt;一、修改 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#helloosnas-1&quot; id=&quot;markdown-toc-helloosnas-1&quot;&gt;二、編譯 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#osimg&quot; id=&quot;markdown-toc-osimg&quot;&gt;三、啟動虛擬機，讀取 &lt;code class=&quot;highlighter-rouge&quot;&gt;os.img&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#20170719---day_2&quot; id=&quot;markdown-toc-20170719---day_2&quot;&gt;20170719 - Day_2&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#一修改-helloosnas&quot; id=&quot;markdown-toc-一修改-helloosnas&quot;&gt;一、修改 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二編譯-helloosnas&quot; id=&quot;markdown-toc-二編譯-helloosnas&quot;&gt;二、編譯 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三啟動虛擬機讀取-osimg&quot; id=&quot;markdown-toc-三啟動虛擬機讀取-osimg&quot;&gt;三、啟動虛擬機，讀取 &lt;code class=&quot;highlighter-rouge&quot;&gt;os.img&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -320,7 +320,7 @@ output total
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;day2&quot;&gt;20170719 - Day_2&lt;/h1&gt;
+&lt;h1 id=&quot;20170719---day_2&quot;&gt;20170719 - Day_2&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;進度摘要
     &lt;ul&gt;
@@ -339,7 +339,7 @@ output total
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;helloosnas&quot;&gt;一、修改 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;一修改-helloosnas&quot;&gt;一、修改 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESB	0x7dfe-$&lt;/code&gt; 此行無法通過編譯，故修改成 &lt;code class=&quot;highlighter-rouge&quot;&gt;TIMES 510-($-$$)    DB    0&lt;/code&gt;。
     &lt;ul&gt;
@@ -348,7 +348,7 @@ output total
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;; hello-os
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; hello-os
 ; TAB=4
 
 ORG		0x7c00			; 指定從 0x7c00 開始執行
@@ -417,7 +417,7 @@ msg:
     DB		0x55, 0xaa
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;helloosnas-1&quot;&gt;二、編譯 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;二編譯-helloosnas&quot;&gt;二、編譯 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/h2&gt;
 &lt;ol&gt;
   &lt;li&gt;編譯 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;，在輸出 &lt;code class=&quot;highlighter-rouge&quot;&gt;bootloader&lt;/code&gt; 的同時也輸出列表檔案 &lt;code class=&quot;highlighter-rouge&quot;&gt;ipl.lst&lt;/code&gt;。&lt;/li&gt;
 &lt;/ol&gt;
@@ -432,6 +432,8 @@ msg:
   &lt;li&gt;在 Linux 系統下使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;dd&lt;/code&gt; 指令產生 &lt;code class=&quot;highlighter-rouge&quot;&gt;os.img&lt;/code&gt; 檔案。
     &lt;ul&gt;
       &lt;li&gt;先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
       &lt;li&gt;一個軟碟片容量：&lt;strong&gt;1.44MB = 512KB * 2880&lt;/strong&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -443,7 +445,7 @@ msg:
   &lt;p&gt;dd if=bootloader of=os.img bs=512 count=1&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;if：指定輸入檔案
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if：指定輸入檔案
 of：指定輸出檔案
 bs：指定 block size，一次讀取與寫入 N 個位元組的資料
 count：處理 N 個輸入區塊
@@ -455,7 +457,7 @@ count：處理 N 個輸入區塊
   &lt;li&gt;如果打開 &lt;code class=&quot;highlighter-rouge&quot;&gt;ipl.lst&lt;/code&gt; ，可以檢視組合語言轉換成機械碼的情形。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;     1                                  ; hello-os
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     1                                  ; hello-os
      2                                  ; TAB=4
      3                                  
      4                                  ORG		0x7c00			    ;   指定從 0x7c00 開始執行
@@ -529,7 +531,7 @@ count：處理 N 個輸入區塊
     69 000001FE 55AA                        DB		0x55, 0xaa
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;osimg&quot;&gt;三、啟動虛擬機，讀取 &lt;code class=&quot;highlighter-rouge&quot;&gt;os.img&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;三啟動虛擬機讀取-osimg&quot;&gt;三、啟動虛擬機，讀取 &lt;code class=&quot;highlighter-rouge&quot;&gt;os.img&lt;/code&gt;&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;執行結果
 &lt;img src=&quot;https://i.imgur.com/ZwHRrHj.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
@@ -560,12 +562,12 @@ count：處理 N 個輸入區塊
       </item>
     
       <item>
-        <title>20170714 [學習筆記] 30天作業自作入門筆記 (1)</title>
+        <title>20170714 [學習筆記] 30天作業系統自作入門筆記 (1)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#day1&quot; id=&quot;markdown-toc-day1&quot;&gt;20170714 - Day_1&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#nasm-&quot; id=&quot;markdown-toc-nasm-&quot;&gt;一、安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;nasm&lt;/code&gt; ，編譯映像檔&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;二、新增虛擬機、載入映像檔&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;三、改變螢幕上面的字&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#20170714---day_1&quot; id=&quot;markdown-toc-20170714---day_1&quot;&gt;20170714 - Day_1&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#一安裝-nasm-編譯映像檔&quot; id=&quot;markdown-toc-一安裝-nasm-編譯映像檔&quot;&gt;一、安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;nasm&lt;/code&gt; ，編譯映像檔&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二新增虛擬機載入映像檔&quot; id=&quot;markdown-toc-二新增虛擬機載入映像檔&quot;&gt;二、新增虛擬機、載入映像檔&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三改變螢幕上面的字&quot; id=&quot;markdown-toc-三改變螢幕上面的字&quot;&gt;三、改變螢幕上面的字&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -584,7 +586,7 @@ count：處理 N 個輸入區塊
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;day1&quot;&gt;20170714 - Day_1&lt;/h1&gt;
+&lt;h1 id=&quot;20170714---day_1&quot;&gt;20170714 - Day_1&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;進度摘要
     &lt;ul&gt;
@@ -608,7 +610,7 @@ count：處理 N 個輸入區塊
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;nasm-&quot;&gt;一、安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;nasm&lt;/code&gt; ，編譯映像檔&lt;/h2&gt;
+&lt;h2 id=&quot;一安裝-nasm-編譯映像檔&quot;&gt;一、安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;nasm&lt;/code&gt; ，編譯映像檔&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;1. 在終端上輸入以下指令，安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;nasm&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;sudo apt install nasm&lt;/p&gt;
@@ -618,7 +620,7 @@ count：處理 N 個輸入區塊
 
 &lt;p&gt;&lt;strong&gt;2. 用 vim 檢視 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt; 的內容&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;codehilite&quot;&gt;&lt;code&gt;DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
 DB	0x49, 0x50, 0x4c, 0x00, 0x02, 0x01, 0x01, 0x00
 DB	0x02, 0xe0, 0x00, 0x40, 0x0b, 0xf0, 0x09, 0x00
 DB	0x12, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -652,7 +654,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/mof2KcD.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;二、新增虛擬機、載入映像檔&lt;/h2&gt;
+&lt;h2 id=&quot;二新增虛擬機載入映像檔&quot;&gt;二、新增虛擬機、載入映像檔&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;1. 環境配置 » 記憶體：256MB、硬碟：8GB&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/l0LDEAg.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -671,7 +673,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/I3ap9DE.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;三、改變螢幕上面的字&lt;/h2&gt;
+&lt;h2 id=&quot;三改變螢幕上面的字&quot;&gt;三、改變螢幕上面的字&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;1. 用 vim 修改 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.img&lt;/code&gt; 映像檔&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;將內文中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;hello, world&lt;/code&gt; 改成 &lt;code class=&quot;highlighter-rouge&quot;&gt;Hello, shouzo. Be Strong to Be Useful.&lt;/code&gt;。&lt;/li&gt;
@@ -717,20 +719,20 @@ RESB	1469432
       <item>
         <title>20170622 [學習筆記] Linux 系統程式筆記總整理</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#linux-&quot; id=&quot;markdown-toc-linux-&quot;&gt;二、Linux 程式設計&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#一作業系統&quot; id=&quot;markdown-toc-一作業系統&quot;&gt;一、作業系統&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#二linux-程式設計&quot; id=&quot;markdown-toc-二linux-程式設計&quot;&gt;二、Linux 程式設計&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ul&gt;
   &lt;li&gt;本學期課程的筆記總整理。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
+&lt;h2 id=&quot;一作業系統&quot;&gt;一、作業系統&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/collections/linux_system/Operating_System.html&quot;&gt;Operating_System (作業系統)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;linux-&quot;&gt;二、Linux 程式設計&lt;/h2&gt;
+&lt;h2 id=&quot;二linux-程式設計&quot;&gt;二、Linux 程式設計&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/collections/linux_system/Linux_Programming.html&quot;&gt;Linux_Programming  (Linux 程式設計)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -757,19 +759,19 @@ RESB	1469432
       <item>
         <title>20170616 [有感而發] 這四年我誤入歧途、又不務正業，但活得像是個人</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;來自四年前的期許&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;命運的分歧點&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;有什麼改變了&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;參與社會化的體現：社團&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#來自四年前的期許&quot; id=&quot;markdown-toc-來自四年前的期許&quot;&gt;來自四年前的期許&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#命運的分歧點&quot; id=&quot;markdown-toc-命運的分歧點&quot;&gt;命運的分歧點&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#有什麼改變了&quot; id=&quot;markdown-toc-有什麼改變了&quot;&gt;有什麼改變了&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#參與社會化的體現社團&quot; id=&quot;markdown-toc-參與社會化的體現社團&quot;&gt;參與社會化的體現：社團&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;不務正業之徒&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;誤入歧途&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;名為“後悔”的情緒&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#不務正業之徒&quot; id=&quot;markdown-toc-不務正業之徒&quot;&gt;不務正業之徒&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#誤入歧途&quot; id=&quot;markdown-toc-誤入歧途&quot;&gt;誤入歧途&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#名為後悔的情緒&quot; id=&quot;markdown-toc-名為後悔的情緒&quot;&gt;名為“後悔”的情緒&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;有幸與你們相遇&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;到了最後，老套依舊適切&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#有幸與你們相遇&quot; id=&quot;markdown-toc-有幸與你們相遇&quot;&gt;有幸與你們相遇&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#到了最後老套依舊適切&quot; id=&quot;markdown-toc-到了最後老套依舊適切&quot;&gt;到了最後，老套依舊適切&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -780,16 +782,16 @@ RESB	1469432
 
 &lt;p&gt;…算了，但還是來回顧一下這幾年的積累吧！&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;來自四年前的期許&lt;/h2&gt;
+&lt;h2 id=&quot;來自四年前的期許&quot;&gt;來自四年前的期許&lt;/h2&gt;
 &lt;p&gt;在高中時期，我習慣用筆記本記下每天發生的事情。後來 Facebook 崛起，就漸漸將一些事情放上 Facebook。
 當時也做了來高雄之前的心情紀事…(&lt;a href=&quot;https://www.facebook.com/danny200026/posts/368693933257313&quot;&gt;這四年，不知道我又會訂下什麼目標&lt;/a&gt;)&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;命運的分歧點&lt;/h3&gt;
+&lt;h3 id=&quot;命運的分歧點&quot;&gt;命運的分歧點&lt;/h3&gt;
 &lt;p&gt;我想最關鍵的還是當年大一，在陰錯陽差之下擔任了社團的負責人。
 原先只打算在這四年好好學習，把“唸書”定位為本業學好學滿，就這樣度過這四年。…就像個普通學生一樣，將自己埋首於書堆之中。…(&lt;a href=&quot;https://www.facebook.com/danny200026/media_set?set=a.912476945545673.100003501287209&amp;amp;type=3&quot;&gt;夢想，Loading…&lt;/a&gt;)
 自從“誤入”社團之後，命運就改變了…(&lt;a href=&quot;https://www.facebook.com/danny200026/media_set?set=a.1135413809918651.1073741847.100003501287209&amp;amp;type=3&quot;&gt;社團人生回顧系列&lt;/a&gt;)&lt;/p&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;有什麼改變了&lt;/h3&gt;
+&lt;h3 id=&quot;有什麼改變了&quot;&gt;有什麼改變了&lt;/h3&gt;
 &lt;p&gt;原先只活在自己世界的我迫於職務上的需求，發展了與人應對進退的能力，也開始學習和接觸未曾接觸的領域；原先只在意自己生活的我，開始學會關注社團成員和周遭朋友的生活；原先只願意為自己而行動的我，開始為了其他人發起從未有人嘗試的事情；也在經歷社團生活的旅途中，曾經有過一段感情。&lt;/p&gt;
 
 &lt;p&gt;我漸漸發覺︰「當年的陰錯陽差，讓我得以出現在某些人的生命裡，它或多或少改變了某些人的生活，同時也改變了我。」&lt;/p&gt;
@@ -800,7 +802,7 @@ RESB	1469432
 
 &lt;p&gt;「不被現有體制框架限制、脫離體制安排，透過獨立思考後瞭解現階段自己真正需要的究竟是什麼，再自行去學習為了滿足需求而必備的技能。」&lt;/p&gt;
 
-&lt;h3 id=&quot;section-3&quot;&gt;參與社會化的體現：社團&lt;/h3&gt;
+&lt;h3 id=&quot;參與社會化的體現社團&quot;&gt;參與社會化的體現：社團&lt;/h3&gt;
 &lt;p&gt;「社團到底在學什麼？古今中外為何有這麼多人願意以學分作為籌碼，投注其中？」這裡有一篇文章寫得很有意思…(&lt;a href=&quot;https://www.facebook.com/makarove.iluete/posts/1503318633074386&quot;&gt;誰給的出尊嚴，誰就能留住人&lt;/a&gt;)&lt;/p&gt;
 
 &lt;p&gt;從大一被半銃康接任國術社、在大二升上大三之際創立跑酷社、大四被網羅去畢聯會…，社團生活佔滿我將近全部的大學生涯，而我從中到底學了什麼？&lt;/p&gt;
@@ -811,8 +813,8 @@ RESB	1469432
 
 &lt;p&gt;說穿了，“外展” 和 “內斂” 只不過是一體的兩面。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;不務正業之徒&lt;/h2&gt;
-&lt;h3 id=&quot;section-5&quot;&gt;誤入歧途&lt;/h3&gt;
+&lt;h2 id=&quot;不務正業之徒&quot;&gt;不務正業之徒&lt;/h2&gt;
+&lt;h3 id=&quot;誤入歧途&quot;&gt;誤入歧途&lt;/h3&gt;
 &lt;p&gt;曾經有一位在系上德高望重的“奇異”老師 (代號：QQ慶)，印象中他經常在課堂上講一些奇怪的東西。但有一段話在我的記憶裡特別深刻，他是這樣對我說的：&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;「你誤入歧途，把時間跟心力都用在『栽培別人』身上。
@@ -820,7 +822,7 @@ RESB	1469432
 
 &lt;p&gt;當時聽到也只是對他笑笑，並沒有多作他想。但不知道為什麼時間越久，這段話卻像是用石頭不斷對著牆壁刻字一樣，日益清晰。也許這段話其實是心裡對於 &lt;strong&gt;“普通大學生活”&lt;/strong&gt; 這個念頭的體現。它被埋藏在我記憶深處的角落，經常在夜深人靜時提醒因焦慮而失眠的我： &lt;strong&gt;「…你不會後悔嗎？」&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-6&quot;&gt;名為“後悔”的情緒&lt;/h3&gt;
+&lt;h3 id=&quot;名為後悔的情緒&quot;&gt;名為“後悔”的情緒&lt;/h3&gt;
 
 &lt;p&gt;後悔，是基於完成某項抉擇之後發現錯誤，企圖去扭轉實際上無力改變的結果時所產生的情緒。在當初命運的分歧點上，我無法衡量 &lt;strong&gt;“沒有任何背景的情況下，在大一直接成為社團負責人”&lt;/strong&gt; 這件事將會帶來的損益(因為沒有概念)。在歷經風雨之後，那些因而付出的代價也都變成了沉沒成本，無從討回。&lt;/p&gt;
 
@@ -836,14 +838,14 @@ RESB	1469432
 
 &lt;p&gt;&lt;strong&gt;「那些能夠讓你成長的，不見得都是讓你感到快樂的事。」我的大學生活雖然不同於一般人，不過也正是這樣才能彰顯它的價值，也才會令人感到回味無窮。&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-7&quot;&gt;有幸與你們相遇&lt;/h2&gt;
+&lt;h2 id=&quot;有幸與你們相遇&quot;&gt;有幸與你們相遇&lt;/h2&gt;
 &lt;p&gt;在此感謝大學四年的同班同學、KDDLab實驗室裡的所有成員、&lt;a href=&quot;https://www.facebook.com/frmparkour/&quot;&gt;Frmp摩猴跑酷&lt;/a&gt; 的朋友；&lt;a href=&quot;https://www.facebook.com/KUASMartialArt/&quot;&gt;高應大國術社&lt;/a&gt;、&lt;a href=&quot;https://www.facebook.com/airfeetparkour/&quot;&gt;高應大跑酷社, KUAS - Air Feet Parkour&lt;/a&gt;、&lt;a href=&quot;https://www.facebook.com/KUASgraduate/&quot;&gt;高應大畢聯會｜Kuas－gsa&lt;/a&gt;、&lt;a href=&quot;https://www.facebook.com/Kuas%E9%AB%94%E5%A7%94-440439566106678/&quot;&gt;Kuas體委&lt;/a&gt; 所有共事過的夥伴、校內外的社團人，以及其他出現在大學生涯裡的人。&lt;/p&gt;
 
 &lt;p&gt;…當然了，還有我的家人們。&lt;/p&gt;
 
 &lt;p&gt;謝謝你們出現在我的生命裡，也讓我有這個榮幸得以參與你們的生活。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-8&quot;&gt;到了最後，老套依舊適切&lt;/h3&gt;
+&lt;h3 id=&quot;到了最後老套依舊適切&quot;&gt;到了最後，老套依舊適切&lt;/h3&gt;
 &lt;p&gt;非得到了最後才會覺得原先平凡不過的每一天，其實都是無比的珍貴。至於祝福的話，不如就簡單一點：&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -868,26 +870,26 @@ RESB	1469432
       <item>
         <title>20170615 [學習筆記] Linux 系統程式 (15)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#allocation-of-frames&quot; id=&quot;markdown-toc-allocation-of-frames&quot;&gt;(一) Allocation of Frames&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#fixed-allocation&quot; id=&quot;markdown-toc-fixed-allocation&quot;&gt;1. Fixed Allocation&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#priority-allocation&quot; id=&quot;markdown-toc-priority-allocation&quot;&gt;2. Priority Allocation&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#global-vs-local-allocation&quot; id=&quot;markdown-toc-global-vs-local-allocation&quot;&gt;3. Global vs. Local Allocation&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#non-uniform-memory-access&quot; id=&quot;markdown-toc-non-uniform-memory-access&quot;&gt;4. Non-Uniform Memory Access&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#thrashing&quot; id=&quot;markdown-toc-thrashing&quot;&gt;5. Thrashing&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#demand-paging-and-thrashing&quot; id=&quot;markdown-toc-demand-paging-and-thrashing&quot;&gt;6. Demand Paging and Thrashing&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#working-set-model&quot; id=&quot;markdown-toc-working-set-model&quot;&gt;7. Working-Set Model&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#page-fault-frequency&quot; id=&quot;markdown-toc-page-fault-frequency&quot;&gt;8. Page-Fault Frequency&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#一作業系統&quot; id=&quot;markdown-toc-一作業系統&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#一-allocation-of-frames&quot; id=&quot;markdown-toc-一-allocation-of-frames&quot;&gt;(一) Allocation of Frames&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#1-fixed-allocation&quot; id=&quot;markdown-toc-1-fixed-allocation&quot;&gt;1. Fixed Allocation&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#2-priority-allocation&quot; id=&quot;markdown-toc-2-priority-allocation&quot;&gt;2. Priority Allocation&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#3-global-vs-local-allocation&quot; id=&quot;markdown-toc-3-global-vs-local-allocation&quot;&gt;3. Global vs. Local Allocation&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#4-non-uniform-memory-access&quot; id=&quot;markdown-toc-4-non-uniform-memory-access&quot;&gt;4. Non-Uniform Memory Access&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-thrashing&quot; id=&quot;markdown-toc-5-thrashing&quot;&gt;5. Thrashing&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-demand-paging-and-thrashing&quot; id=&quot;markdown-toc-6-demand-paging-and-thrashing&quot;&gt;6. Demand Paging and Thrashing&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-working-set-model&quot; id=&quot;markdown-toc-7-working-set-model&quot;&gt;7. Working-Set Model&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#8-page-fault-frequency&quot; id=&quot;markdown-toc-8-page-fault-frequency&quot;&gt;8. Page-Fault Frequency&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#memory-mapped-files&quot; id=&quot;markdown-toc-memory-mapped-files&quot;&gt;(二) Memory-Mapped Files&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#other-considerations----prepaging&quot; id=&quot;markdown-toc-other-considerations----prepaging&quot;&gt;(三) Other Considerations – Prepaging&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#other-issues&quot; id=&quot;markdown-toc-other-issues&quot;&gt;(四) Other Issues&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二-memory-mapped-files&quot; id=&quot;markdown-toc-二-memory-mapped-files&quot;&gt;(二) Memory-Mapped Files&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三-other-considerations--prepaging&quot; id=&quot;markdown-toc-三-other-considerations--prepaging&quot;&gt;(三) Other Considerations – Prepaging&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#四-other-issues&quot; id=&quot;markdown-toc-四-other-issues&quot;&gt;(四) Other Issues&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
+&lt;h2 id=&quot;一作業系統&quot;&gt;一、作業系統&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;課堂講義
     &lt;ul&gt;
@@ -896,7 +898,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;allocation-of-frames&quot;&gt;(一) Allocation of Frames&lt;/h3&gt;
+&lt;h3 id=&quot;一-allocation-of-frames&quot;&gt;(一) Allocation of Frames&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Each process needs minimum number of frames&lt;/li&gt;
   &lt;li&gt;Example: IBM 370 – 6 pages to handle SS MOVE instruction:
@@ -916,7 +918,7 @@ RESB	1469432
   &lt;li&gt;Many variations&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;fixed-allocation&quot;&gt;1. Fixed Allocation&lt;/h4&gt;
+&lt;h4 id=&quot;1-fixed-allocation&quot;&gt;1. Fixed Allocation&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;Equal allocation – For example, if there are 100 frames (after allocating frames for the OS) and 5 processes, give each process 20 frames
     &lt;ul&gt;
@@ -932,7 +934,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/EwupsLy.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;priority-allocation&quot;&gt;2. Priority Allocation&lt;/h4&gt;
+&lt;h4 id=&quot;2-priority-allocation&quot;&gt;2. Priority Allocation&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;Use a proportional allocation scheme using priorities rather than size&lt;/li&gt;
   &lt;li&gt;If process P i generates a page fault,
@@ -943,7 +945,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;global-vs-local-allocation&quot;&gt;3. Global vs. Local Allocation&lt;/h4&gt;
+&lt;h4 id=&quot;3-global-vs-local-allocation&quot;&gt;3. Global vs. Local Allocation&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Global replacement&lt;/strong&gt; – process selects a replacement frame from the set of all frames; one process can take a frame from another
     &lt;ul&gt;
@@ -959,7 +961,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;non-uniform-memory-access&quot;&gt;4. Non-Uniform Memory Access&lt;/h4&gt;
+&lt;h4 id=&quot;4-non-uniform-memory-access&quot;&gt;4. Non-Uniform Memory Access&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;So far all memory accessed equally&lt;/li&gt;
   &lt;li&gt;Many systems are NUMA – speed of access to memory varies
@@ -981,7 +983,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;thrashing&quot;&gt;5. Thrashing&lt;/h4&gt;
+&lt;h4 id=&quot;5-thrashing&quot;&gt;5. Thrashing&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;If a process does not have “enough” pages, the page-fault rate is very high
     &lt;ul&gt;
@@ -1002,7 +1004,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/jBcF8pC.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;demand-paging-and-thrashing&quot;&gt;6. Demand Paging and Thrashing&lt;/h4&gt;
+&lt;h4 id=&quot;6-demand-paging-and-thrashing&quot;&gt;6. Demand Paging and Thrashing&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;Why does demand paging work? &lt;strong&gt;Locality model&lt;/strong&gt;
     &lt;ul&gt;
@@ -1017,7 +1019,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;working-set-model&quot;&gt;7. Working-Set Model&lt;/h4&gt;
+&lt;h4 id=&quot;7-working-set-model&quot;&gt;7. Working-Set Model&lt;/h4&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Nsrm3Lw.png&quot; alt=&quot;&quot; /&gt;
 &lt;img src=&quot;https://i.imgur.com/Xy48qM2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1026,7 +1028,7 @@ RESB	1469432
 &lt;img src=&quot;https://i.imgur.com/QHoALdo.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;page-fault-frequency&quot;&gt;8. Page-Fault Frequency&lt;/h4&gt;
+&lt;h4 id=&quot;8-page-fault-frequency&quot;&gt;8. Page-Fault Frequency&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;More direct approach than WSS&lt;/li&gt;
   &lt;li&gt;Establish “acceptable” &lt;strong&gt;page-fault frequency&lt;/strong&gt; rate and use local replacement policy
@@ -1040,7 +1042,7 @@ RESB	1469432
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/ws4FmRA.png&quot; alt=&quot;&quot; /&gt;
 &lt;img src=&quot;https://i.imgur.com/ujHWuKv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;memory-mapped-files&quot;&gt;(二) Memory-Mapped Files&lt;/h3&gt;
+&lt;h3 id=&quot;二-memory-mapped-files&quot;&gt;(二) Memory-Mapped Files&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Memory-mapped file I/O allows file I/O to be treated as routine memory access by &lt;strong&gt;mapping&lt;/strong&gt; a disk block to a page in memory&lt;/li&gt;
   &lt;li&gt;A file is initially read using demand paging
@@ -1061,7 +1063,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/zWof78r.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;other-considerations----prepaging&quot;&gt;(三) Other Considerations – Prepaging&lt;/h3&gt;
+&lt;h3 id=&quot;三-other-considerations--prepaging&quot;&gt;(三) Other Considerations – Prepaging&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;To reduce the large number of page faults that occurs at process startup&lt;/li&gt;
   &lt;li&gt;Prepage all or some of the pages a process will need, before they are referenced&lt;/li&gt;
@@ -1074,7 +1076,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;other-issues&quot;&gt;(四) Other Issues&lt;/h3&gt;
+&lt;h3 id=&quot;四-other-issues&quot;&gt;(四) Other Issues&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/289vIx7.png&quot; alt=&quot;&quot; /&gt;
 —
 &lt;img src=&quot;https://i.imgur.com/AzOr7n2.png&quot; alt=&quot;&quot; /&gt;
@@ -1105,34 +1107,34 @@ RESB	1469432
       <item>
         <title>20170608 [學習筆記] Linux 系統程式 (14)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#background&quot; id=&quot;markdown-toc-background&quot;&gt;(一) Background&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#virtual-address-space&quot; id=&quot;markdown-toc-virtual-address-space&quot;&gt;(二) Virtual Address Space&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#demand-paging&quot; id=&quot;markdown-toc-demand-paging&quot;&gt;(三) Demand Paging&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#valid-invalid-bit&quot; id=&quot;markdown-toc-valid-invalid-bit&quot;&gt;1. Valid-Invalid Bit&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#example&quot; id=&quot;markdown-toc-example&quot;&gt;2. Example&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#optimizations&quot; id=&quot;markdown-toc-optimizations&quot;&gt;3. Optimizations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#一作業系統&quot; id=&quot;markdown-toc-一作業系統&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#一-background&quot; id=&quot;markdown-toc-一-background&quot;&gt;(一) Background&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二-virtual-address-space&quot; id=&quot;markdown-toc-二-virtual-address-space&quot;&gt;(二) Virtual Address Space&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三-demand-paging&quot; id=&quot;markdown-toc-三-demand-paging&quot;&gt;(三) Demand Paging&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#1-valid-invalid-bit&quot; id=&quot;markdown-toc-1-valid-invalid-bit&quot;&gt;1. Valid-Invalid Bit&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#2-example&quot; id=&quot;markdown-toc-2-example&quot;&gt;2. Example&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#3-optimizations&quot; id=&quot;markdown-toc-3-optimizations&quot;&gt;3. Optimizations&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#page-fault&quot; id=&quot;markdown-toc-page-fault&quot;&gt;(四) Page Fault&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#aspects-of-demand-paging&quot; id=&quot;markdown-toc-aspects-of-demand-paging&quot;&gt;1. Aspects of Demand Paging&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#instruction-restart&quot; id=&quot;markdown-toc-instruction-restart&quot;&gt;2. Instruction Restart&lt;/a&gt;            &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#四-page-fault&quot; id=&quot;markdown-toc-四-page-fault&quot;&gt;(四) Page Fault&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#1-aspects-of-demand-paging&quot; id=&quot;markdown-toc-1-aspects-of-demand-paging&quot;&gt;1. Aspects of Demand Paging&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#2-instruction-restart&quot; id=&quot;markdown-toc-2-instruction-restart&quot;&gt;2. Instruction Restart&lt;/a&gt;            &lt;ul&gt;
               &lt;li&gt;&lt;a href=&quot;#performance-of-demand-paging&quot; id=&quot;markdown-toc-performance-of-demand-paging&quot;&gt;Performance of Demand Paging&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#copy-on-write&quot; id=&quot;markdown-toc-copy-on-write&quot;&gt;(五) Copy-on-Write&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#page-replacement&quot; id=&quot;markdown-toc-page-replacement&quot;&gt;(六) Page Replacement&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#what-happens-if-there-is-no-free-frame&quot; id=&quot;markdown-toc-what-happens-if-there-is-no-free-frame&quot;&gt;1. What Happens if There is no Free Frame?&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#basic-page-replacement&quot; id=&quot;markdown-toc-basic-page-replacement&quot;&gt;2. Basic Page Replacement&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#page-and-frame-replacement-algorithms&quot; id=&quot;markdown-toc-page-and-frame-replacement-algorithms&quot;&gt;3. Page and Frame Replacement Algorithms&lt;/a&gt;            &lt;ul&gt;
-              &lt;li&gt;&lt;a href=&quot;#first-in-first-out-fifo-algorithm&quot; id=&quot;markdown-toc-first-in-first-out-fifo-algorithm&quot;&gt;(1) First-In-First-Out (FIFO) Algorithm&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#optimal-algorithm&quot; id=&quot;markdown-toc-optimal-algorithm&quot;&gt;(2) Optimal Algorithm&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#least-recently-used-lru-algorithm&quot; id=&quot;markdown-toc-least-recently-used-lru-algorithm&quot;&gt;(3) Least Recently Used (LRU) Algorithm&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#lru-approximation-algorithms&quot; id=&quot;markdown-toc-lru-approximation-algorithms&quot;&gt;(4) LRU Approximation Algorithms&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#counting-algorithms&quot; id=&quot;markdown-toc-counting-algorithms&quot;&gt;(5) Counting Algorithms&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#page-buffering-algorithms&quot; id=&quot;markdown-toc-page-buffering-algorithms&quot;&gt;(6) Page-Buffering Algorithms&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#五-copy-on-write&quot; id=&quot;markdown-toc-五-copy-on-write&quot;&gt;(五) Copy-on-Write&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#六-page-replacement&quot; id=&quot;markdown-toc-六-page-replacement&quot;&gt;(六) Page Replacement&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#1-what-happens-if-there-is-no-free-frame&quot; id=&quot;markdown-toc-1-what-happens-if-there-is-no-free-frame&quot;&gt;1. What Happens if There is no Free Frame?&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#2-basic-page-replacement&quot; id=&quot;markdown-toc-2-basic-page-replacement&quot;&gt;2. Basic Page Replacement&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#3-page-and-frame-replacement-algorithms&quot; id=&quot;markdown-toc-3-page-and-frame-replacement-algorithms&quot;&gt;3. Page and Frame Replacement Algorithms&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#1-first-in-first-out-fifo-algorithm&quot; id=&quot;markdown-toc-1-first-in-first-out-fifo-algorithm&quot;&gt;(1) First-In-First-Out (FIFO) Algorithm&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#2-optimal-algorithm&quot; id=&quot;markdown-toc-2-optimal-algorithm&quot;&gt;(2) Optimal Algorithm&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#3-least-recently-used-lru-algorithm&quot; id=&quot;markdown-toc-3-least-recently-used-lru-algorithm&quot;&gt;(3) Least Recently Used (LRU) Algorithm&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#4-lru-approximation-algorithms&quot; id=&quot;markdown-toc-4-lru-approximation-algorithms&quot;&gt;(4) LRU Approximation Algorithms&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#5-counting-algorithms&quot; id=&quot;markdown-toc-5-counting-algorithms&quot;&gt;(5) Counting Algorithms&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#6-page-buffering-algorithms&quot; id=&quot;markdown-toc-6-page-buffering-algorithms&quot;&gt;(6) Page-Buffering Algorithms&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
@@ -1141,7 +1143,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
+&lt;h2 id=&quot;一作業系統&quot;&gt;一、作業系統&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;課堂講義
     &lt;ul&gt;
@@ -1150,7 +1152,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;background&quot;&gt;(一) Background&lt;/h3&gt;
+&lt;h3 id=&quot;一-background&quot;&gt;(一) Background&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Code needs to be in memory to execute, but entire program rarely used
     &lt;ul&gt;
@@ -1182,7 +1184,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;virtual-address-space&quot;&gt;(二) Virtual Address Space&lt;/h3&gt;
+&lt;h3 id=&quot;二-virtual-address-space&quot;&gt;(二) Virtual Address Space&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/DkDhsAx.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1194,7 +1196,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/3jsjqeH.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;demand-paging&quot;&gt;(三) Demand Paging&lt;/h3&gt;
+&lt;h3 id=&quot;三-demand-paging&quot;&gt;(三) Demand Paging&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Could bring entire process into memory at load time&lt;/li&gt;
   &lt;li&gt;Or bring a page into memory only when it is needed
@@ -1220,7 +1222,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/aLRTern.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;valid-invalid-bit&quot;&gt;1. Valid-Invalid Bit&lt;/h4&gt;
+&lt;h4 id=&quot;1-valid-invalid-bit&quot;&gt;1. Valid-Invalid Bit&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;With each page table entry a valid–invalid bit is associated (&lt;strong&gt;v&lt;/strong&gt; » in-memory – &lt;strong&gt;memory resident&lt;/strong&gt;, &lt;strong&gt;i&lt;/strong&gt; » not-in-memory)&lt;/li&gt;
   &lt;li&gt;Initially valid–invalid bit is set to &lt;strong&gt;i&lt;/strong&gt; on all entries&lt;/li&gt;
@@ -1228,7 +1230,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/0Fk929T.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;example&quot;&gt;2. Example&lt;/h4&gt;
+&lt;h4 id=&quot;2-example&quot;&gt;2. Example&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;Memory access time = 200 nanoseconds&lt;/li&gt;
   &lt;li&gt;Average page-fault service time = 8 milliseconds
@@ -1248,7 +1250,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;optimizations&quot;&gt;3. Optimizations&lt;/h4&gt;
+&lt;h4 id=&quot;3-optimizations&quot;&gt;3. Optimizations&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;Copy entire process image to swap space at process load time
     &lt;ul&gt;
@@ -1263,7 +1265,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;page-fault&quot;&gt;(四) Page Fault&lt;/h3&gt;
+&lt;h3 id=&quot;四-page-fault&quot;&gt;(四) Page Fault&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;If there is a reference to a page, first reference to that page will trap to operating system
     &lt;ul&gt;
@@ -1284,7 +1286,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/98V6oNY.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;aspects-of-demand-paging&quot;&gt;1. Aspects of Demand Paging&lt;/h4&gt;
+&lt;h4 id=&quot;1-aspects-of-demand-paging&quot;&gt;1. Aspects of Demand Paging&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;Extreme case – start process with no pages in memory
     &lt;ul&gt;
@@ -1307,7 +1309,7 @@ RESB	1469432
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;instruction-restart&quot;&gt;2. Instruction Restart&lt;/h4&gt;
+&lt;h4 id=&quot;2-instruction-restart&quot;&gt;2. Instruction Restart&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;Consider an instruction that could access several different locations
     &lt;ul&gt;
@@ -1349,7 +1351,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HA817pb.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;copy-on-write&quot;&gt;(五) Copy-on-Write&lt;/h3&gt;
+&lt;h3 id=&quot;五-copy-on-write&quot;&gt;(五) Copy-on-Write&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Copy-on-Write&lt;/strong&gt; (COW) allows both parent and child processes to initially share the same pages in memory
     &lt;ul&gt;
@@ -1372,14 +1374,14 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/LABMPPo.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;page-replacement&quot;&gt;(六) Page Replacement&lt;/h3&gt;
+&lt;h3 id=&quot;六-page-replacement&quot;&gt;(六) Page Replacement&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Prevent over-allocation of memory by modifying page-fault service routine to include page replacement&lt;/li&gt;
   &lt;li&gt;Use &lt;strong&gt;modify (dirty) bit&lt;/strong&gt; to reduce overhead of page transfers – only modified pages are written to disk&lt;/li&gt;
   &lt;li&gt;Page replacement completes separation between logical memory and physical memory – large virtual memory can be provided on a smaller physical memory&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;what-happens-if-there-is-no-free-frame&quot;&gt;1. What Happens if There is no Free Frame?&lt;/h4&gt;
+&lt;h4 id=&quot;1-what-happens-if-there-is-no-free-frame&quot;&gt;1. What Happens if There is no Free Frame?&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;Used up by process pages&lt;/li&gt;
   &lt;li&gt;Also in demand from the kernel, I/O buffers, etc&lt;/li&gt;
@@ -1395,7 +1397,7 @@ RESB	1469432
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/eFpQyPv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;basic-page-replacement&quot;&gt;2. Basic Page Replacement&lt;/h4&gt;
+&lt;h4 id=&quot;2-basic-page-replacement&quot;&gt;2. Basic Page Replacement&lt;/h4&gt;
 &lt;blockquote&gt;
   &lt;ol&gt;
     &lt;li&gt;Find the location of the desired page on disk&lt;/li&gt;
@@ -1417,7 +1419,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Hm6MvuN.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;page-and-frame-replacement-algorithms&quot;&gt;3. Page and Frame Replacement Algorithms&lt;/h4&gt;
+&lt;h4 id=&quot;3-page-and-frame-replacement-algorithms&quot;&gt;3. Page and Frame Replacement Algorithms&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Frame-allocation algorithm&lt;/strong&gt; determines
     &lt;ul&gt;
@@ -1438,12 +1440,12 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;first-in-first-out-fifo-algorithm&quot;&gt;(1) First-In-First-Out (FIFO) Algorithm&lt;/h5&gt;
+&lt;h5 id=&quot;1-first-in-first-out-fifo-algorithm&quot;&gt;(1) First-In-First-Out (FIFO) Algorithm&lt;/h5&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/cSezcCO.png&quot; alt=&quot;&quot; /&gt;
 &lt;img src=&quot;https://i.imgur.com/NVa4BTe.png&quot; alt=&quot;&quot; /&gt;
 &lt;img src=&quot;https://i.imgur.com/6VeXbGw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;optimal-algorithm&quot;&gt;(2) Optimal Algorithm&lt;/h5&gt;
+&lt;h5 id=&quot;2-optimal-algorithm&quot;&gt;(2) Optimal Algorithm&lt;/h5&gt;
 &lt;ul&gt;
   &lt;li&gt;Replace page that will not be used for longest period of time
     &lt;ul&gt;
@@ -1460,7 +1462,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/1jc2ngr.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;least-recently-used-lru-algorithm&quot;&gt;(3) Least Recently Used (LRU) Algorithm&lt;/h5&gt;
+&lt;h5 id=&quot;3-least-recently-used-lru-algorithm&quot;&gt;(3) Least Recently Used (LRU) Algorithm&lt;/h5&gt;
 &lt;ul&gt;
   &lt;li&gt;Use past knowledge rather than future&lt;/li&gt;
   &lt;li&gt;Replace page that has not been used in the most amount of time&lt;/li&gt;
@@ -1498,7 +1500,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/yvsGPvm.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;lru-approximation-algorithms&quot;&gt;(4) LRU Approximation Algorithms&lt;/h5&gt;
+&lt;h5 id=&quot;4-lru-approximation-algorithms&quot;&gt;(4) LRU Approximation Algorithms&lt;/h5&gt;
 &lt;ul&gt;
   &lt;li&gt;LRU needs special hardware and still slow&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Reference bit&lt;/strong&gt;
@@ -1533,7 +1535,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/jInNXqt.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;counting-algorithms&quot;&gt;(5) Counting Algorithms&lt;/h5&gt;
+&lt;h5 id=&quot;5-counting-algorithms&quot;&gt;(5) Counting Algorithms&lt;/h5&gt;
 &lt;ul&gt;
   &lt;li&gt;Keep a counter of the number of references that have been made to each page
     &lt;ul&gt;
@@ -1544,7 +1546,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;li&gt;&lt;strong&gt;MFU Algorithm&lt;/strong&gt;: based on the argument that the page with the smallest count was probably just brought in and has yet to be used&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;page-buffering-algorithms&quot;&gt;(6) Page-Buffering Algorithms&lt;/h5&gt;
+&lt;h5 id=&quot;6-page-buffering-algorithms&quot;&gt;(6) Page-Buffering Algorithms&lt;/h5&gt;
 &lt;ul&gt;
   &lt;li&gt;Keep a pool of free frames, always
     &lt;ul&gt;
@@ -1588,24 +1590,24 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
       <item>
         <title>20170607 [有感而發] 一切都只是選擇，那你自己的戰場是什麼？</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、前言&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;二、想像與實際的落差&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;1.如何去定義「學業」？&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;(一) 你就是不自覺地被吸引&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;2.對於大學的「期望」？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#一前言&quot; id=&quot;markdown-toc-一前言&quot;&gt;一、前言&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#二想像與實際的落差&quot; id=&quot;markdown-toc-二想像與實際的落差&quot;&gt;二、想像與實際的落差&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1如何去定義學業&quot; id=&quot;markdown-toc-1如何去定義學業&quot;&gt;1.如何去定義「學業」？&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#一-你就是不自覺地被吸引&quot; id=&quot;markdown-toc-一-你就是不自覺地被吸引&quot;&gt;(一) 你就是不自覺地被吸引&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2對於大學的期望&quot; id=&quot;markdown-toc-2對於大學的期望&quot;&gt;2.對於大學的「期望」？&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;三、理念，未必能夠被理解&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#三理念未必能夠被理解&quot; id=&quot;markdown-toc-三理念未必能夠被理解&quot;&gt;三、理念，未必能夠被理解&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一、前言&lt;/h2&gt;
+&lt;h2 id=&quot;一前言&quot;&gt;一、前言&lt;/h2&gt;
 &lt;p&gt;先前在 Dcard 看到這篇文章，在內容中作者表達了對於“活動”的看法：&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://goo.gl/xormkV&quot;&gt;各種活動&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;在看完的當下沒有特別的感覺。但隨著時間過去，那篇文章像顆石頭投入湖中一樣，在腦海中蕩起了漣漪…於是便起了個念頭，將心裡的想法做個整理。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;二、想像與實際的落差&lt;/h2&gt;
+&lt;h2 id=&quot;二想像與實際的落差&quot;&gt;二、想像與實際的落差&lt;/h2&gt;
 &lt;p&gt;在台灣的教育制度裡面，普通學生從國小、國中、高中一路唸上來，終於到了大學的階段；當年的我也是一樣照著這既定的劇本走了上來，並沒有多餘的想法。我只想著︰「我想要讀資工，該怎麼樣才能考上第一志願？」之後到了高雄唸書，當年的我仍滿心期待地想要在系上「學好學滿」，也打算投注精力在課業上，到最後才發現期待落空…&lt;/p&gt;
 
 &lt;p&gt;(詳細的過程請看：&lt;a href=&quot;https://goo.gl/CsTBCv&quot;&gt;https://goo.gl/CsTBCv&lt;/a&gt;)&lt;/p&gt;
@@ -1617,7 +1619,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;li&gt;你對大學的「期望」是什麼？&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;1.如何去定義「學業」？&lt;/h3&gt;
+&lt;h3 id=&quot;1如何去定義學業&quot;&gt;1.如何去定義「學業」？&lt;/h3&gt;
 
 &lt;p&gt;「正常作息」、「該上的課，該做的事」、「本末倒置」…這些想法其實都是建立在 &lt;strong&gt;當事人既定的價值觀&lt;/strong&gt; 之上來探討的；但其實每個人在大學期間想要學習、嘗試的都不一樣。&lt;/p&gt;
 
@@ -1634,7 +1636,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;「沒思考過又怎麼樣呢？」&lt;/strong&gt; 不怎麼樣，但是帶給周遭人的感覺就是不一樣。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-3&quot;&gt;(一) 你就是不自覺地被吸引&lt;/h3&gt;
+&lt;h3 id=&quot;一-你就是不自覺地被吸引&quot;&gt;(一) 你就是不自覺地被吸引&lt;/h3&gt;
 &lt;p&gt;回顧一下日常生活，你的目光總是會不自覺地被某些人吸引。「因為他的穿著，很難不讓人注意到他。」、「我之前就久仰他的大名了，想要前來一睹風采。」、「為什麼他的談吐那麼有趣？」、「從他的肢體動作可以感覺到，他很有自信。」…那群人總是有辦法在任何時候成為眾人目光的焦點。 &lt;strong&gt;但這究竟是為什麼？&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;(二) 源自於內心的動機，體現於實際的行為上&lt;/strong&gt;
@@ -1658,7 +1660,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;一切都只是選擇，也是時候該為自己的選擇負起責任了。&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;2.對於大學的「期望」？&lt;/h3&gt;
+&lt;h3 id=&quot;2對於大學的期望&quot;&gt;2.對於大學的「期望」？&lt;/h3&gt;
 
 &lt;p&gt;當你在踏入大學階段時期才發現「現實的環境無法滿足你原先的期望」，此時你會怎麼做？
 &lt;strong&gt;(1) 轉換環境&lt;/strong&gt;：轉系、休(退)學、轉學，亦可以直接去工作。&lt;/p&gt;
@@ -1687,7 +1689,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;於是我便 “選擇性” 的放掉沒興趣的科目，將那些時間轉去鑽研自己真正有興趣的領域。或許在未來那些被我 “放掉” 的科目還是會在人生的某個階段遇到，但是求學的路這麼長 (不僅在於學校)，先從有興趣的開始學習，總比從沒有興趣的開始要容易的多吧？&lt;/p&gt;
 
-&lt;h2 id=&quot;section-5&quot;&gt;三、理念，未必能夠被理解&lt;/h2&gt;
+&lt;h2 id=&quot;三理念未必能夠被理解&quot;&gt;三、理念，未必能夠被理解&lt;/h2&gt;
 
 &lt;p&gt;之所以會有這麼多人(包括我自己)願意在大學時期投注心力在“課業”以外的事情，是因為他們從中獲得了某些東西，進而對他們產生了正面的影響。&lt;/p&gt;
 
@@ -1717,14 +1719,14 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
       <item>
         <title>20170601 [學習筆記] Linux 系統程式 (13)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#paging&quot; id=&quot;markdown-toc-paging&quot;&gt;(一) Paging&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#address-translation-scheme&quot; id=&quot;markdown-toc-address-translation-scheme&quot;&gt;(二) Address Translation Scheme&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#implementation-of-page-table&quot; id=&quot;markdown-toc-implementation-of-page-table&quot;&gt;(三) Implementation of Page Table&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#effective-access-time&quot; id=&quot;markdown-toc-effective-access-time&quot;&gt;(四) Effective Access Time&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#memory-protection&quot; id=&quot;markdown-toc-memory-protection&quot;&gt;(五) Memory Protection&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#shared-pages&quot; id=&quot;markdown-toc-shared-pages&quot;&gt;(六) Shared Pages&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#structure-of-the-page-table&quot; id=&quot;markdown-toc-structure-of-the-page-table&quot;&gt;(七) Structure of the Page Table&lt;/a&gt;        &lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#一作業系統&quot; id=&quot;markdown-toc-一作業系統&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#一-paging&quot; id=&quot;markdown-toc-一-paging&quot;&gt;(一) Paging&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二-address-translation-scheme&quot; id=&quot;markdown-toc-二-address-translation-scheme&quot;&gt;(二) Address Translation Scheme&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三-implementation-of-page-table&quot; id=&quot;markdown-toc-三-implementation-of-page-table&quot;&gt;(三) Implementation of Page Table&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#四-effective-access-time&quot; id=&quot;markdown-toc-四-effective-access-time&quot;&gt;(四) Effective Access Time&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#五-memory-protection&quot; id=&quot;markdown-toc-五-memory-protection&quot;&gt;(五) Memory Protection&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#六-shared-pages&quot; id=&quot;markdown-toc-六-shared-pages&quot;&gt;(六) Shared Pages&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#七-structure-of-the-page-table&quot; id=&quot;markdown-toc-七-structure-of-the-page-table&quot;&gt;(七) Structure of the Page Table&lt;/a&gt;        &lt;ul&gt;
           &lt;li&gt;&lt;a href=&quot;#hierarchical-page-tables&quot; id=&quot;markdown-toc-hierarchical-page-tables&quot;&gt;Hierarchical Page Tables&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#two-level-page-table-scheme&quot; id=&quot;markdown-toc-two-level-page-table-scheme&quot;&gt;Two-Level Page-Table Scheme&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#three-level-paging-scheme&quot; id=&quot;markdown-toc-three-level-paging-scheme&quot;&gt;Three-level Paging Scheme&lt;/a&gt;&lt;/li&gt;
@@ -1736,7 +1738,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
+&lt;h2 id=&quot;一作業系統&quot;&gt;一、作業系統&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;課堂講義
     &lt;ul&gt;
@@ -1745,7 +1747,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;paging&quot;&gt;(一) Paging&lt;/h3&gt;
+&lt;h3 id=&quot;一-paging&quot;&gt;(一) Paging&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Physical address space of a process can be noncontiguous; process is allocated physical memory whenever the latter is available
     &lt;ul&gt;
@@ -1784,7 +1786,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;li&gt;By implementation process can only access its own memory&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;address-translation-scheme&quot;&gt;(二) Address Translation Scheme&lt;/h3&gt;
+&lt;h3 id=&quot;二-address-translation-scheme&quot;&gt;(二) Address Translation Scheme&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/rbuMKKY.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1800,7 +1802,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 &lt;img src=&quot;http://i.imgur.com/ASgBcxX.png&quot; alt=&quot;&quot; /&gt;
 &lt;img src=&quot;https://i.imgur.com/tLepGb4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;implementation-of-page-table&quot;&gt;(三) Implementation of Page Table&lt;/h3&gt;
+&lt;h3 id=&quot;三-implementation-of-page-table&quot;&gt;(三) Implementation of Page Table&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Page table is kept in main memory&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Page-table base register (PTBR)&lt;/strong&gt; points to the page table&lt;/li&gt;
@@ -1828,10 +1830,10 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/aH3Zg2J.png&quot; alt=&quot;&quot; /&gt;
 &lt;img src=&quot;https://i.imgur.com/923AOvB.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;effective-access-time&quot;&gt;(四) Effective Access Time&lt;/h3&gt;
+&lt;h3 id=&quot;四-effective-access-time&quot;&gt;(四) Effective Access Time&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Y0mMzTR.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;memory-protection&quot;&gt;(五) Memory Protection&lt;/h3&gt;
+&lt;h3 id=&quot;五-memory-protection&quot;&gt;(五) Memory Protection&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Memory protection implemented by associating protection bit with each frame to indicate if read-only or read-write access is allowed
     &lt;ul&gt;
@@ -1850,7 +1852,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/3UtvoGB.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;shared-pages&quot;&gt;(六) Shared Pages&lt;/h3&gt;
+&lt;h3 id=&quot;六-shared-pages&quot;&gt;(六) Shared Pages&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Shared code&lt;/strong&gt;
     &lt;ul&gt;
@@ -1869,7 +1871,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/JYNkQQT.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;structure-of-the-page-table&quot;&gt;(七) Structure of the Page Table&lt;/h3&gt;
+&lt;h3 id=&quot;七-structure-of-the-page-table&quot;&gt;(七) Structure of the Page Table&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Memory structures for paging can get huge using straight-forward methods
     &lt;ul&gt;
@@ -1987,11 +1989,11 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
       <item>
         <title>20170525 [學習筆記] Linux 系統程式 (12)</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#contiguous-allocation&quot; id=&quot;markdown-toc-contiguous-allocation&quot;&gt;(一) Contiguous Allocation&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#dynamic-storage-allocation-problem&quot; id=&quot;markdown-toc-dynamic-storage-allocation-problem&quot;&gt;(二) Dynamic Storage-Allocation Problem&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#fragmentation&quot; id=&quot;markdown-toc-fragmentation&quot;&gt;(三) Fragmentation&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#segmentation&quot; id=&quot;markdown-toc-segmentation&quot;&gt;(四) Segmentation&lt;/a&gt;        &lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#一作業系統&quot; id=&quot;markdown-toc-一作業系統&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#一-contiguous-allocation&quot; id=&quot;markdown-toc-一-contiguous-allocation&quot;&gt;(一) Contiguous Allocation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二-dynamic-storage-allocation-problem&quot; id=&quot;markdown-toc-二-dynamic-storage-allocation-problem&quot;&gt;(二) Dynamic Storage-Allocation Problem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三-fragmentation&quot; id=&quot;markdown-toc-三-fragmentation&quot;&gt;(三) Fragmentation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#四-segmentation&quot; id=&quot;markdown-toc-四-segmentation&quot;&gt;(四) Segmentation&lt;/a&gt;        &lt;ul&gt;
           &lt;li&gt;&lt;a href=&quot;#segmentation-architecture&quot; id=&quot;markdown-toc-segmentation-architecture&quot;&gt;Segmentation Architecture&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
@@ -1999,7 +2001,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一、作業系統&lt;/h2&gt;
+&lt;h2 id=&quot;一作業系統&quot;&gt;一、作業系統&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;課堂講義
     &lt;ul&gt;
@@ -2008,7 +2010,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;contiguous-allocation&quot;&gt;(一) Contiguous Allocation&lt;/h3&gt;
+&lt;h3 id=&quot;一-contiguous-allocation&quot;&gt;(一) Contiguous Allocation&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Main memory must support both OS and user processes&lt;/li&gt;
   &lt;li&gt;Limited resource, must allocate efficiently&lt;/li&gt;
@@ -2054,7 +2056,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/JQ1uTUe.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;dynamic-storage-allocation-problem&quot;&gt;(二) Dynamic Storage-Allocation Problem&lt;/h3&gt;
+&lt;h3 id=&quot;二-dynamic-storage-allocation-problem&quot;&gt;(二) Dynamic Storage-Allocation Problem&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;First-fit&lt;/strong&gt;：Allocate the &lt;code class=&quot;highlighter-rouge&quot;&gt;first&lt;/code&gt; hole that is big enough&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Best-fit&lt;/strong&gt;：Allocate the &lt;code class=&quot;highlighter-rouge&quot;&gt;smallest&lt;/code&gt; hole that is big enough; must search entire list, unless ordered by size
@@ -2070,7 +2072,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;li&gt;First-fit and best-fit better than worst-fit in terms of speed and storage utilization&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;fragmentation&quot;&gt;(三) Fragmentation&lt;/h3&gt;
+&lt;h3 id=&quot;三-fragmentation&quot;&gt;(三) Fragmentation&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;External Fragmentation&lt;/strong&gt; – total memory space exists to satisfy a request, but it is not contiguous&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Internal Fragmentation&lt;/strong&gt; – allocated memory may be slightly larger than requested memory; this size difference is memory internal to a partition, but not being used&lt;/li&gt;
@@ -2094,7 +2096,7 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
   &lt;li&gt;Now consider that backing store has same fragmentation problems&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;segmentation&quot;&gt;(四) Segmentation&lt;/h3&gt;
+&lt;h3 id=&quot;四-segmentation&quot;&gt;(四) Segmentation&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Memory-management scheme that supports user view of memory&lt;/li&gt;
 &lt;/ul&gt;

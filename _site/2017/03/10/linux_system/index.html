@@ -201,33 +201,33 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#process-in-memory" id="markdown-toc-process-in-memory">(一) Process in Memory</a></li>
-      <li><a href="#process-state" id="markdown-toc-process-state">(二) Process State</a></li>
-      <li><a href="#process-control-block-pcb" id="markdown-toc-process-control-block-pcb">(三) Process Control Block (PCB)</a></li>
-      <li><a href="#process-switch" id="markdown-toc-process-switch">(四) Process Switch</a></li>
-      <li><a href="#processthread" id="markdown-toc-processthread">(五) Process、Thread</a></li>
-      <li><a href="#process-scheduling" id="markdown-toc-process-scheduling">(六) Process Scheduling</a>        <ul>
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-process-in-memory" id="markdown-toc-一-process-in-memory">(一) Process in Memory</a></li>
+      <li><a href="#二-process-state" id="markdown-toc-二-process-state">(二) Process State</a></li>
+      <li><a href="#三-process-control-block-pcb" id="markdown-toc-三-process-control-block-pcb">(三) Process Control Block (PCB)</a></li>
+      <li><a href="#四-process-switch" id="markdown-toc-四-process-switch">(四) Process Switch</a></li>
+      <li><a href="#五-processthread" id="markdown-toc-五-processthread">(五) Process、Thread</a></li>
+      <li><a href="#六-process-scheduling" id="markdown-toc-六-process-scheduling">(六) Process Scheduling</a>        <ul>
           <li><a href="#schedulers" id="markdown-toc-schedulers">Schedulers</a></li>
           <li><a href="#processes" id="markdown-toc-processes">Processes</a></li>
         </ul>
       </li>
-      <li><a href="#process-creation" id="markdown-toc-process-creation">(七) Process Creation</a></li>
+      <li><a href="#七-process-creation" id="markdown-toc-七-process-creation">(七) Process Creation</a></li>
     </ul>
   </li>
-  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
-      <li><a href="#unix-system-call" id="markdown-toc-unix-system-call">(一) Unix system call</a>        <ul>
-          <li><a href="#execv" id="markdown-toc-execv">1. execv()</a></li>
+  <li><a href="#二linux-程式設計" id="markdown-toc-二linux-程式設計">二、Linux 程式設計</a>    <ul>
+      <li><a href="#一-unix-system-call" id="markdown-toc-一-unix-system-call">(一) Unix system call</a>        <ul>
+          <li><a href="#1-execv" id="markdown-toc-1-execv">1. execv()</a></li>
         </ul>
       </li>
-      <li><a href="#signals" id="markdown-toc-signals">(二) Signals</a>        <ul>
-          <li><a href="#unix-process-control" id="markdown-toc-unix-process-control">1. UNIX Process Control</a></li>
-          <li><a href="#kill-command" id="markdown-toc-kill-command">2. kill Command</a></li>
-          <li><a href="#function-call" id="markdown-toc-function-call">3. Function Call</a></li>
-          <li><a href="#linux-signal" id="markdown-toc-linux-signal">4. Linux Signal</a></li>
-          <li><a href="#signalh" id="markdown-toc-signalh">5. 訊號處理 - signal.h</a>            <ul>
-              <li><a href="#signal" id="markdown-toc-signal">(1) signal()</a></li>
-              <li><a href="#sigaction" id="markdown-toc-sigaction">(2) sigaction()</a></li>
+      <li><a href="#二-signals" id="markdown-toc-二-signals">(二) Signals</a>        <ul>
+          <li><a href="#1-unix-process-control" id="markdown-toc-1-unix-process-control">1. UNIX Process Control</a></li>
+          <li><a href="#2-kill-command" id="markdown-toc-2-kill-command">2. kill Command</a></li>
+          <li><a href="#3-function-call" id="markdown-toc-3-function-call">3. Function Call</a></li>
+          <li><a href="#4-linux-signal" id="markdown-toc-4-linux-signal">4. Linux Signal</a></li>
+          <li><a href="#5-訊號處理---signalh" id="markdown-toc-5-訊號處理---signalh">5. 訊號處理 - signal.h</a>            <ul>
+              <li><a href="#1-signal" id="markdown-toc-1-signal">(1) signal()</a></li>
+              <li><a href="#2-sigaction" id="markdown-toc-2-sigaction">(2) sigaction()</a></li>
             </ul>
           </li>
         </ul>
@@ -236,15 +236,15 @@
   </li>
 </ul>
 
-<h2 id="section">一、作業系統</h2>
+<h2 id="一作業系統">一、作業系統</h2>
 <ul>
   <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170309/ch03.pdf">課程簡報 - Ch3：Process Concept</a></li>
 </ul>
 
-<h3 id="process-in-memory">(一) Process in Memory</h3>
+<h3 id="一-process-in-memory">(一) Process in Memory</h3>
 <p><img src="https://i.imgur.com/I9HnU1O.jpg" alt="" /></p>
 
-<h3 id="process-state">(二) Process State</h3>
+<h3 id="二-process-state">(二) Process State</h3>
 <p><img src="https://i.imgur.com/mFSgwiJ.jpg" alt="" /></p>
 <ul>
   <li><strong>new</strong>: The process is being created.</li>
@@ -254,13 +254,13 @@
   <li><strong>terminated</strong>: The process has finished execution.</li>
 </ul>
 
-<h3 id="process-control-block-pcb">(三) Process Control Block (PCB)</h3>
+<h3 id="三-process-control-block-pcb">(三) Process Control Block (PCB)</h3>
 <p><img src="https://i.imgur.com/fOf7e2Q.jpg" alt="" /></p>
 
-<h3 id="process-switch">(四) Process Switch</h3>
+<h3 id="四-process-switch">(四) Process Switch</h3>
 <p><img src="https://i.imgur.com/Bto5DiZ.jpg" alt="" /></p>
 
-<h3 id="processthread">(五) Process、Thread</h3>
+<h3 id="五-processthread">(五) Process、Thread</h3>
 <ul>
   <li>參考資料
     <ul>
@@ -271,7 +271,7 @@
   </li>
 </ul>
 
-<h3 id="process-scheduling">(六) Process Scheduling</h3>
+<h3 id="六-process-scheduling">(六) Process Scheduling</h3>
 <ul>
   <li>Process scheduler selects among available processes for next execution on CPU.</li>
   <li>Maintains scheduling queues of processes.
@@ -323,7 +323,7 @@ bursts.
 
 <p><img src="https://i.imgur.com/Xnhn0Sa.jpg" alt="" /></p>
 
-<h3 id="process-creation">(七) Process Creation</h3>
+<h3 id="七-process-creation">(七) Process Creation</h3>
 <p><img src="https://i.imgur.com/MDkGD81.jpg" alt="" /></p>
 <ul>
   <li>UNIX examples
@@ -340,7 +340,7 @@ bursts.
   <li>課程作業</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 </span>
@@ -372,22 +372,22 @@ bursts.
 
 <p><img src="https://i.imgur.com/CfTMr9N.jpg" alt="" /></p>
 
-<h2 id="linux-">二、Linux 程式設計</h2>
+<h2 id="二linux-程式設計">二、Linux 程式設計</h2>
 
 <ul>
   <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Creating_and_Executing_Processes.pdf">課程簡報 - Creating and Executing Processes</a></li>
   <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf">課程簡報 - Signal</a></li>
 </ul>
 
-<h3 id="unix-system-call">(一) Unix system call</h3>
+<h3 id="一-unix-system-call">(一) Unix system call</h3>
 
-<h4 id="execv">1. execv()</h4>
+<h4 id="1-execv">1. execv()</h4>
 
 <ul>
   <li>課堂練習： <code class="highlighter-rouge">execv()</code> 的概念</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 </span>
 <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"-1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
@@ -412,12 +412,12 @@ bursts.
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="signals">(二) Signals</h3>
+<h3 id="二-signals">(二) Signals</h3>
 
-<h4 id="unix-process-control">1. UNIX Process Control</h4>
+<h4 id="1-unix-process-control">1. UNIX Process Control</h4>
 <p><img src="https://i.imgur.com/kFzherv.jpg" alt="" /></p>
 
-<h4 id="kill-command">2. kill Command</h4>
+<h4 id="2-kill-command">2. kill Command</h4>
 <blockquote>
   <p>kill -signal pid</p>
 </blockquote>
@@ -435,12 +435,12 @@ bursts.
   </li>
 </ul>
 
-<h4 id="function-call">3. Function Call</h4>
+<h4 id="3-function-call">3. Function Call</h4>
 <ul>
   <li>raise()</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">raise</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">);</span> <span class="cm">/* Process commits suicide. */</span>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">raise</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">);</span> <span class="cm">/* Process commits suicide. */</span>
 <span class="n">assert</span><span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>	<span class="cm">/* Shouldn't get here. */</span>
 </code></pre></div>
 
@@ -452,11 +452,11 @@ bursts.
   <p>int kill(pid_t iPid, int iSig);</p>
 </blockquote>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="n">pid_t</span> <span class="n">iPid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span> <span class="cm">/* Process gets its id.*/</span>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">pid_t</span> <span class="n">iPid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span> <span class="cm">/* Process gets its id.*/</span>
 <span class="n">kill</span><span class="p">(</span><span class="n">iPid</span><span class="p">,</span> <span class="n">SIGINT</span><span class="p">);</span>	<span class="cm">/* Process sends itself a SIGINT signal (commits suicide?) */</span>
 </code></pre></div>
 
-<h4 id="linux-signal">4. Linux Signal</h4>
+<h4 id="4-linux-signal">4. Linux Signal</h4>
 <ul>
   <li><a href="http://www.comptechdoc.org/os/linux/programming/linux_pgsignals.html">Linux Signal 種類</a>
     <ul>
@@ -482,7 +482,7 @@ bursts.
   </li>
 </ul>
 
-<h4 id="signalh">5. 訊號處理 - signal.h</h4>
+<h4 id="5-訊號處理---signalh">5. 訊號處理 - signal.h</h4>
 <ul>
   <li>意義說明
     <ul>
@@ -496,8 +496,8 @@ bursts.
   </li>
 </ul>
 
-<h5 id="signal">(1) signal()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;signal.h&gt;
+<h5 id="1-signal">(1) signal()</h5>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
 </span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))(</span><span class="kt">int</span><span class="p">);</span>
 </code></pre></div>
 
@@ -505,7 +505,7 @@ bursts.
   <li>攔截 Ctrl-C 訊號</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 </span>
@@ -524,8 +524,8 @@ bursts.
 <span class="p">}</span>
 </code></pre></div>
 
-<h5 id="sigaction">(2) sigaction()</h5>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;signal.h&gt;
+<h5 id="2-sigaction">(2) sigaction()</h5>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
 </span><span class="kt">int</span> <span class="n">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">act</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">oact</span><span class="p">);</span>
 </code></pre></div>
 <ul>
@@ -544,7 +544,7 @@ bursts.
 <img src="https://i.imgur.com/1Zbog12.jpg" alt="" /></li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;signal.h&gt;
 </span>
@@ -654,7 +654,7 @@ bursts.
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)
+                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
                             
                             </a>
                         </li>
@@ -698,7 +698,7 @@ bursts.
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)
+                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
                             
                             </a>
                         </li>

@@ -201,35 +201,35 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#deadlock-detection" id="markdown-toc-deadlock-detection">(一) Deadlock Detection</a></li>
-      <li><a href="#detection-algorithm" id="markdown-toc-detection-algorithm">(二) Detection Algorithm</a></li>
-      <li><a href="#recovery-from-deadlock" id="markdown-toc-recovery-from-deadlock">(三) Recovery from Deadlock</a>        <ul>
-          <li><a href="#process-termination" id="markdown-toc-process-termination">1. Process Termination</a></li>
-          <li><a href="#resource-preemption" id="markdown-toc-resource-preemption">2. Resource Preemption</a></li>
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-deadlock-detection" id="markdown-toc-一-deadlock-detection">(一) Deadlock Detection</a></li>
+      <li><a href="#二-detection-algorithm" id="markdown-toc-二-detection-algorithm">(二) Detection Algorithm</a></li>
+      <li><a href="#三-recovery-from-deadlock" id="markdown-toc-三-recovery-from-deadlock">(三) Recovery from Deadlock</a>        <ul>
+          <li><a href="#1-process-termination" id="markdown-toc-1-process-termination">1. Process Termination</a></li>
+          <li><a href="#2-resource-preemption" id="markdown-toc-2-resource-preemption">2. Resource Preemption</a></li>
         </ul>
       </li>
-      <li><a href="#memory-management" id="markdown-toc-memory-management">(四) Memory-Management</a></li>
+      <li><a href="#四-memory-management" id="markdown-toc-四-memory-management">(四) Memory-Management</a></li>
     </ul>
   </li>
-  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
-      <li><a href="#function" id="markdown-toc-function">(一) 函數 (Function)</a></li>
-      <li><a href="#command" id="markdown-toc-command">(二) 命令 (command)</a>        <ul>
+  <li><a href="#二linux-程式設計" id="markdown-toc-二linux-程式設計">二、Linux 程式設計</a>    <ul>
+      <li><a href="#一-函數-function" id="markdown-toc-一-函數-function">(一) 函數 (Function)</a></li>
+      <li><a href="#二-命令-command" id="markdown-toc-二-命令-command">(二) 命令 (command)</a>        <ul>
           <li><a href="#example-1" id="markdown-toc-example-1">Example 1</a></li>
           <li><a href="#example-2" id="markdown-toc-example-2">Example 2</a></li>
-          <li><a href="#section-1" id="markdown-toc-section-1">其他命令</a></li>
+          <li><a href="#其他命令" id="markdown-toc-其他命令">其他命令</a></li>
         </ul>
       </li>
-      <li><a href="#command---find" id="markdown-toc-command---find">(三) 命令 (command) - find</a></li>
-      <li><a href="#command---grep" id="markdown-toc-command---grep">(四) 命令 (command) - grep</a>        <ul>
-          <li><a href="#section-2" id="markdown-toc-section-2">正規表示式</a></li>
+      <li><a href="#三-命令-command---find" id="markdown-toc-三-命令-command---find">(三) 命令 (command) - find</a></li>
+      <li><a href="#四-命令-command---grep" id="markdown-toc-四-命令-command---grep">(四) 命令 (command) - grep</a>        <ul>
+          <li><a href="#正規表示式" id="markdown-toc-正規表示式">正規表示式</a></li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
 
-<h2 id="section">一、作業系統</h2>
+<h2 id="一作業系統">一、作業系統</h2>
 <ul>
   <li>課堂講義
     <ul>
@@ -244,14 +244,14 @@
   </li>
 </ul>
 
-<h3 id="deadlock-detection">(一) Deadlock Detection</h3>
+<h3 id="一-deadlock-detection">(一) Deadlock Detection</h3>
 <ul>
   <li>Allow system to enter deadlock state</li>
   <li>Detection algorithm</li>
   <li>Recovery scheme</li>
 </ul>
 
-<h3 id="detection-algorithm">(二) Detection Algorithm</h3>
+<h3 id="二-detection-algorithm">(二) Detection Algorithm</h3>
 <p><img src="https://i.imgur.com/LRO7qdP.png" alt="" />
 <img src="https://i.imgur.com/ZG7BUjD.png" alt="" /></p>
 
@@ -280,8 +280,8 @@
   </li>
 </ul>
 
-<h3 id="recovery-from-deadlock">(三) Recovery from Deadlock</h3>
-<h4 id="process-termination">1. Process Termination</h4>
+<h3 id="三-recovery-from-deadlock">(三) Recovery from Deadlock</h3>
+<h4 id="1-process-termination">1. Process Termination</h4>
 <ul>
   <li>Abort all deadlocked processes</li>
   <li>Abort one process at a time until the deadlock cycle is eliminated</li>
@@ -297,14 +297,14 @@
   </li>
 </ul>
 
-<h4 id="resource-preemption">2. Resource Preemption</h4>
+<h4 id="2-resource-preemption">2. Resource Preemption</h4>
 <ul>
   <li><strong>Selecting a victim</strong> - minimize cost</li>
   <li><strong>Rollback</strong> - return to some safe state, restart process for that state</li>
   <li><strong>Starvation</strong> - same process may always be picked as victim, include number of rollback in cost factor</li>
 </ul>
 
-<h3 id="memory-management">(四) Memory-Management</h3>
+<h3 id="四-memory-management">(四) Memory-Management</h3>
 <ul>
   <li>Program must be brought (from disk) into memory and placed within a process for it to be run</li>
   <li>Main memory and registers are only storage CPU can access directly</li>
@@ -443,7 +443,7 @@
 
 <p><img src="https://i.imgur.com/hptlmlg.png" alt="" /></p>
 
-<h2 id="linux-">二、Linux 程式設計</h2>
+<h2 id="二linux-程式設計">二、Linux 程式設計</h2>
 <ul>
   <li>課程簡報
     <ul>
@@ -458,8 +458,8 @@
   </li>
 </ul>
 
-<h3 id="function">(一) 函數 (Function)</h3>
-<div class="language-shell highlighter-rouge"><pre class="codehilite"><code><span class="c">#!/bin/sh</span>
+<h3 id="一-函數-function">(一) 函數 (Function)</h3>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 
 foo<span class="o">()</span> <span class="o">{</span>
     <span class="nb">echo</span> <span class="s2">"Function foo is excuting"</span>
@@ -475,9 +475,9 @@ foo
 <img src="https://i.imgur.com/WPrf3XF.png" alt="" /></li>
 </ul>
 
-<h3 id="command">(二) 命令 (command)</h3>
+<h3 id="二-命令-command">(二) 命令 (command)</h3>
 <h5 id="example-1">Example 1</h5>
-<div class="language-shell highlighter-rouge"><pre class="codehilite"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 
 <span class="k">for </span>x <span class="k">in </span>1 2 3
 <span class="k">do 
@@ -493,7 +493,7 @@ foo
 </ul>
 
 <h5 id="example-2">Example 2</h5>
-<div class="language-shell highlighter-rouge"><pre class="codehilite"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 
 <span class="k">for </span>x <span class="k">in </span>1 2 3
 <span class="k">do 
@@ -508,7 +508,7 @@ foo
 <img src="https://i.imgur.com/DVLkGCC.png" alt="" /></li>
 </ul>
 
-<h4 id="section-1">其他命令</h4>
+<h4 id="其他命令">其他命令</h4>
 <ul>
   <li>exit</li>
   <li>export</li>
@@ -519,8 +519,8 @@ foo
   <li>shift</li>
 </ul>
 
-<h3 id="command---find">(三) 命令 (command) - find</h3>
-<div class="highlighter-rouge"><pre class="codehilite"><code>-atime N           檔案最後存取時間是 N 天以前
+<h3 id="三-命令-command---find">(三) 命令 (command) - find</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>-atime N           檔案最後存取時間是 N 天以前
 -mtime N           檔案最後修改時間是 N 天以前
 -newer otherfle    檔案比 otherfle 還要新
 -name pattern      搜尋 pattern 名稱的檔案
@@ -533,8 +533,8 @@ foo
 find . -newer test -print</p>
 </blockquote>
 
-<h3 id="command---grep">(四) 命令 (command) - grep</h3>
-<div class="highlighter-rouge"><pre class="codehilite"><code>-c    不印出吻合的那一行,只印出吻合的數量
+<h3 id="四-命令-command---grep">(四) 命令 (command) - grep</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>-c    不印出吻合的那一行,只印出吻合的數量
 -E    開啟延伸表示式
 -h    輸出的結果不顯示檔案名稱
 -I    忽略大小寫
@@ -547,7 +547,7 @@ find . -newer test -print</p>
 grep -c in word.txt word2.txt</p>
 </blockquote>
 
-<h4 id="section-2">正規表示式</h4>
+<h4 id="正規表示式">正規表示式</h4>
 <p><img src="https://i.imgur.com/ZL5A5xf.png" alt="" />
 <img src="https://i.imgur.com/rLplSSh.png" alt="" /></p>
 
@@ -627,7 +627,7 @@ grep -c in word.txt word2.txt</p>
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)
+                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
                             
                             </a>
                         </li>
@@ -671,7 +671,7 @@ grep -c in word.txt word2.txt</p>
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)
+                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
                             
                             </a>
                         </li>

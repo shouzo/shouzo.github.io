@@ -201,41 +201,41 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#direct-communication" id="markdown-toc-direct-communication">(一) Direct Communication</a></li>
-      <li><a href="#indirect-communication" id="markdown-toc-indirect-communication">(二) Indirect Communication</a></li>
-      <li><a href="#synchronization" id="markdown-toc-synchronization">(三) Synchronization</a></li>
-      <li><a href="#buffering" id="markdown-toc-buffering">(四) Buffering</a></li>
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-direct-communication" id="markdown-toc-一-direct-communication">(一) Direct Communication</a></li>
+      <li><a href="#二-indirect-communication" id="markdown-toc-二-indirect-communication">(二) Indirect Communication</a></li>
+      <li><a href="#三-synchronization" id="markdown-toc-三-synchronization">(三) Synchronization</a></li>
+      <li><a href="#四-buffering" id="markdown-toc-四-buffering">(四) Buffering</a></li>
       <li><a href="#examples-of-ipc-systems" id="markdown-toc-examples-of-ipc-systems">Examples of IPC Systems</a>        <ul>
-          <li><a href="#posix" id="markdown-toc-posix">1. POSIX</a></li>
-          <li><a href="#mach" id="markdown-toc-mach">2. Mach</a></li>
-          <li><a href="#windows" id="markdown-toc-windows">3. Windows</a></li>
+          <li><a href="#1-posix" id="markdown-toc-1-posix">1. POSIX</a></li>
+          <li><a href="#2-mach" id="markdown-toc-2-mach">2. Mach</a></li>
+          <li><a href="#3-windows" id="markdown-toc-3-windows">3. Windows</a></li>
         </ul>
       </li>
-      <li><a href="#communications-in-client-server-systems" id="markdown-toc-communications-in-client-server-systems">(五) Communications in Client-Server Systems</a>        <ul>
-          <li><a href="#sockets" id="markdown-toc-sockets">1. Sockets</a></li>
-          <li><a href="#remote-procedure-calls" id="markdown-toc-remote-procedure-calls">2. Remote Procedure Calls</a></li>
-          <li><a href="#pipes" id="markdown-toc-pipes">3. Pipes</a></li>
+      <li><a href="#五-communications-in-client-server-systems" id="markdown-toc-五-communications-in-client-server-systems">(五) Communications in Client-Server Systems</a>        <ul>
+          <li><a href="#1-sockets" id="markdown-toc-1-sockets">1. Sockets</a></li>
+          <li><a href="#2-remote-procedure-calls" id="markdown-toc-2-remote-procedure-calls">2. Remote Procedure Calls</a></li>
+          <li><a href="#3-pipes" id="markdown-toc-3-pipes">3. Pipes</a></li>
         </ul>
       </li>
-      <li><a href="#section-1" id="markdown-toc-section-1">課堂作業</a></li>
+      <li><a href="#課堂作業" id="markdown-toc-課堂作業">課堂作業</a></li>
     </ul>
   </li>
-  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
-      <li><a href="#shared-memory-concept" id="markdown-toc-shared-memory-concept">(一) Shared Memory Concept</a></li>
-      <li><a href="#shared-memory-function" id="markdown-toc-shared-memory-function">(二) Shared Memory Function</a>        <ul>
+  <li><a href="#二linux-程式設計" id="markdown-toc-二linux-程式設計">二、Linux 程式設計</a>    <ul>
+      <li><a href="#一-shared-memory-concept" id="markdown-toc-一-shared-memory-concept">(一) Shared Memory Concept</a></li>
+      <li><a href="#二-shared-memory-function" id="markdown-toc-二-shared-memory-function">(二) Shared Memory Function</a>        <ul>
           <li><a href="#shmget" id="markdown-toc-shmget">shmget()</a></li>
           <li><a href="#shmat" id="markdown-toc-shmat">*shmat()</a></li>
           <li><a href="#shmdt" id="markdown-toc-shmdt">shmdt()</a></li>
           <li><a href="#shmctl" id="markdown-toc-shmctl">shmctl()</a></li>
         </ul>
       </li>
-      <li><a href="#section-2" id="markdown-toc-section-2">課堂作業</a></li>
+      <li><a href="#課堂作業-1" id="markdown-toc-課堂作業-1">課堂作業</a></li>
     </ul>
   </li>
 </ul>
 
-<h2 id="section">一、作業系統</h2>
+<h2 id="一作業系統">一、作業系統</h2>
 <ul>
   <li>課程簡報
     <ul>
@@ -244,7 +244,7 @@
   </li>
 </ul>
 
-<h3 id="direct-communication">(一) Direct Communication</h3>
+<h3 id="一-direct-communication">(一) Direct Communication</h3>
 <ul>
   <li>Processes must name each other explicitly：
     <ul>
@@ -262,7 +262,7 @@
   </li>
 </ul>
 
-<h3 id="indirect-communication">(二) Indirect Communication</h3>
+<h3 id="二-indirect-communication">(二) Indirect Communication</h3>
 <ul>
   <li>Messages are directed and received from mailboxes (also referred to as ports)
     <ul>
@@ -310,7 +310,7 @@
   </li>
 </ul>
 
-<h3 id="synchronization">(三) Synchronization</h3>
+<h3 id="三-synchronization">(三) Synchronization</h3>
 <ul>
   <li>
     <p>Message passing may be either blocking or non-blocking</p>
@@ -335,7 +335,7 @@
   <li>Producer-consumer becomes trivial</li>
 </ul>
 
-<h3 id="buffering">(四) Buffering</h3>
+<h3 id="四-buffering">(四) Buffering</h3>
 <ul>
   <li>Queue of messages attached to the link; implemented in one of three ways
     <ol>
@@ -351,7 +351,7 @@
 
 <h3 id="examples-of-ipc-systems">Examples of IPC Systems</h3>
 
-<h4 id="posix">1. POSIX</h4>
+<h4 id="1-posix">1. POSIX</h4>
 <ul>
   <li>POSIX Shared Memory
     <ul>
@@ -363,7 +363,7 @@
   </li>
 </ul>
 
-<h4 id="mach">2. Mach</h4>
+<h4 id="2-mach">2. Mach</h4>
 <ul>
   <li>Mach communication is message based
     <ul>
@@ -383,7 +383,7 @@
   </li>
 </ul>
 
-<h4 id="windows">3. Windows</h4>
+<h4 id="3-windows">3. Windows</h4>
 <ul>
   <li>Message-passing centric via <code class="highlighter-rouge">advanced local procedure call (LPC)</code> facility
     <ul>
@@ -401,9 +401,9 @@
   </li>
 </ul>
 
-<h3 id="communications-in-client-server-systems">(五) Communications in Client-Server Systems</h3>
+<h3 id="五-communications-in-client-server-systems">(五) Communications in Client-Server Systems</h3>
 
-<h4 id="sockets">1. Sockets</h4>
+<h4 id="1-sockets">1. Sockets</h4>
 <ul>
   <li>A socket is defined as an endpoint for communication</li>
   <li>Concatenation of <code class="highlighter-rouge">IP address</code> and <code class="highlighter-rouge">port</code> – a number included at start of message packet to differentiate network services on a host
@@ -416,7 +416,7 @@
   <li>Special IP address <code class="highlighter-rouge">127.0.0.1 (loopback)</code> to refer to system on which process is running</li>
 </ul>
 
-<h4 id="remote-procedure-calls">2. Remote Procedure Calls</h4>
+<h4 id="2-remote-procedure-calls">2. Remote Procedure Calls</h4>
 <ul>
   <li>Remote procedure call (RPC) abstracts procedure calls between processes on networked systems
     <ul>
@@ -442,7 +442,7 @@
 
 <p><img src="https://i.imgur.com/fvjj3rR.jpg" alt="" /></p>
 
-<h4 id="pipes">3. Pipes</h4>
+<h4 id="3-pipes">3. Pipes</h4>
 <ul>
   <li>Acts as a conduit allowing two processes to communicate</li>
   <li><strong>Issues</strong>
@@ -458,12 +458,12 @@
 <p><img src="https://i.imgur.com/W3b5HkN.jpg" alt="" />
 <img src="https://i.imgur.com/c18pKq0.jpg" alt="" /></p>
 
-<h3 id="section-1">課堂作業</h3>
+<h3 id="課堂作業">課堂作業</h3>
 <ul>
   <li><code class="highlighter-rouge">client</code> 部份</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
@@ -540,7 +540,7 @@
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
  (the size of our shared memory structure) is created with a call to shmget,
@@ -626,7 +626,7 @@
 <img src="https://i.imgur.com/rPMcs2j.jpg" alt="" /></li>
 </ul>
 
-<h2 id="linux-">二、Linux 程式設計</h2>
+<h2 id="二linux-程式設計">二、Linux 程式設計</h2>
 <ul>
   <li>課程簡報
     <ul>
@@ -635,14 +635,14 @@
   </li>
 </ul>
 
-<h3 id="shared-memory-concept">(一) Shared Memory Concept</h3>
+<h3 id="一-shared-memory-concept">(一) Shared Memory Concept</h3>
 <ul>
   <li>共享記憶體是由 IPC 為一程序所建立的特殊記憶體位址，其他的程序可以將此相同的 shared memory 區段納入自己的位址空間中，所有的程序皆可存取這些記憶體位址，就像是由自己定址一樣。
 <img src="https://i.imgur.com/ctobLbA.jpg" alt="" /></li>
 </ul>
 
-<h3 id="shared-memory-function">(二) Shared Memory Function</h3>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;sys/sem.h&gt;
+<h3 id="二-shared-memory-function">(二) Shared Memory Function</h3>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;sys/sem.h&gt;
 #include &lt;sys/type.h&gt;
 #include &lt;sys/ipc.h&gt;
 </span>
@@ -664,7 +664,7 @@
 </span></code></pre></div>
 
 <h4 id="shmget">shmget()</h4>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
 </code></pre></div>
 <ul>
   <li>key: 用來為 shared memory 命名。</li>
@@ -673,7 +673,7 @@
 </ul>
 
 <h4 id="shmat">*shmat()</h4>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">void</span> <span class="o">*</span><span class="n">shmat</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="o">*</span><span class="n">shmat</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
 </code></pre></div>
 <ul>
   <li>shm_id: Shared memory id.</li>
@@ -682,14 +682,14 @@
 </ul>
 
 <h4 id="shmdt">shmdt()</h4>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">shmdt</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmdt</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">);</span>
 </code></pre></div>
 <ul>
   <li>shm_addr: shmat 傳回的位址。</li>
 </ul>
 
 <h4 id="shmctl">shmctl()</h4>
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="kt">int</span> <span class="n">shmctl</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmctl</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
 </code></pre></div>
 <ul>
   <li>shm_id: Shared memory id.</li>
@@ -697,19 +697,19 @@
   <li>struct shmid_ds:</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="k">struct</span> <span class="n">shmid_ds</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">shmid_ds</span> <span class="p">{</span>
     <span class="n">uid_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">uid</span><span class="p">;</span>
     <span class="n">uid_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">gid</span><span class="p">;</span>
     <span class="n">mode_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">mode</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="section-2">課堂作業</h3>
+<h3 id="課堂作業-1">課堂作業</h3>
 <ul>
   <li><code class="highlighter-rouge">client</code> 部份</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
@@ -807,7 +807,7 @@
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
  (the size of our shared memory structure) is created with a call to shmget,
@@ -988,7 +988,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)
+                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
                             
                             </a>
                         </li>
@@ -1032,7 +1032,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)
+                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
                             
                             </a>
                         </li>

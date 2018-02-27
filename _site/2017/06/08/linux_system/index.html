@@ -201,34 +201,34 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
-      <li><a href="#background" id="markdown-toc-background">(一) Background</a></li>
-      <li><a href="#virtual-address-space" id="markdown-toc-virtual-address-space">(二) Virtual Address Space</a></li>
-      <li><a href="#demand-paging" id="markdown-toc-demand-paging">(三) Demand Paging</a>        <ul>
-          <li><a href="#valid-invalid-bit" id="markdown-toc-valid-invalid-bit">1. Valid-Invalid Bit</a></li>
-          <li><a href="#example" id="markdown-toc-example">2. Example</a></li>
-          <li><a href="#optimizations" id="markdown-toc-optimizations">3. Optimizations</a></li>
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-background" id="markdown-toc-一-background">(一) Background</a></li>
+      <li><a href="#二-virtual-address-space" id="markdown-toc-二-virtual-address-space">(二) Virtual Address Space</a></li>
+      <li><a href="#三-demand-paging" id="markdown-toc-三-demand-paging">(三) Demand Paging</a>        <ul>
+          <li><a href="#1-valid-invalid-bit" id="markdown-toc-1-valid-invalid-bit">1. Valid-Invalid Bit</a></li>
+          <li><a href="#2-example" id="markdown-toc-2-example">2. Example</a></li>
+          <li><a href="#3-optimizations" id="markdown-toc-3-optimizations">3. Optimizations</a></li>
         </ul>
       </li>
-      <li><a href="#page-fault" id="markdown-toc-page-fault">(四) Page Fault</a>        <ul>
-          <li><a href="#aspects-of-demand-paging" id="markdown-toc-aspects-of-demand-paging">1. Aspects of Demand Paging</a></li>
-          <li><a href="#instruction-restart" id="markdown-toc-instruction-restart">2. Instruction Restart</a>            <ul>
+      <li><a href="#四-page-fault" id="markdown-toc-四-page-fault">(四) Page Fault</a>        <ul>
+          <li><a href="#1-aspects-of-demand-paging" id="markdown-toc-1-aspects-of-demand-paging">1. Aspects of Demand Paging</a></li>
+          <li><a href="#2-instruction-restart" id="markdown-toc-2-instruction-restart">2. Instruction Restart</a>            <ul>
               <li><a href="#performance-of-demand-paging" id="markdown-toc-performance-of-demand-paging">Performance of Demand Paging</a></li>
             </ul>
           </li>
         </ul>
       </li>
-      <li><a href="#copy-on-write" id="markdown-toc-copy-on-write">(五) Copy-on-Write</a></li>
-      <li><a href="#page-replacement" id="markdown-toc-page-replacement">(六) Page Replacement</a>        <ul>
-          <li><a href="#what-happens-if-there-is-no-free-frame" id="markdown-toc-what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</a></li>
-          <li><a href="#basic-page-replacement" id="markdown-toc-basic-page-replacement">2. Basic Page Replacement</a></li>
-          <li><a href="#page-and-frame-replacement-algorithms" id="markdown-toc-page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</a>            <ul>
-              <li><a href="#first-in-first-out-fifo-algorithm" id="markdown-toc-first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</a></li>
-              <li><a href="#optimal-algorithm" id="markdown-toc-optimal-algorithm">(2) Optimal Algorithm</a></li>
-              <li><a href="#least-recently-used-lru-algorithm" id="markdown-toc-least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</a></li>
-              <li><a href="#lru-approximation-algorithms" id="markdown-toc-lru-approximation-algorithms">(4) LRU Approximation Algorithms</a></li>
-              <li><a href="#counting-algorithms" id="markdown-toc-counting-algorithms">(5) Counting Algorithms</a></li>
-              <li><a href="#page-buffering-algorithms" id="markdown-toc-page-buffering-algorithms">(6) Page-Buffering Algorithms</a></li>
+      <li><a href="#五-copy-on-write" id="markdown-toc-五-copy-on-write">(五) Copy-on-Write</a></li>
+      <li><a href="#六-page-replacement" id="markdown-toc-六-page-replacement">(六) Page Replacement</a>        <ul>
+          <li><a href="#1-what-happens-if-there-is-no-free-frame" id="markdown-toc-1-what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</a></li>
+          <li><a href="#2-basic-page-replacement" id="markdown-toc-2-basic-page-replacement">2. Basic Page Replacement</a></li>
+          <li><a href="#3-page-and-frame-replacement-algorithms" id="markdown-toc-3-page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</a>            <ul>
+              <li><a href="#1-first-in-first-out-fifo-algorithm" id="markdown-toc-1-first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</a></li>
+              <li><a href="#2-optimal-algorithm" id="markdown-toc-2-optimal-algorithm">(2) Optimal Algorithm</a></li>
+              <li><a href="#3-least-recently-used-lru-algorithm" id="markdown-toc-3-least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</a></li>
+              <li><a href="#4-lru-approximation-algorithms" id="markdown-toc-4-lru-approximation-algorithms">(4) LRU Approximation Algorithms</a></li>
+              <li><a href="#5-counting-algorithms" id="markdown-toc-5-counting-algorithms">(5) Counting Algorithms</a></li>
+              <li><a href="#6-page-buffering-algorithms" id="markdown-toc-6-page-buffering-algorithms">(6) Page-Buffering Algorithms</a></li>
             </ul>
           </li>
         </ul>
@@ -237,7 +237,7 @@
   </li>
 </ul>
 
-<h2 id="section">一、作業系統</h2>
+<h2 id="一作業系統">一、作業系統</h2>
 <ul>
   <li>課堂講義
     <ul>
@@ -246,7 +246,7 @@
   </li>
 </ul>
 
-<h3 id="background">(一) Background</h3>
+<h3 id="一-background">(一) Background</h3>
 <ul>
   <li>Code needs to be in memory to execute, but entire program rarely used
     <ul>
@@ -278,7 +278,7 @@
   </li>
 </ul>
 
-<h3 id="virtual-address-space">(二) Virtual Address Space</h3>
+<h3 id="二-virtual-address-space">(二) Virtual Address Space</h3>
 <p><img src="http://i.imgur.com/DkDhsAx.jpg" alt="" /></p>
 
 <ul>
@@ -290,7 +290,7 @@
 
 <p><img src="http://i.imgur.com/3jsjqeH.png" alt="" /></p>
 
-<h3 id="demand-paging">(三) Demand Paging</h3>
+<h3 id="三-demand-paging">(三) Demand Paging</h3>
 <ul>
   <li>Could bring entire process into memory at load time</li>
   <li>Or bring a page into memory only when it is needed
@@ -316,7 +316,7 @@
 
 <p><img src="https://i.imgur.com/aLRTern.png" alt="" /></p>
 
-<h4 id="valid-invalid-bit">1. Valid-Invalid Bit</h4>
+<h4 id="1-valid-invalid-bit">1. Valid-Invalid Bit</h4>
 <ul>
   <li>With each page table entry a valid–invalid bit is associated (<strong>v</strong> » in-memory – <strong>memory resident</strong>, <strong>i</strong> » not-in-memory)</li>
   <li>Initially valid–invalid bit is set to <strong>i</strong> on all entries</li>
@@ -324,7 +324,7 @@
 
 <p><img src="https://i.imgur.com/0Fk929T.jpg" alt="" /></p>
 
-<h4 id="example">2. Example</h4>
+<h4 id="2-example">2. Example</h4>
 <ul>
   <li>Memory access time = 200 nanoseconds</li>
   <li>Average page-fault service time = 8 milliseconds
@@ -344,7 +344,7 @@
   </li>
 </ul>
 
-<h4 id="optimizations">3. Optimizations</h4>
+<h4 id="3-optimizations">3. Optimizations</h4>
 <ul>
   <li>Copy entire process image to swap space at process load time
     <ul>
@@ -359,7 +359,7 @@
   </li>
 </ul>
 
-<h3 id="page-fault">(四) Page Fault</h3>
+<h3 id="四-page-fault">(四) Page Fault</h3>
 <ul>
   <li>If there is a reference to a page, first reference to that page will trap to operating system
     <ul>
@@ -380,7 +380,7 @@
 
 <p><img src="https://i.imgur.com/98V6oNY.png" alt="" /></p>
 
-<h4 id="aspects-of-demand-paging">1. Aspects of Demand Paging</h4>
+<h4 id="1-aspects-of-demand-paging">1. Aspects of Demand Paging</h4>
 <ul>
   <li>Extreme case – start process with no pages in memory
     <ul>
@@ -403,7 +403,7 @@
   </li>
 </ul>
 
-<h4 id="instruction-restart">2. Instruction Restart</h4>
+<h4 id="2-instruction-restart">2. Instruction Restart</h4>
 <ul>
   <li>Consider an instruction that could access several different locations
     <ul>
@@ -445,7 +445,7 @@
 
 <p><img src="https://i.imgur.com/HA817pb.png" alt="" /></p>
 
-<h3 id="copy-on-write">(五) Copy-on-Write</h3>
+<h3 id="五-copy-on-write">(五) Copy-on-Write</h3>
 <ul>
   <li><strong>Copy-on-Write</strong> (COW) allows both parent and child processes to initially share the same pages in memory
     <ul>
@@ -468,14 +468,14 @@
 
 <p><img src="http://i.imgur.com/LABMPPo.jpg" alt="" /></p>
 
-<h3 id="page-replacement">(六) Page Replacement</h3>
+<h3 id="六-page-replacement">(六) Page Replacement</h3>
 <ul>
   <li>Prevent over-allocation of memory by modifying page-fault service routine to include page replacement</li>
   <li>Use <strong>modify (dirty) bit</strong> to reduce overhead of page transfers – only modified pages are written to disk</li>
   <li>Page replacement completes separation between logical memory and physical memory – large virtual memory can be provided on a smaller physical memory</li>
 </ul>
 
-<h4 id="what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</h4>
+<h4 id="1-what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</h4>
 <ul>
   <li>Used up by process pages</li>
   <li>Also in demand from the kernel, I/O buffers, etc</li>
@@ -491,7 +491,7 @@
 
 <p><img src="https://i.imgur.com/eFpQyPv.png" alt="" /></p>
 
-<h4 id="basic-page-replacement">2. Basic Page Replacement</h4>
+<h4 id="2-basic-page-replacement">2. Basic Page Replacement</h4>
 <blockquote>
   <ol>
     <li>Find the location of the desired page on disk</li>
@@ -513,7 +513,7 @@ c. Write victim frame to disk if dirty</p>
 
 <p><img src="https://i.imgur.com/Hm6MvuN.png" alt="" /></p>
 
-<h4 id="page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</h4>
+<h4 id="3-page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</h4>
 <ul>
   <li><strong>Frame-allocation algorithm</strong> determines
     <ul>
@@ -534,12 +534,12 @@ c. Write victim frame to disk if dirty</p>
   </li>
 </ul>
 
-<h5 id="first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</h5>
+<h5 id="1-first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</h5>
 <p><img src="https://i.imgur.com/cSezcCO.png" alt="" />
 <img src="https://i.imgur.com/NVa4BTe.png" alt="" />
 <img src="https://i.imgur.com/6VeXbGw.png" alt="" /></p>
 
-<h5 id="optimal-algorithm">(2) Optimal Algorithm</h5>
+<h5 id="2-optimal-algorithm">(2) Optimal Algorithm</h5>
 <ul>
   <li>Replace page that will not be used for longest period of time
     <ul>
@@ -556,7 +556,7 @@ c. Write victim frame to disk if dirty</p>
 
 <p><img src="https://i.imgur.com/1jc2ngr.png" alt="" /></p>
 
-<h5 id="least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</h5>
+<h5 id="3-least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</h5>
 <ul>
   <li>Use past knowledge rather than future</li>
   <li>Replace page that has not been used in the most amount of time</li>
@@ -594,7 +594,7 @@ c. Write victim frame to disk if dirty</p>
 
 <p><img src="http://i.imgur.com/yvsGPvm.jpg" alt="" /></p>
 
-<h5 id="lru-approximation-algorithms">(4) LRU Approximation Algorithms</h5>
+<h5 id="4-lru-approximation-algorithms">(4) LRU Approximation Algorithms</h5>
 <ul>
   <li>LRU needs special hardware and still slow</li>
   <li><strong>Reference bit</strong>
@@ -629,7 +629,7 @@ c. Write victim frame to disk if dirty</p>
 
 <p><img src="http://i.imgur.com/jInNXqt.png" alt="" /></p>
 
-<h5 id="counting-algorithms">(5) Counting Algorithms</h5>
+<h5 id="5-counting-algorithms">(5) Counting Algorithms</h5>
 <ul>
   <li>Keep a counter of the number of references that have been made to each page
     <ul>
@@ -640,7 +640,7 @@ c. Write victim frame to disk if dirty</p>
   <li><strong>MFU Algorithm</strong>: based on the argument that the page with the smallest count was probably just brought in and has yet to be used</li>
 </ul>
 
-<h5 id="page-buffering-algorithms">(6) Page-Buffering Algorithms</h5>
+<h5 id="6-page-buffering-algorithms">(6) Page-Buffering Algorithms</h5>
 <ul>
   <li>Keep a pool of free frames, always
     <ul>
@@ -738,7 +738,7 @@ c. Write victim frame to disk if dirty</p>
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)
+                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
                             
                             </a>
                         </li>
@@ -782,7 +782,7 @@ c. Write victim frame to disk if dirty</p>
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)
+                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
                             
                             </a>
                         </li>

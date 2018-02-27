@@ -201,41 +201,41 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">一、作業系統</a>    <ul>
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
       <li><a href="#race-condition" id="markdown-toc-race-condition">Race Condition</a></li>
-      <li><a href="#critical-section-problem" id="markdown-toc-critical-section-problem">(一) Critical-Section Problem</a></li>
-      <li><a href="#solution-to-critical-section-problem" id="markdown-toc-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</a></li>
-      <li><a href="#petersons-solution" id="markdown-toc-petersons-solution">(三) Peterson’s Solution</a></li>
-      <li><a href="#synchronization-hardware" id="markdown-toc-synchronization-hardware">(四) Synchronization Hardware</a>        <ul>
-          <li><a href="#testandset-instruction" id="markdown-toc-testandset-instruction">1. test_and_set Instruction</a></li>
-          <li><a href="#compareandswap-instruction" id="markdown-toc-compareandswap-instruction">2. compare_and_swap Instruction</a></li>
+      <li><a href="#一-critical-section-problem" id="markdown-toc-一-critical-section-problem">(一) Critical-Section Problem</a></li>
+      <li><a href="#二-solution-to-critical-section-problem" id="markdown-toc-二-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</a></li>
+      <li><a href="#三-petersons-solution" id="markdown-toc-三-petersons-solution">(三) Peterson’s Solution</a></li>
+      <li><a href="#四-synchronization-hardware" id="markdown-toc-四-synchronization-hardware">(四) Synchronization Hardware</a>        <ul>
+          <li><a href="#1-test_and_set-instruction" id="markdown-toc-1-test_and_set-instruction">1. test_and_set Instruction</a></li>
+          <li><a href="#2-compare_and_swap-instruction" id="markdown-toc-2-compare_and_swap-instruction">2. compare_and_swap Instruction</a></li>
         </ul>
       </li>
-      <li><a href="#mutex-locks" id="markdown-toc-mutex-locks">(五) Mutex Locks</a>        <ul>
+      <li><a href="#五-mutex-locks" id="markdown-toc-五-mutex-locks">(五) Mutex Locks</a>        <ul>
           <li><a href="#acquire-and-release" id="markdown-toc-acquire-and-release">acquire() and release()</a></li>
         </ul>
       </li>
     </ul>
   </li>
-  <li><a href="#linux-" id="markdown-toc-linux-">二、Linux 程式設計</a>    <ul>
-      <li><a href="#low-level-file-access" id="markdown-toc-low-level-file-access">(一) Low-level file access</a>        <ul>
-          <li><a href="#open" id="markdown-toc-open">1. open</a></li>
-          <li><a href="#read" id="markdown-toc-read">2. read</a></li>
-          <li><a href="#write" id="markdown-toc-write">3. write</a></li>
+  <li><a href="#二linux-程式設計" id="markdown-toc-二linux-程式設計">二、Linux 程式設計</a>    <ul>
+      <li><a href="#一-low-level-file-access" id="markdown-toc-一-low-level-file-access">(一) Low-level file access</a>        <ul>
+          <li><a href="#1-open" id="markdown-toc-1-open">1. open</a></li>
+          <li><a href="#2-read" id="markdown-toc-2-read">2. read</a></li>
+          <li><a href="#3-write" id="markdown-toc-3-write">3. write</a></li>
           <li><a href="#example-file-copy" id="markdown-toc-example-file-copy">[Example] File copy</a></li>
         </ul>
       </li>
-      <li><a href="#standard-io-library" id="markdown-toc-standard-io-library">(二) Standard I/O Library</a>        <ul>
+      <li><a href="#二-standard-io-library" id="markdown-toc-二-standard-io-library">(二) Standard I/O Library</a>        <ul>
           <li><a href="#fopen" id="markdown-toc-fopen">fopen</a></li>
-          <li><a href="#printf-sprintf-fprintf" id="markdown-toc-printf-sprintf-fprintf">2. printf, sprintf, fprintf</a></li>
-          <li><a href="#scanf-fscanf-sscanf" id="markdown-toc-scanf-fscanf-sscanf">3. scanf, fscanf, sscanf</a></li>
+          <li><a href="#2-printf-sprintf-fprintf" id="markdown-toc-2-printf-sprintf-fprintf">2. printf, sprintf, fprintf</a></li>
+          <li><a href="#3-scanf-fscanf-sscanf" id="markdown-toc-3-scanf-fscanf-sscanf">3. scanf, fscanf, sscanf</a></li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
 
-<h2 id="section">一、作業系統</h2>
+<h2 id="一作業系統">一、作業系統</h2>
 <ul>
   <li>課程簡報
     <ul>
@@ -260,14 +260,14 @@
   </li>
 </ul>
 
-<h3 id="critical-section-problem">(一) Critical-Section Problem</h3>
+<h3 id="一-critical-section-problem">(一) Critical-Section Problem</h3>
 <ul>
   <li>General Structure：
 <img src="https://i.imgur.com/yVVaplo.jpg" alt="" />
 <img src="https://i.imgur.com/dWa1ujd.jpg" alt="" /></li>
 </ul>
 
-<h3 id="solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</h3>
+<h3 id="二-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</h3>
 <ol>
   <li>
     <p><strong>Mutual Exclusion</strong> - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.</p>
@@ -293,7 +293,7 @@
   </li>
 </ol>
 
-<h3 id="petersons-solution">(三) Peterson’s Solution</h3>
+<h3 id="三-petersons-solution">(三) Peterson’s Solution</h3>
 <ul>
   <li>Good algorithmic description of solving the problem.</li>
   <li>Two process solution</li>
@@ -321,7 +321,7 @@
   </li>
 </ul>
 
-<h3 id="synchronization-hardware">(四) Synchronization Hardware</h3>
+<h3 id="四-synchronization-hardware">(四) Synchronization Hardware</h3>
 <ul>
   <li>Many systems provide hardware support for critical section code.</li>
   <li>All solutions below based on idea of <strong>locking</strong>.
@@ -351,7 +351,7 @@
   </li>
 </ul>
 
-<h4 id="testandset-instruction">1. test_and_set Instruction</h4>
+<h4 id="1-test_and_set-instruction">1. test_and_set Instruction</h4>
 <p><img src="https://i.imgur.com/HP1PMeH.jpg" alt="" /></p>
 
 <ul>
@@ -365,7 +365,7 @@
   </li>
 </ul>
 
-<h4 id="compareandswap-instruction">2. compare_and_swap Instruction</h4>
+<h4 id="2-compare_and_swap-instruction">2. compare_and_swap Instruction</h4>
 <p><img src="https://i.imgur.com/7neEbLe.jpg" alt="" /></p>
 
 <ul>
@@ -373,7 +373,7 @@
   <img src="https://i.imgur.com/37TZRjA.jpg" alt="" /></li>
 </ul>
 
-<h3 id="mutex-locks">(五) Mutex Locks</h3>
+<h3 id="五-mutex-locks">(五) Mutex Locks</h3>
 <ul>
   <li>Previous solutions are complicated and generally inaccessible to application programmers.</li>
   <li>OS designers build software tools to solve critical section problem.</li>
@@ -398,7 +398,7 @@
 <h4 id="acquire-and-release">acquire() and release()</h4>
 <p><img src="https://i.imgur.com/stNKbbR.jpg" alt="" /></p>
 
-<h2 id="linux-">二、Linux 程式設計</h2>
+<h2 id="二linux-程式設計">二、Linux 程式設計</h2>
 <ul>
   <li>課程簡報
     <ul>
@@ -408,7 +408,7 @@
   </li>
 </ul>
 
-<h3 id="low-level-file-access">(一) Low-level file access</h3>
+<h3 id="一-low-level-file-access">(一) Low-level file access</h3>
 <p>Header：<code class="highlighter-rouge">#include &lt;unistd.h&gt;</code></p>
 
 <ul>
@@ -443,7 +443,7 @@
   </li>
 </ul>
 
-<h4 id="open">1. open</h4>
+<h4 id="1-open">1. open</h4>
 <ul>
   <li><code class="highlighter-rouge">int open(const char* path, int oflags);</code></li>
   <li><code class="highlighter-rouge">int open(const char* path, int oflags, mode_t mode);</code></li>
@@ -464,12 +464,12 @@
   </li>
 </ul>
 
-<h4 id="read">2. read</h4>
+<h4 id="2-read">2. read</h4>
 <ul>
   <li><code class="highlighter-rouge">size_t read(int fildes, void* buf, size_t nbytes);</code></li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;unistd.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -487,13 +487,13 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="write">3. write</h4>
+<h4 id="3-write">3. write</h4>
 <ul>
   <li><code class="highlighter-rouge">size_t write(int fildes, void* buf, size_t n
 bytes);</code></li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;unistd.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -510,7 +510,7 @@ bytes);</code></li>
   <li>Example 1</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;unistd.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
 #include &lt;sys/stat.h&gt;
 #include &lt;fcntl.h&gt;
 </span>
@@ -533,7 +533,7 @@ bytes);</code></li>
   <li>Example2</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;unistd.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
 #include &lt;sys/stat.h&gt;
 #include &lt;fcntl.h&gt;
 </span>
@@ -552,7 +552,7 @@ bytes);</code></li>
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="standard-io-library">(二) Standard I/O Library</h3>
+<h3 id="二-standard-io-library">(二) Standard I/O Library</h3>
 <p>Header：<code class="highlighter-rouge">#include &lt;stdio.h&gt;</code></p>
 
 <ul>
@@ -615,10 +615,10 @@ char* mode);</code>
   </li>
 </ul>
 
-<h4 id="printf-sprintf-fprintf">2. printf, sprintf, fprintf</h4>
+<h4 id="2-printf-sprintf-fprintf">2. printf, sprintf, fprintf</h4>
 <p>%d, %o, %x, %c ,%s ,%f (float) ,%e (double) ,%g (double)</p>
 
-<h4 id="scanf-fscanf-sscanf">3. scanf, fscanf, sscanf</h4>
+<h4 id="3-scanf-fscanf-sscanf">3. scanf, fscanf, sscanf</h4>
 <p>%d, %o, %x, %f, %e, %g, %c, %s, %[] (掃瞄特定字元), %% (掃瞄 % 的字元)</p>
 
         </article>
@@ -697,7 +697,7 @@ char* mode);</code>
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)
+                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
                             
                             </a>
                         </li>
@@ -741,7 +741,7 @@ char* mode);</code>
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)
+                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
                             
                             </a>
                         </li>

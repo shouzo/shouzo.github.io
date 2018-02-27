@@ -199,23 +199,23 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#opencv1httpyester-placeblogspottw200806opencvhtml" id="markdown-toc-opencv1httpyester-placeblogspottw200806opencvhtml">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv.html">OpenCV程式設計介紹(1)</a></a>    <ul>
-      <li><a href="#section" id="markdown-toc-section">[ 背景知識 ]</a>        <ul>
-          <li><a href="#opencv---open-source-computer-vision" id="markdown-toc-opencv---open-source-computer-vision">（一）OpenCV - Open Source Computer Vision</a></li>
-          <li><a href="#section-1" id="markdown-toc-section-1">（二）常用的函式庫</a></li>
+  <li><a href="#內文整理自-opencv程式設計介紹1" id="markdown-toc-內文整理自-opencv程式設計介紹1">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv.html">OpenCV程式設計介紹(1)</a></a>    <ul>
+      <li><a href="#-背景知識-" id="markdown-toc--背景知識-">[ 背景知識 ]</a>        <ul>
+          <li><a href="#一opencv---open-source-computer-vision" id="markdown-toc-一opencv---open-source-computer-vision">（一）OpenCV - Open Source Computer Vision</a></li>
+          <li><a href="#二常用的函式庫" id="markdown-toc-二常用的函式庫">（二）常用的函式庫</a></li>
         </ul>
       </li>
-      <li><a href="#iplimage" id="markdown-toc-iplimage">（三）基本資料結構：IplImage</a></li>
-      <li><a href="#section-2" id="markdown-toc-section-2">[ 範例程式 ] 讀取圖片檔案</a></li>
+      <li><a href="#三基本資料結構iplimage" id="markdown-toc-三基本資料結構iplimage">（三）基本資料結構：IplImage</a></li>
+      <li><a href="#-範例程式--讀取圖片檔案" id="markdown-toc--範例程式--讀取圖片檔案">[ 範例程式 ] 讀取圖片檔案</a></li>
     </ul>
   </li>
 </ul>
 
-<h2 id="opencv1httpyester-placeblogspottw200806opencvhtml">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv.html">OpenCV程式設計介紹(1)</a></h2>
+<h2 id="內文整理自-opencv程式設計介紹1">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv.html">OpenCV程式設計介紹(1)</a></h2>
 
-<h3 id="section">[ 背景知識 ]</h3>
+<h3 id="-背景知識-">[ 背景知識 ]</h3>
 
-<h4 id="opencv---open-source-computer-vision">（一）OpenCV - Open Source Computer Vision</h4>
+<h4 id="一opencv---open-source-computer-vision">（一）OpenCV - Open Source Computer Vision</h4>
 <ul>
   <li>由Intel開發，Open Source圖形演算法的函式庫(Image Process Libary)。</li>
   <li>可製作圖片,視訊,矩陣運算,統計,圖論,資料儲存的相關C語言程式設計。</li>
@@ -223,7 +223,7 @@
   <li>其他的應用領域(較知名)：物體追蹤、人臉辨識、傅立葉轉換、紋理分析,應用在靜態圖片(BMP,JPG,TIF,PNG),動態Webcam影像處理。</li>
 </ul>
 
-<h4 id="section-1">（二）常用的函式庫</h4>
+<h4 id="二常用的函式庫">（二）常用的函式庫</h4>
 <p><strong>1. “cv.h”：電腦視覺函式庫</strong></p>
 
 <p><strong>2. “highgui.h”：GUI 介面函式庫</strong></p>
@@ -234,13 +234,13 @@
 
 <p><strong>[ 函式庫載入方式 ]</strong></p>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="cp">#include &lt;cv.h&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;cv.h&gt;
 #include &lt;highgui.h&gt;
 #include &lt;cxcore.h&gt;
 #include &lt;cvaux.h&gt;
 </span></code></pre></div>
 
-<h3 id="iplimage">（三）基本資料結構：IplImage</h3>
+<h3 id="三基本資料結構iplimage">（三）基本資料結構：IplImage</h3>
 <ul>
   <li>
     <p>相關資料：<a href="http://yester-place.blogspot.tw/2008/07/iplimage1.html">http://yester-place.blogspot.tw/2008/07/iplimage1.html</a></p>
@@ -256,12 +256,12 @@
 
 <hr />
 
-<h3 id="section-2">[ 範例程式 ] 讀取圖片檔案</h3>
+<h3 id="-範例程式--讀取圖片檔案">[ 範例程式 ] 讀取圖片檔案</h3>
 <ul>
   <li>程式碼(GitHub)：<a href="https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/1">https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/1</a></li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="codehilite"><code><span class="c1">// Introduce_1.cpp
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// Introduce_1.cpp
 </span><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;cv.h&gt;
 #include &lt;highgui.h&gt;
@@ -356,7 +356,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業自作入門筆記 (2)
+                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
                             
                             </a>
                         </li>
@@ -400,7 +400,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業自作入門筆記 (1)
+                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
                             
                             </a>
                         </li>
