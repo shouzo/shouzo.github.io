@@ -144,6 +144,224 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/05/25/linux_system/">20170525 [學習筆記] Linux 系統程式 (12)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-05-25
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-contiguous-allocation" id="markdown-toc-一-contiguous-allocation">(一) Contiguous Allocation</a></li>
+      <li><a href="#二-dynamic-storage-allocation-problem" id="markdown-toc-二-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</a></li>
+      <li><a href="#三-fragmentation" id="markdown-toc-三-fragmentation">(三) Fragmentation</a></li>
+      <li><a href="#四-segmentation" id="markdown-toc-四-segmentation">(四) Segmentation</a>        <ul>
+          <li><a href="#segmentation-architecture" id="markdown-toc-segmentation-architecture">Segmentation Architecture</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170525/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-contiguous-allocation">(一) Contiguous Allocation</h3>
+<ul>
+  <li>Main memory must support both OS and user processes</li>
+  <li>Limited resource, must allocate efficiently</li>
+  <li>
+    <p>Contiguous allocation is one early method</p>
+  </li>
+  <li>Main memory usually into two <strong>partitions</strong>
+    <ul>
+      <li>Resident operating system, usually held in low memory with interrupt vector</li>
+      <li>User processes then held in high memory</li>
+      <li>Each process contained in single contiguous section of memory</li>
+    </ul>
+  </li>
+  <li>Relocation registers used to protect user processes from each other, and from changing operating-system code and data
+    <ul>
+      <li>Base register contains value of smallest physical address</li>
+      <li>Limit register contains range of logical addresses – each logical address must be less than the limit register</li>
+      <li>MMU maps logical address dynamically</li>
+      <li>Can then allow actions such as kernel code being <code class="highlighter-rouge">transient</code> and kernel changing size</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/z3R2FCC.png" alt="" /></p>
+
+<ul>
+  <li>Multiple-partition allocation
+    <ul>
+      <li>Degree of multiprogramming limited by number of partitions</li>
+      <li>Variable-partition sizes for efficiency (sized to a given process’ needs)</li>
+      <li>Hole – block of available memory; holes of various size are scattered throughout memory</li>
+      <li>When a process arrives, it is allocated memory from a hole large enough to accommodate it</li>
+      <li>Process exiting frees its partition, adjacent free partitions combined</li>
+      <li>Operating system maintains information about
+        <ul>
+          <li>(a) allocated partitions</li>
+          <li>(b) free partitions (hole)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/JQ1uTUe.png" alt="" /></p>
+
+<h3 id="二-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</h3>
+<ul>
+  <li><strong>First-fit</strong>：Allocate the <code class="highlighter-rouge">first</code> hole that is big enough</li>
+  <li><strong>Best-fit</strong>：Allocate the <code class="highlighter-rouge">smallest</code> hole that is big enough; must search entire list, unless ordered by size
+    <ul>
+      <li>Produces the smallest leftover hole</li>
+    </ul>
+  </li>
+  <li><strong>Worst-fit</strong>：Allocate the <code class="highlighter-rouge">largest</code> hole; must also search entire list
+    <ul>
+      <li>Produces the largest leftover hole</li>
+    </ul>
+  </li>
+  <li>First-fit and best-fit better than worst-fit in terms of speed and storage utilization</li>
+</ul>
+
+<h3 id="三-fragmentation">(三) Fragmentation</h3>
+<ul>
+  <li><strong>External Fragmentation</strong> – total memory space exists to satisfy a request, but it is not contiguous</li>
+  <li><strong>Internal Fragmentation</strong> – allocated memory may be slightly larger than requested memory; this size difference is memory internal to a partition, but not being used</li>
+  <li>First fit analysis reveals that given N blocks allocated, 0.5 N blocks lost to fragmentation
+    <ul>
+      <li>1/3 may be unusable -&gt; <strong>50-percent rule</strong></li>
+    </ul>
+  </li>
+  <li>Reduce external fragmentation by <strong>compaction</strong>
+    <ul>
+      <li>Shuffle memory contents to place all free memory together in one large block</li>
+      <li>Compaction is possible only if relocation is dynamic, and is done at execution time</li>
+      <li>I/O problem
+        <ul>
+          <li>Latch job in memory while it is involved in I/O</li>
+          <li>Do I/O only into OS buffers</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Now consider that backing store has same fragmentation problems</li>
+</ul>
+
+<h3 id="四-segmentation">(四) Segmentation</h3>
+<ul>
+  <li>Memory-management scheme that supports user view of memory</li>
+</ul>
+
+<p><img src="https://i.imgur.com/hiMN3YJ.png" alt="" /></p>
+
+<ul>
+  <li>A program is a collection of segments
+    <ul>
+      <li>A segment is a logical unit such as：<code class="highlighter-rouge">main program</code>、<code class="highlighter-rouge">procedure</code>、<code class="highlighter-rouge">function</code>、<code class="highlighter-rouge">method</code>、<code class="highlighter-rouge">object</code>、<code class="highlighter-rouge">local variables</code>、<code class="highlighter-rouge">global variables</code>、<code class="highlighter-rouge">common block</code>、<code class="highlighter-rouge">stack</code>、<code class="highlighter-rouge">symbol table</code>、<code class="highlighter-rouge">arrays</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/PKuwv70.png" alt="" /></p>
+
+<h4 id="segmentation-architecture">Segmentation Architecture</h4>
+<ul>
+  <li>Logical address consists of a two tuple：<code class="highlighter-rouge">&lt;segment-number, offset&gt;</code></li>
+  <li><strong>Segment table</strong> – maps two-dimensional physical addresses; each table entry has
+    <ul>
+      <li><strong>base</strong> – contains the starting physical address where the segments reside in memory</li>
+      <li><strong>limit</strong> – specifies the length of the segment</li>
+    </ul>
+  </li>
+  <li><strong>Segment-table base register (STBR)</strong> points to the segment table’s location in memory</li>
+  <li><strong>Segment-table length register (STLR)</strong> indicates number of segments used by a program：<code class="highlighter-rouge">segment number s is legal if s &lt; STLR</code></li>
+  <li>Protection
+    <ul>
+      <li>With each entry in segment table associate
+        <ul>
+          <li>validation bit = 0 » illegal segment</li>
+          <li>read/write/execute privileges</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Protection bits associated with segments; code sharing occurs at segment level</li>
+  <li>Since segments vary in length, memory allocation is a dynamic storage-allocation problem</li>
+  <li>A segmentation example is shown in the following diagram</li>
+</ul>
+
+<p><img src="https://i.imgur.com/raq8eDi.png" alt="" /></p>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/05/25/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/05/19/linux_system/">20170519 [學習筆記] Linux 系統程式 (11)</a>
                 </h2>
                 <div class="label">
@@ -1344,254 +1562,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-04-28
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#race-condition" id="markdown-toc-race-condition">Race Condition</a></li>
-      <li><a href="#一-critical-section-problem" id="markdown-toc-一-critical-section-problem">(一) Critical-Section Problem</a></li>
-      <li><a href="#二-solution-to-critical-section-problem" id="markdown-toc-二-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</a></li>
-      <li><a href="#三-petersons-solution" id="markdown-toc-三-petersons-solution">(三) Peterson’s Solution</a></li>
-      <li><a href="#四-synchronization-hardware" id="markdown-toc-四-synchronization-hardware">(四) Synchronization Hardware</a>        <ul>
-          <li><a href="#1-test_and_set-instruction" id="markdown-toc-1-test_and_set-instruction">1. test_and_set Instruction</a></li>
-          <li><a href="#2-compare_and_swap-instruction" id="markdown-toc-2-compare_and_swap-instruction">2. compare_and_swap Instruction</a></li>
-        </ul>
-      </li>
-      <li><a href="#五-mutex-locks" id="markdown-toc-五-mutex-locks">(五) Mutex Locks</a>        <ul>
-          <li><a href="#acquire-and-release" id="markdown-toc-acquire-and-release">acquire() and release()</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="一作業系統">一、作業系統</h2>
-<ul>
-  <li>課程簡報
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170427/ch06.pdf">Chapter 6: Process Scheduling</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="race-condition">Race Condition</h3>
-<ul>
-  <li>
-    <p>Consumer
-<img src="https://i.imgur.com/07kx1WD.jpg" alt="" /></p>
-  </li>
-  <li>
-    <p>Producer
-<img src="https://i.imgur.com/eBPWPyb.jpg" alt="" /></p>
-  </li>
-  <li>
-    <p>Race Condition
-<img src="https://i.imgur.com/Q5qf9Xi.jpg" alt="" /></p>
-  </li>
-</ul>
-
-<h3 id="一-critical-section-problem">(一) Critical-Section Problem</h3>
-<ul>
-  <li>General Structure：
-<img src="https://i.imgur.com/yVVaplo.jpg" alt="" />
-<img src="https://i.imgur.com/dWa1ujd.jpg" alt="" /></li>
-</ul>
-
-<h3 id="二-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</h3>
-<ol>
-  <li>
-    <p><strong>Mutual Exclusion</strong> - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.</p>
-  </li>
-  <li>
-    <p><strong>Progress</strong> - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely.</p>
-  </li>
-  <li><strong>Bounded Waiting</strong> - A bound must exist on the number of times that other processes are allowed to enter their critical sections.
-    <ul>
-      <li>Assume that each process executes at a nonzero speed.</li>
-      <li>No assumption concerning relative speed of the n processes.</li>
-    </ul>
-  </li>
-  <li>Two approaches depending on if kernel is preemptive or non-preemptive.
-    <ul>
-      <li><strong>Preemptive</strong> – allows preemption of process when running in kernel mode.</li>
-      <li><strong>Non-preemptive</strong> – runs until exits kernel mode, blocks, or voluntarily yields CPU.
-        <ul>
-          <li>Essentially free of race conditions in kernel mode.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="三-petersons-solution">(三) Peterson’s Solution</h3>
-<ul>
-  <li>Good algorithmic description of solving the problem.</li>
-  <li>Two process solution</li>
-  <li>Assume that the load and store instructions are atomic; that is, cannot be interrupted</li>
-  <li>The two processes share two variables：
-    <ul>
-      <li>int turn;</li>
-      <li>Boolean flag[2]</li>
-    </ul>
-  </li>
-  <li>The variable turn indicates whose turn it is to enter the critical section</li>
-  <li>The flag array is used to indicate if a process is ready to enter the critical section.</li>
-  <li><code class="highlighter-rouge">flag[i] = true</code> implies that process Pi is ready!</li>
-</ul>
-
-<p><img src="https://i.imgur.com/VjV8Owl.jpg" alt="" /></p>
-
-<ul>
-  <li>Provable that
-    <ol>
-      <li>Mutual exclusion is preserved.</li>
-      <li>Progress requirement is satisfied.</li>
-      <li>Bounded-waiting requirement is met.</li>
-    </ol>
-  </li>
-</ul>
-
-<h3 id="四-synchronization-hardware">(四) Synchronization Hardware</h3>
-<ul>
-  <li>Many systems provide hardware support for critical section code.</li>
-  <li>All solutions below based on idea of <strong>locking</strong>.
-    <ul>
-      <li>Protecting critical regions via locks.</li>
-    </ul>
-  </li>
-  <li>Uniprocessors – could disable interrupts
-    <ul>
-      <li>Currently running code would execute without preemption.</li>
-      <li>Generally too inefficient on multiprocessor systems.
-        <ul>
-          <li>Operating systems using this not broadly scalable.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Modern machines provide special atomic hardware instructions.
-    <ul>
-      <li><strong>Atomic</strong> = non-interruptible
-        <ul>
-          <li>Either test memory word and set value.</li>
-          <li>Or swap contents of two memory words.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="1-test_and_set-instruction">1. test_and_set Instruction</h4>
-<p><img src="https://i.imgur.com/HP1PMeH.jpg" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Solution using test_and_set()
-  <img src="https://i.imgur.com/5SMn8ix.jpg" alt="" /></p>
-  </li>
-  <li>
-    <p>Bounded-waiting Mutual Exclusion with test_and_set
-  <img src="https://i.imgur.com/wGOMFdV.jpg" alt="" /></p>
-  </li>
-</ul>
-
-<h4 id="2-compare_and_swap-instruction">2. compare_and_swap Instruction</h4>
-<p><img src="https://i.imgur.com/7neEbLe.jpg" alt="" /></p>
-
-<ul>
-  <li>Solution using compare_and_swap
-  <img src="https://i.imgur.com/37TZRjA.jpg" alt="" /></li>
-</ul>
-
-<h3 id="五-mutex-locks">(五) Mutex Locks</h3>
-<ul>
-  <li>Previous solutions are complicated and generally inaccessible to application programmers.</li>
-  <li>OS designers build software tools to solve critical section problem.</li>
-  <li>Simplest is mutex lock</li>
-  <li>Product critical regions with it by first <strong>acquire()</strong> a lock then <strong>release()</strong> it.
-    <ul>
-      <li>Boolean variable indicating if lock is available or not</li>
-    </ul>
-  </li>
-  <li>Calls to <strong>acquire()</strong> and <strong>release()</strong> must be atomic.
-    <ul>
-      <li>Usually implemented via hardware atomic instructions</li>
-    </ul>
-  </li>
-  <li>But this solution requires <strong>busy waiting</strong>.
-    <ul>
-      <li>This lock therefore called a <strong>spinlock</strong></li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="acquire-and-release">acquire() and release()</h4>
-<p><img src="https://i.imgur.com/stNKbbR.jpg" alt="" /></p>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/04/28/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1619,6 +1589,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2018/03/01/computer_organization/">20180301 [學習筆記] 計算機結構 (1)</a></li>
+                    
                         <li><a href="/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)</a></li>
                     
                         <li><a href="/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)</a></li>
@@ -1636,8 +1608,6 @@
                         <li><a href="/2017/06/07/university_choice/">20170607 [有感而發] 一切都只是選擇，那你自己的戰場是什麼？</a></li>
                     
                         <li><a href="/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)</a></li>
-                    
-                        <li><a href="/2017/05/25/linux_system/">20170525 [學習筆記] Linux 系統程式 (12)</a></li>
                     
                 </ul>
             </div>
@@ -1790,7 +1760,7 @@
                             <span class="name">
                                 作業系統
                             </span>
-                            <span class="badge">19</span>
+                            <span class="badge">20</span>
                         </a>
                     </li>
                     
@@ -1825,6 +1795,15 @@
                         <a href="/category/#演算法" class="categories-list-item" cate="演算法">
                             <span class="name">
                                 演算法
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#計算機結構" class="categories-list-item" cate="計算機結構">
+                            <span class="name">
+                                計算機結構
                             </span>
                             <span class="badge">1</span>
                         </a>
@@ -2013,6 +1992,13 @@
                       
                       
                       <a href="/tag/#演算法" style="font-size: 9pt; color: #999;">演算法</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#計算機結構" style="font-size: 9pt; color: #999;">計算機結構</a>
                     
                 </div>
             </div>

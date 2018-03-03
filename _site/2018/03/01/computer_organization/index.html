@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>20170303 [學習筆記] Linux 系統程式 (1)</title>
-    <meta name="description" content="  (一) 作業系統(一) 作業系統  課程簡報 - Ch1：Introduction">
+    <title>20180301 [學習筆記] 計算機結構 (1)</title>
+    <meta name="description" content="  一、Classes of Computers          1. Desktop computers      2. Server computers      3. Embedded computers        二、Understanding Performance          1. Alg...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://shouzo.github.io/2017/03/04/linux_system/">
+    <link rel="canonical" href="http://shouzo.github.io/2018/03/01/computer_organization/">
     <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
 
 
@@ -137,11 +137,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>20170303 [學習筆記] Linux 系統程式 (1)</h1>
+        <h1>20180301 [學習筆記] 計算機結構 (1)</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2017-03-04
+                <i class="fa fa-calendar"></i>2018-03-01
             </div>
 
             <div class="label-card">
@@ -161,11 +161,9 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+        <a href="/category/#計算機結構" title="Category: 計算機結構" rel="category">計算機結構</a>&nbsp;
     
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>
     
   
 
@@ -182,14 +180,11 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+        <!--a href="/tag/#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%90%E6%A7%8B" title="Tag: 計算機結構" rel="tag">計算機結構</a-->
+        <a href="/tag/#計算機結構" title="Tag: 計算機結構" rel="tag">計算機結構</a>&nbsp;
     
         <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>
     
   
 
@@ -201,59 +196,224 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#一-作業系統" id="markdown-toc-一-作業系統">(一) 作業系統</a></li>
-  <li><a href="#二-linux-程式設計" id="markdown-toc-二-linux-程式設計">(二) Linux 程式設計</a></li>
-</ul>
-
-<h3 id="一-作業系統">(一) 作業系統</h3>
-<ul>
-  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf">課程簡報 - Ch1：Introduction</a></li>
-</ul>
-
-<h3 id="二-linux-程式設計">(二) Linux 程式設計</h3>
-<ul>
-  <li>
-    <p><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170303/Creating_and_Executing_Processes.pdf">課程簡報 - Creating and Executing Processes</a></p>
+  <li><a href="#一classes-of-computers" id="markdown-toc-一classes-of-computers">一、Classes of Computers</a>    <ul>
+      <li><a href="#1-desktop-computers" id="markdown-toc-1-desktop-computers">1. Desktop computers</a></li>
+      <li><a href="#2-server-computers" id="markdown-toc-2-server-computers">2. Server computers</a></li>
+      <li><a href="#3-embedded-computers" id="markdown-toc-3-embedded-computers">3. Embedded computers</a></li>
+    </ul>
   </li>
-  <li>
-    <p>課程作業： <code class="highlighter-rouge">fork()</code> 的概念</p>
+  <li><a href="#二understanding-performance" id="markdown-toc-二understanding-performance">二、Understanding Performance</a>    <ul>
+      <li><a href="#1-algorithm" id="markdown-toc-1-algorithm">1. Algorithm</a></li>
+      <li><a href="#2-programming-language-compiler-architecture" id="markdown-toc-2-programming-language-compiler-architecture">2. Programming language, compiler, architecture</a></li>
+      <li><a href="#3-processor-and-memory-system" id="markdown-toc-3-processor-and-memory-system">3. Processor and memory system</a></li>
+      <li><a href="#4-io-system-including-os" id="markdown-toc-4-io-system-including-os">4. I/O system (including OS)</a></li>
+    </ul>
+  </li>
+  <li><a href="#三below-your-program" id="markdown-toc-三below-your-program">三、Below your Program</a>    <ul>
+      <li><a href="#1-application-software" id="markdown-toc-1-application-software">1. Application software</a></li>
+      <li><a href="#2-system-software" id="markdown-toc-2-system-software">2. System software</a></li>
+      <li><a href="#3-hardware" id="markdown-toc-3-hardware">3. Hardware</a></li>
+    </ul>
+  </li>
+  <li><a href="#四levels-of-program-code" id="markdown-toc-四levels-of-program-code">四、Levels of Program Code</a>    <ul>
+      <li><a href="#1-high-level-language" id="markdown-toc-1-high-level-language">1. High-level language</a></li>
+      <li><a href="#2-assembly-language" id="markdown-toc-2-assembly-language">2. Assembly language</a></li>
+      <li><a href="#3-hardware-representation" id="markdown-toc-3-hardware-representation">3. Hardware representation</a></li>
+    </ul>
+  </li>
+  <li><a href="#五defining-performance" id="markdown-toc-五defining-performance">五、Defining Performance</a>    <ul>
+      <li><a href="#1-response-time" id="markdown-toc-1-response-time">1. Response time</a></li>
+      <li><a href="#2-throughput" id="markdown-toc-2-throughput">2. Throughput</a></li>
+    </ul>
+  </li>
+  <li><a href="#六relative-performance" id="markdown-toc-六relative-performance">六、Relative Performance</a></li>
+  <li><a href="#七measuring-execution-time" id="markdown-toc-七measuring-execution-time">七、Measuring Execution Time</a>    <ul>
+      <li><a href="#1-elapsed-time" id="markdown-toc-1-elapsed-time">1. Elapsed time</a></li>
+      <li><a href="#2-cpu-time" id="markdown-toc-2-cpu-time">2. CPU time</a></li>
+      <li><a href="#3-instruction-count-and-cpi" id="markdown-toc-3-instruction-count-and-cpi">3. Instruction Count and CPI</a></li>
+    </ul>
+  </li>
+  <li><a href="#八performance-summary" id="markdown-toc-八performance-summary">八、Performance Summary</a></li>
+</ul>
+
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Computer-Organization-And-Design_pages/blob/master/class-tutorial/20180301/Chapter-1-Computer-Abstractions-and-Technology.pdf">Chapter-1-Computer-Abstractions-and-Technology</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://ccckmit.wikidot.com/co:speed">計算機結構 - 速度的議題</a></li>
+      <li><a href="https://goo.gl/fW6rF6">GitBook - 組合語言與計算機組織</a>
+        <ul>
+          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/computer_abstractions_and_technology.html">Computer Abstractions and Technology</a></li>
+          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/performance.html">Performance</a></li>
+          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/cpu_time.html">CPU Time</a></li>
+        </ul>
+      </li>
+    </ul>
   </li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-<span class="cm">/* Press any Integer */</span>
-	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-
-<span class="cm">/* Use "fork()" to create Child's and Parent's process */</span>
-	<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
-	<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>	<span class="c1">// Set the "result" initial value
-</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// Child's entry
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">***** Child's pid = %d *****</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
-		<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">--&gt;</span> <span class="mi">0</span><span class="p">)</span>
-			<span class="n">result</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">"1 + 2 + ... + n = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
-		<span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>	<span class="c1">// Parent's entry
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"***** Parent's pid = %d *****</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">"n 的因數：%d"</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-		<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">--&gt;</span> <span class="mi">1</span><span class="p">)</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-				<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">%d"</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-		<span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<h3 id="一classes-of-computers">一、Classes of Computers</h3>
+<h4 id="1-desktop-computers">1. Desktop computers</h4>
 <ul>
-  <li><strong>執行結果</strong></li>
+  <li>General purpose, variety of software.</li>
+  <li>Subject to <code class="highlighter-rouge">cost</code> / <code class="highlighter-rouge">performance</code> tradeoff.</li>
 </ul>
 
-<p><img src="https://i.imgur.com/TKyt2rB.jpg" alt="" /></p>
+<h4 id="2-server-computers">2. Server computers</h4>
+<ul>
+  <li>Network based.</li>
+  <li>High capacity, performance, reliability.</li>
+  <li>Range from small servers to building sized.</li>
+</ul>
+
+<h4 id="3-embedded-computers">3. Embedded computers</h4>
+<ul>
+  <li>Hidden as components of systems.</li>
+  <li>Stringent <code class="highlighter-rouge">power</code> / <code class="highlighter-rouge">performance</code> / <code class="highlighter-rouge">cost</code> constraints.</li>
+</ul>
+
+<h3 id="二understanding-performance">二、Understanding Performance</h3>
+<h4 id="1-algorithm">1. Algorithm</h4>
+<ul>
+  <li>Determine number of operations executed.</li>
+</ul>
+
+<h4 id="2-programming-language-compiler-architecture">2. Programming language, compiler, architecture</h4>
+<ul>
+  <li>Determine number of machine instructions executed per operation.</li>
+</ul>
+
+<h4 id="3-processor-and-memory-system">3. Processor and memory system</h4>
+<ul>
+  <li>Determine how fast instructions are executed.</li>
+</ul>
+
+<h4 id="4-io-system-including-os">4. I/O system (including OS)</h4>
+<ul>
+  <li>Determines how fast I/O operations are executed.</li>
+</ul>
+
+<h3 id="三below-your-program">三、Below your Program</h3>
+<p><img src="https://i.imgur.com/jbQSrpv.jpg" alt="" /></p>
+
+<h4 id="1-application-software">1. Application software</h4>
+<ul>
+  <li>Written in high-level language.</li>
+</ul>
+
+<h4 id="2-system-software">2. System software</h4>
+<ul>
+  <li>Compiler: translates HLL code to machine code.</li>
+</ul>
+
+<h4 id="3-hardware">3. Hardware</h4>
+<ul>
+  <li>Processor, memory, I/O controllers</li>
+</ul>
+
+<h3 id="四levels-of-program-code">四、Levels of Program Code</h3>
+<h4 id="1-high-level-language">1. High-level language</h4>
+<ul>
+  <li>Level of abstraction closer to problem domain.</li>
+  <li>Provides for productivity and portability.</li>
+</ul>
+
+<h4 id="2-assembly-language">2. Assembly language</h4>
+<ul>
+  <li>Textual representation of instrctions.</li>
+</ul>
+
+<h4 id="3-hardware-representation">3. Hardware representation</h4>
+<ul>
+  <li>Binary digits (bits).</li>
+  <li>Encoded instructions and data.</li>
+</ul>
+
+<h3 id="五defining-performance">五、Defining Performance</h3>
+<h4 id="1-response-time">1. Response time</h4>
+<ul>
+  <li>How long it takes to do a task.</li>
+</ul>
+
+<h4 id="2-throughput">2. Throughput</h4>
+<ul>
+  <li>Total work done per unit time.
+    <ul>
+      <li>e.g. <strong>tasks</strong> / <strong>transactions</strong> / … per hour</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="六relative-performance">六、Relative Performance</h3>
+<p><img src="https://i.imgur.com/QCzLpUf.jpg" alt="" /></p>
+
+<ul>
+  <li>X is n time faster than Y
+<img src="https://i.imgur.com/mQHfgdK.jpg" alt="" /></li>
+</ul>
+
+<h3 id="七measuring-execution-time">七、Measuring Execution Time</h3>
+<h4 id="1-elapsed-time">1. Elapsed time</h4>
+<ul>
+  <li>Total response time, including all aspects
+    <ul>
+      <li>Processing, I/O, OS overhead, idle time.</li>
+    </ul>
+  </li>
+  <li>Determines system performance</li>
+</ul>
+
+<h4 id="2-cpu-time">2. CPU time</h4>
+<p><img src="https://i.imgur.com/ThOhi5q.jpg" alt="" /></p>
+
+<ul>
+  <li>CPU Time Example
+    <blockquote>
+      <p><img src="https://i.imgur.com/p0FUEbd.jpg" alt="" /></p>
+    </blockquote>
+  </li>
+  <li><strong>Performance improved</strong>
+    <blockquote>
+      <ol>
+        <li>Reducing number of clock cycles.</li>
+        <li>Increasing clock rate.</li>
+        <li>Hardware designer must often trade off clock rate against cycle count.</li>
+      </ol>
+    </blockquote>
+  </li>
+</ul>
+
+<h4 id="3-instruction-count-and-cpi">3. Instruction Count and CPI</h4>
+<ul>
+  <li><code class="highlighter-rouge">Instruction Count</code>：指令個數</li>
+  <li><code class="highlighter-rouge">CPI</code>：每一個指令需要執行多少個週期 (cycle per instruction)</li>
+</ul>
+
+<p><img src="https://i.imgur.com/7YA28w1.jpg" alt="" /></p>
+
+<ul>
+  <li>CPI Example
+    <blockquote>
+      <p><img src="https://i.imgur.com/6sLnWxw.jpg" alt="" /></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="八performance-summary">八、Performance Summary</h3>
+<ul>
+  <li><strong>Performance depends on</strong>
+    <ol>
+      <li><strong>Algorithm</strong>: affects IC, possibly IC</li>
+      <li><strong>Programming language</strong>: affects IC, CPI</li>
+      <li><strong>Compiler</strong>: affects IC, CPI</li>
+      <li><strong>Instruction set architecture</strong>: affects IC, CPI, Tc</li>
+    </ol>
+  </li>
+</ul>
 
         </article>
         <hr>
@@ -264,6 +424,37 @@
             
                 
                     
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
                 
                     
                 
@@ -279,86 +470,6 @@
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2018/03/01/computer_organization/">20180301 [學習筆記] 計算機結構 (1)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
                             <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
                             
                             </a>
@@ -367,11 +478,7 @@
                         
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -386,11 +493,7 @@
                 
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -411,11 +514,7 @@
                         
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -425,6 +524,14 @@
         
             
             
+                
+                    
+                
+                    
+                
+            
+                
+                    
                 
                     
                         
@@ -437,21 +544,7 @@
                         
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
                 
                     
                 
@@ -466,11 +559,7 @@
                 
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -480,6 +569,14 @@
         
             
             
+                
+                    
+                
+                    
+                
+            
+                
+                    
                 
                     
                         
@@ -492,21 +589,7 @@
                         
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
                 
                     
                 
@@ -521,30 +604,22 @@
                 
                     
                 
-                    
-                
             
                 
                     
                 
                     
-                
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
                 
                     
                 
@@ -559,6 +634,28 @@
                 
                     
                 
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
@@ -567,11 +664,22 @@
                 
                     
                 
+            
+        
+            
+            
+                
+                    
+                
                     
                 
             
                 
                     
+                
+                    
+                
+            
                 
                     
                 
@@ -587,13 +695,11 @@
     
     <div class="pre">
 
-        <p><strong>上一篇</strong> <a href="/2017/03/02/ai/">20170302 [學習筆記] 人工智慧 (1)</a></p>
+        <p><strong>上一篇</strong> <a href="/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2017/03/09/ai/">20170309 [學習筆記] 人工智慧 (2)</a></p>
         
     </div>
 </div>
@@ -611,8 +717,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://shouzo.github.io/2017/03/04/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://shouzo.github.io/2017/03/04/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://shouzo.github.io/2018/03/01/computer_organization/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2018/03/01/computer_organization/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE

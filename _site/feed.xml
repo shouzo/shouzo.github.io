@@ -5,9 +5,246 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 27 Feb 2018 13:34:05 +0800</pubDate>
-    <lastBuildDate>Tue, 27 Feb 2018 13:34:05 +0800</lastBuildDate>
+    <pubDate>Sat, 03 Mar 2018 10:54:06 +0800</pubDate>
+    <lastBuildDate>Sat, 03 Mar 2018 10:54:06 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>20180301 [學習筆記] 計算機結構 (1)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#一classes-of-computers&quot; id=&quot;markdown-toc-一classes-of-computers&quot;&gt;一、Classes of Computers&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1-desktop-computers&quot; id=&quot;markdown-toc-1-desktop-computers&quot;&gt;1. Desktop computers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2-server-computers&quot; id=&quot;markdown-toc-2-server-computers&quot;&gt;2. Server computers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3-embedded-computers&quot; id=&quot;markdown-toc-3-embedded-computers&quot;&gt;3. Embedded computers&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#二understanding-performance&quot; id=&quot;markdown-toc-二understanding-performance&quot;&gt;二、Understanding Performance&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1-algorithm&quot; id=&quot;markdown-toc-1-algorithm&quot;&gt;1. Algorithm&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2-programming-language-compiler-architecture&quot; id=&quot;markdown-toc-2-programming-language-compiler-architecture&quot;&gt;2. Programming language, compiler, architecture&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3-processor-and-memory-system&quot; id=&quot;markdown-toc-3-processor-and-memory-system&quot;&gt;3. Processor and memory system&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#4-io-system-including-os&quot; id=&quot;markdown-toc-4-io-system-including-os&quot;&gt;4. I/O system (including OS)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#三below-your-program&quot; id=&quot;markdown-toc-三below-your-program&quot;&gt;三、Below your Program&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1-application-software&quot; id=&quot;markdown-toc-1-application-software&quot;&gt;1. Application software&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2-system-software&quot; id=&quot;markdown-toc-2-system-software&quot;&gt;2. System software&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3-hardware&quot; id=&quot;markdown-toc-3-hardware&quot;&gt;3. Hardware&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#四levels-of-program-code&quot; id=&quot;markdown-toc-四levels-of-program-code&quot;&gt;四、Levels of Program Code&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1-high-level-language&quot; id=&quot;markdown-toc-1-high-level-language&quot;&gt;1. High-level language&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2-assembly-language&quot; id=&quot;markdown-toc-2-assembly-language&quot;&gt;2. Assembly language&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3-hardware-representation&quot; id=&quot;markdown-toc-3-hardware-representation&quot;&gt;3. Hardware representation&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#五defining-performance&quot; id=&quot;markdown-toc-五defining-performance&quot;&gt;五、Defining Performance&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1-response-time&quot; id=&quot;markdown-toc-1-response-time&quot;&gt;1. Response time&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2-throughput&quot; id=&quot;markdown-toc-2-throughput&quot;&gt;2. Throughput&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#六relative-performance&quot; id=&quot;markdown-toc-六relative-performance&quot;&gt;六、Relative Performance&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#七measuring-execution-time&quot; id=&quot;markdown-toc-七measuring-execution-time&quot;&gt;七、Measuring Execution Time&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1-elapsed-time&quot; id=&quot;markdown-toc-1-elapsed-time&quot;&gt;1. Elapsed time&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2-cpu-time&quot; id=&quot;markdown-toc-2-cpu-time&quot;&gt;2. CPU time&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3-instruction-count-and-cpi&quot; id=&quot;markdown-toc-3-instruction-count-and-cpi&quot;&gt;3. Instruction Count and CPI&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#八performance-summary&quot; id=&quot;markdown-toc-八performance-summary&quot;&gt;八、Performance Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;課程簡報
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Computer-Organization-And-Design_pages/blob/master/class-tutorial/20180301/Chapter-1-Computer-Abstractions-and-Technology.pdf&quot;&gt;Chapter-1-Computer-Abstractions-and-Technology&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://ccckmit.wikidot.com/co:speed&quot;&gt;計算機結構 - 速度的議題&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://goo.gl/fW6rF6&quot;&gt;GitBook - 組合語言與計算機組織&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://chi_gitbook.gitbooks.io/personal-note/content/computer_abstractions_and_technology.html&quot;&gt;Computer Abstractions and Technology&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://chi_gitbook.gitbooks.io/personal-note/content/performance.html&quot;&gt;Performance&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://chi_gitbook.gitbooks.io/personal-note/content/cpu_time.html&quot;&gt;CPU Time&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;一classes-of-computers&quot;&gt;一、Classes of Computers&lt;/h3&gt;
+&lt;h4 id=&quot;1-desktop-computers&quot;&gt;1. Desktop computers&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;General purpose, variety of software.&lt;/li&gt;
+  &lt;li&gt;Subject to &lt;code class=&quot;highlighter-rouge&quot;&gt;cost&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;performance&lt;/code&gt; tradeoff.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-server-computers&quot;&gt;2. Server computers&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Network based.&lt;/li&gt;
+  &lt;li&gt;High capacity, performance, reliability.&lt;/li&gt;
+  &lt;li&gt;Range from small servers to building sized.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;3-embedded-computers&quot;&gt;3. Embedded computers&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hidden as components of systems.&lt;/li&gt;
+  &lt;li&gt;Stringent &lt;code class=&quot;highlighter-rouge&quot;&gt;power&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;performance&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;cost&lt;/code&gt; constraints.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;二understanding-performance&quot;&gt;二、Understanding Performance&lt;/h3&gt;
+&lt;h4 id=&quot;1-algorithm&quot;&gt;1. Algorithm&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Determine number of operations executed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-programming-language-compiler-architecture&quot;&gt;2. Programming language, compiler, architecture&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Determine number of machine instructions executed per operation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;3-processor-and-memory-system&quot;&gt;3. Processor and memory system&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Determine how fast instructions are executed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;4-io-system-including-os&quot;&gt;4. I/O system (including OS)&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Determines how fast I/O operations are executed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;三below-your-program&quot;&gt;三、Below your Program&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/jbQSrpv.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;1-application-software&quot;&gt;1. Application software&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Written in high-level language.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-system-software&quot;&gt;2. System software&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Compiler: translates HLL code to machine code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;3-hardware&quot;&gt;3. Hardware&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Processor, memory, I/O controllers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;四levels-of-program-code&quot;&gt;四、Levels of Program Code&lt;/h3&gt;
+&lt;h4 id=&quot;1-high-level-language&quot;&gt;1. High-level language&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Level of abstraction closer to problem domain.&lt;/li&gt;
+  &lt;li&gt;Provides for productivity and portability.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-assembly-language&quot;&gt;2. Assembly language&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Textual representation of instrctions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;3-hardware-representation&quot;&gt;3. Hardware representation&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Binary digits (bits).&lt;/li&gt;
+  &lt;li&gt;Encoded instructions and data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;五defining-performance&quot;&gt;五、Defining Performance&lt;/h3&gt;
+&lt;h4 id=&quot;1-response-time&quot;&gt;1. Response time&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;How long it takes to do a task.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-throughput&quot;&gt;2. Throughput&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Total work done per unit time.
+    &lt;ul&gt;
+      &lt;li&gt;e.g. &lt;strong&gt;tasks&lt;/strong&gt; / &lt;strong&gt;transactions&lt;/strong&gt; / … per hour&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;六relative-performance&quot;&gt;六、Relative Performance&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/QCzLpUf.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;X is n time faster than Y
+&lt;img src=&quot;https://i.imgur.com/mQHfgdK.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;七measuring-execution-time&quot;&gt;七、Measuring Execution Time&lt;/h3&gt;
+&lt;h4 id=&quot;1-elapsed-time&quot;&gt;1. Elapsed time&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Total response time, including all aspects
+    &lt;ul&gt;
+      &lt;li&gt;Processing, I/O, OS overhead, idle time.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Determines system performance&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-cpu-time&quot;&gt;2. CPU time&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/ThOhi5q.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CPU Time Example
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/p0FUEbd.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Performance improved&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;ol&gt;
+        &lt;li&gt;Reducing number of clock cycles.&lt;/li&gt;
+        &lt;li&gt;Increasing clock rate.&lt;/li&gt;
+        &lt;li&gt;Hardware designer must often trade off clock rate against cycle count.&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;3-instruction-count-and-cpi&quot;&gt;3. Instruction Count and CPI&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Instruction Count&lt;/code&gt;：指令個數&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CPI&lt;/code&gt;：每一個指令需要執行多少個週期 (cycle per instruction)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/7YA28w1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CPI Example
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/6sLnWxw.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;八performance-summary&quot;&gt;八、Performance Summary&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Performance depends on&lt;/strong&gt;
+    &lt;ol&gt;
+      &lt;li&gt;&lt;strong&gt;Algorithm&lt;/strong&gt;: affects IC, possibly IC&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Programming language&lt;/strong&gt;: affects IC, CPI&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Compiler&lt;/strong&gt;: affects IC, CPI&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Instruction set architecture&lt;/strong&gt;: affects IC, CPI, Tc&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 01 Mar 2018 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2018/03/01/computer_organization/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2018/03/01/computer_organization/</guid>
+        
+        <category>計算機結構</category>
+        
+        <category>作業系統</category>
+        
+        
+        <category>計算機結構</category>
+        
+        <category>作業系統</category>
+        
+      </item>
     
       <item>
         <title>20170720 [學習筆記] 細談資料結構_6th (1)</title>
@@ -1970,180 +2207,6 @@ c. Write victim frame to disk if dirty&lt;/p&gt;
         <pubDate>Thu, 01 Jun 2017 08:00:00 +0800</pubDate>
         <link>http://shouzo.github.io/2017/06/01/linux_system/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2017/06/01/linux_system/</guid>
-        
-        <category>Linux</category>
-        
-        <category>作業系統</category>
-        
-        <category>程式設計</category>
-        
-        
-        <category>Linux</category>
-        
-        <category>作業系統</category>
-        
-        <category>程式設計</category>
-        
-      </item>
-    
-      <item>
-        <title>20170525 [學習筆記] Linux 系統程式 (12)</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#一作業系統&quot; id=&quot;markdown-toc-一作業系統&quot;&gt;一、作業系統&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#一-contiguous-allocation&quot; id=&quot;markdown-toc-一-contiguous-allocation&quot;&gt;(一) Contiguous Allocation&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#二-dynamic-storage-allocation-problem&quot; id=&quot;markdown-toc-二-dynamic-storage-allocation-problem&quot;&gt;(二) Dynamic Storage-Allocation Problem&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#三-fragmentation&quot; id=&quot;markdown-toc-三-fragmentation&quot;&gt;(三) Fragmentation&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#四-segmentation&quot; id=&quot;markdown-toc-四-segmentation&quot;&gt;(四) Segmentation&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#segmentation-architecture&quot; id=&quot;markdown-toc-segmentation-architecture&quot;&gt;Segmentation Architecture&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;一作業系統&quot;&gt;一、作業系統&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;課堂講義
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170525/ch08.pdf&quot;&gt;Chapter 8: Memory-Management Strategies&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;一-contiguous-allocation&quot;&gt;(一) Contiguous Allocation&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Main memory must support both OS and user processes&lt;/li&gt;
-  &lt;li&gt;Limited resource, must allocate efficiently&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Contiguous allocation is one early method&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Main memory usually into two &lt;strong&gt;partitions&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Resident operating system, usually held in low memory with interrupt vector&lt;/li&gt;
-      &lt;li&gt;User processes then held in high memory&lt;/li&gt;
-      &lt;li&gt;Each process contained in single contiguous section of memory&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Relocation registers used to protect user processes from each other, and from changing operating-system code and data
-    &lt;ul&gt;
-      &lt;li&gt;Base register contains value of smallest physical address&lt;/li&gt;
-      &lt;li&gt;Limit register contains range of logical addresses – each logical address must be less than the limit register&lt;/li&gt;
-      &lt;li&gt;MMU maps logical address dynamically&lt;/li&gt;
-      &lt;li&gt;Can then allow actions such as kernel code being &lt;code class=&quot;highlighter-rouge&quot;&gt;transient&lt;/code&gt; and kernel changing size&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/z3R2FCC.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Multiple-partition allocation
-    &lt;ul&gt;
-      &lt;li&gt;Degree of multiprogramming limited by number of partitions&lt;/li&gt;
-      &lt;li&gt;Variable-partition sizes for efficiency (sized to a given process’ needs)&lt;/li&gt;
-      &lt;li&gt;Hole – block of available memory; holes of various size are scattered throughout memory&lt;/li&gt;
-      &lt;li&gt;When a process arrives, it is allocated memory from a hole large enough to accommodate it&lt;/li&gt;
-      &lt;li&gt;Process exiting frees its partition, adjacent free partitions combined&lt;/li&gt;
-      &lt;li&gt;Operating system maintains information about
-        &lt;ul&gt;
-          &lt;li&gt;(a) allocated partitions&lt;/li&gt;
-          &lt;li&gt;(b) free partitions (hole)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/JQ1uTUe.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;二-dynamic-storage-allocation-problem&quot;&gt;(二) Dynamic Storage-Allocation Problem&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;First-fit&lt;/strong&gt;：Allocate the &lt;code class=&quot;highlighter-rouge&quot;&gt;first&lt;/code&gt; hole that is big enough&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Best-fit&lt;/strong&gt;：Allocate the &lt;code class=&quot;highlighter-rouge&quot;&gt;smallest&lt;/code&gt; hole that is big enough; must search entire list, unless ordered by size
-    &lt;ul&gt;
-      &lt;li&gt;Produces the smallest leftover hole&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Worst-fit&lt;/strong&gt;：Allocate the &lt;code class=&quot;highlighter-rouge&quot;&gt;largest&lt;/code&gt; hole; must also search entire list
-    &lt;ul&gt;
-      &lt;li&gt;Produces the largest leftover hole&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;First-fit and best-fit better than worst-fit in terms of speed and storage utilization&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;三-fragmentation&quot;&gt;(三) Fragmentation&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;External Fragmentation&lt;/strong&gt; – total memory space exists to satisfy a request, but it is not contiguous&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Internal Fragmentation&lt;/strong&gt; – allocated memory may be slightly larger than requested memory; this size difference is memory internal to a partition, but not being used&lt;/li&gt;
-  &lt;li&gt;First fit analysis reveals that given N blocks allocated, 0.5 N blocks lost to fragmentation
-    &lt;ul&gt;
-      &lt;li&gt;1/3 may be unusable -&amp;gt; &lt;strong&gt;50-percent rule&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Reduce external fragmentation by &lt;strong&gt;compaction&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Shuffle memory contents to place all free memory together in one large block&lt;/li&gt;
-      &lt;li&gt;Compaction is possible only if relocation is dynamic, and is done at execution time&lt;/li&gt;
-      &lt;li&gt;I/O problem
-        &lt;ul&gt;
-          &lt;li&gt;Latch job in memory while it is involved in I/O&lt;/li&gt;
-          &lt;li&gt;Do I/O only into OS buffers&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Now consider that backing store has same fragmentation problems&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;四-segmentation&quot;&gt;(四) Segmentation&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Memory-management scheme that supports user view of memory&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/hiMN3YJ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;A program is a collection of segments
-    &lt;ul&gt;
-      &lt;li&gt;A segment is a logical unit such as：&lt;code class=&quot;highlighter-rouge&quot;&gt;main program&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;procedure&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;function&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;method&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;object&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;local variables&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;global variables&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;common block&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;stack&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;symbol table&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;arrays&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/PKuwv70.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;segmentation-architecture&quot;&gt;Segmentation Architecture&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Logical address consists of a two tuple：&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;segment-number, offset&amp;gt;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Segment table&lt;/strong&gt; – maps two-dimensional physical addresses; each table entry has
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;base&lt;/strong&gt; – contains the starting physical address where the segments reside in memory&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;limit&lt;/strong&gt; – specifies the length of the segment&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Segment-table base register (STBR)&lt;/strong&gt; points to the segment table’s location in memory&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Segment-table length register (STLR)&lt;/strong&gt; indicates number of segments used by a program：&lt;code class=&quot;highlighter-rouge&quot;&gt;segment number s is legal if s &amp;lt; STLR&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Protection
-    &lt;ul&gt;
-      &lt;li&gt;With each entry in segment table associate
-        &lt;ul&gt;
-          &lt;li&gt;validation bit = 0 » illegal segment&lt;/li&gt;
-          &lt;li&gt;read/write/execute privileges&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Protection bits associated with segments; code sharing occurs at segment level&lt;/li&gt;
-  &lt;li&gt;Since segments vary in length, memory allocation is a dynamic storage-allocation problem&lt;/li&gt;
-  &lt;li&gt;A segmentation example is shown in the following diagram&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/raq8eDi.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 25 May 2017 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2017/05/25/linux_system/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2017/05/25/linux_system/</guid>
         
         <category>Linux</category>
         
