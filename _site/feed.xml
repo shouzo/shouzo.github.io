@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 03 Mar 2018 10:54:06 +0800</pubDate>
-    <lastBuildDate>Sat, 03 Mar 2018 10:54:06 +0800</lastBuildDate>
+    <pubDate>Sun, 04 Mar 2018 00:46:03 +0800</pubDate>
+    <lastBuildDate>Sun, 04 Mar 2018 00:46:03 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -168,9 +168,10 @@
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/QCzLpUf.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;X is n time faster than Y
-&lt;img src=&quot;https://i.imgur.com/mQHfgdK.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;X is n time faster than Y&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/mQHfgdK.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;七measuring-execution-time&quot;&gt;七、Measuring Execution Time&lt;/h3&gt;
 &lt;h4 id=&quot;1-elapsed-time&quot;&gt;1. Elapsed time&lt;/h4&gt;

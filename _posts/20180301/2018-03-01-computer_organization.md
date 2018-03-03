@@ -88,7 +88,9 @@ tags: 計算機結構 作業系統
 ### 六、Relative Performance
 ![](https://i.imgur.com/QCzLpUf.jpg)
 
+
 * X is n time faster than Y
+
 ![](https://i.imgur.com/mQHfgdK.jpg)
 
 
