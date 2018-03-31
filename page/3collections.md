@@ -17,7 +17,7 @@ O(n^3^)
 
 ---
 
-# (二) Hackpad 線上筆記
+# (二) Hackpad 線上筆記 (現已轉為 Dropbox Paper)
 * 這裡整理著之前在 Hackpad 撰寫的筆記：
 	* [20160601 [學習筆記] Hackpad - 線上筆記彙整(1)](/2016/05/31/hackpad-notes/)
 
