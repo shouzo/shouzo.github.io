@@ -340,7 +340,7 @@ bursts.
   <li>課程作業</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 </span>
@@ -364,7 +364,7 @@ bursts.
 	<span class="p">}</span>	
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果</li>
@@ -387,7 +387,7 @@ bursts.
   <li>課堂練習： <code class="highlighter-rouge">execv()</code> 的概念</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 </span>
 <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"-1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
@@ -410,7 +410,7 @@ bursts.
 	<span class="n">printf</span><span class="p">(</span><span class="s">"Hello there! </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h3 id="二-signals">(二) Signals</h3>
 
@@ -440,9 +440,9 @@ bursts.
   <li>raise()</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">raise</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">);</span> <span class="cm">/* Process commits suicide. */</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">raise</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">);</span> <span class="cm">/* Process commits suicide. */</span>
 <span class="n">assert</span><span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>	<span class="cm">/* Shouldn't get here. */</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>kill()</li>
@@ -452,9 +452,9 @@ bursts.
   <p>int kill(pid_t iPid, int iSig);</p>
 </blockquote>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">pid_t</span> <span class="n">iPid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span> <span class="cm">/* Process gets its id.*/</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pid_t</span> <span class="n">iPid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span> <span class="cm">/* Process gets its id.*/</span>
 <span class="n">kill</span><span class="p">(</span><span class="n">iPid</span><span class="p">,</span> <span class="n">SIGINT</span><span class="p">);</span>	<span class="cm">/* Process sends itself a SIGINT signal (commits suicide?) */</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="4-linux-signal">4. Linux Signal</h4>
 <ul>
@@ -497,15 +497,15 @@ bursts.
 </ul>
 
 <h5 id="1-signal">(1) signal()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
 </span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))(</span><span class="kt">int</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>攔截 Ctrl-C 訊號</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 </span>
@@ -522,12 +522,12 @@ bursts.
 		<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="2-sigaction">(2) sigaction()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
 </span><span class="kt">int</span> <span class="n">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">act</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">oact</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 <ul>
   <li>參數說明
     <ul>
@@ -544,7 +544,7 @@ bursts.
 <img src="https://i.imgur.com/1Zbog12.jpg" alt="" /></li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;signal.h&gt;
 </span>
@@ -570,7 +570,7 @@ bursts.
 </span>        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
     <span class="p">}</span>   
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果</li>

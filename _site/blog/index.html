@@ -641,7 +641,7 @@
   </li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>; hello-os
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; hello-os
 ; TAB=4
 
 ORG		0x7c00			; 指定從 0x7c00 開始執行
@@ -708,7 +708,7 @@ msg:
     TIMES 510-($-$$)    DB    0      ; "$" 代表目前行的位址，"$$" 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
 
     DB		0x55, 0xaa
-</code></pre></div>
+</code></pre></div></div>
 
 <h2 id="二編譯-helloosnas">二、編譯 <code class="highlighter-rouge">helloos.nas</code></h2>
 <ol>
@@ -738,11 +738,11 @@ msg:
   <p>dd if=bootloader of=os.img bs=512 count=1</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if：指定輸入檔案
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if：指定輸入檔案
 of：指定輸出檔案
 bs：指定 block size，一次讀取與寫入 N 個位元組的資料
 count：處理 N 個輸入區塊
-</code></pre></div>
+</code></pre></div></div>
 
 <p><img src="https://i.imgur.com/DbKECqo.png" alt="" /></p>
 
@@ -750,7 +750,7 @@ count：處理 N 個輸入區塊
   <li>如果打開 <code class="highlighter-rouge">ipl.lst</code> ，可以檢視組合語言轉換成機械碼的情形。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>     1                                  ; hello-os
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     1                                  ; hello-os
      2                                  ; TAB=4
      3                                  
      4                                  ORG		0x7c00			    ;   指定從 0x7c00 開始執行
@@ -822,7 +822,7 @@ count：處理 N 個輸入區塊
     67 00000084 00&lt;rept&gt;                    TIMES 510-($-$$)    DB      0   ;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
     68                                  
     69 000001FE 55AA                        DB		0x55, 0xaa
-</code></pre></div>
+</code></pre></div></div>
 
 
                 </div>
@@ -951,7 +951,7 @@ count：處理 N 個輸入區塊
 
 <p><strong>2. 用 vim 檢視 <code class="highlighter-rouge">helloos.nas</code> 的內容</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
 DB	0x49, 0x50, 0x4c, 0x00, 0x02, 0x01, 0x01, 0x00
 DB	0x02, 0xe0, 0x00, 0x40, 0x0b, 0xf0, 0x09, 0x00
 DB	0x12, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -973,7 +973,7 @@ DB	0xf0, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00
 RESB	4600
 DB	0xf0, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00
 RESB	1469432
-</code></pre></div>
+</code></pre></div></div>
 <p><img src="https://i.imgur.com/lTRNdvC.png" alt="" /></p>
 
 <p>好吧，我發現自己看不懂…得找找相關的組合語言書籍。</p>

@@ -279,16 +279,16 @@
   <li>Create as many threads as there are cores.</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#pragma omp parallel for
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#pragma omp parallel for
 </span><span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <span class="p">}</span>
 <span class="c1">// Run for loop in parallel
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h4 id="example">Example</h4>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;omp.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;omp.h&gt;
 #include &lt;stdio.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
@@ -303,7 +303,7 @@
     
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h3 id="三-threading-issues">(三) Threading Issues</h3>
 
@@ -362,7 +362,7 @@
   <li>Pthread code to create and cancel a thread:</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">pthread_t</span> <span class="n">tid</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pthread_t</span> <span class="n">tid</span><span class="p">;</span>
 
 <span class="cm">/* Create the thread */</span>
 <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">worker</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
@@ -371,7 +371,7 @@
 
 <span class="cm">/* Cancel the thread */</span>
 <span class="n">pthread_cancel</span><span class="p">(</span><span class="n">tid</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="4-thread-local-storage">4. Thread-Local Storage</h4>
 <ul>
@@ -514,7 +514,7 @@
   </li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -570,13 +570,13 @@
     <span class="n">close</span><span class="p">(</span><span class="n">sockfd</span><span class="p">);</span>
     <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
 
 <span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -638,7 +638,7 @@
         <span class="n">close</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -955,7 +955,7 @@
 <h3 id="一-thread-synchronization">(一) Thread Synchronization</h3>
 <h3 id="1-semaphore">1. Semaphore</h3>
 <h4 id="semaphoreh">semaphore.h</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;semaphore.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;semaphore.h&gt;
 </span>
 <span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
 <span class="c1">//create a semaphore
@@ -971,12 +971,12 @@
 
 <span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
 <span class="c1">//delete a semaphore
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h5 id="sem_init">sem_init()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span>
 <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">sem_t *sem</code>：semaphore 識別字</li>
   <li><code class="highlighter-rouge">int pshared</code>：設定為 0 表示僅供目前的 process 及其 thread 使用。非 0 表示此 semaphore 與其他 process 共用</li>
@@ -984,8 +984,8 @@
 </ul>
 
 <h5 id="sem_wait">sem_wait()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>若 semaphore 為非 0，則 semaphore 值減
 1；若 semaphore 為 0，則呼叫此 function
@@ -994,20 +994,20 @@
 </ul>
 
 <h5 id="sem_post">sem_post()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>對 semaphore 值加 1 。</li>
 </ul>
 
 <h5 id="sem_destroy">sem_destroy()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
 <span class="c1">//delete a semaphore
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="2-mutex">2. Mutex</h3>
 <h4 id="pthreadh">pthread.h</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
 </span>
 <span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
 <span class="c1">//create a mutex
@@ -1023,30 +1023,30 @@
 
 <span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//delete a mutex
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h5 id="pthread_mutex_init">pthread_mutex_init()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_mutex_t *mutex</code>：mutex 識別字</li>
   <li><code class="highlighter-rouge">const pthread_mutexattr_t *mutexattr</code>：mutex 的屬性。設定為 NULL 表示使用預設。</li>
 </ul>
 
 <h5 id="pthread_mutex_lock">pthread_mutex_lock()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//lock a mutex
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h5 id="pthread_mutex_unlock">pthread_mutex_unlock()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//unlock a mutex
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h5 id="pthread_mutex_destroy">pthread_mutex_destroy()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//delete a mutex
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="3-condition-variables">3. Condition Variables</h3>
 <h4 id="pthread_cond_init-condition-attr">pthread_cond_init (condition, attr)</h4>
@@ -1077,7 +1077,7 @@
 
 <h3 id="二-producer-consumer-problem">(二) Producer-Consumer Problem</h3>
 <h4 id="1-producer">1. Producer</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">item</span> <span class="n">next</span> <span class="n">produced</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">item</span> <span class="n">next</span> <span class="n">produced</span><span class="p">;</span>
 <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
     <span class="cm">/* produce an item in next produced */</span>
     
@@ -1087,10 +1087,10 @@
     <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next</span> <span class="n">produced</span><span class="p">;</span>
     <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="2-consumer">2. Consumer</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">item</span> <span class="n">next</span> <span class="n">consumed</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">item</span> <span class="n">next</span> <span class="n">consumed</span><span class="p">;</span>
 <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
     <span class="p">;</span> <span class="cm">/* do nothing */</span>
@@ -1100,10 +1100,10 @@
     
     <span class="cm">/* consume the item in next consumed */</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h3 id="課程作業">課程作業</h3>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
  *  Solution to Producer Consumer Problem
  *  Using Ptheads, a mutex and condition variables
  *  From Tanenbaum, Modern Operating Systems, 3rd Ed.
@@ -1193,7 +1193,7 @@
     <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">);</span>		<span class="cm">/* Free up consumer condition variable */</span>
     <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">);</span>		<span class="cm">/* Free up producer condition variable */</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果

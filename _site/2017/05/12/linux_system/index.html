@@ -342,7 +342,7 @@
   <li>Deadlock Example</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/* thread one runs in this function */</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* thread one runs in this function */</span>
 <span class="kt">void</span> <span class="o">*</span><span class="k">do</span> <span class="n">work</span> <span class="nf">one</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
@@ -363,13 +363,13 @@
     <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
     <span class="n">pthread</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>Deadlock Example with Lock Ordering</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">transaction</span><span class="p">(</span><span class="n">Account</span> <span class="n">from</span><span class="p">,</span> <span class="n">Account</span> <span class="n">to</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">transaction</span><span class="p">(</span><span class="n">Account</span> <span class="n">from</span><span class="p">,</span> <span class="n">Account</span> <span class="n">to</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">mutex</span> <span class="n">lock1</span><span class="p">,</span> <span class="n">lock2</span><span class="p">;</span>
     <span class="n">lock1</span> <span class="o">=</span> <span class="n">get</span> <span class="n">lock</span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
@@ -381,7 +381,7 @@
     <span class="n">release</span><span class="p">(</span><span class="n">lock2</span><span class="p">);</span>
     <span class="n">release</span><span class="p">(</span><span class="n">lock1</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="2-deadlock-avoidance">2. Deadlock Avoidance</h4>
 <ul>
@@ -467,7 +467,7 @@
 <p><img src="https://i.imgur.com/xadWBBf.png" alt="" /></p>
 
 <h3 id="二-變數-variables">(二) 變數 (variables)</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nv">salutation</span><span class="o">=</span>Hello
 <span class="nb">echo</span> <span class="nv">$salutation</span>
 
@@ -476,7 +476,7 @@
 
 <span class="nv">salutation</span><span class="o">=</span>7+5
 <span class="nb">echo</span> <span class="nv">$salutation</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -484,7 +484,7 @@
 </ul>
 
 <h3 id="三-引號-quoting">(三) 引號 (quoting)</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nv">myvar</span><span class="o">=</span><span class="s2">"Hi there"</span>
 
 <span class="nb">echo</span> <span class="nv">$myvar</span>
@@ -495,7 +495,7 @@
 <span class="nb">echo</span> <span class="s2">"Please enter something..."</span>
 <span class="nb">read </span>myvar
 <span class="nb">echo</span> <span class="nv">$myvar</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -507,16 +507,16 @@
 <img src="https://i.imgur.com/nVZTV1F.png" alt="" /></p>
 
 <h3 id="五-控制結構---if">(五) 控制結構 - if</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nb">echo</span> <span class="s2">"Is it morning ?"</span>
 <span class="nb">read </span>timeofday
 
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$timeofday</span> <span class="o">=</span> <span class="s2">"yes"</span> <span class="o">]</span>; <span class="k">then
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$timeofday</span> <span class="o">=</span> <span class="s2">"yes"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
     </span><span class="nb">echo</span> <span class="s2">"Good morning"</span>
 <span class="k">else
     </span><span class="nb">echo</span> <span class="s2">"Good afternoon"</span>
 <span class="k">fi</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -524,7 +524,7 @@
 </ul>
 
 <h3 id="六-控制結構---elif">(六) 控制結構 - elif</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nb">echo</span> <span class="s2">"Is it morning ?"</span>
 <span class="nb">read </span>timeofday
 
@@ -532,13 +532,13 @@
 <span class="k">then
     </span><span class="nb">echo</span> <span class="s2">"Good morning"</span>
 
-<span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$timeofday</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"no"</span> <span class="o">]</span>; <span class="k">then
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$timeofday</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"no"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
     </span><span class="nb">echo</span> <span class="s2">"Good afternoon"</span>
 
 <span class="k">else
     </span><span class="nb">echo</span> <span class="s2">"Sorry, </span><span class="nv">$timeofday</span><span class="s2"> not recognized"</span>
 <span class="k">fi</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -547,12 +547,12 @@
 
 <h3 id="七-控制結構---for">(七) 控制結構 - for</h3>
 <h5 id="example-1">Example 1</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="k">for </span>foo <span class="k">in </span>bar fud 43
 <span class="k">do
 </span><span class="nb">echo</span> <span class="nv">$foo</span>
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -560,12 +560,12 @@
 </ul>
 
 <h5 id="example-2">Example 2</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="k">for </span>i <span class="k">in </span>1 2 3
 <span class="k">do
 </span><span class="nb">echo</span> <span class="nv">$i</span>
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -574,15 +574,15 @@
 
 <h3 id="八-控制結構---while">(八) 控制結構 - while</h3>
 <h5 id="example-1-1">Example 1</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nb">echo</span> <span class="s2">"Enter password"</span>
 <span class="nb">read </span>trythis
     
-<span class="k">while</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$trythis</span><span class="s2">"</span> !<span class="o">=</span> <span class="s2">"secret"</span> <span class="o">]</span>; <span class="k">do
+<span class="k">while</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$trythis</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"secret"</span> <span class="o">]</span><span class="p">;</span> <span class="k">do
     </span><span class="nb">echo</span> <span class="s2">"Sorry, try again"</span>
     <span class="nb">read </span>trythis
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -590,16 +590,16 @@
 </ul>
 
 <h5 id="example-2-1">Example 2</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nv">foo</span><span class="o">=</span>1
 
-<span class="k">while</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$foo</span><span class="s2">"</span> -le 20 <span class="o">]</span>
+<span class="k">while</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$foo</span><span class="s2">"</span> <span class="nt">-le</span> 20 <span class="o">]</span>
 <span class="k">do
     </span><span class="nb">echo</span> <span class="s2">"Here we go again"</span>
     <span class="nv">foo</span><span class="o">=</span><span class="k">$((</span><span class="nv">$foo</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
 <span class="k">done
 </span><span class="nb">exit </span>0
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -607,15 +607,15 @@
 </ul>
 
 <h5 id="example-3">Example 3</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nv">x</span><span class="o">=</span>0
 
-<span class="k">while</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$x</span><span class="s2">"</span> -ne 10 <span class="o">]</span>; <span class="k">do
+<span class="k">while</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$x</span><span class="s2">"</span> <span class="nt">-ne</span> 10 <span class="o">]</span><span class="p">;</span> <span class="k">do
     </span><span class="nb">echo</span> <span class="nv">$x</span>
     <span class="nv">x</span><span class="o">=</span><span class="k">$((</span><span class="nv">$x</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
 <span class="k">done
 </span><span class="nb">exit </span>0
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -624,7 +624,7 @@
 
 <h3 id="九-控制結構---case">(九) 控制結構 - case</h3>
 <h5 id="example-1-2">Example 1</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nb">echo</span> <span class="s2">"Is it morning? Please answer 'Yes'、'y'、'No'、'n'"</span>
 <span class="nb">read </span>timeofday
 
@@ -635,7 +635,7 @@
 	n<span class="p">)</span> <span class="nb">echo</span> <span class="s2">"Good Aftrenoon"</span> <span class="p">;;</span>
 	<span class="k">*</span><span class="p">)</span> <span class="nb">echo</span> <span class="s2">"Sorry, answer not recognized"</span> <span class="p">;;</span>
 <span class="k">esac</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -643,7 +643,7 @@
 </ul>
 
 <h5 id="example-2-2">Example 2</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nb">echo</span> <span class="s2">"Is it morning? Please answer 'Yes'、'Y...'、'y'、'No'、'N...'、'n'"</span>
 <span class="nb">read </span>timeofday
 
@@ -652,7 +652,7 @@
     N<span class="k">*</span> <span class="p">|</span> n <span class="p">|</span> No<span class="p">)</span> <span class="nb">echo</span> <span class="s2">"Good Aftrenoon"</span> <span class="p">;;</span>
     <span class="k">*</span><span class="p">)</span> <span class="nb">echo</span> <span class="s2">"Sorry, answer not recognized"</span> <span class="p">;;</span>
 <span class="k">esac</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -661,11 +661,11 @@
 
 <h3 id="十-控制結構---and">(十) 控制結構 - AND</h3>
 <h5 id="example-1-3">Example 1</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 touch file_one
 rm file_two
 
-<span class="k">if</span> <span class="o">[</span> -f file_one <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"hello"</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -f file_two <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"there"</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> file_one <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"hello"</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nt">-f</span> file_two <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"there"</span>
 <span class="k">then 
     </span><span class="nb">echo</span> <span class="s2">"in if"</span>
 <span class="k">else
@@ -673,7 +673,7 @@ rm file_two
 <span class="k">fi
 
 </span><span class="nb">exit </span>0
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -682,10 +682,10 @@ rm file_two
 
 <h3 id="十一-控制結構---or">(十一) 控制結構 - OR</h3>
 <h5 id="example-1-4">Example 1</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 rm –f file_one
 
-<span class="k">if</span> <span class="o">[</span> -f file_one <span class="o">]</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"hello"</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"there"</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> file_one <span class="o">]</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"hello"</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"there"</span>
 <span class="k">then
     </span><span class="nb">echo</span> <span class="s2">"in if"</span>
 <span class="k">else
@@ -693,7 +693,7 @@ rm –f file_one
 <span class="k">fi
 
 </span><span class="nb">exit </span>0
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果

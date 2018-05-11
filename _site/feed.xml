@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 31 Mar 2018 12:22:21 +0800</pubDate>
-    <lastBuildDate>Sat, 31 Mar 2018 12:22:21 +0800</lastBuildDate>
+    <pubDate>Fri, 11 May 2018 17:35:13 +0800</pubDate>
+    <lastBuildDate>Fri, 11 May 2018 17:35:13 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -421,7 +421,7 @@
 
 &lt;p&gt;&lt;strong&gt;[範例] 從 1 加到 10 演算法的虛擬程式碼&lt;/strong&gt; (如下所示)&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;counter = 1
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;counter = 1
 total = 0
 while counter &amp;lt;= 10
 {
@@ -429,7 +429,7 @@ while counter &amp;lt;= 10
    add 1 to counter
 }
 output total
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;三程式的分析&quot;&gt;三、程式的分析&lt;/h2&gt;
 &lt;ul&gt;
@@ -586,7 +586,7 @@ output total
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; hello-os
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; hello-os
 ; TAB=4
 
 ORG		0x7c00			; 指定從 0x7c00 開始執行
@@ -653,7 +653,7 @@ msg:
     TIMES 510-($-$$)    DB    0      ; &quot;$&quot; 代表目前行的位址，&quot;$$&quot; 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
 
     DB		0x55, 0xaa
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;二編譯-helloosnas&quot;&gt;二、編譯 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt;&lt;/h2&gt;
 &lt;ol&gt;
@@ -683,11 +683,11 @@ msg:
   &lt;p&gt;dd if=bootloader of=os.img bs=512 count=1&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if：指定輸入檔案
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if：指定輸入檔案
 of：指定輸出檔案
 bs：指定 block size，一次讀取與寫入 N 個位元組的資料
 count：處理 N 個輸入區塊
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/DbKECqo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -695,7 +695,7 @@ count：處理 N 個輸入區塊
   &lt;li&gt;如果打開 &lt;code class=&quot;highlighter-rouge&quot;&gt;ipl.lst&lt;/code&gt; ，可以檢視組合語言轉換成機械碼的情形。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     1                                  ; hello-os
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     1                                  ; hello-os
      2                                  ; TAB=4
      3                                  
      4                                  ORG		0x7c00			    ;   指定從 0x7c00 開始執行
@@ -767,7 +767,7 @@ count：處理 N 個輸入區塊
     67 00000084 00&amp;lt;rept&amp;gt;                    TIMES 510-($-$$)    DB      0   ;   &#39;$&#39; 代表目前行的位址，&#39;$$&#39; 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
     68                                  
     69 000001FE 55AA                        DB		0x55, 0xaa
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;三啟動虛擬機讀取-osimg&quot;&gt;三、啟動虛擬機，讀取 &lt;code class=&quot;highlighter-rouge&quot;&gt;os.img&lt;/code&gt;&lt;/h2&gt;
 &lt;ul&gt;
@@ -858,7 +858,7 @@ count：處理 N 個輸入區塊
 
 &lt;p&gt;&lt;strong&gt;2. 用 vim 檢視 &lt;code class=&quot;highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt; 的內容&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
 DB	0x49, 0x50, 0x4c, 0x00, 0x02, 0x01, 0x01, 0x00
 DB	0x02, 0xe0, 0x00, 0x40, 0x0b, 0xf0, 0x09, 0x00
 DB	0x12, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -880,7 +880,7 @@ DB	0xf0, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00
 RESB	4600
 DB	0xf0, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00
 RESB	1469432
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/lTRNdvC.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;好吧，我發現自己看不懂…得找找相關的組合語言書籍。&lt;/p&gt;

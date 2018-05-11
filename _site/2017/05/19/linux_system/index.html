@@ -459,7 +459,7 @@
 </ul>
 
 <h3 id="一-函數-function">(一) 函數 (Function)</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 
 foo<span class="o">()</span> <span class="o">{</span>
     <span class="nb">echo</span> <span class="s2">"Function foo is excuting"</span>
@@ -468,7 +468,7 @@ foo<span class="o">()</span> <span class="o">{</span>
 <span class="nb">echo</span> <span class="s2">"Script starting"</span>
 foo
 <span class="nb">echo</span> <span class="s2">"Script ending"</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -477,7 +477,7 @@ foo
 
 <h3 id="二-命令-command">(二) 命令 (command)</h3>
 <h5 id="example-1">Example 1</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 
 <span class="k">for </span>x <span class="k">in </span>1 2 3
 <span class="k">do 
@@ -485,7 +485,7 @@ foo
     <span class="k">continue
     </span><span class="nb">echo </span>after <span class="nv">$x</span>
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -493,7 +493,7 @@ foo
 </ul>
 
 <h5 id="example-2">Example 2</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 
 <span class="k">for </span>x <span class="k">in </span>1 2 3
 <span class="k">do 
@@ -501,7 +501,7 @@ foo
     <span class="nb">break
     echo </span>after <span class="nv">$x</span>
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -520,13 +520,13 @@ foo
 </ul>
 
 <h3 id="三-命令-command---find">(三) 命令 (command) - find</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>-atime N           檔案最後存取時間是 N 天以前
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-atime N           檔案最後存取時間是 N 天以前
 -mtime N           檔案最後修改時間是 N 天以前
 -newer otherfle    檔案比 otherfle 還要新
 -name pattern      搜尋 pattern 名稱的檔案
 -type C            檔案型態是 C 的檔案
 -user username     檔案為 username 使用者所擁有
-</code></pre></div>
+</code></pre></div></div>
 
 <blockquote>
   <p>find / -name test -print
@@ -534,13 +534,13 @@ find . -newer test -print</p>
 </blockquote>
 
 <h3 id="四-命令-command---grep">(四) 命令 (command) - grep</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>-c    不印出吻合的那一行,只印出吻合的數量
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-c    不印出吻合的那一行,只印出吻合的數量
 -E    開啟延伸表示式
 -h    輸出的結果不顯示檔案名稱
 -I    忽略大小寫
 -l    只列出檔案名稱
 -v    反向比對,排除吻合樣本的結果
-</code></pre></div>
+</code></pre></div></div>
 
 <blockquote>
   <p>grep in word.txt

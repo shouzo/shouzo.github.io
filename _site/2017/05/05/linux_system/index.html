@@ -268,7 +268,7 @@
   <li>Can only be accessed via two indivisible (atomic) operations</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">S</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
         <span class="p">;</span> <span class="c1">//busy wait
 </span>    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
@@ -276,7 +276,7 @@
 <span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">S</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="1-usage">1. Usage</h4>
 <ul>
@@ -291,13 +291,13 @@
   <li>Consider P1 and P2 that require S1 to happen before S2</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="nl">P1:</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">P1:</span>
     <span class="n">S1</span><span class="p">;</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
 <span class="n">P2</span><span class="o">:</span>
     <span class="n">wait</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
     <span class="n">S2</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="2-implementation">2. Implementation</h4>
 <h5 id="1-busy-waiting">(1) Busy waiting</h5>
@@ -332,7 +332,7 @@
   </li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
     <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
     <span class="k">struct</span> <span class="n">process</span> <span class="o">*</span><span class="n">list</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">semaphore</span><span class="p">;</span>
@@ -352,7 +352,7 @@
 </span>        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h3 id="二-deadlock-and-starvation">(二) Deadlock and Starvation</h3>
 <ul>
@@ -388,7 +388,7 @@
 
 <h5 id="1-the-structure-of-the-producer-process">(1) The structure of the producer process</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
     <span class="p">...</span>
     <span class="cm">/* produce an item in next_produced */</span>
     <span class="p">...</span>
@@ -403,11 +403,11 @@
     <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="2-the-structure-of-the-consumer-process">(2) The structure of the consumer process</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
     <span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
     <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 
@@ -422,7 +422,7 @@
     <span class="cm">/* consume the item in next consumed */</span>
     <span class="p">...</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="2-readers-writers-problem">2. Readers-Writers Problem</h4>
 <ul>
@@ -446,7 +446,7 @@
 
 <h5 id="1-the-structure-of-a-writer-process">(1) The structure of a writer process</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
     <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
     
     <span class="p">...</span>
@@ -455,11 +455,11 @@
     
     <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="2-the-structure-of-a-reader-process">(2) The structure of a reader process</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
     <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
     <span class="n">read_count</span><span class="o">++</span><span class="p">;</span>
     
@@ -481,7 +481,7 @@
     
     <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="3-problem">(3) Problem</h5>
 <ul>
@@ -513,7 +513,7 @@
   <li>The structure of Philosopher i:</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
     <span class="n">wait</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
     <span class="n">wait</span> <span class="p">(</span> <span class="n">chopStick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
     
@@ -525,7 +525,7 @@
     <span class="c1">// think
 </span>    
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 <ul>
   <li>Incorrect use of semaphore operations:
     <ul>
@@ -553,16 +553,16 @@
   <li>Variables</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// (initially = 1)
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// (initially = 1)
 </span><span class="n">semaphore</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// (initially = 0)
 </span><span class="kt">int</span> <span class="n">next_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>Each procedure F will be replaced by</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 
 <span class="p">...</span>
 <span class="n">body</span> <span class="n">of</span> <span class="n">F</span><span class="p">;</span>
@@ -572,7 +572,7 @@
     <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">)</span>
 <span class="k">else</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>Mutual exclusion within a monitor is ensured</li>
@@ -584,22 +584,22 @@
   <li>For each condition variable x, we have:</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">x_sem</span><span class="p">;</span> <span class="c1">// (initially = 0)
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">x_sem</span><span class="p">;</span> <span class="c1">// (initially = 0)
 </span><span class="kt">int</span> <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>The operation <code class="highlighter-rouge">x.wait</code> can be implemented as:</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
 <span class="k">else</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 <span class="n">wait</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
 <span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h6 id="resuming-processes">Resuming Processes</h6>
 <ul>
@@ -614,7 +614,7 @@
 </ul>
 
 <h6 id="allocate-single-resource">Allocate Single Resource</h6>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">monitor</span> <span class="n">ResourceAllocator</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">monitor</span> <span class="n">ResourceAllocator</span>
 <span class="p">{</span>
     <span class="n">boolean</span> <span class="n">busy</span><span class="p">;</span>
     <span class="n">condition</span> <span class="n">x</span><span class="p">;</span>
@@ -634,7 +634,7 @@
         <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="3-solution">(3) Solution</h5>
 <ul>
@@ -645,12 +645,12 @@
   </li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
     <span class="n">EAT</span>
 <span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">monitor</span> <span class="n">DiningPhilosophers</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">monitor</span> <span class="n">DiningPhilosophers</span>
 <span class="p">{</span>
     <span class="k">enum</span> <span class="p">{</span> <span class="n">THINKING</span><span class="p">;</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">state</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">;</span>
     <span class="n">condition</span> <span class="n">self</span> <span class="p">[</span><span class="mi">5</span><span class="p">];</span>
@@ -683,7 +683,7 @@
             <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h2 id="二linux-程式設計">二、Linux 程式設計</h2>
 <ul>
@@ -726,7 +726,7 @@
     <p><code class="highlighter-rouge">int munmap(void * addr, size_t len);</code></p>
   </li>
   <li><code class="highlighter-rouge">fprintf.c</code>
-    <div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;time.h&gt;
 #define SIZE 100
@@ -770,7 +770,7 @@
   <span class="n">fclose</span><span class="p">(</span><span class="n">fptr2</span><span class="p">);</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>    </div>
+</code></pre></div>    </div>
   </li>
   <li>執行結果</li>
 </ul>
@@ -784,7 +784,7 @@
   <li>給予一個資料檔，計算其平均值與標準差。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;math.h&gt;
 #define SIZE 100
@@ -849,7 +849,7 @@
 
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果

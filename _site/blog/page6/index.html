@@ -460,7 +460,7 @@
 </ul>
 
 <h4 id="pthreadh">pthread.h</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
 </span>
 <span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span> <span class="n">pthread_attr_t</span>
 <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
@@ -474,13 +474,13 @@
 <span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
 <span class="c1">//wait for thread termination
 </span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="pthread_create">pthread_create()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
 <span class="n">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span>
 <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_t *thread</code>：thread 的識別字</li>
   <li><code class="highlighter-rouge">pthread_attr_t *attr</code>：thread 的屬性，設定為 NULL 表示使用預設值</li>
@@ -489,15 +489,15 @@
 </ul>
 
 <h5 id="pthread_exit">pthread_exit()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">void *retval</code>：thread 結束時回傳的變數</li>
 </ul>
 
 <h5 id="pthread_join">pthread_join()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_t th</code>：thread 識別字</li>
   <li><code class="highlighter-rouge">void **thread_return</code>：接收 pthread_exit 傳回的變數</li>
@@ -508,7 +508,7 @@
   <li>從 1 - 10000 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -626,7 +626,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <ul>
   <li>執行結果
 <img src="https://i.imgur.com/jw2pSxj.jpg" alt="" /></li>
@@ -704,7 +704,7 @@
   </li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
@@ -799,7 +799,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -886,7 +886,7 @@
 
 <h2 id="一輸出有問題">一、輸出有問題</h2>
 <h3 id="一-原本的程式">(一) 原本的程式</h3>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -988,7 +988,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>[執行結果]
@@ -1019,7 +1019,7 @@
   </li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code>   <span class="cm">/* 前面省略 */</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="cm">/* 前面省略 */</span>
    
    <span class="cm">/* find the prime number */</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -1037,7 +1037,7 @@
     <span class="p">}</span>
     
     <span class="cm">/* 後面省略 */</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>

@@ -463,7 +463,7 @@
   <li><code class="highlighter-rouge">client</code> 部份</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
@@ -534,13 +534,13 @@
     <span class="p">}</span>
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
  (the size of our shared memory structure) is created with a call to shmget,
@@ -619,7 +619,7 @@
 
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果
@@ -642,7 +642,7 @@
 </ul>
 
 <h3 id="二-shared-memory-function">(二) Shared Memory Function</h3>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;sys/sem.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/sem.h&gt;
 #include &lt;sys/type.h&gt;
 #include &lt;sys/ipc.h&gt;
 </span>
@@ -661,11 +661,11 @@
 
 <span class="kt">int</span> <span class="n">shmctl</span><span class="p">(</span> <span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span> <span class="p">);</span>
     <span class="c1">// 用來改變 shared memory 。
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h4 id="shmget">shmget()</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>key: 用來為 shared memory 命名。</li>
   <li>size: 需要的 shared memory 大小，以 byte 為單位。</li>
@@ -673,8 +673,8 @@
 </ul>
 
 <h4 id="shmat">*shmat()</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="o">*</span><span class="n">shmat</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="o">*</span><span class="n">shmat</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>shm_id: Shared memory id.</li>
   <li>shm_addr: Shared memory 加到目前程序中的位址，通常為一 null 指標。</li>
@@ -682,34 +682,34 @@
 </ul>
 
 <h4 id="shmdt">shmdt()</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmdt</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmdt</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>shm_addr: shmat 傳回的位址。</li>
 </ul>
 
 <h4 id="shmctl">shmctl()</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmctl</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">shmctl</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>shm_id: Shared memory id.</li>
   <li>cmd:IPC_RMID: 刪除 shared memory 區段。</li>
   <li>struct shmid_ds:</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">shmid_ds</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">shmid_ds</span> <span class="p">{</span>
     <span class="n">uid_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">uid</span><span class="p">;</span>
     <span class="n">uid_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">gid</span><span class="p">;</span>
     <span class="n">mode_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">mode</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h3 id="課堂作業-1">課堂作業</h3>
 <ul>
   <li><code class="highlighter-rouge">client</code> 部份</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
@@ -801,13 +801,13 @@
     <span class="p">}</span>
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li><code class="highlighter-rouge">server</code> 部份</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
 */</span>
 <span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
  (the size of our shared memory structure) is created with a call to shmget,
@@ -905,7 +905,7 @@
     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>執行結果

@@ -503,7 +503,7 @@
 </ul>
 
 <h4 id="pthreadh">pthread.h</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
 </span>
 <span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span> <span class="n">pthread_attr_t</span>
 <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
@@ -517,13 +517,13 @@
 <span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
 <span class="c1">//wait for thread termination
 </span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="pthread_create">pthread_create()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
 <span class="n">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span>
 <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_t *thread</code>：thread 的識別字</li>
   <li><code class="highlighter-rouge">pthread_attr_t *attr</code>：thread 的屬性，設定為 NULL 表示使用預設值</li>
@@ -532,15 +532,15 @@
 </ul>
 
 <h5 id="pthread_exit">pthread_exit()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">void *retval</code>：thread 結束時回傳的變數</li>
 </ul>
 
 <h5 id="pthread_join">pthread_join()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_t th</code>：thread 識別字</li>
   <li><code class="highlighter-rouge">void **thread_return</code>：接收 pthread_exit 傳回的變數</li>
@@ -551,7 +551,7 @@
   <li>從 1 - 10000 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -669,7 +669,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
 <span class="p">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <ul>
   <li>執行結果
 <img src="https://i.imgur.com/jw2pSxj.jpg" alt="" /></li>
@@ -703,7 +703,7 @@
 </ul>
 
 <h4 id="pthreadh-1">pthread.h</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
 </span>
 <span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span> <span class="n">pthread_attr_t</span>
 <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
@@ -728,13 +728,13 @@
 
 <span class="kt">int</span> <span class="n">pthread_setcanceltype</span><span class="p">(</span><span class="kt">int</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">oldtype</span><span class="p">);</span>
 <span class="c1">//set cancellation type
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h5 id="pthread_create-1">pthread_create()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
 <span class="n">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span>
 <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_t *thread</code>：thread 的識別字</li>
   <li><code class="highlighter-rouge">pthread_attr_t *attr</code>：thread 的屬性，設定為 NULL 表示使用預設值</li>
@@ -743,31 +743,31 @@
 </ul>
 
 <h5 id="pthread_exit-1">pthread_exit()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">void *retval</code>：thread 結束時回傳的變數</li>
 </ul>
 
 <h5 id="pthread_join-1">pthread_join()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_t th</code>：thread 識別字</li>
   <li><code class="highlighter-rouge">void **thread_return</code>：接收 pthread_exit 傳回的變數</li>
 </ul>
 
 <h5 id="pthread_setcancelstate">pthread_setcancelstate()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_setcancelstate</span><span class="p">(</span><span class="kt">int</span> <span class="n">state</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">oldstate</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_setcancelstate</span><span class="p">(</span><span class="kt">int</span> <span class="n">state</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">oldstate</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">int state</code>：設定為 PTHREAD_CANCEL_ENABLE 即表示允許取消 thread 的請求；設定為 PTHREAD_CANCEL_DISABLE 即表示忽略取消的請求。</li>
   <li><code class="highlighter-rouge">int *oldstate</code>：此指標指向前一個狀態</li>
 </ul>
 
 <h5 id="pthread_setcanceltype">pthread_setcanceltype()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_setcanceltype</span><span class="p">(</span><span class="kt">int</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">oldtype</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_setcanceltype</span><span class="p">(</span><span class="kt">int</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">oldtype</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">int type</code>：設定為 PTHREAD_CANCEL_ASYNCHRONOUS 則立即取消 thread；設定為 PTHREAD_CANCEL_DEFERRED 則會遇到取消點才會取消 thread。
     <ul>
@@ -801,7 +801,7 @@
 <h3 id="三thread-synchronization">三、Thread Synchronization</h3>
 <h3 id="1-semaphore">1. Semaphore</h3>
 <h4 id="semaphoreh">semaphore.h</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;semaphore.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;semaphore.h&gt;
 </span>
 <span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
 <span class="c1">//create a semaphore
@@ -817,12 +817,12 @@
 
 <span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
 <span class="c1">//delete a semaphore
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h5 id="sem_init">sem_init()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span>
 <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">sem_t *sem</code>：semaphore 識別字</li>
   <li><code class="highlighter-rouge">int pshared</code>：設定為 0 表示僅供目前的 process 及其 thread 使用。非 0 表示此 semaphore 與其他 process 共用</li>
@@ -830,8 +830,8 @@
 </ul>
 
 <h5 id="sem_wait">sem_wait()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>若 semaphore 為非 0，則 semaphore 值減
 1；若 semaphore 為 0，則呼叫此 function
@@ -840,20 +840,20 @@
 </ul>
 
 <h5 id="sem_post">sem_post()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>對 semaphore 值加 1 。</li>
 </ul>
 
 <h5 id="sem_destroy">sem_destroy()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
 <span class="c1">//delete a semaphore
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="2-mutex">2. Mutex</h3>
 <h4 id="pthreadh-2">pthread.h</h4>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
 </span>
 <span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
 <span class="c1">//create a mutex
@@ -869,30 +869,30 @@
 
 <span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//delete a mutex
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h5 id="pthread_mutex_init">pthread_mutex_init()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">pthread_mutex_t *mutex</code>：mutex 識別字</li>
   <li><code class="highlighter-rouge">const pthread_mutexattr_t *mutexattr</code>：mutex 的屬性。設定為 NULL 表示使用預設。</li>
 </ul>
 
 <h5 id="pthread_mutex_lock">pthread_mutex_lock()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//lock a mutex
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h5 id="pthread_mutex_unlock">pthread_mutex_unlock()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//unlock a mutex
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h5 id="pthread_mutex_destroy">pthread_mutex_destroy()</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
 <span class="c1">//delete a mutex
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="課程作業-1">課程作業</h3>
 <ul>
@@ -929,7 +929,7 @@ int count = 0;</p>
 <p>void *producer(void *ptr) {
     int i = 0;</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for (i = 1; i &lt;= MAX; i++) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (i = 1; i &lt;= MAX; i++) {
     pthread_mutex_lock(&amp;the_mutex);	    /* protect buffer */
     while (count == buf_max)    /* If there is something in the buffer then wait */
         pthread_cond_wait(&amp;condp, &amp;the_mutex);
@@ -943,12 +943,12 @@ int count = 0;</p>
     pthread_mutex_unlock(&amp;the_mutex);	/* release the buffer */
 }
 pthread_exit(0); }
-</code></pre></div>
+</code></pre></div></div>
 
 <p>void *consumer(void *ptr) {
     int i = 0;</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for (i = 1; i &lt;= MAX; i++) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (i = 1; i &lt;= MAX; i++) {
     pthread_mutex_lock(&amp;the_mutex);	    /* protect buffer */
     while (count == 0)			    /* If there is nothing in the buffer then wait */
         pthread_cond_wait(&amp;condc, &amp;the_mutex);
@@ -962,12 +962,12 @@ pthread_exit(0); }
     pthread_mutex_unlock(&amp;the_mutex);	/* release the buffer */
 }
 pthread_exit(0); }
-</code></pre></div>
+</code></pre></div></div>
 
 <p>int main(int argc, char **argv) {
     pthread_t pro, con;</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// Initialize the mutex and condition variables
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Initialize the mutex and condition variables
 /* What's the NULL for ??? */
 pthread_mutex_init(&amp;the_mutex, NULL);	
 pthread_cond_init(&amp;condc, NULL);		/* Initialize consumer condition variable */
@@ -987,7 +987,7 @@ pthread_join(pro, NULL);
 pthread_mutex_destroy(&amp;the_mutex);	/* Free up the_mutex */
 pthread_cond_destroy(&amp;condc);		/* Free up consumer condition variable */
 pthread_cond_destroy(&amp;condp);		/* Free up producer condition variable */ } ``` * 執行結果 ![](https://i.imgur.com/OCVTU3V.jpg)
-</code></pre></div>
+</code></pre></div></div>
 
         </article>
         <hr>
