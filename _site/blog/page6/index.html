@@ -129,6 +129,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -141,6 +143,700 @@
         <small>菜鳥的學習紀錄</small>
         <hr>
         <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/04/07/linux_system/">20170407 [學習筆記] Linux 系統程式 (6)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-04-07
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-thread-pools" id="markdown-toc-一-thread-pools">(一) Thread Pools</a></li>
+      <li><a href="#二-openmp" id="markdown-toc-二-openmp">(二) OpenMP</a>        <ul>
+          <li><a href="#pragma-omp-parallel" id="markdown-toc-pragma-omp-parallel"><code class="highlighter-rouge">#pragma omp parallel</code></a></li>
+          <li><a href="#example" id="markdown-toc-example">Example</a></li>
+        </ul>
+      </li>
+      <li><a href="#三-threading-issues" id="markdown-toc-三-threading-issues">(三) Threading Issues</a>        <ul>
+          <li><a href="#1-semantics-of-fork-and-exec" id="markdown-toc-1-semantics-of-fork-and-exec">1. Semantics of fork() and exec()</a></li>
+          <li><a href="#2-signal-handling" id="markdown-toc-2-signal-handling">2. Signal Handling</a></li>
+          <li><a href="#3-thread-cancellation" id="markdown-toc-3-thread-cancellation">3. Thread Cancellation</a></li>
+          <li><a href="#4-thread-local-storage" id="markdown-toc-4-thread-local-storage">4. Thread-Local Storage</a></li>
+          <li><a href="#5-scheduler-activations" id="markdown-toc-5-scheduler-activations">5. Scheduler Activations</a></li>
+        </ul>
+      </li>
+      <li><a href="#四-thread-scheduling" id="markdown-toc-四-thread-scheduling">(四) Thread Scheduling</a></li>
+      <li><a href="#五-pthread-scheduling" id="markdown-toc-五-pthread-scheduling">(五) Pthread Scheduling</a></li>
+      <li><a href="#六-multiple-processor-scheduling" id="markdown-toc-六-multiple-processor-scheduling">(六) Multiple-Processor Scheduling</a></li>
+      <li><a href="#七-socket---message-passing" id="markdown-toc-七-socket---message-passing">(七) Socket - Message Passing</a>        <ul>
+          <li><a href="#1-what-is-a-socket" id="markdown-toc-1-what-is-a-socket">1. What is a socket？</a></li>
+          <li><a href="#2-two-essential-types-of-sockets" id="markdown-toc-2-two-essential-types-of-sockets">2. Two essential types of sockets</a></li>
+          <li><a href="#1-sock_stream" id="markdown-toc-1-sock_stream">(1) SOCK_STREAM</a></li>
+          <li><a href="#2-sock_dgram" id="markdown-toc-2-sock_dgram">(2) SOCK_DGRAM</a></li>
+          <li><a href="#3-connection-setup" id="markdown-toc-3-connection-setup">3. Connection setup</a></li>
+        </ul>
+      </li>
+      <li><a href="#課程作業" id="markdown-toc-課程作業">課程作業</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/ch04.pdf">Chapter 4: Mutithread Programming</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/ch05.pdf">Chapter 5: Process Scheduling</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/Socket_Programming.pdf">Socket_Programming</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/Linux-Programming_Socket_1.pdf">Linux-Programming_Socket_1</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170406/Linux-Programming_Socket_2.pdf">Linux-Programming_Socket_2</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://goo.gl/Rs9JgE">簡易的程式平行化方法－OpenMP（一）簡介</a></li>
+      <li><a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-thread-pools">(一) Thread Pools</h3>
+<ul>
+  <li>Create a number of threads in a pool where they await work.</li>
+  <li>Advantages:
+    <ul>
+      <li>Usually slightly faster to service a request with an existing thread than create a new thread.</li>
+      <li>Allows the number of threads in the application(s) to be bound to the size of the pool.</li>
+      <li>Separating task to be performed from mechanics of creating task allows different strategies for running task.
+        <ul>
+          <li>Tasks could be scheduled to run periodically.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="二-openmp">(二) OpenMP</h3>
+<ul>
+  <li>Set of compiler directives and an API for C, C++, FORTRAN.</li>
+  <li>Provides support for parallel programming in shared-memory environments.</li>
+  <li>Identifies <code class="highlighter-rouge">parallel regions</code> – blocks of code that can run in parallel.</li>
+</ul>
+
+<h4 id="pragma-omp-parallel"><code class="highlighter-rouge">#pragma omp parallel</code></h4>
+<ul>
+  <li>Create as many threads as there are cores.</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#pragma omp parallel for
+</span><span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="c1">// Run for loop in parallel
+</span></code></pre></div></div>
+
+<h4 id="example">Example</h4>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;omp.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="cm">/* sequential code */</span>
+    
+    <span class="cp">#pragma omp parallel
+</span>    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"I am a parallel region."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* sequential code */</span>
+    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="三-threading-issues">(三) Threading Issues</h3>
+
+<h4 id="1-semantics-of-fork-and-exec">1. Semantics of fork() and exec()</h4>
+
+<ul>
+  <li>Does fork() duplicate only the calling thread or all threads?
+    <ul>
+      <li>Some UNIXes have two versions of fork</li>
+    </ul>
+  </li>
+  <li>Exec() usually works as normal – replace the running process including all threads.</li>
+</ul>
+
+<h4 id="2-signal-handling">2. Signal Handling</h4>
+<ul>
+  <li>Signals are used in UNIX systems to notify a process that a particular event has occurred.</li>
+  <li>A <code class="highlighter-rouge">signal handler</code> is used to process signals.
+    <ol>
+      <li>Signal is generated by particular event</li>
+      <li>Signal is delivered to a process</li>
+      <li>Signal is handled by one of two signal handlers:
+        <ol>
+          <li>default</li>
+          <li>user-defined</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Every signal has <code class="highlighter-rouge">default handler</code> that kernel runs when handling signal.
+    <ul>
+      <li>User-defined signal handler can override default.</li>
+      <li>For single-threaded, signal delivered to process.</li>
+    </ul>
+  </li>
+  <li>Where should a signal be delivered for multi-threaded?
+    <ul>
+      <li>Deliver the signal to the thread to which the signal applies.</li>
+      <li>Deliver the signal to every thread in the process.</li>
+      <li>Deliver the signal to certain threads in the process.</li>
+      <li>Assign a specific thread to receive all signals for the process.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="3-thread-cancellation">3. Thread Cancellation</h4>
+<ul>
+  <li>Terminating a thread before it has finished.</li>
+  <li>Thread to be canceled is target thread.</li>
+  <li>Two general approaches:
+    <ul>
+      <li><code class="highlighter-rouge">Asynchronous cancellation</code> terminates the target thread immediately.</li>
+      <li><code class="highlighter-rouge">Deferred cancellation</code> allows the target thread to periodically check if it should be cancelled.</li>
+    </ul>
+  </li>
+  <li>Pthread code to create and cancel a thread:</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pthread_t</span> <span class="n">tid</span><span class="p">;</span>
+
+<span class="cm">/* Create the thread */</span>
+<span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">worker</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="cm">/* Cancel the thread */</span>
+<span class="n">pthread_cancel</span><span class="p">(</span><span class="n">tid</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="4-thread-local-storage">4. Thread-Local Storage</h4>
+<ul>
+  <li><code class="highlighter-rouge">Thread-local storage (TLS)</code> allows each thread to have its own copy of data.</li>
+  <li>Useful when you do not have control over the thread creation process (i.e., when using a thread).</li>
+  <li>Different from local variables
+    <ul>
+      <li>Local variables visible only during single function invocation.</li>
+      <li>TLS visible across function invocations</li>
+    </ul>
+  </li>
+  <li>Similar to static data
+    <ul>
+      <li>TLS is unique to each thread.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="5-scheduler-activations">5. Scheduler Activations</h4>
+<ul>
+  <li>Both M:M and Two-level models require communication to maintain the appropriate number of kernel threads allocated to the application.</li>
+  <li>Typically use an intermediate data structure between user and kernel threads – <code class="highlighter-rouge">lightweight process (LWP)</code>
+<img src="http://i.imgur.com/N1XOvDn.jpg" alt="" />
+    <ul>
+      <li>Appears to be a virtual processor on which process can schedule user thread to run</li>
+      <li>Each LWP attached to kernel thread.</li>
+      <li>How many LWPs to create?</li>
+    </ul>
+  </li>
+  <li>Scheduler activations provide <code class="highlighter-rouge">upcalls</code> - a communication mechanism from the kernel to the <code class="highlighter-rouge">upcall handler</code> in the thread library.</li>
+  <li>This communication allows an application to maintain the correct number kernel threads.</li>
+</ul>
+
+<h3 id="四-thread-scheduling">(四) Thread Scheduling</h3>
+<ul>
+  <li>Distinction between user-level and kernel-level threads.</li>
+  <li>When threads supported, threads scheduled, not processes.</li>
+  <li>Many-to-one and many-to-many models, thread library schedules user-level threads to run on LWP.
+    <ul>
+      <li>Known as <code class="highlighter-rouge">process-contention scope (PCS)</code> since scheduling competition is within the process.</li>
+      <li>Typically done via priority set by programmer.</li>
+    </ul>
+  </li>
+  <li>Kernel thread scheduled onto available CPU is <code class="highlighter-rouge">system-contention scope (SCS)</code> – competition among all threads in system.</li>
+</ul>
+
+<h3 id="五-pthread-scheduling">(五) Pthread Scheduling</h3>
+<ul>
+  <li>API allows specifying either PCS or SCS during thread creation.
+    <ul>
+      <li><code class="highlighter-rouge">PTHREAD_SCOPE_PROCESS</code> schedules threads using PCS scheduling.</li>
+      <li><code class="highlighter-rouge">PTHREAD_SCOPE_SYSTEM</code> schedules threads using SCS scheduling.</li>
+    </ul>
+  </li>
+  <li>Can be limited by OS – Linux and Mac OS X only allow <code class="highlighter-rouge">PTHREAD_SCOPE_SYSTEM</code>.</li>
+</ul>
+
+<h3 id="六-multiple-processor-scheduling">(六) Multiple-Processor Scheduling</h3>
+<p><img src="https://i.imgur.com/0nuvCJs.jpg" alt="" /></p>
+
+<ul>
+  <li>CPU scheduling more complex when multiple CPUs are available.</li>
+  <li><code class="highlighter-rouge">Homogeneous processors</code> within a multiprocessor.</li>
+  <li><code class="highlighter-rouge">Asymmetric multiprocessing</code> – only one processor accesses the system data structures, alleviating the need for data sharing.</li>
+  <li><code class="highlighter-rouge">Symmetric multiprocessing (SMP)</code> – each processor is self-scheduling, all processes in common ready queue, or each has its own private queue of ready processes.
+    <ul>
+      <li>Currently, most common</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">Processor affinity</code> – process has affinity for processor on which it is currently running.
+    <ul>
+      <li>soft affinity</li>
+      <li>hard affinity</li>
+      <li>Variations including <code class="highlighter-rouge">processor sets</code></li>
+    </ul>
+  </li>
+  <li><strong>Load Balancing</strong> - attempts to keep workload evenly distributed.
+    <ul>
+      <li><code class="highlighter-rouge">Push migration</code> – periodic task checks load on each processor, and if found pushes task from overloaded CPU to other CPUs.</li>
+      <li><code class="highlighter-rouge">Pull migration</code> – idle processors pulls waiting task from busy processor.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="七-socket---message-passing">(七) Socket - Message Passing</h3>
+
+<h4 id="1-what-is-a-socket">1. What is a socket？</h4>
+
+<ul>
+  <li>An interface between application and network.
+    <ul>
+      <li>The application creates a socket.</li>
+      <li>The socket type dictates the style of communication.
+        <ul>
+          <li><code class="highlighter-rouge">reliable</code> vs. <code class="highlighter-rouge">best effort</code></li>
+          <li><code class="highlighter-rouge">connection-oriented</code> vs. <code class="highlighter-rouge">connectionless</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Once configured the application can
+    <ul>
+      <li>pass data to the socket for network transmission</li>
+      <li>receive data from the socket (transmitted through the network by some other host)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="2-two-essential-types-of-sockets">2. Two essential types of sockets</h4>
+<p><img src="https://i.imgur.com/HMu29e3.jpg" alt="" /></p>
+
+<h4 id="1-sock_stream">(1) SOCK_STREAM</h4>
+<ul>
+  <li>a.k.a. TCP</li>
+  <li>reliable delivery</li>
+  <li>in-order guaranteed</li>
+  <li>connection-oriented</li>
+  <li>bidirectional</li>
+</ul>
+
+<h4 id="2-sock_dgram">(2) SOCK_DGRAM</h4>
+<ul>
+  <li>a.k.a. UDP</li>
+  <li>unreliable delivery</li>
+  <li>no order guarantees</li>
+  <li>no notion of “connection” – app indicates dest. for each packet</li>
+  <li>can send or receive</li>
+</ul>
+
+<h4 id="3-connection-setup">3. Connection setup</h4>
+<p><img src="https://i.imgur.com/Je3VTRz.png" alt="" /></p>
+
+<h3 id="課程作業">課程作業</h3>
+<ul>
+  <li>
+    <p>自 Client 端輸入一整數，將數字傳至 Server 端判斷是否為質數，再將結果回傳自 Client。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">client</code> 部份</p>
+  </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+
+<span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sockfd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">address</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">in</span><span class="p">;</span>     <span class="c1">// integer
+</span>    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+    <span class="c1">// char ch = 'A';
+</span>  
+
+<span class="cm">/*  Create a socket for the client.  */</span>
+
+    <span class="n">sockfd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="cm">/*  Name the socket, as agreed with the server.  */</span>
+
+    <span class="n">address</span><span class="p">.</span><span class="n">sin_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+    <span class="n">address</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span> <span class="o">=</span> <span class="n">inet_addr</span><span class="p">(</span><span class="s">"127.0.0.1"</span><span class="p">);</span>
+    <span class="n">address</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="mi">9453</span><span class="p">;</span>
+    <span class="n">len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
+
+<span class="cm">/*  Now connect our socket to the server's socket.  */</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"oops: Client"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="cm">/*  We can now read/write via sockfd.  */</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Please key in an integer："</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">);</span>
+
+    <span class="n">write</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">read</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Result from Server：數字'是質數'</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"result from server：數字'不是質數'</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+    <span class="n">close</span><span class="p">(</span><span class="n">sockfd</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">server</code> 部份</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*  Make the necessary includes and set up the variables.  */</span>
+
+<span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">server_sockfd</span><span class="p">,</span> <span class="n">client_sockfd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">server_len</span><span class="p">,</span> <span class="n">client_len</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">server_address</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">client_address</span><span class="p">;</span>
+
+<span class="cm">/*  Create an unnamed socket for the server.  */</span>
+
+    <span class="n">server_sockfd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="cm">/*  Name the socket.  */</span>
+
+    <span class="n">server_address</span><span class="p">.</span><span class="n">sin_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+    <span class="n">server_address</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span> <span class="o">=</span> <span class="n">inet_addr</span><span class="p">(</span><span class="s">"127.0.0.1"</span><span class="p">);</span>
+    <span class="n">server_address</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="mi">9453</span><span class="p">;</span>
+    <span class="n">server_len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">server_address</span><span class="p">);</span>
+    <span class="n">bind</span><span class="p">(</span><span class="n">server_sockfd</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">server_address</span><span class="p">,</span> <span class="n">server_len</span><span class="p">);</span>
+
+<span class="cm">/*  Create a connection queue and wait for clients.  */</span>
+
+    <span class="n">listen</span><span class="p">(</span><span class="n">server_sockfd</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// Set loop
+</span>        <span class="kt">char</span> <span class="n">in</span><span class="p">;</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Server waiting...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+<span class="cm">/*  Accept a connection.  */</span>
+
+        <span class="n">client_len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">client_address</span><span class="p">);</span>
+        <span class="n">client_sockfd</span> <span class="o">=</span> <span class="n">accept</span><span class="p">(</span><span class="n">server_sockfd</span><span class="p">,</span> 
+            <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">client_address</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">client_len</span><span class="p">);</span>
+
+<span class="cm">/*  We can now read/write to client on client_sockfd.  */</span>
+
+        <span class="n">read</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Input from Client = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">in</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">in</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">in</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">in</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">in</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+     
+        <span class="n">write</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+        <span class="n">close</span><span class="p">(</span><span class="n">client_sockfd</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/vCZaRoc.jpg" alt="" /></li>
+</ul>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/04/07/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/04/06/ai/">20170406 [學習筆記] 人工智慧 (6)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-04-06
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一-fuzzy-建模-建立模型" id="markdown-toc-一-fuzzy-建模-建立模型">(一) Fuzzy 建模 (建立模型)</a></li>
+</ul>
+
+<ul>
+  <li>參考資源
+    <ul>
+      <li><a href="http://fuzzy.cs.ovgu.de/ci/fs/">http://fuzzy.cs.ovgu.de/ci/fs/</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-fuzzy-建模-建立模型">(一) Fuzzy 建模 (建立模型)</h3>
+<ul>
+  <li>
+    <p>利用現有的輸入、輸出資料建立模型：<code class="highlighter-rouge">y = f(x1, x2)</code>。
+<img src="https://i.imgur.com/F43zJRS.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>規則表
+<img src="https://i.imgur.com/GNcbx9m.jpg" alt="" /></p>
+  </li>
+</ul>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/04/06/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/04/03/university_interesting/">20170403 [有感而發] 求學就像是吃餅，怎麼可能一口氣吃得完？當然是要從最有興趣的地方開始慢慢吃啊！</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-04-03
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#未分類" title="Category: 未分類" rel="category">未分類</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#心情記事" title="Tag: 心情記事" rel="tag">心情記事</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#求學就像是吃一塊漫無邊際的大餅" id="markdown-toc-求學就像是吃一塊漫無邊際的大餅">求學，就像是吃一塊漫無邊際的大餅</a></li>
+  <li><a href="#怎麼可能無所不知不懂就只能坦白承認啦" id="markdown-toc-怎麼可能無所不知不懂就只能坦白承認啦">怎麼可能無所不知？不懂就只能坦白承認啦！</a></li>
+</ul>
+
+<p><img src="https://i.imgur.com/DOD1Y4C.jpg" alt="" /></p>
+
+<p>今天不談社團，來聊聊其他的。剛剛在看到 Jserv 在網路上發的一篇文：<a href="https://www.facebook.com/microjserv/posts/10155154029752389">https://www.facebook.com/microjserv/posts/10155154029752389</a></p>
+
+<p>讓我聯想到之前國、高中上課發問時的情景 (通常得到的答覆和上文差不多)。但是直到現在大四下學期，我發現自己在大學系上課程中得知的東西仍然有限。我可不希望以後詞窮被問了類似的問題 (以下對話參考自上方連結之原文)：</p>
+
+<p><strong>兒子好奇：「 爸，什麼是電腦？為什麼電腦可以運作？」</strong></p>
+
+<p><strong>我卻只能回答：「 因為爸爸認真工作，乖乖繳交電費，讓你可以使用電腦。 」</strong></p>
+
+<p><strong>兒子不爽：「 … 原來你大學讀電機資訊系就學這些啊，讀了書卻無法正面回答我的問題，這樣讀書有什麼意思呢？你自己讀書沒用，又何必要求我讀書呢？」</strong></p>
+
+<p>上述情境當然有很多地方值得探討，但是以 <strong>「 在體制教育內的求學期間不知道學了些什麼 」</strong> 這個面向來看卻格外諷刺…</p>
+
+<p>而我後來在進行一些更深入的實作和研究時，漸漸發現某些科目學問存在的重要性 (各個領域之間其實彼此都相互連結)。但是那些科目當初在授課時 <strong>「 根本沒有學過 」，</strong> 或者教授說 <strong>「 那些東西在研究所時才會教 」</strong> …。</p>
+
+<p>這時候又會想到那一句老話：「 師父領進門，修行在個人。」我個人認為這句話不完全正確，要是遇到那種 <strong>「 師父不引你進門，卻帶你用頭去撞門。」</strong> 的情況該怎麼辦呢？(還真的得算自己倒霉，認賠殺出？)</p>
+
+<p>(… 唉，又講到傷心事了，回歸正題。)</p>
+
+<h2 id="求學就像是吃一塊漫無邊際的大餅">求學，就像是吃一塊漫無邊際的大餅</h2>
+<p>我以目前自己所在的電資領域為出發點，先摒除掉「 因為分數剛好，所以就到這裡 」、「 學非所願 」、「 唸到一半才發現這不是我想讀的科系 」…等等原因。</p>
+
+<p>求學就像是吃一塊大得漫無邊際的餅，有無限種吃法，就看你自己想要怎麼吃。試著想像一下：「 這裡有一塊餅，你沒辦法一口氣吃完，該怎麼辦？」</p>
+
+<p>廢話！這麼大塊的餅乾，怎麼可能一口氣吃得完？當然是要從你自己最有興趣的地方開始慢慢吃啊！</p>
+
+<p>一門領域要學的東西有多少，才短短幾年怎麼可能全部都會？至少得從喜歡或者是一個不排斥的東西開始吧？</p>
+
+<h2 id="怎麼可能無所不知不懂就只能坦白承認啦">怎麼可能無所不知？不懂就只能坦白承認啦！</h2>
+<p>…回到最一開始的那一段對話，假設我真的不知道背後的原理，被這樣酸了：</p>
+
+<p><strong>兒子不爽：「 … 原來你大學讀電機資訊系就學這些啊，讀了書卻無法正面回答我的問題，這樣讀書有什麼意思呢？你自己讀書沒用，又何必要求我讀書呢？」</strong></p>
+
+<p>我希望這時候的我可以這樣回答：</p>
+
+<p><strong>我：「 這個東西爸爸不懂，但是你不覺得這個問題很有趣嗎？我們一起來研究為什麼吧！ 」</strong></p>
+
+<p><strong>求學讀書不應該是為了考試，而是為了要更加瞭解這個世界，同時也應該是一件發自內心想要去完成的事情。</strong></p>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/04/03/university_interesting/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
             
               <li>
                 <h2>
@@ -577,922 +1273,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/24/linux_system/">20170324 [學習筆記] Linux 系統程式 (4)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-24
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#multithread-architecture" id="markdown-toc-multithread-architecture">Multithread Architecture</a></li>
-      <li><a href="#一multicore-programming" id="markdown-toc-一multicore-programming">一、Multicore Programming</a></li>
-      <li><a href="#二concurrency-vs-parallelism" id="markdown-toc-二concurrency-vs-parallelism">二、Concurrency vs Parallelism</a>        <ul>
-          <li><a href="#1-concurrency" id="markdown-toc-1-concurrency">1. Concurrency</a></li>
-          <li><a href="#2-parallelism" id="markdown-toc-2-parallelism">2. Parallelism</a></li>
-          <li><a href="#3-concurrency-vs-parallelism" id="markdown-toc-3-concurrency-vs-parallelism">3. Concurrency vs Parallelism</a></li>
-          <li><a href="#4-相關整理" id="markdown-toc-4-相關整理">4. 相關整理</a></li>
-        </ul>
-      </li>
-      <li><a href="#三single-and-multithreaded-processes" id="markdown-toc-三single-and-multithreaded-processes">三、Single and Multithreaded Processes</a></li>
-      <li><a href="#四user-threads-and-kernel-threads" id="markdown-toc-四user-threads-and-kernel-threads">四、User Threads and Kernel Threads</a></li>
-      <li><a href="#五multithreading-models" id="markdown-toc-五multithreading-models">五、Multithreading Models</a></li>
-      <li><a href="#六pthreads" id="markdown-toc-六pthreads">六、Pthreads</a>        <ul>
-          <li><a href="#pthreadh" id="markdown-toc-pthreadh">pthread.h</a>            <ul>
-              <li><a href="#pthread_create" id="markdown-toc-pthread_create">pthread_create()</a></li>
-              <li><a href="#pthread_exit" id="markdown-toc-pthread_exit">pthread_exit()</a></li>
-              <li><a href="#pthread_join" id="markdown-toc-pthread_join">pthread_join()</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#課程作業" id="markdown-toc-課程作業">課程作業</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="一作業系統">一、作業系統</h2>
-<ul>
-  <li>課程簡報
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170323/ch04.pdf">Chapter 4: Mutithread Programming</a></li>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170323/Linux_programming_pthread.pdf">Linux_programming_pthread</a></li>
-    </ul>
-  </li>
-  <li>參考資料
-    <ul>
-      <li><a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
-      <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/amdahls_law.html">Amdahl’s Law</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="multithread-architecture">Multithread Architecture</h3>
-<p><img src="https://i.imgur.com/8ICdvBz.jpg" alt="" /></p>
-<ul>
-  <li><strong>Responsiveness</strong> – may allow continued execution if part of process is blocked, especially important for user interfaces.</li>
-  <li><strong>Resource Sharing</strong> – threads share resources of process, easier than shared memory or message passing.</li>
-  <li><strong>Economy</strong> – cheaper than process creation, thread switching lower overhead than context switching.</li>
-  <li><strong>Scalability</strong> – process can take advantage of multiprocessor architectures.</li>
-</ul>
-
-<h3 id="一multicore-programming">一、Multicore Programming</h3>
-<ul>
-  <li><strong>Multicore</strong> or <strong>multiprocessor</strong> systems putting pressure on programmers, challenges include:
-    <ul>
-      <li><strong>Dividing activities</strong></li>
-      <li><strong>Balance</strong></li>
-      <li><strong>Data splitting</strong></li>
-      <li><strong>Data dependency</strong></li>
-      <li><strong>Testing and debugging</strong></li>
-    </ul>
-  </li>
-  <li><strong>Parallelism</strong> implies a system can perform more than one task simultaneously.</li>
-  <li><strong>Concurrency</strong> supports more than one task making progress.
-    <ul>
-      <li>Single processor / core, scheduler providing concurrency</li>
-    </ul>
-  </li>
-  <li>Types of parallelism
-    <ul>
-      <li><strong>Data parallelism</strong> – distributes subsets of the same data across multiple cores, same operation on each.</li>
-      <li><strong>Task parallelism</strong> – distributing threads across cores, each thread performing unique operation.</li>
-    </ul>
-  </li>
-  <li>As # of threads grows, so does architectural support for threading.
-    <ul>
-      <li>CPUs have cores as well as <strong>hardware threads</strong>.</li>
-      <li>Consider Oracle SPARC T4 with 8 cores, and 8 hardware threads per core.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="二concurrency-vs-parallelism">二、Concurrency vs Parallelism</h3>
-<ul>
-  <li>引用資料：<a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
-  <li><a href="https://blog.golang.org/concurrency-is-not-parallelism">Concurrency is not Parallelism</a>, by Rob Pike
-    <ul>
-      <li><a href="https://talks.golang.org/2012/waza.slide#1">投影片</a></li>
-      <li><a href="https://www.youtube.com/watch?v=cN_DpYBzKso">錄影</a></li>
-      <li><a href="http://stackoverflow.com/questions/11700953/concurrency-is-not-parallelism">後續 stackoverflow 討論</a></li>
-    </ul>
-  </li>
-  <li>Concurrency 對軟體設計的影響
-    <ul>
-      <li>想要充分使用到 CPU 的資源</li>
-      <li>程式越來越有機會造成 CPU-bound。雖然主要還是 IO-bound 等，但如果 CPU 時脈無法增加，而其他存取方式速度變快，最後會發生 CPU-bound</li>
-      <li>軟體效能優化將會越來越重要</li>
-      <li>程式語言必須好好處理 concurrency</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="1-concurrency">1. Concurrency</h4>
-<ul>
-  <li>是指程式架構，將程式拆開成多個可獨立運作的工作。eg：drivers，都可以獨立運作，但不需要平行化。
-    <ul>
-      <li>拆開多個的工作不一定要同時運行</li>
-      <li>多個工作在單核心 CPU 上運行</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="2-parallelism">2. Parallelism</h4>
-<ul>
-  <li>是指程式執行，同時執行多個程式。Concurrency 可能會用到 parallelism，但不一定要用 parallelism 才能實現 concurrency。eg：Vector dot product
-    <ul>
-      <li>程式會同時執行 (例如：分支後，同時執行，再收集結果)</li>
-      <li>一個工作在多核心 CPU 上運行</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="3-concurrency-vs-parallelism">3. Concurrency vs Parallelism</h4>
-<ul>
-  <li>
-    <p>Rob Pike 用地鼠燒書做例子:
-<img src="https://hackpad-attachments.s3.amazonaws.com/embedded2016.hackpad.com_K6DJ0ZtiecH_p.537916_1460613009716_task.jpg" alt="" /></p>
-  </li>
-  <li>
-    <p>如果今天增加多一只地鼠，一個推車或多一個焚燒盧，這樣有機會作到更好的資源使用率，但我們不能保證兩只或更多地鼠會同時進行 (可能只有有限的火爐)。在單核系統中只能允許一次進行一次的燒書工作，那樣就沒有效率了。
-<img src="https://i.imgur.com/XTGAK98.jpg" alt="" />
-以 Concurrency 的方式去作業，能夠以不同的解構方式去進行，可以是三個地鼠分別負責一部分的工作 (decomposition)
-<img src="https://i.imgur.com/w5Eugs7.jpg" alt="" />
-其中也可以 Parallelism:
-<img src="https://i.imgur.com/3IHX5BT.jpg" alt="" />
-或
-<img src="https://i.imgur.com/duEVvNK.jpg" alt="" /></p>
-  </li>
-</ul>
-
-<p><strong>Concurrency:</strong> 是指程式架構，將程式拆開成多個可獨立運作的工作，像是驅動程式都可獨立運作，但不需要平行化</p>
-<ul>
-  <li>拆開多個的工作不一定要同時運行</li>
-  <li>多個工作在單核心 CPU 上運行</li>
-</ul>
-
-<p><strong>Parallelism:</strong> 是指程式執行，同時執行多個程式。Concurrency 可能會用到 parallelism，但不一定要用 parallelism 才能實現 concurrency。eg：Vector dot product</p>
-<ul>
-  <li>程式會同時執行 (例如：fork 後，同時執行，再收集結果 [join])</li>
-  <li>一個工作在多核心 CPU 上運行</li>
-</ul>
-
-<h4 id="4-相關整理">4. 相關整理</h4>
-<p>線上教材 <a href="https://www.youtube.com/watch?v=6jFkNjhJ-Z4">Introduction to OpenMP</a> 做了以下整理：</p>
-
-<p>(1) Concurrent (並行)</p>
-<ul>
-  <li>工作可拆分成「獨立執行」的部份，這樣「可以」讓很多事情一起做，但是「不一定」要真的同時做。下方情境：
-<img src="https://i.imgur.com/rweOyiD.png" alt="" />
-    <ul>
-      <li>展示具有並行性，但不去同時執行。</li>
-      <li>並行性是種「架構程式」的概念。寫下一段程式之前，思考問題架構時就決定好的。</li>
-    </ul>
-  </li>
-</ul>
-
-<p>(2) Parallel (平行)</p>
-<ul>
-  <li>把規劃好、能夠並行的程式，分配給不同執行緒，並讓他們同時執行。
-<img src="https://i.imgur.com/Oom3wM5.png" alt="" />
-    <ul>
-      <li>「平行」是一種選擇。</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="三single-and-multithreaded-processes">三、Single and Multithreaded Processes</h3>
-<p><img src="https://i.imgur.com/KLVunhJ.jpg" alt="" /></p>
-
-<ul>
-  <li><strong>Amdahl’s Law</strong>
-    <ul>
-      <li>針對系統裡面某一個特定的元件予以最佳化，對於整體系統有多少的效能改變。
-  <img src="https://i.imgur.com/E1L6ODN.jpg" alt="" /></li>
-      <li>分成兩部份
-        <ul>
-          <li><strong>有辦法改進的部份</strong></li>
-          <li><strong>沒有辦法改進的部份</strong></li>
-        </ul>
-      </li>
-      <li>因為有無法改進的部份，所以不可能無限提升系統的某一個特定部分的效率。</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="四user-threads-and-kernel-threads">四、User Threads and Kernel Threads</h3>
-<ul>
-  <li><strong>User threads</strong>
-    <ul>
-      <li>Management done by user-level threads library.</li>
-    </ul>
-  </li>
-  <li><strong>Kernel threads</strong>
-    <ul>
-      <li>Supported by the Kernel.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="五multithreading-models">五、Multithreading Models</h3>
-<ol>
-  <li><strong>Many-to-One</strong>
-    <ul>
-      <li>Many user-level threads mapped to single kernel thread.</li>
-      <li><strong>One thread blocking causes all to block.</strong></li>
-      <li>Multiple threads may not run in parallel on muticore system because only one may be in kernel at a time.</li>
-      <li>Examples：<code class="highlighter-rouge">Solaris Green Threads</code>、<code class="highlighter-rouge">GNU Portable Threads</code>
-<img src="https://i.imgur.com/dwfuxrT.jpg" alt="" /></li>
-    </ul>
-  </li>
-  <li><strong>One-to-One</strong>
-    <ul>
-      <li>Each user-level thread maps to kernel thread.</li>
-      <li><strong>Creating a user-level thread creates a kernel thread.</strong></li>
-      <li>More concurrency than many-to-one.</li>
-      <li>Number of threads per process sometimes restricted due to overhead.</li>
-      <li>Examples：<code class="highlighter-rouge">Windows NT/XP/2000</code>、<code class="highlighter-rouge">Linux</code>、<code class="highlighter-rouge">Solaris 9 and later</code>
-<img src="https://i.imgur.com/Fh9QH0S.jpg" alt="" /></li>
-    </ul>
-  </li>
-  <li><strong>Many-to-Many</strong>
-    <ul>
-      <li>Allows many user level threads to be mapped to many kernel threads.</li>
-      <li>Allows the operating system to create a sufficient number of kernel threads.</li>
-      <li>Solaris prior to version 9.</li>
-      <li>Example：<code class="highlighter-rouge">Windows NT/2000 with the ThreadFiber package</code>
-<img src="https://i.imgur.com/hWCuKOk.jpg" alt="" /></li>
-    </ul>
-  </li>
-  <li><strong>Two-level</strong>
-    <ul>
-      <li>Similar to M:M, except that it allows a user thread to be bound to kernel thread.</li>
-      <li>Examples：<code class="highlighter-rouge">IRIX</code>、<code class="highlighter-rouge">HP-UX</code>、<code class="highlighter-rouge">Tru64 UNIX</code>、<code class="highlighter-rouge">Solaris 8 and earlier</code>
-<img src="https://i.imgur.com/iRt3Xj2.jpg" alt="" /></li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="六pthreads">六、Pthreads</h3>
-<ul>
-  <li>May be provided either as user-level or kernel-level.</li>
-  <li>A POSIX standard (IEEE 1003.1c) API for thread creation and synchronization.</li>
-  <li><strong>Specification, not implementation.</strong></li>
-  <li>API specifies behavior of the thread library, implementation is up to development of the library.</li>
-  <li>Common in UNIX operating systems (Solaris, Linux, Mac OS X).</li>
-</ul>
-
-<h4 id="pthreadh">pthread.h</h4>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
-</span>
-<span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span> <span class="n">pthread_attr_t</span>
-<span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
-<span class="c1">//create a thread
-</span>
-
-<span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
-<span class="c1">//terminate a thread
-</span>
-
-<span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
-<span class="c1">//wait for thread termination
-</span>
-</code></pre></div></div>
-
-<h5 id="pthread_create">pthread_create()</h5>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
-<span class="n">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span>
-<span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
-</code></pre></div></div>
-<ul>
-  <li><code class="highlighter-rouge">pthread_t *thread</code>：thread 的識別字</li>
-  <li><code class="highlighter-rouge">pthread_attr_t *attr</code>：thread 的屬性，設定為 NULL 表示使用預設值</li>
-  <li><code class="highlighter-rouge">void *(*start_routine)(void*)</code>：thread 要執行的 function</li>
-  <li><code class="highlighter-rouge">void *arg</code>：傳遞給 thread 的參數</li>
-</ul>
-
-<h5 id="pthread_exit">pthread_exit()</h5>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
-</code></pre></div></div>
-<ul>
-  <li><code class="highlighter-rouge">void *retval</code>：thread 結束時回傳的變數</li>
-</ul>
-
-<h5 id="pthread_join">pthread_join()</h5>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
-</code></pre></div></div>
-<ul>
-  <li><code class="highlighter-rouge">pthread_t th</code>：thread 識別字</li>
-  <li><code class="highlighter-rouge">void **thread_return</code>：接收 pthread_exit 傳回的變數</li>
-</ul>
-
-<h3 id="課程作業">課程作業</h3>
-<ul>
-  <li>從 1 - 10000 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;pthread.h&gt;
-#include &lt;semaphore.h&gt; 
-#include &lt;time.h&gt;
-</span>
-<span class="cp">#define NUM_THREADS 10
-#define MSIZE 10000
-</span>
-<span class="c1">// 找出 1 - 10000 的所有質數
-</span>
-<span class="k">static</span> <span class="kt">double</span> <span class="n">getDoubleTime</span><span class="p">();</span>
-<span class="kt">void</span> <span class="o">*</span><span class="n">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
-<span class="n">pthread_mutex_t</span> <span class="n">work_mutex</span><span class="p">;</span>
-
-<span class="c1">// 宣告 prime_array 陣列
-</span><span class="kt">int</span> <span class="n">prime_array</span><span class="p">[</span><span class="n">NUM_THREADS</span><span class="p">][(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)];</span>
-
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
-	<span class="n">pthread_t</span> <span class="n">a_thread</span><span class="p">[</span><span class="n">NUM_THREADS</span><span class="p">];</span>
-	<span class="kt">void</span> <span class="o">*</span><span class="n">thread_result</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">lots_of_threads</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">print_prime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-
-	<span class="c1">// start to measure time...
-</span>	<span class="kt">double</span> <span class="n">start_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
-	
-	<span class="c1">// initialize mutex...
-</span>	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">work_mutex</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-       	<span class="n">perror</span><span class="p">(</span><span class="s">"Mutex initialization failed"</span><span class="p">);</span>
-	    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-	<span class="c1">// pthread_create...
-</span>	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&lt;</span> <span class="n">NUM_THREADS</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">]),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">thread_function</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">lots_of_threads</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">perror</span><span class="p">(</span><span class="s">"Thread creation failed"</span><span class="p">);</span>
-        		<span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="c1">// pthread_join...
-</span>	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="n">NUM_THREADS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-        	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">thread_result</span><span class="p">);</span> 
-
-            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-	            <span class="n">perror</span><span class="p">(</span><span class="s">"pthread_join failed"</span><span class="p">);</span>
-        	<span class="p">}</span>
-    <span class="p">}</span>	
-    
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 設定計數器
-</span>    <span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&lt;</span> <span class="n">NUM_THREADS</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
-        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">The thread[%d]'s numbers：</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">lots_of_threads</span><span class="p">);</span>
-
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">prime_array</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">prime_array</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>                        <span class="p">}</span>
-    <span class="p">}</span>
-
-
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Thread joined</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-
-	<span class="c1">// stop measuring time...
-</span>	<span class="kt">double</span> <span class="n">finish_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"Execute Time:  %.3lf ms</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">));</span>
-    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="kt">void</span> <span class="o">*</span><span class="nf">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// pthread_mutex_lock(&amp;work_mutex);
-</span>	
-    <span class="kt">int</span> <span class="n">my_num</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
-	<span class="c1">// if (MSIZE % NUM_THREADS != 0){    printf("error");   pthread_exit(-1);    }
-</span>
-    <span class="kt">int</span> <span class="n">start_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">end_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// Set the loop
-</span>    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Set the counter
-</span>    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// result
-</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"I'm thread[%d], start_num:%d, end_num:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">my_num</span><span class="p">,</span> <span class="n">start_num</span><span class="p">,</span> <span class="n">end_num</span><span class="p">);</span>
-
-    <span class="cm">/* find the prime number */</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Reset counter
-</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-        
-        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> 
-            <span class="n">prime_array</span><span class="p">[</span><span class="n">my_num</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-            <span class="n">k</span><span class="o">++</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-
-    <span class="c1">// pthread_mutex_unlock(&amp;work_mutex);
-</span>	<span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="k">static</span> <span class="kt">double</span> <span class="nf">getDoubleTime</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tm_tv</span><span class="p">;</span>
-        <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm_tv</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-        <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
-<span class="p">}</span>
-
-</code></pre></div></div>
-<ul>
-  <li>執行結果
-<img src="https://i.imgur.com/jw2pSxj.jpg" alt="" /></li>
-</ul>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/24/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/23/ai/">20170323 [學習筆記] 人工智慧 (4)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-23
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#用程式實現歸屬函數的判定" id="markdown-toc-用程式實現歸屬函數的判定">用程式實現歸屬函數的判定</a></li>
-</ul>
-
-<h3 id="用程式實現歸屬函數的判定">用程式實現歸屬函數的判定</h3>
-<ul>
-  <li>請分別輸入 NB、NM、NS、PS、PM、PB 的數值，再輸入欲判定的值，輸出其 <strong>歸屬函數(membership function, mf)</strong> 的值。
-    <ol>
-      <li>直線 mf</li>
-      <li>S函數 mf</li>
-    </ol>
-  </li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// Set loop
-</span>    <span class="kt">float</span> <span class="n">mf</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">tmp</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">input</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ua</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ub</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"NB"</span><span class="p">,</span> <span class="s">"NM"</span><span class="p">,</span> <span class="s">"NS"</span><span class="p">,</span> <span class="s">"ZR"</span><span class="p">,</span> <span class="s">"PS"</span><span class="p">,</span> <span class="s">"PM"</span><span class="p">,</span> <span class="s">"PB"</span><span class="p">};</span>
-
-    <span class="cm">/* Key the value of name */</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Please define NS、NM、NB value (smaller than 0)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="p">}</span>
-      
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Please define PS、PM、PB value (bigger than 0)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="p">}</span>
-
-    <span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// Set the ZR value
-</span>
-
-    <span class="cm">/* Sort the numbers */</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">((</span><span class="n">mf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="p">{</span>
-                <span class="n">tmp</span> <span class="o">=</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-                <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mf</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-                <span class="n">mf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
-            <span class="p">}</span>
-       <span class="p">}</span>
-    <span class="p">}</span>
-
-
-    <span class="cm">/* The entry */</span>
-    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="cm">/* Key the value of x */</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">Please key in the value of 'Input'</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"Input = "</span><span class="p">);</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">);</span>
-
-
-        <span class="cm">/* Calculate the linear μ */</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">****The membership function****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// input = mf
-</span>            <span class="k">if</span> <span class="p">(((</span><span class="n">input</span> <span class="o">==</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span> <span class="p">{</span> 
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="c1">// input bigger than the max's mf
-</span>            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]))</span> <span class="p">{</span> 
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">/</span> <span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]));</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="c1">// input smaller than the min's mf
-</span>            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span> 
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="c1">// Calculate...
-</span>            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
-                <span class="cm">/* linear area */</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The linear****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-                <span class="n">ua</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">input</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span>
-                <span class="n">ub</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">input</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span> 
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua</span><span class="p">);</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub</span><span class="p">);</span>
-                
-                <span class="cm">/* non-linear area */</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The non-linear (S-function)****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="p">((</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="n">sa</span> <span class="o">=</span> <span class="p">(((</span><span class="n">input</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])));</span>
-                    <span class="n">ua</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sa</span> <span class="o">*</span> <span class="n">sa</span><span class="p">);</span>
-                    <span class="n">ub</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ua</span><span class="p">;</span>
-                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua</span><span class="p">);</span>
-                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub</span><span class="p">);</span>
-                <span class="p">}</span>
-
-                <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&gt;=</span> <span class="p">((</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
-                    <span class="n">sa</span> <span class="o">=</span> <span class="p">(((</span><span class="n">input</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])));</span>
-                    <span class="n">ua</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sa</span> <span class="o">*</span> <span class="n">sa</span><span class="p">);</span>
-                    <span class="n">ub</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ua</span><span class="p">;</span>
-                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua</span><span class="p">);</span>
-                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub</span><span class="p">);</span>
-                <span class="p">}</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<ul>
-  <li>執行結果
-<img src="https://i.imgur.com/0Zc0QN0.jpg" alt="" />
-<img src="https://i.imgur.com/VTDsGpm.jpg" alt="" /></li>
-</ul>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/23/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-22
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#前言" id="markdown-toc-前言">前言</a></li>
-  <li><a href="#一輸出有問題" id="markdown-toc-一輸出有問題">一、輸出有問題</a>    <ul>
-      <li><a href="#一-原本的程式" id="markdown-toc-一-原本的程式">(一) 原本的程式</a></li>
-      <li><a href="#二-做個測試來看看是怎麼一回事" id="markdown-toc-二-做個測試來看看是怎麼一回事">(二) 做個測試，來看看是怎麼一回事</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="前言">前言</h2>
-<p>從 1 - 100 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</p>
-
-<h2 id="一輸出有問題">一、輸出有問題</h2>
-<h3 id="一-原本的程式">(一) 原本的程式</h3>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;pthread.h&gt;
-#include &lt;semaphore.h&gt; 
-#include &lt;time.h&gt;
-</span>
-<span class="cp">#define NUM_THREADS 10
-#define MSIZE 100
-</span>
-<span class="c1">// 找出 1 - 100 的所有質數
-</span>
-<span class="k">static</span> <span class="kt">double</span> <span class="n">getDoubleTime</span><span class="p">();</span>
-<span class="kt">void</span> <span class="o">*</span><span class="n">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
-<span class="n">pthread_mutex_t</span> <span class="n">work_mutex</span><span class="p">;</span>
-
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
-	<span class="n">pthread_t</span> <span class="n">a_thread</span><span class="p">[</span><span class="n">NUM_THREADS</span><span class="p">];</span>
-	<span class="kt">void</span> <span class="o">*</span><span class="n">thread_result</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">lots_of_threads</span><span class="p">;</span>
-	
-	<span class="c1">// start to measure time...
-</span>	<span class="kt">double</span> <span class="n">start_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
-	
-	<span class="c1">// initialize mutex...
-</span>	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">work_mutex</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-       	<span class="n">perror</span><span class="p">(</span><span class="s">"Mutex initialization failed"</span><span class="p">);</span>
-	    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-	<span class="c1">// pthread_create...
-</span>	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&lt;</span> <span class="n">NUM_THREADS</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">]),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">thread_function</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">lots_of_threads</span><span class="p">);</span>
-	
-        <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">perror</span><span class="p">(</span><span class="s">"Thread creation failed"</span><span class="p">);</span>
-        		<span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="c1">// pthread_join...
-</span>	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="n">NUM_THREADS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-        	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">thread_result</span><span class="p">);</span>
-    
-            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-	            <span class="n">perror</span><span class="p">(</span><span class="s">"pthread_join failed"</span><span class="p">);</span>
-        	<span class="p">}</span>
-    <span class="p">}</span>	
-
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Thread joined</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-
-	<span class="c1">// stop measuring time...
-</span>	<span class="kt">double</span> <span class="n">finish_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"Execute Time:  %.3lf ms</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">));</span>
-    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="kt">void</span> <span class="o">*</span><span class="nf">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// pthread_mutex_lock(&amp;work_mutex);
-</span>	
-    <span class="kt">int</span> <span class="n">my_num</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
-	<span class="c1">// if (MSIZE % NUM_THREADS != 0){    printf("error");   pthread_exit(-1);    }
-</span>
-    <span class="kt">int</span> <span class="n">start_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">end_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// Set the loop
-</span>    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Set the counter
-</span>    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// result
-</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">I'm thread[%d], start_num:%d, end_num:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">my_num</span><span class="p">,</span> <span class="n">start_num</span><span class="p">,</span> <span class="n">end_num</span><span class="p">);</span>
-
-    <span class="cm">/* find the prime number */</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Reset counter
-</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-        
-        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> 
-            <span class="n">result</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="c1">// pthread_mutex_unlock(&amp;work_mutex);
-</span>	<span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="k">static</span> <span class="kt">double</span> <span class="nf">getDoubleTime</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tm_tv</span><span class="p">;</span>
-        <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm_tv</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-        <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
-<span class="p">}</span>
-
-</code></pre></div></div>
-
-<ul>
-  <li>[執行結果]
-<img src="https://i.imgur.com/HeJEnU0.jpg" alt="" /></li>
-</ul>
-
-<h3 id="二-做個測試來看看是怎麼一回事">(二) 做個測試，來看看是怎麼一回事</h3>
-<ul>
-  <li>目前的假設
-    <blockquote>
-      <p>當ㄧ個 thread 還沒 printf 完它所負責範圍的質數時，就被切換到另一個 thread 裡面執行。</p>
-    </blockquote>
-  </li>
-  <li>參考資料
-    <ul>
-      <li><a href="http://stackoverflow.com/questions/15811605/using-mutex-for-pthread-results-in-random-answer">Using mutex for pthread results in random answer</a></li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/arQk9zI.jpg" alt="" /></p>
-
-<ul>
-  <li>驗證假設
-    <ul>
-      <li>為了驗證假設的正確性，我在 printf 質數時後面再補上該質數所對應的 thread number，作法如下：</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="cm">/* 前面省略 */</span>
-   
-   <span class="cm">/* find the prime number */</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Reset counter
-</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-        
-        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> 
-            <span class="n">result</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"%d-[%d]</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">my_num</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    
-    <span class="cm">/* 後面省略 */</span>
-</code></pre></div></div>
-
-<ul>
-  <li>
-    <p>[執行結果]
-<img src="https://i.imgur.com/EaWi8Mk.jpg" alt="" /></p>
-
-    <blockquote>
-      <p>看來前面的假設是正確的，但是我們該如何避免這種情形？</p>
-    </blockquote>
-  </li>
-</ul>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/22/get_prime/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1503,10 +1283,10 @@
             <a href="/blog/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
             <a href="/blog/page5/" class="previous"><i class="fa fa-angle-left"></i></a>
           
-          <span class="page_number ">6/13</span>
+          <span class="page_number ">6/14</span>
           
             <a href="/blog/page7/" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="/blog/page13" class="next"><i class="fa fa-angle-double-right"></i></a>
+            <a href="/blog/page14" class="next"><i class="fa fa-angle-double-right"></i></a>
           
         </div>
     </div>
@@ -1520,7 +1300,13 @@
                 </div>
                 <ul class="content-ul" recent>
                     
-                        <li><a href="/2018/09/24/military_2/">20180924 [迴光返照系列_1] 軍事訓練役第二週</a></li>
+                        <li><a href="/2018/10/14/military_5/">20181014 [迴光返照系列_5] 軍事訓練役第五週</a></li>
+                    
+                        <li><a href="/2018/10/08/military_4/">20181008 [迴光返照系列_4] 軍事訓練役第四週</a></li>
+                    
+                        <li><a href="/2018/10/01/military_3/">20181001 [迴光返照系列_3] 軍事訓練役第三週</a></li>
+                    
+                        <li><a href="/2018/09/24/military_2/">20180924 [迴光返照系列_2] 軍事訓練役第二週</a></li>
                     
                         <li><a href="/2018/09/19/military_1/">20180919 [迴光返照系列_1] 軍事訓練役第一週</a></li>
                     
@@ -1533,12 +1319,6 @@
                         <li><a href="/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)</a></li>
                     
                         <li><a href="/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理</a></li>
-                    
-                        <li><a href="/2017/06/16/university_life/">20170616 [有感而發] 這四年我誤入歧途、又不務正業，但活得像是個人</a></li>
-                    
-                        <li><a href="/2017/06/15/linux_system/">20170615 [學習筆記] Linux 系統程式 (15)</a></li>
-                    
-                        <li><a href="/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)</a></li>
                     
                 </ul>
             </div>
@@ -1745,7 +1525,7 @@
                             <span class="name">
                                 迴光返照系列
                             </span>
-                            <span class="badge">2</span>
+                            <span class="badge">5</span>
                         </a>
                     </li>
                     
@@ -1945,7 +1725,7 @@
                       
                       
                       
-                      <a href="/tag/#當兵生活紀實" style="font-size: 9.5pt; color: #999;">當兵生活紀實</a>
+                      <a href="/tag/#當兵生活紀實" style="font-size: 10.5pt; color: #888;">當兵生活紀實</a>
                     
                 </div>
             </div>
