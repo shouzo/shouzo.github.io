@@ -131,6 +131,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -143,6 +145,718 @@
         <small>菜鳥的學習紀錄</small>
         <hr>
         <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/03/22/get_prime/">20170322 [學習筆記] 關於用 Pthread 取質數的問題</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-22
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#前言" id="markdown-toc-前言">前言</a></li>
+  <li><a href="#一輸出有問題" id="markdown-toc-一輸出有問題">一、輸出有問題</a>    <ul>
+      <li><a href="#一-原本的程式" id="markdown-toc-一-原本的程式">(一) 原本的程式</a></li>
+      <li><a href="#二-做個測試來看看是怎麼一回事" id="markdown-toc-二-做個測試來看看是怎麼一回事">(二) 做個測試，來看看是怎麼一回事</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="前言">前言</h2>
+<p>從 1 - 100 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</p>
+
+<h2 id="一輸出有問題">一、輸出有問題</h2>
+<h3 id="一-原本的程式">(一) 原本的程式</h3>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;semaphore.h&gt; 
+#include &lt;time.h&gt;
+</span>
+<span class="cp">#define NUM_THREADS 10
+#define MSIZE 100
+</span>
+<span class="c1">// 找出 1 - 100 的所有質數
+</span>
+<span class="k">static</span> <span class="kt">double</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+<span class="kt">void</span> <span class="o">*</span><span class="n">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+<span class="n">pthread_mutex_t</span> <span class="n">work_mutex</span><span class="p">;</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
+	<span class="n">pthread_t</span> <span class="n">a_thread</span><span class="p">[</span><span class="n">NUM_THREADS</span><span class="p">];</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">thread_result</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">lots_of_threads</span><span class="p">;</span>
+	
+	<span class="c1">// start to measure time...
+</span>	<span class="kt">double</span> <span class="n">start_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+	
+	<span class="c1">// initialize mutex...
+</span>	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">work_mutex</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+       	<span class="n">perror</span><span class="p">(</span><span class="s">"Mutex initialization failed"</span><span class="p">);</span>
+	    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+	<span class="c1">// pthread_create...
+</span>	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&lt;</span> <span class="n">NUM_THREADS</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">]),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">thread_function</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">lots_of_threads</span><span class="p">);</span>
+	
+        <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">perror</span><span class="p">(</span><span class="s">"Thread creation failed"</span><span class="p">);</span>
+        		<span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="c1">// pthread_join...
+</span>	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="n">NUM_THREADS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">thread_result</span><span class="p">);</span>
+    
+            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+	            <span class="n">perror</span><span class="p">(</span><span class="s">"pthread_join failed"</span><span class="p">);</span>
+        	<span class="p">}</span>
+    <span class="p">}</span>	
+
+	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Thread joined</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+	<span class="c1">// stop measuring time...
+</span>	<span class="kt">double</span> <span class="n">finish_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Execute Time:  %.3lf ms</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">));</span>
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// pthread_mutex_lock(&amp;work_mutex);
+</span>	
+    <span class="kt">int</span> <span class="n">my_num</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
+	<span class="c1">// if (MSIZE % NUM_THREADS != 0){    printf("error");   pthread_exit(-1);    }
+</span>
+    <span class="kt">int</span> <span class="n">start_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">end_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// Set the loop
+</span>    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Set the counter
+</span>    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// result
+</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">I'm thread[%d], start_num:%d, end_num:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">my_num</span><span class="p">,</span> <span class="n">start_num</span><span class="p">,</span> <span class="n">end_num</span><span class="p">);</span>
+
+    <span class="cm">/* find the prime number */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Reset counter
+</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="n">result</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// pthread_mutex_unlock(&amp;work_mutex);
+</span>	<span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="k">static</span> <span class="kt">double</span> <span class="nf">getDoubleTime</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tm_tv</span><span class="p">;</span>
+        <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm_tv</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>[執行結果]
+<img src="https://i.imgur.com/HeJEnU0.jpg" alt="" /></li>
+</ul>
+
+<h3 id="二-做個測試來看看是怎麼一回事">(二) 做個測試，來看看是怎麼一回事</h3>
+<ul>
+  <li>目前的假設
+    <blockquote>
+      <p>當ㄧ個 thread 還沒 printf 完它所負責範圍的質數時，就被切換到另一個 thread 裡面執行。</p>
+    </blockquote>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://stackoverflow.com/questions/15811605/using-mutex-for-pthread-results-in-random-answer">Using mutex for pthread results in random answer</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/arQk9zI.jpg" alt="" /></p>
+
+<ul>
+  <li>驗證假設
+    <ul>
+      <li>為了驗證假設的正確性，我在 printf 質數時後面再補上該質數所對應的 thread number，作法如下：</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="cm">/* 前面省略 */</span>
+   
+   <span class="cm">/* find the prime number */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Reset counter
+</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="n">result</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"%d-[%d]</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">my_num</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="cm">/* 後面省略 */</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>[執行結果]
+<img src="https://i.imgur.com/EaWi8Mk.jpg" alt="" /></p>
+
+    <blockquote>
+      <p>看來前面的假設是正確的，但是我們該如何避免這種情形？</p>
+    </blockquote>
+  </li>
+</ul>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/22/get_prime/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-17
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Vim" title="Tag: Vim" rel="tag">Vim</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#前言" id="markdown-toc-前言">前言</a></li>
+  <li><a href="#一常用功能" id="markdown-toc-一常用功能">一、常用功能</a></li>
+</ul>
+
+<h2 id="前言">前言</h2>
+<p>這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。</p>
+
+<h2 id="一常用功能">一、常用功能</h2>
+<ul>
+  <li>引用資料
+    <ul>
+      <li><a href="http://blog.johnsonlu.org/vim-tips/">Vim小技巧</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>刪除一行 - <code class="highlighter-rouge">dd</code></p>
+  </li>
+  <li>
+    <p>進入編輯模式 - <code class="highlighter-rouge">i</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL模式 - <code class="highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL BLOCK模式 - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>寫入(儲存) - <code class="highlighter-rouge">:w</code></p>
+  </li>
+  <li>
+    <p>離開 - <code class="highlighter-rouge">:q</code></p>
+  </li>
+  <li>
+    <p>不儲存強制離開 - <code class="highlighter-rouge">:q!</code></p>
+  </li>
+  <li>
+    <p>paste模式，直接貼上文字時格式不會跑掉 - <code class="highlighter-rouge">:set paste</code></p>
+  </li>
+  <li>
+    <p>顯示行數 - <code class="highlighter-rouge">:set nu</code></p>
+  </li>
+  <li>
+    <p>設定一個tab等於四個空白長度 - <code class="highlighter-rouge">:set tabstop=4</code></p>
+  </li>
+  <li>
+    <p>設定以後，使用tab鍵時會用空白取代(由tabstop決定) - <code class="highlighter-rouge">:set expandtab</code></p>
+  </li>
+  <li>
+    <p>消除Highlight - <code class="highlighter-rouge">:noh</code></p>
+  </li>
+  <li>
+    <p>範圍縮排(3到5行向右縮排，向左縮排用&lt;) - <code class="highlighter-rouge">:3,5&gt;</code></p>
+  </li>
+  <li>
+    <p>將tab轉換成space - <code class="highlighter-rouge">:retab</code></p>
+  </li>
+  <li>
+    <p>將檔案編碼轉成utf8 - <code class="highlighter-rouge">:set fileencoding=utf8</code></p>
+  </li>
+  <li>
+    <p>另存新檔 - <code class="highlighter-rouge">:w myfilename</code></p>
+  </li>
+  <li>
+    <p>開啟檔案 - <code class="highlighter-rouge">:e filename</code></p>
+  </li>
+  <li>
+    <p>自動對齊 - <code class="highlighter-rouge">==</code></p>
+  </li>
+  <li>
+    <p>移動到該行最前端 - <code class="highlighter-rouge">^</code></p>
+  </li>
+  <li>
+    <p>移動到該行最末端 - <code class="highlighter-rouge">$</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的第一個字元 - <code class="highlighter-rouge">w</code></p>
+  </li>
+  <li>
+    <p>移動到前一個單字的第一個字元 - <code class="highlighter-rouge">b</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元 - <code class="highlighter-rouge">e</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元(無視符號) - <code class="highlighter-rouge">E</code></p>
+  </li>
+  <li>
+    <p>全選(gg為游標移動到最上方，v為切換成選擇模式，G是游標移動到最下方) - <code class="highlighter-rouge">ggvG</code></p>
+  </li>
+  <li>
+    <p>游標移動到特定行數(移動到第三行) - <code class="highlighter-rouge">3G</code></p>
+  </li>
+  <li>
+    <p>複製反白的區塊(需要在VISUAL模式) - <code class="highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>剪下反白的區塊(需要在VISUAL模式) - <code class="highlighter-rouge">d</code></p>
+  </li>
+  <li>
+    <p>複製游標所在的那行(需要在VISUAL模式) - <code class="highlighter-rouge">shift</code>(按鍵) + <code class="highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>貼上 - <code class="highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>回復 - <code class="highlighter-rouge">u</code></p>
+  </li>
+  <li>
+    <p>自動完成 (需要在編輯模式) - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>搜尋字串 - <code class="highlighter-rouge">/&lt;字串&gt;</code>：向下找、<code class="highlighter-rouge">?&lt;字串&gt;</code>：向上找</p>
+  </li>
+</ol>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/17/vim/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-17
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#basic-concepts" id="markdown-toc-basic-concepts">Basic Concepts</a></li>
+      <li><a href="#cpu-scheduler" id="markdown-toc-cpu-scheduler">CPU Scheduler</a></li>
+      <li><a href="#dispatcher" id="markdown-toc-dispatcher">Dispatcher</a></li>
+      <li><a href="#scheduling-algorithm-optimization-criteria" id="markdown-toc-scheduling-algorithm-optimization-criteria">Scheduling Algorithm Optimization Criteria</a></li>
+      <li><a href="#scheduling-algorithm" id="markdown-toc-scheduling-algorithm">Scheduling Algorithm</a>        <ul>
+          <li><a href="#一-first-come-first-served-fcfs先到先服務法" id="markdown-toc-一-first-come-first-served-fcfs先到先服務法">(一) First-Come, First-Served (FCFS)：先到先服務法</a></li>
+          <li><a href="#二-shortest-job-first-sjf最短優先法" id="markdown-toc-二-shortest-job-first-sjf最短優先法">(二) Shortest-Job-First (SJF)：最短優先法</a></li>
+          <li><a href="#三-priority-scheduling-ps優先權排班法" id="markdown-toc-三-priority-scheduling-ps優先權排班法">(三) Priority Scheduling (PS)：優先權排班法</a></li>
+          <li><a href="#四-round-robin-rr輪流法" id="markdown-toc-四-round-robin-rr輪流法">(四) Round Robin (RR)：輪流法</a>            <ul>
+              <li><a href="#1-time-quantum-and-context-switch-time" id="markdown-toc-1-time-quantum-and-context-switch-time">1. Time Quantum and Context Switch Time</a></li>
+              <li><a href="#2-turnaround-time-varies-with-the-time-quantum" id="markdown-toc-2-turnaround-time-varies-with-the-time-quantum">2. Turnaround Time Varies With The Time Quantum</a></li>
+            </ul>
+          </li>
+          <li><a href="#五-multilevel" id="markdown-toc-五-multilevel">(五) Multilevel</a>            <ul>
+              <li><a href="#1-queue" id="markdown-toc-1-queue">1. Queue</a></li>
+              <li><a href="#2-feedback-queue" id="markdown-toc-2-feedback-queue">2. Feedback Queue</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170316/ch05.pdf">Chapter 5: Process Scheduling</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://www.jollen.org/blog/2006/11/_scheduler_running_process.html">Preemptive Process Scheduling 的觀念</a></li>
+      <li><a href="http://moon.cse.yzu.edu.tw/~s981502/7/Chap4.pdf">各種 CPU 排程演算法之探討</a></li>
+      <li><a href="http://publish.get.com.tw/BookPre_pdf/51MG060707-2.PDF">行程排程演算法</a></li>
+      <li><a href="https://www.tutorialspoint.com/operating_system/os_process_scheduling_algorithms.htm">Operating System Scheduling algorithms</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="basic-concepts">Basic Concepts</h3>
+<ul>
+  <li>Maximum CPU utilization obtained with multiprogramming.</li>
+  <li>CPU–I/O Burst Cycle – Process execution consists of a cycle of CPU execution and I/O wait.</li>
+  <li>CPU burst followed by I/O burst.</li>
+  <li>CPU burst distribution is of main concern.</li>
+</ul>
+
+<h3 id="cpu-scheduler">CPU Scheduler</h3>
+<ul>
+  <li>Short-term scheduler selects from among the processes in ready queue, and allocates the CPU to one of them.
+    <ul>
+      <li>Queue may be ordered in various ways.</li>
+    </ul>
+  </li>
+  <li>CPU scheduling decisions may take place when a process:
+    <ol>
+      <li>Switches from running to waiting state</li>
+      <li>Switches from running to ready state</li>
+      <li>Switches from waiting to ready</li>
+      <li>Terminates</li>
+    </ol>
+  </li>
+  <li>Scheduling under 1 and 4 is nonpreemptive.</li>
+  <li>All other scheduling is preemptive.
+    <ul>
+      <li>Consider access to shared data.</li>
+      <li>Consider preemption while in kernel mode.</li>
+      <li>Consider interrupts occurring during crucial OS activities.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="dispatcher">Dispatcher</h3>
+<ul>
+  <li>Dispatcher module gives control of the CPU to the process selected by the short-term scheduler; this involves：
+    <ol>
+      <li>switching context</li>
+      <li>switching to user mode</li>
+      <li>jumping to the proper location in the user program to restart that program</li>
+    </ol>
+  </li>
+  <li>Dispatch latency：time it takes for the dispatcher to stop one process and start another running.</li>
+</ul>
+
+<h3 id="scheduling-algorithm-optimization-criteria">Scheduling Algorithm Optimization Criteria</h3>
+<p><img src="https://i.imgur.com/LuBGjEu.jpg" alt="" /></p>
+<ol>
+  <li>CPU utilization – keep the CPU as busy as possible.</li>
+  <li>Throughput – # of processes that complete their execution per time unit.</li>
+  <li>Turnaround time – amount of time to execute a particular process.</li>
+  <li>Waiting time – amount of time a process has been waiting in the ready queue.</li>
+  <li>Response time – amount of time it takes from when a request was submitted until the first response is produced, not output (for time-sharing environment).</li>
+</ol>
+
+<ul>
+  <li>Length of Next CPU Burst
+    <ul>
+      <li>Determining
+  <img src="https://i.imgur.com/1GaCgCb.jpg" alt="" /></li>
+      <li>Prediction
+  <img src="https://i.imgur.com/HWSLIdj.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="scheduling-algorithm">Scheduling Algorithm</h3>
+<h4 id="一-first-come-first-served-fcfs先到先服務法">(一) First-Come, First-Served (FCFS)：先到先服務法</h4>
+<p><img src="https://i.imgur.com/xWKL0Z3.jpg" alt="" /></p>
+
+<hr />
+
+<p><img src="https://i.imgur.com/6MIKb3Q.jpg" alt="" /></p>
+
+<ul>
+  <li>Convoy effect：很多短時間的 process，都在等一個
+長時間的 process 時，所產生的效應 (因為等待時間很長)。</li>
+</ul>
+
+<h4 id="二-shortest-job-first-sjf最短優先法">(二) Shortest-Job-First (SJF)：最短優先法</h4>
+<ul>
+  <li>Associate with each process the length of its next CPU burst.
+    <ul>
+      <li>Use these lengths to schedule the process with the shortest time.</li>
+    </ul>
+  </li>
+  <li>SJF is optimal – gives minimum average waiting time for a given set of processes.
+    <ul>
+      <li>The difficulty is knowing the length of the next CPU request.</li>
+      <li>Could ask the user.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/Wf8bEgG.jpg" alt="" /></p>
+
+<h4 id="三-priority-scheduling-ps優先權排班法">(三) Priority Scheduling (PS)：優先權排班法</h4>
+<ul>
+  <li>A priority number (integer) is associated with each process.</li>
+  <li>The CPU is allocated to the process with the highest priority (smallest integer » highest priority).
+    <ul>
+      <li>Preemptive</li>
+      <li>Nonpreemptive</li>
+    </ul>
+  </li>
+  <li>SJF is priority scheduling where priority is the inverse of predicted next CPU burst time.</li>
+  <li>Problem：Starvation – low priority processes may never execute.</li>
+  <li>Solution：Aging – as time progresses increase the priority of the process.</li>
+</ul>
+
+<p><img src="https://i.imgur.com/ZeyVmU1.jpg" alt="" /></p>
+
+<h4 id="四-round-robin-rr輪流法">(四) Round Robin (RR)：輪流法</h4>
+<ul>
+  <li>Each process gets a small unit of CPU time (time quantum q), usually 10-100 milliseconds. After this time has elapsed, the process is preempted and added to the end of the ready queue.</li>
+  <li>If there are n processes in the ready queue and the time quantum is q, then each process gets 1/n of the CPU time in chunks of at most q time units at once. No process waits more than (n-1)q time units.</li>
+  <li>Timer interrupts every quantum to schedule next process.</li>
+  <li>Performance.
+    <ul>
+      <li>q large » FIFO.</li>
+      <li>q small » q must be large with respect to context switch, otherwise overhead is too high.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/uu9W1cI.jpg" alt="" /></p>
+
+<h5 id="1-time-quantum-and-context-switch-time">1. Time Quantum and Context Switch Time</h5>
+<p><img src="http://i.imgur.com/7SMF7rd.jpg" alt="" /></p>
+
+<h5 id="2-turnaround-time-varies-with-the-time-quantum">2. Turnaround Time Varies With The Time Quantum</h5>
+<p><img src="http://i.imgur.com/EtNCekP.jpg" alt="" /></p>
+
+<h4 id="五-multilevel">(五) Multilevel</h4>
+<h5 id="1-queue">1. Queue</h5>
+<ul>
+  <li>Ready queue is partitioned into separate queues, eg:
+    <ul>
+      <li>foreground (interactive)</li>
+      <li>background (batch)</li>
+    </ul>
+  </li>
+  <li>Process permanently in a given queue.
+Each queue has its own scheduling algorithm:
+    <ul>
+      <li>foreground – RR</li>
+      <li>background – FCFS</li>
+    </ul>
+  </li>
+  <li>Scheduling must be done between the queues:
+    <ul>
+      <li>Fixed priority scheduling; (i.e., serve all from foreground then from background). Possibility of starvation.</li>
+      <li>Time slice – each queue gets a certain amount of CPU time which it can schedule amongst its processes; i.e., 80% to foreground in RR.</li>
+      <li>20% to background in FCFS.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/rW9GXTr.jpg" alt="" /></p>
+
+<h5 id="2-feedback-queue">2. Feedback Queue</h5>
+<ul>
+  <li>A process can move between the various queues; aging can be implemented this way.</li>
+  <li>Multilevel-feedback-queue scheduler. defined by the following parameters:
+    <ul>
+      <li>number of queues.</li>
+      <li>scheduling algorithms for each queue.</li>
+      <li>method used to determine when to upgrade a process.</li>
+      <li>method used to determine when to demote a process.</li>
+      <li>method used to determine which queue a process will enter when that process needs service.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/Nc2SsIQ.jpg" alt="" /></p>
+
+<ul>
+  <li>課程作業</li>
+</ul>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/17/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
             
               <li>
                 <h2>
@@ -435,277 +1149,6 @@ bursts.
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/09/ai/">20170309 [學習筆記] 人工智慧 (2)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-09
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一-自動控制分類一般型式" id="markdown-toc-一-自動控制分類一般型式">(一) 自動控制分類：一般型式</a></li>
-  <li><a href="#二-迴授控制" id="markdown-toc-二-迴授控制">(二) 迴授控制</a></li>
-  <li><a href="#三-模糊集合" id="markdown-toc-三-模糊集合">(三) 模糊集合</a></li>
-  <li><a href="#四-歸屬函數" id="markdown-toc-四-歸屬函數">(四) 歸屬函數</a></li>
-</ul>
-
-<h3 id="一-自動控制分類一般型式">(一) 自動控制分類：一般型式</h3>
-<ul>
-  <li>以下皆不用精確數學模型
-    <ol>
-      <li><strong>ON - OFF 控制</strong></li>
-      <li><strong>比例控制</strong></li>
-      <li><strong>PI 比例積分控制</strong></li>
-      <li><strong>PD 比例微分控制</strong></li>
-      <li><strong>PID 比例微分積分控制</strong></li>
-    </ol>
-  </li>
-  <li>應用範例
-    <ul>
-      <li>水塔水位控制：ON - OFF 控制</li>
-      <li>騎車：比例控制</li>
-      <li>工業製程控制：PI、PD、PID 控制</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="二-迴授控制">(二) 迴授控制</h3>
-<p><img src="https://i.imgur.com/QysvSAH.jpg" alt="" />
-<img src="https://i.imgur.com/VJcsemV.jpg" alt="" /></p>
-
-<h3 id="三-模糊集合">(三) 模糊集合</h3>
-<p><img src="https://i.imgur.com/KQ9mDmH.jpg" alt="" />
-<img src="https://i.imgur.com/obEt0R0.jpg" alt="" /></p>
-
-<h3 id="四-歸屬函數">(四) 歸屬函數</h3>
-<p><img src="https://i.imgur.com/Gpc2LC6.jpg" alt="" />
-<img src="https://i.imgur.com/fglu2Jg.jpg" alt="" />
-<img src="https://i.imgur.com/XmdiO3q.jpg" alt="" /></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/09/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/03/linux_system/">20170303 [學習筆記] Linux 系統程式 (1)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-03
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一-作業系統" id="markdown-toc-一-作業系統">(一) 作業系統</a></li>
-</ul>
-
-<h3 id="一-作業系統">(一) 作業系統</h3>
-<ul>
-  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf">課程簡報 - Ch1：Introduction</a></li>
-</ul>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/03/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/01/ai/">20170302 [學習筆記] 人工智慧 (1)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-01
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#a-模糊理論---模糊控制" id="markdown-toc-a-模糊理論---模糊控制">A. 模糊理論 - 模糊控制</a></li>
-  <li><a href="#b-類神經網路" id="markdown-toc-b-類神經網路">B. 類神經網路</a></li>
-  <li><a href="#專家系統結構" id="markdown-toc-專家系統結構">專家系統結構</a></li>
-  <li><a href="#智慧控制的定義" id="markdown-toc-智慧控制的定義">智慧控制的定義</a></li>
-</ul>
-
-<h3 id="a-模糊理論---模糊控制">A. 模糊理論 - 模糊控制</h3>
-<ul>
-  <li>藉由規則庫建立專家系統
-    <ol>
-      <li><a href="https://goo.gl/MTt7jw">專家系統</a></li>
-      <li><a href="https://goo.gl/39piYs">基於規則的專家系統</a></li>
-    </ol>
-  </li>
-</ul>
-
-<h3 id="b-類神經網路">B. 類神經網路</h3>
-<ul>
-  <li>藉由學習建立網路</li>
-</ul>
-
-<h3 id="專家系統結構">專家系統結構</h3>
-<p><img src="https://i.imgur.com/A3xyOE9.jpg" alt="" />
-<strong>1. 正向推論</strong>：已知條件，推論出結論。
-<img src="https://i.imgur.com/CLp1mH4.jpg" alt="" /></p>
-
-<p><strong>2. 逆向推論</strong>：先提出結論或假設， 再推論前提(條件)。
-<img src="https://i.imgur.com/JECgCGc.jpg" alt="" /></p>
-
-<h3 id="智慧控制的定義">智慧控制的定義</h3>
-<ul>
-  <li>古典控制與現代控制都需要精確數學模型，然而工業控制對象常見有非線性、多不確定因素，使精確數學模型不易取得，甚至無法取得。因此有一個結合人工智慧、運算性自動控制，而成 <strong>智慧型控制</strong> 。
-<img src="https://i.imgur.com/dlm1zVL.jpg" alt="" /></li>
-</ul>
-
-<p><strong>[優點] 模糊智慧型控制</strong></p>
-<ul>
-  <li>不需要數學模型。</li>
-  <li>系統強健。</li>
-</ul>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/01/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -716,10 +1159,10 @@ bursts.
             <a href="/blog/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
             <a href="/blog/page7/" class="previous"><i class="fa fa-angle-left"></i></a>
           
-          <span class="page_number ">8/14</span>
+          <span class="page_number ">8/15</span>
           
             <a href="/blog/page9/" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="/blog/page14" class="next"><i class="fa fa-angle-double-right"></i></a>
+            <a href="/blog/page15" class="next"><i class="fa fa-angle-double-right"></i></a>
           
         </div>
     </div>
@@ -732,6 +1175,12 @@ bursts.
                     Recent Posts
                 </div>
                 <ul class="content-ul" recent>
+                    
+                        <li><a href="/2018/11/04/military_8/">20181104 [迴光返照系列_8] 軍事訓練役第八週</a></li>
+                    
+                        <li><a href="/2018/10/28/military_7/">20181028 [迴光返照系列_7] 軍事訓練役第七週</a></li>
+                    
+                        <li><a href="/2018/10/21/military_6/">20181021 [迴光返照系列_6] 軍事訓練役第六週</a></li>
                     
                         <li><a href="/2018/10/14/military_5/">20181014 [迴光返照系列_5] 軍事訓練役第五週</a></li>
                     
@@ -746,12 +1195,6 @@ bursts.
                         <li><a href="/2018/03/01/computer_organization/">20180301 [學習筆記] 計算機結構 (1)</a></li>
                     
                         <li><a href="/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)</a></li>
-                    
-                        <li><a href="/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)</a></li>
-                    
-                        <li><a href="/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)</a></li>
-                    
-                        <li><a href="/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理</a></li>
                     
                 </ul>
             </div>
@@ -958,7 +1401,7 @@ bursts.
                             <span class="name">
                                 迴光返照系列
                             </span>
-                            <span class="badge">5</span>
+                            <span class="badge">8</span>
                         </a>
                     </li>
                     
@@ -1158,7 +1601,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#當兵生活紀實" style="font-size: 10.5pt; color: #888;">當兵生活紀實</a>
+                      <a href="/tag/#當兵生活紀實" style="font-size: 11.5pt; color: #777;">當兵生活紀實</a>
                     
                 </div>
             </div>
