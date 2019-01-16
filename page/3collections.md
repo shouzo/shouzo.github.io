@@ -53,6 +53,18 @@ icon: bookmark
 7. [20170427 關於社團傳承，你必須要知道的事情...](/collections/clubs/20170427-club_inheritance.pdf)
 
 
+---
+
+
+# (六) 當兵生活紀實 (軍事訓練役)
+* [20190112 迴光返照系列 - 最後總整理 (公開版)](/collections/military/20190112_military_all.html)
+
+
+
+
+
+
+
 
 
 
