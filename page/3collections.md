@@ -60,6 +60,12 @@ icon: bookmark
 * [20190112 迴光返照系列 - 最後總整理 (公開版)](/collections/military/20190112_military_all.html)
 
 
+---
+
+
+# (七) 未分類
+* [20190622 實驗教育在職教師分區培力工作坊 (北部場)](/collections/education/20190622_Teacher-Training.html)
+
 
 
 
