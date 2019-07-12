@@ -43,7 +43,7 @@ icon: bookmark
 ---
 
 
-# (五) 社團筆記
+# (五) 社團記錄
 1. [20160802 那些年，關於大學的那些事...](/collections/clubs/20160802-about-university.html)
 2. [20160803 社團創社經驗分享與交流](/collections/clubs/20160803-clubs-share.html)
 3. [20160829 夢想，Loading...](/collections/clubs/20160829-about-dreams.html)
@@ -63,8 +63,10 @@ icon: bookmark
 ---
 
 
-# (七) 未分類
-* [20190622 實驗教育在職教師分區培力工作坊 (北部場)](/collections/education/20190622_Teacher-Training.html)
+# (七) 各類型心得 or 筆記
+* [20190511 裡X外書講堂 - 不太乖雜學家](/collections/notes/20190511_Za-Share.html)
+* [20190518 成功關鍵 – 大腦迴路的訓練](/collections/notes/20190518_Brain-Training.html)
+* [20190622 實驗教育在職教師分區培力工作坊 (北部場)](/collections/notes/20190622_Teacher-Training.html)
 
 
 
