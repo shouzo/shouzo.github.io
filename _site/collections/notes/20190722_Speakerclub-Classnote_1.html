@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        東吳講師培訓社 - 課程筆記 (1) - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.markdown-body kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;padding:0 15px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}.ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}.markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}.ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}.markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}.ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-published-note{color:#337ab7}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled"><h1 id="東吳講師培訓社---課程筆記-1"><a class="anchor hidden-xs" href="#東吳講師培訓社---課程筆記-1" title="東吳講師培訓社---課程筆記-1"><span class="octicon octicon-link"></span></a>東吳講師培訓社 - 課程筆記 (1)</h1><h6 id="tags-講師培訓"><a class="anchor hidden-xs" href="#tags-講師培訓" title="tags-講師培訓"><span class="octicon octicon-link"></span></a>tags: <code>講師培訓</code></h6><ul>
+<li><strong>時間：<mark>2019/03/12 - 2019/06/03</mark></strong></li>
+</ul><h2 id="20190312---主題：自我成長"><a class="anchor hidden-xs" href="#20190312---主題：自我成長" title="20190312---主題：自我成長"><span class="octicon octicon-link"></span></a>20190312 - 主題：自我成長</h2><ul>
+<li>
+<p>選定方向、設定挑戰、養成習慣、保持動能</p>
+</li>
+<li>
+<p>主題領域 &gt; 判定目標</p>
+<ul>
+<li>內在動機：問題、原因、為什麼(Why)
+<blockquote>
+<p>定義問題、盤點資源、解決方案</p>
+</blockquote>
+</li>
+<li>設定目標：改變 (完工了！)、行動 (開始動手吧)、探索 (讓我想一想)</li>
+<li>專注投入：時間 (用多少算多少)、體力 (隨時間消耗，0 or 1)、專注力 (起伏不定，會有最低門檻)</li>
+<li>意見回饋：檢核、數據、指點 (高手、前輩)</li>
+<li>維持動能：
+<ol>
+<li>習慣：維持、簡單、掛勾</li>
+<li>競爭：友情、熱血、勝利</li>
+<li><mark>決策邏輯</mark> (思考)：邏輯、知識、資訊
+<ul>
+<li>關鍵在於對 <strong>資訊</strong> 的掌握</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>社團入門階段</p>
+<ul>
+<li>新人 &gt; 幹部 &gt; 領導 &gt; 老人 &gt; 更老</li>
+</ul>
+</li>
+<li>
+<p>分析並觀察團隊中有什麼人 (增加、補足團隊)</p>
+</li>
+<li>
+<p>團隊九型人格</p>
+<ul>
+<li>前期：實幹、推進</li>
+<li>新幹：外交、發明</li>
+<li>老人：監督、完美</li>
+<li>隊長：協調 (把人放在正確的位置上)、凝聚 (留住人)</li>
+<li>(特) 顧問：領域專家</li>
+</ul>
+</li>
+</ul><hr><h2 id="20190326---主題：會議概論-有效會議"><a class="anchor hidden-xs" href="#20190326---主題：會議概論-有效會議" title="20190326---主題：會議概論-有效會議"><span class="octicon octicon-link"></span></a>20190326 - 主題：會議概論 (有效會議)</h2><p>Q：如何準備一場完整的會議？</p><ul>
+<li>丟出想法、梳理資訊、統整認知</li>
+<li>三大會議型態：
+<ol>
+<li><ins><strong>幹部會議</strong></ins> <code>決策</code> (重視交流)
+<ul>
+<li>大方向討論、代表組員傳遞意見。
+<ul>
+<li>優勢 (O)：快速掌握全社，具決策權。</li>
+<li>風險 (X)：拿捏過濾資訊，會議不透明。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ins><strong>組內會議</strong></ins> <code>執行</code> (重視實務)
+<ul>
+<li>社團運作執行端，共識凝聚。
+<ul>
+<li>優勢 (O)：輕鬆、暢所欲言，瞭解真實想法。</li>
+<li>風險 (X)：目標無優先順序，避免爭執怠慢。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ins><strong>組間協調</strong></ins> <code>決策兼執行</code> (重視交流)
+<ul>
+<li>互相溝通協調，取得平衡。
+<ul>
+<li>優勢 (O)：兼具決策與執行，透過協調達成目的。</li>
+<li>風險 (X)：談判空間站不穩，組內未有共識。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>會議 7P
+<ul>
+<li>始於<strong>目的</strong>，終於<strong>產出</strong></li>
+<li><strong>人員</strong>有<strong>準備</strong>，<strong>程序</strong>防<strong>風險</strong></li>
+<li><strong>行政</strong>不斷電</li>
+</ul>
+</li>
+</ul><ol>
+<li><strong>目的</strong> (重視 <strong>Why</strong>)
+<ul>
+<li>真實目的，反覆釐清。</li>
+<li>大家相信，才有動機。</li>
+<li>資源有限，有捨有得。</li>
+</ul>
+</li>
+<li><strong>產出</strong> (重視 <strong>What</strong>)
+<ol>
+<li>論點：統合分歧意見。</li>
+<li>方案：供討論的做法。</li>
+<li>進度：實際操作時程。(計劃書、時程表…etc)</li>
+<li>行動：活動臨時救火。</li>
+</ol>
+</li>
+<li><strong>人員</strong> (重視 <strong>Who</strong>)
+<ul>
+<li>形式上：象徵與代表。</li>
+<li>實務上：負責與擔當。 (負責人 or 實際執行的人)<br>
+Q：是否要讓所有人同時參與會議呢？ (決策、執行)<br>
+A：視情況決定。</li>
+</ul>
+</li>
+<li><strong>準備</strong> (重視 <strong>發揮功能</strong>)
+<ul>
+<li>出席人所做的會前準備。<br>
+ex：提案報告、執行方案、宣佈事項、議題資料蒐集、準備論述…etc</li>
+</ul>
+</li>
+<li><strong>程序</strong> (重視 <strong>下一步</strong>)
+<ul>
+<li>議程與會議規範，決定結論如何產生。<br>
+ex：當人數過半，則會議開始<br>
+當發話過久，則中斷<br>
+當人數過少，則取消會議<br>
+當重大表決，則需過門檻<br>
+當想要發言，則先舉手<br>
+當想要提案，則事先登記</li>
+</ul>
+</li>
+<li><strong>風險</strong> (重視 <strong>不出包</strong>)
+<ul>
+<li>檢視最壞狀況，想辦法預防 / 減低影響。<br>
+ex：怕沒共識，要求出席人數<br>
+怕開天窗，要求準時開會<br>
+怕沒點子，要求一人一提<br>
+怕沒精神，要求前天早睡</li>
+</ul>
+</li>
+<li><strong>行政</strong> (重視 <strong>不斷電</strong>)
+<ul>
+<li>程序使會議開的好，行政使會議開的成。<br>
+ex：會議邀請、行前通知<br>
+會議資料、會議記錄<br>
+場地器材、座位配置<br>
+端茶水、備午餐</li>
+</ul>
+</li>
+</ol><ul>
+<li>
+<p>分工不明確，可以怎麼進行？</p>
+<ul>
+<li>專案化，統一由某人指派。</li>
+<li>列表化，認領任務。</li>
+</ul>
+</li>
+<li>
+<p>會議任務</p>
+<ol>
+<li>確認問題</li>
+<li>所有資訊 <strong>皆被理解</strong></li>
+<li>所有意見 <strong>皆已提出</strong></li>
+<li>得出共識</li>
+</ol>
+</li>
+<li>
+<p>如何判定會議有沒有幫助？進展？</p>
+<ul>
+<li>不說話的人，沒有參與會議的必要 (?)</li>
+<li>只要在會議前，跟會議後有新的認知和所得即可 (?)</li>
+</ul>
+</li>
+<li>
+<p><strong>六頂思考帽</strong></p>
+<ul>
+<li><strong>理性感性</strong>：事實 (白)、情緒 (紅)</li>
+<li><strong>狀況判斷</strong>：風險 (黑)、價值 (黃)</li>
+<li><strong>發散收斂</strong>：控制 (藍)、創造 (綠)</li>
+</ul>
+</li>
+<li>
+<p>如果把思考帽觀念用在會議上的話，可以怎麼做呢？<br>
+(1) <ins>白</ins> &gt; (2) <ins>綠/紅</ins> &gt; (3) <ins>黃/黑</ins> &gt; (4) <ins>紅</ins></p>
+</li>
+</ul><p>(1) 白：檢視事實<br>
+(2) 綠/紅：發想點子<br>
+(3) 黃/黑：將前面的點子補足論述、框架<br>
+(4) 紅：最後決策</p><hr><h2 id="20190423---主題：互動帶領"><a class="anchor hidden-xs" href="#20190423---主題：互動帶領" title="20190423---主題：互動帶領"><span class="octicon octicon-link"></span></a>20190423 - 主題：互動帶領</h2><p>Q：近期看過的實體互動活動？哪個單位辦的？<br>
+A：社團 (教學社課)、系隊 (練球)、營隊 (團康遊戲)<br>
+Q：為什麼要有實體互動？<br>
+A：回饋即時、實體參與感、實體交流、實體資訊量大</p><ul>
+<li>
+<p><strong>核心三軸：<mark>有趣、有意義、可執行</mark></strong></p>
+<ol>
+<li><strong><ins>有趣</ins>：思考 <ins>能不能吸引受眾</ins> 參加活動。</strong>
+<ul>
+<li>在活動舉辦之前，主要聚焦於活動宣傳上。</li>
+</ul>
+</li>
+<li><strong><ins>有意義</ins>：思考 <ins>最初設定的活動目標</ins>。</strong>
+<ul>
+<li>能否達成最初設定的活動目標？</li>
+<li>受眾參加前和參加後有什麼改變？
+<ul>
+<li>【舉例】娛樂型活動
+<ul>
+<li>未必會有啟發，但至少要有娛樂成份。</li>
+</ul>
+</li>
+<li>【舉例】來社團要學的是什麼？
+<ul>
+<li>為什麼要問這個問題？
+<blockquote>
+<p>參加社團會學到東西，你可以說學到人際溝通、專案執行…etc<br>
+但是仔細想想：<strong>「究竟要參加什麼樣的團體才能學不到東西？」</strong><br>
+我們的原始目標，真的能夠透過參加這個團體來達成嗎？</p>
+</blockquote>
+</li>
+<li>不要忘記原始目標。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><ins>可執行</ins>：思考 <ins>活動在現實面上能否被執行</ins>。</strong>
+<ul>
+<li>構想能否被實踐？資源是否足夠？…etc</li>
+<li>也要考慮未來的不可執行性。
+<ul>
+<li>【舉例】未來資源不夠、前一屆把活動辦砸了…etc</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>互動帶領：<mark>內容與受眾互動</mark></strong></p>
+<ul>
+<li>講者、執行者是內容的<strong>載體</strong>，<mark>內容才是關鍵</mark>。</li>
+<li>內容架構：<img src="https://i.imgur.com/Y6b0VC7.jpg" alt=""></li>
+<li>架構順序：<img src="https://i.imgur.com/1xQegS4.jpg" alt="">
+<ul>
+<li>→ <strong><mark>反思</mark></strong> (6) ←
+<ul>
+<li>回顧：精彩好球！</li>
+<li>修正：檢討鍛鍊。</li>
+<li>啟發：在互動或遊戲之外，記得要達到 <strong>活動目的</strong>。</li>
+</ul>
+</li>
+<li>→ <strong><mark>內容</mark></strong> (4) ←
+<ul>
+<li><strong><ins>基本元素</ins></strong>
+<ul>
+<li><mark><strong>體驗</strong> (亦可包含 <strong>娛樂</strong> 和 <strong>思考</strong>)</mark></li>
+<li>娛樂：享受。</li>
+<li>思考：成長。</li>
+</ul>
+</li>
+<li><strong><ins>設計要點</ins></strong>
+<ol>
+<li>
+<p><strong><ins>弱者保護</ins></strong></p>
+<ul>
+<li>避免差距拉大，讓弱者保持追得上的可能性。</li>
+<li>讓弱者輸得少。</li>
+</ul>
+</li>
+<li>
+<p><strong><ins>心流理論</ins></strong><br>
+<img src="https://i.imgur.com/bwtxPyh.jpg" alt=""></p>
+</li>
+<li>
+<p><strong><ins>強者抑制</ins></strong></p>
+<ul>
+<li>不能讓強者贏得太容易，讓局勢有翻盤的可能性。</li>
+<li>讓強者贏得難。</li>
+</ul>
+</li>
+<li>
+<p><strong><ins>強者對決</ins></strong></p>
+<ul>
+<li>讓 <strong>能力相等(近)</strong> 的強者之間互相競爭。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>【案例】以放教學影片為例：讓所有人跟上進度，或是進入課程狀況。<strong>(弱者保護 + 強者抑制)</strong>
+<blockquote>
+<p>【STEP_1】可以在開頭先說明：「待會會放教學影片，會請所有人發表心得。」<br>
+.<br>
+<strong>《先放映第一次影片》</strong><br>
+.<br>
+【STEP_2】接著請 <strong>已經有想法的人 (強者)</strong> 先發表心得。讓 <strong>還沒進入狀況的人 (弱者)</strong> 逐漸瞭解情況)<br>
+.<br>
+<strong>《再放映第二次影片》</strong><br>
+.<br>
+【STEP_3】再請其他還沒有發表心得的人表達想法。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>→ <strong><mark>框架</mark></strong> (2) ←
+<ol>
+<li><strong>結束</strong>：勝利或活動結束的條件。(產生遊戲意義)</li>
+<li><strong>行動</strong>：過程中可以執行的動作。</li>
+<li><strong>提示</strong>：趨近結束的方法、秘訣。(參與者主動發掘、執行)</li>
+<li><strong>開始</strong>：起始配置、開始的信號。</li>
+</ol>
+</li>
+<li>→ <strong><mark>引言</mark></strong> (1) ←
+<ul>
+<li>直述破梗、情境包裝。</li>
+</ul>
+</li>
+<li>→ <strong><mark>進場</mark></strong> (3) ←
+<ul>
+<li>開場提示、氣氛營造，讓大家盡快進入遊戲環境。</li>
+</ul>
+</li>
+<li>→ <strong><mark>出場</mark></strong> (5) ←
+<ul>
+<li>情緒熱力上升 (煽動)，在時間上盡可能拉長這個階段。</li>
+<li>最後記得要給予明確的結束。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><hr><h2 id="20190507---主題：團隊傳承"><a class="anchor hidden-xs" href="#20190507---主題：團隊傳承" title="20190507---主題：團隊傳承"><span class="octicon octicon-link"></span></a>20190507 - 主題：團隊傳承</h2><p>一、組織定位</p><ul>
+<li>社團宗旨
+<ul>
+<li>對內</li>
+<li>對外 (可能會隨時代演變，對外貢獻出什麼東西)</li>
+</ul>
+</li>
+<li>加入組織的意義
+<ul>
+<li>為自己的學習訂一個目標</li>
+<li>不是事情沒有意義，而是自己沒有意識到意義在哪裡</li>
+</ul>
+</li>
+<li>藉由討論來傳承
+<ul>
+<li>新人需要注重：提問</li>
+<li>老人需要注重：解答</li>
+</ul>
+</li>
+<li>三大面向
+<ul>
+<li>人：我們是誰？</li>
+<li>事：社團在做什麼事？</li>
+<li>物：資產、資源 (實體、虛擬)</li>
+</ul>
+</li>
+</ul><p>二、組織文化</p><ul>
+<li>架構
+<ol>
+<li>隨部門分類 (有職稱)</li>
+<li>以專案任務分組 (專案化)：較適合現代</li>
+</ol>
+</li>
+<li>指令系統 (溝通、訊息傳遞方式)
+<ol>
+<li>上對下</li>
+<li>下對上</li>
+</ol>
+</li>
+<li>獎懲機制 (跟文化相關)(營造氛圍)
+<ol>
+<li>正增強、正削弱</li>
+<li>負增強、負削弱</li>
+</ol>
+<blockquote>
+<p>慢慢形塑社員行為 (符合組織形象)</p>
+</blockquote>
+</li>
+</ul><p>三、個人能力的鍛鍊</p><ul>
+<li>心態：價值觀、理念</li>
+<li>體能：基礎身體狀況</li>
+<li>技術：領域專業深度<br>
+<img src="https://i.imgur.com/j1JFnoG.jpg" alt=""></li>
+</ul><p>四、學習對象</p><ul>
+<li>從哪裡學習？
+<ul>
+<li>他學：從外在資源下學習 (書本、課程…etc)</li>
+<li>互學：從互動過程中學習 (團隊、同儕…etc)</li>
+<li>自學：從個人經驗中學習 (自己的經歷)</li>
+</ul>
+</li>
+</ul><p>五、人力資源<br>
+<strong>選</strong> (選人) &gt; <strong>用</strong> (用人) &gt; <strong>育</strong> (培育人) &gt; <strong>留</strong> (留人) &gt; <strong>推</strong> (推薦，往上升)<br>
+<img src="https://i.imgur.com/WOaNjMe.jpg" alt=""></p><p>新人 &gt; 幹部 &gt; 領導 &gt; 老人 &gt; 更老</p><hr><h2 id="20190528---主題：組織展望"><a class="anchor hidden-xs" href="#20190528---主題：組織展望" title="20190528---主題：組織展望"><span class="octicon octicon-link"></span></a>20190528 - 主題：組織展望</h2><p>(這堂課不知道要怎麼整理，我決定自己發揮)</p><ul>
+<li>任何型態的組織，都會需要：<strong>「吻合當代，理解過去。」</strong></li>
+<li>講師培訓社的由來其實源自於先前「會辦活動，卻不會教」的困境，因此成立社團的宗旨為：
+<ol>
+<li>培訓講師技術 (教學的技術/意識)</li>
+<li>培訓專業能力 (自身的領域能力)</li>
+</ol>
+</li>
+<li>我們不能期待壞人會變弱，得自己變強。</li>
+</ul><hr><h2 id="20190603---主題：網路世代的線下活動"><a class="anchor hidden-xs" href="#20190603---主題：網路世代的線下活動" title="20190603---主題：網路世代的線下活動"><span class="octicon octicon-link"></span></a>20190603 - 主題：網路世代的線下活動</h2><p>Q1：社團、組織的人為什麼變少？<br>
+A1：與其猜測，倒不如直接去問離開的人。</p><p>Q2：我想要做得跟 上一屆/之前 不一樣？(社團交接)<br>
+A2：哪裡不一樣？事實上會問出這個問題的當事人，代表他還沒有抓到前進的方向。(通常只有做得 更好/更壞)</p><p>Q3：(排除其他狀況) 每一屆辦的活動都超好玩，人數卻越來越少？<br>
+A3：如果單一項目夠好玩，人數卻越來越少，則需思考項目種類是否足夠多元？</p><p>Q4：社團、組織有必要永續經營？<br>
+A4：長線可以中斷，讓組織停在最好的狀態。待未來人事時地物湊齊後可重新開展事業。</p><p>一、活動效益公式</p><h2 id="tip2"><a class="anchor hidden-xs" href="#tip2" title="tip2"><span class="octicon octicon-link"></span></a><img src="https://i.imgur.com/hG4pYal.jpg" alt=""></h2><h2 id="tip3"><a class="anchor hidden-xs" href="#tip3" title="tip3"><span class="octicon octicon-link"></span></a><img src="https://i.imgur.com/ErnaHV1.jpg" alt=""></h2><h2 id="tip4"><a class="anchor hidden-xs" href="#tip4" title="tip4"><span class="octicon octicon-link"></span></a><img src="https://i.imgur.com/v92q5Av.jpg" alt=""></h2><h2 id="tip5"><a class="anchor hidden-xs" href="#tip5" title="tip5"><span class="octicon octicon-link"></span></a><img src="https://i.imgur.com/LswzSOZ.jpg" alt=""></h2><p><img src="https://i.imgur.com/G4LTddI.jpg" alt=""></p><p>二、線上 / 線下體驗</p><blockquote style="border-left-color: red;">
+<p>直到 AR/VR 的技術高度能夠觸碰到現實體驗的邊界之前，線下活動不會被線上活動取代。<br>
+<span class="color" data-color="red"></span></p>
+</blockquote><ul>
+<li>線上 / 線下的特性
+<ul>
+<li><strong>線上</strong>：可減少資源的消耗</li>
+<li><strong>線下</strong>：可擁有最真實體驗 (最高端體驗、高解析的真實性)</li>
+</ul>
+</li>
+<li>人們為什麼會喜歡上實體的聚會？
+<ol>
+<li>能和喜歡的人一同參與</li>
+<li>喜歡上聚會裡的其他人</li>
+<li>自己產生了正向的改變</li>
+</ol>
+</li>
+</ul></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#東吳講師培訓社---課程筆記-1" title="東吳講師培訓社 - 課程筆記 (1)">東吳講師培訓社 - 課程筆記 (1)</a><ul class="nav">
+<li class=""><a href="#20190312---主題：自我成長" title="20190312 - 主題：自我成長">20190312 - 主題：自我成長</a></li>
+<li class=""><a href="#20190326---主題：會議概論-有效會議" title="20190326 - 主題：會議概論 (有效會議)">20190326 - 主題：會議概論 (有效會議)</a></li>
+<li class=""><a href="#20190423---主題：互動帶領" title="20190423 - 主題：互動帶領">20190423 - 主題：互動帶領</a></li>
+<li class=""><a href="#20190507---主題：團隊傳承" title="20190507 - 主題：團隊傳承">20190507 - 主題：團隊傳承</a></li>
+<li class=""><a href="#tip1" title="20190528 - 主題：組織展望">20190528 - 主題：組織展望</a></li>
+<li class=""><a href="#20190603---主題：網路世代的線下活動" title="20190603 - 主題：網路世代的線下活動">20190603 - 主題：網路世代的線下活動</a></li>
+<li class=""><a href="#tip2" title=""></a></li>
+<li class=""><a href="#tip3" title=""></a></li>
+<li><a href="#tip4" title=""></a></li>
+<li class=""><a href="#tip5" title=""></a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#東吳講師培訓社---課程筆記-1" title="東吳講師培訓社 - 課程筆記 (1)">東吳講師培訓社 - 課程筆記 (1)</a><ul class="nav">
+<li class=""><a href="#20190312---主題：自我成長" title="20190312 - 主題：自我成長">20190312 - 主題：自我成長</a></li>
+<li class=""><a href="#20190326---主題：會議概論-有效會議" title="20190326 - 主題：會議概論 (有效會議)">20190326 - 主題：會議概論 (有效會議)</a></li>
+<li class=""><a href="#20190423---主題：互動帶領" title="20190423 - 主題：互動帶領">20190423 - 主題：互動帶領</a></li>
+<li class=""><a href="#20190507---主題：團隊傳承" title="20190507 - 主題：團隊傳承">20190507 - 主題：團隊傳承</a></li>
+<li class=""><a href="#tip1" title="20190528 - 主題：組織展望">20190528 - 主題：組織展望</a></li>
+<li class=""><a href="#20190603---主題：網路世代的線下活動" title="20190603 - 主題：網路世代的線下活動">20190603 - 主題：網路世代的線下活動</a></li>
+<li class=""><a href="#tip2" title=""></a></li>
+<li class=""><a href="#tip3" title=""></a></li>
+<li><a href="#tip4" title=""></a></li>
+<li class=""><a href="#tip5" title=""></a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

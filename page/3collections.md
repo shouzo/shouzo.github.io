@@ -66,6 +66,7 @@ icon: bookmark
 # (七) 各類型心得 or 筆記
 * [20190511 裡X外書講堂 - 不太乖雜學家](/collections/notes/20190511_Za-Share.html)
 * [20190518 成功關鍵 – 大腦迴路的訓練](/collections/notes/20190518_Brain-Training.html)
+* [20190603 東吳講師培訓社 - 課程筆記 (1)](/collections/notes/20190722_Speakerclub-Classnote_1.html)
 * [20190622 實驗教育在職教師分區培力工作坊 (北部場)](/collections/notes/20190622_Teacher-Training.html)
 
 
