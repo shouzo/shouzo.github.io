@@ -51,6 +51,7 @@ icon: bookmark
 5. [20170118 社團大代誌 - 社團負責人課程](/collections/clubs/20170118-clubmanager.pdf)
 6. [20170422 原始點醫學分享](/collections/clubs/20170422-Original_Point.pdf)
 7. [20170427 關於社團傳承，你必須要知道的事情...](/collections/clubs/20170427-club_inheritance.pdf)
+8. [20190815 團隊經營 - 組織規劃、經營與傳承](/collections/clubs/20190815-team_manage.pdf)
 
 
 ---
