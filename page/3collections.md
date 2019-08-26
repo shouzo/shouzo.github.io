@@ -69,6 +69,7 @@ icon: bookmark
 * [20190518 成功關鍵 – 大腦迴路的訓練](/collections/notes/20190518_Brain-Training.html)
 * [20190603 東吳講師培訓社 - 課程筆記 (1)](/collections/notes/20190722_Speakerclub-Classnote_1.html)
 * [20190622 實驗教育在職教師分區培力工作坊 (北部場)](/collections/notes/20190622_Teacher-Training.html)
+* [20190826 活動企劃師 CCAPP (第 115 期) - 課程內容筆記](/collections/notes/20190826_CCAPP.html)
 
 
 

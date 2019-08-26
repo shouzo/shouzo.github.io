@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        活動企劃師 CCAPP  - 課程內容筆記 (第115期) - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;padding:0 15px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}.ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}.markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}.ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}.markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}.ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-published-note{color:#337ab7}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true" style="position: relative;"><h1 id="活動企劃師-CCAPP---課程內容筆記-第115期"><a class="anchor hidden-xs" href="#活動企劃師-CCAPP---課程內容筆記-第115期" title="活動企劃師-CCAPP---課程內容筆記-第115期"><span class="octicon octicon-link"></span></a>活動企劃師 CCAPP  - 課程內容筆記 (第115期)</h1><h6 id="tags-CCAPP、活動、企劃、社團"><a class="anchor hidden-xs" href="#tags-CCAPP、活動、企劃、社團" title="tags-CCAPP、活動、企劃、社團"><span class="octicon octicon-link"></span></a>tags: <code>CCAPP</code>、<code>活動</code>、<code>企劃</code>、<code>社團</code></h6><div class="alert alert-info">
+<p>【閱讀說明】<br>
+以下內容為第 115 期活動企劃師之課程內容筆記。<br>
+因為主辦單位要求和版權問題，僅提供文字記錄。<br>
+若遇到 <code>記錄從缺</code> 等字樣，那大概是我在那堂課睡著了 A_A</p>
+</div><blockquote>
+<p>內容整理者：<a href="https://www.facebook.com/danny200026" target="_blank" rel="noopener">羅左欣</a><br>
+更新時間：<strong>2019/08/26 (一)，PM 12:21</strong></p>
+</blockquote><h2 id="20190816---第一天"><a class="anchor hidden-xs" href="#20190816---第一天" title="20190816---第一天"><span class="octicon octicon-link"></span></a>20190816 - 第一天</h2><h3 id="一-活動企劃總論"><a class="anchor hidden-xs" href="#一-活動企劃總論" title="一-活動企劃總論"><span class="octicon octicon-link"></span></a>(一) 活動企劃總論</h3><ul>
+<li>
+<p>Q1：為什麼要企劃？<br>
+A1：企劃是為了 <strong>改變現況</strong> (往好的方向)。改變需要行動，而行動需要資源。</p>
+</li>
+<li>
+<p>Q2：企劃書要用來做什麼？<br>
+A2：用來 <strong>說服</strong> 資源提供者提供資源。</p>
+</li>
+<li>
+<p>Q3：是誰來解決這個問題？<br>
+A3：<strong>主辦單位</strong>。</p>
+</li>
+<li>
+<p>Q4：為什麼是由它來辦？<br>
+A4：(主辦單位的) <strong>活動目的</strong>。</p>
+</li>
+<li>
+<p>Q5：要辦到什麼程度？<br>
+A5：(需要探討) <strong>活動目標</strong> (KPI) (設定並達成目標)。</p>
+</li>
+<li>
+<p>該如何討論緣起？</p>
+<ul>
+<li><mark>STEP 1 - 掌握 <strong>種類</strong></mark>
+<ol>
+<li><strong>問題</strong>：會困擾當事人的。</li>
+<li><strong>需求</strong>：很期待、很需要、很想要。</li>
+<li><strong>機會</strong>：稍縱即逝。</li>
+</ol>
+</li>
+<li>STEP 2 - 背景 <strong>分析</strong>
+<ul>
+<li>針對 <ins>問題、需求、機會</ins> 做出脈絡分析。</li>
+</ul>
+</li>
+<li>STEP  3 - 補充 <strong>論述</strong>
+<ul>
+<li>說明企劃的意義、價值。</li>
+</ul>
+</li>
+<li>STEP 4 - 進行 <strong>提案</strong>
+<ul>
+<li>需要資源把企劃完成</li>
+<li>【情況一】若資源不足 (通常是常態)，則把資源找足！</li>
+<li>【情況二】若資源足夠，則把價值做大！
+<ul>
+<li>【案例】用 2 元的方案做出 10 元的價值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>其他注意事項</p>
+<ul>
+<li>定位 <strong>關聯/調性</strong>： 是誰要去執行？要向誰提案？</li>
+<li>探討 <strong>效益</strong>：達成目標之後，會有什麼效果？</li>
+<li>準備 <strong>備案</strong>：用於應對活動變數、風險。</li>
+<li>講究「<strong>資源投入最少，達成效益最高的方案。</strong>」</li>
+</ul>
+</li>
+</ul><h3 id="二-各類型活動企劃專業要領"><a class="anchor hidden-xs" href="#二-各類型活動企劃專業要領" title="二-各類型活動企劃專業要領"><span class="octicon octicon-link"></span></a>(二) 各類型活動企劃專業要領</h3><p>(記錄從缺)</p><h3 id="三-活動目的、環境分析與定位"><a class="anchor hidden-xs" href="#三-活動目的、環境分析與定位" title="三-活動目的、環境分析與定位"><span class="octicon octicon-link"></span></a>(三) 活動目的、環境分析與定位</h3><p>(記錄從缺)</p><hr><h2 id="20190817---第二天"><a class="anchor hidden-xs" href="#20190817---第二天" title="20190817---第二天"><span class="octicon octicon-link"></span></a>20190817 - 第二天</h2><h3 id="四-活動企劃團隊籌組與運作"><a class="anchor hidden-xs" href="#四-活動企劃團隊籌組與運作" title="四-活動企劃團隊籌組與運作"><span class="octicon octicon-link"></span></a>(四) 活動企劃團隊籌組與運作</h3><ul>
+<li>團隊的籌組與運作
+<ul>
+<li><strong><ins>何謂團隊</ins></strong>
+<ul>
+<li>團隊詮釋：TEAM
+<ul>
+<li>T - <strong>Together (一起)</strong></li>
+<li>E - <strong>Everyone (每個人)</strong></li>
+<li>A - <strong>Achieve (成就)</strong></li>
+<li>M - <strong>More (更多)</strong></li>
+</ul>
+</li>
+<li>定義
+<ul>
+<li><mark><strong>一群人共同合作</strong>來達成<strong>共同目標</strong></mark>。</li>
+</ul>
+</li>
+<li>優點、缺點
+<ul>
+<li><strong>優點</strong>：分享資訊、專業分工</li>
+<li><strong>缺點</strong>：抑制個人、籌組耗時</li>
+</ul>
+</li>
+<li>團體 vs 團隊
+<ul>
+<li><mark><strong>團體</strong>：相同的關係、相同社會規範，或因興趣而集合。</mark></li>
+<li><mark><strong>團隊</strong>：一群人在工作或行動上，為達成共同願景而合作。</mark></li>
+</ul>
+</li>
+<li>卓越的特質
+<ul>
+<li><mark>從 <strong>烏合之眾</strong>(漸弱) 到 <strong>卓越團隊</strong>(漸強)</mark>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><ins>團隊組成</ins></strong>
+<ul>
+<li>人才組合
+<ul>
+<li>分類法 1 - 根據 <strong>貝爾賓九型人格</strong>
+<ul>
+<li>調查員、播種者、協調者、塑形者、評估員、工作者、執行者、完成者。</li>
+</ul>
+</li>
+<li>分類法 2 - 根據 <strong>內、外向人格</strong></li>
+<li>分類法 3 - 根據 <strong>星座特質</strong>：火象、土象、風象、水象</li>
+</ul>
+</li>
+<li>願景目標
+<ul>
+<li><strong>STEP 1 - 釐清團隊</strong>
+<ol>
+<li>我們是誰？</li>
+<li>目前的情況為何？</li>
+<li>我們的目標為何？</li>
+<li>我們如何達成目標？</li>
+<li>別人對我們的預期為何？</li>
+<li>需要什麼協助？</li>
+<li>我們的效率如何？</li>
+<li>我們會獲得什麼獎勵？</li>
+</ol>
+</li>
+<li><strong>STEP 2 - 設定目標</strong>
+<ul>
+<li>SMARTS 原則
+<ul>
+<li>S - <strong>Specific</strong> (明確)</li>
+<li>M - <strong>Measurable</strong> (可衡量)</li>
+<li>A - <strong>Achievable</strong> (可達成)</li>
+<li>R - <strong>Relevant</strong> (有相關)</li>
+<li>T - <strong>Time limited</strong> (有時間限制)</li>
+<li>S - <strong>Stretching</strong> (有挑戰延展性)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>價值信念
+<ul>
+<li>工作層面
+<ul>
+<li>物質/報酬、權力/影響力、重大意義、專業/專精、獨立自主、安全/安定、社會地位</li>
+</ul>
+</li>
+<li>感情層面
+<ul>
+<li>塑造因素：先天環境、後天學習</li>
+<li>人際合作：需要尊重、同理心</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><mark><strong><ins>發展階段</ins></strong> (動態變化)：形成期、風暴期、規範期、成熟期</mark>
+<ul>
+<li>形成期：依賴、依靠</li>
+<li>風暴期：衝突產生</li>
+<li>規範期：凝聚力形成</li>
+<li>成熟期：承諾與承擔</li>
+</ul>
+</li>
+<li><strong><ins>運作技巧</ins></strong>
+<ul>
+<li>領導技巧：傾聽、觀察、獎賞、決斷、情緒、尊重、奉獻、熱忱、鼓舞、履行</li>
+<li>溝通技巧：謙虛態度、明確表達、用心傾聽、雙向交流</li>
+<li>傾聽技巧：專注、鼓勵、複述、詢問</li>
+<li>問題解決：問題、目的、方案選擇、預想結果、堅持或妥協、風險容忍、不確定性、關聯影響</li>
+<li>決策方法：收集意見 &gt; 蒐集數據 &gt; 進行分析 &gt; 提出方案 &gt; 進行決定 &gt; 解決問題</li>
+<li>合作信任：誠實、公開、一致、尊重</li>
+<li>績效管理：KPI、MBO、OKR</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h3 id="五-活動方案的創意思考"><a class="anchor hidden-xs" href="#五-活動方案的創意思考" title="五-活動方案的創意思考"><span class="octicon octicon-link"></span></a>(五) 活動方案的創意思考</h3><ul>
+<li>
+<p><strong>創意思考：水平式思考 + 垂直式思考</strong></p>
+<ol>
+<li>需要尋找命題與結果間的 <strong>關聯性</strong>。</li>
+<li><mark>創意既膚淺又短命，所以常識很重要。多花點時間瞭解這個世界發生了什麼事。</mark></li>
+<li>創意、創造意外、創造意料之外的事情。</li>
+<li><mark>看到命題，不要被命題制約 (要突破慣性)。</mark>
+<ul>
+<li>不能從大方向看，要從細部去尋找。</li>
+<li>【案例】甜甜圈 (一定是圓的？一定是甜的？)</li>
+</ul>
+</li>
+<li>不講究精彩，講究精準。</li>
+</ol>
+</li>
+<li>
+<p><strong>創意的策略</strong>：尋找概念(前) + 產生點子(後)</p>
+<ul>
+<li>STEP 1 - 擬好策略</li>
+<li>STEP 2 - 尋找概念 (大概的念頭)</li>
+<li>STEP 3 - 產生點子</li>
+</ul>
+</li>
+<li>
+<p><strong>創意四力：聯想力、想像力、牽拖力、破壞力</strong></p>
+<ul>
+<li><strong>聯想力</strong>：關鍵字接龍、望文生圖、跳躍式連環套</li>
+<li><strong>破壞力</strong>：耍冷搞怪、無限可能、拆解拼裝
+<ul>
+<li>推動世界進步的，幾乎全是那些不滿現狀的人。</li>
+</ul>
+</li>
+<li><strong>牽拖力</strong>：蜘蛛結網、萬能博士
+<ul>
+<li>蜘蛛結網
+<ul>
+<li>先隨機挑幾個關鍵字，再將關鍵字合成一段文章(像是蜘蛛結網一樣，把常識串起來)。</li>
+<li>不會太合理。</li>
+</ul>
+</li>
+<li>萬能博士
+<ul>
+<li>似乎有理，但其實沒有道理。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>想像力</strong>：藉題發揮、大發明家
+<ul>
+<li>他們不是相信魔術師，而是相信想像力。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h3 id="六七-活動企劃書構思、撰作-跟檢定考試有關"><a class="anchor hidden-xs" href="#六七-活動企劃書構思、撰作-跟檢定考試有關" title="六七-活動企劃書構思、撰作-跟檢定考試有關"><span class="octicon octicon-link"></span></a>(六)(七) 活動企劃書構思、撰作 (跟檢定考試有關)</h3><ul>
+<li>
+<p><mark><strong>解決問題需要</strong></mark></p>
+<ol>
+<li><strong>領域知識 (Domain Know-How)</strong></li>
+<li><strong>企劃 / 行動方案</strong></li>
+</ol>
+</li>
+<li>
+<p><mark><strong>基本問題 (對應要點)</strong></mark></p>
+<ol>
+<li>要改變什麼情境？怎麼產生的？重要嗎？ <strong>(活動緣起)</strong></li>
+<li>主要由誰 (哪個單位) 來促動情境改變？ <strong>(主辦單位)</strong></li>
+<li>為何該單位願意來促動情境改變？ <strong>(活動目的)</strong></li>
+<li>該單位希望將現況改變到什麼程度？ <strong>(活動目標)</strong></li>
+<li>這項 (活動) 改變和哪些人或族群有關？ <strong>(目標族群)</strong></li>
+<li>要用什麼 (活動) 方案內容達成上述改變？ <strong>(行動方案)</strong></li>
+<li>在什麼時間執行該方案？ <strong>(時程/時間)</strong></li>
+<li>在什麼地點執行該方案？ <strong>(地點/地區)</strong></li>
+<li>怎麼才能讓目標族群或有關的人來參加？ <strong>(廣告宣傳/動員引導)</strong></li>
+<li>怎麼執行推動這個 (活動) 方案？ <strong>(執行架構/執行進度)</strong></li>
+<li>需要哪些資源才能推動這個 (活動) 方案？ <strong>(活動參與單位/預算)</strong></li>
+<li>(活動) 方案執行完會有什麼效益？ <strong>(預期效益)</strong></li>
+<li>執行過程中會有什麼變數風險嗎？ <strong>(活動備案)</strong></li>
+<li>有沒有其他相關資料可以進一步 <strong>說服</strong> 閱案者的資料？ <strong>(附錄/附件)</strong></li>
+</ol>
+</li>
+<li>
+<p><mark><strong>企劃案如何發想？</strong></mark> (論點之間需要有 <strong>強邏輯關聯</strong>)</p>
+<ol>
+<li>活動緣起、活動背景、活動目的、活動目標</li>
+<li>行動主體：財務預估、資源整合 (人、財、事、物、名、技術)
+<ul>
+<li>嘗試將各項資源換算成數字</li>
+<li>各項名詞
+<ul>
+<li>指導單位
+<ol>
+<li>主辦單位的上級單位 (直屬單位 &gt; 非直屬單位)</li>
+<li>專門領域的權威單位
+<ul>
+<li>【備註】<strong>以公家單位來說，不會在名義上掛民間單位作為指導單位。</strong></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>主辦單位 (負全部責任)</li>
+<li>共同主辦 (負連帶責任)</li>
+<li>協辦單位
+<ul>
+<li>邀請對主辦單位達成目的有所助益之單位。</li>
+</ul>
+</li>
+<li>活動主題
+<ul>
+<li><strong>活動名稱</strong>：有活動形式在上面
+<ol>
+<li>易懂易記</li>
+<li>貫連主題</li>
+<li>會心創意 (讓人讀起來很有感)</li>
+<li>音韻流暢
+<ul>
+<li>【案例】Taiwan No.1，爭奪美金 500 萬</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>廣告標語 (Slogan)</strong>：直指活動核心、表達意念</li>
+<li><strong>活動副標</strong>：解釋活動名稱</li>
+</ul>
+</li>
+<li>時間期程</li>
+<li>活動地點</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>行動效益</li>
+<li>活動備案</li>
+</ol>
+</li>
+<li>
+<p>企劃概念架構順序：</p>
+<ul>
+<li>STEP 1 - 先找出 <strong>企劃定位、調性、主軸</strong></li>
+<li>STEP 2 - 接著構思主輔行動</li>
+<li>STEP 3 - 再來構思行動項目 (名稱/內容)</li>
+</ul>
+</li>
+<li>
+<p>活動方案設計原則：</p>
+<ol>
+<li>三段論原則：開始 &gt; 中間 &gt; 結束
+<ul>
+<li><strong>開始 (開幕)</strong>：揭示活動精髓</li>
+<li><strong>中間 (主軸)</strong>：本次活動主軸</li>
+<li><strong>結束 (閉幕)</strong>：本次活動回顧、對於未來活動的揭示</li>
+</ul>
+</li>
+<li>主活動與輔助活動</li>
+<li>方案要能傳達「目的、意念」</li>
+<li>各分項活動講究前後關聯，整體需傳達統一意念</li>
+<li>掌握各類型活動的企劃設計要領</li>
+</ol>
+</li>
+<li>
+<p>創意的構思重點：</p>
+<ul>
+<li><strong>活動主題</strong>
+<ol>
+<li>如何產生召喚、參與動力？</li>
+<li>多少創造性或加值性意涵？和過去、同類有何差別？有何超越性？</li>
+</ol>
+</li>
+<li><strong>論述邏輯</strong> (寫在緣起裡)
+<ul>
+<li>何種創意論述、觀點才能讓活動有其意義、價值與舉辦必要？</li>
+</ul>
+</li>
+<li><strong>活動名稱</strong>
+<ul>
+<li>講究 <strong>易懂易記</strong>、<strong>貫連主題</strong>、<strong>會心創意</strong>、<strong>音韻流暢</strong></li>
+</ul>
+</li>
+<li><strong>廣告標語 (Slogan)</strong>
+<ol>
+<li>提點活動核心意念</li>
+<li>提點活動定位</li>
+<li>形塑活動氛圍</li>
+<li>簡潔扼要</li>
+</ol>
+</li>
+<li><strong>商標 (Logo)</strong>
+<ul>
+<li>可解說意涵、造型夠獨特、具視覺效果、能延伸應用</li>
+</ul>
+</li>
+<li><strong>活動形式/實質內容</strong>
+<ol>
+<li>需傳達活動目的、意念</li>
+<li>強化 <strong>活動形式</strong> 和 <strong>目的、意念</strong> 間的 <strong>創意性關聯</strong></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul><hr><h2 id="20190818---第三天"><a class="anchor hidden-xs" href="#20190818---第三天" title="20190818---第三天"><span class="octicon octicon-link"></span></a>20190818 - 第三天</h2><h3 id="八-活動資源企劃與整合"><a class="anchor hidden-xs" href="#八-活動資源企劃與整合" title="八-活動資源企劃與整合"><span class="octicon octicon-link"></span></a>(八) 活動資源企劃與整合</h3><ul>
+<li>何謂活動資源？
+<ul>
+<li>活動資源：<strong>人、事、時、地、物、財</strong>
+<ol>
+<li>為活動組成元素和考量要點</li>
+<li>經過企劃創意，可成為活動焦點</li>
+<li>整合後可提升活動品質及效益</li>
+</ol>
+</li>
+<li><strong>人</strong> - 首重 <strong>人員管理</strong> 及 <strong>安全性</strong>
+<ul>
+<li>例：主/協辦單位、承辦單位、贊助單位、參加人員</li>
+</ul>
+</li>
+<li><strong>事</strong> - 運用 <strong>時事熱潮</strong> 或 <strong>話題</strong>
+<ul>
+<li>例：事件資源、重大資源、紀念活動</li>
+</ul>
+</li>
+<li><strong>時</strong> - 活動 <strong>流程安排</strong> 及相關考量
+<ul>
+<li>例：時間點安排、季節特性掌握</li>
+</ul>
+</li>
+<li><strong>地</strong> - <strong>場地規劃</strong> 與應用
+<ul>
+<li>例：場地資源、活動場地、週邊配套措施</li>
+</ul>
+</li>
+<li><strong>物</strong> - 活動中的 <strong>物資</strong>
+<ul>
+<li>例：物產資源，將物品進行列表計算</li>
+</ul>
+</li>
+<li><strong>財</strong> - <strong>經費來源</strong>
+<ul>
+<li>例：贊助及自籌款</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h3 id="九-活動廣宣與文案撰作"><a class="anchor hidden-xs" href="#九-活動廣宣與文案撰作" title="九-活動廣宣與文案撰作"><span class="octicon octicon-link"></span></a>(九) 活動廣宣與文案撰作</h3><p>(記錄從缺)</p><h3 id="十-活動提案與簡報"><a class="anchor hidden-xs" href="#十-活動提案與簡報" title="十-活動提案與簡報"><span class="octicon octicon-link"></span></a>(十) 活動提案與簡報</h3><p>(記錄從缺)</p><hr><h2 id="20190823---第四天"><a class="anchor hidden-xs" href="#20190823---第四天" title="20190823---第四天"><span class="octicon octicon-link"></span></a>20190823 - 第四天</h2><h3 id="十一-活動企劃案執行與控管"><a class="anchor hidden-xs" href="#十一-活動企劃案執行與控管" title="十一-活動企劃案執行與控管"><span class="octicon octicon-link"></span></a>(十一) 活動企劃案執行與控管</h3><h4 id="1-活動執行的要領：籌備期-gt-進場前-gt-現場管理"><a class="anchor hidden-xs" href="#1-活動執行的要領：籌備期-gt-進場前-gt-現場管理" title="1-活動執行的要領：籌備期-gt-進場前-gt-現場管理"><span class="octicon octicon-link"></span></a>1. 活動執行的要領：籌備期 &gt; 進場前 &gt; 現場管理</h4><ul>
+<li>活動成功的方法：研究 + 設計 + 企劃 + <strong>執行</strong> + 評估</li>
+<li>活動失敗的原因：
+<ol>
+<li>不知道目標對象是誰？</li>
+<li>不知道目標對象為什麼參加活動？</li>
+<li><mark>沒有記錄影響活動執行範疇的所有變更</mark></li>
+<li>忽略 <strong><ins>墨菲定律</ins></strong> (只要大於零的機率，都可能會發生)</li>
+</ol>
+</li>
+<li>掌握活動利害關係人：<strong>主辦單位、與會者、講者貴賓、贊助商、展覽商、供應商、現場工作人員</strong></li>
+<li>檢視並落實活動最後要達成的願景與目標</li>
+<li>專案管理工作展開：<strong>願景 &gt; 目標 &gt; 策略 &gt; 執行計畫</strong></li>
+</ul><h4 id="2-建立活動執行控管系統"><a class="anchor hidden-xs" href="#2-建立活動執行控管系統" title="2-建立活動執行控管系統"><span class="octicon octicon-link"></span></a>2. 建立活動執行控管系統</h4><ul>
+<li>從與會者/觀眾的體驗旅程，展開所有的執行環節
+<ul>
+<li><strong>與會者的體驗旅程</strong> (以會議為例)
+<ul>
+<li>收到訊息 (1) &gt; 報名 (2) &gt; 訂機票/訂房 (3) &gt; 抵達機場 (4) &gt; 飯店 Check In (5) &gt; 抵達會場 (6) &gt; 報到 (7) &gt; 參加會議 (8) &gt; Coffee Break (9) &gt; 參加會議 (10) &gt; 午餐 (11) &gt; 參加會議 (12) &gt; 晚宴 (13) &gt;  旅遊 (14) &gt; 飯店 Check Out/前往機場 (15)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>組織你的工作團隊</li>
+<li>找出專案查核點/里程碑</li>
+<li>建立時程控管表</li>
+<li><strong><mark>建立關鍵路徑</mark></strong> (按時間順序排列、需要定期檢閱調整)
+<ul>
+<li>客戶需求變更</li>
+<li>新增工作項目</li>
+<li>關鍵路徑若有變化，勿直接刪除，要用明顯顏色或線條顯示新的變更</li>
+<li>任何改變要標上日期以免混淆。舊版要存檔，方便日後追溯。</li>
+<li><strong>《相關事項整理》</strong>
+<ol>
+<li>當你自己、重要工作人員，以及負責決策/簽約的客戶有可能不在的時間，把它們加上去。</li>
+<li>工作負擔很大時，注意個人或工作的壓縮期。</li>
+<li>跟活動主會場與供應商聯絡人確認他們何時會不在。</li>
+<li>整理所有供應商合約細節、列出所有付款期限、人員增減期限、餐飲保證期限、飯店房間釋房日等。</li>
+<li>整理所有供應商報價與預算摘要細節表。</li>
+<li>列出所有供應商場勘時間與排定的會議日期。</li>
+<li>建立緩衝時間與最後期限。</li>
+<li>活動前最後兩週保持一片空白 (用來應變緊急情況)。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>預算控管 - 反應需求變更</strong>
+<ul>
+<li><strong>固定成本</strong>
+<ul>
+<li>場地租金</li>
+<li>視聽設備、同步口譯</li>
+<li>宣傳行銷/記者會</li>
+<li>會場佈置</li>
+<li>展覽硬體搭建</li>
+<li>網站</li>
+<li>註冊/論文系統</li>
+<li>表演節目與燈光音響</li>
+<li>專業人力</li>
+<li>行政庶務保險</li>
+</ul>
+</li>
+<li><strong>變動成本</strong>
+<ul>
+<li>講員費用</li>
+<li>會議餐飲/茶點</li>
+<li>晚宴餐飲</li>
+<li>會議製作物 (提袋、大會手冊、紀念品)</li>
+<li>顧問管理費</li>
+<li>交通接駁/旅遊參訪</li>
+<li>臨時人力</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h4 id="3-執行控管前置準備"><a class="anchor hidden-xs" href="#3-執行控管前置準備" title="3-執行控管前置準備"><span class="octicon octicon-link"></span></a>3. 執行控管前置準備</h4><ul>
+<li><strong>賓客</strong>：講者提醒函、與會者提醒函</li>
+<li><strong>場地</strong>：會前場勘會議、硬體確認、施工注意事項 (貨梯、停車空間、電力、空調等)、人流動線 (賓客、緊急疏散、維安動線)</li>
+<li><strong>供應商</strong> (協力廠商)：供應商物流管理檢核表、技術會議</li>
+<li><strong>流程</strong>：細部流程 (從進場到活動結束)、製作聯絡表、工作人員手冊</li>
+<li>建構場景、擬定細部流程：<strong>人、事、時、地、物</strong></li>
+</ul><h4 id="4-活動現場控管與應變"><a class="anchor hidden-xs" href="#4-活動現場控管與應變" title="4-活動現場控管與應變"><span class="octicon octicon-link"></span></a>4. 活動現場控管與應變</h4><ul>
+<li>現場接待 - 誰是你的目標對象？
+<ul>
+<li>客戶、客戶的客戶、贊助商、貴賓、媒體</li>
+</ul>
+</li>
+<li>現場控管與應變
+<ul>
+<li>確實彩排</li>
+<li>依據活動設計完整呈現</li>
+<li>活動流程的確實掌控</li>
+<li>現場人力調度與支援</li>
+<li>確實作好活動中角色的扮演</li>
+<li>現場問題回報與排除</li>
+<li>每日檢討會</li>
+</ul>
+</li>
+<li>風險的管控
+<ul>
+<li>安全、交通、氣候、設備故障、報名人數、講者臨時取消、政治、流行病、預算減少、與會者沒有出現、贊助商抱怨…etc</li>
+</ul>
+</li>
+</ul><h3 id="十二-實體活動網路行銷"><a class="anchor hidden-xs" href="#十二-實體活動網路行銷" title="十二-實體活動網路行銷"><span class="octicon octicon-link"></span></a>(十二) 實體活動網路行銷</h3><h4 id="1-內容定位"><a class="anchor hidden-xs" href="#1-內容定位" title="1-內容定位"><span class="octicon octicon-link"></span></a>1. 內容定位</h4><ul>
+<li><strong>數據化內容行銷思維</strong>：消費者數據研究 &gt; 內容創造 &gt; 社群管理 &gt; 績效行銷 &gt; Social CRM</li>
+<li><strong>品牌特色的內容定位</strong>：
+<ul>
+<li>試著思考：<strong>消費者想要什麼，競爭品牌無法滿足，而我們可以提供？</strong>
+<ol>
+<li><strong>Whom am I for</strong>：我的目標族群想要什麼？</li>
+<li><strong>Why like us</strong>：競品(競爭品牌) 滿足了什麼？</li>
+<li><strong>Who am I</strong>：我們能解決的痛點？</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>根據定位發展精準內容</strong>：<br>
+<img src="https://i.imgur.com/LU8Ufb0.jpg" alt="">
+<ol>
+<li>目的設定</li>
+<li>資源盤點</li>
+<li>脈絡思考：從聽眾的角度思考</li>
+<li>模式選擇：選擇一個適合的產製模式</li>
+<li>流程發想：從流程思考可以發揮的內容</li>
+<li>資源確認：確認每個人都有獲得必要的資源</li>
+<li>行前準備：事前彩排</li>
+<li>發聲管道：將可發聲的管道，和標籤整理清晰</li>
+<li>產出成果：跨平台、調性稍微調整的內容產出</li>
+<li>回訪分享：讓客戶有意願分享自己的內容</li>
+</ol>
+</li>
+</ul><h4 id="2-建立思維"><a class="anchor hidden-xs" href="#2-建立思維" title="2-建立思維"><span class="octicon octicon-link"></span></a>2. 建立思維</h4><ul>
+<li><strong><mark>目的 - 舉辦活動的目的是什麼？</mark></strong>
+<ol>
+<li><strong>知名度</strong>
+<ul>
+<li>實體：盡可能接觸到更多人</li>
+<li>網路：接觸到實體沒接觸到的人</li>
+</ul>
+</li>
+<li><strong>偏好度</strong>
+<ul>
+<li>實體：讓更多人願意跟你互動</li>
+<li>網路：創造網路議題發酵</li>
+</ul>
+</li>
+<li><strong>購買力</strong>
+<ul>
+<li>實體：更多人願意現場買單</li>
+<li>網路：產出見證素材讓網友買單</li>
+</ul>
+</li>
+<li><strong>深化關係</strong>
+<ul>
+<li>實體：買家更愛你</li>
+<li>網路：讓買家感到被尊寵</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong><mark>資產 - 你的內容資產有哪些？</mark></strong>
+<ul>
+<li>自有媒體、專家訪談、使用者訪談、歷史文獻</li>
+</ul>
+</li>
+<li><strong><mark>流程 - 列出從宣傳到結束的整體流程和時間點</mark></strong>
+<ul>
+<li>提醒和催促報名 &gt; 人潮湧現 &gt; 專家有價知識 &gt; 品牌名言 &gt; 使用者見證 &gt; 熱烈參與感 &gt; 個別訪問和期待</li>
+</ul>
+</li>
+<li><strong><mark>組織 - 總計可運用的人、角色和所需資源</mark></strong>
+<ul>
+<li>角色、工作內容、所需配備</li>
+</ul>
+</li>
+</ul><h3 id="十三-活動物件製作與場佈"><a class="anchor hidden-xs" href="#十三-活動物件製作與場佈" title="十三-活動物件製作與場佈"><span class="octicon octicon-link"></span></a>(十三) 活動物件製作與場佈</h3><ul>
+<li>Presentation + Production</li>
+<li>形象包裝設計 + 物件製作與場佈 + 硬體配置與工程製作</li>
+<li>活動形象包裝 = 視覺傳達溝通
+<ul>
+<li>用 <strong>畫面</strong> 來傳遞訊息 - 活動形象包裝</li>
+<li>用 <strong>圖文</strong> 來溝通 - 視覺傳達溝通</li>
+<li>創造活動整體：<strong>形象、風格、品質、品味</strong></li>
+<li>活動設計包裝包含
+<ul>
+<li><strong>平面設計</strong>：圖像應用 - 印刷及輸出製作</li>
+<li><strong>空間規劃</strong>：場佈設計 - 硬體及包裝</li>
+<li><strong>燈光設計</strong>：照明氛圍 - 燈光情境及電力工程</li>
+<li><strong>數位內容</strong>：數位影音 - 動態 2D、3D 圖像設計</li>
+<li><strong>媒體型式</strong>：媒體應用及多媒體整合</li>
+<li><strong>現場環境</strong>：整潔、人員儀態</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>活動場佈 = 硬體配置與工程製作
+<ul>
+<li>用空間來 <strong>講故事</strong> (你是活動製作的 <strong>編劇</strong>、<strong>導演</strong>、<strong>製作人</strong>)。</li>
+<li>活動場佈是活動現場的成果，透過一個 <strong>製造</strong> 過程，完成一個有 <strong>概念</strong> 及目的性的 <strong>成果</strong>。把故事的樣子做出來。</li>
+</ul>
+</li>
+</ul><h4 id="Why：為什麼要做活動形象包裝設計？"><a class="anchor hidden-xs" href="#Why：為什麼要做活動形象包裝設計？" title="Why：為什麼要做活動形象包裝設計？"><span class="octicon octicon-link"></span></a>Why：為什麼要做活動形象包裝設計？</h4><ol>
+<li><strong>活動形象設計 (Event Identity Design)</strong>：是一種 <strong>視覺整合服務</strong>，是一種 <strong>看</strong> 和 <strong>感覺</strong> 的問題。</li>
+<li><strong>活動識別 (Activity Identity)</strong>：極短時間內達到宣傳的目的。
+<ul>
+<li>所謂 <strong>活動識別</strong> 是指以某一主題策劃或延伸的相關活動，舉凡公關、展覽、推廣活動、大會、研討會、歷年定期活動等均為設計對象。其設計的目的主要是將活動的宣傳物品及所有視覺傳達製作物，根據活動內容給予事前完整的規劃，並賦予一致的形象設計，建立活動識別的管理系統。使大眾在極短時間內識別並牢記活動的精神、性質、功能及內容，進而達到宣傳的目的。</li>
+</ul>
+</li>
+</ol><h4 id="How：要如何做活動形象包裝設計及場佈？"><a class="anchor hidden-xs" href="#How：要如何做活動形象包裝設計及場佈？" title="How：要如何做活動形象包裝設計及場佈？"><span class="octicon octicon-link"></span></a>How：要如何做活動形象包裝設計及場佈？</h4><ul>
+<li><strong>主視覺構成設計 (Key-Visual Presentation)</strong>
+<ul>
+<li>將 <strong>概念</strong>、<strong>主題</strong> 視覺化。</li>
+<li>根據活動目的、定位及精神主軸而發展的思想或是風格設計。</li>
+</ul>
+</li>
+</ul><h3 id="十四-活動結案報告撰作"><a class="anchor hidden-xs" href="#十四-活動結案報告撰作" title="十四-活動結案報告撰作"><span class="octicon octicon-link"></span></a>(十四) 活動結案報告撰作</h3><ul>
+<li><strong>結案報告的作用</strong>
+<ol>
+<li>執行成效的呈現</li>
+<li>資源運用的對應</li>
+<li>計畫/活動的成果記錄與分析</li>
+<li>未來延續性計畫的依據</li>
+</ol>
+</li>
+<li><strong>準備事宜</strong>
+<ol>
+<li><strong>效益佐證資料收集</strong>
+<ul>
+<li>執行期間需蒐集相關的佐證資料，如：簽到表、簽收單等等。</li>
+</ul>
+</li>
+<li><strong>活動期間的影像記錄</strong>
+<ul>
+<li>執行期間需影像記錄準備工作、辦理情形、可作為量化質化指標的佐證資料</li>
+</ul>
+</li>
+<li><strong>撰作時程的掌握</strong>
+<ul>
+<li>撰寫時間、印製時間、寄送時間的拿捏</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong><mark>結案報告的結構</mark></strong>
+<ol>
+<li><strong><ins>計畫簡介</ins></strong>
+<ul>
+<li><strong>計畫目的</strong>：簡介該計畫的緣起，聚焦計畫的主要目的</li>
+<li><strong>成果摘要</strong>：針對目前執行的成果做簡單摘要，需注意成果與計畫目的之間的相互關係</li>
+</ul>
+</li>
+<li><strong><ins>執行內容</ins></strong>
+<ul>
+<li><strong>推動方式</strong>
+<ul>
+<li><ins>人力分配</ins>：工作內容、負責人。</li>
+<li><ins>推動時程</ins>：工作內容、時間規劃，活動期間總安排及活動細部流程。</li>
+<li><ins>執行規劃</ins>：活動執行細節，如活動進行的方式，邀請的參與者等等。</li>
+<li><ins>廣宣規劃</ins>：如活動宣傳手法，如 FB、傳單、網路微電影等等。</li>
+</ul>
+</li>
+<li><strong>效益分析</strong>
+<ul>
+<li><strong>量化分析</strong>：以數字化呈現工作成果 (ex：媒體曝光 20 則、參與人次 3000 人)。</li>
+<li><strong>質化分析</strong>：以文字敘述非數字化成果 (ex：提升民眾對公共藝術的意識)。</li>
+</ul>
+</li>
+<li><strong>佐證照片</strong>
+<ul>
+<li>活動準備期間：準備工作照片記錄。</li>
+<li>活動辦理期間：活動各重要節點拍照記錄。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><ins>經費使用</ins></strong>
+<ul>
+<li>事前預算：活動辦理前的預算表。</li>
+<li>實際支出：活動辦理後的實際支出。</li>
+<li>核銷照片：支出項目的照片記錄。</li>
+</ul>
+</li>
+<li><strong><ins>結論與展望</ins></strong>
+<ul>
+<li>檢討：針對本次效益做評估，並提出改善策略。</li>
+<li>未來建議：未來趨勢分析、本計畫延續辦理之建議、其他相關活動辦理建議</li>
+</ul>
+</li>
+<li><strong><ins>附件</ins></strong>
+<ul>
+<li>佐證文件：簽到表、問卷格式</li>
+<li>其他佐證資料：會議照片、相關宣傳品</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul><hr><h2 id="20190824---第五天"><a class="anchor hidden-xs" href="#20190824---第五天" title="20190824---第五天"><span class="octicon octicon-link"></span></a>20190824 - 第五天</h2><h3 id="十五-活動企劃案的知識、資源管理"><a class="anchor hidden-xs" href="#十五-活動企劃案的知識、資源管理" title="十五-活動企劃案的知識、資源管理"><span class="octicon octicon-link"></span></a>(十五) 活動企劃案的知識、資源管理</h3><h4 id="1-企劃案企劃什麼？"><a class="anchor hidden-xs" href="#1-企劃案企劃什麼？" title="1-企劃案企劃什麼？"><span class="octicon octicon-link"></span></a>1. 企劃案企劃什麼？</h4><ul>
+<li>將想法、目標落實為行動，且被有效執行的計畫。</li>
+<li>計畫包括<br>
+1. <strong>設定想法/議題的背景 Why now/What’s point</strong><br>
+2. <strong>設計活動/purpose？Goal？</strong><br>
+3. <strong>設定對象/target？Key influencer？</strong><br>
+4. <strong>溝通工具/Agenda？Channel</strong><br>
+5. <strong>盤點資源/Human resources？Budget？</strong><br>
+6. <strong>訂定時間表/Schedule？Check point？Milestone？</strong><br>
+8. <strong>分工及組織圖/By task force？By function？PL？</strong><br>
+9. <strong>掌握成功關鍵/KSF</strong></li>
+</ul><h4 id="2-如何從企劃、執行到實現？"><a class="anchor hidden-xs" href="#2-如何從企劃、執行到實現？" title="2-如何從企劃、執行到實現？"><span class="octicon octicon-link"></span></a>2. 如何從企劃、執行到實現？</h4><ul>
+<li>人，當然最重要</li>
+<li>一群人在一段時間內完成共同目標，當然需要管理
+<ul>
+<li>要管理什麼？
+<ul>
+<li><strong>想法→共識→行動→目標</strong>：確保最後方向一致</li>
+<li><strong>能力/分工</strong>：盤點能力，有效分工</li>
+<li><strong>預算</strong>：成本掌控，收支關係</li>
+<li><strong>時間</strong>：確保環環相扣，使命必達</li>
+<li><strong>利害關係人</strong>：掌握與溝通，創造綜效</li>
+<li><strong>溝通工具</strong>：不同的時間點，不同的溝通內容與媒介</li>
+<li><strong>知識分享</strong>：下一次成功企劃的基石</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h4 id="3-如何形成共識？達成目標的第一步"><a class="anchor hidden-xs" href="#3-如何形成共識？達成目標的第一步" title="3-如何形成共識？達成目標的第一步"><span class="octicon octicon-link"></span></a>3. 如何形成共識？(達成目標的第一步)</h4><ul>
+<li><strong>Project Leader (簡稱 PL) 的真情感召</strong>
+<ul>
+<li>Vision/Mission</li>
+<li>為何而戰？
+<ul>
+<li>使命層面 (感性的)、績效層面 (理性的)</li>
+</ul>
+</li>
+<li>Background/Reality/Position/SWOT？</li>
+<li>認識團隊</li>
+<li>建立團隊的溝通機制</li>
+</ul>
+</li>
+</ul><h4 id="4-如何確保目標一致？"><a class="anchor hidden-xs" href="#4-如何確保目標一致？" title="4-如何確保目標一致？"><span class="octicon octicon-link"></span></a>4. 如何確保目標一致？</h4><ul>
+<li>做好活動企劃執行期間的團隊管理</li>
+<li><strong><ins>Project Leader 職責</ins></strong>
+<ul>
+<li>盤點專案所需能力，組織專案團隊</li>
+<li>展開分工，任務編組</li>
+<li>召開定期會議追蹤專案品質及資源進度</li>
+<li>確實執行每次工作會議之後的後續追蹤</li>
+<li>設計工作表單，追蹤工作成效</li>
+<li>今日事今日畢，問題不堆積</li>
+<li>考核 Team Member  工作績效</li>
+</ul>
+</li>
+</ul><h4 id="5-收支如何管理？"><a class="anchor hidden-xs" href="#5-收支如何管理？" title="5-收支如何管理？"><span class="octicon octicon-link"></span></a>5. 收支如何管理？</h4><ul>
+<li><strong>詳列預算清單</strong>：直接 or 間接成本</li>
+<li><strong>預算動支流程及機制</strong></li>
+<li><strong>異常管理</strong>
+<ul>
+<li>Project code：賦予每個專案專屬的代碼，以便後續進行追蹤</li>
+<li>所有結報都可以歸總帳戶，清楚追蹤損益</li>
+</ul>
+</li>
+<li><strong>業績達成率及預算達成率</strong></li>
+</ul><h4 id="6-時間如何管理？"><a class="anchor hidden-xs" href="#6-時間如何管理？" title="6-時間如何管理？"><span class="octicon octicon-link"></span></a>6. 時間如何管理？</h4><ul>
+<li>清楚的時間表：Who、Do、What、By、When</li>
+<li>善用管理工具：Excel、甘特圖等</li>
+<li>PL 或有專人追蹤專案進度：視專案大小及規模而定</li>
+</ul><h4 id="7-讓利害關係人成為最佳助攻"><a class="anchor hidden-xs" href="#7-讓利害關係人成為最佳助攻" title="7-讓利害關係人成為最佳助攻"><span class="octicon octicon-link"></span></a>7. 讓利害關係人成為最佳助攻</h4><ul>
+<li>先找出誰是這個專案的利害關係人
+<ul>
+<li>哪些領域？</li>
+<li>哪些名單？</li>
+<li>如何聯繫？</li>
+</ul>
+</li>
+<li>有效溝通，爭取支持
+<ul>
+<li>需要專人溝通嗎？</li>
+<li>需要定期溝通嗎？</li>
+<li>什麼工具有效？</li>
+</ul>
+</li>
+</ul><h4 id="8-對的溝通最重要"><a class="anchor hidden-xs" href="#8-對的溝通最重要" title="8-對的溝通最重要"><span class="octicon octicon-link"></span></a>8. 對的溝通最重要</h4><ul>
+<li>溝通什麼訊息？
+<ul>
+<li>製造感動的方式 (人物、景物、故事)</li>
+<li>活動圖片可連結代言人</li>
+<li>強而有力的 Slogan</li>
+</ul>
+</li>
+<li>溝通的波段
+<ul>
+<li>暖身 &gt; 啟動 &gt; 花絮 &gt; 網路 Web 2.0 &gt; 口碑傳播</li>
+<li>後續集結，擴大影響</li>
+</ul>
+</li>
+<li>溝通的工具
+<ul>
+<li>Poster/DM/EDM/Sales kits/Postcard</li>
+<li>Mass media/TV/Radio/雜誌/報紙</li>
+<li>Web site/部落格/微網誌</li>
+</ul>
+</li>
+</ul><h4 id="9-活動企劃案的知識管理-1"><a class="anchor hidden-xs" href="#9-活動企劃案的知識管理-1" title="9-活動企劃案的知識管理-1"><span class="octicon octicon-link"></span></a>9. 活動企劃案的知識管理 (1)</h4><ul>
+<li>整套活動企劃案各項文件的彙整</li>
+<li>活動實錄
+<ul>
+<li>工作記錄/工作表單/工作照片</li>
+<li>過程中各項會議記錄</li>
+<li>各項製作物及文宣圖檔</li>
+<li>活動手冊</li>
+</ul>
+</li>
+<li>廠商及相關聯絡資料
+<ul>
+<li>Name list/聯絡方式 (協力廠商、媒體、Participants)</li>
+<li>場地資訊/設備規格/交通及餐飲/報價單</li>
+</ul>
+</li>
+<li><a href="http://psdn.pidc.org.tw/ike/DocLib/2004/2004DOCLIB/2004IKE13-0/2004ike13-0-313.asp" target="_blank" rel="noopener">Benchmark  相關資料 </a></li>
+</ul><h4 id="10-活動企劃案的知識管理-2"><a class="anchor hidden-xs" href="#10-活動企劃案的知識管理-2" title="10-活動企劃案的知識管理-2"><span class="octicon octicon-link"></span></a>10. 活動企劃案的知識管理 (2)</h4><ul>
+<li>管理或文書工具的記錄
+<ul>
+<li>運用哪些管理工具</li>
+<li>工具的版本及版權註記</li>
+</ul>
+</li>
+<li>公文及合約的建檔
+<ul>
+<li>建立合約及公文清單</li>
+<li>後續追蹤/請款、驗收或續約等</li>
+</ul>
+</li>
+<li>結案報告書
+<ul>
+<li>檢討及評估效益 (滿意度及外界回饋)</li>
+<li>優缺點及可改進之處</li>
+<li>收支報告書</li>
+</ul>
+</li>
+</ul><h4 id="11-做好知識管理的關鍵-1"><a class="anchor hidden-xs" href="#11-做好知識管理的關鍵-1" title="11-做好知識管理的關鍵-1"><span class="octicon octicon-link"></span></a>11. 做好知識管理的關鍵 (1)</h4><ul>
+<li>專案啟動之前，就對知識的保存有共識
+<ul>
+<li>確保過程中的重要文件被保留</li>
+<li>設定格式</li>
+<li>開設雙向討論、同步更新的園地 (例：lotus quickr)</li>
+</ul>
+</li>
+<li>Team member 抱持分享的態度
+<ul>
+<li>不藏私</li>
+<li>共同分享成果及心得</li>
+<li>就事論事，針對問題解決問題</li>
+</ul>
+</li>
+</ul><h4 id="12-做好知識管理的關鍵-2"><a class="anchor hidden-xs" href="#12-做好知識管理的關鍵-2" title="12-做好知識管理的關鍵-2"><span class="octicon octicon-link"></span></a>12. 做好知識管理的關鍵 (2)</h4><ul>
+<li>做好知識分類
+<ul>
+<li>有系統的建立檔案</li>
+<li>建立索引</li>
+<li>濃縮的短版結案分析，縮短後來使用者的進入障礙</li>
+</ul>
+</li>
+<li>建立「傳承及運用知識管理，開創價值」的組織文化
+<ul>
+<li>領導者必須相信知識管理能為組織創造價值</li>
+<li>能獲組織鼓勵，並提供資源</li>
+<li>讓組織成員感受經驗及智慧傳承帶來的工作成果</li>
+</ul>
+</li>
+</ul><h4 id="成功活動的-DNA"><a class="anchor hidden-xs" href="#成功活動的-DNA" title="成功活動的-DNA"><span class="octicon octicon-link"></span></a>成功活動的 DNA</h4><ul>
+<li>技術、工具、資源固然重要，熱情、創新、紀律、團隊合作才是關鍵。</li>
+</ul><h3 id="十六-活動經費募集"><a class="anchor hidden-xs" href="#十六-活動經費募集" title="十六-活動經費募集"><span class="octicon octicon-link"></span></a>(十六) 活動經費募集</h3><ul>
+<li>募集資源前的基礎觀念
+<ul>
+<li>金錢，不是唯一募集的目標</li>
+<li>募集資源前，先募人心</li>
+<li>傾聽並尊重捐款者的心聲與意願</li>
+<li>創造便利參與投入的管道</li>
+<li>以績效讓捐款者感到尊榮</li>
+<li>是一項誠實、坦白與真誠的工作</li>
+<li>你可以用三種以上的方法表達你真誠的謝意</li>
+</ul>
+</li>
+<li>企業的本位思考：公益動機、企業客層、投入的資源、企業形象</li>
+<li>捐贈者/投資者的期待：有選擇、能參與、有效益、被尊重</li>
+<li>企業如何選擇 (考量點)
+<ol>
+<li>企業本位思考</li>
+<li>非營利組織外在客觀因素</li>
+<li>非營利組織內在成熟度</li>
+</ol>
+</li>
+</ul><h4 id="問題--解法-gt-行動"><a class="anchor hidden-xs" href="#問題--解法-gt-行動" title="問題--解法-gt-行動"><span class="octicon octicon-link"></span></a>問題 + 解法 &gt; 行動</h4><ul>
+<li><strong><ins>問題 - Problem</ins></strong>
+<ul>
+<li>誰的問題？</li>
+<li>誰跟這個問題有關？</li>
+<li>誰會被這個問題所影響？</li>
+<li>誰會從這個</li>
+</ul>
+</li>
+<li><strong><ins>解法 - Solution</ins></strong>
+<ul>
+<li>解決方案合理嗎？</li>
+<li>解法方案有效益嗎？</li>
+<li>是創新的嗎？</li>
+<li>是可以感動人的嗎？</li>
+<li>是擅長的嗎？</li>
+</ul>
+</li>
+<li><strong><ins>行動 - Action</ins></strong>
+<ul>
+<li>是容易做到的嗎？</li>
+<li>是可以發揮影響的嗎？</li>
+<li>是可以長期執行的嗎？</li>
+</ul>
+</li>
+</ul><h4 id="群眾募資"><a class="anchor hidden-xs" href="#群眾募資" title="群眾募資"><span class="octicon octicon-link"></span></a>群眾募資</h4><ul>
+<li>一種新型態的募資平台
+<ul>
+<li>群眾募資 (群眾集資) 的英文為 <strong>Crowdfunding</strong>，顧名思議就是向群眾 (Crowd) 募集資金 (funding)。</li>
+<li>提案者公開自己的募資計劃，並提供相應的回饋吸引群眾贊助計畫，以獲得足夠的計畫和支持者與執行費用。</li>
+<li>每一個群眾募資專案都需要設定 <strong>明確的主題</strong>、<strong>目標金額</strong> 及 <strong>回饋項目</strong>，並運用 <strong>影片和文案</strong> 說明計畫的內容，以吸引群眾的支持與贊助。</li>
+</ul>
+</li>
+<li>群眾募資的效果
+<ul>
+<li>針對「對的人」說話：產品設計者能預先掌握 Th 產量，有效降低開模、庫存的負擔。</li>
+<li>直接得到資金的協助，以及市場的建議。</li>
+<li>過程持續的揭露專案進度，專案持續推廣、宣傳與行銷。</li>
+<li>成功的群眾募資為接續的募資計畫奠基。</li>
+</ul>
+</li>
+<li>成功群眾募資案例具有的特質 (都具有以下 1 個或多個特色)：
+<ol>
+<li>有趣、誠懇的宣傳影片</li>
+<li>吸引人的目標產品或背景故事</li>
+<li>清楚有趣的專案說明</li>
+<li>不斷更新且內容豐富的故事記錄</li>
+<li>提供實用或讓人感到快樂的回饋給贊助者</li>
+<li>從親近的朋友開始，逐步宣傳給更大的群眾</li>
+</ol>
+</li>
+<li>你與你的夢想可運用的資源 - 跨部會
+<ol>
+<li>社會關懷
+<ul>
+<li>社會參與：教育部、法務部、衛福部、文化部、農委會、客委會</li>
+<li>志工參與：教育部、內政部、法務部、蒙委會、退輔會、科技部</li>
+</ul>
+</li>
+<li>青年發展
+<ul>
+<li>幸福成家：內政部、財政部</li>
+<li>學習成長：教育部、內政部、外交部、文化部、僑委會、勞動部</li>
+<li>青年圓夢/國際參與</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul><h4 id="注意事項"><a class="anchor hidden-xs" href="#注意事項" title="注意事項"><span class="octicon octicon-link"></span></a>注意事項</h4><ul>
+<li><strong>成功募集資源的 6 個習慣</strong>
+<ol>
+<li>以終為始</li>
+<li>主動積極</li>
+<li>要事第一</li>
+<li>雙贏思維 + 知彼解己</li>
+<li>綜合綜效</li>
+<li>不斷更新</li>
+</ol>
+</li>
+<li><strong>以錯為師 - 10 個常犯的錯誤</strong>
+<ol>
+<li>忘了講「為什麼」</li>
+<li>對「錢」說話，而不是對人</li>
+<li>過度依賴「文字」</li>
+<li>只請求別人一次</li>
+<li>忽略你的支持者</li>
+<li>講不清楚要錢做什麼</li>
+<li>一眛地沉溺認為自己的點子最佳</li>
+<li>過度相信名人/名師代言</li>
+<li>忽略社群經營</li>
+<li>缺乏縝密的計畫</li>
+</ol>
+</li>
+</ul></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#活動企劃師-CCAPP---課程內容筆記-第115期" title="活動企劃師 CCAPP  - 課程內容筆記 (第115期)">活動企劃師 CCAPP  - 課程內容筆記 (第115期)</a><ul class="nav">
+<li class=""><a href="#20190816---第一天" title="20190816 - 第一天">20190816 - 第一天</a><ul class="nav">
+<li class=""><a href="#一-活動企劃總論" title="(一) 活動企劃總論">(一) 活動企劃總論</a></li>
+<li class=""><a href="#二-各類型活動企劃專業要領" title="(二) 各類型活動企劃專業要領">(二) 各類型活動企劃專業要領</a></li>
+<li class=""><a href="#三-活動目的、環境分析與定位" title="(三) 活動目的、環境分析與定位">(三) 活動目的、環境分析與定位</a></li>
+</ul>
+</li>
+<li class=""><a href="#20190817---第二天" title="20190817 - 第二天">20190817 - 第二天</a><ul class="nav">
+<li class=""><a href="#四-活動企劃團隊籌組與運作" title="(四) 活動企劃團隊籌組與運作">(四) 活動企劃團隊籌組與運作</a></li>
+<li class=""><a href="#五-活動方案的創意思考" title="(五) 活動方案的創意思考">(五) 活動方案的創意思考</a></li>
+<li class=""><a href="#六七-活動企劃書構思、撰作-跟檢定考試有關" title="(六)(七) 活動企劃書構思、撰作 (跟檢定考試有關)">(六)(七) 活動企劃書構思、撰作 (跟檢定考試有關)</a></li>
+</ul>
+</li>
+<li class=""><a href="#20190818---第三天" title="20190818 - 第三天">20190818 - 第三天</a><ul class="nav">
+<li class=""><a href="#八-活動資源企劃與整合" title="(八) 活動資源企劃與整合">(八) 活動資源企劃與整合</a></li>
+<li class=""><a href="#九-活動廣宣與文案撰作" title="(九) 活動廣宣與文案撰作">(九) 活動廣宣與文案撰作</a></li>
+<li class=""><a href="#十-活動提案與簡報" title="(十) 活動提案與簡報">(十) 活動提案與簡報</a></li>
+</ul>
+</li>
+<li class=""><a href="#20190823---第四天" title="20190823 - 第四天">20190823 - 第四天</a><ul class="nav">
+<li class=""><a href="#十一-活動企劃案執行與控管" title="(十一) 活動企劃案執行與控管">(十一) 活動企劃案執行與控管</a></li>
+<li class=""><a href="#十二-實體活動網路行銷" title="(十二) 實體活動網路行銷">(十二) 實體活動網路行銷</a></li>
+<li class=""><a href="#十三-活動物件製作與場佈" title="(十三) 活動物件製作與場佈">(十三) 活動物件製作與場佈</a></li>
+<li class=""><a href="#十四-活動結案報告撰作" title="(十四) 活動結案報告撰作">(十四) 活動結案報告撰作</a></li>
+</ul>
+</li>
+<li class=""><a href="#20190824---第五天" title="20190824 - 第五天">20190824 - 第五天</a><ul class="nav">
+<li class=""><a href="#十五-活動企劃案的知識、資源管理" title="(十五) 活動企劃案的知識、資源管理">(十五) 活動企劃案的知識、資源管理</a></li>
+<li class=""><a href="#十六-活動經費募集" title="(十六) 活動經費募集">(十六) 活動經費募集</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#活動企劃師-CCAPP---課程內容筆記-第115期" title="活動企劃師 CCAPP  - 課程內容筆記 (第115期)">活動企劃師 CCAPP  - 課程內容筆記 (第115期)</a><ul class="nav">
+<li class=""><a href="#20190816---第一天" title="20190816 - 第一天">20190816 - 第一天</a><ul class="nav">
+<li class=""><a href="#一-活動企劃總論" title="(一) 活動企劃總論">(一) 活動企劃總論</a></li>
+<li class=""><a href="#二-各類型活動企劃專業要領" title="(二) 各類型活動企劃專業要領">(二) 各類型活動企劃專業要領</a></li>
+<li class=""><a href="#三-活動目的、環境分析與定位" title="(三) 活動目的、環境分析與定位">(三) 活動目的、環境分析與定位</a></li>
+</ul>
+</li>
+<li class=""><a href="#20190817---第二天" title="20190817 - 第二天">20190817 - 第二天</a><ul class="nav">
+<li class=""><a href="#四-活動企劃團隊籌組與運作" title="(四) 活動企劃團隊籌組與運作">(四) 活動企劃團隊籌組與運作</a></li>
+<li class=""><a href="#五-活動方案的創意思考" title="(五) 活動方案的創意思考">(五) 活動方案的創意思考</a></li>
+<li class=""><a href="#六七-活動企劃書構思、撰作-跟檢定考試有關" title="(六)(七) 活動企劃書構思、撰作 (跟檢定考試有關)">(六)(七) 活動企劃書構思、撰作 (跟檢定考試有關)</a></li>
+</ul>
+</li>
+<li class=""><a href="#20190818---第三天" title="20190818 - 第三天">20190818 - 第三天</a><ul class="nav">
+<li class=""><a href="#八-活動資源企劃與整合" title="(八) 活動資源企劃與整合">(八) 活動資源企劃與整合</a></li>
+<li class=""><a href="#九-活動廣宣與文案撰作" title="(九) 活動廣宣與文案撰作">(九) 活動廣宣與文案撰作</a></li>
+<li class=""><a href="#十-活動提案與簡報" title="(十) 活動提案與簡報">(十) 活動提案與簡報</a></li>
+</ul>
+</li>
+<li class=""><a href="#20190823---第四天" title="20190823 - 第四天">20190823 - 第四天</a><ul class="nav">
+<li class=""><a href="#十一-活動企劃案執行與控管" title="(十一) 活動企劃案執行與控管">(十一) 活動企劃案執行與控管</a></li>
+<li class=""><a href="#十二-實體活動網路行銷" title="(十二) 實體活動網路行銷">(十二) 實體活動網路行銷</a></li>
+<li class=""><a href="#十三-活動物件製作與場佈" title="(十三) 活動物件製作與場佈">(十三) 活動物件製作與場佈</a></li>
+<li class=""><a href="#十四-活動結案報告撰作" title="(十四) 活動結案報告撰作">(十四) 活動結案報告撰作</a></li>
+</ul>
+</li>
+<li class=""><a href="#20190824---第五天" title="20190824 - 第五天">20190824 - 第五天</a><ul class="nav">
+<li class=""><a href="#十五-活動企劃案的知識、資源管理" title="(十五) 活動企劃案的知識、資源管理">(十五) 活動企劃案的知識、資源管理</a></li>
+<li class=""><a href="#十六-活動經費募集" title="(十六) 活動經費募集">(十六) 活動經費募集</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
