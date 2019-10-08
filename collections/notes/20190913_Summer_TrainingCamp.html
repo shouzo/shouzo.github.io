@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        盛夏工作坊 - 幹部訓練營 - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @charset "UTF-8";@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;padding:0 15px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-published-note{color:#337ab7}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true" style="position: relative;"><h1 id="盛夏工作坊---幹部訓練營"><a class="anchor hidden-xs" href="#盛夏工作坊---幹部訓練營" title="盛夏工作坊---幹部訓練營"><span class="octicon octicon-link"></span></a>盛夏工作坊 - 幹部訓練營</h1><h6 id="tags-社團-活動-知識-筆記-學習"><a class="anchor hidden-xs" href="#tags-社團-活動-知識-筆記-學習" title="tags-社團-活動-知識-筆記-學習"><span class="octicon octicon-link"></span></a>tags: <code>社團</code> <code>活動</code> <code>知識</code> <code>筆記</code> <code>學習</code></h6><ul>
+<li>活動時間：<mark><strong>2019/09/13 (五) - 2019/09/15 (日)</strong></mark></li>
+<li>內容整理者：<a href="https://www.facebook.com/danny200026" target="_blank" rel="noopener">羅左欣</a></li>
+</ul><h2 id="一、活動設計"><a class="anchor hidden-xs" href="#一、活動設計" title="一、活動設計"><span class="octicon octicon-link"></span></a>一、活動設計</h2><div class="alert alert-info">
+<p>Q：怎麼把本來的活動變得有趣？<br>
+A：關鍵是想要讓活動呈現什麼感覺。</p>
+<p><strong>在大家都很厲害的狀況下，讓新手看起來沒那麼蠢。</strong></p>
+</div><ul>
+<li>發想檢視工具<br>
+<img src="https://i.imgur.com/yAxSGgf.jpg" alt=""></li>
+<li>活動核心三軸：<strong>有趣</strong> (Fun)、<strong>有意義</strong> (Meaningful)、<strong>可執行</strong> (Do)
+<ol>
+<li><mark><strong>有趣</strong> (Fun)</mark>：吸引大家的注意力
+<ul>
+<li>【定義】大家會反覆操作，卻未必有實質意義的事情 (就是有趣的事情)。
+<ul>
+<li><ins><strong>STEP 1</strong></ins> - 在心中選一個參加過的活動作為標的，設計出一個更 <strong>有趣/無趣</strong> 的版本。</li>
+<li><ins><strong>STEP 2</strong></ins> - 練習<strong>擬態</strong>：從你想學習的好活動中拆出 <strong>關鍵元素</strong>，再應用於自己的活動。
+<ul>
+<li>【效率】拆出元素 &gt; 自己發想。</li>
+<li>【說明】關鍵元素
+<ol>
+<li>從活動中移除，該活動就會變弱。</li>
+<li>用在其他地方，同樣能夠有效。</li>
+<li>必須是具體元素，而非抽象代表。(抽象的詞彙需要具體的行為來營造)
+<ul>
+<li>具體元素：手掌的互握 (一看就知道，可直接使用)</li>
+<li>抽象代表：儀式感 (需要轉換思考，不易使用)</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>【舉例】有 ________ (自行填寫) 感的活動
+<ul>
+<li>Ex1：有 <strong>夜店感</strong> 的活動
+<ul>
+<li>【元素】光線不明、音樂大聲、冷氣夠冷…etc</li>
+</ul>
+</li>
+<li>Ex2：有 <strong>營火晚會感</strong> 的活動
+<ul>
+<li>【元素】架好的柴火堆、柴油的味道、點燃的火把…etc</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><mark><strong>有意義</strong> (Meaningful)</mark>：定義 (意義層面上的) <strong>有/無</strong>、<strong>可/否證明</strong>
+<ul>
+<li>【定義】可以是心目中的理想或是自己設定的標準，<strong>意義是人造產物</strong>。
+<ul>
+<li><ins><strong>STEP 1</strong></ins> - 設定一條底線，若該活動沒有達到這條線參加就沒有意義。</li>
+<li><ins><strong>STEP 2</strong></ins> - 探討 <strong>高標</strong> 與 <strong>低標</strong>。
+<ol>
+<li>先考量高低標關係
+<ul>
+<li><strong>高標</strong>：做不到不會被笑，做得到會很厲害。</li>
+<li><strong>低標</strong>：做不到會被嘲笑，做得到沒有稱讚。</li>
+</ul>
+</li>
+<li>再考量象限與面向 (高標與低標可能呈不同面向)
+<ul>
+<li>Ex：相互仰賴的伴侶
+<ul>
+<li>彼此 <ins>結婚相許</ins> (高標)，卻 <ins>老死不相往來</ins> (低標)。</li>
+<li>彼此 <ins>離婚分居</ins> (低標)，卻 <ins>始終長相廝守</ins> (高標)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>最後根據活動原始目的，重新定義活動高低標。</li>
+</ol>
+</li>
+<li><ins><strong>STEP 3</strong></ins> - 實際執行並完成活動，設法將活動意義帶往高標。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><mark><strong>可執行</strong> (Do)</mark>
+<ul>
+<li>【元素】緣起 (Original)、Prepare (行前)、Now (現場)、後來 (Past)</li>
+<li>【定義】活動在現實面上能否被執行，並朝著 <strong>理想活動</strong> 前進。
+<ul>
+<li><ins><strong>STEP 1</strong></ins> - 思考 <strong>現場 (Now)</strong>：構思理想的現場。</li>
+<li><ins><strong>STEP 2</strong></ins> - 準備 <strong>行前 (Prepare)</strong>：從最理想的現場去發想事前所需要的準備。</li>
+<li><ins><strong>STEP 3</strong></ins> - 應對 <strong>後來 (Past)</strong>：針對活動結束後的檢討、後續效應和行政工作進行事前籌劃。</li>
+<li><ins><strong>STEP 4</strong></ins> - 完善 <strong>緣起 (Original)</strong>：向業主或單位提案時，想一個完美的活動緣起。
+<ul>
+<li>情緒曲線<br>
+<img src="https://i.imgur.com/4BRYAhz.jpg" alt=""></li>
+<li>敘事架構
+<ol>
+<li>本來 ________  (情緒接著往上升)</li>
+<li>曾經 ________  (情緒接著往下降)</li>
+<li>現在 ________  (情緒接著往上升)</li>
+<li>此刻 ________  (情緒接著往上升)</li>
+<li>期望的未來 ________  (期望的結果)</li>
+</ol>
+</li>
+<li>句子結構
+<ul>
+<li>因為 ________  (背景)</li>
+<li>藉由 ________  (行為)</li>
+<li>達到 ________  (成果)</li>
+<li>以致 ________  (價值、效益)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul><h2 id="二、公眾演說"><a class="anchor hidden-xs" href="#二、公眾演說" title="二、公眾演說"><span class="octicon octicon-link"></span></a>二、公眾演說</h2><div class="alert alert-info">
+<p>這需要反覆的演練和調整，記得去找參考影片練習。</p>
+</div><ul>
+<li>演說比重
+<ul>
+<li><strong>肢體語言 (60%)</strong>
+<ol>
+<li>眼神視線
+<ul>
+<li>眼睛記得看觀眾 (跳躍導覽)</li>
+</ul>
+</li>
+<li>身體姿勢
+<ul>
+<li>露出頭部、露出身體中線</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>演講聲音 (30%)</strong></li>
+<li><strong>實際內容 (10%)</strong></li>
+</ul>
+</li>
+<li>注意事項
+<ul>
+<li>收小腹站著，盡可能在不怪異的狀況下張大嘴巴說話。</li>
+<li>隨時都要聽自己的聲音，看台下的觀眾。</li>
+<li>適時調整音調高低。</li>
+</ul>
+</li>
+</ul><h2 id="三、行政策劃"><a class="anchor hidden-xs" href="#三、行政策劃" title="三、行政策劃"><span class="octicon octicon-link"></span></a>三、行政策劃</h2><ul>
+<li><strong>基本核心概念</strong>
+<ol>
+<li><mark>行政核心精神：<strong>做人做事，邊學邊做</strong></mark> (累積直覺)。</li>
+<li>在行政事務上實現對於議題的關注。</li>
+<li>工具不是關鍵，關鍵的是要建立夥伴直覺易懂的協作邏輯。(可以將行政流程視覺化)</li>
+<li>規劃需求、排出輕重緩急，在資訊傳遞、發布上需要做預防措施。</li>
+<li>展開執行細節：根據議題種類，聯想所有行政工作上會需要的元素和細節。
+<ul>
+<li>句型：說到「XXXX」，你會想到什麼？</li>
+<li>Ex1：說到「幫忙訂餐」，你會想到什麼？</li>
+<li>Ex2：說到「付錢給人」，你會想到什麼？</li>
+<li>Ex3：說到「印文宣品」，你會想到什麼？</li>
+<li>Ex4：說到「講師邀約」，你會想到什麼？</li>
+</ul>
+</li>
+<li><mark><strong>行政的未來趨勢是公關化</strong></mark>。</li>
+</ol>
+</li>
+<li><strong>行政的類型</strong>
+<ol>
+<li>(前期) <strong><ins>防守型行政</ins></strong>：展開式思考，盡可能的補漏洞。 <code>建立信任</code></li>
+<li>(中期) <strong><ins>進攻型行政</ins></strong>：掌握話語權，從流程思考下手。 <code>實踐自我</code></li>
+<li>(後期) <strong><ins>混合型行政</ins></strong>：因地制宜、客製化。(小處著手，大處著眼) <code>工作機會</code></li>
+</ol>
+</li>
+<li><strong>常見的工作</strong> - 根據對象思考前置工作
+<ul>
+<li>對接社長/上級主管：在指令中找到需求，並確認。</li>
+<li>對接總務/核銷單位：標準核銷單據 (常用種類、合格核銷)。</li>
+<li>對接美宣/合作設計師：印刷物的認識、提供報價。</li>
+<li>對接器材活動/廠商：動線 (工作人員進撤場的動線以及來賓進出場的動線) 確認、電力設備及硬體配合的方式等。</li>
+</ul>
+</li>
+<li><strong><ins>經典案例 - 該如何邀約講師？</ins></strong>
+<ul>
+<li>核心概念：<strong>對等資訊、誠心相待</strong>
+<ol>
+<li>(基本) 對等資訊讓對方可以做基本判斷 (講師費、車馬)。</li>
+<li>(進階) 動之以情，說之以理 (對方有名不是理由，只是形容)。</li>
+<li>(核心) 基本掉球會造成公關危機；用心研究會產生擴散性。</li>
+</ol>
+<ul>
+<li>認真的邀請，你會得到的比想像的更多，也至少不會出包。</li>
+<li>不能把要求凌駕於講師的義務之上。</li>
+</ul>
+</li>
+<li>基本資訊<br>
+<img src="https://i.imgur.com/WBhQgQ8.jpg" alt="">
+<ul>
+<li>錄影、錄音要事先詢問並取得同意。</li>
+<li>有回信進入資料確認模式、接待；如果沒有回信，要立刻止血。</li>
+</ul>
+</li>
+<li>邀約的撰寫結構<br>
+<img src="https://i.imgur.com/nGkKujq.jpg" alt=""></li>
+<li>邀約成功率分析<br>
+<img src="https://i.imgur.com/P7iDhsT.jpg" alt=""></li>
+</ul>
+</li>
+</ul><h2 id="四、行銷贊助"><a class="anchor hidden-xs" href="#四、行銷贊助" title="四、行銷贊助"><span class="octicon octicon-link"></span></a>四、行銷贊助</h2><ul>
+<li>核心目標：<s>拉贊</s> (X) &gt;&gt; <strong><mark>雙贏 (O)</mark></strong>
+<ol>
+<li>心態：彼此是合作關係，視為一種合作 (不應該是單方面的關係，Ex：我要你的錢)。</li>
+<li>抱持雙贏的心，努力去搶最多的資源。</li>
+</ol>
+</li>
+</ul><h4 id="STEP-1---前置作業"><a class="anchor hidden-xs" href="#STEP-1---前置作業" title="STEP-1---前置作業"><span class="octicon octicon-link"></span></a><ins>STEP 1 - 前置作業</ins></h4><ul>
+<li>在開始之前，需要先想想
+<ol>
+<li>先確定你要找誰？做什麼？</li>
+<li>看 <strong>自己</strong> 有什麼。</li>
+<li>看 <strong>對方/目標</strong> 有什麼。
+<ul>
+<li>Q：覺得自己好像沒有辦法給對方什麼東西？<br>
+A：思考自己跟對方有什麼樣的 <strong>共同目標</strong>。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>合作的考量要點</strong>
+<ol>
+<li><strong>確定 <mark>TA 相同、目標相同</mark></strong>  (TA，Target Audience - 目標受眾/目標客戶)</li>
+<li><strong>確定 <mark>理念相同</mark> (CSR - 企業社會責任)</strong></li>
+<li><strong>確定 <mark>檔期相同</mark> (對方剛好有檔期，而對方剛好也有預算)</strong>
+<ul>
+<li>A 公司剛好做行銷，B 公司剛好可以藉此合作。
+<ul>
+<li>Ex：特定季節、特定節日</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>確定 <mark>互助互利</mark> (我可以額外幫對方做什麼？)</strong>
+<ul>
+<li>在我這裡做的成本很低，在對方那裡做的成本很高。</li>
+</ul>
+</li>
+<li><strong>確定 <mark>風格相同</mark> (品牌、Style、主題性強烈)</strong>
+<ul>
+<li>跟對方說明是因為什麼原因找到他們，彼此之間有什麼利益關係。
+<ul>
+<li>Q：你為什麼會找上我們？<br>
+A：因為你們的 _____</li>
+</ul>
+</li>
+<li>關鍵案例集
+<ul>
+<li><strong>【案例 1】曝光本身不具備一定的吸引力，但置入進來會變成什麼樣的象徵？</strong>
+<ul>
+<li>電影服裝贊助：可以協助對方用電影規格拍攝衣服花絮。曝光本身並不重要，置入進來會變成甚麼象徵，可以帶來什麼樣的品牌形象才是我們要去想的。</li>
+</ul>
+</li>
+<li><strong>【案例 2】活動介紹</strong>
+<ul>
+<li>活動介紹不是廠商在乎的重點，重點是活動帶來什麼好處。(不能只單純講特色)
+<ul>
+<li>Ex1：<ins>有某某藝人</ins> (特色)，<ins>他可以帶來多少曝光</ins> (好處)。</li>
+<li>Ex2：<ins>活動辦在華山</ins> (特色)，<ins>有多少人流</ins> (好處)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>【案例 3】學生活動的好處/亮點？</strong>
+<ol>
+<li>上班族沒朋友，學生是容易團報的族群。</li>
+<li>提早建立品牌形象。</li>
+<li>善於擴散資訊 (社群網路)。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul><h4 id="STEP-2---著手進行"><a class="anchor hidden-xs" href="#STEP-2---著手進行" title="STEP-2---著手進行"><span class="octicon octicon-link"></span></a><ins>STEP 2 - 著手進行</ins></h4><p>Q：活動企劃書 vs 贊助企劃書？<br>
+A：活動企劃書 (內部溝通用)、贊助企劃書 (包裝之後的活動，視為活動宣傳、Sales Key)</p><ul>
+<li><strong>列舉贊助名單</strong> (依據需求，可以從以下切入點開始)
+<ul>
+<li><strong><ins>贊助的項目</ins></strong>
+<ul>
+<li>大多數情況下想拉的是錢，或是等值商品。</li>
+<li><strong>用以下分類列出表格，在能力範圍內找出所有可能合作的廠商</strong><br>
+<strong>1. <mark>你想要的</mark></strong><br>
+<strong>2. <mark>會用到的</mark></strong> (食衣住行育樂)<br>
+<strong>3. <mark>撿到的 (關係)</mark></strong> (超出原先預期額外得到的東西)</li>
+</ul>
+</li>
+<li>在合作時不要只思考單次，而是思考往後的長期合作。</li>
+<li>若現階段的贊助方式無法滿足需求，則可以改談未來合作時的贊助方式。</li>
+</ul>
+</li>
+<li><strong>各時期的相關工作</strong>
+<ol>
+<li><strong>贊助前</strong>：蒐集潛在名單、撰寫贊助企劃書、進行合作談判</li>
+<li><strong>活動中</strong>：對應聯絡窗口、進行活動記錄</li>
+<li><strong>結束後</strong>：活動結案工作、進行顧客關係管理 (CRM)</li>
+</ol>
+</li>
+</ul><div class="alert alert-info">
+<ul>
+<li><strong>【終極目標】與對方直接見面進行合作談判</strong>
+<ol>
+<li><strong>【蒐集並列舉名單】</strong></li>
+<li><strong>【撰寫贊助企劃書】</strong>
+<ul>
+<li><ins>撰寫元素</ins>
+<ul>
+<li>內容、客群、經費、目標、我們想要什麼、我們能給對方什麼 (效益)</li>
+</ul>
+</li>
+<li><ins>撰寫結構</ins>
+<ul>
+<li><strong>P1 -封面</strong></li>
+<li><strong>P2 - 活動介紹 (特色/好處)</strong>
+<ul>
+<li>思考這個特色/好處，會為我們帶來什麼影響？</li>
+</ul>
+</li>
+<li><strong>P3 - 活動 5 大好處，3 大亮點</strong></li>
+<li><strong>P4 - 市場分析 (佐以基本的客觀數據)</strong>
+<ul>
+<li>去佐證一些客觀數據。</li>
+<li>想一個為什麼要贊助我們的理由。</li>
+</ul>
+</li>
+<li><strong>P5 - 預期效益、保證成效</strong>
+<ul>
+<li>我能幫你做什麼事情？
+<ul>
+<li>我可以提供什麼版位 (列點 / Demo、預估效益、保證成效)</li>
+<li>預期效益：最理想狀況 / 可以做到的程度。
+<ul>
+<li>可以使用 <strong>費米推論 (把物件拆解到最小單位)</strong> 來推論活動觸及率 (預期效益)。</li>
+</ul>
+</li>
+<li>保證成效：我答應你一定會做到的事情。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>P6 - 方案設計 (我要的是你的 ____ )</strong>
+<ul>
+<li>假設有 A、B、C 方案
+<ul>
+<li>中間方案通常會偏向某一邊，為了引導對方去選擇我們期望的方案。</li>
+</ul>
+</li>
+<li>
+<table>
+<thead>
+<tr>
+<th>方案A</th>
+<th><strong>方案B (中間方案)</strong></th>
+<th>方案C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>50萬</td>
+<td>(視需求調整)</td>
+<td>100萬</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li><strong>P7 - 活動時程</strong></li>
+<li><strong>P8 - 聯絡資訊</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>【找到 <ins>關鍵人物 (Keyman)</ins>】</strong> (客服 &gt; 行銷 &gt; Keyman)
+<ul>
+<li>該如何進行？(E-mail / Call)
+<ul>
+<li><strong>Call：聯繫客服時，通話策略建議</strong> (寫稿，讓心裡有準備)
+<ol>
+<li>講述時間：<ins>60秒 - 90秒</ins>、內容字數：<ins>120 - 180 字</ins>以內。</li>
+<li>內容包含以下元素：
+<ul>
+<li>我們是誰？</li>
+<li>活動的特色？</li>
+<li>為什麼找貴司？</li>
+<li>請幫我轉負責窗口。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>E-mail：如果是寄信，一定要寫 Cover Letter</strong>
+<ul>
+<li>Email 是為了讓對方對你有興趣，得約一個實際見面的機會，才能進一步的促成合作。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>幫助窗口完成它的工作 (瞭解需求，再提案)
+<ul>
+<li><strong>記憶口訣：上、下、左、右</strong>
+<ul>
+<li>上 (上級、KPI)</li>
+<li>下 (窗口自己的目標受眾)</li>
+<li>左 (競爭對手、競爭部門)</li>
+<li>右 (合作夥伴)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>【見面討論】價值談判</strong></li>
+</ol>
+</li>
+</ul>
+</div><div class="alert alert-warning">
+<ul>
+<li><strong>【關鍵重點】商業開發</strong>
+<ol>
+<li>接洽企業的時候，目標是為了下一步。</li>
+<li>接電話的人(客服)沒辦法決定要不要接洽你，打電話是 <strong>為了轉接給對的人</strong>。</li>
+<li>客服人員在意什麼事？怕漏掉重要電話。所以需要讓他知道這通電話很重要，再轉接給相關部門。</li>
+<li><strong>每一個步驟的目標，都是為了繼續推進到下一步</strong>。</li>
+</ol>
+</li>
+</ul>
+</div><h2 id="五、會議溝通"><a class="anchor hidden-xs" href="#五、會議溝通" title="五、會議溝通"><span class="octicon octicon-link"></span></a>五、會議溝通</h2><ul>
+<li>開會的目的是什麼？
+<ul>
+<li><ins>丟出想法、梳理資訊、統整認知</ins>。</li>
+</ul>
+</li>
+<li>思考最大的敵人是混亂。</li>
+<li><strong>三大會議型態</strong>：
+<ol>
+<li><ins><strong>幹部會議</strong></ins> <code>決策</code> (重視交流)
+<ul>
+<li>大方向討論、代表組員傳遞意見。
+<ul>
+<li>優勢 (O)：快速掌握全社，具決策權。</li>
+<li>風險 (X)：拿捏過濾資訊，會議不透明。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ins><strong>組內會議</strong></ins> <code>執行</code> (重視實務)
+<ul>
+<li>社團運作執行端，共識凝聚。
+<ul>
+<li>優勢 (O)：輕鬆、暢所欲言，瞭解真實想法。</li>
+<li>風險 (X)：目標無優先順序，避免爭執怠慢。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ins><strong>組間協調</strong></ins> <code>決策兼執行</code> (重視交流)
+<ul>
+<li>互相溝通協調，取得平衡。
+<ul>
+<li>優勢 (O)：兼具決策與執行，透過協調達成目的。</li>
+<li>風險 (X)：談判空間站不穩，組內未有共識。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>會議 7P
+<ul>
+<li><ins>始於<strong>目的</strong>，終於<strong>產出</strong></ins></li>
+<li><ins><strong>人員</strong>有<strong>準備</strong>，<strong>程序</strong>防<strong>風險</strong></ins></li>
+<li><ins><strong>行政</strong>不斷電</ins></li>
+</ul>
+<ol>
+<li><strong>目的</strong> (重視 <strong>Why</strong>)
+<ul>
+<li>真實目的，反覆釐清。</li>
+<li>大家相信，才有動機。</li>
+<li>資源有限，有捨有得。</li>
+</ul>
+</li>
+<li><strong>產出</strong> (重視 <strong>What</strong>)
+<ol>
+<li>論點：統合分歧意見。</li>
+<li>方案：供討論的做法。</li>
+<li>進度：實際操作時程。(計劃書、時程表…etc)</li>
+<li>行動：活動臨時救火。</li>
+</ol>
+</li>
+<li><strong>人員</strong> (重視 <strong>Who</strong>)
+<ul>
+<li>形式上：象徵與代表。</li>
+<li>實務上：負責與擔當。 (負責人 or 實際執行的人)<br>
+Q：是否要讓所有人同時參與會議呢？ (決策、執行)<br>
+A：視情況決定。</li>
+</ul>
+</li>
+<li><strong>準備</strong> (重視 <strong>發揮功能</strong>)
+<ul>
+<li>出席人所做的會前準備。<br>
+Ex：提案報告、執行方案、宣佈事項、議題資料蒐集、準備論述…etc</li>
+</ul>
+</li>
+<li><strong>程序</strong> (重視 <strong>下一步</strong>)
+<ul>
+<li>議程與會議規範，決定結論如何產生。<br>
+Ex：當人數過半，則會議開始<br>
+當發話過久，則中斷<br>
+當人數過少，則取消會議<br>
+當重大表決，則需過門檻<br>
+當想要發言，則先舉手<br>
+當想要提案，則事先登記</li>
+</ul>
+</li>
+<li><strong>風險</strong> (重視 <strong>不出包</strong>)
+<ul>
+<li>檢視最壞狀況，想辦法預防 / 減低影響。<br>
+Ex：怕沒共識，要求出席人數<br>
+怕開天窗，要求準時開會<br>
+怕沒點子，要求一人一提<br>
+怕沒精神，要求前天早睡</li>
+</ul>
+</li>
+<li><strong>行政</strong> (重視 <strong>不斷電</strong>)
+<ul>
+<li>程序使會議開的好，行政使會議開的成。<br>
+Ex：會議邀請、行前通知<br>
+會議資料、會議記錄<br>
+場地器材、座位配置<br>
+端茶水、備午餐</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>分工不明確，可以怎麼進行？
+<ul>
+<li>專案化，統一由某人指派。</li>
+<li>列表化，認領任務。</li>
+</ul>
+</li>
+<li>會議任務
+<ol>
+<li>確認問題</li>
+<li>所有資訊 <strong>皆被理解</strong></li>
+<li>所有意見 <strong>皆已提出</strong></li>
+<li>得出共識</li>
+</ol>
+</li>
+<li>如何判定會議有沒有幫助？進展？
+<ul>
+<li>不說話的人，沒有參與會議的必要 (?)</li>
+<li>只要在會議前，跟會議後有新的認知和所得即可 (?)</li>
+</ul>
+</li>
+<li><strong>六頂思考帽</strong>
+<ul>
+<li><strong>理性感性</strong>：事實 (白)、情緒 (紅)</li>
+<li><strong>狀況判斷</strong>：風險 (黑)、價值 (黃)</li>
+<li><strong>發散收斂</strong>：控制 (藍)、創造 (綠)</li>
+</ul>
+</li>
+<li>如果把思考帽觀念用在會議上的話，可以怎麼做呢？<br>
+(1) <ins>白</ins> &gt; (2) <ins>綠/紅</ins> &gt; (3) <ins>黃/黑</ins> &gt; (4) <ins>紅</ins>
+<ul>
+<li>說明<br>
+(1) 白：檢視事實<br>
+(2) 綠/紅：發想點子<br>
+(3) 黃/黑：將前面的點子補足論述、框架<br>
+(4) 紅：最後決策</li>
+</ul>
+</li>
+</ul><h2 id="六、團康主持"><a class="anchor hidden-xs" href="#六、團康主持" title="六、團康主持"><span class="octicon octicon-link"></span></a>六、團康主持</h2><p>Q：引言人的工作是什麼？<br>
+A：只要你站在台前帶起場子，就是引言人。</p><h4 id="一-關於團康主持"><a class="anchor hidden-xs" href="#一-關於團康主持" title="一-關於團康主持"><span class="octicon octicon-link"></span></a>(一) <ins>關於團康主持</ins></h4><ul>
+<li>團康主持的應用類型？
+<ul>
+<li>脫口秀、司儀、研習、DJ、主播、晚會、音樂會、團康、引言人…etc</li>
+</ul>
+</li>
+<li>什麼是團康？
+<ul>
+<li>廣義團康：隊呼、默契、動跳、其他</li>
+<li>狹義團康：遊戲、大地、RPG</li>
+</ul>
+</li>
+<li><strong>各類型團康介紹</strong>
+<ol>
+<li><strong><mark>認識型</mark>：<ins>互相認識 (認識彼此、認識自己)</ins></strong>。
+<ul>
+<li>目的：破冰
+<ul>
+<li>優點：短時間認識彼此且達到熱絡。</li>
+<li>缺點：彼此之間熟度過高時，操作會有困難。</li>
+</ul>
+</li>
+<li>時間：第一次見面、第一次社課</li>
+<li>舉例：餅乾盒子、姓名滾雪球、蘿蔔蹲、共同點賓果、星光夜語</li>
+</ul>
+</li>
+<li><strong><mark>反應型</mark>：<ins>單人成隊，遊戲目標較簡單</ins></strong>。
+<ul>
+<li>目的：提振精神、帶動氣氛
+<ul>
+<li>優點：拉高情緒熱力門檻低。</li>
+<li>缺點：容易受傷、消耗體力、只有 High 有點空虛。</li>
+</ul>
+</li>
+<li>時間：無限制</li>
+<li>舉例：鬼抓人、烏龜烏鴉、小蜜蜂、心臟病、捏麻糬</li>
+</ul>
+</li>
+<li><strong><mark>合作型</mark>：<ins>需要組隊、遊戲目標較複雜。須與隊友合作、策略討論，容易對勝負執著</ins></strong>。
+<ul>
+<li>目的：培養組隊情誼、提升彼此情感
+<ul>
+<li>優點：玩家們能夠自己投入，較不吃主持的能力。</li>
+<li>缺點：霸凌的形成。</li>
+</ul>
+</li>
+<li>時間：隨時 (有隊伍為前提)</li>
+<li>舉例：支援前線、竹筍竹筍生、我當你的眼</li>
+</ul>
+</li>
+<li><strong><mark>定義型</mark>：<ins>主持人單撐，台下彼此較無互動</ins></strong>。
+<ul>
+<li>目的：抓住吸引力
+<ul>
+<li>優點：不被場地受限，隨時都能自由發揮。</li>
+<li>缺點：極度吃主持人功力。</li>
+</ul>
+</li>
+<li>時間：隨時</li>
+<li>舉例：開門關門、海龜湯、好小熊壞小熊、請問有幾聲、黑色幽默</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>組合技：<ins>前四種的混合型</ins></strong>。
+<ul>
+<li>目的：自行決定
+<ul>
+<li>優點：能夠達到任何自己需要的目的。</li>
+<li>缺點：預期不一定能成真。</li>
+</ul>
+</li>
+<li>時間：自行決定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h4 id="二-關於互動帶領"><a class="anchor hidden-xs" href="#二-關於互動帶領" title="二-關於互動帶領"><span class="octicon octicon-link"></span></a>(二) <ins>關於互動帶領</ins></h4><ul>
+<li><strong>核心三軸</strong>：<mark><strong><ins>可執行</ins></strong> (低標) → <strong><ins>有趣</ins></strong> → <strong><ins>有意義</ins></strong> (高標)</mark></li>
+<li><strong>互動帶領：<mark>內容與受眾互動</mark></strong>
+<ul>
+<li>講者、執行者是內容的<strong>載體</strong>，<mark>內容才是關鍵</mark>。</li>
+<li>內容架構：<img src="https://i.imgur.com/Y6b0VC7.jpg" alt=""></li>
+<li>架構順序：<img src="https://i.imgur.com/1xQegS4.jpg" alt="">
+<ul>
+<li>→ <strong><mark>反思</mark></strong> (6) ←
+<ul>
+<li>回顧：精彩好球！</li>
+<li>修正：檢討鍛鍊。</li>
+<li>啟發：在互動或遊戲之外，記得要達到 <strong>活動目的</strong>。</li>
+</ul>
+</li>
+<li>→ <strong><mark>內容</mark></strong> (4) ←
+<ul>
+<li><strong><ins>基本元素</ins></strong>
+<ul>
+<li><mark><strong>體驗</strong> (亦可包含 <strong>娛樂</strong> 和 <strong>思考</strong>)</mark></li>
+<li>娛樂：享受。</li>
+<li>思考：成長。</li>
+</ul>
+</li>
+<li><strong><ins>設計要點</ins></strong>
+<ol>
+<li>
+<p><strong><ins>弱者保護</ins></strong></p>
+<ul>
+<li>避免差距拉大，讓弱者保持追得上的可能性。</li>
+<li>讓弱者輸得少。</li>
+</ul>
+</li>
+<li>
+<p><strong><ins>心流理論</ins></strong><br>
+<img src="https://i.imgur.com/bwtxPyh.jpg" alt=""></p>
+</li>
+<li>
+<p><strong><ins>強者抑制</ins></strong></p>
+<ul>
+<li>不能讓強者贏得太容易，讓局勢有翻盤的可能性。</li>
+<li>讓強者贏得難。</li>
+</ul>
+</li>
+<li>
+<p><strong><ins>強者對決</ins></strong></p>
+<ul>
+<li>讓 <strong>能力相等(近)</strong> 的強者之間互相競爭。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>→ <strong><mark>框架</mark></strong> (2) ←
+<ol>
+<li><strong>結束</strong>：勝利或活動結束的條件。(產生遊戲意義)</li>
+<li><strong>行動</strong>：過程中可以執行的動作。</li>
+<li><strong>提示</strong>：趨近結束的方法、秘訣。(參與者主動發掘、執行)</li>
+<li><strong>開始</strong>：起始配置、開始的信號。</li>
+</ol>
+</li>
+<li>→ <strong><mark>引言</mark></strong> (1) ←
+<ul>
+<li>直述破梗、情境包裝。</li>
+</ul>
+</li>
+<li>→ <strong><mark>進場</mark></strong> (3) ←
+<ul>
+<li>開場提示、氣氛營造，讓大家盡快進入遊戲環境。</li>
+</ul>
+</li>
+<li>→ <strong><mark>出場</mark></strong> (5) ←
+<ul>
+<li>情緒熱力上升 (煽動)，在時間上盡可能拉長這個階段。</li>
+<li>最後記得要給予明確的結束。<br>
+<img src="https://i.imgur.com/e2fzpeu.jpg" alt=""></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h4 id="三-主持籌備流程"><a class="anchor hidden-xs" href="#三-主持籌備流程" title="三-主持籌備流程"><span class="octicon octicon-link"></span></a>(三) 主持籌備流程</h4><ul>
+<li>確定需求 &gt; 決定風格 &gt; 確定流程 &gt; 準備講稿 &gt; 彩排確認 &gt; 上台主持。</li>
+<li>講故事時需要注意：起、承、轉、合。</li>
+</ul><h2 id="七、簡報邏輯"><a class="anchor hidden-xs" href="#七、簡報邏輯" title="七、簡報邏輯"><span class="octicon octicon-link"></span></a>七、簡報邏輯</h2><ul>
+<li>【練習一】30秒</li>
+<li>【練習二】因果句：PUNCHLINE<br>
+<strong>「為了OOOO，我們要XXXX。」</strong>
+<blockquote>
+<p>「為了實踐性別平權的理想，我們舉辦自慰棒自造工作坊。」</p>
+</blockquote>
+</li>
+<li>【簡報關鍵】起、承、轉、合
+<ul>
+<li>起 - 補獵眼球
+<ul>
+<li>先嚇嚇他們，建立溝通的前提。</li>
+<li>常見套路：自問自答、民調驗證、影片先上</li>
+</ul>
+</li>
+<li>承：需求舉證</li>
+<li>轉：換檔變速</li>
+<li>合：收單結論</li>
+</ul>
+</li>
+<li>【策略制定】一些零碎ㄉ細節
+<ul>
+<li>市場區隔、順序策略、事不過三</li>
+</ul>
+</li>
+<li>【關於視覺】字體、間距、字級、顏色、外框、對齊</li>
+</ul></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#盛夏工作坊---幹部訓練營" title="盛夏工作坊 - 幹部訓練營">盛夏工作坊 - 幹部訓練營</a><ul class="nav">
+<li class=""><a href="#一、活動設計" title="一、活動設計">一、活動設計</a></li>
+<li class=""><a href="#二、公眾演說" title="二、公眾演說">二、公眾演說</a></li>
+<li class=""><a href="#三、行政策劃" title="三、行政策劃">三、行政策劃</a></li>
+<li class=""><a href="#四、行銷贊助" title="四、行銷贊助">四、行銷贊助</a><ul class="nav">
+<li class=""><a href="#STEP-1---前置作業" title="STEP 1 - 前置作業">STEP 1 - 前置作業</a></li>
+<li class=""><a href="#STEP-2---著手進行" title="STEP 2 - 著手進行">STEP 2 - 著手進行</a></li>
+</ul>
+</li>
+<li class=""><a href="#五、會議溝通" title="五、會議溝通">五、會議溝通</a></li>
+<li class=""><a href="#六、團康主持" title="六、團康主持">六、團康主持</a><ul class="nav">
+<li class=""><a href="#一-關於團康主持" title="(一) 關於團康主持">(一) 關於團康主持</a></li>
+<li class=""><a href="#二-關於互動帶領" title="(二) 關於互動帶領">(二) 關於互動帶領</a></li>
+<li class=""><a href="#三-主持籌備流程" title="(三) 主持籌備流程">(三) 主持籌備流程</a></li>
+</ul>
+</li>
+<li class=""><a href="#七、簡報邏輯" title="七、簡報邏輯">七、簡報邏輯</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#盛夏工作坊---幹部訓練營" title="盛夏工作坊 - 幹部訓練營">盛夏工作坊 - 幹部訓練營</a><ul class="nav">
+<li class=""><a href="#一、活動設計" title="一、活動設計">一、活動設計</a></li>
+<li class=""><a href="#二、公眾演說" title="二、公眾演說">二、公眾演說</a></li>
+<li class=""><a href="#三、行政策劃" title="三、行政策劃">三、行政策劃</a></li>
+<li class=""><a href="#四、行銷贊助" title="四、行銷贊助">四、行銷贊助</a><ul class="nav">
+<li class=""><a href="#STEP-1---前置作業" title="STEP 1 - 前置作業">STEP 1 - 前置作業</a></li>
+<li class=""><a href="#STEP-2---著手進行" title="STEP 2 - 著手進行">STEP 2 - 著手進行</a></li>
+</ul>
+</li>
+<li class=""><a href="#五、會議溝通" title="五、會議溝通">五、會議溝通</a></li>
+<li class=""><a href="#六、團康主持" title="六、團康主持">六、團康主持</a><ul class="nav">
+<li class=""><a href="#一-關於團康主持" title="(一) 關於團康主持">(一) 關於團康主持</a></li>
+<li class=""><a href="#二-關於互動帶領" title="(二) 關於互動帶領">(二) 關於互動帶領</a></li>
+<li class=""><a href="#三-主持籌備流程" title="(三) 主持籌備流程">(三) 主持籌備流程</a></li>
+</ul>
+</li>
+<li class=""><a href="#七、簡報邏輯" title="七、簡報邏輯">七、簡報邏輯</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
