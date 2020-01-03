@@ -79,9 +79,9 @@ icon: bookmark
 
 
 # (八) 書摘 / 懶人包 / 視覺化作品
-* [20180409_遊戲化實戰全書](/collections/visualize/20180409_gamification/gamification.pdf)
-* [20190219_2019 Move Island - Phosky 訓練營學習心得](/collections/visualize/20190219_Phosky/phosky.pdf)
-* [20190308_鉤癮效應](/collections/visualize/20190308_the-hook/the-hook.pdf)
+* [20180409 遊戲化實戰全書](/collections/visualize/20180409_gamification/gamification.pdf)
+* [20190219 2019 Move Island - Phosky 訓練營學習心得](/collections/visualize/20190219_Phosky/phosky.pdf)
+* [20190308 鉤癮效應](/collections/visualize/20190308_the-hook/the-hook.pdf)
 
 
 
