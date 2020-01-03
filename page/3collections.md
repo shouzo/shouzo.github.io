@@ -72,8 +72,16 @@ icon: bookmark
 * [20190826 活動企劃師 CCAPP (第 115 期) - 課程內容筆記](/collections/notes/20190826_CCAPP.html)
 * [20190913 盛夏工作坊 - 幹部訓練營](/collections/notes/20190913_Summer_TrainingCamp.html)
 * [20190921 多元引導技術的應用](/collections/notes/20190921_AAEE-Facilation.html)
-* [20190928 助理引導員認證課程](/collections/notes/20190928_AAEE-Assistant.html)
+* [20190928 AAEE 助理引導員認證課程](/collections/notes/20190928_AAEE-Assistant.html)
 
+
+---
+
+
+# (八) 書摘 / 懶人包 / 視覺化作品
+* [20180409_遊戲化實戰全書](/collections/visualize/20180409_gamification/gamification.pdf)
+* [20190219_2019 Move Island - Phosky 訓練營學習心得](/collections/visualize/20190219_Phosky/phosky.pdf)
+* [20190308_鉤癮效應](/collections/visualize/20190308_the-hook/the-hook.pdf)
 
 
 
