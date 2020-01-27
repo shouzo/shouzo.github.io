@@ -82,6 +82,7 @@ icon: bookmark
 * [20180409 遊戲化實戰全書](/collections/visualize/20180409_gamification/gamification.pdf)
 * [20190219 2019 Move Island - Phosky 訓練營學習心得](/collections/visualize/20190219_Phosky/phosky.pdf)
 * [20190308 鉤癮效應](/collections/visualize/20190308_the-hook/the-hook.pdf)
+* [20190621 冒險教育與培訓新書發表工作坊筆記](/collections/visualize/20190621_Adventure-Education/Adventure-Education.pdf)
 
 
 
