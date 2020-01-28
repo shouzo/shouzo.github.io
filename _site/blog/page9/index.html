@@ -139,6 +139,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -151,6 +153,276 @@
         <small>菜鳥的學習紀錄</small>
         <hr>
         <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-05-12
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-deadlock-characterization" id="markdown-toc-一-deadlock-characterization">(一) Deadlock Characterization</a></li>
+      <li><a href="#二-resource-allocation-graph" id="markdown-toc-二-resource-allocation-graph">(二) Resource-Allocation Graph</a>        <ul>
+          <li><a href="#1-example" id="markdown-toc-1-example">1. Example</a></li>
+          <li><a href="#2-basic-facts" id="markdown-toc-2-basic-facts">2. Basic Facts</a></li>
+          <li><a href="#3-methods-for-handling-deadlocks" id="markdown-toc-3-methods-for-handling-deadlocks">3. Methods for Handling Deadlocks</a></li>
+        </ul>
+      </li>
+      <li><a href="#三-deadlock-prevention" id="markdown-toc-三-deadlock-prevention">(三) Deadlock Prevention</a>        <ul>
+          <li><a href="#1-example-1" id="markdown-toc-1-example-1">1. Example</a></li>
+          <li><a href="#2-deadlock-avoidance" id="markdown-toc-2-deadlock-avoidance">2. Deadlock Avoidance</a></li>
+          <li><a href="#3-safe-state" id="markdown-toc-3-safe-state">3. Safe State</a></li>
+          <li><a href="#4-basic-facts" id="markdown-toc-4-basic-facts">4. Basic Facts</a></li>
+          <li><a href="#5-safe-unsafe-deadlock-state" id="markdown-toc-5-safe-unsafe-deadlock-state">5. Safe, Unsafe, Deadlock State</a></li>
+          <li><a href="#6-avoidance-algorithms" id="markdown-toc-6-avoidance-algorithms">6. Avoidance algorithms</a></li>
+          <li><a href="#7-resource-allocation-graph" id="markdown-toc-7-resource-allocation-graph">7. Resource-Allocation Graph</a></li>
+          <li><a href="#8-algorithm" id="markdown-toc-8-algorithm">8. Algorithm</a>            <ul>
+              <li><a href="#1-data-structures-for-the-bankers-algorithm" id="markdown-toc-1-data-structures-for-the-bankers-algorithm">(1) Data Structures for the Banker’s Algorithm</a></li>
+              <li><a href="#2-safety-algorithm" id="markdown-toc-2-safety-algorithm">(2) Safety Algorithm</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170511/ch07.pdf">Chapter 7: Deadlocks</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-deadlock-characterization">(一) Deadlock Characterization</h3>
+<ul>
+  <li><strong>Mutual exclusion</strong>：only one process at a time can use a resource.</li>
+  <li><strong>Hold and wait</strong>：a process holding at least one resource is waiting to acquire additional resources held by other processes.</li>
+  <li><strong>No preemption</strong>：a resource can be released only voluntarily by the process holding it, after that process has completed its task.</li>
+  <li><strong>Circular wait</strong>：there exists a set {P0, P1, …, Pn } of waiting processes such that P0 is waiting for a resource that is held by P1, P1 is waiting for a resource that is held by P2 , …, Pn–1 is waiting for a resource that is held by Pn, and Pn is waiting for a resource that is held by P0.</li>
+  <li>Deadlocks can occur via system calls, locking, etc</li>
+</ul>
+
+<h3 id="二-resource-allocation-graph">(二) Resource-Allocation Graph</h3>
+<p><img src="https://i.imgur.com/ruQSE03.png" alt="" />
+<img src="https://i.imgur.com/jSnZ1nO.png" alt="" /></p>
+
+<h4 id="1-example">1. Example</h4>
+<ul>
+  <li>
+    <p>Resource Allocation Graph
+<img src="https://i.imgur.com/e10FFPp.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Resource Allocation Graph With A Deadlock
+<img src="https://i.imgur.com/t2UkKLi.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Graph With A Cycle But No Deadlock
+<img src="https://i.imgur.com/3mqHz5J.png" alt="" /></p>
+  </li>
+</ul>
+
+<h4 id="2-basic-facts">2. Basic Facts</h4>
+<ul>
+  <li>If graph contains no cycles » no deadlock</li>
+  <li>If graph contains a cycle
+    <ul>
+      <li>if only one instance per resource type, then deadlock</li>
+      <li>if several instances per resource type, possibility of deadlock</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="3-methods-for-handling-deadlocks">3. Methods for Handling Deadlocks</h4>
+<ul>
+  <li>Ensure that the system will never enter a deadlock state</li>
+  <li>Allow the system to enter a deadlock state and then recover</li>
+  <li>Ignore the problem and pretend that deadlocks never occur in the system; used by most operating systems, including UNIX</li>
+</ul>
+
+<h3 id="三-deadlock-prevention">(三) Deadlock Prevention</h3>
+<ul>
+  <li><strong>Mutual Exclusion</strong>：not required for sharable resources; must hold for nonsharable resources</li>
+  <li><strong>Hold and Wait</strong>：must guarantee that whenever a process requests a resource, it does not hold any other resources
+    <ul>
+      <li>Require process to request and be allocated all its resources before it begins execution, or allow process to request resources only when the process has none</li>
+      <li>Low resource utilization; starvation possible</li>
+    </ul>
+  </li>
+  <li><strong>No Preemption</strong>：
+    <ul>
+      <li>If a process that is holding some resources requests another resource that cannot be immediately allocated to it, then all resources currently being held are released</li>
+      <li>Preempted resources are added to the list of resources for which the process is waiting</li>
+      <li>Process will be restarted only when it can regain its old resources, as well as the new ones that it is requesting</li>
+    </ul>
+  </li>
+  <li><strong>Circular Wait</strong>：impose a total ordering of all resource types, and require that each process requests resources in an increasing order of enumeration</li>
+</ul>
+
+<h4 id="1-example-1">1. Example</h4>
+<ul>
+  <li>Deadlock Example</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* thread one runs in this function */</span>
+<span class="kt">void</span> <span class="o">*</span><span class="k">do</span> <span class="n">work</span> <span class="nf">one</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
+    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
+    <span class="cm">/** * Do some work */</span>
+    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
+    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
+    <span class="n">pthread</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/* thread two runs in this function */</span>
+<span class="kt">void</span> <span class="o">*</span><span class="k">do</span> <span class="n">work</span> <span class="nf">two</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
+    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
+    <span class="cm">/** * Do some work */</span>
+    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
+    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
+    <span class="n">pthread</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Deadlock Example with Lock Ordering</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">transaction</span><span class="p">(</span><span class="n">Account</span> <span class="n">from</span><span class="p">,</span> <span class="n">Account</span> <span class="n">to</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">mutex</span> <span class="n">lock1</span><span class="p">,</span> <span class="n">lock2</span><span class="p">;</span>
+    <span class="n">lock1</span> <span class="o">=</span> <span class="n">get</span> <span class="n">lock</span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
+    <span class="n">lock2</span> <span class="o">=</span> <span class="n">get</span> <span class="n">lock</span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
+    <span class="n">acquire</span><span class="p">(</span><span class="n">lock1</span><span class="p">);</span>
+    <span class="n">acquire</span><span class="p">(</span><span class="n">lock2</span><span class="p">);</span>
+    <span class="n">withdraw</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">amount</span><span class="p">);</span>
+    <span class="n">deposit</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">amount</span><span class="p">);</span>
+    <span class="n">release</span><span class="p">(</span><span class="n">lock2</span><span class="p">);</span>
+    <span class="n">release</span><span class="p">(</span><span class="n">lock1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="2-deadlock-avoidance">2. Deadlock Avoidance</h4>
+<ul>
+  <li>Requires that the system has some additional a priori information available
+    <ul>
+      <li>Simplest and most useful model requires that each process declare the <strong>maximum number</strong> of resources of each type that it may need</li>
+      <li>The deadlock-avoidance algorithm dynamically examines the resource-allocation state to ensure that there can never be a circular-wait condition</li>
+      <li>Resource-allocation state is defined by the number of available and allocated resources, and the maximum demands of the processes</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="3-safe-state">3. Safe State</h4>
+<p><img src="https://i.imgur.com/Qzeh5D8.png" alt="" /></p>
+
+<h4 id="4-basic-facts">4. Basic Facts</h4>
+<ul>
+  <li>If a system is in safe state » no deadlocks</li>
+  <li>If a system is in unsafe state » possibility of deadlock</li>
+  <li>Avoidance » ensure that a system will never enter an unsafe state</li>
+</ul>
+
+<h4 id="5-safe-unsafe-deadlock-state">5. Safe, Unsafe, Deadlock State</h4>
+<p><img src="https://i.imgur.com/Y7KEMVp.png" alt="" /></p>
+
+<h4 id="6-avoidance-algorithms">6. Avoidance algorithms</h4>
+<ul>
+  <li>Single instance of a resource type
+    <ul>
+      <li>Use a resource-allocation graph</li>
+    </ul>
+  </li>
+  <li>Multiple instances of a resource type
+    <ul>
+      <li>Use the banker’s algorithm</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="7-resource-allocation-graph">7. Resource-Allocation Graph</h4>
+<p><img src="https://i.imgur.com/aUkipvw.png" alt="" />
+<img src="http://i.imgur.com/RtDzuXQ.jpg" alt="" /></p>
+
+<h4 id="8-algorithm">8. Algorithm</h4>
+<h5 id="1-data-structures-for-the-bankers-algorithm">(1) Data Structures for the Banker’s Algorithm</h5>
+<p><img src="http://i.imgur.com/Z9SQSCC.png" alt="" /></p>
+
+<ul>
+  <li>Example
+<img src="http://i.imgur.com/IMSADSw.png" alt="" />
+<img src="http://i.imgur.com/CnQFX9s.png" alt="" /></li>
+</ul>
+
+<h5 id="2-safety-algorithm">(2) Safety Algorithm</h5>
+<p><img src="http://i.imgur.com/V6oA8hC.png" alt="" /></p>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/05/12/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
             
               <li>
                 <h2>
@@ -1112,80 +1384,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/04/22/Original_Point/">20170422 [社團相關] 原始點醫學分享</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-04-22
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#社團" title="Category: 社團" rel="category">社團</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#社團" title="Tag: 社團" rel="tag">社團</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一-原始點醫學分享" id="markdown-toc-一-原始點醫學分享">(一) 原始點醫學分享</a></li>
-</ul>
-
-<h1 id="一-原始點醫學分享">(一) 原始點醫學分享</h1>
-<ul>
-  <li>
-    <p>簡報網址：<a href="https://shouzo.github.io/collections/clubs/20170422-Original_Point.pdf">https://shouzo.github.io/collections/clubs/20170422-Original_Point.pdf</a></p>
-  </li>
-  <li>
-    <p>SlideShare：<a href="https://www.slideshare.net/danny200026/20170422">https://www.slideshare.net/danny200026/20170422</a></p>
-  </li>
-</ul>
-
-<p><strong>[畫面預覽]</strong>
-<img src="/assets/20170422/Original_Point.jpg" alt="" /></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/04/22/Original_Point/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1196,10 +1394,10 @@
             <a href="/blog/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
             <a href="/blog/page8/" class="previous"><i class="fa fa-angle-left"></i></a>
           
-          <span class="page_number ">9/18</span>
+          <span class="page_number ">9/19</span>
           
             <a href="/blog/page10/" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="/blog/page18" class="next"><i class="fa fa-angle-double-right"></i></a>
+            <a href="/blog/page19" class="next"><i class="fa fa-angle-double-right"></i></a>
           
         </div>
     </div>
@@ -1212,6 +1410,8 @@
                     Recent Posts
                 </div>
                 <ul class="content-ul" recent>
+                    
+                        <li><a href="/2019/08/15/team_manage/">20190815 [社團相關] 團隊經營 - 組織規劃、經營與傳承</a></li>
                     
                         <li><a href="/2019/06/21/activity-note/">20190621【冒險教育與培訓 - 為何及如何有效的黑盒子】新書發表工作坊</a></li>
                     
@@ -1230,8 +1430,6 @@
                         <li><a href="/2019/03/27/activity-note/">20190327【活動人小聚 - 市集與快閃店策劃】 心得分享</a></li>
                     
                         <li><a href="/2019/03/20/activity-note/">20190320【回。應 我們的社團藍圖 Life Of Club】心得分享</a></li>
-                    
-                        <li><a href="/2019/03/11/activity-note/">20190311【色廊展 Color Gallery (高雄科工館場次) 】展覽分享</a></li>
                     
                 </ul>
             </div>
@@ -1339,7 +1537,7 @@
                             <span class="name">
                                 社團
                             </span>
-                            <span class="badge">10</span>
+                            <span class="badge">11</span>
                         </a>
                     </li>
                     
