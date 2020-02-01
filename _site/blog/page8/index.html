@@ -141,6 +141,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -156,11 +158,11 @@
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)</a>
+                  <a class="post-link" href="/2018/09/19/military_1/">20180919 [迴光返照系列_1] 軍事訓練役第一週</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-06-08
+                        <i class="fa fa-calendar"></i>2018-09-19
                     </div>
                     <div class="label-card">
                         
@@ -178,11 +180,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+        <a href="/category/#迴光返照系列" title="Category: 迴光返照系列" rel="category">迴光返照系列</a>
     
   
 
@@ -199,11 +197,7 @@
   <i class="fa fa-tags"></i>
   
     
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+        <a href="/tag/#當兵生活紀實" title="Tag: 當兵生活紀實" rel="tag">當兵生活紀實</a>
     
   
 
@@ -213,1471 +207,965 @@
                 </div>
                 <div class="excerpt">
                     <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#一-background" id="markdown-toc-一-background">(一) Background</a></li>
-      <li><a href="#二-virtual-address-space" id="markdown-toc-二-virtual-address-space">(二) Virtual Address Space</a></li>
-      <li><a href="#三-demand-paging" id="markdown-toc-三-demand-paging">(三) Demand Paging</a>        <ul>
-          <li><a href="#1-valid-invalid-bit" id="markdown-toc-1-valid-invalid-bit">1. Valid-Invalid Bit</a></li>
-          <li><a href="#2-example" id="markdown-toc-2-example">2. Example</a></li>
-          <li><a href="#3-optimizations" id="markdown-toc-3-optimizations">3. Optimizations</a></li>
+  <li><a href="#第一週2018919---2018923" id="markdown-toc-第一週2018919---2018923">第一週：2018/9/19 - 2018/9/23</a>    <ul>
+      <li><a href="#一前言" id="markdown-toc-一前言">一、前言</a></li>
+      <li><a href="#二本次記錄" id="markdown-toc-二本次記錄">二、本次記錄</a></li>
+      <li><a href="#三結論" id="markdown-toc-三結論">三、結論</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="第一週2018919---2018923">第一週：2018/9/19 - 2018/9/23</h2>
+<h3 id="一前言">一、前言</h3>
+<p>自入伍之後，我刻意等到10天懇親會後才使用手機。</p>
+
+<p>一方面是為了適應與世隔絕的生活，
+一方面是為了能夠把精力放在觀察軍中生活。
+也因此，我重拾了手寫筆記的習慣。</p>
+
+<p>但這次不一樣的是：時間零碎又有限，隨時都有可能被掛著軍階的人叫走。
+為了方便隨時記錄，我換了一本大小剛好可以放進口袋的筆記本。</p>
+
+<h3 id="二本次記錄">二、本次記錄</h3>
+<p>才來10天，就知道為什麼很多人對軍中生活避之唯恐不及。(有機會再詳聊)</p>
+
+<p>入伍後第一週，我把目標聚焦在：
+「用最短的時間掌握遊戲規則，爭取個人閒暇時間的最大化。」</p>
+
+<p>我把這段過程大致劃分成四個階段：</p>
+<blockquote>
+  <p>觀察 &gt; 實作 &gt; 記錄 &gt; 定型</p>
+</blockquote>
+
+<p>在每一次嘗試的過程中，把可控制的因素(先後順序、更簡單的方法……)
+逐一調整。而我發現將流程最佳化的關鍵在於：
+<strong>「不要做跟大家一模一樣的事情，而是把目光放在現在可以先完成的事情上。」</strong></p>
+
+<p>例如一間大寢室(裡面有80多人)，浴廁就那幾間，每個人都得在30 - 50分鐘內洗完澡。而且你同時還要掛蚊帳和放置鋼盆牙刷和灌水……。
+大多數人為了在時間內完成都會搶著排隊先洗澡，所以浴廁會大排長龍。
+你這時候該怎麼做？</p>
+
+<p><strong>我個人的做法</strong></p>
+
+<p><strong>1. 改變做事情的順序</strong>
+→掛蚊帳→置鋼盆牙刷和灌水→洗澡</p>
+
+<p><strong>2. 改變洗澡的形式</strong>
+→為了趕時間，大多數人會兩個人同時洗一間浴廁，但即使是這樣每個人也未必有辦法在規定時間內順利洗到澡，洗澡品質也未必會好。</p>
+
+<p><strong>3. 設立時間界線</strong>
+→如果在時間內沒辦法順利排到隊，那就改用擦澡的方式進行。
+這樣既不用跟別人搶，洗澡時間也能加速。(前提是要能接受這樣的盥洗方式)</p>
+
+<h3 id="三結論">三、結論</h3>
+<p>最後還是得說，我認為軍中真的不適合有既定目標和太有主見的人待著。
+入伍第一天，就看到很多先前只會在電影裡才會看到的場景。
+那時候只覺得很荒謬，一直忍住放聲大笑的念頭。</p>
+
+<p>但是再過了一天，我就開始意識到：「這就是我現階段面對的現實。」
+(不論你接受與否)</p>
+
+<p>連上的士官長在今天提到：
+「當兵就是在演戲，軍中體制的改變是極其緩慢的。不要想說要改變體制，在役期間把這場戲演好。」</p>
+
+<p>身為被捲入其中的人，現在只想靠著眼睛將所見所聞用筆記錄下來。</p>
+
+<p>既然清末有《老殘遊記》，那我這本筆記就叫做《迴光返照》。
+預計每一週都會有記錄。
+(內容將限縮在不踩到軍法的前提下)</p>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2018/09/19/military_1/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2018/03/01/computer_organization/">20180301 [學習筆記] 計算機結構 (1)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2018-03-01
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#計算機結構" title="Category: 計算機結構" rel="category">計算機結構</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#計算機結構" title="Tag: 計算機結構" rel="tag">計算機結構</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一classes-of-computers" id="markdown-toc-一classes-of-computers">一、Classes of Computers</a>    <ul>
+      <li><a href="#1-desktop-computers" id="markdown-toc-1-desktop-computers">1. Desktop computers</a></li>
+      <li><a href="#2-server-computers" id="markdown-toc-2-server-computers">2. Server computers</a></li>
+      <li><a href="#3-embedded-computers" id="markdown-toc-3-embedded-computers">3. Embedded computers</a></li>
+    </ul>
+  </li>
+  <li><a href="#二understanding-performance" id="markdown-toc-二understanding-performance">二、Understanding Performance</a>    <ul>
+      <li><a href="#1-algorithm" id="markdown-toc-1-algorithm">1. Algorithm</a></li>
+      <li><a href="#2-programming-language-compiler-architecture" id="markdown-toc-2-programming-language-compiler-architecture">2. Programming language, compiler, architecture</a></li>
+      <li><a href="#3-processor-and-memory-system" id="markdown-toc-3-processor-and-memory-system">3. Processor and memory system</a></li>
+      <li><a href="#4-io-system-including-os" id="markdown-toc-4-io-system-including-os">4. I/O system (including OS)</a></li>
+    </ul>
+  </li>
+  <li><a href="#三below-your-program" id="markdown-toc-三below-your-program">三、Below your Program</a>    <ul>
+      <li><a href="#1-application-software" id="markdown-toc-1-application-software">1. Application software</a></li>
+      <li><a href="#2-system-software" id="markdown-toc-2-system-software">2. System software</a></li>
+      <li><a href="#3-hardware" id="markdown-toc-3-hardware">3. Hardware</a></li>
+    </ul>
+  </li>
+  <li><a href="#四levels-of-program-code" id="markdown-toc-四levels-of-program-code">四、Levels of Program Code</a>    <ul>
+      <li><a href="#1-high-level-language" id="markdown-toc-1-high-level-language">1. High-level language</a></li>
+      <li><a href="#2-assembly-language" id="markdown-toc-2-assembly-language">2. Assembly language</a></li>
+      <li><a href="#3-hardware-representation" id="markdown-toc-3-hardware-representation">3. Hardware representation</a></li>
+    </ul>
+  </li>
+  <li><a href="#五defining-performance" id="markdown-toc-五defining-performance">五、Defining Performance</a>    <ul>
+      <li><a href="#1-response-time" id="markdown-toc-1-response-time">1. Response time</a></li>
+      <li><a href="#2-throughput" id="markdown-toc-2-throughput">2. Throughput</a></li>
+    </ul>
+  </li>
+  <li><a href="#六relative-performance" id="markdown-toc-六relative-performance">六、Relative Performance</a></li>
+  <li><a href="#七measuring-execution-time" id="markdown-toc-七measuring-execution-time">七、Measuring Execution Time</a>    <ul>
+      <li><a href="#1-elapsed-time" id="markdown-toc-1-elapsed-time">1. Elapsed time</a></li>
+      <li><a href="#2-cpu-time" id="markdown-toc-2-cpu-time">2. CPU time</a></li>
+      <li><a href="#3-instruction-count-and-cpi" id="markdown-toc-3-instruction-count-and-cpi">3. Instruction Count and CPI</a></li>
+    </ul>
+  </li>
+  <li><a href="#八performance-summary" id="markdown-toc-八performance-summary">八、Performance Summary</a></li>
+</ul>
+
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Computer-Organization-And-Design_pages/blob/master/class-tutorial/20180301/Chapter-1-Computer-Abstractions-and-Technology.pdf">Chapter-1-Computer-Abstractions-and-Technology</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://ccckmit.wikidot.com/co:speed">計算機結構 - 速度的議題</a></li>
+      <li><a href="https://goo.gl/fW6rF6">GitBook - 組合語言與計算機組織</a>
+        <ul>
+          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/computer_abstractions_and_technology.html">Computer Abstractions and Technology</a></li>
+          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/performance.html">Performance</a></li>
+          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/cpu_time.html">CPU Time</a></li>
         </ul>
       </li>
-      <li><a href="#四-page-fault" id="markdown-toc-四-page-fault">(四) Page Fault</a>        <ul>
-          <li><a href="#1-aspects-of-demand-paging" id="markdown-toc-1-aspects-of-demand-paging">1. Aspects of Demand Paging</a></li>
-          <li><a href="#2-instruction-restart" id="markdown-toc-2-instruction-restart">2. Instruction Restart</a>            <ul>
-              <li><a href="#performance-of-demand-paging" id="markdown-toc-performance-of-demand-paging">Performance of Demand Paging</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#五-copy-on-write" id="markdown-toc-五-copy-on-write">(五) Copy-on-Write</a></li>
-      <li><a href="#六-page-replacement" id="markdown-toc-六-page-replacement">(六) Page Replacement</a>        <ul>
-          <li><a href="#1-what-happens-if-there-is-no-free-frame" id="markdown-toc-1-what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</a></li>
-          <li><a href="#2-basic-page-replacement" id="markdown-toc-2-basic-page-replacement">2. Basic Page Replacement</a></li>
-          <li><a href="#3-page-and-frame-replacement-algorithms" id="markdown-toc-3-page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</a>            <ul>
-              <li><a href="#1-first-in-first-out-fifo-algorithm" id="markdown-toc-1-first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</a></li>
-              <li><a href="#2-optimal-algorithm" id="markdown-toc-2-optimal-algorithm">(2) Optimal Algorithm</a></li>
-              <li><a href="#3-least-recently-used-lru-algorithm" id="markdown-toc-3-least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</a></li>
-              <li><a href="#4-lru-approximation-algorithms" id="markdown-toc-4-lru-approximation-algorithms">(4) LRU Approximation Algorithms</a></li>
-              <li><a href="#5-counting-algorithms" id="markdown-toc-5-counting-algorithms">(5) Counting Algorithms</a></li>
-              <li><a href="#6-page-buffering-algorithms" id="markdown-toc-6-page-buffering-algorithms">(6) Page-Buffering Algorithms</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
     </ul>
   </li>
 </ul>
 
-<h2 id="一作業系統">一、作業系統</h2>
+<h3 id="一classes-of-computers">一、Classes of Computers</h3>
+<h4 id="1-desktop-computers">1. Desktop computers</h4>
 <ul>
-  <li>課堂講義
+  <li>General purpose, variety of software.</li>
+  <li>Subject to <code class="highlighter-rouge">cost</code> / <code class="highlighter-rouge">performance</code> tradeoff.</li>
+</ul>
+
+<h4 id="2-server-computers">2. Server computers</h4>
+<ul>
+  <li>Network based.</li>
+  <li>High capacity, performance, reliability.</li>
+  <li>Range from small servers to building sized.</li>
+</ul>
+
+<h4 id="3-embedded-computers">3. Embedded computers</h4>
+<ul>
+  <li>Hidden as components of systems.</li>
+  <li>Stringent <code class="highlighter-rouge">power</code> / <code class="highlighter-rouge">performance</code> / <code class="highlighter-rouge">cost</code> constraints.</li>
+</ul>
+
+<h3 id="二understanding-performance">二、Understanding Performance</h3>
+<h4 id="1-algorithm">1. Algorithm</h4>
+<ul>
+  <li>Determine number of operations executed.</li>
+</ul>
+
+<h4 id="2-programming-language-compiler-architecture">2. Programming language, compiler, architecture</h4>
+<ul>
+  <li>Determine number of machine instructions executed per operation.</li>
+</ul>
+
+<h4 id="3-processor-and-memory-system">3. Processor and memory system</h4>
+<ul>
+  <li>Determine how fast instructions are executed.</li>
+</ul>
+
+<h4 id="4-io-system-including-os">4. I/O system (including OS)</h4>
+<ul>
+  <li>Determines how fast I/O operations are executed.</li>
+</ul>
+
+<h3 id="三below-your-program">三、Below your Program</h3>
+<p><img src="https://i.imgur.com/jbQSrpv.jpg" alt="" /></p>
+
+<h4 id="1-application-software">1. Application software</h4>
+<ul>
+  <li>Written in high-level language.</li>
+</ul>
+
+<h4 id="2-system-software">2. System software</h4>
+<ul>
+  <li>Compiler: translates HLL code to machine code.</li>
+</ul>
+
+<h4 id="3-hardware">3. Hardware</h4>
+<ul>
+  <li>Processor, memory, I/O controllers</li>
+</ul>
+
+<h3 id="四levels-of-program-code">四、Levels of Program Code</h3>
+<h4 id="1-high-level-language">1. High-level language</h4>
+<ul>
+  <li>Level of abstraction closer to problem domain.</li>
+  <li>Provides for productivity and portability.</li>
+</ul>
+
+<h4 id="2-assembly-language">2. Assembly language</h4>
+<ul>
+  <li>Textual representation of instrctions.</li>
+</ul>
+
+<h4 id="3-hardware-representation">3. Hardware representation</h4>
+<ul>
+  <li>Binary digits (bits).</li>
+  <li>Encoded instructions and data.</li>
+</ul>
+
+<h3 id="五defining-performance">五、Defining Performance</h3>
+<h4 id="1-response-time">1. Response time</h4>
+<ul>
+  <li>How long it takes to do a task.</li>
+</ul>
+
+<h4 id="2-throughput">2. Throughput</h4>
+<ul>
+  <li>Total work done per unit time.
     <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170608/ch09.pdf">Chapter 9: Virtual-Memory Management</a></li>
+      <li>e.g. <strong>tasks</strong> / <strong>transactions</strong> / … per hour</li>
     </ul>
   </li>
 </ul>
 
-<h3 id="一-background">(一) Background</h3>
+<h3 id="六relative-performance">六、Relative Performance</h3>
+<p><img src="https://i.imgur.com/QCzLpUf.jpg" alt="" /></p>
+
 <ul>
-  <li>Code needs to be in memory to execute, but entire program rarely used
-    <ul>
-      <li>Error code, unusual routines, large data structures</li>
-    </ul>
-  </li>
-  <li>Entire program code not needed at same time</li>
-  <li>Consider ability to execute partially-loaded program
-    <ul>
-      <li>Program no longer constrained by limits of physical memory</li>
-      <li>Program and programs could be larger than physical memory</li>
-    </ul>
-  </li>
-  <li><strong>Virtual memory</strong> – separation of user logical memory from physical memory
-    <ul>
-      <li>Only part of the program needs to be in memory for execution</li>
-      <li>Logical address space can therefore be much larger than physical address space</li>
-      <li>Allows address spaces to be shared by several processes</li>
-      <li>Allows for more efficient process creation</li>
-      <li>More programs running concurrently</li>
-      <li>Less I/O needed to load or swap processes</li>
-    </ul>
-  </li>
-  <li>Virtual memory can be implemented via
-    <ul>
-      <li>Demand paging</li>
-      <li>Demand segmentation</li>
-    </ul>
-  </li>
+  <li>X is n time faster than Y</li>
 </ul>
 
-<h3 id="二-virtual-address-space">(二) Virtual Address Space</h3>
-<p><img src="http://i.imgur.com/DkDhsAx.jpg" alt="" /></p>
+<p><img src="https://i.imgur.com/mQHfgdK.jpg" alt="" /></p>
 
+<h3 id="七measuring-execution-time">七、Measuring Execution Time</h3>
+<h4 id="1-elapsed-time">1. Elapsed time</h4>
 <ul>
-  <li>Enables <strong>sparse</strong> address spaces with holes left for growth, dynamically linked libraries, etc</li>
-  <li>System libraries shared via mapping into virtual address space</li>
-  <li>Shared memory by mapping pages read-write into virtual address space</li>
-  <li>Pages can be shared during <code class="highlighter-rouge">fork()</code>, speeding process creation</li>
-</ul>
-
-<p><img src="http://i.imgur.com/3jsjqeH.png" alt="" /></p>
-
-<h3 id="三-demand-paging">(三) Demand Paging</h3>
-<ul>
-  <li>Could bring entire process into memory at load time</li>
-  <li>Or bring a page into memory only when it is needed
+  <li>Total response time, including all aspects
     <ul>
-      <li>Less I/O needed, no unnecessary I/O</li>
-      <li>Less memory needed</li>
-      <li>Faster response</li>
-      <li>More users</li>
+      <li>Processing, I/O, OS overhead, idle time.</li>
     </ul>
   </li>
-  <li>Page is needed » reference to it
-    <ul>
-      <li>invalid reference » abort</li>
-      <li>not-in-memory » bring to memory</li>
-    </ul>
-  </li>
-  <li><strong>Lazy swapper</strong> – never swaps a page into memory unless page will be needed
-    <ul>
-      <li>Swapper that deals with pages is a <strong>pager</strong></li>
-    </ul>
-  </li>
+  <li>Determines system performance</li>
 </ul>
 
-<p><img src="https://i.imgur.com/aLRTern.png" alt="" /></p>
+<h4 id="2-cpu-time">2. CPU time</h4>
+<p><img src="https://i.imgur.com/ThOhi5q.jpg" alt="" /></p>
 
-<h4 id="1-valid-invalid-bit">1. Valid-Invalid Bit</h4>
 <ul>
-  <li>With each page table entry a valid–invalid bit is associated (<strong>v</strong> » in-memory – <strong>memory resident</strong>, <strong>i</strong> » not-in-memory)</li>
-  <li>Initially valid–invalid bit is set to <strong>i</strong> on all entries</li>
-</ul>
-
-<p><img src="https://i.imgur.com/0Fk929T.jpg" alt="" /></p>
-
-<h4 id="2-example">2. Example</h4>
-<ul>
-  <li>Memory access time = 200 nanoseconds</li>
-  <li>Average page-fault service time = 8 milliseconds
+  <li>CPU Time Example
     <blockquote>
-      <p>EAT = (1 – p) x 200 + p (8 milliseconds)
-= (1 – p) x 200 + p x 8,000,000
-= 200 + p x 7,999,800</p>
+      <p><img src="https://i.imgur.com/p0FUEbd.jpg" alt="" /></p>
     </blockquote>
   </li>
-  <li>If one access out of 1,000 causes a page fault, then EAT = 8.2 microseconds. (This is a slowdown by a factor of 40)</li>
-  <li>If want performance degradation &lt; 10 percent
-    <ul>
-      <li>220 &gt; 200 + 7,999,800 x p</li>
-      <li>20 &gt; 7,999,800 x p</li>
-      <li>p &lt; .0000025 (&lt; one page fault in every 400,000 memory accesses)</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="3-optimizations">3. Optimizations</h4>
-<ul>
-  <li>Copy entire process image to swap space at process load time
-    <ul>
-      <li>Then page in and out of swap space</li>
-      <li>Used in older BSD Unix</li>
-    </ul>
-  </li>
-  <li>Demand page in from program binary on disk, but discard rather than paging out when freeing frame
-    <ul>
-      <li>Used in Solaris and current BSD</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="四-page-fault">(四) Page Fault</h3>
-<ul>
-  <li>If there is a reference to a page, first reference to that page will trap to operating system
-    <ul>
-      <li><strong>page fault</strong></li>
-    </ul>
-  </li>
-  <li>Operating system looks at another table to decide
-    <ul>
-      <li>Invalid reference » abort</li>
-      <li>Just not in memory</li>
-    </ul>
-  </li>
-  <li>Get empty frame</li>
-  <li>Swap page into frame via scheduled disk operation</li>
-  <li>Reset tables to indicate page now in memory Set validation bit = <strong>v</strong></li>
-  <li>Restart the instruction that caused the page fault</li>
-</ul>
-
-<p><img src="https://i.imgur.com/98V6oNY.png" alt="" /></p>
-
-<h4 id="1-aspects-of-demand-paging">1. Aspects of Demand Paging</h4>
-<ul>
-  <li>Extreme case – start process with no pages in memory
-    <ul>
-      <li>OS sets instruction pointer to first instruction of process, non-memory-resident -&gt; page fault</li>
-      <li>And for every other process pages on first access</li>
-      <li><strong>Pure demand paging</strong></li>
-    </ul>
-  </li>
-  <li>Actually, a given instruction could access multiple pages -&gt; multiple page faults
-    <ul>
-      <li>Pain decreased because of <strong>locality of reference</strong></li>
-    </ul>
-  </li>
-  <li>Hardware support needed for demand paging
-    <ul>
-      <li>Page table with valid / invalid bit</li>
-      <li>Secondary memory (swap device with <strong>swap space</strong>)</li>
-      <li>Instruction restart</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="2-instruction-restart">2. Instruction Restart</h4>
-<ul>
-  <li>Consider an instruction that could access several different locations
-    <ul>
-      <li>block move</li>
-      <li>auto increment/decrement location</li>
-      <li>Restart the whole operation?
-        <ul>
-          <li>What if source and destination overlap?</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h5 id="performance-of-demand-paging">Performance of Demand Paging</h5>
-<ul>
-  <li>Stages in Demand Paging
+  <li><strong>Performance improved</strong>
     <blockquote>
       <ol>
-        <li>Trap to the operating system</li>
-        <li>Save the user registers and process state</li>
-        <li>Determine that the interrupt was a page fault</li>
-        <li>Check that the page reference was legal and determine the location of the page on the disk</li>
-        <li>Issue a read from the disk to a free frame:
-(1) Wait in a queue for this device until the read request is serviced
-(2) Wait for the device seek and/or latency time
-(3) Begin the transfer of the page to a free frame</li>
-        <li>While waiting, allocate the CPU to some other user</li>
-        <li>Receive an interrupt from the disk I/O subsystem (I/O completed)</li>
-        <li>Save the registers and process state for the other user</li>
-        <li>Determine that the interrupt was from the disk</li>
-        <li>Correct the page table and other tables to show page is now in memory</li>
-        <li>Wait for the CPU to be allocated to this process again</li>
-        <li>Restore the user registers, process state, and new page table, and then resume the interrupted instruction</li>
+        <li>Reducing number of clock cycles.</li>
+        <li>Increasing clock rate.</li>
+        <li>Hardware designer must often trade off clock rate against cycle count.</li>
       </ol>
     </blockquote>
   </li>
 </ul>
 
-<p><img src="https://i.imgur.com/HA817pb.png" alt="" /></p>
-
-<h3 id="五-copy-on-write">(五) Copy-on-Write</h3>
+<h4 id="3-instruction-count-and-cpi">3. Instruction Count and CPI</h4>
 <ul>
-  <li><strong>Copy-on-Write</strong> (COW) allows both parent and child processes to initially share the same pages in memory
-    <ul>
-      <li>If either process modifies a shared page, only then is the page copied</li>
-    </ul>
-  </li>
-  <li>COW allows more efficient process creation as only modified pages are copied</li>
-  <li>In general, free pages are allocated from a <strong>pool</strong> of <strong>zero-fill-on-demand</strong> pages
-    <ul>
-      <li>Why zero-out a page before allocating it?</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">vfork()</code> variation on <code class="highlighter-rouge">fork()</code> system call has parent suspend and child using copy-on-write address space of parent
-    <ul>
-      <li>Designed to have child call <code class="highlighter-rouge">exec()</code></li>
-      <li>Very efficient</li>
-    </ul>
-  </li>
+  <li><code class="highlighter-rouge">Instruction Count</code>：指令個數</li>
+  <li><code class="highlighter-rouge">CPI</code>：每一個指令需要執行多少個週期 (cycle per instruction)</li>
 </ul>
 
-<p><img src="http://i.imgur.com/LABMPPo.jpg" alt="" /></p>
-
-<h3 id="六-page-replacement">(六) Page Replacement</h3>
-<ul>
-  <li>Prevent over-allocation of memory by modifying page-fault service routine to include page replacement</li>
-  <li>Use <strong>modify (dirty) bit</strong> to reduce overhead of page transfers – only modified pages are written to disk</li>
-  <li>Page replacement completes separation between logical memory and physical memory – large virtual memory can be provided on a smaller physical memory</li>
-</ul>
-
-<h4 id="1-what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</h4>
-<ul>
-  <li>Used up by process pages</li>
-  <li>Also in demand from the kernel, I/O buffers, etc</li>
-  <li>How much to allocate to each?</li>
-  <li>Page replacement – find some page in memory, but not really in use, page it out
-    <ul>
-      <li>Algorithm – terminate? swap out? replace the page?</li>
-      <li>Performance – want an algorithm which will result in minimum number of page faults</li>
-    </ul>
-  </li>
-  <li>Same page may be brought into memory several times</li>
-</ul>
-
-<p><img src="https://i.imgur.com/eFpQyPv.png" alt="" /></p>
-
-<h4 id="2-basic-page-replacement">2. Basic Page Replacement</h4>
-<blockquote>
-  <ol>
-    <li>Find the location of the desired page on disk</li>
-    <li>Find a free frame:
-      <blockquote>
-        <p>a. If there is a free frame, use it
-b. If there is no free frame, use a page replacement algorithm to select a <strong>victim frame</strong>
-c. Write victim frame to disk if dirty</p>
-      </blockquote>
-    </li>
-    <li>Bring the desired page into the (newly) free frame; update the page and frame tables</li>
-    <li>Continue the process by restarting the instruction that caused the trap
-      <ul>
-        <li>Note now potentially 2 page transfers for page fault – increasing EAT</li>
-      </ul>
-    </li>
-  </ol>
-</blockquote>
-
-<p><img src="https://i.imgur.com/Hm6MvuN.png" alt="" /></p>
-
-<h4 id="3-page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</h4>
-<ul>
-  <li><strong>Frame-allocation algorithm</strong> determines
-    <ul>
-      <li>How many frames to give each process</li>
-      <li>Which frames to replace</li>
-    </ul>
-  </li>
-  <li><strong>Page-replacement algorithm</strong>
-    <ul>
-      <li>Want lowest page-fault rate on both first access and re-access</li>
-    </ul>
-  </li>
-  <li>Evaluate algorithm by running it on a particular string of memory references (reference string) and computing the number of page faults on that string
-    <ul>
-      <li>String is just page numbers, not full addresses</li>
-      <li>Repeated access to the same page does not cause a page fault</li>
-    </ul>
-  </li>
-</ul>
-
-<h5 id="1-first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</h5>
-<p><img src="https://i.imgur.com/cSezcCO.png" alt="" />
-<img src="https://i.imgur.com/NVa4BTe.png" alt="" />
-<img src="https://i.imgur.com/6VeXbGw.png" alt="" /></p>
-
-<h5 id="2-optimal-algorithm">(2) Optimal Algorithm</h5>
-<ul>
-  <li>Replace page that will not be used for longest period of time
-    <ul>
-      <li>9 is optimal for the example on the next slide</li>
-    </ul>
-  </li>
-  <li>How do you know this?
-    <ul>
-      <li>Can’t read the future</li>
-    </ul>
-  </li>
-  <li>Used for measuring how well your algorithm performs</li>
-</ul>
-
-<p><img src="https://i.imgur.com/1jc2ngr.png" alt="" /></p>
-
-<h5 id="3-least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</h5>
-<ul>
-  <li>Use past knowledge rather than future</li>
-  <li>Replace page that has not been used in the most amount of time</li>
-  <li>Associate time of last use with each page</li>
-</ul>
-
-<p><img src="https://i.imgur.com/RiLxhrF.png" alt="" /></p>
+<p><img src="https://i.imgur.com/7YA28w1.jpg" alt="" /></p>
 
 <ul>
-  <li>Counter implementation
-    <ul>
-      <li>Every page entry has a counter; every time page is referenced through this entry, copy the clock into the counter</li>
-      <li>When a page needs to be changed, look at the counters to find smallest value
-        <ul>
-          <li>Search through table needed</li>
-        </ul>
-      </li>
-    </ul>
+  <li>CPI Example
+    <blockquote>
+      <p><img src="https://i.imgur.com/6sLnWxw.jpg" alt="" /></p>
+    </blockquote>
   </li>
-  <li>Stack implementation
-    <ul>
-      <li>Keep a stack of page numbers in a double link form:</li>
-      <li>Page referenced:
-        <ul>
-          <li>move it to the top</li>
-          <li>requires 6 pointers to be changed</li>
-        </ul>
-      </li>
-      <li>But each update more expensive</li>
-      <li>No search for replacement</li>
-    </ul>
-  </li>
-  <li>LRU and OPT are cases of <strong>stack algorithms</strong> that don’t have Belady’s Anomaly</li>
 </ul>
 
-<p><img src="http://i.imgur.com/yvsGPvm.jpg" alt="" /></p>
-
-<h5 id="4-lru-approximation-algorithms">(4) LRU Approximation Algorithms</h5>
+<h3 id="八performance-summary">八、Performance Summary</h3>
 <ul>
-  <li>LRU needs special hardware and still slow</li>
-  <li><strong>Reference bit</strong>
-    <ul>
-      <li>With each page associate a bit, initially = 0</li>
-      <li>When page is referenced bit set to 1</li>
-      <li>Replace any with reference bit = 0 (if one exists)
-        <ul>
-          <li>We do not know the order, however</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Second-chance algorithm</strong>
-    <ul>
-      <li>Generally FIFO, plus hardware-provided reference bit</li>
-      <li>Clock replacement</li>
-      <li>If page to be replaced has
-        <ul>
-          <li>Reference bit = 0 -&gt; replace it</li>
-          <li>reference bit = 1 then:
-            <ul>
-              <li>set reference bit 0, leave page in memory</li>
-              <li>replace next page, subject to same rules</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="http://i.imgur.com/jInNXqt.png" alt="" /></p>
-
-<h5 id="5-counting-algorithms">(5) Counting Algorithms</h5>
-<ul>
-  <li>Keep a counter of the number of references that have been made to each page
-    <ul>
-      <li>Not common</li>
-    </ul>
-  </li>
-  <li><strong>LFU Algorithm</strong>: replaces page with smallest count</li>
-  <li><strong>MFU Algorithm</strong>: based on the argument that the page with the smallest count was probably just brought in and has yet to be used</li>
-</ul>
-
-<h5 id="6-page-buffering-algorithms">(6) Page-Buffering Algorithms</h5>
-<ul>
-  <li>Keep a pool of free frames, always
-    <ul>
-      <li>Then frame available when needed, not found at fault time</li>
-      <li>Read page into free frame and select victim to evict and add to free pool</li>
-      <li>When convenient, evict victim</li>
-    </ul>
-  </li>
-  <li>Possibly, keep list of modified pages
-    <ul>
-      <li>When backing store otherwise idle, write pages there and set to non-dirty</li>
-    </ul>
-  </li>
-  <li>Possibly, keep free frame contents intact and note what is in them
-    <ul>
-      <li>If referenced again before reused, no need to load contents again from disk</li>
-      <li>Generally useful to reduce penalty if wrong victim frame selected</li>
-    </ul>
-  </li>
-</ul>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/06/08/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/06/07/university_choice/">20170607 [有感而發] 一切都只是選擇，那你自己的戰場是什麼？</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-06-07
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#未分類" title="Category: 未分類" rel="category">未分類</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#心情記事" title="Tag: 心情記事" rel="tag">心情記事</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一前言" id="markdown-toc-一前言">一、前言</a></li>
-  <li><a href="#二想像與實際的落差" id="markdown-toc-二想像與實際的落差">二、想像與實際的落差</a>    <ul>
-      <li><a href="#1如何去定義學業" id="markdown-toc-1如何去定義學業">1.如何去定義「學業」？</a></li>
-      <li><a href="#一-你就是不自覺地被吸引" id="markdown-toc-一-你就是不自覺地被吸引">(一) 你就是不自覺地被吸引</a></li>
-      <li><a href="#二-源自於內心的動機體現於實際的行為上" id="markdown-toc-二-源自於內心的動機體現於實際的行為上">(二) 源自於內心的動機，體現於實際的行為上</a></li>
-      <li><a href="#三-何來兼顧" id="markdown-toc-三-何來兼顧">(三) 何來兼顧？</a></li>
-      <li><a href="#2對於大學的期望" id="markdown-toc-2對於大學的期望">2.對於大學的「期望」？</a></li>
-    </ul>
-  </li>
-  <li><a href="#三理念未必能夠被理解" id="markdown-toc-三理念未必能夠被理解">三、理念，未必能夠被理解</a></li>
-</ul>
-
-<h2 id="一前言">一、前言</h2>
-<p>先前在 Dcard 看到這篇文章，在內容中作者表達了對於“活動”的看法：</p>
-
-<p><a href="https://goo.gl/xormkV">各種活動</a></p>
-
-<p>在看完的當下沒有特別的感覺。但隨著時間過去，那篇文章像顆石頭投入湖中一樣，在腦海中蕩起了漣漪…於是便起了個念頭，將心裡的想法做個整理。</p>
-
-<h2 id="二想像與實際的落差">二、想像與實際的落差</h2>
-<p>在台灣的教育制度裡面，普通學生從國小、國中、高中一路唸上來，終於到了大學的階段；當年的我也是一樣照著這既定的劇本走了上來，並沒有多餘的想法。我只想著︰「我想要讀資工，該怎麼樣才能考上第一志願？」之後到了高雄唸書，當年的我仍滿心期待地想要在系上「學好學滿」，也打算投注精力在課業上，到最後才發現期待落空…</p>
-
-<p>(詳細的過程請看：<a href="https://goo.gl/CsTBCv">https://goo.gl/CsTBCv</a>)</p>
-
-<p>就整體而言 <a href="https://goo.gl/xormkV">各種活動</a> 這篇文章沒什麼問題。雖然沒有明講，但是不難看出作者暗中導入了 <strong>「學業為主，其他的為輔」</strong> 這個思考框架。在此我不會探討這篇文章裡的其他觀點，僅就這個思考框架進行討論。 <strong>用這個框架去思考事情沒有什麼問題，但是這適用於所有人嗎？</strong> 我認為得先釐清兩件事情：</p>
-
-<ul>
-  <li>何謂「學業」？</li>
-  <li>你對大學的「期望」是什麼？</li>
-</ul>
-
-<h3 id="1如何去定義學業">1.如何去定義「學業」？</h3>
-
-<p>「正常作息」、「該上的課，該做的事」、「本末倒置」…這些想法其實都是建立在 <strong>當事人既定的價值觀</strong> 之上來探討的；但其實每個人在大學期間想要學習、嘗試的都不一樣。</p>
-
-<p>一味用自己的價值觀來衡量別人的「作息是否正常」(有人一天只睡4小時就飽了)、「該做的事情」、「行為是否本末倒置」…，未免過於狹隘。</p>
-
-<p>學業是什麼？它僅止於所謂書本上的知識嗎？它可以被量化嗎？</p>
-
-<blockquote>
-  <p>狹義的學習，指的即是學生的學習。在各類學校環境中，在教師的指導下，有目的、有計劃、有組織地進行的，是在較短的時間內系統地接受前人積累的文化經驗，以發展個人的知識技能，形成符合社會期望的道德品質的過程。
-《原文網址》https://read01.com/xQ26k5.html</p>
-</blockquote>
-
-<p>我的看法是：「任何你應該知道的、想學習的，其實都是 <strong>學業</strong> 的一部分。」至於內容是什麼，這因人而異。但是我相信很多人並不知道自己要的是什麼，因為根本就沒有人引導你思考這個問題。</p>
-
-<p><strong>「沒思考過又怎麼樣呢？」</strong> 不怎麼樣，但是帶給周遭人的感覺就是不一樣。</p>
-
-<h3 id="一-你就是不自覺地被吸引">(一) 你就是不自覺地被吸引</h3>
-<p>回顧一下日常生活，你的目光總是會不自覺地被某些人吸引。「因為他的穿著，很難不讓人注意到他。」、「我之前就久仰他的大名了，想要前來一睹風采。」、「為什麼他的談吐那麼有趣？」、「從他的肢體動作可以感覺到，他很有自信。」…那群人總是有辦法在任何時候成為眾人目光的焦點。 <strong>但這究竟是為什麼？</strong></p>
-
-<h3 id="二-源自於內心的動機體現於實際的行為上">(二) 源自於內心的動機，體現於實際的行為上</h3>
-<p>「我就是想要嘗試一下以前從未試過的事情。」、「不知道為什麼，但是我想像他一樣。」、「自從認識他們之後，我也想要改變自己，但是該怎麼做？」於是你開始參與校外活動、在社團擔任幹部…，期望的是一個蛻變的契機。而在過程中你得到了心目中所期望的東西，與過去的自己相比變得判若兩人。這樣的過程不也是學業的一環嗎？</p>
-
-<h3 id="三-何來兼顧">(三) 何來兼顧？</h3>
-<p>相信各位都耳熟能詳的一段話：「大學時期的三大學分 <strong>“課業、社團、愛情”</strong> 。」這三門學分，你修得如何？
-「課業才是學生的本分，想要參與社團或是校外活動不是不行；若你無法兼顧課業，還是得回歸“本分”。」(哦，是這樣嗎？)</p>
-
-<p>事實上學生的本分不該只框限在課業上面，也根本就沒有所謂“兼顧”這一回事。但是為什麼課業以外的東西卻總是被矮化為 “本分之餘” 才要去完成的東西？</p>
-
-<p>我推測這是源自於過去「萬般皆下品，唯有讀書高」的價值觀在社會裡根深蒂固所致。(獲取知識的重要性毋庸置疑，但你知道為何而讀嗎？難道只有從系上課業才能獲取知識嗎？)</p>
-
-<p>有一部發人省思的影片可以作為參考 (這沒有標準答案)：<a href="https://www.youtube.com/watch?v=a0G2gl7X1pA">https://www.youtube.com/watch?v=a0G2gl7X1pA</a></p>
-
-<p>「任何你應該知道的、想學習的，其實都是 <strong>學業</strong> 的一部分。」沒有在學生時期領悟這些道理，最後就只能等到出社會後才能去學習 (並非不行，只是學習的成本將會隨著你出社會的那一刻起日益增加)；你決定投注精力在哪一方面，成果就會呈現在那個方向的道路上 (想要投注多少、在哪些面向上下功夫都沒有對錯)。</p>
-
-<p>出自於自己的決定，結果終究得由自己承擔。</p>
-
-<p>在大學以前的歲月，大多數人都在家人的編織的保護傘下成長。接下來我們得離開這把傘，在傘外的世界追尋方向的同時，也得學會面對自己。</p>
-
-<p><strong>一切都只是選擇，也是時候該為自己的選擇負起責任了。</strong></p>
-
-<h3 id="2對於大學的期望">2.對於大學的「期望」？</h3>
-
-<p>當你在踏入大學階段時期才發現「現實的環境無法滿足你原先的期望」，此時你會怎麼做？
-<strong>(1) 轉換環境</strong>：轉系、休(退)學、轉學，亦可以直接去工作。</p>
-
-<p><strong>(2) 維持現況</strong>：就這樣漫無目的等到畢業，去拿 A4 收據。</p>
-
-<p><strong>(3) 改變環境</strong>：把環境變得符合自己的「期望」。</p>
-
-<p><strong>(4) 調整戰場</strong>：在既有條件之下調整學習目標，把學校的資源挖得一乾二淨、同時去另尋資源滿足「期望」。</p>
-
-<p>要如何做出上述的選擇？其實這得視由自己在當下的期望和條件來決定。以我的狀況來說，(1)、(3)要付出的成本太大，(2)亦不符合我的人格特質。</p>
-
-<p>於是我選擇(4)。</p>
-
-<p>除了從大一時期就開始的社團生活之外，我在大二開始逐漸發現學校體制並不符合我的期望、大三已對在學校體制內學習這件事情不抱持希望。<strong>扣除社團和基本的“食衣住行育樂”，基本上我都在 “自學”。</strong></p>
-
-<p>我曾經被問過：<strong>「既然環境不符合你當下的目標，怎麼不直接轉系？」</strong> 原因其實很簡單。</p>
-
-<p>《第一》校內轉系的難度和門檻太高，而當下的我成績達不到轉系的門檻。</p>
-
-<p>《第二》目前所在的科系 <strong>“並非完全”</strong> 和我的目標脫節，只不過我們身在其中的環境體制 <strong>極度不友善</strong>。</p>
-
-<p>何謂不友善？除了體制缺乏彈性，另一部份就是師資的問題。</p>
-
-<p>扣除掉教學認真的老師之外，我真的不知道某些老師在上課時到底在講三小；其實不知道老師上課時在講什麼也就算了，甚至可能還會遇到一些根本沒有為人師表自覺，只是用 “教授” 這個職銜藉由來欺壓學生來滿足自己虛榮的人。</p>
-
-<p>於是我便 “選擇性” 的放掉沒興趣的科目，將那些時間轉去鑽研自己真正有興趣的領域。或許在未來那些被我 “放掉” 的科目還是會在人生的某個階段遇到，但是求學的路這麼長 (不僅在於學校)，先從有興趣的開始學習，總比從沒有興趣的開始要容易的多吧？</p>
-
-<h2 id="三理念未必能夠被理解">三、理念，未必能夠被理解</h2>
-
-<p>之所以會有這麼多人(包括我自己)願意在大學時期投注心力在“課業”以外的事情，是因為他們從中獲得了某些東西，進而對他們產生了正面的影響。</p>
-
-<p>這篇文章的觀點很有意思。</p>
-
-<p><a href="https://www.facebook.com/makarove.iluete/posts/1503318633074386">誰給的出尊嚴，誰就能留住人</a></p>
-
-<p><strong>他們未必要求什麼回報，心中所想的也未必能被他人所理解。</strong></p>
-
-<p>這些人不一定是因為在課業上無法獲得成就才轉換戰場；相反的，他們的表現比起普通學生都還要來的活躍亮眼。我想這也就是為什麼人們會不自覺被他們所吸引的原因吧。</p>
-
-<p><strong>希望各位從中受益的人們，能夠願意給予這些不吝投注課外活動、為這個環境帶來正向改變的社團人，一個鼓勵和掌聲。</strong></p>
-
-<p><strong>正是因為這些人的存在，讓這個枯燥無趣世界擁有了更多的可能性。</strong></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/06/07/university_choice/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-06-01
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#一-paging" id="markdown-toc-一-paging">(一) Paging</a></li>
-      <li><a href="#二-address-translation-scheme" id="markdown-toc-二-address-translation-scheme">(二) Address Translation Scheme</a></li>
-      <li><a href="#三-implementation-of-page-table" id="markdown-toc-三-implementation-of-page-table">(三) Implementation of Page Table</a></li>
-      <li><a href="#四-effective-access-time" id="markdown-toc-四-effective-access-time">(四) Effective Access Time</a></li>
-      <li><a href="#五-memory-protection" id="markdown-toc-五-memory-protection">(五) Memory Protection</a></li>
-      <li><a href="#六-shared-pages" id="markdown-toc-六-shared-pages">(六) Shared Pages</a></li>
-      <li><a href="#七-structure-of-the-page-table" id="markdown-toc-七-structure-of-the-page-table">(七) Structure of the Page Table</a>        <ul>
-          <li><a href="#hierarchical-page-tables" id="markdown-toc-hierarchical-page-tables">Hierarchical Page Tables</a></li>
-          <li><a href="#two-level-page-table-scheme" id="markdown-toc-two-level-page-table-scheme">Two-Level Page-Table Scheme</a></li>
-          <li><a href="#three-level-paging-scheme" id="markdown-toc-three-level-paging-scheme">Three-level Paging Scheme</a></li>
-          <li><a href="#hashed-page-tables" id="markdown-toc-hashed-page-tables">Hashed Page Tables</a></li>
-          <li><a href="#inverted-page-table" id="markdown-toc-inverted-page-table">Inverted Page Table</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="一作業系統">一、作業系統</h2>
-<ul>
-  <li>課堂講義
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170601/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="一-paging">(一) Paging</h3>
-<ul>
-  <li>Physical address space of a process can be noncontiguous; process is allocated physical memory whenever the latter is available
-    <ul>
-      <li>Avoids external fragmentation</li>
-      <li>Avoids problem of varying sized memory chunks</li>
-    </ul>
-  </li>
-  <li>Divide physical memory into fixed-sized blocks called <strong>frames</strong>
-    <ul>
-      <li>Size is power of 2, between 512 bytes and 16 Mbytes</li>
-    </ul>
-  </li>
-  <li>Divide logical memory into blocks of same size called <strong>pages</strong></li>
-  <li>Keep track of all free frames</li>
-  <li>To run a program of size <code class="highlighter-rouge">N</code> pages, need to find <code class="highlighter-rouge">N</code> free frames and load program</li>
-  <li>Set up a page table to translate logical to physical addresses</li>
-  <li>Backing store likewise split into pages</li>
-  <li>Still have Internal fragmentation</li>
-  <li>Calculating internal fragmentation
-    <ul>
-      <li>Page size = 2,048 bytes</li>
-      <li>Process size = 72,766 bytes</li>
-      <li>35 pages + 1,086 bytes</li>
-      <li>Internal fragmentation of 2,048 - 1,086 = 962 bytes</li>
-      <li>On average fragmentation = 1 / 2 frame size</li>
-      <li>So small frame sizes desirable?</li>
-      <li>But each page table entry takes memory to track</li>
-      <li>Page sizes growing over time
-        <ul>
-          <li>Solaris supports two page sizes – 8 KB and 4 MB</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Process view and physical memory now very different</li>
-  <li>By implementation process can only access its own memory</li>
-</ul>
-
-<h3 id="二-address-translation-scheme">(二) Address Translation Scheme</h3>
-<p><img src="http://i.imgur.com/rbuMKKY.png" alt="" /></p>
-
-<ul>
-  <li>Address generated by CPU is divided into
-    <ul>
-      <li><strong>Page number <code class="highlighter-rouge">p</code></strong> – used as an index into a <strong>page table</strong> which contains base address of each page in physical memory</li>
-      <li><strong>Page offset <code class="highlighter-rouge">d</code></strong> – combined with base address to define the physical memory address that is sent to the memory unit</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="http://i.imgur.com/hY3zgAC.png" alt="" />
-<img src="http://i.imgur.com/ASgBcxX.png" alt="" />
-<img src="https://i.imgur.com/tLepGb4.png" alt="" /></p>
-
-<h3 id="三-implementation-of-page-table">(三) Implementation of Page Table</h3>
-<ul>
-  <li>Page table is kept in main memory</li>
-  <li><strong>Page-table base register (PTBR)</strong> points to the page table</li>
-  <li><strong>Page-table length register (PTLR)</strong> indicates size of the page table</li>
-  <li>In this scheme every data/instruction access requires two memory accesses
-    <ul>
-      <li>One for the page table and one for the data / instruction</li>
-    </ul>
-  </li>
-  <li>The two memory access problem can be solved by the use of a special fast-lookup hardware cache called <strong>associative memory</strong> or <strong>translation look-aside buffers (TLBs)</strong></li>
-  <li>Some TLBs store <strong>address-space identifiers (ASIDs)</strong> in each TLB entry – uniquely identifies each process to provide address-space protection for that process
-    <ul>
-      <li>Otherwise need to flush at every context switch</li>
-    </ul>
-  </li>
-  <li>TLBs typically small (64 to 1,024 entries)</li>
-  <li>On a TLB miss, value is loaded into the TLB for faster access next time
-    <ul>
-      <li>Replacement policies must be considered</li>
-      <li>Some entries can be <strong>wired down</strong> for permanent fast access</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/aH3Zg2J.png" alt="" />
-<img src="https://i.imgur.com/923AOvB.png" alt="" /></p>
-
-<h3 id="四-effective-access-time">(四) Effective Access Time</h3>
-<p><img src="https://i.imgur.com/Y0mMzTR.png" alt="" /></p>
-
-<h3 id="五-memory-protection">(五) Memory Protection</h3>
-<ul>
-  <li>Memory protection implemented by associating protection bit with each frame to indicate if read-only or read-write access is allowed
-    <ul>
-      <li>Can also add more bits to indicate page execute-only, and so on</li>
-    </ul>
-  </li>
-  <li><strong>Valid-invalid</strong> bit attached to each entry in the page table
-    <ul>
-      <li><code class="highlighter-rouge">valid</code> indicates that the associated page is in the process’ logical address space, and is thus a legal page</li>
-      <li><code class="highlighter-rouge">invalid</code> indicates that the page is not in the process’ logical address space</li>
-      <li>Or use <strong>page-table length register (PTLR)</strong></li>
-    </ul>
-  </li>
-  <li>Any violations result in a trap to the kernel</li>
-</ul>
-
-<p><img src="http://i.imgur.com/3UtvoGB.png" alt="" /></p>
-
-<h3 id="六-shared-pages">(六) Shared Pages</h3>
-<ul>
-  <li><strong>Shared code</strong>
-    <ul>
-      <li>One copy of read-only (<strong>reentrant</strong>) code shared among processes (i.e., text editors, compilers, window systems)</li>
-      <li>Similar to multiple threads sharing the same process space</li>
-      <li>Also useful for interprocess communication if sharing of read-write pages is allowed</li>
-    </ul>
-  </li>
-  <li><strong>Private code and data</strong>
-    <ul>
-      <li>Each process keeps a separate copy of the code and data</li>
-      <li>The pages for the private code and data can appear anywhere in the logical address space</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="http://i.imgur.com/JYNkQQT.png" alt="" /></p>
-
-<h3 id="七-structure-of-the-page-table">(七) Structure of the Page Table</h3>
-<ul>
-  <li>Memory structures for paging can get huge using straight-forward methods
-    <ul>
-      <li>Consider a 32-bit logical address space as on modern computers</li>
-      <li>Page size of 4 KB (2^12^)</li>
-      <li>Page table would have 1 million entries (2^32^ / 2^12^)</li>
-      <li>If each entry is 4 bytes -&gt; 4 MB of physical address space / memory for page table alone lot
-        <ul>
-          <li>Don’t want to allocate that contiguously in main memory</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Hierarchical Paging</li>
-  <li>Hashed Page Tables</li>
-  <li>Inverted Page Tables</li>
-</ul>
-
-<h4 id="hierarchical-page-tables">Hierarchical Page Tables</h4>
-<ul>
-  <li>Break up the logical address space into multiple page tables</li>
-  <li>A simple technique is a two-level page table</li>
-  <li>We then page the page table</li>
-</ul>
-
-<h4 id="two-level-page-table-scheme">Two-Level Page-Table Scheme</h4>
-<p><img src="http://i.imgur.com/EXa669R.png" alt="" /></p>
-
-<ul>
-  <li><strong>Example</strong>
-    <ul>
-      <li>A logical address (on 32-bit machine with 1K page size) is divided into
-        <ul>
-          <li>a page number consisting of 22 bits</li>
-          <li>a page offset consisting of 10 bits</li>
-        </ul>
-      </li>
-      <li>Since the page table is paged, the page number is further divided into
-        <ul>
-          <li>a 12-bit page number</li>
-          <li>a 10-bit page offset</li>
-        </ul>
-      </li>
-      <li>Thus, a logical address is as follows
-<img src="http://i.imgur.com/uwG3NvI.png" alt="" /></li>
-      <li>where p 1 is an index into the outer page table, and p 2 is the displacement within the page of the inner page table</li>
-      <li>Known as <strong>forward-mapped page table</strong></li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="three-level-paging-scheme">Three-level Paging Scheme</h4>
-<p><img src="http://i.imgur.com/LYA2JD3.png" alt="" /></p>
-
-<h4 id="hashed-page-tables">Hashed Page Tables</h4>
-<p><img src="https://i.imgur.com/itaf25z.png" alt="" /></p>
-<ul>
-  <li>Common in address spaces &gt; 32 bits</li>
-  <li>The virtual page number is hashed into a page table
-    <ul>
-      <li>This page table contains a chain of elements hashing to the same location</li>
-    </ul>
-  </li>
-  <li>Each element contains (1) the virtual page number (2) the value of the mapped page frame (3) a pointer to the next element</li>
-  <li>Virtual page numbers are compared in this chain searching for a match
-    <ul>
-      <li>If a match is found, the corresponding physical frame is extracted</li>
-    </ul>
-  </li>
-  <li>Variation for 64-bit addresses is <strong>clustered page tables</strong>
-    <ul>
-      <li>Similar to hashed but each entry refers to several pages (such as 16) rather than 1</li>
-      <li>Especially useful for <strong>sparse</strong> address spaces (where memory references are non-contiguous and scattered)</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="inverted-page-table">Inverted Page Table</h4>
-<ul>
-  <li>Rather than each process having a page table and keeping track of all possible logical pages, track all physical pages</li>
-  <li>One entry for each real page of memory</li>
-  <li>Entry consists of the virtual address of the page stored in that real memory location, with information about the process that owns that page</li>
-  <li>Decreases memory needed to store each page table, but increases time needed to search the table when a page reference occurs</li>
-  <li>Use hash table to limit the search to one — or at most a few — page-table entries
-    <ul>
-      <li>TLB can accelerate access</li>
-    </ul>
-  </li>
-  <li>But how to implement shared memory?
-    <ul>
-      <li>One mapping of a virtual address to the shared physical address</li>
-    </ul>
-  </li>
-</ul>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/06/01/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/05/25/linux_system/">20170525 [學習筆記] Linux 系統程式 (12)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-05-25
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#一-contiguous-allocation" id="markdown-toc-一-contiguous-allocation">(一) Contiguous Allocation</a></li>
-      <li><a href="#二-dynamic-storage-allocation-problem" id="markdown-toc-二-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</a></li>
-      <li><a href="#三-fragmentation" id="markdown-toc-三-fragmentation">(三) Fragmentation</a></li>
-      <li><a href="#四-segmentation" id="markdown-toc-四-segmentation">(四) Segmentation</a>        <ul>
-          <li><a href="#segmentation-architecture" id="markdown-toc-segmentation-architecture">Segmentation Architecture</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="一作業系統">一、作業系統</h2>
-<ul>
-  <li>課堂講義
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170525/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="一-contiguous-allocation">(一) Contiguous Allocation</h3>
-<ul>
-  <li>Main memory must support both OS and user processes</li>
-  <li>Limited resource, must allocate efficiently</li>
-  <li>
-    <p>Contiguous allocation is one early method</p>
-  </li>
-  <li>Main memory usually into two <strong>partitions</strong>
-    <ul>
-      <li>Resident operating system, usually held in low memory with interrupt vector</li>
-      <li>User processes then held in high memory</li>
-      <li>Each process contained in single contiguous section of memory</li>
-    </ul>
-  </li>
-  <li>Relocation registers used to protect user processes from each other, and from changing operating-system code and data
-    <ul>
-      <li>Base register contains value of smallest physical address</li>
-      <li>Limit register contains range of logical addresses – each logical address must be less than the limit register</li>
-      <li>MMU maps logical address dynamically</li>
-      <li>Can then allow actions such as kernel code being <code class="highlighter-rouge">transient</code> and kernel changing size</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/z3R2FCC.png" alt="" /></p>
-
-<ul>
-  <li>Multiple-partition allocation
-    <ul>
-      <li>Degree of multiprogramming limited by number of partitions</li>
-      <li>Variable-partition sizes for efficiency (sized to a given process’ needs)</li>
-      <li>Hole – block of available memory; holes of various size are scattered throughout memory</li>
-      <li>When a process arrives, it is allocated memory from a hole large enough to accommodate it</li>
-      <li>Process exiting frees its partition, adjacent free partitions combined</li>
-      <li>Operating system maintains information about
-        <ul>
-          <li>(a) allocated partitions</li>
-          <li>(b) free partitions (hole)</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/JQ1uTUe.png" alt="" /></p>
-
-<h3 id="二-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</h3>
-<ul>
-  <li><strong>First-fit</strong>：Allocate the <code class="highlighter-rouge">first</code> hole that is big enough</li>
-  <li><strong>Best-fit</strong>：Allocate the <code class="highlighter-rouge">smallest</code> hole that is big enough; must search entire list, unless ordered by size
-    <ul>
-      <li>Produces the smallest leftover hole</li>
-    </ul>
-  </li>
-  <li><strong>Worst-fit</strong>：Allocate the <code class="highlighter-rouge">largest</code> hole; must also search entire list
-    <ul>
-      <li>Produces the largest leftover hole</li>
-    </ul>
-  </li>
-  <li>First-fit and best-fit better than worst-fit in terms of speed and storage utilization</li>
-</ul>
-
-<h3 id="三-fragmentation">(三) Fragmentation</h3>
-<ul>
-  <li><strong>External Fragmentation</strong> – total memory space exists to satisfy a request, but it is not contiguous</li>
-  <li><strong>Internal Fragmentation</strong> – allocated memory may be slightly larger than requested memory; this size difference is memory internal to a partition, but not being used</li>
-  <li>First fit analysis reveals that given N blocks allocated, 0.5 N blocks lost to fragmentation
-    <ul>
-      <li>1/3 may be unusable -&gt; <strong>50-percent rule</strong></li>
-    </ul>
-  </li>
-  <li>Reduce external fragmentation by <strong>compaction</strong>
-    <ul>
-      <li>Shuffle memory contents to place all free memory together in one large block</li>
-      <li>Compaction is possible only if relocation is dynamic, and is done at execution time</li>
-      <li>I/O problem
-        <ul>
-          <li>Latch job in memory while it is involved in I/O</li>
-          <li>Do I/O only into OS buffers</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Now consider that backing store has same fragmentation problems</li>
-</ul>
-
-<h3 id="四-segmentation">(四) Segmentation</h3>
-<ul>
-  <li>Memory-management scheme that supports user view of memory</li>
-</ul>
-
-<p><img src="https://i.imgur.com/hiMN3YJ.png" alt="" /></p>
-
-<ul>
-  <li>A program is a collection of segments
-    <ul>
-      <li>A segment is a logical unit such as：<code class="highlighter-rouge">main program</code>、<code class="highlighter-rouge">procedure</code>、<code class="highlighter-rouge">function</code>、<code class="highlighter-rouge">method</code>、<code class="highlighter-rouge">object</code>、<code class="highlighter-rouge">local variables</code>、<code class="highlighter-rouge">global variables</code>、<code class="highlighter-rouge">common block</code>、<code class="highlighter-rouge">stack</code>、<code class="highlighter-rouge">symbol table</code>、<code class="highlighter-rouge">arrays</code></li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/PKuwv70.png" alt="" /></p>
-
-<h4 id="segmentation-architecture">Segmentation Architecture</h4>
-<ul>
-  <li>Logical address consists of a two tuple：<code class="highlighter-rouge">&lt;segment-number, offset&gt;</code></li>
-  <li><strong>Segment table</strong> – maps two-dimensional physical addresses; each table entry has
-    <ul>
-      <li><strong>base</strong> – contains the starting physical address where the segments reside in memory</li>
-      <li><strong>limit</strong> – specifies the length of the segment</li>
-    </ul>
-  </li>
-  <li><strong>Segment-table base register (STBR)</strong> points to the segment table’s location in memory</li>
-  <li><strong>Segment-table length register (STLR)</strong> indicates number of segments used by a program：<code class="highlighter-rouge">segment number s is legal if s &lt; STLR</code></li>
-  <li>Protection
-    <ul>
-      <li>With each entry in segment table associate
-        <ul>
-          <li>validation bit = 0 » illegal segment</li>
-          <li>read/write/execute privileges</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Protection bits associated with segments; code sharing occurs at segment level</li>
-  <li>Since segments vary in length, memory allocation is a dynamic storage-allocation problem</li>
-  <li>A segmentation example is shown in the following diagram</li>
-</ul>
-
-<p><img src="https://i.imgur.com/raq8eDi.png" alt="" /></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/05/25/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/05/19/linux_system/">20170519 [學習筆記] Linux 系統程式 (11)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-05-19
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#一-deadlock-detection" id="markdown-toc-一-deadlock-detection">(一) Deadlock Detection</a></li>
-      <li><a href="#二-detection-algorithm" id="markdown-toc-二-detection-algorithm">(二) Detection Algorithm</a></li>
-      <li><a href="#三-recovery-from-deadlock" id="markdown-toc-三-recovery-from-deadlock">(三) Recovery from Deadlock</a>        <ul>
-          <li><a href="#1-process-termination" id="markdown-toc-1-process-termination">1. Process Termination</a></li>
-          <li><a href="#2-resource-preemption" id="markdown-toc-2-resource-preemption">2. Resource Preemption</a></li>
-        </ul>
-      </li>
-      <li><a href="#四-memory-management" id="markdown-toc-四-memory-management">(四) Memory-Management</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="一作業系統">一、作業系統</h2>
-<ul>
-  <li>課堂講義
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170518/ch07.pdf">Chapter 7: Deadlocks</a></li>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170518/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
-    </ul>
-  </li>
-  <li>參考資料
-    <ul>
-      <li><a href="https://www3.nd.edu/~dthain/courses/classconf/worts2006/WangLiu.ppt">Static Linking VS. Dynamic Linking</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="一-deadlock-detection">(一) Deadlock Detection</h3>
-<ul>
-  <li>Allow system to enter deadlock state</li>
-  <li>Detection algorithm</li>
-  <li>Recovery scheme</li>
-</ul>
-
-<h3 id="二-detection-algorithm">(二) Detection Algorithm</h3>
-<p><img src="https://i.imgur.com/LRO7qdP.png" alt="" />
-<img src="https://i.imgur.com/ZG7BUjD.png" alt="" /></p>
-
-<ul>
-  <li><strong>Example</strong></li>
-</ul>
-
-<p><img src="https://i.imgur.com/PBYJ62y.png" alt="" />
-<img src="https://i.imgur.com/rt4bsYL.png" alt="" /></p>
-
-<ul>
-  <li><strong>Usage</strong>
-    <ul>
-      <li>When, and how often, to invoke depends on
-        <ul>
-          <li>How often a deadlock is likely to occur?</li>
-          <li>How many processes will need to be rolled back?
-            <ul>
-              <li>one for each disjoint cycle</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>If detection algorithm is invoked arbitrarily, there may be many cycles in the resource graph and so we would not be able to tell which of the many deadlocked processes “caused” the deadlock.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="三-recovery-from-deadlock">(三) Recovery from Deadlock</h3>
-<h4 id="1-process-termination">1. Process Termination</h4>
-<ul>
-  <li>Abort all deadlocked processes</li>
-  <li>Abort one process at a time until the deadlock cycle is eliminated</li>
-  <li>In which order should we choose to abort?
+  <li><strong>Performance depends on</strong>
     <ol>
-      <li>Priority of the process</li>
-      <li>How long process has computed, and how much longer to completion</li>
-      <li>Resources the process has used</li>
-      <li>Resources process needs to complete</li>
-      <li>How many processes will need to be terminated</li>
-      <li>Is process interactive or batch?</li>
+      <li><strong>Algorithm</strong>: affects IC, possibly IC</li>
+      <li><strong>Programming language</strong>: affects IC, CPI</li>
+      <li><strong>Compiler</strong>: affects IC, CPI</li>
+      <li><strong>Instruction set architecture</strong>: affects IC, CPI, Tc</li>
     </ol>
   </li>
 </ul>
 
-<h4 id="2-resource-preemption">2. Resource Preemption</h4>
-<ul>
-  <li><strong>Selecting a victim</strong> - minimize cost</li>
-  <li><strong>Rollback</strong> - return to some safe state, restart process for that state</li>
-  <li><strong>Starvation</strong> - same process may always be picked as victim, include number of rollback in cost factor</li>
+                </div>
+                <div class="read-all">
+                    <a  href="/2018/03/01/computer_organization/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-07-20
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#資料結構" title="Category: 資料結構" rel="category">資料結構</a>&nbsp;
+    
+        <a href="/category/#演算法" title="Category: 演算法" rel="category">演算法</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#資料結構" title="Tag: 資料結構" rel="tag">資料結構</a>&nbsp;
+    
+        <a href="/tag/#演算法" title="Tag: 演算法" rel="tag">演算法</a>&nbsp;
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#20170720---ch1_導論" id="markdown-toc-20170720---ch1_導論">20170720 - Ch1_導論</a></li>
 </ul>
 
-<h3 id="四-memory-management">(四) Memory-Management</h3>
+<h1 id="20170720---ch1_導論">20170720 - Ch1_導論</h1>
 <ul>
-  <li>Program must be brought (from disk) into memory and placed within a process for it to be run</li>
-  <li>Main memory and registers are only storage CPU can access directly</li>
-  <li>Memory unit only sees a stream of <code class="highlighter-rouge">addresses + read requests</code>, or <code class="highlighter-rouge">address + data and write requests</code></li>
-  <li>Register access in one CPU clock (or less)</li>
-  <li>Main memory can take many cycles, causing a <strong>stall</strong></li>
-  <li><strong>Cache</strong> sits between main memory and CPU registers</li>
-  <li>Protection of memory required to ensure correct operation</li>
+  <li>進度摘要
+    <ul>
+      <li>Ch1_導論 (100%)</li>
+    </ul>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/Data-Structure-Learning_pages/tree/master/Data_Structures_6th_Edition/20170720">https://github.com/shouzo/Data-Structure-Learning_pages/tree/master/Data_Structures_6th_Edition/20170720</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://zh.wikipedia.org/wiki/DIKW%E4%BD%93%E7%B3%BB">DIKW 體系 - 維基百科</a></li>
+      <li><a href="https://market.cloud.edu.tw/content/senior/computer/ks_ks/book/algodata/algorithm/algo3.htm">演算法的表示</a></li>
+      <li><a href="https://zh.wikipedia.org/wiki/%E4%BC%AA%E4%BB%A3%E7%A0%81">虛擬碼 - 維基百科</a></li>
+      <li><a href="https://zh.wikipedia.org/wiki/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6">時間複雜度 - 維基百科</a></li>
+      <li><a href="http://www.csie.ntnu.edu.tw/~u91029/AlgorithmAnalysis.html">Algorithm Analysis</a></li>
+      <li>資料結構 - 鍾宜玲
+        <ul>
+          <li><a href="http://imil.au.edu.tw/~hsichcl/DataStructureHandout.htm">資料結構教學講義</a></li>
+          <li><a href="http://ds.klab.tw/pdf/chapter1_1.pdf">第1章 - 導論 (Introduction)</a></li>
+          <li><a href="http://ds.klab.tw/pdf/chapter1_2.pdf">程式設計範例</a></li>
+          <li><a href="http://ds.klab.tw/pdf/chapter1_3.pdf">時間複雜度、費氏數列</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
-
-<ol>
-  <li><strong>Base and Limit Registers</strong>
-    <ul>
-      <li>A pair of <strong>base</strong> and limit <strong>registers</strong> define the logical address space</li>
-      <li>
-        <p>CPU must check every memory access generated in user mode to be sure it is between base and limit for that user
- <img src="https://i.imgur.com/mxLWZHF.png" alt="" /></p>
-      </li>
-      <li>Hardware Address Protection with Base and Limit Registers
- <img src="https://i.imgur.com/ztutE6h.png" alt="" /></li>
-    </ul>
-  </li>
-  <li><strong>Address Binding</strong>
-    <ul>
-      <li>Programs on disk, ready to be brought into memory to execute form an <strong>input queue</strong>
-        <ul>
-          <li>Without support, must be loaded into address 0000</li>
-        </ul>
-      </li>
-      <li>Inconvenient to have first user process physical address always at 0000
-        <ul>
-          <li>How can it not be?</li>
-        </ul>
-      </li>
-      <li>Further, addresses represented in different ways at different stages of a program’s life
-        <ul>
-          <li>Source code addresses usually symbolic</li>
-          <li>Compiled code addresses <strong>bind</strong> to relocatable addresses
-            <ul>
-              <li>i.e. “14 bytes from beginning of this module”</li>
-            </ul>
-          </li>
-          <li>Linker or loader will bind relocatable addresses to absolute addresses
-            <ul>
-              <li>i.e. 74014</li>
-            </ul>
-          </li>
-          <li>Each binding maps one address space to another</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<p><img src="https://i.imgur.com/cXzBuNp.jpg" alt="" /></p>
-
-<ol>
-  <li>
-    <p><strong>Logical vs. Physical Address Space</strong>
-<img src="https://i.imgur.com/LwA18UW.png" alt="" /></p>
-  </li>
-  <li><strong>Memory-Management Unit (MMU)</strong>
-    <ul>
-      <li>Hardware device that at run time maps virtual to physical address</li>
-      <li>Many methods possible, covered in the rest of this chapter</li>
-      <li>To start, consider simple scheme where the value in the relocation register is added to every address generated by a user process at the time it is sent to memory
-        <ul>
-          <li>Base register now called <strong>relocation register</strong></li>
-          <li>MS-DOS on Intel 80x86 used 4 relocation registers</li>
-        </ul>
-      </li>
-      <li>The user program deals with logical addresses; it never sees the real physical addresses
-        <ul>
-          <li>Execution-time binding occurs when reference is made to location in memory</li>
-          <li>Logical address bound to physical addresses</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Dynamic relocation</strong>
-    <ul>
-      <li>Using a relocation register
-<img src="https://i.imgur.com/RICsWcf.png" alt="" /></li>
-    </ul>
-  </li>
-  <li><strong>Dynamic Linking</strong>
-    <ul>
-      <li><strong>Static linking</strong> - system libraries and program code combined by the loader into the binary program image</li>
-      <li><strong>Dynamic linking</strong> – linking postponed until execution time</li>
-      <li>Small piece of code, <strong>stub</strong>, used to locate the appropriate memory-resident library routine</li>
-      <li>Stub replaces itself with the address of the routine, and executes the routine</li>
-      <li>Operating system checks if routine is in processes’ memory address
-        <ul>
-          <li>If not in address space, add to address space</li>
-        </ul>
-      </li>
-      <li>Dynamic linking is particularly useful for libraries</li>
-      <li>System also known as <strong>shared libraries</strong></li>
-      <li>Consider applicability to patching system libraries
-        <ul>
-          <li>Versioning may be needed</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Swapping</strong>
-    <ul>
-      <li>A process can be swapped temporarily out of memory to a backing store, and then brought back into memory for continued execution
-        <ul>
-          <li>Total physical memory space of processes can exceed physical memory</li>
-        </ul>
-      </li>
-      <li><strong>Backing store</strong> – fast disk large enough to accommodate copies of all memory images for all users; must provide direct access to these memory images</li>
-      <li><strong>Roll out, roll in</strong> – swapping variant used for priority-based scheduling algorithms; lower-priority process is swapped out so higher-priority process can be loaded and executed</li>
-      <li>Major part of swap time is transfer time; total transfer time is directly proportional to the amount of memory swapped</li>
-      <li>System maintains a <strong>ready queue</strong> of ready-to-run processes which have memory images on disk</li>
-      <li>Does the swapped out process need to swap back in to same physical addresses?
-        <ul>
-          <li>Depends on address binding method
-            <ul>
-              <li>Plus consider pending <code class="highlighter-rouge">I/O</code> to <code class="highlighter-rouge">/</code> from process memory space</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>Modified versions of swapping are found on many systems (i.e., UNIX, Linux, and Windows)
-        <ul>
-          <li>Swapping normally disabled</li>
-          <li>Started if more than threshold amount of memory allocated</li>
-          <li>Disabled again once memory demand reduced below threshold</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<p><img src="https://i.imgur.com/hptlmlg.png" alt="" /></p>
 
 
                 </div>
                 <div class="read-all">
-                    <a  href="/2017/05/19/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a  href="/2017/07/20/Data_Structure_Book/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-07-19
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#組合語言" title="Category: 組合語言" rel="category">組合語言</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#組合語言" title="Tag: 組合語言" rel="tag">組合語言</a>&nbsp;
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#20170719---day_2" id="markdown-toc-20170719---day_2">20170719 - Day_2</a>    <ul>
+      <li><a href="#一修改-helloosnas" id="markdown-toc-一修改-helloosnas">一、修改 <code class="highlighter-rouge">helloos.nas</code></a></li>
+      <li><a href="#二編譯-helloosnas" id="markdown-toc-二編譯-helloosnas">二、編譯 <code class="highlighter-rouge">helloos.nas</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>工作環境
+    <ul>
+      <li>Lubuntu 17.04</li>
+      <li>VMware Workstation 12.5.2</li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li>Linux 版本筆記：<a href="http://lengly.top/archives/85">http://lengly.top/archives/85</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="20170719---day_2">20170719 - Day_2</h1>
+<ul>
+  <li>進度摘要
+    <ul>
+      <li>簡易 IPL 製作。</li>
+    </ul>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/My-30OS/tree/master/20170719">https://github.com/shouzo/My-30OS/tree/master/20170719</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://blog.gtwang.org/linux/dd-command-examples/">dd 指令教學與實用範例，備份與回復資料的小工具</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一修改-helloosnas">一、修改 <code class="highlighter-rouge">helloos.nas</code></h2>
+<ul>
+  <li><code class="highlighter-rouge">RESB	0x7dfe-$</code> 此行無法通過編譯，故修改成 <code class="highlighter-rouge">TIMES 510-($-$$)    DB    0</code>。
+    <ul>
+      <li><code class="highlighter-rouge">$</code> 代表目前行的位址，<code class="highlighter-rouge">$$</code> 為目前 section 的位址。(TIMES 意思為重複，先決定次數再確定重複的內容)。</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; hello-os
+; TAB=4
+
+ORG		0x7c00			; 指定從 0x7c00 開始執行
+
+;   以下是為了標準 FAT12 格式的軟式磁碟片的記述
+
+    JMP		entry
+    DB		0x90
+    DB		"HELLOIPL"		
+    DW		512				
+    DB		1				
+    DW		1				
+    DB		2				
+    DW		224				
+    DW		2880			
+    DB		0xf0			
+    DW		9				
+    DW		18				
+    DW		2				
+    DD		0				
+    DD		2880			
+    DB		0,0,0x29		
+    DD		0xffffffff		
+    DB		"HELLO-OS   "	
+    DB		"FAT12   "		
+    RESB	18				
+
+
+; 程式碼本身
+
+entry:
+    MOV		AX,0			; 暫存器初始化
+    MOV		SS,AX
+    MOV		SP,0x7c00
+    MOV		DS,AX
+    MOV		ES,AX
+
+    MOV		SI,msg
+
+
+putloop:
+    MOV		AL,[SI]
+    ADD		SI,1			; 在 SI 加 1
+    CMP		AL,0
+    JE		fin
+    MOV		AH,0x0e			; 一個文字表示功能
+    MOV		BX,15			; 顏色代碼 (color code)
+    INT		0x10			; 呼叫視訊 BIOS
+    JMP		putloop
+
+
+fin:
+    HLT						; 直到有了某個物件就將 CPU 停止
+    JMP		fin				; 無限迴圈
+
+
+msg:
+    DB		0x0a, 0x0a		; 連續兩個換行
+    DB		"hello, world"
+    DB		0x0a			; 換行 
+    DB		0
+
+    ; RESB	0x7dfe-$	       ; 此行編譯無法通過，故修改成 "TIMES 510-($-$$)    DB    0"
+    TIMES 510-($-$$)    DB    0      ; "$" 代表目前行的位址，"$$" 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
+
+    DB		0x55, 0xaa
+</code></pre></div></div>
+
+<h2 id="二編譯-helloosnas">二、編譯 <code class="highlighter-rouge">helloos.nas</code></h2>
+<ol>
+  <li>編譯 <code class="highlighter-rouge">helloos.nas</code>，在輸出 <code class="highlighter-rouge">bootloader</code> 的同時也輸出列表檔案 <code class="highlighter-rouge">ipl.lst</code>。</li>
+</ol>
+
+<blockquote>
+  <p>nasm -o bootloader -l ipl.lst helloos.nas</p>
+</blockquote>
+
+<p><img src="https://i.imgur.com/KfOYHIM.png" alt="" /></p>
+
+<ol>
+  <li>在 Linux 系統下使用 <code class="highlighter-rouge">dd</code> 指令產生 <code class="highlighter-rouge">os.img</code> 檔案。
+    <ul>
+      <li>先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。</li>
+    </ul>
+    <ul>
+      <li>一個軟碟片容量：<strong>1.44MB = 512KB * 2880</strong></li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote>
+  <p>dd if=/dev/zero of=os.img bs=512 count=2880</p>
+
+  <p>dd if=bootloader of=os.img bs=512 count=1</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if：指定輸入檔案
+of：指定輸出檔案
+bs：指定 block size，一次讀取與寫入 N 個位元組的資料
+count：處理 N 個輸入區塊
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/DbKECqo.png" alt="" /></p>
+
+<ul>
+  <li>如果打開 <code class="highlighter-rouge">ipl.lst</code> ，可以檢視組合語言轉換成機械碼的情形。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     1                                  ; hello-os
+     2                                  ; TAB=4
+     3                                  
+     4                                  ORG		0x7c00			    ;   指定從 0x7c00 開始執行
+     5                                  
+     6                                  ;   以下是為了標準 FAT12 格式的軟式磁碟片的記述
+     7                                  
+     8 00000000 EB4E                        JMP		entry
+     9 00000002 90                          DB		0x90
+    10 00000003 48454C4C4F49504C            DB		"HELLOIPL"		
+    11 0000000B 0002                        DW		512				
+    12 0000000D 01                          DB		1				
+    13 0000000E 0100                        DW		1				
+    14 00000010 02                          DB		2				
+    15 00000011 E000                        DW		224				
+    16 00000013 400B                        DW		2880			
+    17 00000015 F0                          DB		0xf0			
+    18 00000016 0900                        DW		9				
+    19 00000018 1200                        DW		18				
+    20 0000001A 0200                        DW		2				
+    21 0000001C 00000000                    DD		0				
+    22 00000020 400B0000                    DD		2880			
+    23 00000024 000029                      DB		0,0,0x29		
+    24 00000027 FFFFFFFF                    DD		0xffffffff		
+    25 0000002B 48454C4C4F2D4F5320-         DB		"HELLO-OS   "	
+    25 00000034 2020               
+    26 00000036 4641543132202020            DB		"FAT12   "		
+    27 0000003E &lt;res 00000012&gt;              RESB	18				
+    27          ******************       warning: uninitialized space declared in .text section: zeroing
+    28                                  
+    29                                  
+    30                                  
+    31                                  
+    32                                  ; 程式碼本身
+    33                                  
+    34                                  entry:
+    35 00000050 B80000                      MOV		AX,0			;   暫存器初始化
+    36 00000053 8ED0                        MOV		SS,AX
+    37 00000055 BC007C                      MOV		SP,0x7c00
+    38 00000058 8ED8                        MOV		DS,AX
+    39 0000005A 8EC0                        MOV		ES,AX
+    40                                  
+    41 0000005C BE[7400]                    MOV		SI,msg
+    42                                  
+    43                                  
+    44                                  putloop:
+    45 0000005F 8A04                        MOV		AL,[SI]
+    46 00000061 83C601                      ADD		SI,1			;   在 SI 加 1
+    47 00000064 3C00                        CMP		AL,0
+    48 00000066 7409                        JE		fin
+    49 00000068 B40E                        MOV		AH,0x0e			;   一個文字表示功能
+    50 0000006A BB0F00                      MOV		BX,15			;   顏色代碼 (color code)
+    51 0000006D CD10                        INT		0x10			;   呼叫視訊 BIOS
+    52 0000006F EBEE                        JMP		putloop
+    53                                  
+    54                                  
+    55                                  fin:
+    56 00000071 F4                          HLT						;   直到有了某個物件就將 CPU 停止
+    57 00000072 EBFD                        JMP		fin				;   無限迴圈
+    58                                  
+    59                                  
+    60                                  msg:
+    61 00000074 0A0A                        DB		0x0a, 0x0a		;   連續兩個換行
+    62 00000076 68656C6C6F2C20776F-         DB		"hello, world"
+    62 0000007F 726C64             
+    63 00000082 0A                          DB		0x0a			;   換行 
+    64 00000083 00                          DB		0
+    65                                  
+    66                                      ;   RESB	0x7dfe-$	;   此行編譯無法通過，故修改成 "TIMES 510-($-$$)      DB      0"
+    67 00000084 00&lt;rept&gt;                    TIMES 510-($-$$)    DB      0   ;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
+    68                                  
+    69 000001FE 55AA                        DB		0x55, 0xaa
+</code></pre></div></div>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/07/19/30OS_day2/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-07-14
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#組合語言" title="Category: 組合語言" rel="category">組合語言</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#組合語言" title="Tag: 組合語言" rel="tag">組合語言</a>&nbsp;
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#20170714---day_1" id="markdown-toc-20170714---day_1">20170714 - Day_1</a>    <ul>
+      <li><a href="#一安裝-nasm-編譯映像檔" id="markdown-toc-一安裝-nasm-編譯映像檔">一、安裝 <code class="highlighter-rouge">nasm</code> ，編譯映像檔</a></li>
+      <li><a href="#二新增虛擬機載入映像檔" id="markdown-toc-二新增虛擬機載入映像檔">二、新增虛擬機、載入映像檔</a></li>
+      <li><a href="#三改變螢幕上面的字" id="markdown-toc-三改變螢幕上面的字">三、改變螢幕上面的字</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>工作環境
+    <ul>
+      <li>Lubuntu 17.04</li>
+      <li>VMware Workstation 12.5.2</li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li>Linux 版本筆記：<a href="http://lengly.top/archives/85">http://lengly.top/archives/85</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="20170714---day_1">20170714 - Day_1</h1>
+<ul>
+  <li>進度摘要
+    <ul>
+      <li>使用 nasm 編譯映像檔，使用虛擬機模擬。</li>
+    </ul>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/My-30OS/tree/master/20170714">https://github.com/shouzo/My-30OS/tree/master/20170714</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://www.nasm.us/">NASM</a></li>
+      <li><a href="http://www.smalljacky.com/introduction-to-computer/carry-digital-system-conversion/">數字系統_進制轉換教學</a></li>
+      <li><a href="https://zh.wikipedia.org/wiki/FAT">FAT - 維基百科</a></li>
+      <li><a href="https://zh.wikipedia.org/wiki/%E5%BC%95%E5%AF%BC%E6%89%87%E5%8C%BA">開機(啟動)磁區</a></li>
+      <li><a href="http://flyeast-personal-area.blogspot.tw/2010/08/ipl-initial-program-loader.html">IPL - Initial Program Loader</a></li>
+      <li><a href="https://www.lifewire.com/what-does-booting-mean-2625799">What Does Booting Mean?</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一安裝-nasm-編譯映像檔">一、安裝 <code class="highlighter-rouge">nasm</code> ，編譯映像檔</h2>
+<p><strong>1. 在終端上輸入以下指令，安裝 <code class="highlighter-rouge">nasm</code></strong></p>
+<blockquote>
+  <p>sudo apt install nasm</p>
+</blockquote>
+
+<p><img src="https://i.imgur.com/lqQOAyY.png" alt="" /></p>
+
+<p><strong>2. 用 vim 檢視 <code class="highlighter-rouge">helloos.nas</code> 的內容</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DB	0xeb, 0x4e, 0x90, 0x48, 0x45, 0x4c, 0x4c, 0x4f
+DB	0x49, 0x50, 0x4c, 0x00, 0x02, 0x01, 0x01, 0x00
+DB	0x02, 0xe0, 0x00, 0x40, 0x0b, 0xf0, 0x09, 0x00
+DB	0x12, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00
+DB	0x40, 0x0b, 0x00, 0x00, 0x00, 0x00, 0x29, 0xff
+DB	0xff, 0xff, 0xff, 0x48, 0x45, 0x4c, 0x4c, 0x4f
+DB	0x2d, 0x4f, 0x53, 0x20, 0x20, 0x20, 0x46, 0x41
+DB	0x54, 0x31, 0x32, 0x20, 0x20, 0x20, 0x00, 0x00
+RESB	16
+DB	0xb8, 0x00, 0x00, 0x8e, 0xd0, 0xbc, 0x00, 0x7c
+DB	0x8e, 0xd8, 0x8e, 0xc0, 0xbe, 0x74, 0x7c, 0x8a
+DB	0x04, 0x83, 0xc6, 0x01, 0x3c, 0x00, 0x74, 0x09
+DB	0xb4, 0x0e, 0xbb, 0x0f, 0x00, 0xcd, 0x10, 0xeb
+DB	0xee, 0xf4, 0xeb, 0xfd, 0x0a, 0x0a, 0x68, 0x65
+DB	0x6c, 0x6c, 0x6f, 0x2c, 0x20, 0x77, 0x6f, 0x72
+DB	0x6c, 0x64, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00
+RESB	368
+DB	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x55, 0xaa
+DB	0xf0, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00
+RESB	4600
+DB	0xf0, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00
+RESB	1469432
+</code></pre></div></div>
+<p><img src="https://i.imgur.com/lTRNdvC.png" alt="" /></p>
+
+<p>好吧，我發現自己看不懂…得找找相關的組合語言書籍。</p>
+
+<p><strong>3. 將 <code class="highlighter-rouge">helloos.nas</code> 編譯成映像檔 <code class="highlighter-rouge">helloos.img</code></strong></p>
+<blockquote>
+  <p>nasm -o helloos.img helloos.nas</p>
+</blockquote>
+
+<p><img src="https://i.imgur.com/mof2KcD.png" alt="" /></p>
+
+<h2 id="二新增虛擬機載入映像檔">二、新增虛擬機、載入映像檔</h2>
+<p><strong>1. 環境配置 » 記憶體：256MB、硬碟：8GB</strong></p>
+
+<p><img src="https://i.imgur.com/l0LDEAg.png" alt="" /></p>
+
+<p><strong>2. 設定虛擬機欲讀取的映像檔位置</strong></p>
+<ul>
+  <li>在書本範例上是使用 “軟碟機” 讀取映像檔 <code class="highlighter-rouge">helloos.img</code>。</li>
+</ul>
+
+<p><img src="https://i.imgur.com/Ng6nstQ.png" alt="" /></p>
+
+<p><strong>3. 啟動虛擬機</strong></p>
+<ul>
+  <li>可以看到螢幕上顯示 <code class="highlighter-rouge">hello, world</code> 後畫面停滯不動，觀察完後便可將虛擬機關機。</li>
+</ul>
+
+<p><img src="https://i.imgur.com/I3ap9DE.png" alt="" /></p>
+
+<h2 id="三改變螢幕上面的字">三、改變螢幕上面的字</h2>
+<p><strong>1. 用 vim 修改 <code class="highlighter-rouge">helloos.img</code> 映像檔</strong></p>
+<ul>
+  <li>將內文中的 <code class="highlighter-rouge">hello, world</code> 改成 <code class="highlighter-rouge">Hello, shouzo. Be Strong to Be Useful.</code>。</li>
+</ul>
+
+<p><img src="https://i.imgur.com/qv125bc.png" alt="" /></p>
+
+<ul>
+  <li>編輯完成後，將映像檔另存成 <code class="highlighter-rouge">hello_shouzo.img</code>。</li>
+</ul>
+
+<p><strong>2. 設定新的映像檔讀取位置後，啟動虛擬機</strong></p>
+<ul>
+  <li>本次將欲讀取的映像檔改成 <code class="highlighter-rouge">hello_shouzo.img</code>。</li>
+</ul>
+
+<p><img src="https://i.imgur.com/avcdhdB.png" alt="" /></p>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/07/14/30OS_day1/"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
@@ -1692,10 +1180,10 @@ c. Write victim frame to disk if dirty</p>
             <a href="/blog/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
             <a href="/blog/page7/" class="previous"><i class="fa fa-angle-left"></i></a>
           
-          <span class="page_number ">8/19</span>
+          <span class="page_number ">8/20</span>
           
             <a href="/blog/page9/" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="/blog/page19" class="next"><i class="fa fa-angle-double-right"></i></a>
+            <a href="/blog/page20" class="next"><i class="fa fa-angle-double-right"></i></a>
           
         </div>
     </div>
@@ -1709,25 +1197,25 @@ c. Write victim frame to disk if dirty</p>
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2019/09/28/AAEE-Assistant/">20190928 [學習筆記] AAEE 助理引導員認證課程</a></li>
+                    
+                        <li><a href="/2019/09/21/AAEE-Facilation/">20190921 [學習筆記] 多元引導技術工作坊</a></li>
+                    
+                        <li><a href="/2019/09/13/Summer_TrainingCamp/">20190913 [學習筆記] 盛夏工作坊 - 幹部訓練營</a></li>
+                    
+                        <li><a href="/2019/08/26/CCAPP/">20190826 [學習筆記] 活動企劃師 CCAPP - 課程內容筆記 (第115期)</a></li>
+                    
                         <li><a href="/2019/08/15/team_manage/">20190815 [社團相關] 團隊經營 - 組織規劃、經營與傳承</a></li>
                     
+                        <li><a href="/2019/06/22/Teacher-Training/">20190622 [學習筆記] 2019 實驗教育 - 在職教師分區培力工作坊</a></li>
+                    
                         <li><a href="/2019/06/21/activity-note/">20190621【冒險教育與培訓 - 為何及如何有效的黑盒子】新書發表工作坊</a></li>
+                    
+                        <li><a href="/2019/06/03/Speakerclub-Classnote_1/">20190603 [學習筆記] 東吳講師培訓社 - 課程筆記 (1)</a></li>
                     
                         <li><a href="/2019/05/30/activity-note/">20190530【活動人必備的基礎概念】如何讓參加活動的效益最大化？</a></li>
                     
                         <li><a href="/2019/05/23/activity-note/">20190523【活動人小聚 - 談沉浸式體驗活動：線下活動如何讓人身歷其境】 心得分享</a></li>
-                    
-                        <li><a href="/2019/05/22/activity-note/">20190522【雜學青 | 雜耍小教室 - Juggling Workshop】心得分享</a></li>
-                    
-                        <li><a href="/2019/05/16/activity-note/">20190516【活動人小聚 - 游牧森林音樂祭是怎麼煉成的】 心得分享</a></li>
-                    
-                        <li><a href="/2019/05/10/activity-note/">20190510【工作生活家 - 夢想絕不是個假議題】 講座心得分享</a></li>
-                    
-                        <li><a href="/2019/03/28/activity-note/">20190328【工作生活家 - 聽說你也想開店】 講座心得分享</a></li>
-                    
-                        <li><a href="/2019/03/27/activity-note/">20190327【活動人小聚 - 市集與快閃店策劃】 心得分享</a></li>
-                    
-                        <li><a href="/2019/03/20/activity-note/">20190320【回。應 我們的社團藍圖 Life Of Club】心得分享</a></li>
                     
                 </ul>
             </div>
@@ -1943,7 +1431,7 @@ c. Write victim frame to disk if dirty</p>
                             <span class="name">
                                 活動心得
                             </span>
-                            <span class="badge">11</span>
+                            <span class="badge">19</span>
                         </a>
                     </li>
                     
@@ -1952,7 +1440,7 @@ c. Write victim frame to disk if dirty</p>
                             <span class="name">
                                 學習筆記
                             </span>
-                            <span class="badge">11</span>
+                            <span class="badge">19</span>
                         </a>
                     </li>
                     
@@ -2159,14 +1647,14 @@ c. Write victim frame to disk if dirty</p>
                       
                       
                       
-                      <a href="/tag/#活動心得" style="font-size: 12pt; color: #666;">活動心得</a>
+                      <a href="/tag/#活動心得" style="font-size: 15pt; color: #333;">活動心得</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#學習筆記" style="font-size: 12pt; color: #666;">學習筆記</a>
+                      <a href="/tag/#學習筆記" style="font-size: 15pt; color: #333;">學習筆記</a>
                     
                 </div>
             </div>
