@@ -48,6 +48,7 @@ icon: commenting
 ### 工作證照
 * 中華民國跑酷協會 - **C 級** 跑酷教練 (2018/09 - )
 * 中華民國體操協會 - **C 級** 競技體操教練 (2018/09 - )
+* ADAPT Qualifications – **Level 1 Coach Certification** (2018/01 - )
 
 
 
