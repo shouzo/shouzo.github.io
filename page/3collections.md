@@ -73,6 +73,7 @@ icon: bookmark
 * [20190913 盛夏工作坊 - 幹部訓練營](/collections/notes/20190913_Summer_TrainingCamp.html)
 * [20190921 多元引導技術的應用](/collections/notes/20190921_AAEE-Facilation.html)
 * [20190928 AAEE 助理引導員認證課程](/collections/notes/20190928_AAEE-Assistant.html)
+* [20200627 幼兒體能開發、彈翻床 - 課程筆記](/collections/notes/20200627_Physical-Education_Trampoline)
 
 
 ---
