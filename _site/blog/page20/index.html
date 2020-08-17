@@ -143,6 +143,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -155,6 +157,123 @@
         <small>菜鳥的學習紀錄</small>
         <hr>
         <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2016/04/19/opencv_yester-place2/">20160419 [學習筆記] OpenCV - 程式設計介紹(2)：視訊鏡頭的使用</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2016-04-19
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#OpenCV" title="Category: OpenCV" rel="category">OpenCV</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>&nbsp;
+    
+        <a href="/tag/#OpenCV" title="Tag: OpenCV" rel="tag">OpenCV</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <h2 id="內文整理自-opencv程式設計介紹2">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv2.html">OpenCV程式設計介紹(2)</a></h2>
+
+<h4 id="-基本資料結構-">[ 基本資料結構 ]</h4>
+
+<ul>
+  <li>
+    <p>（一）IplImage</p>
+  </li>
+  <li>
+    <p>（二）CvCapture</p>
+  </li>
+</ul>
+
+<h4 id="-範例程式--視訊鏡頭的使用">[ 範例程式 ] 視訊鏡頭的使用</h4>
+<ul>
+  <li>程式碼(GitHub)：<a href="https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/2">https://github.com/shouzo/OpenCV_Programming_pages/tree/master/Yester-place/Introduce/2</a></li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Introduce_2.cpp
+</span><span class="cp">#include &lt;cv.h&gt;
+#include &lt;highgui.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="n">CvCapture</span> <span class="o">*</span><span class="n">capture</span><span class="p">;</span>
+        <span class="n">IplImage</span> <span class="o">*</span><span class="n">frame</span><span class="p">;</span>
+        <span class="n">capture</span> <span class="o">=</span> <span class="n">cvCaptureFromCAM</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">;</span>     <span class="c1">// "cvCaptureFromCAM()"：選定視訊裝置(Webcam)，"0" 代表自動偵測視訊裝置
+</span>        <span class="n">cvNamedWindow</span><span class="p">(</span><span class="s">"Webcam"</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// 命名顯示在螢幕上的視窗名稱
+</span>        
+
+        <span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>     <span class="c1">// 用"while"無窮迴圈來捕捉連續影像的圖形畫面
+</span>        <span class="p">{</span>
+                <span class="n">frame</span> <span class="o">=</span> <span class="n">cvQueryFrame</span><span class="p">(</span><span class="n">capture</span><span class="p">);</span>      <span class="c1">// "cvQueryFrame()"：擷取每秒顯示出來的畫面
+</span>                <span class="n">cvShowImage</span><span class="p">(</span><span class="s">"Webcam"</span><span class="p">,</span><span class="n">frame</span><span class="p">);</span>      <span class="c1">// "cvShowImage()"：顯示圖片
+</span>            
+                <span class="k">if</span><span class="p">(</span><span class="n">cvWaitKey</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>      <span class="c1">// "cvWaitKey(10)"：每延遲10毫秒就捕捉一次視訊畫面，當鍵盤事件發生時則會跳出"while"無窮迴圈
+</span>                <span class="p">{</span>
+                        <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>  
+
+
+        <span class="cm">/* 進行記憶體回收的動作 */</span>
+        <span class="n">cvDestroyWindow</span><span class="p">(</span><span class="s">"Webcam"</span><span class="p">);</span>   <span class="c1">// 銷毀視窗
+</span>        <span class="n">cvReleaseCapture</span><span class="p">(</span><span class="o">&amp;</span><span class="n">capture</span><span class="p">);</span>     <span class="c1">// 釋放記憶體    
+</span>        
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160419/002.png" alt="" /></p>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2016/04/19/opencv_yester-place2/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
             
               <li>
                 <h2>
@@ -404,67 +523,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2015/11/05/c-programming-book1/">20151105 [學習筆記] 由片語學習C程式設計(1) -- 程式設計</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2015-11-05
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2015/11/05/c-programming-book1/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -475,10 +533,10 @@
             <a href="/blog/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
             <a href="/blog/page19/" class="previous"><i class="fa fa-angle-left"></i></a>
           
-          <span class="page_number ">20/20</span>
+          <span class="page_number ">20/21</span>
           
-            <span class="next disable"><i class="fa fa-angle-right"></i></span>
-            <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
+            <a href="/blog/page21/" class="next"><i class="fa fa-angle-right"></i></a>
+            <a href="/blog/page21" class="next"><i class="fa fa-angle-double-right"></i></a>
           
         </div>
     </div>
@@ -493,6 +551,8 @@
                 <ul class="content-ul" recent>
                     
                         <li><a href="/2020/06/27/Physical-Education_Trampoline/">20200627 [學習筆記] 幼兒體能開發、彈翻床</a></li>
+                    
+                        <li><a href="/2020/06/25/proposal_book/">20200625 [社團相關] 企劃書撰寫建議</a></li>
                     
                         <li><a href="/2019/09/28/AAEE-Assistant/">20190928 [學習筆記] AAEE 助理引導員認證課程</a></li>
                     
@@ -509,8 +569,6 @@
                         <li><a href="/2019/06/21/activity-note/">20190621【冒險教育與培訓 - 為何及如何有效的黑盒子】新書發表工作坊</a></li>
                     
                         <li><a href="/2019/06/03/Speakerclub-Classnote_1/">20190603 [學習筆記] 東吳講師培訓社 - 課程筆記 (1)</a></li>
-                    
-                        <li><a href="/2019/05/30/activity-note/">20190530【活動人必備的基礎概念】如何讓參加活動的效益最大化？</a></li>
                     
                 </ul>
             </div>
@@ -618,7 +676,7 @@
                             <span class="name">
                                 社團
                             </span>
-                            <span class="badge">11</span>
+                            <span class="badge">12</span>
                         </a>
                     </li>
                     
@@ -851,7 +909,7 @@
                       
                       
                       
-                      <a href="/tag/#社團" style="font-size: 12pt; color: #666;">社團</a>
+                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #555;">社團</a>
                     
                       
                       
@@ -950,6 +1008,13 @@
                       
                       
                       <a href="/tag/#學習筆記" style="font-size: 15pt; color: #333;">學習筆記</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#企劃書" style="font-size: 9pt; color: #999;">企劃書</a>
                     
                 </div>
             </div>
