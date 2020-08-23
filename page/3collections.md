@@ -85,6 +85,7 @@ icon: bookmark
 * [20190308 鉤癮效應](/collections/visualize/20190308_the-hook/the-hook.pdf)
 * [20190621 冒險教育與培訓 - 新書發表工作坊筆記](/collections/visualize/20190621_Adventure-Education/Adventure-Education.pdf)
 * [20200625 企劃書撰寫建議](/collections/visualize/20200625_Proposal-book/Proposal_book.pdf)
+* [20200823 如何設計一場戶外冒險活動](/collections/visualize/20200823_Parkour-AE/Parkour-AE.pdf)
 
 
 
