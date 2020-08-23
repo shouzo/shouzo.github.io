@@ -160,6 +160,300 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/05/19/linux_system/">20170519 [學習筆記] Linux 系統程式 (11)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-05-19
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-deadlock-detection" id="markdown-toc-一-deadlock-detection">(一) Deadlock Detection</a></li>
+      <li><a href="#二-detection-algorithm" id="markdown-toc-二-detection-algorithm">(二) Detection Algorithm</a></li>
+      <li><a href="#三-recovery-from-deadlock" id="markdown-toc-三-recovery-from-deadlock">(三) Recovery from Deadlock</a>        <ul>
+          <li><a href="#1-process-termination" id="markdown-toc-1-process-termination">1. Process Termination</a></li>
+          <li><a href="#2-resource-preemption" id="markdown-toc-2-resource-preemption">2. Resource Preemption</a></li>
+        </ul>
+      </li>
+      <li><a href="#四-memory-management" id="markdown-toc-四-memory-management">(四) Memory-Management</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170518/ch07.pdf">Chapter 7: Deadlocks</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170518/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://www3.nd.edu/~dthain/courses/classconf/worts2006/WangLiu.ppt">Static Linking VS. Dynamic Linking</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-deadlock-detection">(一) Deadlock Detection</h3>
+<ul>
+  <li>Allow system to enter deadlock state</li>
+  <li>Detection algorithm</li>
+  <li>Recovery scheme</li>
+</ul>
+
+<h3 id="二-detection-algorithm">(二) Detection Algorithm</h3>
+<p><img src="https://i.imgur.com/LRO7qdP.png" alt="" />
+<img src="https://i.imgur.com/ZG7BUjD.png" alt="" /></p>
+
+<ul>
+  <li><strong>Example</strong></li>
+</ul>
+
+<p><img src="https://i.imgur.com/PBYJ62y.png" alt="" />
+<img src="https://i.imgur.com/rt4bsYL.png" alt="" /></p>
+
+<ul>
+  <li><strong>Usage</strong>
+    <ul>
+      <li>When, and how often, to invoke depends on
+        <ul>
+          <li>How often a deadlock is likely to occur?</li>
+          <li>How many processes will need to be rolled back?
+            <ul>
+              <li>one for each disjoint cycle</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>If detection algorithm is invoked arbitrarily, there may be many cycles in the resource graph and so we would not be able to tell which of the many deadlocked processes “caused” the deadlock.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="三-recovery-from-deadlock">(三) Recovery from Deadlock</h3>
+<h4 id="1-process-termination">1. Process Termination</h4>
+<ul>
+  <li>Abort all deadlocked processes</li>
+  <li>Abort one process at a time until the deadlock cycle is eliminated</li>
+  <li>In which order should we choose to abort?
+    <ol>
+      <li>Priority of the process</li>
+      <li>How long process has computed, and how much longer to completion</li>
+      <li>Resources the process has used</li>
+      <li>Resources process needs to complete</li>
+      <li>How many processes will need to be terminated</li>
+      <li>Is process interactive or batch?</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="2-resource-preemption">2. Resource Preemption</h4>
+<ul>
+  <li><strong>Selecting a victim</strong> - minimize cost</li>
+  <li><strong>Rollback</strong> - return to some safe state, restart process for that state</li>
+  <li><strong>Starvation</strong> - same process may always be picked as victim, include number of rollback in cost factor</li>
+</ul>
+
+<h3 id="四-memory-management">(四) Memory-Management</h3>
+<ul>
+  <li>Program must be brought (from disk) into memory and placed within a process for it to be run</li>
+  <li>Main memory and registers are only storage CPU can access directly</li>
+  <li>Memory unit only sees a stream of <code class="highlighter-rouge">addresses + read requests</code>, or <code class="highlighter-rouge">address + data and write requests</code></li>
+  <li>Register access in one CPU clock (or less)</li>
+  <li>Main memory can take many cycles, causing a <strong>stall</strong></li>
+  <li><strong>Cache</strong> sits between main memory and CPU registers</li>
+  <li>Protection of memory required to ensure correct operation</li>
+</ul>
+
+<ol>
+  <li><strong>Base and Limit Registers</strong>
+    <ul>
+      <li>A pair of <strong>base</strong> and limit <strong>registers</strong> define the logical address space</li>
+      <li>
+        <p>CPU must check every memory access generated in user mode to be sure it is between base and limit for that user
+ <img src="https://i.imgur.com/mxLWZHF.png" alt="" /></p>
+      </li>
+      <li>Hardware Address Protection with Base and Limit Registers
+ <img src="https://i.imgur.com/ztutE6h.png" alt="" /></li>
+    </ul>
+  </li>
+  <li><strong>Address Binding</strong>
+    <ul>
+      <li>Programs on disk, ready to be brought into memory to execute form an <strong>input queue</strong>
+        <ul>
+          <li>Without support, must be loaded into address 0000</li>
+        </ul>
+      </li>
+      <li>Inconvenient to have first user process physical address always at 0000
+        <ul>
+          <li>How can it not be?</li>
+        </ul>
+      </li>
+      <li>Further, addresses represented in different ways at different stages of a program’s life
+        <ul>
+          <li>Source code addresses usually symbolic</li>
+          <li>Compiled code addresses <strong>bind</strong> to relocatable addresses
+            <ul>
+              <li>i.e. “14 bytes from beginning of this module”</li>
+            </ul>
+          </li>
+          <li>Linker or loader will bind relocatable addresses to absolute addresses
+            <ul>
+              <li>i.e. 74014</li>
+            </ul>
+          </li>
+          <li>Each binding maps one address space to another</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="https://i.imgur.com/cXzBuNp.jpg" alt="" /></p>
+
+<ol>
+  <li>
+    <p><strong>Logical vs. Physical Address Space</strong>
+<img src="https://i.imgur.com/LwA18UW.png" alt="" /></p>
+  </li>
+  <li><strong>Memory-Management Unit (MMU)</strong>
+    <ul>
+      <li>Hardware device that at run time maps virtual to physical address</li>
+      <li>Many methods possible, covered in the rest of this chapter</li>
+      <li>To start, consider simple scheme where the value in the relocation register is added to every address generated by a user process at the time it is sent to memory
+        <ul>
+          <li>Base register now called <strong>relocation register</strong></li>
+          <li>MS-DOS on Intel 80x86 used 4 relocation registers</li>
+        </ul>
+      </li>
+      <li>The user program deals with logical addresses; it never sees the real physical addresses
+        <ul>
+          <li>Execution-time binding occurs when reference is made to location in memory</li>
+          <li>Logical address bound to physical addresses</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Dynamic relocation</strong>
+    <ul>
+      <li>Using a relocation register
+<img src="https://i.imgur.com/RICsWcf.png" alt="" /></li>
+    </ul>
+  </li>
+  <li><strong>Dynamic Linking</strong>
+    <ul>
+      <li><strong>Static linking</strong> - system libraries and program code combined by the loader into the binary program image</li>
+      <li><strong>Dynamic linking</strong> – linking postponed until execution time</li>
+      <li>Small piece of code, <strong>stub</strong>, used to locate the appropriate memory-resident library routine</li>
+      <li>Stub replaces itself with the address of the routine, and executes the routine</li>
+      <li>Operating system checks if routine is in processes’ memory address
+        <ul>
+          <li>If not in address space, add to address space</li>
+        </ul>
+      </li>
+      <li>Dynamic linking is particularly useful for libraries</li>
+      <li>System also known as <strong>shared libraries</strong></li>
+      <li>Consider applicability to patching system libraries
+        <ul>
+          <li>Versioning may be needed</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Swapping</strong>
+    <ul>
+      <li>A process can be swapped temporarily out of memory to a backing store, and then brought back into memory for continued execution
+        <ul>
+          <li>Total physical memory space of processes can exceed physical memory</li>
+        </ul>
+      </li>
+      <li><strong>Backing store</strong> – fast disk large enough to accommodate copies of all memory images for all users; must provide direct access to these memory images</li>
+      <li><strong>Roll out, roll in</strong> – swapping variant used for priority-based scheduling algorithms; lower-priority process is swapped out so higher-priority process can be loaded and executed</li>
+      <li>Major part of swap time is transfer time; total transfer time is directly proportional to the amount of memory swapped</li>
+      <li>System maintains a <strong>ready queue</strong> of ready-to-run processes which have memory images on disk</li>
+      <li>Does the swapped out process need to swap back in to same physical addresses?
+        <ul>
+          <li>Depends on address binding method
+            <ul>
+              <li>Plus consider pending <code class="highlighter-rouge">I/O</code> to <code class="highlighter-rouge">/</code> from process memory space</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Modified versions of swapping are found on many systems (i.e., UNIX, Linux, and Windows)
+        <ul>
+          <li>Swapping normally disabled</li>
+          <li>Started if more than threshold amount of memory allocated</li>
+          <li>Disabled again once memory demand reduced below threshold</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="https://i.imgur.com/hptlmlg.png" alt="" /></p>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/05/19/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)</a>
                 </h2>
                 <div class="label">
@@ -1314,80 +1608,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/04/27/club_inheritance/">20170427 [社團相關] 關於社團傳承，你必須要知道的事情...</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-04-27
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#社團" title="Category: 社團" rel="category">社團</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#社團" title="Tag: 社團" rel="tag">社團</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一-關於社團傳承你必須要知道的事情" id="markdown-toc-一-關於社團傳承你必須要知道的事情">(一) 關於社團傳承，你必須要知道的事情…</a></li>
-</ul>
-
-<h1 id="一-關於社團傳承你必須要知道的事情">(一) 關於社團傳承，你必須要知道的事情…</h1>
-<ul>
-  <li>
-    <p>簡報網址：<a href="https://shouzo.github.io/collections/clubs/20170427-club_inheritance.pdf">https://shouzo.github.io/collections/clubs/20170427-club-inheritance.pdf</a></p>
-  </li>
-  <li>
-    <p>SlideShare：<a href="https://www.slideshare.net/danny200026/20170427-75453393">https://www.slideshare.net/danny200026/20170427-75453393</a></p>
-  </li>
-</ul>
-
-<p><strong>[畫面預覽]</strong>
-<img src="/assets/20170427/club_inheritance.jpg" alt="" /></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/04/27/club_inheritance/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1415,6 +1635,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2020/06/27/Parkour-AE/">20200823 [學習筆記] 如何設計一場戶外冒險活動</a></li>
+                    
                         <li><a href="/2020/06/27/Physical-Education_Trampoline/">20200627 [學習筆記] 幼兒體能開發、彈翻床</a></li>
                     
                         <li><a href="/2020/06/25/proposal_book/">20200625 [社團相關] 企劃書撰寫建議</a></li>
@@ -1432,8 +1654,6 @@
                         <li><a href="/2019/06/22/Teacher-Training/">20190622 [學習筆記] 2019 實驗教育 - 在職教師分區培力工作坊</a></li>
                     
                         <li><a href="/2019/06/21/activity-note/">20190621【冒險教育與培訓 - 為何及如何有效的黑盒子】新書發表工作坊</a></li>
-                    
-                        <li><a href="/2019/06/03/Speakerclub-Classnote_1/">20190603 [學習筆記] 東吳講師培訓社 - 課程筆記 (1)</a></li>
                     
                 </ul>
             </div>
@@ -1658,7 +1878,7 @@
                             <span class="name">
                                 學習筆記
                             </span>
-                            <span class="badge">20</span>
+                            <span class="badge">21</span>
                         </a>
                     </li>
                     
@@ -1872,7 +2092,7 @@
                       
                       
                       
-                      <a href="/tag/#學習筆記" style="font-size: 15pt; color: #333;">學習筆記</a>
+                      <a href="/tag/#學習筆記" style="font-size: 15.5pt; color: #333;">學習筆記</a>
                     
                       
                       
