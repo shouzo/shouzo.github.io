@@ -33,7 +33,7 @@ tags:  年度回顧 清華大學 推甄 運動科學
 
 總之多虧了學生時期的社團經驗，我趕緊組織接下來要做的事情並加以分類排序，**把這件事情當作一件專案來執行**。
 
-**詳細的專案執行經過可參考：[https://hackmd.io/@shouzo/SJ8Q04TcD](https://hackmd.io/@shouzo/SJ8Q04TcD)**
+> **詳細的專案執行經過可參考：[https://hackmd.io/@shouzo/SJ8Q04TcD](https://hackmd.io/@shouzo/SJ8Q04TcD)**
 
 以推甄來說，最重要的事情不外乎：
 1. **確認各項需繳交資料以及期限。**
