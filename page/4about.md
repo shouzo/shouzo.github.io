@@ -89,6 +89,7 @@ icon: commenting
 ### 工作模式
 * **公版履歷**
 	* [版本：2020/02/01 (六)](/collections/resume/20200201_color-resume.pdf)
+	* [版本：2020/10/19 (一)](/collections/resume/20201019_color-resume.pdf)
 
 
 ### 訓練模式
