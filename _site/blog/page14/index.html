@@ -160,6 +160,378 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/03/31/linux_system/">20170331 [學習筆記] Linux 系統程式 (5)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-31
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-thread-synchronization" id="markdown-toc-一-thread-synchronization">(一) Thread Synchronization</a></li>
+      <li><a href="#1-semaphore" id="markdown-toc-1-semaphore">1. Semaphore</a>        <ul>
+          <li><a href="#semaphoreh" id="markdown-toc-semaphoreh">semaphore.h</a>            <ul>
+              <li><a href="#sem_init" id="markdown-toc-sem_init">sem_init()</a></li>
+              <li><a href="#sem_wait" id="markdown-toc-sem_wait">sem_wait()</a></li>
+              <li><a href="#sem_post" id="markdown-toc-sem_post">sem_post()</a></li>
+              <li><a href="#sem_destroy" id="markdown-toc-sem_destroy">sem_destroy()</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#2-mutex" id="markdown-toc-2-mutex">2. Mutex</a>        <ul>
+          <li><a href="#pthreadh" id="markdown-toc-pthreadh">pthread.h</a>            <ul>
+              <li><a href="#pthread_mutex_init" id="markdown-toc-pthread_mutex_init">pthread_mutex_init()</a></li>
+              <li><a href="#pthread_mutex_lock" id="markdown-toc-pthread_mutex_lock">pthread_mutex_lock()</a></li>
+              <li><a href="#pthread_mutex_unlock" id="markdown-toc-pthread_mutex_unlock">pthread_mutex_unlock()</a></li>
+              <li><a href="#pthread_mutex_destroy" id="markdown-toc-pthread_mutex_destroy">pthread_mutex_destroy()</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#3-condition-variables" id="markdown-toc-3-condition-variables">3. Condition Variables</a>        <ul>
+          <li><a href="#pthread_cond_init-condition-attr" id="markdown-toc-pthread_cond_init-condition-attr">pthread_cond_init (condition, attr)</a></li>
+          <li><a href="#pthread_cond_destroy-condition" id="markdown-toc-pthread_cond_destroy-condition">pthread_cond_destroy (condition)</a></li>
+          <li><a href="#pthread_condattr_init-attr" id="markdown-toc-pthread_condattr_init-attr">pthread_condattr_init (attr)</a></li>
+          <li><a href="#pthread_condattr_destroy-attr" id="markdown-toc-pthread_condattr_destroy-attr">pthread_condattr_destroy (attr)</a></li>
+        </ul>
+      </li>
+      <li><a href="#4-barrier" id="markdown-toc-4-barrier">4. Barrier</a></li>
+      <li><a href="#二-producer-consumer-problem" id="markdown-toc-二-producer-consumer-problem">(二) Producer-Consumer Problem</a>        <ul>
+          <li><a href="#1-producer" id="markdown-toc-1-producer">1. Producer</a></li>
+          <li><a href="#2-consumer" id="markdown-toc-2-consumer">2. Consumer</a></li>
+        </ul>
+      </li>
+      <li><a href="#課程作業" id="markdown-toc-課程作業">課程作業</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/ch04.pdf">Chapter 4: Mutithread Programming</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/ch05.pdf">Chapter 5: Process Scheduling</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170330/Linux_programming_pthread.pdf">Linux_programming_pthread</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
+      <li><a href="http://tuxthink.blogspot.tw/2013/01/using-condition-variables-in-pthreads.html">Using condition variables in pthreads</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-thread-synchronization">(一) Thread Synchronization</h3>
+<h3 id="1-semaphore">1. Semaphore</h3>
+<h4 id="semaphoreh">semaphore.h</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;semaphore.h&gt;
+</span>
+<span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+<span class="c1">//create a semaphore
+</span>
+
+<span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<span class="c1">//lock a semaphore
+</span>
+
+<span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<span class="c1">//unlock a semaphore
+</span>
+
+<span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<span class="c1">//delete a semaphore
+</span></code></pre></div></div>
+
+<h5 id="sem_init">sem_init()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_init</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pshared</span><span class="p">,</span> <span class="kt">unsigned</span>
+<span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="highlighter-rouge">sem_t *sem</code>：semaphore 識別字</li>
+  <li><code class="highlighter-rouge">int pshared</code>：設定為 0 表示僅供目前的 process 及其 thread 使用。非 0 表示此 semaphore 與其他 process 共用</li>
+  <li><code class="highlighter-rouge">unsigned int value</code>：semaphore 的初始值</li>
+</ul>
+
+<h5 id="sem_wait">sem_wait()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_wait</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>若 semaphore 為非 0，則 semaphore 值減
+1；若 semaphore 為 0，則呼叫此 function
+的 thread 會被 block ，直到 semaphore 值不
+為 0。</li>
+</ul>
+
+<h5 id="sem_post">sem_post()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_post</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>對 semaphore 值加 1 。</li>
+</ul>
+
+<h5 id="sem_destroy">sem_destroy()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">sem_destroy</span><span class="p">(</span><span class="n">sem_t</span> <span class="o">*</span><span class="n">sem</span><span class="p">);</span>
+<span class="c1">//delete a semaphore
+</span></code></pre></div></div>
+
+<h3 id="2-mutex">2. Mutex</h3>
+<h4 id="pthreadh">pthread.h</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
+</span>
+<span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
+<span class="c1">//create a mutex
+</span>
+
+<span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//lock a mutex
+</span>
+
+<span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//unlock a mutex
+</span>
+
+<span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//delete a mutex
+</span></code></pre></div></div>
+
+<h5 id="pthread_mutex_init">pthread_mutex_init()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_mutexattr_t</span> <span class="o">*</span><span class="n">mutexattr</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="highlighter-rouge">pthread_mutex_t *mutex</code>：mutex 識別字</li>
+  <li><code class="highlighter-rouge">const pthread_mutexattr_t *mutexattr</code>：mutex 的屬性。設定為 NULL 表示使用預設。</li>
+</ul>
+
+<h5 id="pthread_mutex_lock">pthread_mutex_lock()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//lock a mutex
+</span></code></pre></div></div>
+
+<h5 id="pthread_mutex_unlock">pthread_mutex_unlock()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//unlock a mutex
+</span></code></pre></div></div>
+
+<h5 id="pthread_mutex_destroy">pthread_mutex_destroy()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="c1">//delete a mutex
+</span></code></pre></div></div>
+
+<h3 id="3-condition-variables">3. Condition Variables</h3>
+<h4 id="pthread_cond_init-condition-attr">pthread_cond_init (condition, attr)</h4>
+<ul>
+  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_init.txt">pthread_cond_init</a></li>
+</ul>
+
+<h4 id="pthread_cond_destroy-condition">pthread_cond_destroy (condition)</h4>
+<ul>
+  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_cond_destroy.txt">pthread_cond_destroy</a></li>
+</ul>
+
+<h4 id="pthread_condattr_init-attr">pthread_condattr_init (attr)</h4>
+<ul>
+  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_init.txt">pthread_condattr_init</a></li>
+</ul>
+
+<h4 id="pthread_condattr_destroy-attr">pthread_condattr_destroy (attr)</h4>
+<ul>
+  <li><a href="https://computing.llnl.gov/tutorials/pthreads/man/pthread_condattr_destroy.txt">pthread_condattr_destroy</a></li>
+</ul>
+
+<h3 id="4-barrier">4. Barrier</h3>
+<ul>
+  <li><a href="http://angelonotes.blogspot.tw/2012/02/pthreadbarrier.html">Using barriers in pthreads</a></li>
+  <li><a href="http://angelonotes.blogspot.tw/2012/02/pthreadbarrier.html">pthread︰barrier</a></li>
+</ul>
+
+<h3 id="二-producer-consumer-problem">(二) Producer-Consumer Problem</h3>
+<h4 id="1-producer">1. Producer</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">item</span> <span class="n">next</span> <span class="n">produced</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* produce an item in next produced */</span>
+    
+    <span class="k">while</span> <span class="p">(((</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
+    <span class="p">;</span> <span class="cm">/* do nothing */</span>
+        
+    <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next</span> <span class="n">produced</span><span class="p">;</span>
+    <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="2-consumer">2. Consumer</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">item</span> <span class="n">next</span> <span class="n">consumed</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
+    <span class="p">;</span> <span class="cm">/* do nothing */</span>
+    
+    <span class="n">next</span> <span class="n">consumed</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER</span> <span class="n">SIZE</span><span class="p">;</span>
+    
+    <span class="cm">/* consume the item in next consumed */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="課程作業">課程作業</h3>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+ *  Solution to Producer Consumer Problem
+ *  Using Ptheads, a mutex and condition variables
+ *  From Tanenbaum, Modern Operating Systems, 3rd Ed.
+ */</span>
+
+<span class="cm">/*
+    In this version the buffer is a single number.
+    The producer is putting numbers into the shared buffer
+    (in this case sequentially)
+    And the consumer is taking them out.
+    If the buffer contains zero, that indicates that the buffer is empty.
+    Any other value is valid.
+*/</span>
+
+<span class="cp">#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+</span>
+<span class="cp">#define MAX 10//000000			</span><span class="cm">/* Numbers to produce */</span><span class="cp">
+#define BUFFER_SIZE 5
+</span>
+<span class="n">pthread_mutex_t</span> <span class="n">the_mutex</span><span class="p">;</span>
+<span class="n">pthread_cond_t</span> <span class="n">condc</span><span class="p">,</span> <span class="n">condp</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">in</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">producer</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* protect buffer */</span>
+        
+        <span class="k">while</span> <span class="p">(((</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>		       <span class="cm">/* If there is something in the buffer then wait */</span>
+            <span class="n">pthread_cond_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>
+
+        <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"ProBuffer[%d]：%2d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]);</span>
+        <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+   
+        <span class="n">pthread_cond_signal</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">);</span>	<span class="cm">/* wake up consumer */</span>
+        <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* release the buffer */</span>
+    <span class="p">}</span>
+
+    <span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">consumer</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* protect buffer */</span>
+    
+        <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>			<span class="cm">/* If there is nothing in the buffer then wait */</span>
+            <span class="n">pthread_cond_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>
+    
+        <span class="n">printf</span><span class="p">(</span><span class="s">"ConBuffer[%d]：%2d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">]);</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+        <span class="n">pthread_cond_signal</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">);</span>	<span class="cm">/* wake up consumer */</span>
+        <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* release the buffer */</span>
+    <span class="p">}</span>
+    <span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">pthread_t</span> <span class="n">pro</span><span class="p">,</span> <span class="n">con</span><span class="p">;</span>
+
+    <span class="c1">// Initialize the mutex and condition variables
+</span>    <span class="cm">/* What's the NULL for ??? */</span>
+    <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>	
+    <span class="n">pthread_cond_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>		<span class="cm">/* Initialize consumer condition variable */</span>
+    <span class="n">pthread_cond_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>		<span class="cm">/* Initialize producer condition variable */</span>
+
+    <span class="c1">// Create the threads
+</span>    <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">con</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">consumer</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pro</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">producer</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="c1">// Wait for the threads to finish
+</span>    <span class="c1">// Otherwise main might run to the end
+</span>    <span class="c1">// and kill the entire process when it exits.
+</span>    <span class="n">pthread_join</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">pthread_join</span><span class="p">(</span><span class="n">pro</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="c1">// Cleanup -- would happen automatically at end of program
+</span>    <span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_mutex</span><span class="p">);</span>	<span class="cm">/* Free up the_mutex */</span>
+    <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condc</span><span class="p">);</span>		<span class="cm">/* Free up consumer condition variable */</span>
+    <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">condp</span><span class="p">);</span>		<span class="cm">/* Free up producer condition variable */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/6miNt1O.jpg" alt="" /></li>
+</ul>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/31/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/03/30/ai/">20170330 [學習筆記] 人工智慧 (5)</a>
                 </h2>
                 <div class="label">
@@ -1137,185 +1509,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-17
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Vim" title="Tag: Vim" rel="tag">Vim</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#前言" id="markdown-toc-前言">前言</a></li>
-  <li><a href="#一常用功能" id="markdown-toc-一常用功能">一、常用功能</a></li>
-</ul>
-
-<h2 id="前言">前言</h2>
-<p>這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。</p>
-
-<h2 id="一常用功能">一、常用功能</h2>
-<ul>
-  <li>引用資料
-    <ul>
-      <li><a href="http://blog.johnsonlu.org/vim-tips/">Vim小技巧</a></li>
-    </ul>
-  </li>
-</ul>
-
-<ol>
-  <li>
-    <p>刪除一行 - <code class="highlighter-rouge">dd</code></p>
-  </li>
-  <li>
-    <p>進入編輯模式 - <code class="highlighter-rouge">i</code></p>
-  </li>
-  <li>
-    <p>進入VISUAL模式 - <code class="highlighter-rouge">v</code></p>
-  </li>
-  <li>
-    <p>進入VISUAL BLOCK模式 - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">v</code></p>
-  </li>
-  <li>
-    <p>寫入(儲存) - <code class="highlighter-rouge">:w</code></p>
-  </li>
-  <li>
-    <p>離開 - <code class="highlighter-rouge">:q</code></p>
-  </li>
-  <li>
-    <p>不儲存強制離開 - <code class="highlighter-rouge">:q!</code></p>
-  </li>
-  <li>
-    <p>paste模式，直接貼上文字時格式不會跑掉 - <code class="highlighter-rouge">:set paste</code></p>
-  </li>
-  <li>
-    <p>顯示行數 - <code class="highlighter-rouge">:set nu</code></p>
-  </li>
-  <li>
-    <p>設定一個tab等於四個空白長度 - <code class="highlighter-rouge">:set tabstop=4</code></p>
-  </li>
-  <li>
-    <p>設定以後，使用tab鍵時會用空白取代(由tabstop決定) - <code class="highlighter-rouge">:set expandtab</code></p>
-  </li>
-  <li>
-    <p>消除Highlight - <code class="highlighter-rouge">:noh</code></p>
-  </li>
-  <li>
-    <p>範圍縮排(3到5行向右縮排，向左縮排用&lt;) - <code class="highlighter-rouge">:3,5&gt;</code></p>
-  </li>
-  <li>
-    <p>將tab轉換成space - <code class="highlighter-rouge">:retab</code></p>
-  </li>
-  <li>
-    <p>將檔案編碼轉成utf8 - <code class="highlighter-rouge">:set fileencoding=utf8</code></p>
-  </li>
-  <li>
-    <p>另存新檔 - <code class="highlighter-rouge">:w myfilename</code></p>
-  </li>
-  <li>
-    <p>開啟檔案 - <code class="highlighter-rouge">:e filename</code></p>
-  </li>
-  <li>
-    <p>自動對齊 - <code class="highlighter-rouge">==</code></p>
-  </li>
-  <li>
-    <p>移動到該行最前端 - <code class="highlighter-rouge">^</code></p>
-  </li>
-  <li>
-    <p>移動到該行最末端 - <code class="highlighter-rouge">$</code></p>
-  </li>
-  <li>
-    <p>移動到下一個單字的第一個字元 - <code class="highlighter-rouge">w</code></p>
-  </li>
-  <li>
-    <p>移動到前一個單字的第一個字元 - <code class="highlighter-rouge">b</code></p>
-  </li>
-  <li>
-    <p>移動到下一個單字的最後一個字元 - <code class="highlighter-rouge">e</code></p>
-  </li>
-  <li>
-    <p>移動到下一個單字的最後一個字元(無視符號) - <code class="highlighter-rouge">E</code></p>
-  </li>
-  <li>
-    <p>全選(gg為游標移動到最上方，v為切換成選擇模式，G是游標移動到最下方) - <code class="highlighter-rouge">ggvG</code></p>
-  </li>
-  <li>
-    <p>游標移動到特定行數(移動到第三行) - <code class="highlighter-rouge">3G</code></p>
-  </li>
-  <li>
-    <p>複製反白的區塊(需要在VISUAL模式) - <code class="highlighter-rouge">y</code></p>
-  </li>
-  <li>
-    <p>剪下反白的區塊(需要在VISUAL模式) - <code class="highlighter-rouge">d</code></p>
-  </li>
-  <li>
-    <p>複製游標所在的那行(需要在VISUAL模式) - <code class="highlighter-rouge">shift</code>(按鍵) + <code class="highlighter-rouge">y</code></p>
-  </li>
-  <li>
-    <p>貼上 - <code class="highlighter-rouge">p</code></p>
-  </li>
-  <li>
-    <p>回復 - <code class="highlighter-rouge">u</code></p>
-  </li>
-  <li>
-    <p>自動完成 (需要在編輯模式) - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">p</code></p>
-  </li>
-  <li>
-    <p>搜尋字串 - <code class="highlighter-rouge">/&lt;字串&gt;</code>：向下找、<code class="highlighter-rouge">?&lt;字串&gt;</code>：向上找</p>
-  </li>
-</ol>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/17/vim/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1343,6 +1536,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2020/11/28/NTHU-Sport-Science_2/">20201128 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 2</a></li>
+                    
                         <li><a href="/2020/11/26/NTHU-Sport-Science_1/">20201126 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 1</a></li>
                     
                         <li><a href="/2020/08/23/Parkour-AE/">20200823 [學習筆記] 如何設計一場戶外冒險活動</a></li>
@@ -1360,8 +1555,6 @@
                         <li><a href="/2019/09/13/Summer_TrainingCamp/">20190913 [學習筆記] 盛夏工作坊 - 幹部訓練營</a></li>
                     
                         <li><a href="/2019/08/26/CCAPP/">20190826 [學習筆記] 活動企劃師 CCAPP - 課程內容筆記 (第115期)</a></li>
-                    
-                        <li><a href="/2019/08/15/team_manage/">20190815 [社團相關] 團隊經營 - 組織規劃、經營與傳承</a></li>
                     
                 </ul>
             </div>
@@ -1595,7 +1788,7 @@
                             <span class="name">
                                 年度回顧
                             </span>
-                            <span class="badge">2</span>
+                            <span class="badge">3</span>
                         </a>
                     </li>
                     
@@ -1816,7 +2009,7 @@
                       
                       
                       
-                      <a href="/tag/#年度回顧" style="font-size: 9.5pt; color: #999;">年度回顧</a>
+                      <a href="/tag/#年度回顧" style="font-size: 9.5pt; color: #888;">年度回顧</a>
                     
                       
                       
@@ -1830,21 +2023,21 @@
                       
                       
                       
-                      <a href="/tag/#清華大學" style="font-size: 9pt; color: #999;">清華大學</a>
+                      <a href="/tag/#清華大學" style="font-size: 9.5pt; color: #999;">清華大學</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#推甄" style="font-size: 9pt; color: #999;">推甄</a>
+                      <a href="/tag/#推甄" style="font-size: 9.5pt; color: #999;">推甄</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#運動科學" style="font-size: 9pt; color: #999;">運動科學</a>
+                      <a href="/tag/#運動科學" style="font-size: 9.5pt; color: #999;">運動科學</a>
                     
                 </div>
             </div>
