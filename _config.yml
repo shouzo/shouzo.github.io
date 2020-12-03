@@ -7,7 +7,7 @@
 
 # Site settings
 title: 少左 shouzo
-brief-intro: Be strong to Be useful！
+brief-intro: BE STRONG TO BE USEFUL
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://shouzo.github.io" # the base hostname & protocol for your site
 
