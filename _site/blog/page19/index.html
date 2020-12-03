@@ -162,6 +162,173 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2016/09/08/Rclassroom-RBasic-1/">20160908 [R語言翻轉教室] 01-RBasic (1)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2016-09-08
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#R語言" title="Category: R語言" rel="category">R語言</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#R語言" title="Tag: R語言" rel="tag">R語言</a>&nbsp;
+    
+        <a href="/tag/#Data-Science" title="Tag: Data-Science" rel="tag">Data-Science</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#整理自-r語言翻轉教室" id="markdown-toc-整理自-r語言翻轉教室">整理自 R語言翻轉教室</a>    <ul>
+      <li><a href="#課程進度rbasic" id="markdown-toc-課程進度rbasic">課程進度：RBasic</a></li>
+    </ul>
+  </li>
+  <li><a href="#一-01-introduction" id="markdown-toc-一-01-introduction">(一) 01-Introduction</a>    <ul>
+      <li><a href="#1-查詢說明" id="markdown-toc-1-查詢說明">1. 查詢、說明</a>        <ul>
+          <li><a href="#用法-help" id="markdown-toc-用法-help">[用法] help()、?</a></li>
+          <li><a href="#範例-查詢-solve-函數的說明" id="markdown-toc-範例-查詢-solve-函數的說明">[範例] 查詢 solve 函數的說明：</a></li>
+        </ul>
+      </li>
+      <li><a href="#2-expressionassignment" id="markdown-toc-2-expressionassignment">2. expression、assignment</a></li>
+      <li><a href="#3-查詢物件" id="markdown-toc-3-查詢物件">3. 查詢物件</a>        <ul>
+          <li><a href="#用法-objectsls" id="markdown-toc-用法-objectsls">[用法] objects()、ls()</a></li>
+        </ul>
+      </li>
+      <li><a href="#4-刪除物件" id="markdown-toc-4-刪除物件">4. 刪除物件</a>        <ul>
+          <li><a href="#用法-rm" id="markdown-toc-用法-rm">[用法] rm()</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="整理自-r語言翻轉教室">整理自 <a href="http://datascienceandr.org/">R語言翻轉教室</a></h2>
+<ul>
+  <li>版本資訊 (sha-hash：4636e186)</li>
+</ul>
+
+<h3 id="課程進度rbasic">課程進度：RBasic</h3>
+<ul>
+  <li><a href="http://datascienceandr.org/note/01-RBasic-01-Introduction.html">01-RBasic-01-Introduction</a> (O)</li>
+  <li><a href="http://datascienceandr.org/note/01-RBasic-02-Data-Structure-Vectors.html">01-RBasic-02-Data-Structure-Vectors</a> (O)</li>
+  <li>01-RBasic-03-Data-Structure-Object</li>
+  <li>01-RBasic-04-Factors</li>
+  <li>01-RBasic-05-Arrays-Matrices</li>
+  <li>01-RBasic-06-List-DataFrame</li>
+  <li>01-RBasic-07-Loading-Dataset</li>
+</ul>
+
+<h2 id="一-01-introduction">(一) 01-Introduction</h2>
+
+<h3 id="1-查詢說明">1. 查詢、說明</h3>
+
+<h4 id="用法-help">[用法] help()、?</h4>
+<ul>
+  <li>獲得函數的細節說明。</li>
+</ul>
+
+<h4 id="範例-查詢-solve-函數的說明">[範例] 查詢 solve 函數的說明：</h4>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 查詢 solve 函數</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">help</span><span class="p">(</span><span class="n">solve</span><span class="p">)</span><span class="w">	</span><span class="c1"># 用法 1</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="o">?</span><span class="n">solve</span><span class="w">		</span><span class="c1"># 用法 2</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="2-expressionassignment">2. expression、assignment</h3>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># assignment 動作 (不會顯示結果)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># expression 動作 (會顯示結果)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="o">&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="3-查詢物件">3. 查詢物件</h3>
+
+<h4 id="用法-objectsls">[用法] objects()、ls()</h4>
+<ul>
+  <li>查詢所有環境的物件。</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="p">()</span><span class="w">	</span><span class="c1"># 用法 1</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w">                         </span><span class="s2">"chat"</span><span class="w">                     
+</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="s2">"check_then_install"</span><span class="w">        </span><span class="s2">"check_then_install_github"</span><span class="w">
+</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="s2">"issue"</span><span class="w">                     </span><span class="s2">"source_by_l10n_info"</span><span class="w">      
+</span><span class="o">&gt;</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls</span><span class="p">()</span><span class="w">	</span><span class="c1"># 用法 2</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w">                         </span><span class="s2">"chat"</span><span class="w">                     
+</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="s2">"check_then_install"</span><span class="w">        </span><span class="s2">"check_then_install_github"</span><span class="w">
+</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="s2">"issue"</span><span class="w">                     </span><span class="s2">"source_by_l10n_info"</span><span class="w">      
+</span><span class="o">&gt;</span><span class="w"> 
+</span></code></pre></div></div>
+
+<h3 id="4-刪除物件">4. 刪除物件</h3>
+
+<h4 id="用法-rm">[用法] rm()</h4>
+<ul>
+  <li>刪除指定的物件。</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="p">()</span><span class="w">	</span><span class="c1"># 查詢所有環境的物件</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"chat"</span><span class="w">                      </span><span class="s2">"check_then_install"</span><span class="w">       
+</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="s2">"check_then_install_github"</span><span class="w"> </span><span class="s2">"issue"</span><span class="w">                    
+</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="s2">"source_by_l10n_info"</span><span class="w">      
+</span><span class="o">&gt;</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 用 "rm()" 移除物件</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rm</span><span class="p">(</span><span class="n">chat</span><span class="p">)</span><span class="w">    </span><span class="c1"># 移除"chat"</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rm</span><span class="p">(</span><span class="n">issue</span><span class="p">)</span><span class="w">   </span><span class="c1"># 移除"issue"</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="p">()</span><span class="w">	</span><span class="c1"># 再次查詢環境</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"check_then_install"</span><span class="w">        </span><span class="s2">"check_then_install_github"</span><span class="w">
+</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="s2">"source_by_l10n_info"</span><span class="w">      
+</span><span class="o">&gt;</span><span class="w"> 
+</span></code></pre></div></div>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2016/09/08/Rclassroom-RBasic-1/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2016/08/28/about-dreams/">20160829 [社團相關] 夢想，Loading...</a>
                 </h2>
                 <div class="label">
@@ -455,89 +622,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2016/06/15/MapProject-1/">20160617 [資料科學系列] 專題製作 - 視覺化電動機車運行能量地圖 (1)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2016-06-15
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Data-Science" title="Category: Data-Science" rel="category">Data-Science</a>&nbsp;
-    
-        <a href="/category/#R語言" title="Category: R語言" rel="category">R語言</a>&nbsp;
-    
-        <a href="/category/#Android" title="Category: Android" rel="category">Android</a>&nbsp;
-    
-        <a href="/category/#專題製作" title="Category: 專題製作" rel="category">專題製作</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Data-Science" title="Tag: Data-Science" rel="tag">Data-Science</a>&nbsp;
-    
-        <a href="/tag/#Data-Mining" title="Tag: Data-Mining" rel="tag">Data-Mining</a>&nbsp;
-    
-        <a href="/tag/#R語言" title="Tag: R語言" rel="tag">R語言</a>&nbsp;
-    
-        <a href="/tag/#Android" title="Tag: Android" rel="tag">Android</a>&nbsp;
-    
-        <a href="/tag/#專題製作" title="Tag: 專題製作" rel="tag">專題製作</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <h1 id="簡報主題-視覺化電動機車運行能量地圖">簡報主題： 視覺化電動機車運行能量地圖</h1>
-<ul>
-  <li>簡報網址： <a href="/collections/data-science/20160617-MapProject-1.html">20160617 [資料科學系列] 專題製作 - 視覺化電動機車運行能量地圖 (1)</a>
-    <ul>
-      <li>這是專題的初版簡報，目前只有大致的框架。</li>
-    </ul>
-  </li>
-</ul>
-
-<p><strong>[簡報預覽]</strong>
-<img src="/assets/20160617/cover.jpg" alt="" /></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2016/06/15/MapProject-1/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -565,6 +649,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2020/12/03/NTHU-Sport-Science_4/">20201203 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 4</a></li>
+                    
                         <li><a href="/2020/11/28/NTHU-Sport-Science_3/">20201128 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 3</a></li>
                     
                         <li><a href="/2020/11/28/NTHU-Sport-Science_2/">20201128 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 2</a></li>
@@ -582,8 +668,6 @@
                         <li><a href="/2019/09/28/AAEE-Assistant/">20190928 [學習筆記] AAEE 助理引導員認證課程</a></li>
                     
                         <li><a href="/2019/09/21/AAEE-Facilation/">20190921 [學習筆記] 多元引導技術工作坊</a></li>
-                    
-                        <li><a href="/2019/09/13/Summer_TrainingCamp/">20190913 [學習筆記] 盛夏工作坊 - 幹部訓練營</a></li>
                     
                 </ul>
             </div>
@@ -817,7 +901,7 @@
                             <span class="name">
                                 年度回顧
                             </span>
-                            <span class="badge">4</span>
+                            <span class="badge">5</span>
                         </a>
                     </li>
                     
@@ -1038,7 +1122,7 @@
                       
                       
                       
-                      <a href="/tag/#年度回顧" style="font-size: 10pt; color: #888;">年度回顧</a>
+                      <a href="/tag/#年度回顧" style="font-size: 10.5pt; color: #888;">年度回顧</a>
                     
                       
                       
@@ -1052,21 +1136,21 @@
                       
                       
                       
-                      <a href="/tag/#清華大學" style="font-size: 9.5pt; color: #888;">清華大學</a>
+                      <a href="/tag/#清華大學" style="font-size: 10pt; color: #888;">清華大學</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#推甄" style="font-size: 9.5pt; color: #888;">推甄</a>
+                      <a href="/tag/#推甄" style="font-size: 10pt; color: #888;">推甄</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#運動科學" style="font-size: 9.5pt; color: #888;">運動科學</a>
+                      <a href="/tag/#運動科學" style="font-size: 10pt; color: #888;">運動科學</a>
                     
                 </div>
             </div>
