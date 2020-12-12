@@ -74,7 +74,6 @@ icon: bookmark
 * [20190921 多元引導技術的應用](/collections/notes/20190921_AAEE-Facilation.html)
 * [20190928 AAEE 助理引導員認證課程](/collections/notes/20190928_AAEE-Assistant.html)
 * [20200627 幼兒體能開發、彈翻床 - 課程筆記](/collections/notes/20200627_Physical-Education_Trampoline.html)
-* [20201207【2020 年度回顧系列】清大運科所推甄歷程](/collections/years/2020_NTHU-Sport-Science.html)
 
 
 ---
@@ -89,6 +88,11 @@ icon: bookmark
 * [20200823 如何設計一場戶外冒險活動](/collections/visualize/20200823_Parkour-AE/Parkour-AE.pdf)
 
 
+---
+
+
+# 年度回顧系列
+* [20201207【2020 年度回顧系列】清大運科所推甄歷程](/collections/years/2020_NTHU-Sport-Science.html)
 
 
 
