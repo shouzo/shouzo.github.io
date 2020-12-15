@@ -162,6 +162,185 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-17
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Vim" title="Tag: Vim" rel="tag">Vim</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#前言" id="markdown-toc-前言">前言</a></li>
+  <li><a href="#一常用功能" id="markdown-toc-一常用功能">一、常用功能</a></li>
+</ul>
+
+<h2 id="前言">前言</h2>
+<p>這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。</p>
+
+<h2 id="一常用功能">一、常用功能</h2>
+<ul>
+  <li>引用資料
+    <ul>
+      <li><a href="http://blog.johnsonlu.org/vim-tips/">Vim小技巧</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>刪除一行 - <code class="highlighter-rouge">dd</code></p>
+  </li>
+  <li>
+    <p>進入編輯模式 - <code class="highlighter-rouge">i</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL模式 - <code class="highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL BLOCK模式 - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>寫入(儲存) - <code class="highlighter-rouge">:w</code></p>
+  </li>
+  <li>
+    <p>離開 - <code class="highlighter-rouge">:q</code></p>
+  </li>
+  <li>
+    <p>不儲存強制離開 - <code class="highlighter-rouge">:q!</code></p>
+  </li>
+  <li>
+    <p>paste模式，直接貼上文字時格式不會跑掉 - <code class="highlighter-rouge">:set paste</code></p>
+  </li>
+  <li>
+    <p>顯示行數 - <code class="highlighter-rouge">:set nu</code></p>
+  </li>
+  <li>
+    <p>設定一個tab等於四個空白長度 - <code class="highlighter-rouge">:set tabstop=4</code></p>
+  </li>
+  <li>
+    <p>設定以後，使用tab鍵時會用空白取代(由tabstop決定) - <code class="highlighter-rouge">:set expandtab</code></p>
+  </li>
+  <li>
+    <p>消除Highlight - <code class="highlighter-rouge">:noh</code></p>
+  </li>
+  <li>
+    <p>範圍縮排(3到5行向右縮排，向左縮排用&lt;) - <code class="highlighter-rouge">:3,5&gt;</code></p>
+  </li>
+  <li>
+    <p>將tab轉換成space - <code class="highlighter-rouge">:retab</code></p>
+  </li>
+  <li>
+    <p>將檔案編碼轉成utf8 - <code class="highlighter-rouge">:set fileencoding=utf8</code></p>
+  </li>
+  <li>
+    <p>另存新檔 - <code class="highlighter-rouge">:w myfilename</code></p>
+  </li>
+  <li>
+    <p>開啟檔案 - <code class="highlighter-rouge">:e filename</code></p>
+  </li>
+  <li>
+    <p>自動對齊 - <code class="highlighter-rouge">==</code></p>
+  </li>
+  <li>
+    <p>移動到該行最前端 - <code class="highlighter-rouge">^</code></p>
+  </li>
+  <li>
+    <p>移動到該行最末端 - <code class="highlighter-rouge">$</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的第一個字元 - <code class="highlighter-rouge">w</code></p>
+  </li>
+  <li>
+    <p>移動到前一個單字的第一個字元 - <code class="highlighter-rouge">b</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元 - <code class="highlighter-rouge">e</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元(無視符號) - <code class="highlighter-rouge">E</code></p>
+  </li>
+  <li>
+    <p>全選(gg為游標移動到最上方，v為切換成選擇模式，G是游標移動到最下方) - <code class="highlighter-rouge">ggvG</code></p>
+  </li>
+  <li>
+    <p>游標移動到特定行數(移動到第三行) - <code class="highlighter-rouge">3G</code></p>
+  </li>
+  <li>
+    <p>複製反白的區塊(需要在VISUAL模式) - <code class="highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>剪下反白的區塊(需要在VISUAL模式) - <code class="highlighter-rouge">d</code></p>
+  </li>
+  <li>
+    <p>複製游標所在的那行(需要在VISUAL模式) - <code class="highlighter-rouge">shift</code>(按鍵) + <code class="highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>貼上 - <code class="highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>回復 - <code class="highlighter-rouge">u</code></p>
+  </li>
+  <li>
+    <p>自動完成 (需要在編輯模式) - <code class="highlighter-rouge">ctrl</code>(按鍵) + <code class="highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>搜尋字串 - <code class="highlighter-rouge">/&lt;字串&gt;</code>：向下找、<code class="highlighter-rouge">?&lt;字串&gt;</code>：向上找</p>
+  </li>
+</ol>
+
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/17/vim/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)</a>
                 </h2>
                 <div class="label">
@@ -825,81 +1004,6 @@ bursts.
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/03/linux_system/">20170303 [學習筆記] Linux 系統程式 (1)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-03
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一-作業系統" id="markdown-toc-一-作業系統">(一) 作業系統</a></li>
-</ul>
-
-<h3 id="一-作業系統">(一) 作業系統</h3>
-<ul>
-  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf">課程簡報 - Ch1：Introduction</a></li>
-</ul>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/03/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -927,6 +1031,8 @@ bursts.
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2020/12/15/2020_Life-Work_2/">20201215 [年度回顧] 關於工作和生活 - Part 2</a></li>
+                    
                         <li><a href="/2020/12/09/2020_Life-Work_1/">20201209 [年度回顧] 關於工作和生活 - Part 1</a></li>
                     
                         <li><a href="/2020/12/07/NTHU-Sport-Science_5/">20201207 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 5</a></li>
@@ -944,8 +1050,6 @@ bursts.
                         <li><a href="/2020/06/27/Physical-Education_Trampoline/">20200627 [學習筆記] 幼兒體能開發、彈翻床</a></li>
                     
                         <li><a href="/2020/06/25/proposal_book/">20200625 [社團相關] 企劃書撰寫建議</a></li>
-                    
-                        <li><a href="/2019/12/31/2019_review/">20191231 [年度回顧] 2019 年度總回顧</a></li>
                     
                 </ul>
             </div>
@@ -1179,7 +1283,7 @@ bursts.
                             <span class="name">
                                 年度回顧
                             </span>
-                            <span class="badge">7</span>
+                            <span class="badge">8</span>
                         </a>
                     </li>
                     
@@ -1400,7 +1504,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#年度回顧" style="font-size: 11pt; color: #777;">年度回顧</a>
+                      <a href="/tag/#年度回顧" style="font-size: 11.5pt; color: #777;">年度回顧</a>
                     
                       
                       
@@ -1435,14 +1539,14 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#生活" style="font-size: 9pt; color: #999;">生活</a>
+                      <a href="/tag/#生活" style="font-size: 9.5pt; color: #999;">生活</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#工作" style="font-size: 9pt; color: #999;">工作</a>
+                      <a href="/tag/#工作" style="font-size: 9.5pt; color: #999;">工作</a>
                     
                 </div>
             </div>
