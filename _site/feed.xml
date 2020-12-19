@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 19 Dec 2020 21:10:46 +0800</pubDate>
-    <lastBuildDate>Sat, 19 Dec 2020 21:10:46 +0800</lastBuildDate>
+    <pubDate>Sat, 19 Dec 2020 21:14:35 +0800</pubDate>
+    <lastBuildDate>Sat, 19 Dec 2020 21:14:35 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -60,7 +60,9 @@
 
 &lt;p&gt;因為星期一在大學社團的教學跟我個人期望的發展方向成正相關，所以這件事對我來說足夠重要。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;「有價值的事情不一定會在現階段以收入呈現，但你必須知道自己在做什麼，並且確保那些事情是足夠重要的。」&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;「有價值的事情不一定會在現階段以收入呈現，但你必須知道自己在做什麼，並且確保那些事情是足夠重要的。」&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;(…未完待續)&lt;/p&gt;
 </description>
