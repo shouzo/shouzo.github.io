@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>20180301 [學習筆記] 計算機結構 (1)</title>
-    <meta name="description" content="  一、Classes of Computers          1. Desktop computers      2. Server computers      3. Embedded computers        二、Understanding Performance          1. Alg...">
+    <title>20201219 [年度回顧] 關於工作和生活 - Part 4</title>
+    <meta name="description" content="  價值的判斷價值的判斷判斷事情值不值得做，可以從這兩個面向來看：  「當事人是否為此產生動機」(價值高低)  「由時間帶來的各種變遷」(時間先後)那麼 「別人認為有價值、願意買單的事情」，和 「做自己想要做的事情，然後讓它變得有價值」，該如何區分這兩者？以 個人發展 來說，我認為差別在於「前者只是在適應現況、為...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://shouzo.github.io/2018/03/01/computer_organization/">
+    <link rel="canonical" href="http://shouzo.github.io/2020/12/19/2020_Life-Work_4/">
     <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
 
 
@@ -157,11 +157,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>20180301 [學習筆記] 計算機結構 (1)</h1>
+        <h1>20201219 [年度回顧] 關於工作和生活 - Part 4</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2018-03-01
+                <i class="fa fa-calendar"></i>2020-12-19
             </div>
 
             <div class="label-card">
@@ -181,9 +181,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#計算機結構" title="Category: 計算機結構" rel="category">計算機結構</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>
+        <a href="/category/#年度回顧" title="Category: 年度回顧" rel="category">年度回顧</a>
     
   
 
@@ -200,11 +198,14 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%90%E6%A7%8B" title="Tag: 計算機結構" rel="tag">計算機結構</a-->
-        <a href="/tag/#計算機結構" title="Tag: 計算機結構" rel="tag">計算機結構</a>&nbsp;
+        <!--a href="/tag/#%E5%B9%B4%E5%BA%A6%E5%9B%9E%E9%A1%A7" title="Tag: 年度回顧" rel="tag">年度回顧</a-->
+        <a href="/tag/#年度回顧" title="Tag: 年度回顧" rel="tag">年度回顧</a>&nbsp;
     
-        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>
+        <!--a href="/tag/#%E7%94%9F%E6%B4%BB" title="Tag: 生活" rel="tag">生活</a-->
+        <a href="/tag/#生活" title="Tag: 生活" rel="tag">生活</a>&nbsp;
+    
+        <!--a href="/tag/#%E5%B7%A5%E4%BD%9C" title="Tag: 工作" rel="tag">工作</a-->
+        <a href="/tag/#工作" title="Tag: 工作" rel="tag">工作</a>
     
   
 
@@ -216,225 +217,57 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#一classes-of-computers" id="markdown-toc-一classes-of-computers">一、Classes of Computers</a>    <ul>
-      <li><a href="#1-desktop-computers" id="markdown-toc-1-desktop-computers">1. Desktop computers</a></li>
-      <li><a href="#2-server-computers" id="markdown-toc-2-server-computers">2. Server computers</a></li>
-      <li><a href="#3-embedded-computers" id="markdown-toc-3-embedded-computers">3. Embedded computers</a></li>
-    </ul>
-  </li>
-  <li><a href="#二understanding-performance" id="markdown-toc-二understanding-performance">二、Understanding Performance</a>    <ul>
-      <li><a href="#1-algorithm" id="markdown-toc-1-algorithm">1. Algorithm</a></li>
-      <li><a href="#2-programming-language-compiler-architecture" id="markdown-toc-2-programming-language-compiler-architecture">2. Programming language, compiler, architecture</a></li>
-      <li><a href="#3-processor-and-memory-system" id="markdown-toc-3-processor-and-memory-system">3. Processor and memory system</a></li>
-      <li><a href="#4-io-system-including-os" id="markdown-toc-4-io-system-including-os">4. I/O system (including OS)</a></li>
-    </ul>
-  </li>
-  <li><a href="#三below-your-program" id="markdown-toc-三below-your-program">三、Below your Program</a>    <ul>
-      <li><a href="#1-application-software" id="markdown-toc-1-application-software">1. Application software</a></li>
-      <li><a href="#2-system-software" id="markdown-toc-2-system-software">2. System software</a></li>
-      <li><a href="#3-hardware" id="markdown-toc-3-hardware">3. Hardware</a></li>
-    </ul>
-  </li>
-  <li><a href="#四levels-of-program-code" id="markdown-toc-四levels-of-program-code">四、Levels of Program Code</a>    <ul>
-      <li><a href="#1-high-level-language" id="markdown-toc-1-high-level-language">1. High-level language</a></li>
-      <li><a href="#2-assembly-language" id="markdown-toc-2-assembly-language">2. Assembly language</a></li>
-      <li><a href="#3-hardware-representation" id="markdown-toc-3-hardware-representation">3. Hardware representation</a></li>
-    </ul>
-  </li>
-  <li><a href="#五defining-performance" id="markdown-toc-五defining-performance">五、Defining Performance</a>    <ul>
-      <li><a href="#1-response-time" id="markdown-toc-1-response-time">1. Response time</a></li>
-      <li><a href="#2-throughput" id="markdown-toc-2-throughput">2. Throughput</a></li>
-    </ul>
-  </li>
-  <li><a href="#六relative-performance" id="markdown-toc-六relative-performance">六、Relative Performance</a></li>
-  <li><a href="#七measuring-execution-time" id="markdown-toc-七measuring-execution-time">七、Measuring Execution Time</a>    <ul>
-      <li><a href="#1-elapsed-time" id="markdown-toc-1-elapsed-time">1. Elapsed time</a></li>
-      <li><a href="#2-cpu-time" id="markdown-toc-2-cpu-time">2. CPU time</a></li>
-      <li><a href="#3-instruction-count-and-cpi" id="markdown-toc-3-instruction-count-and-cpi">3. Instruction Count and CPI</a></li>
-    </ul>
-  </li>
-  <li><a href="#八performance-summary" id="markdown-toc-八performance-summary">八、Performance Summary</a></li>
+  <li><a href="#價值的判斷" id="markdown-toc-價值的判斷">價值的判斷</a></li>
 </ul>
 
-<ul>
-  <li>課程簡報
-    <ul>
-      <li><a href="https://github.com/shouzo/Computer-Organization-And-Design_pages/blob/master/class-tutorial/20180301/Chapter-1-Computer-Abstractions-and-Technology.pdf">Chapter-1-Computer-Abstractions-and-Technology</a></li>
-    </ul>
-  </li>
-  <li>參考資料
-    <ul>
-      <li><a href="http://ccckmit.wikidot.com/co:speed">計算機結構 - 速度的議題</a></li>
-      <li><a href="https://goo.gl/fW6rF6">GitBook - 組合語言與計算機組織</a>
-        <ul>
-          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/computer_abstractions_and_technology.html">Computer Abstractions and Technology</a></li>
-          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/performance.html">Performance</a></li>
-          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/cpu_time.html">CPU Time</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+<h3 id="價值的判斷">價值的判斷</h3>
+<p>判斷事情值不值得做，可以從這兩個面向來看：</p>
+<ol>
+  <li><strong>「當事人是否為此產生動機」(價值高低)</strong></li>
+  <li><strong>「由時間帶來的各種變遷」(時間先後)</strong></li>
+</ol>
 
-<h3 id="一classes-of-computers">一、Classes of Computers</h3>
-<h4 id="1-desktop-computers">1. Desktop computers</h4>
-<ul>
-  <li>General purpose, variety of software.</li>
-  <li>Subject to <code class="highlighter-rouge">cost</code> / <code class="highlighter-rouge">performance</code> tradeoff.</li>
-</ul>
+<p><img src="https://i.imgur.com/xjXa673.jpg" alt="" /></p>
 
-<h4 id="2-server-computers">2. Server computers</h4>
-<ul>
-  <li>Network based.</li>
-  <li>High capacity, performance, reliability.</li>
-  <li>Range from small servers to building sized.</li>
-</ul>
+<p>那麼 <strong>「別人認為有價值、願意買單的事情」</strong>，
+和 <strong>「做自己想要做的事情，然後讓它變得有價值」</strong>，該如何區分這兩者？</p>
 
-<h4 id="3-embedded-computers">3. Embedded computers</h4>
-<ul>
-  <li>Hidden as components of systems.</li>
-  <li>Stringent <code class="highlighter-rouge">power</code> / <code class="highlighter-rouge">performance</code> / <code class="highlighter-rouge">cost</code> constraints.</li>
-</ul>
+<p>以 <strong>個人發展</strong> 來說，我認為差別在於
+<strong>「前者只是在適應現況、為了生存而做 (區域3)，後者則是為自己的未來投資 (從區域 1 轉變成 區域4)」</strong>：
+<img src="https://i.imgur.com/r54WaBK.jpg" alt="" /></p>
 
-<h3 id="二understanding-performance">二、Understanding Performance</h3>
-<h4 id="1-algorithm">1. Algorithm</h4>
-<ul>
-  <li>Determine number of operations executed.</li>
-</ul>
+<p>從短期來看，
+區域 3 的事情一定得做，因為那是短時間內可以確保收入的事情。除非那剛好是你的熱情所在，不然只做區域 3 的事情通常只會讓你越來越辛苦。</p>
 
-<h4 id="2-programming-language-compiler-architecture">2. Programming language, compiler, architecture</h4>
-<ul>
-  <li>Determine number of machine instructions executed per operation.</li>
-</ul>
+<p>從長期來看，
+嘗試從區域 1 中不斷挖掘 <strong>雖然現在還看不出價值，但自己有興趣且能帶來成就感，也可以被累積</strong> 的事情來做，並嘗試延續到區域 4 (未來)。</p>
 
-<h4 id="3-processor-and-memory-system">3. Processor and memory system</h4>
-<ul>
-  <li>Determine how fast instructions are executed.</li>
-</ul>
+<p>–</p>
 
-<h4 id="4-io-system-including-os">4. I/O system (including OS)</h4>
-<ul>
-  <li>Determines how fast I/O operations are executed.</li>
-</ul>
+<p>讓我以自己之前的工作時程為例。</p>
 
-<h3 id="三below-your-program">三、Below your Program</h3>
-<p><img src="https://i.imgur.com/jbQSrpv.jpg" alt="" /></p>
+<p><img src="https://i.imgur.com/HeRIs80.jpg" alt="" />
+(顏色越深代表單位時間的收入越高)</p>
 
-<h4 id="1-application-software">1. Application software</h4>
-<ul>
-  <li>Written in high-level language.</li>
-</ul>
+<p><strong>時間是最稀缺的資源</strong>，不論是 1 秒、1 小時 或是 1 個月，過去後它就再也回不來了。</p>
 
-<h4 id="2-system-software">2. System software</h4>
-<ul>
-  <li>Compiler: translates HLL code to machine code.</li>
-</ul>
+<p>如果從金錢的面向來看 ，我在每天 (每個單位時間) 能獲取的收入都不一樣，因為那是不同的工作。你可以從圖中推論假日對我的重要性，因為鐘點最高的工作都聚集在那個時間，那大概佔了我當週收入的 2/3。</p>
 
-<h4 id="3-hardware">3. Hardware</h4>
-<ul>
-  <li>Processor, memory, I/O controllers</li>
-</ul>
+<p>但我們前面只考慮到單位時間的價值，卻還沒考慮到隱性成本。它可以是移動往返時要花費的時間、沒有算在工時裡卻必須待在當地的時間……</p>
 
-<h3 id="四levels-of-program-code">四、Levels of Program Code</h3>
-<h4 id="1-high-level-language">1. High-level language</h4>
-<ul>
-  <li>Level of abstraction closer to problem domain.</li>
-  <li>Provides for productivity and portability.</li>
-</ul>
+<p>如果也把它們考慮進去：
+<img src="https://i.imgur.com/vEi7MLq.jpg" alt="" /></p>
 
-<h4 id="2-assembly-language">2. Assembly language</h4>
-<ul>
-  <li>Textual representation of instrctions.</li>
-</ul>
+<p>以星期一來說，
+我會去新竹的清華大學和交通大學跑酷社進行課程教學。但因為自己的生活區域在台北，來回往返需要交通費也需要花時間 (搭乘客運往返大約要 3 小時)，這些時間就形成了隱性的成本。</p>
 
-<h4 id="3-hardware-representation">3. Hardware representation</h4>
-<ul>
-  <li>Binary digits (bits).</li>
-  <li>Encoded instructions and data.</li>
-</ul>
+<p>考慮車程、鐘點費用後換算下來，它是我當週收入所得和效益最低的一天。既然如此，我為什麼還是要堅持去做這件事情呢？(而且課程也維持著一定的水準和品質)</p>
 
-<h3 id="五defining-performance">五、Defining Performance</h3>
-<h4 id="1-response-time">1. Response time</h4>
-<ul>
-  <li>How long it takes to do a task.</li>
-</ul>
+<p>因為星期一在大學社團的教學跟我個人期望的發展方向成正相關，所以這件事對我來說足夠重要。</p>
 
-<h4 id="2-throughput">2. Throughput</h4>
-<ul>
-  <li>Total work done per unit time.
-    <ul>
-      <li>e.g. <strong>tasks</strong> / <strong>transactions</strong> / … per hour</li>
-    </ul>
-  </li>
-</ul>
+<p><strong>「有價值的事情不一定會在現階段以收入呈現，但你必須知道自己在做什麼，並且確保那些事情是足夠重要的。」</strong></p>
 
-<h3 id="六relative-performance">六、Relative Performance</h3>
-<p><img src="https://i.imgur.com/QCzLpUf.jpg" alt="" /></p>
-
-<ul>
-  <li>X is n time faster than Y</li>
-</ul>
-
-<p><img src="https://i.imgur.com/mQHfgdK.jpg" alt="" /></p>
-
-<h3 id="七measuring-execution-time">七、Measuring Execution Time</h3>
-<h4 id="1-elapsed-time">1. Elapsed time</h4>
-<ul>
-  <li>Total response time, including all aspects
-    <ul>
-      <li>Processing, I/O, OS overhead, idle time.</li>
-    </ul>
-  </li>
-  <li>Determines system performance</li>
-</ul>
-
-<h4 id="2-cpu-time">2. CPU time</h4>
-<p><img src="https://i.imgur.com/ThOhi5q.jpg" alt="" /></p>
-
-<ul>
-  <li>CPU Time Example
-    <blockquote>
-      <p><img src="https://i.imgur.com/p0FUEbd.jpg" alt="" /></p>
-    </blockquote>
-  </li>
-  <li><strong>Performance improved</strong>
-    <blockquote>
-      <ol>
-        <li>Reducing number of clock cycles.</li>
-        <li>Increasing clock rate.</li>
-        <li>Hardware designer must often trade off clock rate against cycle count.</li>
-      </ol>
-    </blockquote>
-  </li>
-</ul>
-
-<h4 id="3-instruction-count-and-cpi">3. Instruction Count and CPI</h4>
-<ul>
-  <li><code class="highlighter-rouge">Instruction Count</code>：指令個數</li>
-  <li><code class="highlighter-rouge">CPI</code>：每一個指令需要執行多少個週期 (cycle per instruction)</li>
-</ul>
-
-<p><img src="https://i.imgur.com/7YA28w1.jpg" alt="" /></p>
-
-<ul>
-  <li>CPI Example
-    <blockquote>
-      <p><img src="https://i.imgur.com/6sLnWxw.jpg" alt="" /></p>
-    </blockquote>
-  </li>
-</ul>
-
-<h3 id="八performance-summary">八、Performance Summary</h3>
-<ul>
-  <li><strong>Performance depends on</strong>
-    <ol>
-      <li><strong>Algorithm</strong>: affects IC, possibly IC</li>
-      <li><strong>Programming language</strong>: affects IC, CPI</li>
-      <li><strong>Compiler</strong>: affects IC, CPI</li>
-      <li><strong>Instruction set architecture</strong>: affects IC, CPI, Tc</li>
-    </ol>
-  </li>
-</ul>
+<p>(…未完待續)</p>
 
         </article>
         <hr>
@@ -445,6 +278,20 @@
             
                 
                     
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2020/12/17/2020_Life-Work_3/">20201217 [年度回顧] 關於工作和生活 - Part 3
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
                 
                     
                 
@@ -454,7 +301,215 @@
                 
                     
                 
+                    
+                
             
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2020/12/15/2020_Life-Work_2/">20201215 [年度回顧] 關於工作和生活 - Part 2
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2020/12/09/2020_Life-Work_1/">20201209 [年度回顧] 關於工作和生活 - Part 1
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2020/12/07/NTHU-Sport-Science_5/">20201207 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 5
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2020/12/03/NTHU-Sport-Science_4/">20201203 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 4
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2020/11/28/NTHU-Sport-Science_3/">20201128 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 3
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
                 
                     
                 
@@ -469,22 +524,11 @@
                 
                     
                 
-            
-                
-                    
-                
                     
                 
             
                 
                     
-                
-                    
-                
-            
-        
-            
-            
                 
                     
                 
@@ -496,7 +540,11 @@
                 
                     
                 
+                    
+                
             
+                
+                    
                 
                     
                 
@@ -511,22 +559,11 @@
                 
                     
                 
-            
-                
-                    
-                
                     
                 
             
                 
                     
-                
-                    
-                
-            
-        
-            
-            
                 
                     
                 
@@ -538,13 +575,11 @@
                 
                     
                 
-            
-                
-                    
-                
                     
                 
             
+                
+                    
                 
                     
                 
@@ -559,22 +594,6 @@
                 
                     
                 
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
                     
                 
             
@@ -586,102 +605,23 @@
                 
                     
                 
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
                     
                 
             
         
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
         
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-        
+            </ul>
         
 
         <div class="post-recent">
     
     <div class="pre">
 
-        <p><strong>上一篇</strong> <a href="/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)</a></p>
+        <p><strong>上一篇</strong> <a href="/2020/12/17/2020_Life-Work_3/">20201217 [年度回顧] 關於工作和生活 - Part 3</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2018/09/19/military_1/">20180919 [迴光返照系列_1] 軍事訓練役第一週</a></p>
         
     </div>
 </div>
@@ -699,8 +639,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://shouzo.github.io/2018/03/01/computer_organization/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://shouzo.github.io/2018/03/01/computer_organization/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://shouzo.github.io/2020/12/19/2020_Life-Work_4/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2020/12/19/2020_Life-Work_4/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
