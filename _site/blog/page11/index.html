@@ -164,6 +164,288 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2018/03/01/computer_organization/">20180301 [學習筆記] 計算機結構 (1)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2018-03-01
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#計算機結構" title="Category: 計算機結構" rel="category">計算機結構</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#計算機結構" title="Tag: 計算機結構" rel="tag">計算機結構</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一classes-of-computers" id="markdown-toc-一classes-of-computers">一、Classes of Computers</a>    <ul>
+      <li><a href="#1-desktop-computers" id="markdown-toc-1-desktop-computers">1. Desktop computers</a></li>
+      <li><a href="#2-server-computers" id="markdown-toc-2-server-computers">2. Server computers</a></li>
+      <li><a href="#3-embedded-computers" id="markdown-toc-3-embedded-computers">3. Embedded computers</a></li>
+    </ul>
+  </li>
+  <li><a href="#二understanding-performance" id="markdown-toc-二understanding-performance">二、Understanding Performance</a>    <ul>
+      <li><a href="#1-algorithm" id="markdown-toc-1-algorithm">1. Algorithm</a></li>
+      <li><a href="#2-programming-language-compiler-architecture" id="markdown-toc-2-programming-language-compiler-architecture">2. Programming language, compiler, architecture</a></li>
+      <li><a href="#3-processor-and-memory-system" id="markdown-toc-3-processor-and-memory-system">3. Processor and memory system</a></li>
+      <li><a href="#4-io-system-including-os" id="markdown-toc-4-io-system-including-os">4. I/O system (including OS)</a></li>
+    </ul>
+  </li>
+  <li><a href="#三below-your-program" id="markdown-toc-三below-your-program">三、Below your Program</a>    <ul>
+      <li><a href="#1-application-software" id="markdown-toc-1-application-software">1. Application software</a></li>
+      <li><a href="#2-system-software" id="markdown-toc-2-system-software">2. System software</a></li>
+      <li><a href="#3-hardware" id="markdown-toc-3-hardware">3. Hardware</a></li>
+    </ul>
+  </li>
+  <li><a href="#四levels-of-program-code" id="markdown-toc-四levels-of-program-code">四、Levels of Program Code</a>    <ul>
+      <li><a href="#1-high-level-language" id="markdown-toc-1-high-level-language">1. High-level language</a></li>
+      <li><a href="#2-assembly-language" id="markdown-toc-2-assembly-language">2. Assembly language</a></li>
+      <li><a href="#3-hardware-representation" id="markdown-toc-3-hardware-representation">3. Hardware representation</a></li>
+    </ul>
+  </li>
+  <li><a href="#五defining-performance" id="markdown-toc-五defining-performance">五、Defining Performance</a>    <ul>
+      <li><a href="#1-response-time" id="markdown-toc-1-response-time">1. Response time</a></li>
+      <li><a href="#2-throughput" id="markdown-toc-2-throughput">2. Throughput</a></li>
+    </ul>
+  </li>
+  <li><a href="#六relative-performance" id="markdown-toc-六relative-performance">六、Relative Performance</a></li>
+  <li><a href="#七measuring-execution-time" id="markdown-toc-七measuring-execution-time">七、Measuring Execution Time</a>    <ul>
+      <li><a href="#1-elapsed-time" id="markdown-toc-1-elapsed-time">1. Elapsed time</a></li>
+      <li><a href="#2-cpu-time" id="markdown-toc-2-cpu-time">2. CPU time</a></li>
+      <li><a href="#3-instruction-count-and-cpi" id="markdown-toc-3-instruction-count-and-cpi">3. Instruction Count and CPI</a></li>
+    </ul>
+  </li>
+  <li><a href="#八performance-summary" id="markdown-toc-八performance-summary">八、Performance Summary</a></li>
+</ul>
+
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Computer-Organization-And-Design_pages/blob/master/class-tutorial/20180301/Chapter-1-Computer-Abstractions-and-Technology.pdf">Chapter-1-Computer-Abstractions-and-Technology</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://ccckmit.wikidot.com/co:speed">計算機結構 - 速度的議題</a></li>
+      <li><a href="https://goo.gl/fW6rF6">GitBook - 組合語言與計算機組織</a>
+        <ul>
+          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/computer_abstractions_and_technology.html">Computer Abstractions and Technology</a></li>
+          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/performance.html">Performance</a></li>
+          <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/cpu_time.html">CPU Time</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一classes-of-computers">一、Classes of Computers</h3>
+<h4 id="1-desktop-computers">1. Desktop computers</h4>
+<ul>
+  <li>General purpose, variety of software.</li>
+  <li>Subject to <code class="highlighter-rouge">cost</code> / <code class="highlighter-rouge">performance</code> tradeoff.</li>
+</ul>
+
+<h4 id="2-server-computers">2. Server computers</h4>
+<ul>
+  <li>Network based.</li>
+  <li>High capacity, performance, reliability.</li>
+  <li>Range from small servers to building sized.</li>
+</ul>
+
+<h4 id="3-embedded-computers">3. Embedded computers</h4>
+<ul>
+  <li>Hidden as components of systems.</li>
+  <li>Stringent <code class="highlighter-rouge">power</code> / <code class="highlighter-rouge">performance</code> / <code class="highlighter-rouge">cost</code> constraints.</li>
+</ul>
+
+<h3 id="二understanding-performance">二、Understanding Performance</h3>
+<h4 id="1-algorithm">1. Algorithm</h4>
+<ul>
+  <li>Determine number of operations executed.</li>
+</ul>
+
+<h4 id="2-programming-language-compiler-architecture">2. Programming language, compiler, architecture</h4>
+<ul>
+  <li>Determine number of machine instructions executed per operation.</li>
+</ul>
+
+<h4 id="3-processor-and-memory-system">3. Processor and memory system</h4>
+<ul>
+  <li>Determine how fast instructions are executed.</li>
+</ul>
+
+<h4 id="4-io-system-including-os">4. I/O system (including OS)</h4>
+<ul>
+  <li>Determines how fast I/O operations are executed.</li>
+</ul>
+
+<h3 id="三below-your-program">三、Below your Program</h3>
+<p><img src="https://i.imgur.com/jbQSrpv.jpg" alt="" /></p>
+
+<h4 id="1-application-software">1. Application software</h4>
+<ul>
+  <li>Written in high-level language.</li>
+</ul>
+
+<h4 id="2-system-software">2. System software</h4>
+<ul>
+  <li>Compiler: translates HLL code to machine code.</li>
+</ul>
+
+<h4 id="3-hardware">3. Hardware</h4>
+<ul>
+  <li>Processor, memory, I/O controllers</li>
+</ul>
+
+<h3 id="四levels-of-program-code">四、Levels of Program Code</h3>
+<h4 id="1-high-level-language">1. High-level language</h4>
+<ul>
+  <li>Level of abstraction closer to problem domain.</li>
+  <li>Provides for productivity and portability.</li>
+</ul>
+
+<h4 id="2-assembly-language">2. Assembly language</h4>
+<ul>
+  <li>Textual representation of instrctions.</li>
+</ul>
+
+<h4 id="3-hardware-representation">3. Hardware representation</h4>
+<ul>
+  <li>Binary digits (bits).</li>
+  <li>Encoded instructions and data.</li>
+</ul>
+
+<h3 id="五defining-performance">五、Defining Performance</h3>
+<h4 id="1-response-time">1. Response time</h4>
+<ul>
+  <li>How long it takes to do a task.</li>
+</ul>
+
+<h4 id="2-throughput">2. Throughput</h4>
+<ul>
+  <li>Total work done per unit time.
+    <ul>
+      <li>e.g. <strong>tasks</strong> / <strong>transactions</strong> / … per hour</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="六relative-performance">六、Relative Performance</h3>
+<p><img src="https://i.imgur.com/QCzLpUf.jpg" alt="" /></p>
+
+<ul>
+  <li>X is n time faster than Y</li>
+</ul>
+
+<p><img src="https://i.imgur.com/mQHfgdK.jpg" alt="" /></p>
+
+<h3 id="七measuring-execution-time">七、Measuring Execution Time</h3>
+<h4 id="1-elapsed-time">1. Elapsed time</h4>
+<ul>
+  <li>Total response time, including all aspects
+    <ul>
+      <li>Processing, I/O, OS overhead, idle time.</li>
+    </ul>
+  </li>
+  <li>Determines system performance</li>
+</ul>
+
+<h4 id="2-cpu-time">2. CPU time</h4>
+<p><img src="https://i.imgur.com/ThOhi5q.jpg" alt="" /></p>
+
+<ul>
+  <li>CPU Time Example
+    <blockquote>
+      <p><img src="https://i.imgur.com/p0FUEbd.jpg" alt="" /></p>
+    </blockquote>
+  </li>
+  <li><strong>Performance improved</strong>
+    <blockquote>
+      <ol>
+        <li>Reducing number of clock cycles.</li>
+        <li>Increasing clock rate.</li>
+        <li>Hardware designer must often trade off clock rate against cycle count.</li>
+      </ol>
+    </blockquote>
+  </li>
+</ul>
+
+<h4 id="3-instruction-count-and-cpi">3. Instruction Count and CPI</h4>
+<ul>
+  <li><code class="highlighter-rouge">Instruction Count</code>：指令個數</li>
+  <li><code class="highlighter-rouge">CPI</code>：每一個指令需要執行多少個週期 (cycle per instruction)</li>
+</ul>
+
+<p><img src="https://i.imgur.com/7YA28w1.jpg" alt="" /></p>
+
+<ul>
+  <li>CPI Example
+    <blockquote>
+      <p><img src="https://i.imgur.com/6sLnWxw.jpg" alt="" /></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="八performance-summary">八、Performance Summary</h3>
+<ul>
+  <li><strong>Performance depends on</strong>
+    <ol>
+      <li><strong>Algorithm</strong>: affects IC, possibly IC</li>
+      <li><strong>Programming language</strong>: affects IC, CPI</li>
+      <li><strong>Compiler</strong>: affects IC, CPI</li>
+      <li><strong>Instruction set architecture</strong>: affects IC, CPI, Tc</li>
+    </ol>
+  </li>
+</ul>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2018/03/01/computer_organization/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)</a>
                 </h2>
                 <div class="label">
@@ -836,112 +1118,6 @@ RESB	1469432
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/06/16/university_life/">20170616 [有感而發] 這四年我誤入歧途、又不務正業，但活得像是個人</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-06-16
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#社團" title="Category: 社團" rel="category">社團</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#心情記事" title="Tag: 心情記事" rel="tag">心情記事</a>&nbsp;
-    
-        <a href="/tag/#社團" title="Tag: 社團" rel="tag">社團</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#來自四年前的期許" id="markdown-toc-來自四年前的期許">來自四年前的期許</a>    <ul>
-      <li><a href="#命運的分歧點" id="markdown-toc-命運的分歧點">命運的分歧點</a></li>
-      <li><a href="#有什麼改變了" id="markdown-toc-有什麼改變了">有什麼改變了</a></li>
-      <li><a href="#參與社會化的體現社團" id="markdown-toc-參與社會化的體現社團">參與社會化的體現：社團</a></li>
-    </ul>
-  </li>
-</ul>
-
-<p>前幾天是我們學校的畢業典禮，許多即將畢業的準學士生在校園各地穿著“學位服”和親朋好友拍照打卡；也因為這個緣故，這幾天臉書的動態牆上都被同學的畢業文洗版。</p>
-
-<p>我是“形式上”的應屆畢業生，同時也是典禮幕後的工作人員(畢聯會)，當天照樣要處理各類雜事、應付奇葩的畢業生；雖說畢業典禮對我而言只是個“形式”，但它在其他應屆畢業生的心裡象徵著人生階段性的完成。這時候不發個畢業感言好像說不過去，可是我還在準備期末考(好掙扎阿)。</p>
-
-<p>…算了，但還是來回顧一下這幾年的積累吧！</p>
-
-<h2 id="來自四年前的期許">來自四年前的期許</h2>
-<p>在高中時期，我習慣用筆記本記下每天發生的事情。後來 Facebook 崛起，就漸漸將一些事情放上 Facebook。
-當時也做了來高雄之前的心情紀事…(<a href="https://www.facebook.com/danny200026/posts/368693933257313">這四年，不知道我又會訂下什麼目標</a>)</p>
-
-<h3 id="命運的分歧點">命運的分歧點</h3>
-<p>我想最關鍵的還是當年大一，在陰錯陽差之下擔任了社團的負責人。
-原先只打算在這四年好好學習，把“唸書”定位為本業學好學滿，就這樣度過這四年。…就像個普通學生一樣，將自己埋首於書堆之中。…(<a href="https://www.facebook.com/danny200026/media_set?set=a.912476945545673.100003501287209&amp;type=3">夢想，Loading…</a>)
-自從“誤入”社團之後，命運就改變了…(<a href="https://www.facebook.com/danny200026/media_set?set=a.1135413809918651.1073741847.100003501287209&amp;type=3">社團人生回顧系列</a>)</p>
-
-<h3 id="有什麼改變了">有什麼改變了</h3>
-<p>原先只活在自己世界的我迫於職務上的需求，發展了與人應對進退的能力，也開始學習和接觸未曾接觸的領域；原先只在意自己生活的我，開始學會關注社團成員和周遭朋友的生活；原先只願意為自己而行動的我，開始為了其他人發起從未有人嘗試的事情；也在經歷社團生活的旅途中，曾經有過一段感情。</p>
-
-<p>我漸漸發覺︰「當年的陰錯陽差，讓我得以出現在某些人的生命裡，它或多或少改變了某些人的生活，同時也改變了我。」</p>
-
-<p><strong>或許對於某些人而言，我是高應大的社團狂人、是體委傳奇；但是在卸下了頭上那名為“社團”的光環之後，我只是個“不務正業”的人而已。</strong></p>
-
-<p>怎麼個不務正業？</p>
-
-<p>「不被現有體制框架限制、脫離體制安排，透過獨立思考後瞭解現階段自己真正需要的究竟是什麼，再自行去學習為了滿足需求而必備的技能。」</p>
-
-<h3 id="參與社會化的體現社團">參與社會化的體現：社團</h3>
-<p>「社團到底在學什麼？古今中外為何有這麼多人願意以學分作為籌碼，投注其中？」這裡有一篇文章寫得很有意思…(<a href="https://www.facebook.com/makarove.iluete/posts/1503318633074386">誰給的出尊嚴，誰就能留住人</a>)</p>
-
-<p>從大一被半銃康接任國術社、在大二升上大三之際創立跑酷社、大四被網羅去畢聯會…，社團生活佔滿我將近全部的大學生涯，而我從中到底學了什麼？</p>
-
-<p>我從中 “粗淺地” 習得了兩大技能：<strong>思維模式</strong>、<strong>人際互動</strong>。</p>
-
-<p>我自認自己是個內向的人，在某些時刻甚至會刻意離群索居，因為獨處讓我感到平靜。而我從參與社團的過程中找到了專屬於自己的開關，在必要時切換模式 (而任何模式下都是真實的自己，只是呈現的型態不一樣)。 <strong>久而久之我發現「參與社團的過程中，其實相當於參與社會化的過程」，而我也發現「唯有走入人群，才更能夠明白該如何真正的隱遁於人群之中」。</strong></p>
-
-<p>說穿了，“外展” 和 “內斂” 只不過是一體的兩面。</p>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/06/16/university_life/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -969,6 +1145,8 @@ RESB	1469432
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2020/12/19/2020_Life-Work_5/">20201224 [年度回顧] 關於工作和生活 - Part 5</a></li>
+                    
                         <li><a href="/2020/12/19/2020_Life-Work_4/">20201219 [年度回顧] 關於工作和生活 - Part 4</a></li>
                     
                         <li><a href="/2020/12/17/2020_Life-Work_3/">20201217 [年度回顧] 關於工作和生活 - Part 3</a></li>
@@ -986,8 +1164,6 @@ RESB	1469432
                         <li><a href="/2020/11/28/NTHU-Sport-Science_2/">20201128 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 2</a></li>
                     
                         <li><a href="/2020/11/26/NTHU-Sport-Science_1/">20201126 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 1</a></li>
-                    
-                        <li><a href="/2020/08/23/Parkour-AE/">20200823 [學習筆記] 如何設計一場戶外冒險活動</a></li>
                     
                 </ul>
             </div>
@@ -1221,7 +1397,7 @@ RESB	1469432
                             <span class="name">
                                 年度回顧
                             </span>
-                            <span class="badge">10</span>
+                            <span class="badge">11</span>
                         </a>
                     </li>
                     
@@ -1477,14 +1653,14 @@ RESB	1469432
                       
                       
                       
-                      <a href="/tag/#生活" style="font-size: 10pt; color: #888;">生活</a>
+                      <a href="/tag/#生活" style="font-size: 10.5pt; color: #888;">生活</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#工作" style="font-size: 10pt; color: #888;">工作</a>
+                      <a href="/tag/#工作" style="font-size: 10.5pt; color: #888;">工作</a>
                     
                 </div>
             </div>
