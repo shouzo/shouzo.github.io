@@ -164,6 +164,73 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-06-22
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/06/22/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/06/16/university_life/">20170616 [有感而發] 這四年我誤入歧途、又不務正業，但活得像是個人</a>
                 </h2>
                 <div class="label">
@@ -1251,320 +1318,6 @@ c. Write victim frame to disk if dirty</p>
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/06/01/linux_system/">20170601 [學習筆記] Linux 系統程式 (13)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-06-01
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#一-paging" id="markdown-toc-一-paging">(一) Paging</a></li>
-      <li><a href="#二-address-translation-scheme" id="markdown-toc-二-address-translation-scheme">(二) Address Translation Scheme</a></li>
-      <li><a href="#三-implementation-of-page-table" id="markdown-toc-三-implementation-of-page-table">(三) Implementation of Page Table</a></li>
-      <li><a href="#四-effective-access-time" id="markdown-toc-四-effective-access-time">(四) Effective Access Time</a></li>
-      <li><a href="#五-memory-protection" id="markdown-toc-五-memory-protection">(五) Memory Protection</a></li>
-      <li><a href="#六-shared-pages" id="markdown-toc-六-shared-pages">(六) Shared Pages</a></li>
-      <li><a href="#七-structure-of-the-page-table" id="markdown-toc-七-structure-of-the-page-table">(七) Structure of the Page Table</a>        <ul>
-          <li><a href="#hierarchical-page-tables" id="markdown-toc-hierarchical-page-tables">Hierarchical Page Tables</a></li>
-          <li><a href="#two-level-page-table-scheme" id="markdown-toc-two-level-page-table-scheme">Two-Level Page-Table Scheme</a></li>
-          <li><a href="#three-level-paging-scheme" id="markdown-toc-three-level-paging-scheme">Three-level Paging Scheme</a></li>
-          <li><a href="#hashed-page-tables" id="markdown-toc-hashed-page-tables">Hashed Page Tables</a></li>
-          <li><a href="#inverted-page-table" id="markdown-toc-inverted-page-table">Inverted Page Table</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="一作業系統">一、作業系統</h2>
-<ul>
-  <li>課堂講義
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170601/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="一-paging">(一) Paging</h3>
-<ul>
-  <li>Physical address space of a process can be noncontiguous; process is allocated physical memory whenever the latter is available
-    <ul>
-      <li>Avoids external fragmentation</li>
-      <li>Avoids problem of varying sized memory chunks</li>
-    </ul>
-  </li>
-  <li>Divide physical memory into fixed-sized blocks called <strong>frames</strong>
-    <ul>
-      <li>Size is power of 2, between 512 bytes and 16 Mbytes</li>
-    </ul>
-  </li>
-  <li>Divide logical memory into blocks of same size called <strong>pages</strong></li>
-  <li>Keep track of all free frames</li>
-  <li>To run a program of size <code class="highlighter-rouge">N</code> pages, need to find <code class="highlighter-rouge">N</code> free frames and load program</li>
-  <li>Set up a page table to translate logical to physical addresses</li>
-  <li>Backing store likewise split into pages</li>
-  <li>Still have Internal fragmentation</li>
-  <li>Calculating internal fragmentation
-    <ul>
-      <li>Page size = 2,048 bytes</li>
-      <li>Process size = 72,766 bytes</li>
-      <li>35 pages + 1,086 bytes</li>
-      <li>Internal fragmentation of 2,048 - 1,086 = 962 bytes</li>
-      <li>On average fragmentation = 1 / 2 frame size</li>
-      <li>So small frame sizes desirable?</li>
-      <li>But each page table entry takes memory to track</li>
-      <li>Page sizes growing over time
-        <ul>
-          <li>Solaris supports two page sizes – 8 KB and 4 MB</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Process view and physical memory now very different</li>
-  <li>By implementation process can only access its own memory</li>
-</ul>
-
-<h3 id="二-address-translation-scheme">(二) Address Translation Scheme</h3>
-<p><img src="http://i.imgur.com/rbuMKKY.png" alt="" /></p>
-
-<ul>
-  <li>Address generated by CPU is divided into
-    <ul>
-      <li><strong>Page number <code class="highlighter-rouge">p</code></strong> – used as an index into a <strong>page table</strong> which contains base address of each page in physical memory</li>
-      <li><strong>Page offset <code class="highlighter-rouge">d</code></strong> – combined with base address to define the physical memory address that is sent to the memory unit</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="http://i.imgur.com/hY3zgAC.png" alt="" />
-<img src="http://i.imgur.com/ASgBcxX.png" alt="" />
-<img src="https://i.imgur.com/tLepGb4.png" alt="" /></p>
-
-<h3 id="三-implementation-of-page-table">(三) Implementation of Page Table</h3>
-<ul>
-  <li>Page table is kept in main memory</li>
-  <li><strong>Page-table base register (PTBR)</strong> points to the page table</li>
-  <li><strong>Page-table length register (PTLR)</strong> indicates size of the page table</li>
-  <li>In this scheme every data/instruction access requires two memory accesses
-    <ul>
-      <li>One for the page table and one for the data / instruction</li>
-    </ul>
-  </li>
-  <li>The two memory access problem can be solved by the use of a special fast-lookup hardware cache called <strong>associative memory</strong> or <strong>translation look-aside buffers (TLBs)</strong></li>
-  <li>Some TLBs store <strong>address-space identifiers (ASIDs)</strong> in each TLB entry – uniquely identifies each process to provide address-space protection for that process
-    <ul>
-      <li>Otherwise need to flush at every context switch</li>
-    </ul>
-  </li>
-  <li>TLBs typically small (64 to 1,024 entries)</li>
-  <li>On a TLB miss, value is loaded into the TLB for faster access next time
-    <ul>
-      <li>Replacement policies must be considered</li>
-      <li>Some entries can be <strong>wired down</strong> for permanent fast access</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/aH3Zg2J.png" alt="" />
-<img src="https://i.imgur.com/923AOvB.png" alt="" /></p>
-
-<h3 id="四-effective-access-time">(四) Effective Access Time</h3>
-<p><img src="https://i.imgur.com/Y0mMzTR.png" alt="" /></p>
-
-<h3 id="五-memory-protection">(五) Memory Protection</h3>
-<ul>
-  <li>Memory protection implemented by associating protection bit with each frame to indicate if read-only or read-write access is allowed
-    <ul>
-      <li>Can also add more bits to indicate page execute-only, and so on</li>
-    </ul>
-  </li>
-  <li><strong>Valid-invalid</strong> bit attached to each entry in the page table
-    <ul>
-      <li><code class="highlighter-rouge">valid</code> indicates that the associated page is in the process’ logical address space, and is thus a legal page</li>
-      <li><code class="highlighter-rouge">invalid</code> indicates that the page is not in the process’ logical address space</li>
-      <li>Or use <strong>page-table length register (PTLR)</strong></li>
-    </ul>
-  </li>
-  <li>Any violations result in a trap to the kernel</li>
-</ul>
-
-<p><img src="http://i.imgur.com/3UtvoGB.png" alt="" /></p>
-
-<h3 id="六-shared-pages">(六) Shared Pages</h3>
-<ul>
-  <li><strong>Shared code</strong>
-    <ul>
-      <li>One copy of read-only (<strong>reentrant</strong>) code shared among processes (i.e., text editors, compilers, window systems)</li>
-      <li>Similar to multiple threads sharing the same process space</li>
-      <li>Also useful for interprocess communication if sharing of read-write pages is allowed</li>
-    </ul>
-  </li>
-  <li><strong>Private code and data</strong>
-    <ul>
-      <li>Each process keeps a separate copy of the code and data</li>
-      <li>The pages for the private code and data can appear anywhere in the logical address space</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="http://i.imgur.com/JYNkQQT.png" alt="" /></p>
-
-<h3 id="七-structure-of-the-page-table">(七) Structure of the Page Table</h3>
-<ul>
-  <li>Memory structures for paging can get huge using straight-forward methods
-    <ul>
-      <li>Consider a 32-bit logical address space as on modern computers</li>
-      <li>Page size of 4 KB (2^12^)</li>
-      <li>Page table would have 1 million entries (2^32^ / 2^12^)</li>
-      <li>If each entry is 4 bytes -&gt; 4 MB of physical address space / memory for page table alone lot
-        <ul>
-          <li>Don’t want to allocate that contiguously in main memory</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Hierarchical Paging</li>
-  <li>Hashed Page Tables</li>
-  <li>Inverted Page Tables</li>
-</ul>
-
-<h4 id="hierarchical-page-tables">Hierarchical Page Tables</h4>
-<ul>
-  <li>Break up the logical address space into multiple page tables</li>
-  <li>A simple technique is a two-level page table</li>
-  <li>We then page the page table</li>
-</ul>
-
-<h4 id="two-level-page-table-scheme">Two-Level Page-Table Scheme</h4>
-<p><img src="http://i.imgur.com/EXa669R.png" alt="" /></p>
-
-<ul>
-  <li><strong>Example</strong>
-    <ul>
-      <li>A logical address (on 32-bit machine with 1K page size) is divided into
-        <ul>
-          <li>a page number consisting of 22 bits</li>
-          <li>a page offset consisting of 10 bits</li>
-        </ul>
-      </li>
-      <li>Since the page table is paged, the page number is further divided into
-        <ul>
-          <li>a 12-bit page number</li>
-          <li>a 10-bit page offset</li>
-        </ul>
-      </li>
-      <li>Thus, a logical address is as follows
-<img src="http://i.imgur.com/uwG3NvI.png" alt="" /></li>
-      <li>where p 1 is an index into the outer page table, and p 2 is the displacement within the page of the inner page table</li>
-      <li>Known as <strong>forward-mapped page table</strong></li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="three-level-paging-scheme">Three-level Paging Scheme</h4>
-<p><img src="http://i.imgur.com/LYA2JD3.png" alt="" /></p>
-
-<h4 id="hashed-page-tables">Hashed Page Tables</h4>
-<p><img src="https://i.imgur.com/itaf25z.png" alt="" /></p>
-<ul>
-  <li>Common in address spaces &gt; 32 bits</li>
-  <li>The virtual page number is hashed into a page table
-    <ul>
-      <li>This page table contains a chain of elements hashing to the same location</li>
-    </ul>
-  </li>
-  <li>Each element contains (1) the virtual page number (2) the value of the mapped page frame (3) a pointer to the next element</li>
-  <li>Virtual page numbers are compared in this chain searching for a match
-    <ul>
-      <li>If a match is found, the corresponding physical frame is extracted</li>
-    </ul>
-  </li>
-  <li>Variation for 64-bit addresses is <strong>clustered page tables</strong>
-    <ul>
-      <li>Similar to hashed but each entry refers to several pages (such as 16) rather than 1</li>
-      <li>Especially useful for <strong>sparse</strong> address spaces (where memory references are non-contiguous and scattered)</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="inverted-page-table">Inverted Page Table</h4>
-<ul>
-  <li>Rather than each process having a page table and keeping track of all possible logical pages, track all physical pages</li>
-  <li>One entry for each real page of memory</li>
-  <li>Entry consists of the virtual address of the page stored in that real memory location, with information about the process that owns that page</li>
-  <li>Decreases memory needed to store each page table, but increases time needed to search the table when a page reference occurs</li>
-  <li>Use hash table to limit the search to one — or at most a few — page-table entries
-    <ul>
-      <li>TLB can accelerate access</li>
-    </ul>
-  </li>
-  <li>But how to implement shared memory?
-    <ul>
-      <li>One mapping of a virtual address to the shared physical address</li>
-    </ul>
-  </li>
-</ul>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/06/01/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1592,6 +1345,8 @@ c. Write victim frame to disk if dirty</p>
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2021/01/09/2020_Life-Work_6/">20210109 [年度回顧] 關於工作和生活 - Part 6</a></li>
+                    
                         <li><a href="/2020/12/24/2020_Life-Work_5/">20201224 [年度回顧] 關於工作和生活 - Part 5</a></li>
                     
                         <li><a href="/2020/12/19/2020_Life-Work_4/">20201219 [年度回顧] 關於工作和生活 - Part 4</a></li>
@@ -1609,8 +1364,6 @@ c. Write victim frame to disk if dirty</p>
                         <li><a href="/2020/11/28/NTHU-Sport-Science_3/">20201128 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 3</a></li>
                     
                         <li><a href="/2020/11/28/NTHU-Sport-Science_2/">20201128 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 2</a></li>
-                    
-                        <li><a href="/2020/11/26/NTHU-Sport-Science_1/">20201126 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 1</a></li>
                     
                 </ul>
             </div>
@@ -1844,7 +1597,7 @@ c. Write victim frame to disk if dirty</p>
                             <span class="name">
                                 年度回顧
                             </span>
-                            <span class="badge">11</span>
+                            <span class="badge">12</span>
                         </a>
                     </li>
                     
@@ -2065,7 +1818,7 @@ c. Write victim frame to disk if dirty</p>
                       
                       
                       
-                      <a href="/tag/#年度回顧" style="font-size: 12pt; color: #666;">年度回顧</a>
+                      <a href="/tag/#年度回顧" style="font-size: 12.5pt; color: #555;">年度回顧</a>
                     
                       
                       
@@ -2100,14 +1853,14 @@ c. Write victim frame to disk if dirty</p>
                       
                       
                       
-                      <a href="/tag/#生活" style="font-size: 10.5pt; color: #888;">生活</a>
+                      <a href="/tag/#生活" style="font-size: 10.5pt; color: #777;">生活</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#工作" style="font-size: 10.5pt; color: #888;">工作</a>
+                      <a href="/tag/#工作" style="font-size: 10.5pt; color: #777;">工作</a>
                     
                 </div>
             </div>
