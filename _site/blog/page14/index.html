@@ -151,6 +151,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -163,6 +165,224 @@
         <small>菜鳥的學習紀錄</small>
         <hr>
         <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/05/25/linux_system/">20170525 [學習筆記] Linux 系統程式 (12)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-05-25
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-contiguous-allocation" id="markdown-toc-一-contiguous-allocation">(一) Contiguous Allocation</a></li>
+      <li><a href="#二-dynamic-storage-allocation-problem" id="markdown-toc-二-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</a></li>
+      <li><a href="#三-fragmentation" id="markdown-toc-三-fragmentation">(三) Fragmentation</a></li>
+      <li><a href="#四-segmentation" id="markdown-toc-四-segmentation">(四) Segmentation</a>        <ul>
+          <li><a href="#segmentation-architecture" id="markdown-toc-segmentation-architecture">Segmentation Architecture</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170525/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-contiguous-allocation">(一) Contiguous Allocation</h3>
+<ul>
+  <li>Main memory must support both OS and user processes</li>
+  <li>Limited resource, must allocate efficiently</li>
+  <li>
+    <p>Contiguous allocation is one early method</p>
+  </li>
+  <li>Main memory usually into two <strong>partitions</strong>
+    <ul>
+      <li>Resident operating system, usually held in low memory with interrupt vector</li>
+      <li>User processes then held in high memory</li>
+      <li>Each process contained in single contiguous section of memory</li>
+    </ul>
+  </li>
+  <li>Relocation registers used to protect user processes from each other, and from changing operating-system code and data
+    <ul>
+      <li>Base register contains value of smallest physical address</li>
+      <li>Limit register contains range of logical addresses – each logical address must be less than the limit register</li>
+      <li>MMU maps logical address dynamically</li>
+      <li>Can then allow actions such as kernel code being <code class="language-plaintext highlighter-rouge">transient</code> and kernel changing size</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/z3R2FCC.png" alt="" /></p>
+
+<ul>
+  <li>Multiple-partition allocation
+    <ul>
+      <li>Degree of multiprogramming limited by number of partitions</li>
+      <li>Variable-partition sizes for efficiency (sized to a given process’ needs)</li>
+      <li>Hole – block of available memory; holes of various size are scattered throughout memory</li>
+      <li>When a process arrives, it is allocated memory from a hole large enough to accommodate it</li>
+      <li>Process exiting frees its partition, adjacent free partitions combined</li>
+      <li>Operating system maintains information about
+        <ul>
+          <li>(a) allocated partitions</li>
+          <li>(b) free partitions (hole)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/JQ1uTUe.png" alt="" /></p>
+
+<h3 id="二-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</h3>
+<ul>
+  <li><strong>First-fit</strong>：Allocate the <code class="language-plaintext highlighter-rouge">first</code> hole that is big enough</li>
+  <li><strong>Best-fit</strong>：Allocate the <code class="language-plaintext highlighter-rouge">smallest</code> hole that is big enough; must search entire list, unless ordered by size
+    <ul>
+      <li>Produces the smallest leftover hole</li>
+    </ul>
+  </li>
+  <li><strong>Worst-fit</strong>：Allocate the <code class="language-plaintext highlighter-rouge">largest</code> hole; must also search entire list
+    <ul>
+      <li>Produces the largest leftover hole</li>
+    </ul>
+  </li>
+  <li>First-fit and best-fit better than worst-fit in terms of speed and storage utilization</li>
+</ul>
+
+<h3 id="三-fragmentation">(三) Fragmentation</h3>
+<ul>
+  <li><strong>External Fragmentation</strong> – total memory space exists to satisfy a request, but it is not contiguous</li>
+  <li><strong>Internal Fragmentation</strong> – allocated memory may be slightly larger than requested memory; this size difference is memory internal to a partition, but not being used</li>
+  <li>First fit analysis reveals that given N blocks allocated, 0.5 N blocks lost to fragmentation
+    <ul>
+      <li>1/3 may be unusable -&gt; <strong>50-percent rule</strong></li>
+    </ul>
+  </li>
+  <li>Reduce external fragmentation by <strong>compaction</strong>
+    <ul>
+      <li>Shuffle memory contents to place all free memory together in one large block</li>
+      <li>Compaction is possible only if relocation is dynamic, and is done at execution time</li>
+      <li>I/O problem
+        <ul>
+          <li>Latch job in memory while it is involved in I/O</li>
+          <li>Do I/O only into OS buffers</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Now consider that backing store has same fragmentation problems</li>
+</ul>
+
+<h3 id="四-segmentation">(四) Segmentation</h3>
+<ul>
+  <li>Memory-management scheme that supports user view of memory</li>
+</ul>
+
+<p><img src="https://i.imgur.com/hiMN3YJ.png" alt="" /></p>
+
+<ul>
+  <li>A program is a collection of segments
+    <ul>
+      <li>A segment is a logical unit such as：<code class="language-plaintext highlighter-rouge">main program</code>、<code class="language-plaintext highlighter-rouge">procedure</code>、<code class="language-plaintext highlighter-rouge">function</code>、<code class="language-plaintext highlighter-rouge">method</code>、<code class="language-plaintext highlighter-rouge">object</code>、<code class="language-plaintext highlighter-rouge">local variables</code>、<code class="language-plaintext highlighter-rouge">global variables</code>、<code class="language-plaintext highlighter-rouge">common block</code>、<code class="language-plaintext highlighter-rouge">stack</code>、<code class="language-plaintext highlighter-rouge">symbol table</code>、<code class="language-plaintext highlighter-rouge">arrays</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/PKuwv70.png" alt="" /></p>
+
+<h4 id="segmentation-architecture">Segmentation Architecture</h4>
+<ul>
+  <li>Logical address consists of a two tuple：<code class="language-plaintext highlighter-rouge">&lt;segment-number, offset&gt;</code></li>
+  <li><strong>Segment table</strong> – maps two-dimensional physical addresses; each table entry has
+    <ul>
+      <li><strong>base</strong> – contains the starting physical address where the segments reside in memory</li>
+      <li><strong>limit</strong> – specifies the length of the segment</li>
+    </ul>
+  </li>
+  <li><strong>Segment-table base register (STBR)</strong> points to the segment table’s location in memory</li>
+  <li><strong>Segment-table length register (STLR)</strong> indicates number of segments used by a program：<code class="language-plaintext highlighter-rouge">segment number s is legal if s &lt; STLR</code></li>
+  <li>Protection
+    <ul>
+      <li>With each entry in segment table associate
+        <ul>
+          <li>validation bit = 0 » illegal segment</li>
+          <li>read/write/execute privileges</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Protection bits associated with segments; code sharing occurs at segment level</li>
+  <li>Since segments vary in length, memory allocation is a dynamic storage-allocation problem</li>
+  <li>A segmentation example is shown in the following diagram</li>
+</ul>
+
+<p><img src="https://i.imgur.com/raq8eDi.png" alt="" /></p>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/05/25/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
             
               <li>
                 <h2>
@@ -315,7 +535,7 @@
 <ul>
   <li>Program must be brought (from disk) into memory and placed within a process for it to be run</li>
   <li>Main memory and registers are only storage CPU can access directly</li>
-  <li>Memory unit only sees a stream of <code class="highlighter-rouge">addresses + read requests</code>, or <code class="highlighter-rouge">address + data and write requests</code></li>
+  <li>Memory unit only sees a stream of <code class="language-plaintext highlighter-rouge">addresses + read requests</code>, or <code class="language-plaintext highlighter-rouge">address + data and write requests</code></li>
   <li>Register access in one CPU clock (or less)</li>
   <li>Main memory can take many cycles, causing a <strong>stall</strong></li>
   <li><strong>Cache</strong> sits between main memory and CPU registers</li>
@@ -432,7 +652,7 @@
         <ul>
           <li>Depends on address binding method
             <ul>
-              <li>Plus consider pending <code class="highlighter-rouge">I/O</code> to <code class="highlighter-rouge">/</code> from process memory space</li>
+              <li>Plus consider pending <code class="language-plaintext highlighter-rouge">I/O</code> to <code class="language-plaintext highlighter-rouge">/</code> from process memory space</li>
             </ul>
           </li>
         </ul>
@@ -449,7 +669,6 @@
 </ol>
 
 <p><img src="https://i.imgur.com/hptlmlg.png" alt="" /></p>
-
 
                 </div>
                 <div class="read-all">
@@ -720,7 +939,6 @@
 <h5 id="2-safety-algorithm">(2) Safety Algorithm</h5>
 <p><img src="http://i.imgur.com/V6oA8hC.png" alt="" /></p>
 
-
                 </div>
                 <div class="read-all">
                     <a  href="/2017/05/12/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
@@ -842,16 +1060,16 @@
 <ul>
   <li>Synchronization tool that does not require busy waiting.</li>
   <li>Semaphore S – integer variable</li>
-  <li>Two standard operations modify S: <code class="highlighter-rouge">wait()</code> and <code class="highlighter-rouge">signal()</code></li>
+  <li>Two standard operations modify S: <code class="language-plaintext highlighter-rouge">wait()</code> and <code class="language-plaintext highlighter-rouge">signal()</code></li>
   <li>Less complicated</li>
   <li>Can only be accessed via two indivisible (atomic) operations</li>
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">S</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="p">;</span> <span class="c1">//busy wait
-</span>    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
-<span class="p">}</span>
+        <span class="p">;</span> <span class="c1">//busy wait</span>
+    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
+<span class="err">}</span>
 <span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">S</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
@@ -862,7 +1080,7 @@
   <li><strong>Counting semaphore</strong> – integer value can range over an unrestricted domain</li>
   <li><strong>Binary semaphore</strong> – integer value can range only between 0 and 1
     <ul>
-      <li>Then a <code class="highlighter-rouge">mutex lock</code></li>
+      <li>Then a <code class="language-plaintext highlighter-rouge">mutex lock</code></li>
     </ul>
   </li>
   <li>Can implement a counting semaphore S as a binary semaphore</li>
@@ -882,7 +1100,7 @@
 <h5 id="1-busy-waiting">(1) Busy waiting</h5>
 <ul>
   <li>
-    <p>Must guarantee that no two processes can execute <code class="highlighter-rouge">wait()</code> and <code class="highlighter-rouge">signal()</code> on the same semaphore at the same time</p>
+    <p>Must guarantee that no two processes can execute <code class="language-plaintext highlighter-rouge">wait()</code> and <code class="language-plaintext highlighter-rouge">signal()</code> on the same semaphore at the same time</p>
   </li>
   <li>Thus, implementation becomes the critical section problem where the wait and signal code are placed in the critical section</li>
   <li>Could now have <strong>busy waiting</strong> in critical section implementation
@@ -905,8 +1123,8 @@
   </li>
   <li>Two operations:
     <ul>
-      <li><code class="highlighter-rouge">block</code> – place the process invoking the operation on the appropriate waiting queue</li>
-      <li><code class="highlighter-rouge">wakeup</code> – remove one of processes in the waiting queue and place it in the ready queue</li>
+      <li><code class="language-plaintext highlighter-rouge">block</code> – place the process invoking the operation on the appropriate waiting queue</li>
+      <li><code class="language-plaintext highlighter-rouge">wakeup</code> – remove one of processes in the waiting queue and place it in the ready queue</li>
     </ul>
   </li>
 </ul>
@@ -919,16 +1137,16 @@
 <span class="n">wait</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// add this process to S-&gt;list;
-</span>        <span class="n">block</span><span class="p">();</span>
+        <span class="c1">// add this process to S-&gt;list;</span>
+        <span class="n">block</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">signal</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// remove a process P from S-&gt;list;
-</span>        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+        <span class="c1">// remove a process P from S-&gt;list;</span>
+        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -958,9 +1176,9 @@
 <ul>
   <li>n buffers, each can hold one item
     <ul>
-      <li>Semaphore <code class="highlighter-rouge">mutex</code> initialized to the value 1</li>
-      <li>Semaphore <code class="highlighter-rouge">full</code> initialized to the value 0</li>
-      <li>Semaphore <code class="highlighter-rouge">empty</code> initialized to the value n</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">mutex</code> initialized to the value 1</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">full</code> initialized to the value 0</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">empty</code> initialized to the value n</li>
     </ul>
   </li>
 </ul>
@@ -1016,9 +1234,9 @@
   <li>Shared Data
     <ul>
       <li>Data set</li>
-      <li>Semaphore <code class="highlighter-rouge">rw_mutex</code> initialized to 1</li>
-      <li>Semaphore <code class="highlighter-rouge">mutex</code> initialized to 1</li>
-      <li>Integer <code class="highlighter-rouge">read_count</code> initialized to 0</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">rw_mutex</code> initialized to 1</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">mutex</code> initialized to 1</li>
+      <li>Integer <code class="language-plaintext highlighter-rouge">read_count</code> initialized to 0</li>
     </ul>
   </li>
 </ul>
@@ -1043,11 +1261,11 @@
     <span class="n">read_count</span><span class="o">++</span><span class="p">;</span>
     
     
-    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1">// only for the first reader entering
-</span>        <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1">// only for the first reader entering</span>
+        <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
         
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>    <span class="c1">// if the first reader wait for rw_mutex, other readers will be blocked on wait(mutex)
-</span>        
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>    <span class="c1">// if the first reader wait for rw_mutex, other readers will be blocked on wait(mutex)</span>
+        
     <span class="p">...</span>
     <span class="cm">/* reading is performed */</span>
     <span class="p">...</span>
@@ -1055,8 +1273,8 @@
     <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
     <span class="n">read_count</span><span class="o">--</span><span class="p">;</span>
         
-    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1">// only for the last reader leaving
-</span>        <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1">// only for the last reader leaving</span>
+        <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
     
     <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
@@ -1067,7 +1285,7 @@
   <li><strong>First variation</strong> – no reader kept waiting unless writer has permission to use shared object</li>
   <li><strong>Second variation</strong> – once writer is ready, it performs write asap</li>
   <li>Both may have starvation leading to even more variations</li>
-  <li>Problem is solved on some systems by kernel providing <code class="highlighter-rouge">reader-writer locks</code></li>
+  <li>Problem is solved on some systems by kernel providing <code class="language-plaintext highlighter-rouge">reader-writer locks</code></li>
 </ul>
 
 <h4 id="3-dining-philosophers-problem">3. Dining-Philosophers Problem</h4>
@@ -1096,13 +1314,13 @@
     <span class="n">wait</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
     <span class="n">wait</span> <span class="p">(</span> <span class="n">chopStick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
     
-    <span class="c1">// eat
-</span>
+    <span class="c1">// eat</span>
+
     <span class="n">signal</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
     <span class="n">signal</span> <span class="p">(</span><span class="n">chopstick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
     
-    <span class="c1">// think
-</span>    
+    <span class="c1">// think</span>
+    
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
 </code></pre></div></div>
 <ul>
@@ -1132,9 +1350,9 @@
   <li>Variables</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// (initially = 1)
-</span><span class="n">semaphore</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// (initially = 0)
-</span><span class="kt">int</span> <span class="n">next_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// (initially = 1)</span>
+<span class="n">semaphore</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// (initially = 0)</span>
+<span class="kt">int</span> <span class="n">next_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div></div>
 
 <ul>
@@ -1150,7 +1368,7 @@
 <span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">)</span>
 <span class="k">else</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -1163,19 +1381,19 @@
   <li>For each condition variable x, we have:</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">x_sem</span><span class="p">;</span> <span class="c1">// (initially = 0)
-</span><span class="kt">int</span> <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">x_sem</span><span class="p">;</span> <span class="c1">// (initially = 0)</span>
+<span class="kt">int</span> <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div></div>
 
 <ul>
-  <li>The operation <code class="highlighter-rouge">x.wait</code> can be implemented as:</li>
+  <li>The operation <code class="language-plaintext highlighter-rouge">x.wait</code> can be implemented as:</li>
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
 <span class="k">else</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 <span class="n">wait</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
 <span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
 </code></pre></div></div>
@@ -1198,18 +1416,18 @@
     <span class="n">boolean</span> <span class="n">busy</span><span class="p">;</span>
     <span class="n">condition</span> <span class="n">x</span><span class="p">;</span>
     
-    <span class="kt">void</span> <span class="nf">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">busy</span><span class="p">)</span>
             <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
         <span class="n">busy</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="p">}</span>
     
-    <span class="kt">void</span> <span class="nf">release</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">release</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
         <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
     <span class="p">}</span>
     
-    <span class="n">initialization</span> <span class="nf">code</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">initialization</span> <span class="n">code</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -1217,7 +1435,7 @@
 
 <h5 id="3-solution">(3) Solution</h5>
 <ul>
-  <li>Each philosopher i invokes the operations <code class="highlighter-rouge">pickup()</code> and <code class="highlighter-rouge">putdown()</code> in the following sequence:
+  <li>Each philosopher i invokes the operations <code class="language-plaintext highlighter-rouge">pickup()</code> and <code class="language-plaintext highlighter-rouge">putdown()</code> in the following sequence:
     <ul>
       <li>No deadlock, but starvation is possible.</li>
     </ul>
@@ -1234,13 +1452,13 @@
     <span class="k">enum</span> <span class="p">{</span> <span class="n">THINKING</span><span class="p">;</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">state</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">;</span>
     <span class="n">condition</span> <span class="n">self</span> <span class="p">[</span><span class="mi">5</span><span class="p">];</span>
 
-    <span class="kt">void</span> <span class="nf">pickup</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">pickup</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">HUNGRY</span><span class="p">;</span>
         <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">self</span> <span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">;</span>
     <span class="p">}</span>
     
-    <span class="kt">void</span> <span class="nf">putdown</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">putdown</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
     
         <span class="cm">/* test left and right neighbors */</span>
@@ -1248,7 +1466,7 @@
         <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="kt">void</span> <span class="nf">test</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">test</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">((</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
 <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">HUNGRY</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
 <span class="p">(</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">))</span> <span class="p">{</span>
@@ -1263,7 +1481,6 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
-
 
                 </div>
                 <div class="read-all">
@@ -1358,258 +1575,9 @@
   </li>
 </ul>
 
-
                 </div>
                 <div class="read-all">
                     <a  href="/2017/05/04/vim/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/04/28/linux_system/">20170428 [學習筆記] Linux 系統程式 (8)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-04-28
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#race-condition" id="markdown-toc-race-condition">Race Condition</a></li>
-      <li><a href="#一-critical-section-problem" id="markdown-toc-一-critical-section-problem">(一) Critical-Section Problem</a></li>
-      <li><a href="#二-solution-to-critical-section-problem" id="markdown-toc-二-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</a></li>
-      <li><a href="#三-petersons-solution" id="markdown-toc-三-petersons-solution">(三) Peterson’s Solution</a></li>
-      <li><a href="#四-synchronization-hardware" id="markdown-toc-四-synchronization-hardware">(四) Synchronization Hardware</a>        <ul>
-          <li><a href="#1-test_and_set-instruction" id="markdown-toc-1-test_and_set-instruction">1. test_and_set Instruction</a></li>
-          <li><a href="#2-compare_and_swap-instruction" id="markdown-toc-2-compare_and_swap-instruction">2. compare_and_swap Instruction</a></li>
-        </ul>
-      </li>
-      <li><a href="#五-mutex-locks" id="markdown-toc-五-mutex-locks">(五) Mutex Locks</a>        <ul>
-          <li><a href="#acquire-and-release" id="markdown-toc-acquire-and-release">acquire() and release()</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="一作業系統">一、作業系統</h2>
-<ul>
-  <li>課程簡報
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170427/ch06.pdf">Chapter 6: Process Scheduling</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="race-condition">Race Condition</h3>
-<ul>
-  <li>
-    <p>Consumer
-<img src="https://i.imgur.com/07kx1WD.jpg" alt="" /></p>
-  </li>
-  <li>
-    <p>Producer
-<img src="https://i.imgur.com/eBPWPyb.jpg" alt="" /></p>
-  </li>
-  <li>
-    <p>Race Condition
-<img src="https://i.imgur.com/Q5qf9Xi.jpg" alt="" /></p>
-  </li>
-</ul>
-
-<h3 id="一-critical-section-problem">(一) Critical-Section Problem</h3>
-<ul>
-  <li>General Structure：
-<img src="https://i.imgur.com/yVVaplo.jpg" alt="" />
-<img src="https://i.imgur.com/dWa1ujd.jpg" alt="" /></li>
-</ul>
-
-<h3 id="二-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</h3>
-<ol>
-  <li>
-    <p><strong>Mutual Exclusion</strong> - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.</p>
-  </li>
-  <li>
-    <p><strong>Progress</strong> - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely.</p>
-  </li>
-  <li><strong>Bounded Waiting</strong> - A bound must exist on the number of times that other processes are allowed to enter their critical sections.
-    <ul>
-      <li>Assume that each process executes at a nonzero speed.</li>
-      <li>No assumption concerning relative speed of the n processes.</li>
-    </ul>
-  </li>
-  <li>Two approaches depending on if kernel is preemptive or non-preemptive.
-    <ul>
-      <li><strong>Preemptive</strong> – allows preemption of process when running in kernel mode.</li>
-      <li><strong>Non-preemptive</strong> – runs until exits kernel mode, blocks, or voluntarily yields CPU.
-        <ul>
-          <li>Essentially free of race conditions in kernel mode.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="三-petersons-solution">(三) Peterson’s Solution</h3>
-<ul>
-  <li>Good algorithmic description of solving the problem.</li>
-  <li>Two process solution</li>
-  <li>Assume that the load and store instructions are atomic; that is, cannot be interrupted</li>
-  <li>The two processes share two variables：
-    <ul>
-      <li>int turn;</li>
-      <li>Boolean flag[2]</li>
-    </ul>
-  </li>
-  <li>The variable turn indicates whose turn it is to enter the critical section</li>
-  <li>The flag array is used to indicate if a process is ready to enter the critical section.</li>
-  <li><code class="highlighter-rouge">flag[i] = true</code> implies that process Pi is ready!</li>
-</ul>
-
-<p><img src="https://i.imgur.com/VjV8Owl.jpg" alt="" /></p>
-
-<ul>
-  <li>Provable that
-    <ol>
-      <li>Mutual exclusion is preserved.</li>
-      <li>Progress requirement is satisfied.</li>
-      <li>Bounded-waiting requirement is met.</li>
-    </ol>
-  </li>
-</ul>
-
-<h3 id="四-synchronization-hardware">(四) Synchronization Hardware</h3>
-<ul>
-  <li>Many systems provide hardware support for critical section code.</li>
-  <li>All solutions below based on idea of <strong>locking</strong>.
-    <ul>
-      <li>Protecting critical regions via locks.</li>
-    </ul>
-  </li>
-  <li>Uniprocessors – could disable interrupts
-    <ul>
-      <li>Currently running code would execute without preemption.</li>
-      <li>Generally too inefficient on multiprocessor systems.
-        <ul>
-          <li>Operating systems using this not broadly scalable.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Modern machines provide special atomic hardware instructions.
-    <ul>
-      <li><strong>Atomic</strong> = non-interruptible
-        <ul>
-          <li>Either test memory word and set value.</li>
-          <li>Or swap contents of two memory words.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="1-test_and_set-instruction">1. test_and_set Instruction</h4>
-<p><img src="https://i.imgur.com/HP1PMeH.jpg" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Solution using test_and_set()
-  <img src="https://i.imgur.com/5SMn8ix.jpg" alt="" /></p>
-  </li>
-  <li>
-    <p>Bounded-waiting Mutual Exclusion with test_and_set
-  <img src="https://i.imgur.com/wGOMFdV.jpg" alt="" /></p>
-  </li>
-</ul>
-
-<h4 id="2-compare_and_swap-instruction">2. compare_and_swap Instruction</h4>
-<p><img src="https://i.imgur.com/7neEbLe.jpg" alt="" /></p>
-
-<ul>
-  <li>Solution using compare_and_swap
-  <img src="https://i.imgur.com/37TZRjA.jpg" alt="" /></li>
-</ul>
-
-<h3 id="五-mutex-locks">(五) Mutex Locks</h3>
-<ul>
-  <li>Previous solutions are complicated and generally inaccessible to application programmers.</li>
-  <li>OS designers build software tools to solve critical section problem.</li>
-  <li>Simplest is mutex lock</li>
-  <li>Product critical regions with it by first <strong>acquire()</strong> a lock then <strong>release()</strong> it.
-    <ul>
-      <li>Boolean variable indicating if lock is available or not</li>
-    </ul>
-  </li>
-  <li>Calls to <strong>acquire()</strong> and <strong>release()</strong> must be atomic.
-    <ul>
-      <li>Usually implemented via hardware atomic instructions</li>
-    </ul>
-  </li>
-  <li>But this solution requires <strong>busy waiting</strong>.
-    <ul>
-      <li>This lock therefore called a <strong>spinlock</strong></li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="acquire-and-release">acquire() and release()</h4>
-<p><img src="https://i.imgur.com/stNKbbR.jpg" alt="" /></p>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/04/28/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
@@ -1641,6 +1609,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2021/05/16/2021_WFH_0/">20210516 [WFH] 在家工作系列 - Part 0</a></li>
+                    
                         <li><a href="/2021/02/01/2020_Life-Work_9/">20210201 [年度回顧] 關於工作和生活 - Part 9</a></li>
                     
                         <li><a href="/2021/01/25/2020_Life-Work_8/">20210125 [年度回顧] 關於工作和生活 - Part 8</a></li>
@@ -1658,8 +1628,6 @@
                         <li><a href="/2020/12/15/2020_Life-Work_2/">20201215 [年度回顧] 關於工作和生活 - Part 2</a></li>
                     
                         <li><a href="/2020/12/09/2020_Life-Work_1/">20201209 [年度回顧] 關於工作和生活 - Part 1</a></li>
-                    
-                        <li><a href="/2020/12/07/NTHU-Sport-Science_5/">20201207 [年度回顧] 國立清華大學運動科學系研究所推甄歷程 - Part 5</a></li>
                     
                 </ul>
             </div>
@@ -1894,6 +1862,15 @@
                                 年度回顧
                             </span>
                             <span class="badge">15</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#在家工作" class="categories-list-item" cate="在家工作">
+                            <span class="name">
+                                在家工作
+                            </span>
+                            <span class="badge">1</span>
                         </a>
                     </li>
                     
@@ -2149,14 +2126,35 @@
                       
                       
                       
-                      <a href="/tag/#生活" style="font-size: 11.5pt; color: #666;">生活</a>
+                      <a href="/tag/#生活" style="font-size: 12pt; color: #666;">生活</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#工作" style="font-size: 11.5pt; color: #666;">工作</a>
+                      <a href="/tag/#工作" style="font-size: 12pt; color: #666;">工作</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#WFM" style="font-size: 9pt; color: #999;">WFM</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#進修" style="font-size: 9pt; color: #999;">進修</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#COVID-19" style="font-size: 9pt; color: #999;">COVID-19</a>
                     
                 </div>
             </div>

@@ -263,7 +263,7 @@
       <li>Base register contains value of smallest physical address</li>
       <li>Limit register contains range of logical addresses – each logical address must be less than the limit register</li>
       <li>MMU maps logical address dynamically</li>
-      <li>Can then allow actions such as kernel code being <code class="highlighter-rouge">transient</code> and kernel changing size</li>
+      <li>Can then allow actions such as kernel code being <code class="language-plaintext highlighter-rouge">transient</code> and kernel changing size</li>
     </ul>
   </li>
 </ul>
@@ -292,13 +292,13 @@
 
 <h3 id="二-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</h3>
 <ul>
-  <li><strong>First-fit</strong>：Allocate the <code class="highlighter-rouge">first</code> hole that is big enough</li>
-  <li><strong>Best-fit</strong>：Allocate the <code class="highlighter-rouge">smallest</code> hole that is big enough; must search entire list, unless ordered by size
+  <li><strong>First-fit</strong>：Allocate the <code class="language-plaintext highlighter-rouge">first</code> hole that is big enough</li>
+  <li><strong>Best-fit</strong>：Allocate the <code class="language-plaintext highlighter-rouge">smallest</code> hole that is big enough; must search entire list, unless ordered by size
     <ul>
       <li>Produces the smallest leftover hole</li>
     </ul>
   </li>
-  <li><strong>Worst-fit</strong>：Allocate the <code class="highlighter-rouge">largest</code> hole; must also search entire list
+  <li><strong>Worst-fit</strong>：Allocate the <code class="language-plaintext highlighter-rouge">largest</code> hole; must also search entire list
     <ul>
       <li>Produces the largest leftover hole</li>
     </ul>
@@ -340,7 +340,7 @@
 <ul>
   <li>A program is a collection of segments
     <ul>
-      <li>A segment is a logical unit such as：<code class="highlighter-rouge">main program</code>、<code class="highlighter-rouge">procedure</code>、<code class="highlighter-rouge">function</code>、<code class="highlighter-rouge">method</code>、<code class="highlighter-rouge">object</code>、<code class="highlighter-rouge">local variables</code>、<code class="highlighter-rouge">global variables</code>、<code class="highlighter-rouge">common block</code>、<code class="highlighter-rouge">stack</code>、<code class="highlighter-rouge">symbol table</code>、<code class="highlighter-rouge">arrays</code></li>
+      <li>A segment is a logical unit such as：<code class="language-plaintext highlighter-rouge">main program</code>、<code class="language-plaintext highlighter-rouge">procedure</code>、<code class="language-plaintext highlighter-rouge">function</code>、<code class="language-plaintext highlighter-rouge">method</code>、<code class="language-plaintext highlighter-rouge">object</code>、<code class="language-plaintext highlighter-rouge">local variables</code>、<code class="language-plaintext highlighter-rouge">global variables</code>、<code class="language-plaintext highlighter-rouge">common block</code>、<code class="language-plaintext highlighter-rouge">stack</code>、<code class="language-plaintext highlighter-rouge">symbol table</code>、<code class="language-plaintext highlighter-rouge">arrays</code></li>
     </ul>
   </li>
 </ul>
@@ -349,7 +349,7 @@
 
 <h4 id="segmentation-architecture">Segmentation Architecture</h4>
 <ul>
-  <li>Logical address consists of a two tuple：<code class="highlighter-rouge">&lt;segment-number, offset&gt;</code></li>
+  <li>Logical address consists of a two tuple：<code class="language-plaintext highlighter-rouge">&lt;segment-number, offset&gt;</code></li>
   <li><strong>Segment table</strong> – maps two-dimensional physical addresses; each table entry has
     <ul>
       <li><strong>base</strong> – contains the starting physical address where the segments reside in memory</li>
@@ -357,7 +357,7 @@
     </ul>
   </li>
   <li><strong>Segment-table base register (STBR)</strong> points to the segment table’s location in memory</li>
-  <li><strong>Segment-table length register (STLR)</strong> indicates number of segments used by a program：<code class="highlighter-rouge">segment number s is legal if s &lt; STLR</code></li>
+  <li><strong>Segment-table length register (STLR)</strong> indicates number of segments used by a program：<code class="language-plaintext highlighter-rouge">segment number s is legal if s &lt; STLR</code></li>
   <li>Protection
     <ul>
       <li>With each entry in segment table associate
@@ -406,44 +406,6 @@
                     
                 
             
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
                 
                     
                 
@@ -632,6 +594,52 @@
                 
                     
                 
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
             
                 
                     

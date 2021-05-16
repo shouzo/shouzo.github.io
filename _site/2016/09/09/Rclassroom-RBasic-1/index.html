@@ -26,7 +26,7 @@
     <header id="top">
     <div class="wrapper">
         <a href="/" class="brand">少左 shouzo</a>
-        <small>Be strong to Be useful！</small>
+        <small>BE STRONG TO BE USEFUL</small>
         <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
         <nav id="headerNav">
             <ul>
@@ -129,6 +129,28 @@
                 
                     
                 
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
             </ul>
         </nav>
     </div>
@@ -194,7 +216,7 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#整理自-r語言翻轉教室" id="markdown-toc-整理自-r語言翻轉教室">整理自 <a href="http://datascienceandr.org/">R語言翻轉教室</a></a>    <ul>
+  <li><a href="#整理自-r語言翻轉教室" id="markdown-toc-整理自-r語言翻轉教室">整理自 R語言翻轉教室</a>    <ul>
       <li><a href="#課程進度rbasic" id="markdown-toc-課程進度rbasic">課程進度：RBasic</a></li>
     </ul>
   </li>
@@ -242,7 +264,7 @@
         </ul>
       </li>
       <li><a href="#8-產生序列" id="markdown-toc-8-產生序列">8. 產生序列</a>        <ul>
-          <li><a href="#用法1-利用--產生序列" id="markdown-toc-用法1-利用--產生序列">[用法1] 利用 <code class="highlighter-rouge">:</code> 產生序列</a></li>
+          <li><a href="#用法1-利用--產生序列" id="markdown-toc-用法1-利用--產生序列">[用法1] 利用 <code class="language-plaintext highlighter-rouge">:</code> 產生序列</a></li>
           <li><a href="#用法2-利用-seq-產生序列" id="markdown-toc-用法2-利用-seq-產生序列">[用法2] 利用 seq() 產生序列</a></li>
           <li><a href="#用法3-利用-rep-產生序列" id="markdown-toc-用法3-利用-rep-產生序列">[用法3] 利用 rep() 產生序列</a></li>
         </ul>
@@ -297,20 +319,20 @@
 
 <h4 id="範例-查詢-solve-函數的說明">[範例] 查詢 solve 函數的說明：</h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 查詢 solve 函數
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">help</span><span class="p">(</span><span class="n">solve</span><span class="p">)</span><span class="w">	</span><span class="c1"># 用法 1
-</span><span class="o">&gt;</span><span class="w"> </span><span class="o">?</span><span class="n">solve</span><span class="w">		</span><span class="c1"># 用法 2
-</span></code></pre></div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 查詢 solve 函數</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">help</span><span class="p">(</span><span class="n">solve</span><span class="p">)</span><span class="w">	</span><span class="c1"># 用法 1</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="o">?</span><span class="n">solve</span><span class="w">		</span><span class="c1"># 用法 2</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="2-expressionassignment">2. expression、assignment</h3>
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># assignment 動作 (不會顯示結果)
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># assignment 動作 (不會顯示結果)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># expression 動作 (會顯示結果)
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># expression 動作 (會顯示結果)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="3-查詢物件">3. 查詢物件</h3>
 
@@ -319,17 +341,17 @@
   <li>查詢所有環境的物件。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="p">()</span><span class="w">	</span><span class="c1"># 用法 1
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="p">()</span><span class="w">	</span><span class="c1"># 用法 1</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w">                         </span><span class="s2">"chat"</span><span class="w">                     
 </span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="s2">"check_then_install"</span><span class="w">        </span><span class="s2">"check_then_install_github"</span><span class="w">
 </span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="s2">"issue"</span><span class="w">                     </span><span class="s2">"source_by_l10n_info"</span><span class="w">      
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls</span><span class="p">()</span><span class="w">	</span><span class="c1"># 用法 2
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls</span><span class="p">()</span><span class="w">	</span><span class="c1"># 用法 2</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w">                         </span><span class="s2">"chat"</span><span class="w">                     
 </span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="s2">"check_then_install"</span><span class="w">        </span><span class="s2">"check_then_install_github"</span><span class="w">
 </span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="s2">"issue"</span><span class="w">                     </span><span class="s2">"source_by_l10n_info"</span><span class="w">      
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="4-刪除物件">4. 刪除物件</h3>
 
@@ -338,20 +360,20 @@
   <li>刪除指定的物件。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="p">()</span><span class="w">	</span><span class="c1"># 查詢所有環境的物件
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="p">()</span><span class="w">	</span><span class="c1"># 查詢所有環境的物件</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"chat"</span><span class="w">                      </span><span class="s2">"check_then_install"</span><span class="w">       
 </span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="s2">"check_then_install_github"</span><span class="w"> </span><span class="s2">"issue"</span><span class="w">                    
 </span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="s2">"source_by_l10n_info"</span><span class="w">      
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 用 "rm()" 移除物件
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rm</span><span class="p">(</span><span class="n">chat</span><span class="p">)</span><span class="w">    </span><span class="c1"># 移除"chat"
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rm</span><span class="p">(</span><span class="n">issue</span><span class="p">)</span><span class="w">   </span><span class="c1"># 移除"issue"
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 用 "rm()" 移除物件</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rm</span><span class="p">(</span><span class="n">chat</span><span class="p">)</span><span class="w">    </span><span class="c1"># 移除"chat"</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rm</span><span class="p">(</span><span class="n">issue</span><span class="p">)</span><span class="w">   </span><span class="c1"># 移除"issue"</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="p">()</span><span class="w">	</span><span class="c1"># 再次查詢環境
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="p">()</span><span class="w">	</span><span class="c1"># 再次查詢環境</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"check_then_install"</span><span class="w">        </span><span class="s2">"check_then_install_github"</span><span class="w">
 </span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="s2">"source_by_l10n_info"</span><span class="w">      
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h2 id="二-02-data-structure-vectors">(二) 02-Data-Structure-Vectors</h2>
 
@@ -360,55 +382,55 @@
   <li>在數學上，輸入的 x 可能是整數、實數甚至是複數。R 的數學計算，會自動根據 x 的屬性做調整。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 最簡單的向量
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">	</span><span class="c1"># assignment
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 最簡單的向量</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">	</span><span class="c1"># assignment</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># "c()"可以接受任意數量的的向量參數
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">)</span><span class="w">	</span><span class="c1"># 在 x 後面追加"2, 4, 6, 8"
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># "c()"可以接受任意數量的的向量參數</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">)</span><span class="w">	</span><span class="c1"># 在 x 後面追加"2, 4, 6, 8"</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w">  </span><span class="m">2.0</span><span class="w">  </span><span class="m">4.0</span><span class="w">  </span><span class="m">6.0</span><span class="w">  </span><span class="m">8.0</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> 			</span><span class="c1"># 建立一個在 x 後面接上 x 的向量
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> 			</span><span class="c1"># 建立一個在 x 後面接上 x 的向量</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 向量的運算
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w">	</span><span class="c1"># 相同長度的向量相加
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 向量的運算</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w">	</span><span class="c1"># 相同長度的向量相加</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">9</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w">			 </span><span class="c1"># 兩種不同長度的向量相加
+</span><span class="o">&gt;</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w">			 </span><span class="c1"># 兩種不同長度的向量相加</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">8</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="2-取最小值最大值">2. 取最小值、最大值</h3>
 
 <h4 id="用法-minmaxrange">[用法] min()、max()、range()</h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w">	 </span><span class="c1"># 取得 x 的最小值和最大值
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w">	 </span><span class="c1"># 取得 x 的最小值和最大值</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">3.1</span><span class="w"> </span><span class="m">10.4</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">range</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">			  </span><span class="c1"># 回傳向量的範圍（最小到最大）
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">range</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">			  </span><span class="c1"># 回傳向量的範圍（最小到最大）</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">3.1</span><span class="w"> </span><span class="m">10.4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="3-取得向量值的加總長度和平均值">3. 取得向量值的加總、長度和平均值</h3>
 
 <h4 id="用法-sumlengthmean">[用法] sum()、length()、mean()</h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> 		</span><span class="c1"># 回傳向量的加總
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> 		</span><span class="c1"># 回傳向量的加總</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">25.5</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">	  </span><span class="c1"># 回傳向量的長度
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">	  </span><span class="c1"># 回傳向量的長度</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">	</span><span class="c1"># 回傳向量的平均值
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">	</span><span class="c1"># 回傳向量的平均值</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">6.375</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">			   </span><span class="c1"># 回傳向量的平均值
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">			   </span><span class="c1"># 回傳向量的平均值</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">6.375</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="4-樣本變異數">4. 樣本變異數</h3>
 <ul>
@@ -421,124 +443,124 @@
 
 <h4 id="用法-var">[用法] var()</h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">sum</span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">9.175833</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">9.175833</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="5-樣本標準差">5. 樣本標準差</h3>
 
 <h4 id="用法-sd">[用法] sd()</h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">sd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">3.029164</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="6-對向量進行排序">6. 對向量進行排序</h3>
 
 <h4 id="用法-sort">[用法] sort()</h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">	</span><span class="c1"># 將向量裡的元素從小排到大
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">	</span><span class="c1"># 將向量裡的元素從小排到大</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">6.4</span><span class="w"> </span><span class="m">10.4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="7-整數實數複數的計算">7. 整數、實數、複數的計算</h3>
 
 <h4 id="範例-開根號">[範例] 開根號</h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="m">-17</span><span class="p">)</span><span class="w">			 </span><span class="c1"># 對"負整數"開根號
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="m">-17</span><span class="p">)</span><span class="w">			 </span><span class="c1"># 對"負整數"開根號</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">NaN</span><span class="w">
 </span><span class="n">Warning</span><span class="w"> </span><span class="n">message</span><span class="o">:</span><span class="w">
-</span><span class="n">In</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="m">-17</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="err">產生了</span><span class="w"> </span><span class="n">NaNs</span><span class="w">
+</span><span class="n">In</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="m">-17</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">產生了</span><span class="w"> </span><span class="n">NaNs</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="m">-17</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">0i</span><span class="p">)</span><span class="w">		</span><span class="c1"># 對"複數"開根號
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="m">-17</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">0i</span><span class="p">)</span><span class="w">		</span><span class="c1"># 對"複數"開根號</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">0+4.123106i</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="8-產生序列">8. 產生序列</h3>
 
-<h4 id="用法1-利用--產生序列">[用法1] 利用 <code class="highlighter-rouge">:</code> 產生序列</h4>
+<h4 id="用法1-利用--產生序列">[用法1] 利用 <code class="language-plaintext highlighter-rouge">:</code> 產生序列</h4>
 <ul>
-  <li>在 R 裡面，<code class="highlighter-rouge">:</code>的等級很高，會優先處理。</li>
+  <li>在 R 裡面，<code class="language-plaintext highlighter-rouge">:</code>的等級很高，會優先處理。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">8</span><span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">20</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="m">-17</span><span class="o">:</span><span class="m">15</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">-17</span><span class="w"> </span><span class="m">-16</span><span class="w"> </span><span class="m">-15</span><span class="w"> </span><span class="m">-14</span><span class="w"> </span><span class="m">-13</span><span class="w"> </span><span class="m">-12</span><span class="w"> </span><span class="m">-11</span><span class="w"> </span><span class="m">-10</span><span class="w">  </span><span class="m">-9</span><span class="w">  </span><span class="m">-8</span><span class="w">  </span><span class="m">-7</span><span class="w">  </span><span class="m">-6</span><span class="w">  </span><span class="m">-5</span><span class="w">  </span><span class="m">-4</span><span class="w">  </span><span class="m">-3</span><span class="w">  </span><span class="m">-2</span><span class="w">  </span><span class="m">-1</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">1</span><span class="w">
 </span><span class="p">[</span><span class="m">20</span><span class="p">]</span><span class="w">   </span><span class="m">2</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">4</span><span class="w">   </span><span class="m">5</span><span class="w">   </span><span class="m">6</span><span class="w">   </span><span class="m">7</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">  </span><span class="m">10</span><span class="w">  </span><span class="m">11</span><span class="w">  </span><span class="m">12</span><span class="w">  </span><span class="m">13</span><span class="w">  </span><span class="m">14</span><span class="w">  </span><span class="m">15</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 以下 expression，會優先處理 17:23，然後再把所有結果乘以 2
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 以下 expression，會優先處理 17:23，然後再把所有結果乘以 2</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">17</span><span class="o">:</span><span class="m">23</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">34</span><span class="w"> </span><span class="m">36</span><span class="w"> </span><span class="m">38</span><span class="w"> </span><span class="m">40</span><span class="w"> </span><span class="m">42</span><span class="w"> </span><span class="m">44</span><span class="w"> </span><span class="m">46</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h4 id="用法2-利用-seq-產生序列">[用法2] 利用 seq() 產生序列</h4>
 <ul>
-  <li>seq 的參數有：<code class="highlighter-rouge">from</code>、<code class="highlighter-rouge">to</code>、<code class="highlighter-rouge">by</code>、<code class="highlighter-rouge">length.out</code> 和 <code class="highlighter-rouge">along.with</code></li>
-  <li>查看詳細用法︰<code class="highlighter-rouge">?seq</code></li>
-  <li>查看使用範例︰<code class="highlighter-rouge">example(seq)</code></li>
+  <li>seq 的參數有：<code class="language-plaintext highlighter-rouge">from</code>、<code class="language-plaintext highlighter-rouge">to</code>、<code class="language-plaintext highlighter-rouge">by</code>、<code class="language-plaintext highlighter-rouge">length.out</code> 和 <code class="language-plaintext highlighter-rouge">along.with</code></li>
+  <li>查看詳細用法︰<code class="language-plaintext highlighter-rouge">?seq</code></li>
+  <li>查看使用範例︰<code class="language-plaintext highlighter-rouge">example(seq)</code></li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 如果不指定參數，而是依照順序填入：seq(1,10)，那就代表 from 是 1、to 是 10、而 by 等其他 argument 就使用預設參數
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 如果不指定參數，而是依照順序填入：seq(1,10)，那就代表 from 是 1、to 是 10、而 by 等其他 argument 就使用預設參數</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">8</span><span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">10</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 指定參數
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 指定參數</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">8</span><span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">10</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 透過 by 參數控制間隔
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 透過 by 參數控制間隔</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">)</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">1.0</span><span class="w">  </span><span class="m">1.5</span><span class="w">  </span><span class="m">2.0</span><span class="w">  </span><span class="m">2.5</span><span class="w">  </span><span class="m">3.0</span><span class="w">  </span><span class="m">3.5</span><span class="w">  </span><span class="m">4.0</span><span class="w">  </span><span class="m">4.5</span><span class="w">  </span><span class="m">5.0</span><span class="w">  </span><span class="m">5.5</span><span class="w">  </span><span class="m">6.0</span><span class="w">  </span><span class="m">6.5</span><span class="w">  </span><span class="m">7.0</span><span class="w">  </span><span class="m">7.5</span><span class="w">  </span><span class="m">8.0</span><span class="w">
 </span><span class="p">[</span><span class="m">16</span><span class="p">]</span><span class="w">  </span><span class="m">8.5</span><span class="w">  </span><span class="m">9.0</span><span class="w">  </span><span class="m">9.5</span><span class="w"> </span><span class="m">10.0</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 產生一個從1開始，間隔2，長度為10的序列
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 產生一個從1開始，間隔2，長度為10的序列</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">19</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h4 id="用法3-利用-rep-產生序列">[用法3] 利用 rep() 產生序列</h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 重複特定數字
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 重複特定數字</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 將整個序列重複times次，然後接起來
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 將整個序列重複times次，然後接起來</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 將向量的每一個值個別重複each遍之後，再接起來
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 將向量的每一個值個別重複each遍之後，再接起來</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10.4</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w">  </span><span class="m">6.4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="9-邏輯向量">9. 邏輯向量</h3>
 <ul>
   <li>用於建立邏輯向量的「條件」：
     <ul>
-      <li>大於 <code class="highlighter-rouge">&gt;</code></li>
-      <li>大於等於 <code class="highlighter-rouge">&gt;=</code></li>
-      <li>小於 <code class="highlighter-rouge">&lt;</code></li>
-      <li>小於等於 <code class="highlighter-rouge">&lt;=</code></li>
-      <li>相等 <code class="highlighter-rouge">==</code></li>
-      <li>不相等<code class="highlighter-rouge">!=</code></li>
+      <li>大於 <code class="language-plaintext highlighter-rouge">&gt;</code></li>
+      <li>大於等於 <code class="language-plaintext highlighter-rouge">&gt;=</code></li>
+      <li>小於 <code class="language-plaintext highlighter-rouge">&lt;</code></li>
+      <li>小於等於 <code class="language-plaintext highlighter-rouge">&lt;=</code></li>
+      <li>相等 <code class="language-plaintext highlighter-rouge">==</code></li>
+      <li>不相等<code class="language-plaintext highlighter-rouge">!=</code></li>
     </ul>
   </li>
   <li>常常表示資料中如：「是、否」、「男、女」之類”二選一”的選項。</li>
@@ -551,17 +573,17 @@
   </li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 利用「條件類型的expression」來建立邏輯向量
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">5</span><span class="w">	</span><span class="c1"># 拿 5 和 c(10.4, 5.6, 3.1, 6.4) 比較，比較大的就是 TRUE ，而比較小的是 FALSE。
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 利用「條件類型的expression」來建立邏輯向量</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">5</span><span class="w">	</span><span class="c1"># 拿 5 和 c(10.4, 5.6, 3.1, 6.4) 比較，比較大的就是 TRUE ，而比較小的是 FALSE。</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="kc">TRUE</span><span class="w">  </span><span class="kc">TRUE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">  </span><span class="kc">TRUE</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 篩選複雜條件
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">10</span><span class="w">	</span><span class="c1"># 介於5和10之間的值為 TRUE，否則為 FALSE
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 篩選複雜條件</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">10</span><span class="w">	</span><span class="c1"># 介於5和10之間的值為 TRUE，否則為 FALSE</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">  </span><span class="kc">TRUE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">  </span><span class="kc">TRUE</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="10-na缺失值nan數學中沒有被定義的值">10. NA：缺失值、NaN：數學中沒有被定義的值</h3>
 <ul>
@@ -571,76 +593,76 @@
 
 <h4 id="用法-isna">[用法] is.na()</h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">	</span><span class="c1"># 判斷向量 x 裡面有沒有NA
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">	</span><span class="c1"># 判斷向量 x 裡面有沒有NA</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">FALSE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 判斷一個內含 NA 的向量
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 判斷一個內含 NA 的向量</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">is.na</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">))</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">FALSE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">  </span><span class="kc">TRUE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># is.na() 會將 NA 和 NaN 都看成TRUE
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># is.na() 會將 NA 和 NaN 都看成TRUE</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">is.na</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="kc">NaN</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="kc">TRUE</span><span class="w">  </span><span class="kc">TRUE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="11-字串的概念">11. 字串的概念</h3>
 <ul>
-  <li>透過單引號<code class="highlighter-rouge">'</code>或雙引號<code class="highlighter-rouge">"</code>來建立的資料，被稱為：「字串」。</li>
+  <li>透過單引號<code class="language-plaintext highlighter-rouge">'</code>或雙引號<code class="language-plaintext highlighter-rouge">"</code>來建立的資料，被稱為：「字串」。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w">    </span><span class="c1"># x 被視為變數
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w">    </span><span class="c1"># x 被視為變數</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="s2">"x"</span><span class="w">  </span><span class="c1"># x 被視為字串
+</span><span class="o">&gt;</span><span class="w"> </span><span class="s2">"x"</span><span class="w">  </span><span class="c1"># x 被視為字串</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"x"</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 輸入一個包含雙引號的字串，有兩種方法：一種是用單引號'來包覆雙引號，另外一種就是在雙引號之前插入斜線\
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 輸入一個包含雙引號的字串，有兩種方法：一種是用單引號'來包覆雙引號，另外一種就是在雙引號之前插入斜線\</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="s2">"\""</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"\""</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="s2">"R is good!\""</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"R is good!\""</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h4 id="用法-pastepaste0">[用法] paste()、paste0()</h4>
 <ul>
   <li>把輸入的argument以字串的形式，接成一個新的字串。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span><span class="w"> </span><span class="s2">"b"</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span><span class="w"> </span><span class="s2">"b"</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a b"</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s2">"X"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">),</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="w">	</span><span class="c1"># 在串接字串時，中間會留空格。
-</span><span class="w"> </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"X 1"</span><span class="w">  </span><span class="s2">"Y 2"</span><span class="w">  </span><span class="s2">"X 3"</span><span class="w">  </span><span class="s2">"Y 4"</span><span class="w">  </span><span class="s2">"X 5"</span><span class="w">  </span><span class="s2">"Y 6"</span><span class="w">  </span><span class="s2">"X 7"</span><span class="w">  </span><span class="s2">"Y 8"</span><span class="w">  </span><span class="s2">"X 9"</span><span class="w">  </span><span class="s2">"Y 10"</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s2">"X"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">),</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="w">	</span><span class="c1"># 在串接字串時，中間會留空格。</span><span class="w">
+ </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"X 1"</span><span class="w">  </span><span class="s2">"Y 2"</span><span class="w">  </span><span class="s2">"X 3"</span><span class="w">  </span><span class="s2">"Y 4"</span><span class="w">  </span><span class="s2">"X 5"</span><span class="w">  </span><span class="s2">"Y 6"</span><span class="w">  </span><span class="s2">"X 7"</span><span class="w">  </span><span class="s2">"Y 8"</span><span class="w">  </span><span class="s2">"X 9"</span><span class="w">  </span><span class="s2">"Y 10"</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">paste0</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s2">"X"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">),</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="w">	</span><span class="c1"># 在串接字串時，中間不會留空格。
-</span><span class="w"> </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"X1"</span><span class="w">  </span><span class="s2">"Y2"</span><span class="w">  </span><span class="s2">"X3"</span><span class="w">  </span><span class="s2">"Y4"</span><span class="w">  </span><span class="s2">"X5"</span><span class="w">  </span><span class="s2">"Y6"</span><span class="w">  </span><span class="s2">"X7"</span><span class="w">  </span><span class="s2">"Y8"</span><span class="w">  </span><span class="s2">"X9"</span><span class="w">  </span><span class="s2">"Y10"</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">paste0</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s2">"X"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">),</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="w">	</span><span class="c1"># 在串接字串時，中間不會留空格。</span><span class="w">
+ </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"X1"</span><span class="w">  </span><span class="s2">"Y2"</span><span class="w">  </span><span class="s2">"X3"</span><span class="w">  </span><span class="s2">"Y4"</span><span class="w">  </span><span class="s2">"X5"</span><span class="w">  </span><span class="s2">"Y6"</span><span class="w">  </span><span class="s2">"X7"</span><span class="w">  </span><span class="s2">"Y8"</span><span class="w">  </span><span class="s2">"X9"</span><span class="w">  </span><span class="s2">"Y10"</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="12-在向量中挑選特定資料">12. 在向量中挑選特定資料</h3>
 <ul>
-  <li>利用 <code class="highlighter-rouge">[]</code> 挑選特定的資料。</li>
+  <li>利用 <code class="language-plaintext highlighter-rouge">[]</code> 挑選特定的資料。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span><span class="w">		</span><span class="c1"># 挑選 x 的第一個和第三個位置的值
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span><span class="w">		</span><span class="c1"># 挑選 x 的第一個和第三個位置的值</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">3.1</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">5</span><span class="p">]</span><span class="w">		</span><span class="c1"># 挑選 x 之中大於 5 的值
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">5</span><span class="p">]</span><span class="w">		</span><span class="c1"># 挑選 x 之中大於 5 的值</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">6.4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="m">-2</span><span class="p">]</span><span class="w">			</span><span class="c1"># 挑選 x 之中，除了第 2 個數字以外的值
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="m">-2</span><span class="p">]</span><span class="w">			</span><span class="c1"># 挑選 x 之中，除了第 2 個數字以外的值</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10.4</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="13-為向量中的值進行命名">13. 為向量中的值進行命名</h3>
 <ul>
@@ -648,57 +670,57 @@
 </ul>
 
 <h4 id="用法-names">[用法] names()</h4>
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10.4</span><span class="p">,</span><span class="w"> </span><span class="m">5.6</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">6.4</span><span class="p">)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 為 x 裡的值進行命名
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 為 x 裡的值進行命名</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w"> </span><span class="s2">"c"</span><span class="p">,</span><span class="w"> </span><span class="s2">"d"</span><span class="p">)</span><span class="w">	
 </span><span class="o">&gt;</span><span class="w"> 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w">		</span><span class="c1"># 顯示 x 的值
-</span><span class="w">   </span><span class="n">a</span><span class="w">    </span><span class="n">b</span><span class="w">    </span><span class="n">c</span><span class="w">    </span><span class="n">d</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w">		</span><span class="c1"># 顯示 x 的值</span><span class="w">
+   </span><span class="n">a</span><span class="w">    </span><span class="n">b</span><span class="w">    </span><span class="n">c</span><span class="w">    </span><span class="n">d</span><span class="w"> 
 </span><span class="m">10.4</span><span class="w">  </span><span class="m">5.6</span><span class="w">  </span><span class="m">3.1</span><span class="w">  </span><span class="m">6.4</span><span class="w"> 
 </span><span class="o">&gt;</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 選取名稱為"b"、"d"的值
+</span><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 選取名稱為"b"、"d"的值</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span><span class="w"> </span><span class="s2">"d"</span><span class="p">)]</span><span class="w">
   </span><span class="n">b</span><span class="w">   </span><span class="n">d</span><span class="w"> 
 </span><span class="m">5.6</span><span class="w"> </span><span class="m">6.4</span><span class="w"> 
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h3 id="範例-整理台電的公開數據">[範例] 整理台電的公開數據</h3>
 
 <h4><題目內容></題目內容></h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1"># 社會服務業自民國87至民國91年的年度用電量（度）
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 社會服務業自民國87至民國91年的年度用電量（度）</span><span class="w">
 </span><span class="n">year1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">87</span><span class="o">:</span><span class="m">91</span><span class="w">
 </span><span class="n">power1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">6097059332</span><span class="p">,</span><span class="w"> </span><span class="m">6425887925</span><span class="p">,</span><span class="w"> </span><span class="m">6982579022</span><span class="p">,</span><span class="w"> </span><span class="m">7323992602.53436</span><span class="p">,</span><span class="w"> </span><span class="m">7954239517</span><span class="p">)</span><span class="w"> 
-</span><span class="c1"># 製造業自民國87至民國91年的年度用電量（度）
+</span><span class="c1"># 製造業自民國87至民國91年的年度用電量（度）</span><span class="w">
 </span><span class="n">power2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">59090445718</span><span class="p">,</span><span class="w"> </span><span class="m">61981666330</span><span class="p">,</span><span class="w"> </span><span class="m">67378329131</span><span class="p">,</span><span class="w"> </span><span class="m">66127460204.6482</span><span class="p">,</span><span class="w"> </span><span class="m">69696372914.6949</span><span class="p">)</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h4 id="-1"><標準解答></標準解答></h4>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1"># 請同學選出年度(`year1`)中，社會服務業的的用電量超過`7e9` 的年份。
-# （`7e9`是R 的科學符號，代表`7 * 10^9`）
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 請同學選出年度(`year1`)中，社會服務業的的用電量超過`7e9` 的年份。</span><span class="w">
+</span><span class="c1"># （`7e9`是R 的科學符號，代表`7 * 10^9`）</span><span class="w">
 </span><span class="n">year1.answer1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">year1</span><span class="p">[</span><span class="n">power1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">7e9</span><span class="p">]</span><span class="w">
 
-</span><span class="c1"># 接著請同學計算「社會服務業從民國87年到91年的平均用電量」
+</span><span class="c1"># 接著請同學計算「社會服務業從民國87年到91年的平均用電量」</span><span class="w">
 </span><span class="n">power1.mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">power1</span><span class="p">)</span><span class="w">
 
-</span><span class="c1"># 請計算「社會服務業從民國87年到91年用電量的標準差」
+</span><span class="c1"># 請計算「社會服務業從民國87年到91年用電量的標準差」</span><span class="w">
 </span><span class="n">power1.sd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sd</span><span class="p">(</span><span class="n">power1</span><span class="p">)</span><span class="w">
 
-</span><span class="c1"># 在統計中，我們常常會計算一筆數據的「標準分數」，也就是將數據減去平均數後除以標準差。
-# 請同學計算「社會服務業從民國87年到91年用電量的標準分數」
+</span><span class="c1"># 在統計中，我們常常會計算一筆數據的「標準分數」，也就是將數據減去平均數後除以標準差。</span><span class="w">
+</span><span class="c1"># 請同學計算「社會服務業從民國87年到91年用電量的標準分數」</span><span class="w">
 </span><span class="n">power1.z</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">power1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">power1</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">sd</span><span class="p">(</span><span class="n">power1</span><span class="p">)</span><span class="w">
 
-</span><span class="c1"># 同樣的道理，請同學算出「製造業自民國87年至民國91年用電量的平均數、標準差和標準分數」
+</span><span class="c1"># 同樣的道理，請同學算出「製造業自民國87年至民國91年用電量的平均數、標準差和標準分數」</span><span class="w">
 </span><span class="n">power2.mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">power2</span><span class="p">)</span><span class="w">
 </span><span class="n">power2.sd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sd</span><span class="p">(</span><span class="n">power2</span><span class="p">)</span><span class="w">
 </span><span class="n">power2.z</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">power2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">power2</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">sd</span><span class="p">(</span><span class="n">power2</span><span class="p">)</span><span class="w">
 
-</span><span class="c1"># 最後，請同學找出年度中，「社會服務業的用電量」，超過「製造業的10%用電量」的年份
+</span><span class="c1"># 最後，請同學找出年度中，「社會服務業的用電量」，超過「製造業的10%用電量」的年份</span><span class="w">
 </span><span class="n">year1.answer2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">year1</span><span class="p">[</span><span class="n">power1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0.1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">power2</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div></div>
 
         </article>
         <hr>
@@ -719,69 +741,6 @@
                     
                 
             
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
                 
                     
                 
@@ -823,6 +782,12 @@
             
         
             
+            
+                
+                    
+                
+                    
+                
             
                 
                     
@@ -880,6 +845,81 @@
             
         
             
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
             
                 
                     

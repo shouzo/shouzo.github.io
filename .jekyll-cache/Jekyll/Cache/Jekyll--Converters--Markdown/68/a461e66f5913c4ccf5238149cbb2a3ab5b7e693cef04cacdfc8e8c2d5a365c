@@ -1,0 +1,216 @@
+I"�#<ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-allocation-of-frames" id="markdown-toc-一-allocation-of-frames">(一) Allocation of Frames</a>        <ul>
+          <li><a href="#1-fixed-allocation" id="markdown-toc-1-fixed-allocation">1. Fixed Allocation</a></li>
+          <li><a href="#2-priority-allocation" id="markdown-toc-2-priority-allocation">2. Priority Allocation</a></li>
+          <li><a href="#3-global-vs-local-allocation" id="markdown-toc-3-global-vs-local-allocation">3. Global vs. Local Allocation</a></li>
+          <li><a href="#4-non-uniform-memory-access" id="markdown-toc-4-non-uniform-memory-access">4. Non-Uniform Memory Access</a></li>
+          <li><a href="#5-thrashing" id="markdown-toc-5-thrashing">5. Thrashing</a></li>
+          <li><a href="#6-demand-paging-and-thrashing" id="markdown-toc-6-demand-paging-and-thrashing">6. Demand Paging and Thrashing</a></li>
+          <li><a href="#7-working-set-model" id="markdown-toc-7-working-set-model">7. Working-Set Model</a></li>
+          <li><a href="#8-page-fault-frequency" id="markdown-toc-8-page-fault-frequency">8. Page-Fault Frequency</a></li>
+        </ul>
+      </li>
+      <li><a href="#二-memory-mapped-files" id="markdown-toc-二-memory-mapped-files">(二) Memory-Mapped Files</a></li>
+      <li><a href="#三-other-considerations--prepaging" id="markdown-toc-三-other-considerations--prepaging">(三) Other Considerations – Prepaging</a></li>
+      <li><a href="#四-other-issues" id="markdown-toc-四-other-issues">(四) Other Issues</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170615/ch09.pdf">Chapter 9: Virtual-Memory Management</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-allocation-of-frames">(一) Allocation of Frames</h3>
+<ul>
+  <li>Each process needs minimum number of frames</li>
+  <li>Example: IBM 370 – 6 pages to handle SS MOVE instruction:
+    <ul>
+      <li>instruction is 6 bytes, might span 2 pages</li>
+      <li>2 pages to handle from</li>
+      <li>2 pages to handle to</li>
+    </ul>
+  </li>
+  <li>Maximum of course is total frames in the system</li>
+  <li>Two major allocation schemes
+    <ul>
+      <li>fixed allocation</li>
+      <li>priority allocation</li>
+    </ul>
+  </li>
+  <li>Many variations</li>
+</ul>
+
+<h4 id="1-fixed-allocation">1. Fixed Allocation</h4>
+<ul>
+  <li>Equal allocation – For example, if there are 100 frames (after allocating frames for the OS) and 5 processes, give each process 20 frames
+    <ul>
+      <li>Keep some as free frame buffer pool</li>
+    </ul>
+  </li>
+  <li>Proportional allocation – Allocate according to the size of process
+    <ul>
+      <li>Dynamic as degree of multiprogramming, process sizes change</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/EwupsLy.png" alt="" /></p>
+
+<h4 id="2-priority-allocation">2. Priority Allocation</h4>
+<ul>
+  <li>Use a proportional allocation scheme using priorities rather than size</li>
+  <li>If process P i generates a page fault,
+    <ul>
+      <li>select for replacement one of its frames</li>
+      <li>select for replacement a frame from a process with lower priority number</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="3-global-vs-local-allocation">3. Global vs. Local Allocation</h4>
+<ul>
+  <li><strong>Global replacement</strong> – process selects a replacement frame from the set of all frames; one process can take a frame from another
+    <ul>
+      <li>But then process execution time can vary greatly</li>
+      <li>But greater throughput so more common</li>
+    </ul>
+  </li>
+  <li><strong>Local replacement</strong> – each process selects from only its own set of allocated frames
+    <ul>
+      <li>More consistent per-process performance</li>
+      <li>But possibly underutilized memory</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="4-non-uniform-memory-access">4. Non-Uniform Memory Access</h4>
+<ul>
+  <li>So far all memory accessed equally</li>
+  <li>Many systems are NUMA – speed of access to memory varies
+    <ul>
+      <li>Consider system boards containing CPUs and memory, interconnected over a system bus</li>
+    </ul>
+  </li>
+  <li>Optimal performance comes from allocating memory “close to” the CPU on which the thread is scheduled
+    <ul>
+      <li>And modifying the scheduler to schedule the thread on the same system board when possible</li>
+      <li>Solved by Solaris by creating <strong>lgroups</strong>
+        <ul>
+          <li>Structure to track CPU / Memory low latency groups</li>
+          <li>Used my schedule and pager</li>
+          <li>When possible schedule all threads of a process and allocate all memory for that process within the lgroup</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="5-thrashing">5. Thrashing</h4>
+<ul>
+  <li>If a process does not have “enough” pages, the page-fault rate is very high
+    <ul>
+      <li>Page fault to get page</li>
+      <li>Replace existing frame</li>
+      <li>But quickly need replaced frame back</li>
+      <li>This leads to:
+        <ul>
+          <li>Low CPU utilization</li>
+          <li>Operating system thinking that it needs to increase the degree of multiprogramming</li>
+          <li>Another process added to the system</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Thrashing</strong> - a process is busy swapping pages in and out</li>
+</ul>
+
+<p><img src="https://i.imgur.com/jBcF8pC.png" alt="" /></p>
+
+<h4 id="6-demand-paging-and-thrashing">6. Demand Paging and Thrashing</h4>
+<ul>
+  <li>Why does demand paging work? <strong>Locality model</strong>
+    <ul>
+      <li>Process migrates from one locality to another</li>
+      <li>Localities may overlap</li>
+    </ul>
+  </li>
+  <li>Why does thrashing occur? <strong>size of locality &gt; total memory size</strong>
+    <ul>
+      <li>Limit effects by using local or priority page replacement</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="7-working-set-model">7. Working-Set Model</h4>
+<p><img src="https://i.imgur.com/Nsrm3Lw.png" alt="" />
+<img src="https://i.imgur.com/Xy48qM2.png" alt="" /></p>
+
+<ul>
+  <li><strong>Keeping Track of the Working Set</strong>
+<img src="https://i.imgur.com/QHoALdo.png" alt="" /></li>
+</ul>
+
+<h4 id="8-page-fault-frequency">8. Page-Fault Frequency</h4>
+<ul>
+  <li>More direct approach than WSS</li>
+  <li>Establish “acceptable” <strong>page-fault frequency</strong> rate and use local replacement policy
+    <ul>
+      <li>If actual rate too low, process loses frame</li>
+      <li>If actual rate too high, process gains frame</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/ws4FmRA.png" alt="" />
+<img src="https://i.imgur.com/ujHWuKv.png" alt="" /></p>
+
+<h3 id="二-memory-mapped-files">(二) Memory-Mapped Files</h3>
+<ul>
+  <li>Memory-mapped file I/O allows file I/O to be treated as routine memory access by <strong>mapping</strong> a disk block to a page in memory</li>
+  <li>A file is initially read using demand paging
+    <ul>
+      <li>A page-sized portion of the file is read from the file system into a physical page</li>
+      <li>Subsequent reads/writes to/from the file are treated as ordinary memory accesses</li>
+    </ul>
+  </li>
+  <li>Simplifies and speeds file access by driving file I/O through memory rather than <code class="language-plaintext highlighter-rouge">read()</code> and <code class="language-plaintext highlighter-rouge">write()</code> system calls</li>
+  <li>Also allows several processes to map the same file allowing the pages in memory to be shared</li>
+  <li>But when does written data make it to disk?
+    <ul>
+      <li>Periodically and / or at file <code class="language-plaintext highlighter-rouge">close()</code> time</li>
+      <li>For example, when the pager scans for dirty pages</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/zWof78r.png" alt="" /></p>
+
+<h3 id="三-other-considerations--prepaging">(三) Other Considerations – Prepaging</h3>
+<ul>
+  <li>To reduce the large number of page faults that occurs at process startup</li>
+  <li>Prepage all or some of the pages a process will need, before they are referenced</li>
+  <li>But if prepaged pages are unused, I/O and memory was wasted</li>
+  <li>Assume s pages are prepaged and α of the pages is used
+    <ul>
+      <li>Is cost of <code class="language-plaintext highlighter-rouge">s * α</code> save pages faults <code class="language-plaintext highlighter-rouge">&gt;</code> or <code class="language-plaintext highlighter-rouge">&lt;</code> than the cost of prepaging <code class="language-plaintext highlighter-rouge">s * (1-α)</code> unnecessary pages?</li>
+      <li>α near zero » prepaging loses</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="四-other-issues">(四) Other Issues</h3>
+<p><img src="https://i.imgur.com/289vIx7.png" alt="" />
+—
+<img src="https://i.imgur.com/AzOr7n2.png" alt="" />
+—
+<img src="https://i.imgur.com/9ZuU18h.png" alt="" />
+—
+<img src="https://i.imgur.com/cHTpyGG.png" alt="" /></p>
+:ET

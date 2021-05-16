@@ -1,0 +1,182 @@
+I"^<ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#race-condition" id="markdown-toc-race-condition">Race Condition</a></li>
+      <li><a href="#一-critical-section-problem" id="markdown-toc-一-critical-section-problem">(一) Critical-Section Problem</a></li>
+      <li><a href="#二-solution-to-critical-section-problem" id="markdown-toc-二-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</a></li>
+      <li><a href="#三-petersons-solution" id="markdown-toc-三-petersons-solution">(三) Peterson’s Solution</a></li>
+      <li><a href="#四-synchronization-hardware" id="markdown-toc-四-synchronization-hardware">(四) Synchronization Hardware</a>        <ul>
+          <li><a href="#1-test_and_set-instruction" id="markdown-toc-1-test_and_set-instruction">1. test_and_set Instruction</a></li>
+          <li><a href="#2-compare_and_swap-instruction" id="markdown-toc-2-compare_and_swap-instruction">2. compare_and_swap Instruction</a></li>
+        </ul>
+      </li>
+      <li><a href="#五-mutex-locks" id="markdown-toc-五-mutex-locks">(五) Mutex Locks</a>        <ul>
+          <li><a href="#acquire-and-release" id="markdown-toc-acquire-and-release">acquire() and release()</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170427/ch06.pdf">Chapter 6: Process Scheduling</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="race-condition">Race Condition</h3>
+<ul>
+  <li>
+    <p>Consumer
+<img src="https://i.imgur.com/07kx1WD.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Producer
+<img src="https://i.imgur.com/eBPWPyb.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Race Condition
+<img src="https://i.imgur.com/Q5qf9Xi.jpg" alt="" /></p>
+  </li>
+</ul>
+
+<h3 id="一-critical-section-problem">(一) Critical-Section Problem</h3>
+<ul>
+  <li>General Structure：
+<img src="https://i.imgur.com/yVVaplo.jpg" alt="" />
+<img src="https://i.imgur.com/dWa1ujd.jpg" alt="" /></li>
+</ul>
+
+<h3 id="二-solution-to-critical-section-problem">(二) Solution to Critical-Section Problem</h3>
+<ol>
+  <li>
+    <p><strong>Mutual Exclusion</strong> - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.</p>
+  </li>
+  <li>
+    <p><strong>Progress</strong> - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely.</p>
+  </li>
+  <li><strong>Bounded Waiting</strong> - A bound must exist on the number of times that other processes are allowed to enter their critical sections.
+    <ul>
+      <li>Assume that each process executes at a nonzero speed.</li>
+      <li>No assumption concerning relative speed of the n processes.</li>
+    </ul>
+  </li>
+  <li>Two approaches depending on if kernel is preemptive or non-preemptive.
+    <ul>
+      <li><strong>Preemptive</strong> – allows preemption of process when running in kernel mode.</li>
+      <li><strong>Non-preemptive</strong> – runs until exits kernel mode, blocks, or voluntarily yields CPU.
+        <ul>
+          <li>Essentially free of race conditions in kernel mode.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="三-petersons-solution">(三) Peterson’s Solution</h3>
+<ul>
+  <li>Good algorithmic description of solving the problem.</li>
+  <li>Two process solution</li>
+  <li>Assume that the load and store instructions are atomic; that is, cannot be interrupted</li>
+  <li>The two processes share two variables：
+    <ul>
+      <li>int turn;</li>
+      <li>Boolean flag[2]</li>
+    </ul>
+  </li>
+  <li>The variable turn indicates whose turn it is to enter the critical section</li>
+  <li>The flag array is used to indicate if a process is ready to enter the critical section.</li>
+  <li><code class="language-plaintext highlighter-rouge">flag[i] = true</code> implies that process Pi is ready!</li>
+</ul>
+
+<p><img src="https://i.imgur.com/VjV8Owl.jpg" alt="" /></p>
+
+<ul>
+  <li>Provable that
+    <ol>
+      <li>Mutual exclusion is preserved.</li>
+      <li>Progress requirement is satisfied.</li>
+      <li>Bounded-waiting requirement is met.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="四-synchronization-hardware">(四) Synchronization Hardware</h3>
+<ul>
+  <li>Many systems provide hardware support for critical section code.</li>
+  <li>All solutions below based on idea of <strong>locking</strong>.
+    <ul>
+      <li>Protecting critical regions via locks.</li>
+    </ul>
+  </li>
+  <li>Uniprocessors – could disable interrupts
+    <ul>
+      <li>Currently running code would execute without preemption.</li>
+      <li>Generally too inefficient on multiprocessor systems.
+        <ul>
+          <li>Operating systems using this not broadly scalable.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Modern machines provide special atomic hardware instructions.
+    <ul>
+      <li><strong>Atomic</strong> = non-interruptible
+        <ul>
+          <li>Either test memory word and set value.</li>
+          <li>Or swap contents of two memory words.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="1-test_and_set-instruction">1. test_and_set Instruction</h4>
+<p><img src="https://i.imgur.com/HP1PMeH.jpg" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Solution using test_and_set()
+  <img src="https://i.imgur.com/5SMn8ix.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>Bounded-waiting Mutual Exclusion with test_and_set
+  <img src="https://i.imgur.com/wGOMFdV.jpg" alt="" /></p>
+  </li>
+</ul>
+
+<h4 id="2-compare_and_swap-instruction">2. compare_and_swap Instruction</h4>
+<p><img src="https://i.imgur.com/7neEbLe.jpg" alt="" /></p>
+
+<ul>
+  <li>Solution using compare_and_swap
+  <img src="https://i.imgur.com/37TZRjA.jpg" alt="" /></li>
+</ul>
+
+<h3 id="五-mutex-locks">(五) Mutex Locks</h3>
+<ul>
+  <li>Previous solutions are complicated and generally inaccessible to application programmers.</li>
+  <li>OS designers build software tools to solve critical section problem.</li>
+  <li>Simplest is mutex lock</li>
+  <li>Product critical regions with it by first <strong>acquire()</strong> a lock then <strong>release()</strong> it.
+    <ul>
+      <li>Boolean variable indicating if lock is available or not</li>
+    </ul>
+  </li>
+  <li>Calls to <strong>acquire()</strong> and <strong>release()</strong> must be atomic.
+    <ul>
+      <li>Usually implemented via hardware atomic instructions</li>
+    </ul>
+  </li>
+  <li>But this solution requires <strong>busy waiting</strong>.
+    <ul>
+      <li>This lock therefore called a <strong>spinlock</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="acquire-and-release">acquire() and release()</h4>
+<p><img src="https://i.imgur.com/stNKbbR.jpg" alt="" /></p>
+:ET

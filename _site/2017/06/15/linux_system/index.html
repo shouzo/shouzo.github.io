@@ -404,11 +404,11 @@
       <li>Subsequent reads/writes to/from the file are treated as ordinary memory accesses</li>
     </ul>
   </li>
-  <li>Simplifies and speeds file access by driving file I/O through memory rather than <code class="highlighter-rouge">read()</code> and <code class="highlighter-rouge">write()</code> system calls</li>
+  <li>Simplifies and speeds file access by driving file I/O through memory rather than <code class="language-plaintext highlighter-rouge">read()</code> and <code class="language-plaintext highlighter-rouge">write()</code> system calls</li>
   <li>Also allows several processes to map the same file allowing the pages in memory to be shared</li>
   <li>But when does written data make it to disk?
     <ul>
-      <li>Periodically and / or at file <code class="highlighter-rouge">close()</code> time</li>
+      <li>Periodically and / or at file <code class="language-plaintext highlighter-rouge">close()</code> time</li>
       <li>For example, when the pager scans for dirty pages</li>
     </ul>
   </li>
@@ -423,7 +423,7 @@
   <li>But if prepaged pages are unused, I/O and memory was wasted</li>
   <li>Assume s pages are prepaged and α of the pages is used
     <ul>
-      <li>Is cost of <code class="highlighter-rouge">s * α</code> save pages faults <code class="highlighter-rouge">&gt;</code> or <code class="highlighter-rouge">&lt;</code> than the cost of prepaging <code class="highlighter-rouge">s * (1-α)</code> unnecessary pages?</li>
+      <li>Is cost of <code class="language-plaintext highlighter-rouge">s * α</code> save pages faults <code class="language-plaintext highlighter-rouge">&gt;</code> or <code class="language-plaintext highlighter-rouge">&lt;</code> than the cost of prepaging <code class="language-plaintext highlighter-rouge">s * (1-α)</code> unnecessary pages?</li>
       <li>α near zero » prepaging loses</li>
     </ul>
   </li>
@@ -469,44 +469,6 @@
                     
                 
             
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
                 
                     
                 
@@ -695,6 +657,52 @@
                 
                     
                 
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
             
                 
                     

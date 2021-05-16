@@ -26,7 +26,7 @@
     <header id="top">
     <div class="wrapper">
         <a href="/" class="brand">少左 shouzo</a>
-        <small>Be strong to Be useful！</small>
+        <small>BE STRONG TO BE USEFUL</small>
         <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
         <nav id="headerNav">
             <ul>
@@ -129,6 +129,28 @@
                 
                     
                 
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
             </ul>
         </nav>
     </div>
@@ -194,7 +216,7 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#整理自-由片語學習c程式設計--ch02--基本程式架構" id="markdown-toc-整理自-由片語學習c程式設計--ch02--基本程式架構">整理自 <a href="https://sites.google.com/site/mycprogrammingbook/">由片語學習C程式設計</a> – Ch02 : 基本程式架構</a>    <ul>
+  <li><a href="#整理自-由片語學習c程式設計--ch02--基本程式架構" id="markdown-toc-整理自-由片語學習c程式設計--ch02--基本程式架構">整理自 由片語學習C程式設計 – Ch02 : 基本程式架構</a>    <ul>
       <li><a href="#-筆記內容-" id="markdown-toc--筆記內容-">[ 筆記內容 ]</a>        <ul>
           <li><a href="#-範例程式碼--github" id="markdown-toc--範例程式碼--github">[ 範例程式碼 ] GitHub</a></li>
           <li><a href="#一程式骨架" id="markdown-toc-一程式骨架">（一）程式骨架</a>            <ul>
@@ -248,7 +270,7 @@
 
 <h2 id="-筆記內容-">[ 筆記內容 ]</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>（一）程式骨架
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>（一）程式骨架
   1. 主程式
 
 （二）設計
@@ -271,7 +293,7 @@
     [ 作業 2-5 ] 
     [ 作業 2-6 ]
     [ 作業 2-7 ]
-</code></pre></div>
+</code></pre></div></div>
 
 <h3 id="-範例程式碼--github">[ 範例程式碼 ] GitHub</h3>
 
@@ -288,12 +310,12 @@
   <li>main()：程式入口點，將來程式都會從這裡開始執行。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 主程式的框架
-</span><span class="n">main</span><span class="p">()</span>    <span class="c1">// 程式入口點
-</span><span class="p">{</span>    <span class="c1">// 函式的開始
-</span>
-<span class="p">}</span>    <span class="c1">// 函式的結束
-</span></code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 主程式的框架</span>
+<span class="n">main</span><span class="p">()</span>    <span class="c1">// 程式入口點</span>
+<span class="p">{</span>    <span class="c1">// 函式的開始</span>
+
+<span class="p">}</span>    <span class="c1">// 函式的結束</span>
+</code></pre></div></div>
 
 <hr />
 
@@ -307,10 +329,10 @@
 
 <h4 id="2--變數的屬性">2.  變數的屬性</h4>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 宣告"整數"(int)變數
-</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// 宣告一個整數變數，並給予初始值"0"
-</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>    <span class="c1">// 一次宣告數個以上的整數變數。若沒有給予初始值，則變數的值可以是任意值。
-</span></code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 宣告"整數"(int)變數</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// 宣告一個整數變數，並給予初始值"0"</span>
+<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>    <span class="c1">// 一次宣告數個以上的整數變數。若沒有給予初始值，則變數的值可以是任意值。</span>
+</code></pre></div></div>
 
 <h5 id="1--類別">(1)  類別</h5>
 
@@ -357,15 +379,15 @@
   <li>“stdio.h” : 標準輸出入程式庫 (standard I/O library)</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 引入標頭檔
-</span><span class="cp">#include &lt;stdio.h&gt;
-</span></code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 引入標頭檔</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span></code></pre></div></div>
 
 <h4 id="2--使用-printf-函式--將變數的值顯示在螢幕上">2.  使用 “printf()” 函式 : 將變數的值顯示在螢幕上</h4>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 使用"printf()"，將變數的值顯示在螢幕上。
-</span><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 使用"printf()"，將變數的值顯示在螢幕上。</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>“printf()” 的參數 :
     <ul>
@@ -386,20 +408,20 @@
   <li>提示 : 程式的執行順序是由上往下，一行接著一行執行。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "2-1.c"
-</span><span class="cp">#include &lt;stdio.h&gt;    // 引入標頭檔"stdio.h"
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "2-1.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;    // 引入標頭檔"stdio.h"
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>    <span class="c1">// 宣告變數 i ，並設定它的初始值
-</span>    <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>    <span class="c1">// 顯示變數 i 的值
-</span><span class="p">}</span>
-</code></pre></div>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>    <span class="c1">// 宣告變數 i ，並設定它的初始值</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>    <span class="c1">// 顯示變數 i 的值</span>
+<span class="p">}</span>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20151108/2-1.jpg" alt="" /></p>
 
 <h5 id="-範例-2-2--顯示兩個變數的值">[ 範例 2-2 ] 顯示兩個變數的值</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "2-2.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "2-2.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
@@ -407,20 +429,20 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20151108/2-2.jpg" alt="" /></p>
 
 <h4 id="3--加入-換行字元-n-">3.  加入 “換行字元( ‘\n’ )”</h4>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 以十進位輸出一整數並換行
-</span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>    <span class="c1">// 加入換行字元 "\n"
-</span></code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 以十進位輸出一整數並換行</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>    <span class="c1">// 加入換行字元 "\n"</span>
+</code></pre></div></div>
 
 <h5 id="-範例-2-3--將變數的值顯示在螢幕上並換行">[ 範例 2-3 ] 將變數的值顯示在螢幕上並換行</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "2-3.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "2-3.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
@@ -428,7 +450,7 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20151108/2-3.png" alt="" /></p>
 
@@ -438,9 +460,9 @@
 
 <h4 id="1--使用-scanf-函式--將鍵盤上讀到的值存入變數中">1.  使用 “scanf()” 函式 : 將鍵盤上讀到的值存入變數中</h4>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 使用"scanf()"，將鍵盤上讀入的值存入變數中
-</span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 使用"scanf()"，將鍵盤上讀入的值存入變數中</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+</code></pre></div></div>
 <ul>
   <li>“scanf()” 的參數 :
     <ul>
@@ -455,15 +477,15 @@
 </ul>
 
 <h5 id="-範例-2-4--從鍵盤讀入一整數再將其顯示在螢幕上">[ 範例 2-4 ] 從鍵盤讀入一整數再將其顯示在螢幕上</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "2-4.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "2-4.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>    <span class="c1">// 從鍵盤上讀取輸入的值，並存入變數 i 中
-</span>    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>    <span class="c1">// 顯示變數 i 的值
-</span><span class="p">}</span>
-</code></pre></div>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>    <span class="c1">// 從鍵盤上讀取輸入的值，並存入變數 i 中</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>    <span class="c1">// 顯示變數 i 的值</span>
+<span class="p">}</span>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20151108/2-4.png" alt="" /></p>
 
@@ -476,8 +498,8 @@
   <li>寫一個程式讀入兩個整數並顯示在螢幕上，但是先讀入的整數後顯示，後讀入的整數先顯示。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "2-5.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "2-5.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
@@ -485,7 +507,7 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20151108/2-5.png" alt="" /></p>
 
@@ -494,8 +516,8 @@
   <li>寫一個程式讀入一個整數並顯示兩次在螢幕上。每一次顯示占一行。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "2-6.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "2-6.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
@@ -503,7 +525,7 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20151108/2-6.png" alt="" /></p>
 
@@ -512,15 +534,15 @@
   <li>寫一個程式讀入兩個整數，但只顯示後讀入的整數在螢幕上。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "2-7.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "2-7.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
     <span class="n">scanf</span><span class="p">(</span><span class="s">"%d %d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20151108/2-7.png" alt="" /></p>
 
@@ -543,100 +565,7 @@
                     
                 
             
-        
-            
-            
                 
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                        
-                        <h2 id="similar_posts">Similar Posts</h2>
-                        <ul>
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
-                            
-                            </a>
-                        </li>
-                        
-                        
                     
                 
                     
@@ -673,30 +602,6 @@
                     
                 
                     
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
                 
             
         
@@ -718,15 +623,6 @@
                     
                 
                     
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/06/15/linux_system/">20170615 [學習筆記] Linux 系統程式 (15)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
             
         
@@ -743,24 +639,6 @@
                 
                     
                 
-            
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-            
             
                 
                     
@@ -790,8 +668,111 @@
                 
             
         
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
         
-            </ul>
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
         
 
         <div class="post-recent">

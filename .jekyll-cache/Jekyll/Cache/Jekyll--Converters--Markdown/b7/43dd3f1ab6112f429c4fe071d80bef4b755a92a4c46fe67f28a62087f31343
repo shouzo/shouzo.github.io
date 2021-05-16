@@ -1,0 +1,42 @@
+I"<ul id="markdown-toc">
+  <li><a href="#a-模糊理論---模糊控制" id="markdown-toc-a-模糊理論---模糊控制">A. 模糊理論 - 模糊控制</a></li>
+  <li><a href="#b-類神經網路" id="markdown-toc-b-類神經網路">B. 類神經網路</a></li>
+  <li><a href="#專家系統結構" id="markdown-toc-專家系統結構">專家系統結構</a></li>
+  <li><a href="#智慧控制的定義" id="markdown-toc-智慧控制的定義">智慧控制的定義</a></li>
+</ul>
+
+<h3 id="a-模糊理論---模糊控制">A. 模糊理論 - 模糊控制</h3>
+<ul>
+  <li>藉由規則庫建立專家系統
+    <ol>
+      <li><a href="https://goo.gl/MTt7jw">專家系統</a></li>
+      <li><a href="https://goo.gl/39piYs">基於規則的專家系統</a></li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="b-類神經網路">B. 類神經網路</h3>
+<ul>
+  <li>藉由學習建立網路</li>
+</ul>
+
+<h3 id="專家系統結構">專家系統結構</h3>
+<p><img src="https://i.imgur.com/A3xyOE9.jpg" alt="" />
+<strong>1. 正向推論</strong>：已知條件，推論出結論。
+<img src="https://i.imgur.com/CLp1mH4.jpg" alt="" /></p>
+
+<p><strong>2. 逆向推論</strong>：先提出結論或假設， 再推論前提(條件)。
+<img src="https://i.imgur.com/JECgCGc.jpg" alt="" /></p>
+
+<h3 id="智慧控制的定義">智慧控制的定義</h3>
+<ul>
+  <li>古典控制與現代控制都需要精確數學模型，然而工業控制對象常見有非線性、多不確定因素，使精確數學模型不易取得，甚至無法取得。因此有一個結合人工智慧、運算性自動控制，而成 <strong>智慧型控制</strong> 。
+<img src="https://i.imgur.com/dlm1zVL.jpg" alt="" /></li>
+</ul>
+
+<p><strong>[優點] 模糊智慧型控制</strong></p>
+<ul>
+  <li>不需要數學模型。</li>
+  <li>系統強健。</li>
+</ul>
+:ET

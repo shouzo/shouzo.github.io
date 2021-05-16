@@ -229,9 +229,9 @@
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
   <li><a href="#20170719---day_2" id="markdown-toc-20170719---day_2">20170719 - Day_2</a>    <ul>
-      <li><a href="#一修改-helloosnas" id="markdown-toc-一修改-helloosnas">一、修改 <code class="highlighter-rouge">helloos.nas</code></a></li>
-      <li><a href="#二編譯-helloosnas" id="markdown-toc-二編譯-helloosnas">二、編譯 <code class="highlighter-rouge">helloos.nas</code></a></li>
-      <li><a href="#三啟動虛擬機讀取-osimg" id="markdown-toc-三啟動虛擬機讀取-osimg">三、啟動虛擬機，讀取 <code class="highlighter-rouge">os.img</code></a></li>
+      <li><a href="#一修改-helloosnas" id="markdown-toc-一修改-helloosnas">一、修改 <code class="language-plaintext highlighter-rouge">helloos.nas</code></a></li>
+      <li><a href="#二編譯-helloosnas" id="markdown-toc-二編譯-helloosnas">二、編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code></a></li>
+      <li><a href="#三啟動虛擬機讀取-osimg" id="markdown-toc-三啟動虛擬機讀取-osimg">三、啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">os.img</code></a></li>
     </ul>
   </li>
 </ul>
@@ -269,16 +269,16 @@
   </li>
 </ul>
 
-<h2 id="一修改-helloosnas">一、修改 <code class="highlighter-rouge">helloos.nas</code></h2>
+<h2 id="一修改-helloosnas">一、修改 <code class="language-plaintext highlighter-rouge">helloos.nas</code></h2>
 <ul>
-  <li><code class="highlighter-rouge">RESB	0x7dfe-$</code> 此行無法通過編譯，故修改成 <code class="highlighter-rouge">TIMES 510-($-$$)    DB    0</code>。
+  <li><code class="language-plaintext highlighter-rouge">RESB	0x7dfe-$</code> 此行無法通過編譯，故修改成 <code class="language-plaintext highlighter-rouge">TIMES 510-($-$$)    DB    0</code>。
     <ul>
-      <li><code class="highlighter-rouge">$</code> 代表目前行的位址，<code class="highlighter-rouge">$$</code> 為目前 section 的位址。(TIMES 意思為重複，先決定次數再確定重複的內容)。</li>
+      <li><code class="language-plaintext highlighter-rouge">$</code> 代表目前行的位址，<code class="language-plaintext highlighter-rouge">$$</code> 為目前 section 的位址。(TIMES 意思為重複，先決定次數再確定重複的內容)。</li>
     </ul>
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; hello-os
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; hello-os
 ; TAB=4
 
 ORG		0x7c00			; 指定從 0x7c00 開始執行
@@ -347,9 +347,9 @@ msg:
     DB		0x55, 0xaa
 </code></pre></div></div>
 
-<h2 id="二編譯-helloosnas">二、編譯 <code class="highlighter-rouge">helloos.nas</code></h2>
+<h2 id="二編譯-helloosnas">二、編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code></h2>
 <ol>
-  <li>編譯 <code class="highlighter-rouge">helloos.nas</code>，在輸出 <code class="highlighter-rouge">bootloader</code> 的同時也輸出列表檔案 <code class="highlighter-rouge">ipl.lst</code>。</li>
+  <li>編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code>，在輸出 <code class="language-plaintext highlighter-rouge">bootloader</code> 的同時也輸出列表檔案 <code class="language-plaintext highlighter-rouge">ipl.lst</code>。</li>
 </ol>
 
 <blockquote>
@@ -359,7 +359,7 @@ msg:
 <p><img src="https://i.imgur.com/KfOYHIM.png" alt="" /></p>
 
 <ol>
-  <li>在 Linux 系統下使用 <code class="highlighter-rouge">dd</code> 指令產生 <code class="highlighter-rouge">os.img</code> 檔案。
+  <li>在 Linux 系統下使用 <code class="language-plaintext highlighter-rouge">dd</code> 指令產生 <code class="language-plaintext highlighter-rouge">os.img</code> 檔案。
     <ul>
       <li>先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。</li>
     </ul>
@@ -375,7 +375,7 @@ msg:
   <p>dd if=bootloader of=os.img bs=512 count=1</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if：指定輸入檔案
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if：指定輸入檔案
 of：指定輸出檔案
 bs：指定 block size，一次讀取與寫入 N 個位元組的資料
 count：處理 N 個輸入區塊
@@ -384,10 +384,10 @@ count：處理 N 個輸入區塊
 <p><img src="https://i.imgur.com/DbKECqo.png" alt="" /></p>
 
 <ul>
-  <li>如果打開 <code class="highlighter-rouge">ipl.lst</code> ，可以檢視組合語言轉換成機械碼的情形。</li>
+  <li>如果打開 <code class="language-plaintext highlighter-rouge">ipl.lst</code> ，可以檢視組合語言轉換成機械碼的情形。</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     1                                  ; hello-os
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     1                                  ; hello-os
      2                                  ; TAB=4
      3                                  
      4                                  ORG		0x7c00			    ;   指定從 0x7c00 開始執行
@@ -461,7 +461,7 @@ count：處理 N 個輸入區塊
     69 000001FE 55AA                        DB		0x55, 0xaa
 </code></pre></div></div>
 
-<h2 id="三啟動虛擬機讀取-osimg">三、啟動虛擬機，讀取 <code class="highlighter-rouge">os.img</code></h2>
+<h2 id="三啟動虛擬機讀取-osimg">三、啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">os.img</code></h2>
 <ul>
   <li>執行結果
 <img src="https://i.imgur.com/ZwHRrHj.png" alt="" /></li>
@@ -505,52 +505,6 @@ count：處理 N 個輸入區塊
                     
                 
             
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
                 
                     
                 
@@ -781,6 +735,62 @@ count：處理 N 個輸入區塊
                 
                     
                 
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
             
                 
                     

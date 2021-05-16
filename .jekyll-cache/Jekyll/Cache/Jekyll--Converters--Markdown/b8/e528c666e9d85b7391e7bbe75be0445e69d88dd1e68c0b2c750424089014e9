@@ -1,0 +1,230 @@
+I"%<ul id="markdown-toc">
+  <li><a href="#前言" id="markdown-toc-前言">前言</a></li>
+  <li><a href="#一常用功能" id="markdown-toc-一常用功能">一、常用功能</a></li>
+  <li><a href="#二vimrc-設定教學" id="markdown-toc-二vimrc-設定教學">二、vimrc 設定教學</a></li>
+  <li><a href="#三將-vim-中選取的文字複製到剪貼簿" id="markdown-toc-三將-vim-中選取的文字複製到剪貼簿">三、將 Vim 中選取的文字複製到剪貼簿</a></li>
+</ul>
+
+<h2 id="前言">前言</h2>
+<p>這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。</p>
+
+<h2 id="一常用功能">一、常用功能</h2>
+<ul>
+  <li>引用資料
+    <ul>
+      <li><a href="http://blog.johnsonlu.org/vim-tips/">Vim小技巧</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>刪除一行 - <code class="language-plaintext highlighter-rouge">dd</code></p>
+  </li>
+  <li>
+    <p>進入編輯模式 - <code class="language-plaintext highlighter-rouge">i</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL模式 - <code class="language-plaintext highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL BLOCK模式 - <code class="language-plaintext highlighter-rouge">ctrl</code>(按鍵) + <code class="language-plaintext highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>寫入(儲存) - <code class="language-plaintext highlighter-rouge">:w</code></p>
+  </li>
+  <li>
+    <p>離開 - <code class="language-plaintext highlighter-rouge">:q</code></p>
+  </li>
+  <li>
+    <p>不儲存強制離開 - <code class="language-plaintext highlighter-rouge">:q!</code></p>
+  </li>
+  <li>
+    <p>paste模式，直接貼上文字時格式不會跑掉 - <code class="language-plaintext highlighter-rouge">:set paste</code></p>
+  </li>
+  <li>
+    <p>顯示行數 - <code class="language-plaintext highlighter-rouge">:set nu</code></p>
+  </li>
+  <li>
+    <p>設定一個tab等於四個空白長度 - <code class="language-plaintext highlighter-rouge">:set tabstop=4</code></p>
+  </li>
+  <li>
+    <p>設定以後，使用tab鍵時會用空白取代(由tabstop決定) - <code class="language-plaintext highlighter-rouge">:set expandtab</code></p>
+  </li>
+  <li>
+    <p>消除Highlight - <code class="language-plaintext highlighter-rouge">:noh</code></p>
+  </li>
+  <li>
+    <p>範圍縮排(3到5行向右縮排，向左縮排用&lt;) - <code class="language-plaintext highlighter-rouge">:3,5&gt;</code></p>
+  </li>
+  <li>
+    <p>將tab轉換成space - <code class="language-plaintext highlighter-rouge">:retab</code></p>
+  </li>
+  <li>
+    <p>將檔案編碼轉成utf8 - <code class="language-plaintext highlighter-rouge">:set fileencoding=utf8</code></p>
+  </li>
+  <li>
+    <p>另存新檔 - <code class="language-plaintext highlighter-rouge">:w myfilename</code></p>
+  </li>
+  <li>
+    <p>開啟檔案 - <code class="language-plaintext highlighter-rouge">:e filename</code></p>
+  </li>
+  <li>
+    <p>自動對齊 - <code class="language-plaintext highlighter-rouge">==</code></p>
+  </li>
+  <li>
+    <p>移動到該行最前端 - <code class="language-plaintext highlighter-rouge">^</code></p>
+  </li>
+  <li>
+    <p>移動到該行最末端 - <code class="language-plaintext highlighter-rouge">$</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的第一個字元 - <code class="language-plaintext highlighter-rouge">w</code></p>
+  </li>
+  <li>
+    <p>移動到前一個單字的第一個字元 - <code class="language-plaintext highlighter-rouge">b</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元 - <code class="language-plaintext highlighter-rouge">e</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元(無視符號) - <code class="language-plaintext highlighter-rouge">E</code></p>
+  </li>
+  <li>
+    <p>全選(gg為游標移動到最上方，v為切換成選擇模式，G是游標移動到最下方) - <code class="language-plaintext highlighter-rouge">ggvG</code></p>
+  </li>
+  <li>
+    <p>游標移動到特定行數(移動到第三行) - <code class="language-plaintext highlighter-rouge">3G</code></p>
+  </li>
+  <li>
+    <p>複製反白的區塊(需要在VISUAL模式) - <code class="language-plaintext highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>剪下反白的區塊(需要在VISUAL模式) - <code class="language-plaintext highlighter-rouge">d</code></p>
+  </li>
+  <li>
+    <p>複製游標所在的那行(需要在VISUAL模式) - <code class="language-plaintext highlighter-rouge">shift</code>(按鍵) + <code class="language-plaintext highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>貼上 - <code class="language-plaintext highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>回復 - <code class="language-plaintext highlighter-rouge">u</code></p>
+  </li>
+  <li>
+    <p>自動完成 (需要在編輯模式) - <code class="language-plaintext highlighter-rouge">ctrl</code>(按鍵) + <code class="language-plaintext highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>搜尋字串 - <code class="language-plaintext highlighter-rouge">/&lt;字串&gt;</code>：向下找、<code class="language-plaintext highlighter-rouge">?&lt;字串&gt;</code>：向上找</p>
+  </li>
+</ol>
+
+<h2 id="二vimrc-設定教學">二、vimrc 設定教學</h2>
+<ul>
+  <li>系統環境
+    <blockquote>
+      <p>ubuntu 16.04</p>
+    </blockquote>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://wiki.csie.ncku.edu.tw/vim/vimrc">vimrc設定教學 - 成大資工Wiki</a></li>
+      <li><a href="http://note.drx.tw/2008/01/vimrc-config.html">凍仁的筆記: Vim 環境設定- vimrc</a></li>
+      <li><a href="https://blog.roga.tw/2010/01/2350">我目前使用的 .vimrc 設定檔</a></li>
+      <li><a href="https://blog.gtwang.org/tips/vim-working-with-unicode/">VIM 編輯器顯示萬國碼（Unicode）文字，解決亂碼問題</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<ol>
+  <li>先進入家目錄、打開 <code class="language-plaintext highlighter-rouge">vimrc</code> 設定檔
+    <blockquote>
+      <p>$ cd</p>
+    </blockquote>
+
+    <blockquote>
+      <p>$ vim .vimrc</p>
+    </blockquote>
+
+    <p><img src="https://i.imgur.com/v4rOfdw.jpg" alt="" /></p>
+  </li>
+  <li>修改 vimrc 設定檔
+    <ul>
+      <li>將以下內容複製到 vimrc：</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set encoding=utf-8	        " 設定 Vim 文字編碼方式
+set fileencodings=utf-8,cp950	"設定特定檔案的編碼
+
+
+" 編輯喜好設定
+syntax on                " 語法上色顯示
+set nocompatible         " VIM 不使用和 VI 相容的模式
+set shiftwidth=4         " 設定縮排寬度 = 4 
+set tabstop=4            " tab 的字元數
+set softtabstop=4
+set expandtab            " 用 space 代替 tab
+
+set ruler                " 顯示右下角設定值
+set backspace=2          " 在 insert 也可用 backspace
+set ic                   " 設定搜尋忽略大小寫
+set ru                   " 第幾行第幾個字
+set hlsearch             " 設定高亮度顯示搜尋結果
+set incsearch            " 在關鍵字還沒完全輸入完畢前就顯示結果
+set smartindent          " 設定 smartindent
+set confirm              " 操作過程有衝突時，以明確的文字來詢問
+set history=100          " 保留 100 個使用過的指令
+set cursorline           " 顯示目前的游標位置
+set nu                   " 顯示行號
+
+colorscheme torte        " 設定 Vim 的顯示配色
+</code></pre></div></div>
+
+<ol>
+  <li>完成後按下<code class="language-plaintext highlighter-rouge">Esc</code>鍵，再輸入 <code class="language-plaintext highlighter-rouge">:wq</code>離開 Vim。</li>
+</ol>
+
+<p>此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。
+<img src="https://i.imgur.com/Ih9e153.jpg" alt="" /></p>
+
+<h2 id="三將-vim-中選取的文字複製到剪貼簿">三、將 Vim 中選取的文字複製到剪貼簿</h2>
+<ul>
+  <li>系統環境
+    <blockquote>
+      <p>ubuntu 16.04</p>
+    </blockquote>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://www.zhihu.com/question/21203154">linux版的vim中如何用快捷键進行與系统剪貼簿交互的文字複製和貼上</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<ol>
+  <li>需要先安裝 vim-gnome 套件
+    <blockquote>
+      <p>$ sudo apt-get install vim-gnome</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>安裝完畢後，再打開任何一個想要複製其內容的檔案
+<img src="https://i.imgur.com/Ih9e153.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>分別按下 <code class="language-plaintext highlighter-rouge">g</code>、<code class="language-plaintext highlighter-rouge">g</code>、<code class="language-plaintext highlighter-rouge">v</code>、<code class="language-plaintext highlighter-rouge">G</code> (全選)，此時被選取的文字會反白
+<img src="https://i.imgur.com/kYA1947.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>再按 <code class="language-plaintext highlighter-rouge">"</code> 、<code class="language-plaintext highlighter-rouge">+</code>、<code class="language-plaintext highlighter-rouge">y</code> (複製被選取的文字)</p>
+  </li>
+  <li>此時就可以打開另一個編輯器，直接貼上剛剛複製的文字
+<img src="https://i.imgur.com/f10vI8C.jpg" alt="" /></li>
+</ol>
+:ET

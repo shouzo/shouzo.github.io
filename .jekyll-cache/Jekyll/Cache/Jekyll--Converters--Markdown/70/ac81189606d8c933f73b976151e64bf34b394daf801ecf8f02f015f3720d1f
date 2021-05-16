@@ -1,0 +1,378 @@
+I"�Q<ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-process-in-memory" id="markdown-toc-一-process-in-memory">(一) Process in Memory</a></li>
+      <li><a href="#二-process-state" id="markdown-toc-二-process-state">(二) Process State</a></li>
+      <li><a href="#三-process-control-block-pcb" id="markdown-toc-三-process-control-block-pcb">(三) Process Control Block (PCB)</a></li>
+      <li><a href="#四-process-switch" id="markdown-toc-四-process-switch">(四) Process Switch</a></li>
+      <li><a href="#五-processthread" id="markdown-toc-五-processthread">(五) Process、Thread</a></li>
+      <li><a href="#六-process-scheduling" id="markdown-toc-六-process-scheduling">(六) Process Scheduling</a>        <ul>
+          <li><a href="#schedulers" id="markdown-toc-schedulers">Schedulers</a></li>
+          <li><a href="#processes" id="markdown-toc-processes">Processes</a></li>
+        </ul>
+      </li>
+      <li><a href="#七-process-creation" id="markdown-toc-七-process-creation">(七) Process Creation</a></li>
+    </ul>
+  </li>
+  <li><a href="#二linux-程式設計" id="markdown-toc-二linux-程式設計">二、Linux 程式設計</a>    <ul>
+      <li><a href="#一-unix-system-call" id="markdown-toc-一-unix-system-call">(一) Unix system call</a>        <ul>
+          <li><a href="#1-execv" id="markdown-toc-1-execv">1. execv()</a></li>
+        </ul>
+      </li>
+      <li><a href="#二-signals" id="markdown-toc-二-signals">(二) Signals</a>        <ul>
+          <li><a href="#1-unix-process-control" id="markdown-toc-1-unix-process-control">1. UNIX Process Control</a></li>
+          <li><a href="#2-kill-command" id="markdown-toc-2-kill-command">2. kill Command</a></li>
+          <li><a href="#3-function-call" id="markdown-toc-3-function-call">3. Function Call</a></li>
+          <li><a href="#4-linux-signal" id="markdown-toc-4-linux-signal">4. Linux Signal</a></li>
+          <li><a href="#5-訊號處理---signalh" id="markdown-toc-5-訊號處理---signalh">5. 訊號處理 - signal.h</a>            <ul>
+              <li><a href="#1-signal" id="markdown-toc-1-signal">(1) signal()</a></li>
+              <li><a href="#2-sigaction" id="markdown-toc-2-sigaction">(2) sigaction()</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170309/ch03.pdf">課程簡報 - Ch3：Process Concept</a></li>
+</ul>
+
+<h3 id="一-process-in-memory">(一) Process in Memory</h3>
+<p><img src="https://i.imgur.com/I9HnU1O.jpg" alt="" /></p>
+
+<h3 id="二-process-state">(二) Process State</h3>
+<p><img src="https://i.imgur.com/mFSgwiJ.jpg" alt="" /></p>
+<ul>
+  <li><strong>new</strong>: The process is being created.</li>
+  <li><strong>running</strong>: Instructions are being executed.</li>
+  <li><strong>waiting</strong>: The process is waiting for some event to occur.</li>
+  <li><strong>ready</strong>: The process is waiting to be assigned to a processor.</li>
+  <li><strong>terminated</strong>: The process has finished execution.</li>
+</ul>
+
+<h3 id="三-process-control-block-pcb">(三) Process Control Block (PCB)</h3>
+<p><img src="https://i.imgur.com/fOf7e2Q.jpg" alt="" /></p>
+
+<h3 id="四-process-switch">(四) Process Switch</h3>
+<p><img src="https://i.imgur.com/Bto5DiZ.jpg" alt="" /></p>
+
+<h3 id="五-processthread">(五) Process、Thread</h3>
+<ul>
+  <li>參考資料
+    <ul>
+      <li><a href="https://goo.gl/whe9F">Program / Process / Thread 的差別</a></li>
+      <li><a href="https://goo.gl/5BnKWN">“Process 行程”、”Thread 執行緒”、”Multithreading 多執行緒” 簡介</a>
+<img src="https://i.imgur.com/DI9y5OS.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="六-process-scheduling">(六) Process Scheduling</h3>
+<ul>
+  <li>Process scheduler selects among available processes for next execution on CPU.</li>
+  <li>Maintains scheduling queues of processes.
+    <ul>
+      <li>Job queue – set of all processes in the system.</li>
+      <li>Ready queue – set of all processes residing in main memory, ready and waiting to
+execute.</li>
+      <li>Device queues – set of processes waiting for an I/O device.</li>
+      <li>Processes migrate among the various queues.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="schedulers">Schedulers</h4>
+<ul>
+  <li><strong>Long-term scheduler</strong> (or job scheduler) – selects which processes should be brought into the
+ready queue.</li>
+  <li><strong>Short-term scheduler</strong> (or CPU scheduler) – selects which process should be executed next and
+allocates CPU.
+    <ul>
+      <li>Sometimes the only scheduler in a system.</li>
+    </ul>
+  </li>
+  <li>The long-term scheduler controls the <strong>degree of multiprogramming</strong>.</li>
+  <li><strong>Medium-term scheduler</strong> can be added if degree of multiple programming needs to decrease.
+    <ul>
+      <li>Remove process from memory, store on disk, bring back in from disk to continue execution:
+swapping.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong><a href="http://enews.open2u.com.tw/~noupd/book_up/1746/8719.htm">Degree of multiprogramming</a></strong>：多工程度、記憶體中行程的總數量</p>
+
+<h4 id="processes">Processes</h4>
+<ul>
+  <li><strong>I/O-bound process</strong> – spends more time doing I/O than computations, many short CPU
+bursts.
+    <ul>
+      <li>行程大部份的時間在做 I/O，只有少部份的時間在做計算。</li>
+    </ul>
+  </li>
+  <li><strong>CPU-bound process</strong> – spends more time doing computations; few very long CPU bursts.
+    <ul>
+      <li>行程大部份的時間在做計算，只有少部份的時間在做  I/O。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/Xnhn0Sa.jpg" alt="" /></p>
+
+<h3 id="七-process-creation">(七) Process Creation</h3>
+<p><img src="https://i.imgur.com/MDkGD81.jpg" alt="" /></p>
+<ul>
+  <li>UNIX examples
+    <ul>
+      <li><strong>fork()</strong>：system call creates new process</li>
+      <li><strong>exec()</strong>：system call used after a fork() to replace the process’ memory space with a new program</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/AxrT24a.jpg" alt="" /></p>
+
+<ul>
+  <li>課程作業</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+	
+<span class="cm">/* fork a child process */</span>
+	<span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>		<span class="c1">// erro occurred</span>
+		<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Fork Failed"</span><span class="p">);</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// child process</span>
+		<span class="n">execlp</span><span class="p">(</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"ls"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="p">{</span>			<span class="c1">// parent process</span>
+		<span class="c1">// parent will wait for the child to complete</span>
+		<span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Child Complete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="p">}</span>	
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>執行結果</li>
+</ul>
+
+<p><img src="https://i.imgur.com/CfTMr9N.jpg" alt="" /></p>
+
+<h2 id="二linux-程式設計">二、Linux 程式設計</h2>
+
+<ul>
+  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Creating_and_Executing_Processes.pdf">課程簡報 - Creating and Executing Processes</a></li>
+  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170310/Signals.pdf">課程簡報 - Signal</a></li>
+</ul>
+
+<h3 id="一-unix-system-call">(一) Unix system call</h3>
+
+<h4 id="1-execv">1. execv()</h4>
+
+<ul>
+  <li>課堂練習： <code class="language-plaintext highlighter-rouge">execv()</code> 的概念</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"-1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="kt">int</span> <span class="n">pid</span><span class="p">,</span> <span class="n">status</span><span class="p">;</span>
+
+	<span class="k">if</span> <span class="p">((</span><span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">())</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Fork error </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="cm">/* Child executes here */</span>
+		<span class="n">execv</span> <span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">argv</span><span class="p">);</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Exec error </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span> <span class="k">else</span>		<span class="cm">/* Parent executes here */</span>
+		<span class="n">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">status</span><span class="p">);</span>
+
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Hello there! </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="二-signals">(二) Signals</h3>
+
+<h4 id="1-unix-process-control">1. UNIX Process Control</h4>
+<p><img src="https://i.imgur.com/kFzherv.jpg" alt="" /></p>
+
+<h4 id="2-kill-command">2. kill Command</h4>
+<blockquote>
+  <p>kill -signal pid</p>
+</blockquote>
+
+<ul>
+  <li>Example
+    <ul>
+      <li><em>kill –2 1234</em></li>
+      <li><em>kill -SIGINT 1234</em>
+        <ul>
+          <li>Same as pressing Ctrl-c if process 1234 is running in foreground.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="3-function-call">3. Function Call</h4>
+<ul>
+  <li>raise()</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">raise</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">);</span> <span class="cm">/* Process commits suicide. */</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>	<span class="cm">/* Shouldn't get here. */</span>
+</code></pre></div></div>
+
+<ul>
+  <li>kill()</li>
+</ul>
+
+<blockquote>
+  <p>int kill(pid_t iPid, int iSig);</p>
+</blockquote>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pid_t</span> <span class="n">iPid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span> <span class="cm">/* Process gets its id.*/</span>
+<span class="n">kill</span><span class="p">(</span><span class="n">iPid</span><span class="p">,</span> <span class="n">SIGINT</span><span class="p">);</span>	<span class="cm">/* Process sends itself a SIGINT signal (commits suicide?) */</span>
+</code></pre></div></div>
+
+<h4 id="4-linux-signal">4. Linux Signal</h4>
+<ul>
+  <li><a href="http://www.comptechdoc.org/os/linux/programming/linux_pgsignals.html">Linux Signal 種類</a>
+    <ul>
+      <li>Ctrl-C (in older Unixes, DEL)
+        <ul>
+          <li>sends an INT signal (SIGINT)</li>
+          <li>by default, this causes the process to terminate.</li>
+        </ul>
+      </li>
+      <li>Ctrl-Z
+        <ul>
+          <li>sends a TSTP signal (SIGTSTP)</li>
+          <li>by default, this causes the process to suspend execution.</li>
+        </ul>
+      </li>
+      <li>Ctrl-
+        <ul>
+          <li>sends a QUIT signal (SIGQUIT)</li>
+          <li>by default, this causes the process to terminate and dump core.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="5-訊號處理---signalh">5. 訊號處理 - signal.h</h4>
+<ul>
+  <li>意義說明
+    <ul>
+      <li>SIGABORT    程序停止</li>
+      <li>SIGALRM     警示</li>
+      <li>SIGFPE      浮點數例外</li>
+      <li>SIGHUP      掛斷</li>
+      <li>SIGILL      非法指令</li>
+      <li>SIGINT      終端機插斷</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="1-signal">(1) signal()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+</span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))(</span><span class="kt">int</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>攔截 Ctrl-C 訊號</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">ouch</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"OUCH! - I got signal %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
+	<span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">SIG_DFL</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">ouch</span><span class="p">);</span>
+	
+	<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Hello World!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="2-sigaction">(2) sigaction()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+</span><span class="kt">int</span> <span class="nf">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">act</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">oact</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>參數說明
+    <ul>
+      <li>sig: 要處理的訊號,若 act 指針非空, 則根據 act 修改該信號的處理動作；若 oact 指針非空, 則通過 oact 傳出該信號原來的處理動作。</li>
+      <li>void(*)(int) sa_handler</li>
+      <li>sigset_t sa_mask</li>
+      <li>int sa_flags</li>
+      <li>sa_handler 代表新的信號處理。</li>
+      <li>sa_mask 用來設置在處理該信號時暫時將 sa_mask 指定的信號集擱置。</li>
+      <li>sa_flags 用來設置信號處理的其他相關操作。</li>
+    </ul>
+  </li>
+  <li>程式作業：<code class="language-plaintext highlighter-rouge">signal</code> 的處理
+<img src="https://i.imgur.com/1Zbog12.jpg" alt="" /></li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;signal.h&gt;
+</span>
+
+<span class="c1">// When the process get the "Ctrl+C" signal.</span>
+<span class="kt">void</span> <span class="nf">show_time</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">"date"</span><span class="p">);</span> <span class="c1">// show the time.</span>
+<span class="p">}</span>
+
+<span class="c1">// When the process gets the "Ctrl+\" signal.</span>
+<span class="kt">void</span> <span class="nf">go_default</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">SIG_DFL</span><span class="p">);</span>    <span class="c1">// recover "Ctrl+C"</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">show_time</span><span class="p">);</span>  <span class="c1">// triggering "Ctrl+C"</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGQUIT</span><span class="p">,</span> <span class="n">go_default</span><span class="p">);</span><span class="c1">// triggering "Ctrl+\"</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"What time is it？</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>  <span class="c1">// Something interesting will happen if this line without "\n".</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>   
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>執行結果</li>
+</ul>
+
+<p><img src="https://i.imgur.com/TgkFPdi.jpg" alt="" /></p>
+:ET

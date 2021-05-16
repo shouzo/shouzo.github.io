@@ -1,0 +1,95 @@
+I"<ul id="markdown-toc">
+  <li><a href="#前言" id="markdown-toc-前言">前言</a></li>
+  <li><a href="#一vimrc-慣用設定" id="markdown-toc-一vimrc-慣用設定">一、vimrc 慣用設定</a></li>
+  <li><a href="#二安裝-vim-外掛" id="markdown-toc-二安裝-vim-外掛">二、安裝 Vim 外掛</a></li>
+</ul>
+
+<h2 id="前言">前言</h2>
+<p>最近剛重灌 Ubuntu，在此紀錄個人安裝 Vim 時常用的設定與外掛。</p>
+
+<h2 id="一vimrc-慣用設定">一、vimrc 慣用設定</h2>
+<ul>
+  <li>系統環境
+    <blockquote>
+      <p>ubuntu 17.04</p>
+    </blockquote>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://wiki.csie.ncku.edu.tw/vim/vimrc">vimrc設定教學 - 成大資工Wiki</a></li>
+      <li><a href="http://note.drx.tw/2008/01/vimrc-config.html">凍仁的筆記: Vim 環境設定- vimrc</a></li>
+      <li><a href="https://blog.roga.tw/2010/01/2350">我目前使用的 .vimrc 設定檔</a></li>
+      <li><a href="https://blog.gtwang.org/tips/vim-working-with-unicode/">VIM 編輯器顯示萬國碼（Unicode）文字，解決亂碼問題</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<ul>
+  <li>
+    <p>個人常用的 Prompt 顏色格式</p>
+
+    <blockquote>
+      <p>PS1=’[\e[1;33m]\u@\h[\e[m]:[\e[1;34m]\W[\e[1;32m]$[\e[m] ‘</p>
+    </blockquote>
+  </li>
+</ul>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">vimrc</code> 設定檔
+    <blockquote>
+      <p>$ cd</p>
+    </blockquote>
+
+    <blockquote>
+      <p>$ vim .vimrc</p>
+    </blockquote>
+
+    <p><img src="https://i.imgur.com/v4rOfdw.jpg" alt="" /></p>
+  </li>
+  <li>修改 vimrc 設定檔
+    <ul>
+      <li>將以下內容複製到 vimrc：</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" 檔案編碼
+set encoding=utf-8
+set fileencodings=utf-8,cp950
+
+" 編輯喜好設定 
+syntax on        " 語法上色顯示
+set nocompatible " VIM 不使用和 VI 相容的模式
+"set ai           " 自動縮排
+set shiftwidth=4 " 設定縮排寬度 = 4 
+set tabstop=4    " tab 的字元數
+set softtabstop=4
+set expandtab    " 用 space 代替 tab
+set nu		     " 顯示行號 
+set ruler        " 顯示右下角設定值
+set backspace=2  " 在 insert 也可用 backspace
+set ic           " 設定搜尋忽略大小寫
+set ru           " 第幾行第幾個字
+set hlsearch     " 設定高亮度顯示搜尋結果
+set incsearch    " 在關鍵字還沒完全輸入完畢前就顯示結果
+set smartindent  " 設定 smartindent
+set confirm      " 操作過程有衝突時，以明確的文字來詢問
+set history=100  " 保留 100 個使用過的指令
+set cursorline   " 顯示目前的游標位置
+set laststatus=2
+</code></pre></div></div>
+
+<p>完成後按下<code class="language-plaintext highlighter-rouge">Esc</code>鍵，再輸入 <code class="language-plaintext highlighter-rouge">:wq</code>離開 Vim 。
+此時再使用 Vim 編輯任一檔案，會發現 Vim 已經套用新的環境設定了。</p>
+
+<h2 id="二安裝-vim-外掛">二、安裝 Vim 外掛</h2>
+<ul>
+  <li>請參考以下連結，安裝 Vim 外掛：
+    <ul>
+      <li><a href="https://github.com/junegunn/vim-plug">vim-plug</a></li>
+      <li><a href="https://github.com/sickill/vim-monokai">有 monokai 風格的 vim 外掛</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

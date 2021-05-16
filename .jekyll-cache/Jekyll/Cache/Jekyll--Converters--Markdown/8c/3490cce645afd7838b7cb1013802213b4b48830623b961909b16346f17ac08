@@ -1,0 +1,153 @@
+I"�<ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-contiguous-allocation" id="markdown-toc-一-contiguous-allocation">(一) Contiguous Allocation</a></li>
+      <li><a href="#二-dynamic-storage-allocation-problem" id="markdown-toc-二-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</a></li>
+      <li><a href="#三-fragmentation" id="markdown-toc-三-fragmentation">(三) Fragmentation</a></li>
+      <li><a href="#四-segmentation" id="markdown-toc-四-segmentation">(四) Segmentation</a>        <ul>
+          <li><a href="#segmentation-architecture" id="markdown-toc-segmentation-architecture">Segmentation Architecture</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170525/ch08.pdf">Chapter 8: Memory-Management Strategies</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-contiguous-allocation">(一) Contiguous Allocation</h3>
+<ul>
+  <li>Main memory must support both OS and user processes</li>
+  <li>Limited resource, must allocate efficiently</li>
+  <li>
+    <p>Contiguous allocation is one early method</p>
+  </li>
+  <li>Main memory usually into two <strong>partitions</strong>
+    <ul>
+      <li>Resident operating system, usually held in low memory with interrupt vector</li>
+      <li>User processes then held in high memory</li>
+      <li>Each process contained in single contiguous section of memory</li>
+    </ul>
+  </li>
+  <li>Relocation registers used to protect user processes from each other, and from changing operating-system code and data
+    <ul>
+      <li>Base register contains value of smallest physical address</li>
+      <li>Limit register contains range of logical addresses – each logical address must be less than the limit register</li>
+      <li>MMU maps logical address dynamically</li>
+      <li>Can then allow actions such as kernel code being <code class="language-plaintext highlighter-rouge">transient</code> and kernel changing size</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/z3R2FCC.png" alt="" /></p>
+
+<ul>
+  <li>Multiple-partition allocation
+    <ul>
+      <li>Degree of multiprogramming limited by number of partitions</li>
+      <li>Variable-partition sizes for efficiency (sized to a given process’ needs)</li>
+      <li>Hole – block of available memory; holes of various size are scattered throughout memory</li>
+      <li>When a process arrives, it is allocated memory from a hole large enough to accommodate it</li>
+      <li>Process exiting frees its partition, adjacent free partitions combined</li>
+      <li>Operating system maintains information about
+        <ul>
+          <li>(a) allocated partitions</li>
+          <li>(b) free partitions (hole)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/JQ1uTUe.png" alt="" /></p>
+
+<h3 id="二-dynamic-storage-allocation-problem">(二) Dynamic Storage-Allocation Problem</h3>
+<ul>
+  <li><strong>First-fit</strong>：Allocate the <code class="language-plaintext highlighter-rouge">first</code> hole that is big enough</li>
+  <li><strong>Best-fit</strong>：Allocate the <code class="language-plaintext highlighter-rouge">smallest</code> hole that is big enough; must search entire list, unless ordered by size
+    <ul>
+      <li>Produces the smallest leftover hole</li>
+    </ul>
+  </li>
+  <li><strong>Worst-fit</strong>：Allocate the <code class="language-plaintext highlighter-rouge">largest</code> hole; must also search entire list
+    <ul>
+      <li>Produces the largest leftover hole</li>
+    </ul>
+  </li>
+  <li>First-fit and best-fit better than worst-fit in terms of speed and storage utilization</li>
+</ul>
+
+<h3 id="三-fragmentation">(三) Fragmentation</h3>
+<ul>
+  <li><strong>External Fragmentation</strong> – total memory space exists to satisfy a request, but it is not contiguous</li>
+  <li><strong>Internal Fragmentation</strong> – allocated memory may be slightly larger than requested memory; this size difference is memory internal to a partition, but not being used</li>
+  <li>First fit analysis reveals that given N blocks allocated, 0.5 N blocks lost to fragmentation
+    <ul>
+      <li>1/3 may be unusable -&gt; <strong>50-percent rule</strong></li>
+    </ul>
+  </li>
+  <li>Reduce external fragmentation by <strong>compaction</strong>
+    <ul>
+      <li>Shuffle memory contents to place all free memory together in one large block</li>
+      <li>Compaction is possible only if relocation is dynamic, and is done at execution time</li>
+      <li>I/O problem
+        <ul>
+          <li>Latch job in memory while it is involved in I/O</li>
+          <li>Do I/O only into OS buffers</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Now consider that backing store has same fragmentation problems</li>
+</ul>
+
+<h3 id="四-segmentation">(四) Segmentation</h3>
+<ul>
+  <li>Memory-management scheme that supports user view of memory</li>
+</ul>
+
+<p><img src="https://i.imgur.com/hiMN3YJ.png" alt="" /></p>
+
+<ul>
+  <li>A program is a collection of segments
+    <ul>
+      <li>A segment is a logical unit such as：<code class="language-plaintext highlighter-rouge">main program</code>、<code class="language-plaintext highlighter-rouge">procedure</code>、<code class="language-plaintext highlighter-rouge">function</code>、<code class="language-plaintext highlighter-rouge">method</code>、<code class="language-plaintext highlighter-rouge">object</code>、<code class="language-plaintext highlighter-rouge">local variables</code>、<code class="language-plaintext highlighter-rouge">global variables</code>、<code class="language-plaintext highlighter-rouge">common block</code>、<code class="language-plaintext highlighter-rouge">stack</code>、<code class="language-plaintext highlighter-rouge">symbol table</code>、<code class="language-plaintext highlighter-rouge">arrays</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/PKuwv70.png" alt="" /></p>
+
+<h4 id="segmentation-architecture">Segmentation Architecture</h4>
+<ul>
+  <li>Logical address consists of a two tuple：<code class="language-plaintext highlighter-rouge">&lt;segment-number, offset&gt;</code></li>
+  <li><strong>Segment table</strong> – maps two-dimensional physical addresses; each table entry has
+    <ul>
+      <li><strong>base</strong> – contains the starting physical address where the segments reside in memory</li>
+      <li><strong>limit</strong> – specifies the length of the segment</li>
+    </ul>
+  </li>
+  <li><strong>Segment-table base register (STBR)</strong> points to the segment table’s location in memory</li>
+  <li><strong>Segment-table length register (STLR)</strong> indicates number of segments used by a program：<code class="language-plaintext highlighter-rouge">segment number s is legal if s &lt; STLR</code></li>
+  <li>Protection
+    <ul>
+      <li>With each entry in segment table associate
+        <ul>
+          <li>validation bit = 0 » illegal segment</li>
+          <li>read/write/execute privileges</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Protection bits associated with segments; code sharing occurs at segment level</li>
+  <li>Since segments vary in length, memory allocation is a dynamic storage-allocation problem</li>
+  <li>A segmentation example is shown in the following diagram</li>
+</ul>
+
+<p><img src="https://i.imgur.com/raq8eDi.png" alt="" /></p>
+:ET

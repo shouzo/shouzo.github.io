@@ -1,0 +1,55 @@
+I"C<ul id="markdown-toc">
+  <li><a href="#一-作業系統" id="markdown-toc-一-作業系統">(一) 作業系統</a></li>
+  <li><a href="#二-linux-程式設計" id="markdown-toc-二-linux-程式設計">(二) Linux 程式設計</a></li>
+</ul>
+
+<h3 id="一-作業系統">(一) 作業系統</h3>
+<ul>
+  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf">課程簡報 - Ch1：Introduction</a></li>
+</ul>
+
+<h3 id="二-linux-程式設計">(二) Linux 程式設計</h3>
+<ul>
+  <li>
+    <p><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170303/Creating_and_Executing_Processes.pdf">課程簡報 - Creating and Executing Processes</a></p>
+  </li>
+  <li>
+    <p>課程作業： <code class="language-plaintext highlighter-rouge">fork()</code> 的概念</p>
+  </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+<span class="cm">/* Press any Integer */</span>
+	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+
+<span class="cm">/* Use "fork()" to create Child's and Parent's process */</span>
+	<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+	<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>	<span class="c1">// Set the "result" initial value</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// Child's entry</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">***** Child's pid = %d *****</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
+		<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">--&gt;</span> <span class="mi">0</span><span class="p">)</span>
+			<span class="n">result</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"1 + 2 + ... + n = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+		<span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>	<span class="c1">// Parent's entry</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"***** Parent's pid = %d *****</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"n 的因數：%d"</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+		<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">--&gt;</span> <span class="mi">1</span><span class="p">)</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+				<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">%d"</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+		<span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li><strong>執行結果</strong></li>
+</ul>
+
+<p><img src="https://i.imgur.com/TKyt2rB.jpg" alt="" /></p>
+:ET

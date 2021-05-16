@@ -1,0 +1,100 @@
+I"G<ul id="markdown-toc">
+  <li><a href="#整理自-由片語學習c程式設計--ch01--程式設計" id="markdown-toc-整理自-由片語學習c程式設計--ch01--程式設計">整理自 由片語學習C程式設計 – Ch01 : 程式設計</a>    <ul>
+      <li><a href="#-筆記內容-" id="markdown-toc--筆記內容-">[ 筆記內容 ]</a>        <ul>
+          <li><a href="#-github--程式碼儲存區" id="markdown-toc--github--程式碼儲存區">[ GitHub ] 程式碼儲存區</a></li>
+          <li><a href="#一程式---program" id="markdown-toc-一程式---program">（一）程式 - Program</a>            <ul>
+              <li><a href="#1-機器語言" id="markdown-toc-1-機器語言">1. 機器語言</a></li>
+              <li><a href="#2-高階語言" id="markdown-toc-2-高階語言">2. 高階語言</a></li>
+            </ul>
+          </li>
+          <li><a href="#二設計" id="markdown-toc-二設計">（二）設計</a>            <ul>
+              <li><a href="#1程式開發流程--編輯編譯執行" id="markdown-toc-1程式開發流程--編輯編譯執行">1.程式開發流程 : 編輯、編譯、執行</a></li>
+              <li><a href="#2程式設計流程圖" id="markdown-toc-2程式設計流程圖">2.程式設計流程圖</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="整理自-由片語學習c程式設計--ch01--程式設計">整理自 <a href="https://sites.google.com/site/mycprogrammingbook/">由片語學習C程式設計</a> – Ch01 : 程式設計</h1>
+
+<h2 id="-筆記內容-">[ 筆記內容 ]</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>（一）程式 - Program
+  1. 機器語言
+  2. 高階語言
+
+（二）設計
+  1. 程式開發流程 : 編輯、編譯、執行
+  2. 程式設計流程圖
+</code></pre></div></div>
+
+<h3 id="-github--程式碼儲存區">[ GitHub ] 程式碼儲存區</h3>
+
+<ul>
+  <li><a href="https://github.com/shouzo/C-Programming/tree/master/C_Programming-Book">https://github.com/shouzo/C-Programming/tree/master/C_Programming-Book</a></li>
+</ul>
+
+<hr />
+
+<h3 id="一程式---program">（一）程式 - Program</h3>
+
+<h4 id="1-機器語言">1. 機器語言</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1) 計算機能看得懂的原始指令，能夠直接執行。
+
+(2) 不容易看得懂。
+</code></pre></div></div>
+
+<h4 id="2-高階語言">2. 高階語言</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1) 符合人類閱讀習慣的設計語言。
+
+(2) 具有可攜性。
+
+(3) 需要經過 "編譯器"(Compiler) 轉換成 "機器語言" 後才能被執行。
+</code></pre></div></div>
+
+<p><img src="/assets/20151105/java-1-java-5-638.jpg" alt="" /></p>
+
+<ul>
+  <li>圖片來源 :  <a href="http://image.slidesharecdn.com/java-150421195320-conversion-gate02/95/java-1-java-5-638.jpg?cb=1430083539">http://image.slidesharecdn.com/java-150421195320-conversion-gate02/95/java-1-java-5-638.jpg?cb=1430083539</a></li>
+</ul>
+
+<hr />
+
+<h3 id="二設計">（二）設計</h3>
+
+<h4 id="1程式開發流程--編輯編譯執行">1.程式開發流程 : 編輯、編譯、執行</h4>
+
+<p><img src="/assets/20151105/c_compile.gif" alt="" /></p>
+
+<ul>
+  <li>圖片來源 :  <a href="http://www2.lssh.tp.edu.tw/~hlf/class-1/lang-c/c_compile.gif">http://www2.lssh.tp.edu.tw/~hlf/class-1/lang-c/c_compile.gif</a></li>
+</ul>
+
+<h4 id="2程式設計流程圖">2.程式設計流程圖</h4>
+
+<ul>
+  <li>參考資料 :
+    <ul>
+      <li><a href="http://el.fotech.edu.tw/localuser/huangcc/web1/new/vb/102/flowchart.pdf">http://el.fotech.edu.tw/localuser/huangcc/web1/new/vb/102/flowchart.pdf</a></li>
+      <li><a href="http://www.chwa.com.tw/TResource/VS/book2/ch2/2-2.htm">http://www.chwa.com.tw/TResource/VS/book2/ch2/2-2.htm</a></li>
+    </ul>
+  </li>
+  <li>流程圖符號及意義 :</li>
+</ul>
+
+<p><img src="/assets/20151105/p64.jpg" alt="" /></p>
+
+<ul>
+  <li>圖片來源 : <a href="http://www.chwa.com.tw/TResource/VS/book2/ch2/p64.jpg">http://www.chwa.com.tw/TResource/VS/book2/ch2/p64.jpg</a></li>
+</ul>
+
+<p><img src="/assets/20151105/p65.jpg" alt="" /></p>
+
+<ul>
+  <li>圖片來源 : <a href="http://www.chwa.com.tw/TResource/VS/book2/ch2/p65.jpg">http://www.chwa.com.tw/TResource/VS/book2/ch2/p65.jpg</a></li>
+</ul>
+
+:ET

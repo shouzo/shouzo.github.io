@@ -26,7 +26,7 @@
     <header id="top">
     <div class="wrapper">
         <a href="/" class="brand">少左 shouzo</a>
-        <small>Be strong to Be useful！</small>
+        <small>BE STRONG TO BE USEFUL</small>
         <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
         <nav id="headerNav">
             <ul>
@@ -129,6 +129,28 @@
                 
                     
                 
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
             </ul>
         </nav>
     </div>
@@ -194,7 +216,7 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#整理自-由片語學習c程式設計---ch04--判斷" id="markdown-toc-整理自-由片語學習c程式設計---ch04--判斷">整理自 <a href="https://sites.google.com/site/mycprogrammingbook/">由片語學習C程式設計</a> - Ch04 : 判斷</a>    <ul>
+  <li><a href="#整理自-由片語學習c程式設計---ch04--判斷" id="markdown-toc-整理自-由片語學習c程式設計---ch04--判斷">整理自 由片語學習C程式設計 - Ch04 : 判斷</a>    <ul>
       <li><a href="#-筆記內容-" id="markdown-toc--筆記內容-">[ 筆記內容 ]</a>        <ul>
           <li><a href="#-範例程式碼--github" id="markdown-toc--範例程式碼--github">[ 範例程式碼 ] GitHub</a></li>
           <li><a href="#一if-判斷" id="markdown-toc-一if-判斷">（一）if 判斷</a>            <ul>
@@ -253,7 +275,7 @@
 
 <h2 id="-筆記內容-">[ 筆記內容 ]</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>（一）if 判斷
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>（一）if 判斷
   1.  if then
     [ 範例 4-1 ] 只顯示正數
     [ 範例 4-2 ] 檢查 i 及 j 的乘積是否為正數
@@ -288,7 +310,7 @@
     [ 作業 4-19 ]
     [ 作業 4-20 ]
     [ 作業 4-21 ]
-</code></pre></div>
+</code></pre></div></div>
 
 <h3 id="-範例程式碼--github">[ 範例程式碼 ] GitHub</h3>
 <ul>
@@ -305,15 +327,15 @@
   <li>根據條件(condition)決定是否執行敘述(statement)。如果條件為真（非零），則會執行敘述；如果條件為偽（零），則不會執行敘述。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// if then 判斷
-</span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// if then 判斷</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
     <span class="n">statement</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="-範例-4-1--只顯示正數">[ 範例 4-1 ] 只顯示正數</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-1.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-1.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -322,7 +344,7 @@
     <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-1.png" alt="" /></p>
 
@@ -330,17 +352,17 @@
   <li>複合敘述：將一組敘述合在一起當成一個敘述使用。兩個以上的敘述要用”大括號{}”包起來，而且句尾都有分號。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// if 複合敘述
-</span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// if 複合敘述</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">staement1</span><span class="p">;</span>
     <span class="n">staement2</span><span class="p">;</span>
     <span class="n">staement3</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="-範例-4-2--檢查-i-及-j-的乘積是否為正數">[ 範例 4-2 ] 檢查 i 及 j 的乘積是否為正數</h5>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-2.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-2.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -354,7 +376,7 @@
         <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-2.png" alt="" /></p>
 
@@ -364,17 +386,17 @@
   <li>如果條件為真（非零），則會執行敘述1；如果條件為偽（零），則會執行敘述2。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// if then else 判斷
-</span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// if then else 判斷</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
     <span class="n">statement1</span><span class="p">;</span>
 <span class="k">else</span>
     <span class="n">statement2</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="-範例-4-3--顯示絕對值">[ 範例 4-3 ] 顯示絕對值</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-3.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-3.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -388,7 +410,7 @@
 
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-3.png" alt="" /></p>
@@ -397,20 +419,20 @@
   <li>將較大值設為 max</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 將 i 及 j 的較大值設為 max
-</span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">)</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 將 i 及 j 的較大值設為 max</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">)</span>
     <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
     <span class="k">else</span>
     <span class="n">max</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>    
-<span class="c1">// 將 i 及 max 的較大值設為 max
-</span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">)</span>
+<span class="c1">// 將 i 及 max 的較大值設為 max</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">)</span>
     <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="-範例-4-4--決定三個數中的最大值">[ 範例 4-4 ] 決定三個數中的最大值</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-4.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-4.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
@@ -425,7 +447,7 @@
 		<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-4.png" alt="" /></p>
@@ -434,8 +456,8 @@
   <li>在 then 和 else 的部份使用複合敘述</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 在 then 和 else 的部份使用複合敘述
-</span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 在 then 和 else 的部份使用複合敘述</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">statement1</span><span class="p">;</span>   
     <span class="n">statement2</span><span class="p">;</span>
     <span class="n">statement3</span><span class="p">;</span>
@@ -445,12 +467,12 @@
     <span class="n">statement5</span><span class="p">;</span>
     <span class="n">statement6</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="-範例-4-5--讀入兩個整數並由小到大印出">[ 範例 4-5 ] 讀入兩個整數並由小到大印出</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-5.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-5.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
@@ -465,7 +487,7 @@
 		<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-5.png" alt="" /></p>
 
@@ -474,14 +496,14 @@
   <li>“多層次的 if-then-else” 結構也稱為 “巢狀 if-then-else”</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// else if
-</span><span class="k">if</span> <span class="p">(</span><span class="n">condition1</span><span class="p">)</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// else if</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">condition1</span><span class="p">)</span>
     <span class="n">statement1</span><span class="p">;</span>
 <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition2</span><span class="p">)</span>
     <span class="n">statement2</span><span class="p">;</span>
 <span class="k">else</span>
     <span class="n">statement3</span><span class="p">;</span>   
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="-用法說明-">[ 用法說明 ]</h5>
 <ul>
@@ -499,8 +521,8 @@
   <li>使用 else if 判定閏年，把判定的結果存在 k 中。如果 k 為 1，則 year 為閏年；如果 k 為 0，則 year 為平年。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-6.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-6.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -515,7 +537,7 @@
 
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>	
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-6.png" alt="" /></p>
 
@@ -524,8 +546,8 @@
   <li>一個 else 會對應到往上最近的一個尚未對應的 if。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-7.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-7.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -541,7 +563,7 @@
 	
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-7.png" alt="" /></p>
 
@@ -550,14 +572,14 @@
   <li>如果”條件(condition)”為真，則”變數(variable)”的值設為”算式1(expression1)，否則設為”算式2(expression2)。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 判斷式值
-</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="o">?</span><span class="n">expression1</span><span class="o">:</span><span class="n">expression2</span>
-</code></pre></div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 判斷式值</span>
+<span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="o">?</span><span class="n">expression1</span><span class="o">:</span><span class="n">expression2</span>
+</code></pre></div></div>
 
 <h5 id="-範例-4-8--顯示絕對值利用判斷式值精簡化">[ 範例 4-8 ] 顯示絕對值(利用判斷式值精簡化)</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-8.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-8.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -566,14 +588,14 @@
 	<span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">?</span> <span class="n">i</span> <span class="o">:</span> <span class="o">-</span><span class="n">i</span><span class="p">;</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-8.png" alt="" /></p>
 
 <h5 id="-範例-4-9--決定三個數中的最大值利用判斷式值精簡化">[ 範例 4-9 ] 決定三個數中的最大值(利用判斷式值精簡化)</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-9.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-9.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">max</span><span class="p">;</span>
@@ -586,14 +608,14 @@
 		<span class="n">max</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">max</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-9.png" alt="" /></p>
 
 <h5 id="-範例-4-10--判斷平閏年利用判斷式值精簡化">[ 範例 4-10 ] 判斷平閏年(利用判斷式值精簡化)</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-10.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-10.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -605,7 +627,7 @@
 	<span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(((</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">))</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-10.png" alt="" /></p>
 
@@ -616,8 +638,8 @@
   <li>switch 判斷會根據一個旗標變數的”值”，在許多個可能中選擇一個來執行。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// 使用 switch 判斷
-</span><span class="k">switch</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 使用 switch 判斷</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">case</span> <span class="mi">1</span> <span class="p">:</span>
         <span class="n">statement1</span><span class="p">;</span>
         <span class="k">break</span><span class="p">;</span>
@@ -634,7 +656,7 @@
     <span class="k">default</span> <span class="o">:</span>
         <span class="n">default_statement</span><span class="p">;</span>
     <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="-用法說明--1">[ 用法說明 ]</h4>
 <ol>
@@ -646,8 +668,8 @@
 
 <h5 id="-範例-4-11--使用-switch-依據-power-值做不同的事">[ 範例 4-11 ] 使用 switch 依據 power 值做不同的事</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-11.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-11.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">power</span><span class="p">;</span>
@@ -669,14 +691,14 @@
 	<span class="p">}</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-11.png" alt="" /></p>
 
 <h5 id="-範例-4-12--使用-switch-依據-power-值做不同的事少寫一個-break">[ 範例 4-12 ] 使用 switch 依據 power 值做不同的事(少寫一個 break)</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-12.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-12.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">power</span><span class="p">;</span>
@@ -697,14 +719,14 @@
 	<span class="p">}</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-12.png" alt="" /></p>
 
 <h5 id="-範例-4-13--決定一個月的天數">[ 範例 4-13 ] 決定一個月的天數</h5>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-13.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-13.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">days</span><span class="p">;</span>
@@ -732,7 +754,7 @@
 	<span class="p">}</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">days</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-13.png" alt="" /></p>
 
@@ -748,7 +770,7 @@
   <li>寫一個程式讀入三個正整數 a、b、c。計算並印出其中的最小值。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -764,7 +786,7 @@
 	
 	<span class="n">printf</span><span class="p">(</span><span class="s">"min = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">min</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-14.png" alt="" /></p>
 
@@ -773,21 +795,21 @@
   <li>寫一個程式讀入三個平面上的點座標，然後印出其中距離原點最遠的點。如果兩個或多個點有相同的距離，輸出最先出現的點座標。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">la</span><span class="p">;</span>	<span class="c1">// 點 a(a1, a2)、與原點距離 la
-</span>	<span class="kt">int</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">lb</span><span class="p">;</span>	<span class="c1">// 點 b(b1, b2)、與原點距離 lb
-</span>	<span class="kt">int</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">lc</span><span class="p">;</span>	<span class="c1">// 點 c(c1, c2)、與原點距離 lc
-</span>
+	<span class="kt">int</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">la</span><span class="p">;</span>	<span class="c1">// 點 a(a1, a2)、與原點距離 la</span>
+	<span class="kt">int</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">lb</span><span class="p">;</span>	<span class="c1">// 點 b(b1, b2)、與原點距離 lb</span>
+	<span class="kt">int</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">lc</span><span class="p">;</span>	<span class="c1">// 點 c(c1, c2)、與原點距離 lc</span>
+
 	<span class="n">printf</span><span class="p">(</span><span class="s">"輸入a點的座標 : "</span><span class="p">);</span>	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a2</span><span class="p">);</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"輸入b點的座標 : "</span><span class="p">);</span>	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b2</span><span class="p">);</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"輸入c點的座標 : "</span><span class="p">);</span>	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c2</span><span class="p">);</span>
 
-	<span class="n">la</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span> <span class="o">*</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span> <span class="o">*</span> <span class="n">a2</span><span class="p">);</span>		<span class="c1">// 判斷 a 的距離
-</span>	<span class="n">lb</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">*</span> <span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">*</span> <span class="n">b2</span><span class="p">);</span>	<span class="c1">// 判斷 b 的距離
-</span>	<span class="n">lc</span> <span class="o">=</span> <span class="p">(</span><span class="n">c1</span> <span class="o">*</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span> <span class="o">*</span> <span class="n">c2</span><span class="p">);</span>		<span class="c1">// 判斷 c 的距離
-</span>
+	<span class="n">la</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span> <span class="o">*</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span> <span class="o">*</span> <span class="n">a2</span><span class="p">);</span>		<span class="c1">// 判斷 a 的距離</span>
+	<span class="n">lb</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">*</span> <span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">*</span> <span class="n">b2</span><span class="p">);</span>	<span class="c1">// 判斷 b 的距離</span>
+	<span class="n">lc</span> <span class="o">=</span> <span class="p">(</span><span class="n">c1</span> <span class="o">*</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span> <span class="o">*</span> <span class="n">c2</span><span class="p">);</span>		<span class="c1">// 判斷 c 的距離</span>
+
 	<span class="k">if</span> <span class="p">(</span><span class="n">la</span> <span class="o">&lt;=</span> <span class="n">lb</span> <span class="o">&amp;&amp;</span> <span class="n">la</span> <span class="o">&lt;=</span> <span class="n">lc</span><span class="p">)</span>
 	<span class="p">{</span>
 		<span class="n">printf</span><span class="p">(</span><span class="s">"min = a(%d, %d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">);</span>
@@ -801,7 +823,7 @@
 		<span class="n">printf</span><span class="p">(</span><span class="s">"min = c(%d, %d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">);</span>
 	<span class="p">}</span>		
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-15.png" alt="" /></p>
 
@@ -810,29 +832,29 @@
   <li>寫一個程式讀入四個整數a、b、c、d。計算以 (a，b) 及 (c，d) 為兩對角頂點的長方形面積。注意 (a，b) 及 (c，d) 若是水平或是垂直共線則面積為 0 。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-16.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-16.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (a, b) 
-</span>	<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (c, d)
-</span>	<span class="kt">int</span> <span class="n">area</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>	<span class="c1">// 由 (a, b) 和 (c, d) 兩對角所組成的長方形面積
-</span>
+	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (a, b) </span>
+	<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (c, d)</span>
+	<span class="kt">int</span> <span class="n">area</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>	<span class="c1">// 由 (a, b) 和 (c, d) 兩對角所組成的長方形面積</span>
+
 	<span class="n">printf</span><span class="p">(</span><span class="s">"請輸入 '點 (a, b)' 的資料："</span><span class="p">);</span>
 	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"請輸入 '點 (c, d)' 的資料："</span><span class="p">);</span>
 	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">);</span>
 
-	<span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">d</span><span class="p">))</span>	<span class="c1">// 判斷是否為"垂直共線"(x軸) 或 "水平共線"(y軸)
-</span>		<span class="n">area</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷面積是否為負
-</span>		<span class="n">area</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">d</span><span class="p">))</span>	<span class="c1">// 判斷是否為"垂直共線"(x軸) 或 "水平共線"(y軸)</span>
+		<span class="n">area</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷面積是否為負</span>
+		<span class="n">area</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">);</span>
 	<span class="k">else</span>
 		<span class="n">area</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">);</span>
 
 	<span class="n">printf</span><span class="p">(</span><span class="s">"面積為：%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">area</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-16.png" alt="" /></p>
 
@@ -841,46 +863,46 @@
   <li>寫一個程式讀入四個整數a、b、c、d。本題保證 (a，b) 及 (c，d) 不會水平或是垂直共線。請計算以 (a，b) 及 (c，d) 為兩對角頂點的長方形周長。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-17.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-17.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (a, b) 
-</span>	<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (c, d)
-</span>	<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>	<span class="c1">// 由 (a, b) 和 (c, d) 兩對角所組成的長方形周長
-</span>
+	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (a, b) </span>
+	<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (c, d)</span>
+	<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>	<span class="c1">// 由 (a, b) 和 (c, d) 兩對角所組成的長方形周長</span>
+
 	<span class="n">printf</span><span class="p">(</span><span class="s">"請輸入 '點 (a, b)' 的資料："</span><span class="p">);</span>
 	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"請輸入 '點 (c, d)' 的資料："</span><span class="p">);</span>
 	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">);</span>
 
-	<span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">d</span><span class="p">))</span>	<span class="c1">// 判斷是否為"垂直共線"(x軸) 或 "水平共線"(y軸)
-</span>	<span class="p">{</span>
+	<span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">d</span><span class="p">))</span>	<span class="c1">// 判斷是否為"垂直共線"(x軸) 或 "水平共線"(y軸)</span>
+	<span class="p">{</span>
 		<span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 		<span class="n">printf</span><span class="p">(</span><span class="s">"點 (a, b) 和 點 (c, d) 互為'垂直'或'水平'共線"</span><span class="p">);</span>
 	<span class="p">}</span>
 
-	<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷兩邊邊長是否為負
-</span>	<span class="p">{</span>
-		<span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 如果 x 座標相減為負
-</span>			<span class="n">length</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">));</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷兩邊邊長是否為負</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 如果 x 座標相減為負</span>
+			<span class="n">length</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">));</span>
 
-		<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 如果 y 座標相減為負
-</span>			<span class="n">length</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">));</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 如果 y 座標相減為負</span>
+			<span class="n">length</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">));</span>
 
-		<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 如果 x、y 座標相減皆為負
-</span>			<span class="n">length</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">));</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 如果 x、y 座標相減皆為負</span>
+			<span class="n">length</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">));</span>
 
 		<span class="n">printf</span><span class="p">(</span><span class="s">"周長為：%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
 	<span class="p">}</span>
 		
-	<span class="k">else</span>	<span class="c1">// 如果 x、y 座標相減皆為正
-</span>	<span class="p">{</span>
+	<span class="k">else</span>	<span class="c1">// 如果 x、y 座標相減皆為正</span>
+	<span class="p">{</span>
 		<span class="n">length</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="p">);</span>		
 		<span class="n">printf</span><span class="p">(</span><span class="s">"周長為：%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-17.png" alt="" /></p>
 
@@ -889,24 +911,24 @@
   <li>寫一個程式讀入三個非零整數 a、b、c。如果 f(x) = ax^2 + bx + c = 0 有重根則輸出 0 ，有兩相異實根輸出 1 ，有兩相異虛根則輸出 -1。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-18.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-18.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>	<span class="c1">// 三個非零的整數
-</span>	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>	<span class="c1">// 三個非零的整數</span>
+	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
 
 	   <span class="cm">/* 利用判別式： "b * b - 4 * a * c"  */</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷是否為兩相異虛根
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"-1"</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷是否為兩相異虛根</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"-1"</span><span class="p">);</span>
 
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷是否為重根
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"0"</span><span class="p">);</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷是否為重根</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"0"</span><span class="p">);</span>
 
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷是否為兩相異實根
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"1"</span><span class="p">);</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>	<span class="c1">// 判斷是否為兩相異實根</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"1"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-18.png" alt="" /></p>
 
@@ -915,12 +937,12 @@
   <li>寫一個程式讀入三個正整數 a、b、c。如果邊長為 a、b、c 的三角形不存在則輸出 0，否則輸出 1。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-19.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-19.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>	<span class="c1">// 三個非零的整數
-</span>	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>	<span class="c1">// 三個非零的整數</span>
+	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
 
 	   <span class="cm">/* 利用三角形特性：任兩邊邊長相加必定大於另一邊 之長度 */</span>
 	<span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">))</span>	
@@ -929,7 +951,7 @@
 	<span class="k">else</span>
 		<span class="n">printf</span><span class="p">(</span><span class="s">"0</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-19.png" alt="" /></p>
 
@@ -938,8 +960,8 @@
   <li>寫一個程式讀入兩個整數 a、b 並計算由 a 加到 b 的和。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-20.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-20.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -955,7 +977,7 @@
 
 	<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-20.png" alt="" /></p>
 
@@ -964,16 +986,16 @@
   <li>寫一個程式讀入三個正整數 a、b、c 並判定由 a、b、c 為邊長的三角形為銳角、鈍角或是直角三角形。如為銳角三角形則輸出 1，鈍角三角形則輸出 2，直角三角形則輸出 3。題目保證 a、b、c 可形成一個三角形。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// "4-21.c"
-</span><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-21.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>	<span class="c1">// 三個非零的整數 (3個三角形的邊長)
-</span>	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>	<span class="c1">// 三個非零的整數 (3個三角形的邊長)</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
 
-	   <span class="c1">// 利用三角形勾股定理特性來判別三角形的種類 (三角形最長邊，預設為 "c &gt; b" 同時 "c &gt; a")
-</span>	
+	   <span class="c1">// 利用三角形勾股定理特性來判別三角形的種類 (三角形最長邊，預設為 "c &gt; b" 同時 "c &gt; a")</span>
+	
 	<span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
 		<span class="n">tmp</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>  <span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>  	<span class="n">c</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
 		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
@@ -988,16 +1010,16 @@
 		<span class="p">}</span>
 	<span class="p">}</span>
 	
-	<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>	<span class="c1">// 判定是否為銳角三角形
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"此為銳角三角形：1</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>	<span class="c1">// 判定是否為銳角三角形</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"此為銳角三角形：1</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>	<span class="c1">// 判定是否為鈍角三角形
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"此為鈍角三角形：2</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>	<span class="c1">// 判定是否為鈍角三角形</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"此為鈍角三角形：2</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>	<span class="c1">// 判定是否為直角三角形
-</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"此為直角三角形：3</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>	<span class="c1">// 判定是否為直角三角形</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"此為直角三角形：3</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p><strong>&lt; 執行結果 &gt;</strong>
 <img src="/assets/20160405/4-21.png" alt="" /></p>
 
@@ -1020,100 +1042,7 @@
                     
                 
             
-        
-            
-            
                 
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                        
-                        <h2 id="similar_posts">Similar Posts</h2>
-                        <ul>
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/20/Data_Structure_Book/">20170720 [學習筆記] 細談資料結構_6th (1)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/19/30OS_day2/">20170719 [學習筆記] 30天作業系統自作入門筆記 (2)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/07/14/30OS_day1/">20170714 [學習筆記] 30天作業系統自作入門筆記 (1)
-                            
-                            </a>
-                        </li>
-                        
-                        
                     
                 
                     
@@ -1150,30 +1079,6 @@
                     
                 
                     
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/06/22/linux_system/">20170622 [學習筆記] Linux 系統程式筆記總整理
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
                 
             
         
@@ -1195,15 +1100,6 @@
                     
                 
                     
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/06/15/linux_system/">20170615 [學習筆記] Linux 系統程式 (15)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
             
         
@@ -1220,24 +1116,6 @@
                 
                     
                 
-            
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-            
             
                 
                     
@@ -1267,8 +1145,111 @@
                 
             
         
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
         
-            </ul>
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
         
 
         <div class="post-recent">

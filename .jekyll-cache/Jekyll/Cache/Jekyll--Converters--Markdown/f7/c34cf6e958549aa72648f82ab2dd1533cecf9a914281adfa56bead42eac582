@@ -1,0 +1,432 @@
+I"�{<ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#multithread-architecture" id="markdown-toc-multithread-architecture">Multithread Architecture</a></li>
+      <li><a href="#一multicore-programming" id="markdown-toc-一multicore-programming">一、Multicore Programming</a></li>
+      <li><a href="#二concurrency-vs-parallelism" id="markdown-toc-二concurrency-vs-parallelism">二、Concurrency vs Parallelism</a>        <ul>
+          <li><a href="#1-concurrency" id="markdown-toc-1-concurrency">1. Concurrency</a></li>
+          <li><a href="#2-parallelism" id="markdown-toc-2-parallelism">2. Parallelism</a></li>
+          <li><a href="#3-concurrency-vs-parallelism" id="markdown-toc-3-concurrency-vs-parallelism">3. Concurrency vs Parallelism</a></li>
+          <li><a href="#4-相關整理" id="markdown-toc-4-相關整理">4. 相關整理</a></li>
+        </ul>
+      </li>
+      <li><a href="#三single-and-multithreaded-processes" id="markdown-toc-三single-and-multithreaded-processes">三、Single and Multithreaded Processes</a></li>
+      <li><a href="#四user-threads-and-kernel-threads" id="markdown-toc-四user-threads-and-kernel-threads">四、User Threads and Kernel Threads</a></li>
+      <li><a href="#五multithreading-models" id="markdown-toc-五multithreading-models">五、Multithreading Models</a></li>
+      <li><a href="#六pthreads" id="markdown-toc-六pthreads">六、Pthreads</a>        <ul>
+          <li><a href="#pthreadh" id="markdown-toc-pthreadh">pthread.h</a>            <ul>
+              <li><a href="#pthread_create" id="markdown-toc-pthread_create">pthread_create()</a></li>
+              <li><a href="#pthread_exit" id="markdown-toc-pthread_exit">pthread_exit()</a></li>
+              <li><a href="#pthread_join" id="markdown-toc-pthread_join">pthread_join()</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#課程作業" id="markdown-toc-課程作業">課程作業</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170323/ch04.pdf">Chapter 4: Mutithread Programming</a></li>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170323/Linux_programming_pthread.pdf">Linux_programming_pthread</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
+      <li><a href="https://chi_gitbook.gitbooks.io/personal-note/content/amdahls_law.html">Amdahl’s Law</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="multithread-architecture">Multithread Architecture</h3>
+<p><img src="https://i.imgur.com/8ICdvBz.jpg" alt="" /></p>
+<ul>
+  <li><strong>Responsiveness</strong> – may allow continued execution if part of process is blocked, especially important for user interfaces.</li>
+  <li><strong>Resource Sharing</strong> – threads share resources of process, easier than shared memory or message passing.</li>
+  <li><strong>Economy</strong> – cheaper than process creation, thread switching lower overhead than context switching.</li>
+  <li><strong>Scalability</strong> – process can take advantage of multiprocessor architectures.</li>
+</ul>
+
+<h3 id="一multicore-programming">一、Multicore Programming</h3>
+<ul>
+  <li><strong>Multicore</strong> or <strong>multiprocessor</strong> systems putting pressure on programmers, challenges include:
+    <ul>
+      <li><strong>Dividing activities</strong></li>
+      <li><strong>Balance</strong></li>
+      <li><strong>Data splitting</strong></li>
+      <li><strong>Data dependency</strong></li>
+      <li><strong>Testing and debugging</strong></li>
+    </ul>
+  </li>
+  <li><strong>Parallelism</strong> implies a system can perform more than one task simultaneously.</li>
+  <li><strong>Concurrency</strong> supports more than one task making progress.
+    <ul>
+      <li>Single processor / core, scheduler providing concurrency</li>
+    </ul>
+  </li>
+  <li>Types of parallelism
+    <ul>
+      <li><strong>Data parallelism</strong> – distributes subsets of the same data across multiple cores, same operation on each.</li>
+      <li><strong>Task parallelism</strong> – distributing threads across cores, each thread performing unique operation.</li>
+    </ul>
+  </li>
+  <li>As # of threads grows, so does architectural support for threading.
+    <ul>
+      <li>CPUs have cores as well as <strong>hardware threads</strong>.</li>
+      <li>Consider Oracle SPARC T4 with 8 cores, and 8 hardware threads per core.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="二concurrency-vs-parallelism">二、Concurrency vs Parallelism</h3>
+<ul>
+  <li>引用資料：<a href="https://hackmd.io/s/Skh_AaVix">Toward Concurrency</a></li>
+  <li><a href="https://blog.golang.org/concurrency-is-not-parallelism">Concurrency is not Parallelism</a>, by Rob Pike
+    <ul>
+      <li><a href="https://talks.golang.org/2012/waza.slide#1">投影片</a></li>
+      <li><a href="https://www.youtube.com/watch?v=cN_DpYBzKso">錄影</a></li>
+      <li><a href="http://stackoverflow.com/questions/11700953/concurrency-is-not-parallelism">後續 stackoverflow 討論</a></li>
+    </ul>
+  </li>
+  <li>Concurrency 對軟體設計的影響
+    <ul>
+      <li>想要充分使用到 CPU 的資源</li>
+      <li>程式越來越有機會造成 CPU-bound。雖然主要還是 IO-bound 等，但如果 CPU 時脈無法增加，而其他存取方式速度變快，最後會發生 CPU-bound</li>
+      <li>軟體效能優化將會越來越重要</li>
+      <li>程式語言必須好好處理 concurrency</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="1-concurrency">1. Concurrency</h4>
+<ul>
+  <li>是指程式架構，將程式拆開成多個可獨立運作的工作。eg：drivers，都可以獨立運作，但不需要平行化。
+    <ul>
+      <li>拆開多個的工作不一定要同時運行</li>
+      <li>多個工作在單核心 CPU 上運行</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="2-parallelism">2. Parallelism</h4>
+<ul>
+  <li>是指程式執行，同時執行多個程式。Concurrency 可能會用到 parallelism，但不一定要用 parallelism 才能實現 concurrency。eg：Vector dot product
+    <ul>
+      <li>程式會同時執行 (例如：分支後，同時執行，再收集結果)</li>
+      <li>一個工作在多核心 CPU 上運行</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="3-concurrency-vs-parallelism">3. Concurrency vs Parallelism</h4>
+<ul>
+  <li>
+    <p>Rob Pike 用地鼠燒書做例子:
+<img src="https://hackpad-attachments.s3.amazonaws.com/embedded2016.hackpad.com_K6DJ0ZtiecH_p.537916_1460613009716_task.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>如果今天增加多一只地鼠，一個推車或多一個焚燒盧，這樣有機會作到更好的資源使用率，但我們不能保證兩只或更多地鼠會同時進行 (可能只有有限的火爐)。在單核系統中只能允許一次進行一次的燒書工作，那樣就沒有效率了。
+<img src="https://i.imgur.com/XTGAK98.jpg" alt="" />
+以 Concurrency 的方式去作業，能夠以不同的解構方式去進行，可以是三個地鼠分別負責一部分的工作 (decomposition)
+<img src="https://i.imgur.com/w5Eugs7.jpg" alt="" />
+其中也可以 Parallelism:
+<img src="https://i.imgur.com/3IHX5BT.jpg" alt="" />
+或
+<img src="https://i.imgur.com/duEVvNK.jpg" alt="" /></p>
+  </li>
+</ul>
+
+<p><strong>Concurrency:</strong> 是指程式架構，將程式拆開成多個可獨立運作的工作，像是驅動程式都可獨立運作，但不需要平行化</p>
+<ul>
+  <li>拆開多個的工作不一定要同時運行</li>
+  <li>多個工作在單核心 CPU 上運行</li>
+</ul>
+
+<p><strong>Parallelism:</strong> 是指程式執行，同時執行多個程式。Concurrency 可能會用到 parallelism，但不一定要用 parallelism 才能實現 concurrency。eg：Vector dot product</p>
+<ul>
+  <li>程式會同時執行 (例如：fork 後，同時執行，再收集結果 [join])</li>
+  <li>一個工作在多核心 CPU 上運行</li>
+</ul>
+
+<h4 id="4-相關整理">4. 相關整理</h4>
+<p>線上教材 <a href="https://www.youtube.com/watch?v=6jFkNjhJ-Z4">Introduction to OpenMP</a> 做了以下整理：</p>
+
+<p>(1) Concurrent (並行)</p>
+<ul>
+  <li>工作可拆分成「獨立執行」的部份，這樣「可以」讓很多事情一起做，但是「不一定」要真的同時做。下方情境：
+<img src="https://i.imgur.com/rweOyiD.png" alt="" />
+    <ul>
+      <li>展示具有並行性，但不去同時執行。</li>
+      <li>並行性是種「架構程式」的概念。寫下一段程式之前，思考問題架構時就決定好的。</li>
+    </ul>
+  </li>
+</ul>
+
+<p>(2) Parallel (平行)</p>
+<ul>
+  <li>把規劃好、能夠並行的程式，分配給不同執行緒，並讓他們同時執行。
+<img src="https://i.imgur.com/Oom3wM5.png" alt="" />
+    <ul>
+      <li>「平行」是一種選擇。</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="三single-and-multithreaded-processes">三、Single and Multithreaded Processes</h3>
+<p><img src="https://i.imgur.com/KLVunhJ.jpg" alt="" /></p>
+
+<ul>
+  <li><strong>Amdahl’s Law</strong>
+    <ul>
+      <li>針對系統裡面某一個特定的元件予以最佳化，對於整體系統有多少的效能改變。
+  <img src="https://i.imgur.com/E1L6ODN.jpg" alt="" /></li>
+      <li>分成兩部份
+        <ul>
+          <li><strong>有辦法改進的部份</strong></li>
+          <li><strong>沒有辦法改進的部份</strong></li>
+        </ul>
+      </li>
+      <li>因為有無法改進的部份，所以不可能無限提升系統的某一個特定部分的效率。</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="四user-threads-and-kernel-threads">四、User Threads and Kernel Threads</h3>
+<ul>
+  <li><strong>User threads</strong>
+    <ul>
+      <li>Management done by user-level threads library.</li>
+    </ul>
+  </li>
+  <li><strong>Kernel threads</strong>
+    <ul>
+      <li>Supported by the Kernel.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="五multithreading-models">五、Multithreading Models</h3>
+<ol>
+  <li><strong>Many-to-One</strong>
+    <ul>
+      <li>Many user-level threads mapped to single kernel thread.</li>
+      <li><strong>One thread blocking causes all to block.</strong></li>
+      <li>Multiple threads may not run in parallel on muticore system because only one may be in kernel at a time.</li>
+      <li>Examples：<code class="language-plaintext highlighter-rouge">Solaris Green Threads</code>、<code class="language-plaintext highlighter-rouge">GNU Portable Threads</code>
+<img src="https://i.imgur.com/dwfuxrT.jpg" alt="" /></li>
+    </ul>
+  </li>
+  <li><strong>One-to-One</strong>
+    <ul>
+      <li>Each user-level thread maps to kernel thread.</li>
+      <li><strong>Creating a user-level thread creates a kernel thread.</strong></li>
+      <li>More concurrency than many-to-one.</li>
+      <li>Number of threads per process sometimes restricted due to overhead.</li>
+      <li>Examples：<code class="language-plaintext highlighter-rouge">Windows NT/XP/2000</code>、<code class="language-plaintext highlighter-rouge">Linux</code>、<code class="language-plaintext highlighter-rouge">Solaris 9 and later</code>
+<img src="https://i.imgur.com/Fh9QH0S.jpg" alt="" /></li>
+    </ul>
+  </li>
+  <li><strong>Many-to-Many</strong>
+    <ul>
+      <li>Allows many user level threads to be mapped to many kernel threads.</li>
+      <li>Allows the operating system to create a sufficient number of kernel threads.</li>
+      <li>Solaris prior to version 9.</li>
+      <li>Example：<code class="language-plaintext highlighter-rouge">Windows NT/2000 with the ThreadFiber package</code>
+<img src="https://i.imgur.com/hWCuKOk.jpg" alt="" /></li>
+    </ul>
+  </li>
+  <li><strong>Two-level</strong>
+    <ul>
+      <li>Similar to M:M, except that it allows a user thread to be bound to kernel thread.</li>
+      <li>Examples：<code class="language-plaintext highlighter-rouge">IRIX</code>、<code class="language-plaintext highlighter-rouge">HP-UX</code>、<code class="language-plaintext highlighter-rouge">Tru64 UNIX</code>、<code class="language-plaintext highlighter-rouge">Solaris 8 and earlier</code>
+<img src="https://i.imgur.com/iRt3Xj2.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="六pthreads">六、Pthreads</h3>
+<ul>
+  <li>May be provided either as user-level or kernel-level.</li>
+  <li>A POSIX standard (IEEE 1003.1c) API for thread creation and synchronization.</li>
+  <li><strong>Specification, not implementation.</strong></li>
+  <li>API specifies behavior of the thread library, implementation is up to development of the library.</li>
+  <li>Common in UNIX operating systems (Solaris, Linux, Mac OS X).</li>
+</ul>
+
+<h4 id="pthreadh">pthread.h</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;pthread.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span> <span class="n">pthread_attr_t</span>
+<span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+<span class="c1">//create a thread</span>
+
+
+<span class="kt">void</span> <span class="nf">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
+<span class="c1">//terminate a thread</span>
+
+
+<span class="kt">int</span> <span class="nf">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
+<span class="c1">//wait for thread termination</span>
+
+</code></pre></div></div>
+
+<h5 id="pthread_create">pthread_create()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
+<span class="n">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span>
+<span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pthread_t *thread</code>：thread 的識別字</li>
+  <li><code class="language-plaintext highlighter-rouge">pthread_attr_t *attr</code>：thread 的屬性，設定為 NULL 表示使用預設值</li>
+  <li><code class="language-plaintext highlighter-rouge">void *(*start_routine)(void*)</code>：thread 要執行的 function</li>
+  <li><code class="language-plaintext highlighter-rouge">void *arg</code>：傳遞給 thread 的參數</li>
+</ul>
+
+<h5 id="pthread_exit">pthread_exit()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">void *retval</code>：thread 結束時回傳的變數</li>
+</ul>
+
+<h5 id="pthread_join">pthread_join()</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="n">th</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pthread_t th</code>：thread 識別字</li>
+  <li><code class="language-plaintext highlighter-rouge">void **thread_return</code>：接收 pthread_exit 傳回的變數</li>
+</ul>
+
+<h3 id="課程作業">課程作業</h3>
+<ul>
+  <li>從 1 - 10000 之間取出所有的質數，利用 threads 來分配計算質數的範圍。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;semaphore.h&gt; 
+#include &lt;time.h&gt;
+</span>
+<span class="cp">#define NUM_THREADS 10
+#define MSIZE 10000
+</span>
+<span class="c1">// 找出 1 - 10000 的所有質數</span>
+
+<span class="k">static</span> <span class="kt">double</span> <span class="nf">getDoubleTime</span><span class="p">();</span>
+<span class="kt">void</span> <span class="o">*</span><span class="nf">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+<span class="n">pthread_mutex_t</span> <span class="n">work_mutex</span><span class="p">;</span>
+
+<span class="c1">// 宣告 prime_array 陣列</span>
+<span class="kt">int</span> <span class="n">prime_array</span><span class="p">[</span><span class="n">NUM_THREADS</span><span class="p">][(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)];</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
+	<span class="n">pthread_t</span> <span class="n">a_thread</span><span class="p">[</span><span class="n">NUM_THREADS</span><span class="p">];</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">thread_result</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">lots_of_threads</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">print_prime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+
+	<span class="c1">// start to measure time...</span>
+	<span class="kt">double</span> <span class="n">start_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+	
+	<span class="c1">// initialize mutex...</span>
+	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">work_mutex</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+       	<span class="n">perror</span><span class="p">(</span><span class="s">"Mutex initialization failed"</span><span class="p">);</span>
+	    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+	<span class="c1">// pthread_create...</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&lt;</span> <span class="n">NUM_THREADS</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">]),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">thread_function</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">lots_of_threads</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">perror</span><span class="p">(</span><span class="s">"Thread creation failed"</span><span class="p">);</span>
+        		<span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="c1">// pthread_join...</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="n">NUM_THREADS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        	<span class="n">res</span> <span class="o">=</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">a_thread</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">thread_result</span><span class="p">);</span> 
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+	            <span class="n">perror</span><span class="p">(</span><span class="s">"pthread_join failed"</span><span class="p">);</span>
+        	<span class="p">}</span>
+    <span class="p">}</span>	
+    
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 設定計數器</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">lots_of_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">&lt;</span> <span class="n">NUM_THREADS</span><span class="p">;</span> <span class="n">lots_of_threads</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">The thread[%d]'s numbers：</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">lots_of_threads</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">prime_array</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">prime_array</span><span class="p">[</span><span class="n">lots_of_threads</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>                        <span class="p">}</span>
+    <span class="p">}</span>
+
+
+	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Thread joined</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+	<span class="c1">// stop measuring time...</span>
+	<span class="kt">double</span> <span class="n">finish_time</span> <span class="o">=</span> <span class="n">getDoubleTime</span><span class="p">();</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Execute Time:  %.3lf ms</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">));</span>
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">thread_function</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// pthread_mutex_lock(&amp;work_mutex);</span>
+	
+    <span class="kt">int</span> <span class="n">my_num</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
+	<span class="c1">// if (MSIZE % NUM_THREADS != 0){    printf("error");   pthread_exit(-1);    }</span>
+
+    <span class="kt">int</span> <span class="n">start_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">end_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">MSIZE</span> <span class="o">/</span> <span class="n">NUM_THREADS</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">my_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// Set the loop</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Set the counter</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// result</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"I'm thread[%d], start_num:%d, end_num:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">my_num</span><span class="p">,</span> <span class="n">start_num</span><span class="p">,</span> <span class="n">end_num</span><span class="p">);</span>
+
+    <span class="cm">/* find the prime number */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start_num</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// Reset counter</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="n">prime_array</span><span class="p">[</span><span class="n">my_num</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+
+    <span class="c1">// pthread_mutex_unlock(&amp;work_mutex);</span>
+	<span class="n">pthread_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="k">static</span> <span class="kt">double</span> <span class="nf">getDoubleTime</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tm_tv</span><span class="p">;</span>
+        <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm_tv</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(((</span><span class="kt">double</span><span class="p">)</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">1000</span><span class="p">.</span> <span class="o">+</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tm_tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">0</span><span class="p">.</span><span class="mo">001</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/jw2pSxj.jpg" alt="" /></li>
+</ul>
+:ET

@@ -26,7 +26,7 @@
     <header id="top">
     <div class="wrapper">
         <a href="/" class="brand">少左 shouzo</a>
-        <small>Be strong to Be useful！</small>
+        <small>BE STRONG TO BE USEFUL</small>
         <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
         <nav id="headerNav">
             <ul>
@@ -129,6 +129,28 @@
                 
                     
                 
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
             </ul>
         </nav>
     </div>
@@ -194,7 +216,7 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#整理自-r語言翻轉教室" id="markdown-toc-整理自-r語言翻轉教室">整理自 <a href="http://datascienceandr.org/">R語言翻轉教室</a></a>    <ul>
+  <li><a href="#整理自-r語言翻轉教室" id="markdown-toc-整理自-r語言翻轉教室">整理自 R語言翻轉教室</a>    <ul>
       <li><a href="#課程進度rbasic" id="markdown-toc-課程進度rbasic">課程進度：RBasic</a></li>
     </ul>
   </li>
@@ -248,18 +270,18 @@
   <li>mode()：查詢向量的型態。</li>
   <li>length()：查詢向量的值的個數。
     <ul>
-      <li>型態：<code class="highlighter-rouge">logical</code>、<code class="highlighter-rouge">integer</code>、<code class="highlighter-rouge">numeric</code>、<code class="highlighter-rouge">complex</code>、<code class="highlighter-rouge">character</code>和<code class="highlighter-rouge">raw</code>。</li>
+      <li>型態：<code class="language-plaintext highlighter-rouge">logical</code>、<code class="language-plaintext highlighter-rouge">integer</code>、<code class="language-plaintext highlighter-rouge">numeric</code>、<code class="language-plaintext highlighter-rouge">complex</code>、<code class="language-plaintext highlighter-rouge">character</code>和<code class="language-plaintext highlighter-rouge">raw</code>。</li>
     </ul>
   </li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 用`mode`和`length`函數來查詢向量的型態和長度。
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 用`mode`和`length`函數來查詢向量的型態和長度。</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mode</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"numeric"</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h4 id="屬性-attributesnamesclass">[屬性] attributes()、names()、class()</h4>
 <ul>
@@ -268,7 +290,7 @@
   <li>class()：查詢物件的類別。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 用`attributes`、`names`和`class`函數來查詢向量的屬性、名稱和類別。
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="c1"># 用`attributes`、`names`和`class`函數來查詢向量的屬性、名稱和類別。</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">attributes</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="w">
 </span><span class="o">$</span><span class="n">names</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"coefficients"</span><span class="w">  </span><span class="s2">"residuals"</span><span class="w">     </span><span class="s2">"effects"</span><span class="w">      
@@ -288,19 +310,19 @@
 </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">class</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"lm"</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> 
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h2 id="二-04-factors">(二) 04-Factors</h2>
 <ul>
   <li>範例：血型分類</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">blood_type</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">blood_type</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"B"</span><span class="w">  </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"O"</span><span class="w">  </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"O"</span><span class="w">  </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"O"</span><span class="w">  </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"O"</span><span class="w"> 
 </span><span class="p">[</span><span class="m">12</span><span class="p">]</span><span class="w"> </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"A"</span><span class="w"> 
 </span><span class="p">[</span><span class="m">23</span><span class="p">]</span><span class="w"> </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"B"</span><span class="w">  </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"O"</span><span class="w">  </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"AB"</span><span class="w">
 </span><span class="o">&gt;</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h4 id="屬性-factorlevels">[屬性] factor()、levels()</h4>
 <ul>
@@ -308,7 +330,7 @@
   <li>levels()：取出向量中的類別。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">blood_type</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">blood_type</span><span class="p">)</span><span class="w">
  </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="n">B</span><span class="w">  </span><span class="n">A</span><span class="w">  </span><span class="n">A</span><span class="w">  </span><span class="n">O</span><span class="w">  </span><span class="n">AB</span><span class="w"> </span><span class="n">O</span><span class="w">  </span><span class="n">A</span><span class="w">  </span><span class="n">AB</span><span class="w"> </span><span class="n">O</span><span class="w">  </span><span class="n">AB</span><span class="w"> </span><span class="n">O</span><span class="w">  </span><span class="n">AB</span><span class="w"> </span><span class="n">A</span><span class="w">  </span><span class="n">A</span><span class="w">  </span><span class="n">A</span><span class="w">  </span><span class="n">AB</span><span class="w"> </span><span class="n">A</span><span class="w">  </span><span class="n">AB</span><span class="w">
 </span><span class="p">[</span><span class="m">19</span><span class="p">]</span><span class="w"> </span><span class="n">AB</span><span class="w"> </span><span class="n">A</span><span class="w">  </span><span class="n">AB</span><span class="w"> </span><span class="n">A</span><span class="w">  </span><span class="n">AB</span><span class="w"> </span><span class="n">B</span><span class="w">  </span><span class="n">A</span><span class="w">  </span><span class="n">O</span><span class="w">  </span><span class="n">A</span><span class="w">  </span><span class="n">A</span><span class="w">  </span><span class="n">AB</span><span class="w"> </span><span class="n">AB</span><span class="w">
 </span><span class="n">Levels</span><span class="o">:</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">AB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="n">O</span><span class="w">
@@ -317,16 +339,16 @@
 </span><span class="o">&gt;</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="n">levels</span><span class="p">(</span><span class="n">blood_type_factor</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"A"</span><span class="w">  </span><span class="s2">"AB"</span><span class="w"> </span><span class="s2">"B"</span><span class="w">  </span><span class="s2">"O"</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h4 id="屬性-str">[屬性] str()</h4>
 <ul>
   <li>str()：觀察factor向量的結構。</li>
 </ul>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="n">blood_type_factor</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="n">blood_type_factor</span><span class="p">)</span><span class="w">
  </span><span class="n">Factor</span><span class="w"> </span><span class="n">w</span><span class="o">/</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="n">levels</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"AB"</span><span class="p">,</span><span class="s2">"B"</span><span class="p">,</span><span class="s2">"O"</span><span class="o">:</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="n">...</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div></div>
 
 <h2 id="三-05-arrays-matrices">(三) 05-Arrays-Matrices</h2>
 <h4 id="屬性-matrix">[屬性] matrix()</h4>
@@ -357,69 +379,6 @@
                     
                 
             
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
                 
                     
                 
@@ -461,6 +420,12 @@
             
         
             
+            
+                
+                    
+                
+                    
+                
             
                 
                     
@@ -518,6 +483,81 @@
             
         
             
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
             
                 
                     

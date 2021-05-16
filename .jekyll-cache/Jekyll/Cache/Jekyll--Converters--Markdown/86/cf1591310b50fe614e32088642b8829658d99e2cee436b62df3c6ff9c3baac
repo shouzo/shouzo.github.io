@@ -1,0 +1,712 @@
+I"�<ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-direct-communication" id="markdown-toc-一-direct-communication">(一) Direct Communication</a></li>
+      <li><a href="#二-indirect-communication" id="markdown-toc-二-indirect-communication">(二) Indirect Communication</a></li>
+      <li><a href="#三-synchronization" id="markdown-toc-三-synchronization">(三) Synchronization</a></li>
+      <li><a href="#四-buffering" id="markdown-toc-四-buffering">(四) Buffering</a></li>
+      <li><a href="#examples-of-ipc-systems" id="markdown-toc-examples-of-ipc-systems">Examples of IPC Systems</a>        <ul>
+          <li><a href="#1-posix" id="markdown-toc-1-posix">1. POSIX</a></li>
+          <li><a href="#2-mach" id="markdown-toc-2-mach">2. Mach</a></li>
+          <li><a href="#3-windows" id="markdown-toc-3-windows">3. Windows</a></li>
+        </ul>
+      </li>
+      <li><a href="#五-communications-in-client-server-systems" id="markdown-toc-五-communications-in-client-server-systems">(五) Communications in Client-Server Systems</a>        <ul>
+          <li><a href="#1-sockets" id="markdown-toc-1-sockets">1. Sockets</a></li>
+          <li><a href="#2-remote-procedure-calls" id="markdown-toc-2-remote-procedure-calls">2. Remote Procedure Calls</a></li>
+          <li><a href="#3-pipes" id="markdown-toc-3-pipes">3. Pipes</a></li>
+        </ul>
+      </li>
+      <li><a href="#課堂作業" id="markdown-toc-課堂作業">課堂作業</a></li>
+    </ul>
+  </li>
+  <li><a href="#二linux-程式設計" id="markdown-toc-二linux-程式設計">二、Linux 程式設計</a>    <ul>
+      <li><a href="#一-shared-memory-concept" id="markdown-toc-一-shared-memory-concept">(一) Shared Memory Concept</a></li>
+      <li><a href="#二-shared-memory-function" id="markdown-toc-二-shared-memory-function">(二) Shared Memory Function</a>        <ul>
+          <li><a href="#shmget" id="markdown-toc-shmget">shmget()</a></li>
+          <li><a href="#shmat" id="markdown-toc-shmat">*shmat()</a></li>
+          <li><a href="#shmdt" id="markdown-toc-shmdt">shmdt()</a></li>
+          <li><a href="#shmctl" id="markdown-toc-shmctl">shmctl()</a></li>
+        </ul>
+      </li>
+      <li><a href="#課堂作業-1" id="markdown-toc-課堂作業-1">課堂作業</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170413/ch03.pdf">Chapter 3: Process Concept</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-direct-communication">(一) Direct Communication</h3>
+<ul>
+  <li>Processes must name each other explicitly：
+    <ul>
+      <li>send(P, message) – send a message to process P</li>
+      <li>receive(Q, message) – receive a message from process Q</li>
+    </ul>
+  </li>
+  <li>Properties of communication link
+    <ul>
+      <li>Links are established automatically</li>
+      <li>A link is associated with exactly one pair of communicating processes</li>
+      <li>Between each pair there exists exactly one link</li>
+      <li>The link may be unidirectional, but is usually bi-directional</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="二-indirect-communication">(二) Indirect Communication</h3>
+<ul>
+  <li>Messages are directed and received from mailboxes (also referred to as ports)
+    <ul>
+      <li>Each mailbox has a unique id</li>
+      <li>Processes can communicate only if they share a mailbox</li>
+    </ul>
+  </li>
+  <li>Properties of communication link
+    <ul>
+      <li>Link established only if processes share a common mailbox</li>
+      <li>A link may be associated with many processes</li>
+      <li>Each pair of processes may share several communication links</li>
+      <li>Link may be unidirectional or bi-directional</li>
+    </ul>
+  </li>
+  <li>Operations
+    <ul>
+      <li>create a new mailbox</li>
+      <li>send and receive messages through mailbox</li>
+      <li>destroy a mailbox</li>
+    </ul>
+  </li>
+  <li>Primitives are defined as：
+    <ul>
+      <li>send(A, message) – send a message to mailbox A</li>
+      <li>receive(A, message) – receive a message from mailbox A</li>
+    </ul>
+  </li>
+  <li>Mailbox sharing
+    <ul>
+      <li>Who gets the message？
+        <ul>
+          <li>P 1 , P 2 , and P 3 share mailbox A</li>
+          <li>P 1 , sends; P 2 and P 3 receive</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Solutions
+    <ul>
+      <li>Allow a link to be associated with at most two processes.</li>
+      <li>Allow only one process at a time to execute a receive operation.</li>
+      <li>Allow the system to select arbitrarily the receiver. Sender is notified who the receiver was.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="三-synchronization">(三) Synchronization</h3>
+<ul>
+  <li>
+    <p>Message passing may be either blocking or non-blocking</p>
+  </li>
+  <li><strong>Blocking</strong> is considered <strong>synchronous</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Blocking send</code> has the sender block until the message is received</li>
+      <li><code class="language-plaintext highlighter-rouge">Blocking receive</code> has the receiver block until a message is available</li>
+    </ul>
+  </li>
+  <li><strong>Non-blocking</strong> is considered <strong>asynchronous</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Non-blocking send</code> has the sender send the message and continue</li>
+      <li><code class="language-plaintext highlighter-rouge">Non-blocking receive</code> has the receiver receive a valid message or null</li>
+    </ul>
+  </li>
+  <li>Different combinations possible
+    <ul>
+      <li>If both send and receive are blocking, we have a rendezvous</li>
+    </ul>
+  </li>
+  <li>Producer-consumer becomes trivial</li>
+</ul>
+
+<h3 id="四-buffering">(四) Buffering</h3>
+<ul>
+  <li>Queue of messages attached to the link; implemented in one of three ways
+    <ol>
+      <li>Zero capacity – 0 messages
+  Sender must wait for receiver (rendezvous)</li>
+      <li>Bounded capacity – finite length of n messages
+  Sender must wait if link full</li>
+      <li>Unbounded capacity – infinite length
+  Sender never waits</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="examples-of-ipc-systems">Examples of IPC Systems</h3>
+
+<h4 id="1-posix">1. POSIX</h4>
+<ul>
+  <li>POSIX Shared Memory
+    <ul>
+      <li>Process first creates shared memory segment：<code class="language-plaintext highlighter-rouge">shm_fd = shm_open(name, O CREAT | O RDRW, 0666);</code></li>
+      <li>Also used to open an existing segment to share it</li>
+      <li>Set the size of the object：<code class="language-plaintext highlighter-rouge">ftruncate(shm fd, 4096);</code></li>
+      <li>Now the process could write to the shared memory：<code class="language-plaintext highlighter-rouge">sprintf(shared memory, "Writing to shared memory");</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="2-mach">2. Mach</h4>
+<ul>
+  <li>Mach communication is message based
+    <ul>
+      <li>Even system calls are messages</li>
+      <li>Each task gets two mailboxes at creation- Kernel and Notify</li>
+      <li>Only three system calls needed for message transfer：<code class="language-plaintext highlighter-rouge">msg_send()</code>, <code class="language-plaintext highlighter-rouge">msg_receive()</code>, <code class="language-plaintext highlighter-rouge">msg_rpc()</code></li>
+      <li>Mailboxes needed for commuication, created via：<code class="language-plaintext highlighter-rouge">port_allocate()</code></li>
+      <li>Send and receive are flexible, for example four options if mailbox full：
+        <ul>
+          <li>Wait indefinitely</li>
+          <li>Wait at most n milliseconds</li>
+          <li>Return immediately</li>
+          <li>Temporarily cache a message</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="3-windows">3. Windows</h4>
+<ul>
+  <li>Message-passing centric via <code class="language-plaintext highlighter-rouge">advanced local procedure call (LPC)</code> facility
+    <ul>
+      <li>Only works between processes on the same system</li>
+      <li>Uses ports (like mailboxes) to establish and maintain communication channels</li>
+      <li>Communication works as follows：
+        <ul>
+          <li>The client opens a handle to the subsystem’s <code class="language-plaintext highlighter-rouge">connection port</code> object.</li>
+          <li>The client sends a connection request.</li>
+          <li>The server creates two private <code class="language-plaintext highlighter-rouge">communication ports</code> and returns the handle to one of them to the client.</li>
+          <li>The client and server use the corresponding port handle to send messages or callbacks and to listen for replies.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="五-communications-in-client-server-systems">(五) Communications in Client-Server Systems</h3>
+
+<h4 id="1-sockets">1. Sockets</h4>
+<ul>
+  <li>A socket is defined as an endpoint for communication</li>
+  <li>Concatenation of <code class="language-plaintext highlighter-rouge">IP address</code> and <code class="language-plaintext highlighter-rouge">port</code> – a number included at start of message packet to differentiate network services on a host
+    <ul>
+      <li>The socket 161.25.19.8:1625 refers to port 1625 on host 161.25.19.8</li>
+    </ul>
+  </li>
+  <li>Communication consists between a pair of sockets</li>
+  <li>All ports below 1024 are well known, used for standard services</li>
+  <li>Special IP address <code class="language-plaintext highlighter-rouge">127.0.0.1 (loopback)</code> to refer to system on which process is running</li>
+</ul>
+
+<h4 id="2-remote-procedure-calls">2. Remote Procedure Calls</h4>
+<ul>
+  <li>Remote procedure call (RPC) abstracts procedure calls between processes on networked systems
+    <ul>
+      <li>Again uses ports for service differentiation</li>
+    </ul>
+  </li>
+  <li><strong>Stubs</strong> – client-side proxy for the actual procedure on the server</li>
+  <li>The client-side stub locates the server and <strong>marshalls</strong> the parameters</li>
+  <li>The server-side stub receives this message, unpacks the marshalled parameters, and performs the procedure on the server</li>
+  <li>On Windows, stub code compile from specification written in <strong>Microsoft Interface Definition Language (MIDL)</strong></li>
+  <li>Data representation handled via <strong>External Data Representation (XDL)</strong> format to account for different architectures
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Big-endian</code> and <code class="language-plaintext highlighter-rouge">little-endian</code></li>
+    </ul>
+  </li>
+  <li>Remote communication has more failure scenarios than local
+    <ul>
+      <li>Messages can be delivered <code class="language-plaintext highlighter-rouge">exactly once</code> rather than <code class="language-plaintext highlighter-rouge">at most once</code></li>
+    </ul>
+  </li>
+  <li>OS typically provides a rendezvous (or <strong>matchmaker</strong>) service to connect client and server</li>
+</ul>
+
+<p><img src="https://i.imgur.com/fvjj3rR.jpg" alt="" /></p>
+
+<h4 id="3-pipes">3. Pipes</h4>
+<ul>
+  <li>Acts as a conduit allowing two processes to communicate</li>
+  <li><strong>Issues</strong>
+    <ul>
+      <li>Is communication unidirectional or bidirectional?</li>
+      <li>In the case of two-way communication, is it half or full-duplex?</li>
+      <li>Must there exist a relationship (i.e. parent-child) between the communicating processes?</li>
+      <li>Can the pipes be used over a network?</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/W3b5HkN.jpg" alt="" />
+<img src="https://i.imgur.com/c18pKq0.jpg" alt="" /></p>
+
+<h3 id="課堂作業">課堂作業</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">client</code> 部份</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+*/</span>
+<span class="cm">/* The second program is the producer and allows us to enter data for consumers.
+ It's very similar to shm1.c and looks like this. */</span>
+
+<span class="cp">#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+</span>
+<span class="cp">#include &lt;sys/shm.h&gt;
+</span>
+<span class="cp">#include "shm_com.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">running</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">shared_memory</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="n">shared_stuff</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">shmid</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rand_arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+    <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">((</span><span class="n">key_t</span><span class="p">)</span><span class="mi">1234</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span><span class="p">),</span> <span class="mo">0666</span> <span class="o">|</span> <span class="n">IPC_CREAT</span><span class="p">);</span>
+	
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmget failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">shared_memory</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmat failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Memory attached at %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">);</span>
+
+    <span class="n">shared_stuff</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>            
+            <span class="n">printf</span><span class="p">(</span><span class="s">"waiting for client...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="cm">/*
+        printf("\nPress Enter to continue...");
+        while (getchar() != '\n');
+        // fgets(buffer, BUFSIZ, stdin);
+        */</span>
+
+        <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"[%d]%d </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+        <span class="c1">//  strncpy(shared_stuff-&gt;some_text, &amp;rand_arr, TEXT_SZ);</span>
+        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmdt</span><span class="p">(</span><span class="n">shared_memory</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmdt failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">server</code> 部份</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+*/</span>
+<span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
+ (the size of our shared memory structure) is created with a call to shmget,
+ with the IPC_CREAT bit specified. */</span>
+
+<span class="cp">#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+</span>
+<span class="cp">#include &lt;sys/shm.h&gt;
+</span>
+<span class="cp">#include "shm_com.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">running</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">shared_memory</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="n">shared_stuff</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">shmid</span><span class="p">;</span>
+
+    <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">getpid</span><span class="p">());</span>    
+
+    <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">((</span><span class="n">key_t</span><span class="p">)</span><span class="mi">1234</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span><span class="p">),</span> <span class="mo">0666</span> <span class="o">|</span> <span class="n">IPC_CREAT</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmget failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="cm">/* We now make the shared memory accessible to the program. */</span>
+
+    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">shared_memory</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmat failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Memory attached at %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">);</span>
+
+<span class="cm">/* The next portion of the program assigns the shared_memory segment to shared_stuff,
+ which then prints out any text in written_by_you. The loop continues until end is found
+ in written_by_you. The call to sleep forces the consumer to sit in its critical section,
+ which makes the producer wait. */</span>
+
+    <span class="n">shared_stuff</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">;</span>
+    <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You wrote:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+            
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"[%d]%d </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+            <span class="n">sleep</span><span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">4</span><span class="p">);</span> <span class="cm">/* make the other process wait for us ! */</span>
+            <span class="c1">// shared_stuff-&gt;written_by_you = 0;</span>
+            
+        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cm">/* Lastly, the shared memory is detached and then deleted. */</span>
+
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmdt</span><span class="p">(</span><span class="n">shared_memory</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmdt failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmctl</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="n">IPC_RMID</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmctl(IPC_RMID) failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/rPMcs2j.jpg" alt="" /></li>
+</ul>
+
+<h2 id="二linux-程式設計">二、Linux 程式設計</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170414/Linux.Programming.Programming.IPC-2.pdf">Linux-Programming-IPC-2</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-shared-memory-concept">(一) Shared Memory Concept</h3>
+<ul>
+  <li>共享記憶體是由 IPC 為一程序所建立的特殊記憶體位址，其他的程序可以將此相同的 shared memory 區段納入自己的位址空間中，所有的程序皆可存取這些記憶體位址，就像是由自己定址一樣。
+<img src="https://i.imgur.com/ctobLbA.jpg" alt="" /></li>
+</ul>
+
+<h3 id="二-shared-memory-function">(二) Shared Memory Function</h3>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/sem.h&gt;
+#include &lt;sys/type.h&gt;
+#include &lt;sys/ipc.h&gt;
+</span>
+
+<span class="kt">int</span> <span class="nf">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+    <span class="c1">// 建立 shared memory 。</span>
+
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">shmat</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+    <span class="c1">// 允許程序對 shared memory 存取。</span>
+
+
+<span class="kt">int</span> <span class="nf">shmdt</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">);</span>
+    <span class="c1">// 讓目前的程序從 shared memory 脫離出來。</span>
+
+
+<span class="kt">int</span> <span class="nf">shmctl</span><span class="p">(</span> <span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span> <span class="p">);</span>
+    <span class="c1">// 用來改變 shared memory 。</span>
+</code></pre></div></div>
+
+<h4 id="shmget">shmget()</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>key: 用來為 shared memory 命名。</li>
+  <li>size: 需要的 shared memory 大小，以 byte 為單位。</li>
+  <li>shmflg: shared memory 的權限。在建立新的 shared memory 時要加上 IPC_CREATE。</li>
+</ul>
+
+<h4 id="shmat">*shmat()</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="o">*</span><span class="nf">shmat</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>shm_id: Shared memory id.</li>
+  <li>shm_addr: Shared memory 加到目前程序中的位址，通常為一 null 指標。</li>
+  <li>shmflg: 一般設為 0 即可。</li>
+</ul>
+
+<h4 id="shmdt">shmdt()</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">shmdt</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">shm_addr</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>shm_addr: shmat 傳回的位址。</li>
+</ul>
+
+<h4 id="shmctl">shmctl()</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">shmctl</span><span class="p">(</span><span class="kt">int</span> <span class="n">shm_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>shm_id: Shared memory id.</li>
+  <li>cmd:IPC_RMID: 刪除 shared memory 區段。</li>
+  <li>struct shmid_ds:</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">shmid_ds</span> <span class="p">{</span>
+    <span class="n">uid_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">uid</span><span class="p">;</span>
+    <span class="n">uid_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">gid</span><span class="p">;</span>
+    <span class="n">mode_t</span> <span class="n">shm_perm</span><span class="p">.</span><span class="n">mode</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="課堂作業-1">課堂作業</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">client</code> 部份</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+*/</span>
+<span class="cm">/* The second program is the producer and allows us to enter data for consumers.
+ It's very similar to shm1.c and looks like this. */</span>
+
+<span class="cp">#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+</span>
+<span class="cp">#include &lt;sys/shm.h&gt;
+</span>
+<span class="cp">#include "shm_com.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">shared_memory</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="n">shared_stuff</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">shmid</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rand_arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+    <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">((</span><span class="n">key_t</span><span class="p">)</span><span class="mi">1234</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span><span class="p">),</span> <span class="mo">0666</span> <span class="o">|</span> <span class="n">IPC_CREAT</span><span class="p">);</span>
+	
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmget failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">shared_memory</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmat failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Memory attached at %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">);</span>
+
+    <span class="n">shared_stuff</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">;</span>
+
+
+    <span class="cm">/* Initial the array */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+ 
+
+    <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">answer_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>            
+            <span class="n">printf</span><span class="p">(</span><span class="s">"Waiting for server...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="p">}</span>
+      
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">【Server connected】</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+        <span class="cm">/* Generate random number */</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Generate random number</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+
+        <span class="cm">/* Wait for the sorted array */</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Wait for the sorted array...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">answer_by_you</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">"The array (After Sorted)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"[%d]%d </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+
+        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">answer_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmdt</span><span class="p">(</span><span class="n">shared_memory</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmdt failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">server</code> 部份</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
+*/</span>
+<span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
+ (the size of our shared memory structure) is created with a call to shmget,
+ with the IPC_CREAT bit specified. */</span>
+
+<span class="cp">#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+</span>
+<span class="cp">#include &lt;sys/shm.h&gt;
+</span>
+<span class="cp">#include "shm_com.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">shared_memory</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="n">shared_stuff</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">shmid</span><span class="p">;</span>
+
+    <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">getpid</span><span class="p">());</span>    
+
+    <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">((</span><span class="n">key_t</span><span class="p">)</span><span class="mi">1234</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span><span class="p">),</span> <span class="mo">0666</span> <span class="o">|</span> <span class="n">IPC_CREAT</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmget failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="cm">/* We now make the shared memory accessible to the program. */</span>
+
+    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">shared_memory</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmat failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Memory attached at %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">);</span>
+
+<span class="cm">/* The next portion of the program assigns the shared_memory segment to shared_stuff,
+ which then prints out any text in written_by_you. The loop continues until end is found
+ in written_by_you. The call to sleep forces the consumer to sit in its critical section,
+ which makes the producer wait. */</span>
+
+    <span class="n">shared_stuff</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">;</span>
+
+
+    <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* Wait for the client */</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">【Get the client's array】</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"The array (Before Sorted)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"[%d]%d </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+
+            <span class="cm">/* Sort the array */</span>
+            <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">answer_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+                        <span class="n">tmp</span> <span class="o">=</span> <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+                        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">answer_by_you</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">4</span><span class="p">);</span> <span class="cm">/* make the other process wait for us ! */</span> 
+            <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+<span class="cm">/* Lastly, the shared memory is detached and then deleted. */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmdt</span><span class="p">(</span><span class="n">shared_memory</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmdt failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">shmctl</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="n">IPC_RMID</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmctl(IPC_RMID) failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/6VYmXyg.jpg" alt="" /></li>
+</ul>
+:ET

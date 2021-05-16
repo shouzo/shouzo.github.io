@@ -285,16 +285,16 @@
 <ul>
   <li>Synchronization tool that does not require busy waiting.</li>
   <li>Semaphore S – integer variable</li>
-  <li>Two standard operations modify S: <code class="highlighter-rouge">wait()</code> and <code class="highlighter-rouge">signal()</code></li>
+  <li>Two standard operations modify S: <code class="language-plaintext highlighter-rouge">wait()</code> and <code class="language-plaintext highlighter-rouge">signal()</code></li>
   <li>Less complicated</li>
   <li>Can only be accessed via two indivisible (atomic) operations</li>
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">S</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="p">;</span> <span class="c1">//busy wait
-</span>    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
-<span class="p">}</span>
+        <span class="p">;</span> <span class="c1">//busy wait</span>
+    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
+<span class="err">}</span>
 <span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">S</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
@@ -305,7 +305,7 @@
   <li><strong>Counting semaphore</strong> – integer value can range over an unrestricted domain</li>
   <li><strong>Binary semaphore</strong> – integer value can range only between 0 and 1
     <ul>
-      <li>Then a <code class="highlighter-rouge">mutex lock</code></li>
+      <li>Then a <code class="language-plaintext highlighter-rouge">mutex lock</code></li>
     </ul>
   </li>
   <li>Can implement a counting semaphore S as a binary semaphore</li>
@@ -325,7 +325,7 @@
 <h5 id="1-busy-waiting">(1) Busy waiting</h5>
 <ul>
   <li>
-    <p>Must guarantee that no two processes can execute <code class="highlighter-rouge">wait()</code> and <code class="highlighter-rouge">signal()</code> on the same semaphore at the same time</p>
+    <p>Must guarantee that no two processes can execute <code class="language-plaintext highlighter-rouge">wait()</code> and <code class="language-plaintext highlighter-rouge">signal()</code> on the same semaphore at the same time</p>
   </li>
   <li>Thus, implementation becomes the critical section problem where the wait and signal code are placed in the critical section</li>
   <li>Could now have <strong>busy waiting</strong> in critical section implementation
@@ -348,8 +348,8 @@
   </li>
   <li>Two operations:
     <ul>
-      <li><code class="highlighter-rouge">block</code> – place the process invoking the operation on the appropriate waiting queue</li>
-      <li><code class="highlighter-rouge">wakeup</code> – remove one of processes in the waiting queue and place it in the ready queue</li>
+      <li><code class="language-plaintext highlighter-rouge">block</code> – place the process invoking the operation on the appropriate waiting queue</li>
+      <li><code class="language-plaintext highlighter-rouge">wakeup</code> – remove one of processes in the waiting queue and place it in the ready queue</li>
     </ul>
   </li>
 </ul>
@@ -362,16 +362,16 @@
 <span class="n">wait</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// add this process to S-&gt;list;
-</span>        <span class="n">block</span><span class="p">();</span>
+        <span class="c1">// add this process to S-&gt;list;</span>
+        <span class="n">block</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">signal</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// remove a process P from S-&gt;list;
-</span>        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+        <span class="c1">// remove a process P from S-&gt;list;</span>
+        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -401,9 +401,9 @@
 <ul>
   <li>n buffers, each can hold one item
     <ul>
-      <li>Semaphore <code class="highlighter-rouge">mutex</code> initialized to the value 1</li>
-      <li>Semaphore <code class="highlighter-rouge">full</code> initialized to the value 0</li>
-      <li>Semaphore <code class="highlighter-rouge">empty</code> initialized to the value n</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">mutex</code> initialized to the value 1</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">full</code> initialized to the value 0</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">empty</code> initialized to the value n</li>
     </ul>
   </li>
 </ul>
@@ -459,9 +459,9 @@
   <li>Shared Data
     <ul>
       <li>Data set</li>
-      <li>Semaphore <code class="highlighter-rouge">rw_mutex</code> initialized to 1</li>
-      <li>Semaphore <code class="highlighter-rouge">mutex</code> initialized to 1</li>
-      <li>Integer <code class="highlighter-rouge">read_count</code> initialized to 0</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">rw_mutex</code> initialized to 1</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">mutex</code> initialized to 1</li>
+      <li>Integer <code class="language-plaintext highlighter-rouge">read_count</code> initialized to 0</li>
     </ul>
   </li>
 </ul>
@@ -486,11 +486,11 @@
     <span class="n">read_count</span><span class="o">++</span><span class="p">;</span>
     
     
-    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1">// only for the first reader entering
-</span>        <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1">// only for the first reader entering</span>
+        <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
         
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>    <span class="c1">// if the first reader wait for rw_mutex, other readers will be blocked on wait(mutex)
-</span>        
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>    <span class="c1">// if the first reader wait for rw_mutex, other readers will be blocked on wait(mutex)</span>
+        
     <span class="p">...</span>
     <span class="cm">/* reading is performed */</span>
     <span class="p">...</span>
@@ -498,8 +498,8 @@
     <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
     <span class="n">read_count</span><span class="o">--</span><span class="p">;</span>
         
-    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1">// only for the last reader leaving
-</span>        <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1">// only for the last reader leaving</span>
+        <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
     
     <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
@@ -510,7 +510,7 @@
   <li><strong>First variation</strong> – no reader kept waiting unless writer has permission to use shared object</li>
   <li><strong>Second variation</strong> – once writer is ready, it performs write asap</li>
   <li>Both may have starvation leading to even more variations</li>
-  <li>Problem is solved on some systems by kernel providing <code class="highlighter-rouge">reader-writer locks</code></li>
+  <li>Problem is solved on some systems by kernel providing <code class="language-plaintext highlighter-rouge">reader-writer locks</code></li>
 </ul>
 
 <h4 id="3-dining-philosophers-problem">3. Dining-Philosophers Problem</h4>
@@ -539,13 +539,13 @@
     <span class="n">wait</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
     <span class="n">wait</span> <span class="p">(</span> <span class="n">chopStick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
     
-    <span class="c1">// eat
-</span>
+    <span class="c1">// eat</span>
+
     <span class="n">signal</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
     <span class="n">signal</span> <span class="p">(</span><span class="n">chopstick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
     
-    <span class="c1">// think
-</span>    
+    <span class="c1">// think</span>
+    
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
 </code></pre></div></div>
 <ul>
@@ -575,9 +575,9 @@
   <li>Variables</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// (initially = 1)
-</span><span class="n">semaphore</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// (initially = 0)
-</span><span class="kt">int</span> <span class="n">next_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// (initially = 1)</span>
+<span class="n">semaphore</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// (initially = 0)</span>
+<span class="kt">int</span> <span class="n">next_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div></div>
 
 <ul>
@@ -593,7 +593,7 @@
 <span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">)</span>
 <span class="k">else</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -606,19 +606,19 @@
   <li>For each condition variable x, we have:</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">x_sem</span><span class="p">;</span> <span class="c1">// (initially = 0)
-</span><span class="kt">int</span> <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">x_sem</span><span class="p">;</span> <span class="c1">// (initially = 0)</span>
+<span class="kt">int</span> <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div></div>
 
 <ul>
-  <li>The operation <code class="highlighter-rouge">x.wait</code> can be implemented as:</li>
+  <li>The operation <code class="language-plaintext highlighter-rouge">x.wait</code> can be implemented as:</li>
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
 <span class="k">else</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 <span class="n">wait</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
 <span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
 </code></pre></div></div>
@@ -641,18 +641,18 @@
     <span class="n">boolean</span> <span class="n">busy</span><span class="p">;</span>
     <span class="n">condition</span> <span class="n">x</span><span class="p">;</span>
     
-    <span class="kt">void</span> <span class="nf">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">busy</span><span class="p">)</span>
             <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
         <span class="n">busy</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="p">}</span>
     
-    <span class="kt">void</span> <span class="nf">release</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">release</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
         <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
     <span class="p">}</span>
     
-    <span class="n">initialization</span> <span class="nf">code</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">initialization</span> <span class="n">code</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -660,7 +660,7 @@
 
 <h5 id="3-solution">(3) Solution</h5>
 <ul>
-  <li>Each philosopher i invokes the operations <code class="highlighter-rouge">pickup()</code> and <code class="highlighter-rouge">putdown()</code> in the following sequence:
+  <li>Each philosopher i invokes the operations <code class="language-plaintext highlighter-rouge">pickup()</code> and <code class="language-plaintext highlighter-rouge">putdown()</code> in the following sequence:
     <ul>
       <li>No deadlock, but starvation is possible.</li>
     </ul>
@@ -677,13 +677,13 @@
     <span class="k">enum</span> <span class="p">{</span> <span class="n">THINKING</span><span class="p">;</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">state</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">;</span>
     <span class="n">condition</span> <span class="n">self</span> <span class="p">[</span><span class="mi">5</span><span class="p">];</span>
 
-    <span class="kt">void</span> <span class="nf">pickup</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">pickup</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">HUNGRY</span><span class="p">;</span>
         <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">self</span> <span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">;</span>
     <span class="p">}</span>
     
-    <span class="kt">void</span> <span class="nf">putdown</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">putdown</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
     
         <span class="cm">/* test left and right neighbors */</span>
@@ -691,7 +691,7 @@
         <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="kt">void</span> <span class="nf">test</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">test</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">((</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
 <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">HUNGRY</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
 <span class="p">(</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">))</span> <span class="p">{</span>
@@ -718,7 +718,7 @@
 
 <h3 id="一-mmap">(一) mmap</h3>
 <ul>
-  <li><code class="highlighter-rouge">void *mmap(void *addr, size_t len, int port, int flags, int fildes, off_t off);</code>
+  <li><code class="language-plaintext highlighter-rouge">void *mmap(void *addr, size_t len, int port, int flags, int fildes, off_t off);</code>
     <ul>
       <li>PORT_READ</li>
       <li>PORT_WRITE</li>
@@ -733,7 +733,7 @@
 
 <h3 id="二-msync">(二) msync</h3>
 <ul>
-  <li><code class="highlighter-rouge">int msync(void* addr, size_t len, int flags);</code>
+  <li><code class="language-plaintext highlighter-rouge">int msync(void* addr, size_t len, int flags);</code>
     <ul>
       <li>MS_AYSNC (非同步寫入)</li>
       <li>MS_SYNC (同步寫入)</li>
@@ -745,9 +745,9 @@
 <h3 id="三-munmap">(三) munmap</h3>
 <ul>
   <li>
-    <p><code class="highlighter-rouge">int munmap(void * addr, size_t len);</code></p>
+    <p><code class="language-plaintext highlighter-rouge">int munmap(void * addr, size_t len);</code></p>
   </li>
-  <li><code class="highlighter-rouge">fprintf.c</code>
+  <li><code class="language-plaintext highlighter-rouge">fprintf.c</code>
     <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;time.h&gt;
@@ -909,44 +909,6 @@
                     
                 
             
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
                 
                     
                 
@@ -1135,6 +1097,52 @@
                 
                     
                 
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
             
                 
                     

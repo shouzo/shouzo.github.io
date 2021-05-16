@@ -372,16 +372,16 @@ bursts.
 <span class="cm">/* fork a child process */</span>
 	<span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
 
-	<span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>		<span class="c1">// erro occurred
-</span>		<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Fork Failed"</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>		<span class="c1">// erro occurred</span>
+		<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Fork Failed"</span><span class="p">);</span>
 		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
 	<span class="p">}</span>
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// child process
-</span>		<span class="n">execlp</span><span class="p">(</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"ls"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// child process</span>
+		<span class="n">execlp</span><span class="p">(</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"ls"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
 	<span class="p">}</span>
-	<span class="k">else</span> <span class="p">{</span>			<span class="c1">// parent process
-</span>		<span class="c1">// parent will wait for the child to complete
-</span>		<span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+	<span class="k">else</span> <span class="p">{</span>			<span class="c1">// parent process</span>
+		<span class="c1">// parent will wait for the child to complete</span>
+		<span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
 		<span class="n">printf</span><span class="p">(</span><span class="s">"Child Complete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 	<span class="p">}</span>	
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -406,7 +406,7 @@ bursts.
 <h4 id="1-execv">1. execv()</h4>
 
 <ul>
-  <li>課堂練習： <code class="highlighter-rouge">execv()</code> 的概念</li>
+  <li>課堂練習： <code class="language-plaintext highlighter-rouge">execv()</code> 的概念</li>
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
@@ -494,7 +494,7 @@ bursts.
           <li>by default, this causes the process to suspend execution.</li>
         </ul>
       </li>
-      <li>Ctrl-\
+      <li>Ctrl-
         <ul>
           <li>sends a QUIT signal (SIGQUIT)</li>
           <li>by default, this causes the process to terminate and dump core.</li>
@@ -548,7 +548,7 @@ bursts.
 
 <h5 id="2-sigaction">(2) sigaction()</h5>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
-</span><span class="kt">int</span> <span class="n">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">act</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">oact</span><span class="p">);</span>
+</span><span class="kt">int</span> <span class="nf">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">act</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">oact</span><span class="p">);</span>
 </code></pre></div></div>
 <ul>
   <li>參數說明
@@ -562,7 +562,7 @@ bursts.
       <li>sa_flags 用來設置信號處理的其他相關操作。</li>
     </ul>
   </li>
-  <li>程式作業：<code class="highlighter-rouge">signal</code> 的處理
+  <li>程式作業：<code class="language-plaintext highlighter-rouge">signal</code> 的處理
 <img src="https://i.imgur.com/1Zbog12.jpg" alt="" /></li>
 </ul>
 
@@ -571,25 +571,25 @@ bursts.
 #include &lt;signal.h&gt;
 </span>
 
-<span class="c1">// When the process get the "Ctrl+C" signal.
-</span><span class="kt">void</span> <span class="nf">show_time</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">system</span><span class="p">(</span><span class="s">"date"</span><span class="p">);</span> <span class="c1">// show the time.
-</span><span class="p">}</span>
+<span class="c1">// When the process get the "Ctrl+C" signal.</span>
+<span class="kt">void</span> <span class="nf">show_time</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">"date"</span><span class="p">);</span> <span class="c1">// show the time.</span>
+<span class="p">}</span>
 
-<span class="c1">// When the process gets the "Ctrl+\" signal.
-</span><span class="kt">void</span> <span class="nf">go_default</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">SIG_DFL</span><span class="p">);</span>    <span class="c1">// recover "Ctrl+C"
-</span><span class="p">}</span>
+<span class="c1">// When the process gets the "Ctrl+\" signal.</span>
+<span class="kt">void</span> <span class="nf">go_default</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">SIG_DFL</span><span class="p">);</span>    <span class="c1">// recover "Ctrl+C"</span>
+<span class="p">}</span>
 
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">show_time</span><span class="p">);</span>  <span class="c1">// triggering "Ctrl+C"
-</span>    <span class="n">signal</span><span class="p">(</span><span class="n">SIGQUIT</span><span class="p">,</span> <span class="n">go_default</span><span class="p">);</span><span class="c1">// triggering "Ctrl+\"
-</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">show_time</span><span class="p">);</span>  <span class="c1">// triggering "Ctrl+C"</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGQUIT</span><span class="p">,</span> <span class="n">go_default</span><span class="p">);</span><span class="c1">// triggering "Ctrl+\"</span>
+
     <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"What time is it？</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>  <span class="c1">// Something interesting will happen if this line without "\n".
-</span>        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"What time is it？</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>  <span class="c1">// Something interesting will happen if this line without "\n".</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
     <span class="p">}</span>   
 <span class="p">}</span>
 </code></pre></div></div>
@@ -631,44 +631,6 @@ bursts.
                     
                 
             
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
                 
                     
                 
@@ -857,6 +819,52 @@ bursts.
                 
                     
                 
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
             
                 
                     

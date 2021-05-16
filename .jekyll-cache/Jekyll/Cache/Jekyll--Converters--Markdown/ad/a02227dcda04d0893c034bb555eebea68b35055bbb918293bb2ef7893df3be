@@ -1,0 +1,1089 @@
+I"^-<ul id="markdown-toc">
+  <li><a href="#整理自-由片語學習c程式設計---ch03--運算" id="markdown-toc-整理自-由片語學習c程式設計---ch03--運算">整理自 由片語學習C程式設計 - Ch03 : 運算</a>    <ul>
+      <li><a href="#-筆記內容-" id="markdown-toc--筆記內容-">[ 筆記內容 ]</a>        <ul>
+          <li><a href="#-範例程式碼--github" id="markdown-toc--範例程式碼--github">[ 範例程式碼 ] GitHub</a></li>
+          <li><a href="#一指定" id="markdown-toc-一指定">（一）指定</a>            <ul>
+              <li><a href="#1--使用等號---作指定的動作" id="markdown-toc-1--使用等號---作指定的動作">1.  使用”等號( = )” 作”指定”的動作</a>                <ul>
+                  <li><a href="#1-等號---的意義" id="markdown-toc-1-等號---的意義">(1) “等號( = )” 的意義</a></li>
+                  <li><a href="#-範例-3-1--設定-i-為-j" id="markdown-toc--範例-3-1--設定-i-為-j">[ 範例 3-1 ] 設定 i 為 j</a></li>
+                  <li><a href="#2-交換兩個變數的值" id="markdown-toc-2-交換兩個變數的值">(2) 交換兩個變數的值</a></li>
+                  <li><a href="#-範例-3-2--交換變數-i-和-變數-j-的值" id="markdown-toc--範例-3-2--交換變數-i-和-變數-j-的值">[ 範例 3-2 ] 交換變數 i 和 變數 j 的值</a></li>
+                  <li><a href="#3-指定敘述本身也可以作為算式" id="markdown-toc-3-指定敘述本身也可以作為算式">(3) “指定”敘述本身也可以”作為算式”</a></li>
+                  <li><a href="#-範例-3-3--使用指定當算式" id="markdown-toc--範例-3-3--使用指定當算式">[ 範例 3-3 ] 使用指定當算式</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#二算術運算" id="markdown-toc-二算術運算">（二）算術運算</a>            <ul>
+              <li><a href="#-背景知識--運算子operator-及-運算元operand" id="markdown-toc--背景知識--運算子operator-及-運算元operand">[ 背景知識 ] 運算子(operator) 及 運算元(operand)</a></li>
+              <li><a href="#1--加減運算" id="markdown-toc-1--加減運算">1.  加減運算</a>                <ul>
+                  <li><a href="#-範例-3-4--設定-k-為-i-及-j-的和或差" id="markdown-toc--範例-3-4--設定-k-為-i-及-j-的和或差">[ 範例 3-4 ] 設定 k 為 i 及 j 的和或差</a></li>
+                </ul>
+              </li>
+              <li><a href="#2--乘除運算" id="markdown-toc-2--乘除運算">2.  乘除運算</a>                <ul>
+                  <li><a href="#-範例-3-5--設定-k-為-i-及-j-的商" id="markdown-toc--範例-3-5--設定-k-為-i-及-j-的商">[ 範例 3-5 ] 設定 k 為 i 及 j 的商</a></li>
+                  <li><a href="#-範例-3-6--設定-k-為-i-除以-j-的餘數" id="markdown-toc--範例-3-6--設定-k-為-i-除以-j-的餘數">[ 範例 3-6 ] 設定 k 為 i 除以 j 的餘數</a></li>
+                  <li><a href="#-範例-3-7--計算一個二位數的十位數及個位數" id="markdown-toc--範例-3-7--計算一個二位數的十位數及個位數">[ 範例 3-7 ] 計算一個二位數的十位數及個位數</a></li>
+                </ul>
+              </li>
+              <li><a href="#3--負數運算" id="markdown-toc-3--負數運算">3.  負數運算</a>                <ul>
+                  <li><a href="#-範例-3-8--計算一個數的負數" id="markdown-toc--範例-3-8--計算一個數的負數">[ 範例 3-8 ] 計算一個數的負數</a></li>
+                </ul>
+              </li>
+              <li><a href="#4--調整變數值" id="markdown-toc-4--調整變數值">4.  調整變數值</a></li>
+              <li><a href="#5--變數的範圍" id="markdown-toc-5--變數的範圍">5.  變數的範圍</a>                <ul>
+                  <li><a href="#-範例-3-9--用-sizeof-計算-int-所占記憶體的位元組數" id="markdown-toc--範例-3-9--用-sizeof-計算-int-所占記憶體的位元組數">[ 範例 3-9 ] 用 “sizeof()” 計算 int 所占記憶體的位元組數</a></li>
+                </ul>
+              </li>
+              <li><a href="#6--運算先後順序" id="markdown-toc-6--運算先後順序">6.  運算先後順序</a>                <ul>
+                  <li><a href="#-範例-3-10--數學運算的先後順序" id="markdown-toc--範例-3-10--數學運算的先後順序">[ 範例 3-10 ] 數學運算的先後順序</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#三比較運算" id="markdown-toc-三比較運算">（三）比較運算</a>            <ul>
+              <li><a href="#1--比較運算的結果" id="markdown-toc-1--比較運算的結果">1.  比較運算的結果</a>                <ul>
+                  <li><a href="#-範例-3-11--印出比較運算的結果" id="markdown-toc--範例-3-11--印出比較運算的結果">[ 範例 3-11 ] 印出比較運算的結果</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#四邏輯運算" id="markdown-toc-四邏輯運算">（四）邏輯運算</a>            <ul>
+              <li><a href="#-邏輯運算符號-" id="markdown-toc--邏輯運算符號-">[ 邏輯運算符號 ]</a></li>
+              <li><a href="#1--運算順序及結果" id="markdown-toc-1--運算順序及結果">1.  運算順序及結果</a>                <ul>
+                  <li><a href="#-範例-3-12--整數使用邏輯運算" id="markdown-toc--範例-3-12--整數使用邏輯運算">[ 範例 3-12 ] 整數使用邏輯運算</a></li>
+                  <li><a href="#-範例-3-13--判斷閏年" id="markdown-toc--範例-3-13--判斷閏年">[ 範例 3-13 ] 判斷閏年</a></li>
+                </ul>
+              </li>
+              <li><a href="#2--快捷運算-short-circuit-evalutaion" id="markdown-toc-2--快捷運算-short-circuit-evalutaion">2.  快捷運算 (short circuit evalutaion)</a>                <ul>
+                  <li><a href="#-範例-3-14--快捷運算可能造成意料之外的執行結果" id="markdown-toc--範例-3-14--快捷運算可能造成意料之外的執行結果">[ 範例 3-14 ] 快捷運算可能造成意料之外的執行結果</a></li>
+                  <li><a href="#-範例-3-15--避免快捷運算可能造成意料之外的執行結果-繼範例-3-14" id="markdown-toc--範例-3-15--避免快捷運算可能造成意料之外的執行結果-繼範例-3-14">[ 範例 3-15 ] “避免”快捷運算可能造成意料之外的執行結果 (繼範例 3-14)</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#五作業" id="markdown-toc-五作業">（五）作業</a>            <ul>
+              <li><a href="#-作業-3-16-" id="markdown-toc--作業-3-16-">[ 作業 3-16 ]</a></li>
+              <li><a href="#-作業-3-17-" id="markdown-toc--作業-3-17-">[ 作業 3-17 ]</a></li>
+              <li><a href="#-作業-3-18-" id="markdown-toc--作業-3-18-">[ 作業 3-18 ]</a></li>
+              <li><a href="#-作業-3-19-" id="markdown-toc--作業-3-19-">[ 作業 3-19 ]</a></li>
+              <li><a href="#-作業-3-20-" id="markdown-toc--作業-3-20-">[ 作業 3-20 ]</a></li>
+              <li><a href="#-作業-3-21-" id="markdown-toc--作業-3-21-">[ 作業 3-21 ]</a></li>
+              <li><a href="#-作業-3-22-" id="markdown-toc--作業-3-22-">[ 作業 3-22 ]</a></li>
+              <li><a href="#-作業-3-23-" id="markdown-toc--作業-3-23-">[ 作業 3-23 ]</a></li>
+              <li><a href="#-作業-3-24-" id="markdown-toc--作業-3-24-">[ 作業 3-24 ]</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="整理自-由片語學習c程式設計---ch03--運算">整理自 <a href="https://sites.google.com/site/mycprogrammingbook/">由片語學習C程式設計</a> - Ch03 : 運算</h1>
+
+<h2 id="-筆記內容-">[ 筆記內容 ]</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>（一）指定
+  1.  使用"等號( = )" 作"指定"的動作
+    (1) "等號( = )" 的意義
+      [ 範例 3-1 ] 設定 i 為 j
+    (2) 交換兩個變數的值
+      [ 範例 3-2 ] 交換變數 i 和 變數 j 的值
+    (3) "指定"敘述本身也可以"作為算式"
+      [ 範例 3-3 ] 使用指定當算式
+
+（二）算術運算
+  [ 背景知識 ] 運算子 (operator) 及 運算元 (operand)
+  1. 加減運算
+    [ 範例 3-4 ] 設定 k 為 i 及 j 的和或差
+  2. 乘除運算
+    [ 範例 3-5 ] 設定 k 為 i 及 j 的商
+    [ 範例 3-6 ] 設定 k 為 i 除以 j 的餘數
+    [ 範例 3-7 ] 計算一個二位數的十位數及個位數
+  3. 負數運算
+    [ 範例 3-8 ] 計算一個數的負數
+  4. 調整變數值
+  5. 整數的範圍
+    [ 範例 3-9 ] 用 "sizeof()" 計算 int 所占記憶體的位元組數
+  6. 運算先後順序
+    [ 範例 3-10 ] 數學運算的先後順序
+    
+（三）比較運算
+  1. 比較運算的結果
+    [ 範例 3-11 ] 印出比較運算的結果
+
+（四）邏輯運算
+  1. 運算順序及結果
+    [ 範例 3-12 ] 整數使用邏輯運算
+    [ 範例 3-13 ] 判斷閏年
+  2. 快捷運算
+    [ 範例 3-14 ] 快捷運算可能造成意料之外的執行結果
+    [ 範例 3-15 ] "避免"快捷運算可能造成意料之外的執行結果 (繼範例 3-14)
+    
+（五）作業
+    [ 作業 3-16 ] 
+    [ 作業 3-17 ]
+    [ 作業 3-18 ] 
+    [ 作業 3-19 ] 
+    [ 作業 3-20 ] 
+    [ 作業 3-21 ] 
+    [ 作業 3-22 ] 
+    [ 作業 3-23 ]
+    [ 作業 3-24 ] 
+</code></pre></div></div>
+
+<h3 id="-範例程式碼--github">[ 範例程式碼 ] GitHub</h3>
+
+<ul>
+  <li><a href="https://github.com/shouzo/C-Programming/tree/master/C_Programming-Book/Ch03">https://github.com/shouzo/C-Programming/tree/master/C_Programming-Book/Ch03</a></li>
+</ul>
+
+<hr />
+
+<h3 id="一指定">（一）指定</h3>
+
+<h4 id="1--使用等號---作指定的動作">1.  使用”等號( = )” 作”指定”的動作</h4>
+
+<h5 id="1-等號---的意義">(1) “等號( = )” 的意義</h5>
+
+<ul>
+  <li>將 “=” 右邊的值指定給 “=” 左邊的值。</li>
+  <li>代表指定而非相等。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 使用"等號(=)"進行指定的動作</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// 將"變數 i"的內容指定為 0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>    <span class="c1">// 將"變數 i"的內容設定為另一個"變數 j"</span>
+</code></pre></div></div>
+
+<h5 id="-範例-3-1--設定-i-為-j">[ 範例 3-1 ] 設定 i 為 j</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-1.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>    
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-1.png" alt="" /></p>
+
+<h5 id="2-交換兩個變數的值">(2) 交換兩個變數的值</h5>
+
+<ul>
+  <li>建立一個變數作為暫存之用。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 利用暫存變數"temp"來交換兩個變數("i"和"j")的值</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>    
+    <span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h5 id="-範例-3-2--交換變數-i-和-變數-j-的值">[ 範例 3-2 ] 交換變數 i 和 變數 j 的值</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-2.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">temp</span><span class="p">;</span>   <span class="c1">// 宣告暫存變數"temp"</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+
+  <span class="c1">// **** 開始交換變數 i 和 變數 j ****</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+
+  <span class="c1">// **** 交換結束 ****</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-2.png" alt="" /></p>
+
+<h5 id="3-指定敘述本身也可以作為算式">(3) “指定”敘述本身也可以”作為算式”</h5>
+
+<ul>
+  <li>使用指定當算式</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 使用指定當算式</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// 由於"="右邊會優先運算，此時可視為"i = (j = 0)": 0 先給 j 作為新值，再將 j 的新值指定給 i</span>
+</code></pre></div></div>
+
+<h5 id="-範例-3-3--使用指定當算式">[ 範例 3-3 ] 使用指定當算式</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-3.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+    
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-3.png" alt="" /></p>
+
+<hr />
+
+<h3 id="二算術運算">（二）算術運算</h3>
+
+<h4 id="-背景知識--運算子operator-及-運算元operand">[ 背景知識 ] 運算子(operator) 及 運算元(operand)</h4>
+
+<ul>
+  <li>算術運算是由 “運算子 (operator)” 及 “運算元 (operand)” 所構成：
+    <ul>
+      <li>運算子 (operator)
+        <ol>
+          <li>和 ( + )、差 ( - ) 、積 ( * )、商 ( / )、餘數 ( % ) 等運算子稱為 “二元運算子 (binary operator)”：需要兩個運算元。
+            <ul>
+              <li>取負數 稱為 “一元運算子 (unary operator)”：只需要一個運算元。</li>
+            </ul>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/20160104/op.png" alt="" /></p>
+
+<p>圖片來源(C 語言運算子) - <a href="https://zh.wikipedia.org/wiki/C%E8%AF%AD%E8%A8%80">https://zh.wikipedia.org/wiki/C%E8%AF%AD%E8%A8%80</a></p>
+
+<ul>
+  <li>運算元 (operand)
+    <ul>
+      <li>進行算術運算中所使用到的”變數或數字” (運算子以外的字元)。</li>
+    </ul>
+  </li>
+  <li>運算子與運算元的差異</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 認識運算子與運算元 */</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">7</span><span class="p">;</span>    <span class="c1">// 運算式一定在"等號(=)"右邊，在此"b + 7"為運算式</span>
+    <span class="c1">// "a" 及 "b" 為運算元；</span>
+    <span class="c1">// "=" 及 "+" 為運算子        </span>
+<span class="cm">/* 計算和、差、積、商、或是餘數 */</span>
+  <span class="c1">// **** 包含 "二元運算子" ****</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="n">j</span><span class="p">;</span>
+  <span class="c1">// **** 包含 "一元運算子" ****</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="n">i</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="1--加減運算">1.  加減運算</h4>
+
+<ul>
+  <li>基本的加減運算</li>
+</ul>
+
+<h5 id="-範例-3-4--設定-k-為-i-及-j-的和或差">[ 範例 3-4 ] 設定 k 為 i 及 j 的和或差</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-4.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+          
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span> 
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-4.png" alt="" /></p>
+
+<h4 id="2--乘除運算">2.  乘除運算</h4>
+<ul>
+  <li>基本的乘除運算</li>
+</ul>
+
+<h5 id="-範例-3-5--設定-k-為-i-及-j-的商">[ 範例 3-5 ] 設定 k 為 i 及 j 的商</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-5.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>          
+    
+    <span class="c1">// 第一次輸入</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+    
+    <span class="c1">// 第二次輸入</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>      
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-5.png" alt="" /></p>
+
+<h5 id="-範例-3-6--設定-k-為-i-除以-j-的餘數">[ 範例 3-6 ] 設定 k 為 i 除以 j 的餘數</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-6.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+
+    <span class="c1">// 第一次輸入</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+     
+    <span class="c1">// 第二次輸入</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-6.png" alt="" /></p>
+
+<h5 id="-範例-3-7--計算一個二位數的十位數及個位數">[ 範例 3-7 ] 計算一個二位數的十位數及個位數</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-7.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+
+      <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>      
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-7.png" alt="" /></p>
+
+<h4 id="3--負數運算">3.  負數運算</h4>
+
+<h5 id="-範例-3-8--計算一個數的負數">[ 範例 3-8 ] 計算一個數的負數</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-8.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="n">i</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>      
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-8.png" alt="" /></p>
+
+<h4 id="4--調整變數值">4.  調整變數值</h4>
+
+<ul>
+  <li>運算的簡潔表示</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 簡潔表示 */</span>
+<span class="n">i</span> <span class="o">+=</span> <span class="n">j</span><span class="p">;</span>    <span class="c1">// 相當於 i = i + j</span>
+<span class="n">i</span> <span class="o">-=</span> <span class="n">j</span><span class="p">;</span>    <span class="c1">// 相當於 i = i - j</span>
+<span class="n">i</span> <span class="o">*=</span> <span class="n">j</span><span class="p">;</span>    <span class="c1">// 相當於 i = i * j</span>
+<span class="n">i</span> <span class="o">/=</span> <span class="n">j</span><span class="p">;</span>    <span class="c1">// 相當於 i = i / j</span>
+<span class="n">i</span> <span class="o">%=</span> <span class="n">j</span><span class="p">;</span>    <span class="c1">// 相當於 i = i % j</span>
+<span class="cm">/* 把 i 的值加、減 "1" */</span>
+<span class="n">i</span><span class="o">++</span><span class="p">;</span>       <span class="c1">// 相當於 i = i + 1;    </span>
+<span class="n">i</span><span class="o">--</span><span class="p">;</span>       <span class="c1">// 相當於 i = i - 1;</span>
+</code></pre></div></div>
+
+<h4 id="5--變數的範圍">5.  變數的範圍</h4>
+<ul>
+  <li>用 “sizeof()” 印出變數所占記憶體的位元組數</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "sizeof()"的用法</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">variable</span><span class="p">));</span>
+</code></pre></div></div>
+<ul>
+  <li>如果計算的結果超過一個變數所能表示的範圍就稱為 “溢位”，溢位會使計算結果不正確。</li>
+</ul>
+
+<h5 id="-範例-3-9--用-sizeof-計算-int-所占記憶體的位元組數">[ 範例 3-9 ] 用 “sizeof()” 計算 int 所占記憶體的位元組數</h5>
+<ul>
+  <li>一個 “int” 所能表示的範圍：2^31 - 1 到 -2^31，若輸入的整數超過 “int” 的範圍將會產生 “整數溢位”。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-9.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>     
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+      <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-9.png" alt="" /></p>
+
+<h4 id="6--運算先後順序">6.  運算先後順序</h4>
+<ul>
+  <li>在C語言中，先做 “乘法”、”除法”、”求餘數”；後做 “加法”、”減法”。</li>
+  <li>可以用 “小括號” 進行強制優先運算。</li>
+</ul>
+
+<h5 id="-範例-3-10--數學運算的先後順序">[ 範例 3-10 ] 數學運算的先後順序</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-10.c"</span>
+<span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+      <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">j</span><span class="p">;</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+      <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="n">j</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-10.png" alt="" /></p>
+
+<hr />
+
+<h3 id="三比較運算">（三）比較運算</h3>
+<ul>
+  <li>相關運算符號</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>符號</th>
+      <th>意義</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&gt;=</td>
+      <td>大於等於</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>大於</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>小於等於</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>小於</td>
+    </tr>
+    <tr>
+      <td>==</td>
+      <td>等於</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>不等於</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>常見用法
+    <ul>
+      <li>註：算術運算先做，比較運算後做。</li>
+    </ul>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>比較”常數”</th>
+      <th>比較”整數變數”</th>
+      <th>比較”整數算術算式”</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>i &gt;= 0</td>
+      <td>i &gt;= j</td>
+      <td>i &gt;= (j+n)</td>
+    </tr>
+    <tr>
+      <td>i &gt; 0</td>
+      <td>i &gt; j</td>
+      <td>i &gt; (j+n)</td>
+    </tr>
+    <tr>
+      <td>i &lt;= 0</td>
+      <td>i &lt;= j</td>
+      <td>i &lt;= (j+n)</td>
+    </tr>
+    <tr>
+      <td>i &lt; 0</td>
+      <td>i &lt; j</td>
+      <td>i &lt; (j+n)</td>
+    </tr>
+    <tr>
+      <td>i == 0</td>
+      <td>i == j</td>
+      <td>i == (j+n)</td>
+    </tr>
+    <tr>
+      <td>i != 0</td>
+      <td>i != j</td>
+      <td>i != (j+n)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>特殊用法</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>偶數判斷</th>
+      <th>直角三角形判斷</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(i % 2) == 0</td>
+      <td>(a)(a) + (b)(b) == (c)(c)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="1--比較運算的結果">1.  比較運算的結果</h4>
+<ul>
+  <li>在C語言裡面，”0” 代表 “偽”、”非零的整數” 代表 “真”。</li>
+</ul>
+
+<h5 id="-範例-3-11--印出比較運算的結果">[ 範例 3-11 ] 印出比較運算的結果</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+      <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+      
+      <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-11.png" alt="" /></p>
+
+<hr />
+
+<h3 id="四邏輯運算">（四）邏輯運算</h3>
+
+<h4 id="-邏輯運算符號-">[ 邏輯運算符號 ]</h4>
+
+<ul>
+  <li>且(and)：
+    <ul>
+      <li>兩者都要為 “真”，答案才為 “真”。</li>
+    </ul>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "且"(and)的運算</span>
+<span class="n">i</span> <span class="o">&amp;&amp;</span> <span class="n">j</span>
+</code></pre></div>    </div>
+  </li>
+  <li>或(or)：
+    <ul>
+      <li>兩者間只要有一個答案為 “真”，答案即為 “真”。</li>
+    </ul>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "或"(or)的運算</span>
+<span class="n">i</span> <span class="o">||</span> <span class="n">j</span>
+</code></pre></div>    </div>
+  </li>
+  <li>反(not)：!
+    <ul>
+      <li>變數為 “真” 時，答案為 “偽”；變數為 “偽” 時，答案為 “真”。</li>
+    </ul>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "反"(not)的運算</span>
+<span class="o">!</span><span class="n">i</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="1--運算順序及結果">1.  運算順序及結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>一元運算子 &gt;&gt; 算術運算 &gt;&gt; 比較運算 &gt;&gt; 邏輯運算 &gt;&gt; 調整運算
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>優先順序</th>
+      <th>C 語言表示法</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>++ (加1)、- - (減1)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>- (求負數)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>! (非)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>* (乘)、/ (除)、% (求餘數)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>+ (加)、- (減)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>== (等於)、!= (不等於)、&gt; (大於)、&lt; (小於)、&gt;= (大於等於)、&lt;= (小於等於)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>&amp;&amp; (且)、</td>
+      <td> </td>
+      <td>(或)</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>指定及調整變數值：+=、- =、*=、/=、%=</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="-範例-3-12--整數使用邏輯運算">[ 範例 3-12 ] 整數使用邏輯運算</h5>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
+      
+      <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;&amp;</span> <span class="n">j</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+      
+      <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">||</span> <span class="n">j</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+      
+      <span class="n">k</span> <span class="o">=</span> <span class="o">!</span><span class="n">i</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-12.png" alt="" /></p>
+
+<h5 id="-範例-3-13--判斷閏年">[ 範例 3-13 ] 判斷閏年</h5>
+<ul>
+  <li>一個閏年必須是 400 的倍數，或是 4 的倍數但非 100 的倍數。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">year</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">year</span><span class="p">);</span>
+      <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">((</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">));</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-13.png" alt="" /></p>
+
+<h4 id="2--快捷運算-short-circuit-evalutaion">2.  快捷運算 (short circuit evalutaion)</h4>
+<ul>
+  <li>適用在 “不更改任何變數值” 的邏輯算式：如果一個邏輯算式經由部份算式已經可以確認真偽，則剩下的部分不會執行。</li>
+</ul>
+
+<h5 id="-範例-3-14--快捷運算可能造成意料之外的執行結果">[ 範例 3-14 ] 快捷運算可能造成意料之外的執行結果</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">((</span><span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="p">(</span><span class="n">l</span> <span class="o">=</span> <span class="n">j</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">{</span>
+           <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+           <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">l</span><span class="p">);</span>  
+      <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-14.png" alt="" /></p>
+
+<h5 id="-範例-3-15--避免快捷運算可能造成意料之外的執行結果-繼範例-3-14">[ 範例 3-15 ] “避免”快捷運算可能造成意料之外的執行結果 (繼範例 3-14)</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span>
+      <span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+      <span class="n">l</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">l</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">{</span>
+           <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+           <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">l</span><span class="p">);</span>  
+      <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-15.png" alt="" /></p>
+
+<hr />
+
+<h3 id="五作業">（五）作業</h3>
+
+<h4 id="-作業-3-16-">[ 作業 3-16 ]</h4>
+<ul>
+  <li>寫一個程式讀入三個˙整數，計算並輸出他們的連乘積。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">,</span> <span class="n">total</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d %d %d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i3</span><span class="p">);</span>
+      <span class="n">total</span> <span class="o">=</span> <span class="n">i1</span> <span class="o">*</span> <span class="n">i2</span> <span class="o">*</span> <span class="n">i3</span><span class="p">;</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d * %d * %d = %d"</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">,</span> <span class="n">total</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>&lt; 執行結果 &gt;</strong></p>
+
+<p><img src="/assets/20160104/3-16.png" alt="" /></p>
+
+<h4 id="-作業-3-17-">[ 作業 3-17 ]</h4>
+<ul>
+  <li>寫一個程式讀入一個整數，如果該整數為偶數則輸出 1 ，否則輸出 0。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      
+      <span class="n">i</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">));</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-17.png" alt="" /></p>
+
+<h4 id="-作業-3-18-">[ 作業 3-18 ]</h4>
+<ul>
+  <li>寫一個程式讀入一個四位正整數並計算四個位數的和。如果輸入為 1234，則輸出為 10。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">,</span> <span class="n">i4</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">total</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      
+      <span class="n">i1</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>                          <span class="c1">// 计 </span>
+      <span class="n">i2</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>         <span class="c1">// 计</span>
+      <span class="n">i3</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">100</span><span class="p">))</span> <span class="o">/</span> <span class="mi">100</span><span class="p">;</span>  <span class="c1">// κ计</span>
+      <span class="n">i4</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span>                        <span class="c1">// 计</span>
+      
+      <span class="n">total</span> <span class="o">=</span> <span class="n">i1</span> <span class="o">+</span> <span class="n">i2</span> <span class="o">+</span> <span class="n">i3</span> <span class="o">+</span> <span class="n">i4</span><span class="p">;</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">total</span><span class="p">);</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-18.png" alt="" /></p>
+
+<h4 id="-作業-3-19-">[ 作業 3-19 ]</h4>
+<ul>
+  <li>寫一個程式讀入一個正整數。如果該整數為 3 的倍數但不為 5 的倍數則輸出 1 ，或是為 5 的倍數但不為 3 的倍數則輸出 1；其他狀況均輸出 0。例如輸入為 36 或 20，則輸出為 1；如果輸入為 30 或 7，則輸出為 0。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+      
+      <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">5</span><span class="p">))</span> <span class="o">||</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span><span class="p">));</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-19.png" alt="" /></p>
+
+<h4 id="-作業-3-20-">[ 作業 3-20 ]</h4>
+<ul>
+  <li>寫一個程式找零錢。程式首先讀入一介於 1 與 100 之間的整數，然後使用最少數目的 50、10、5、1 硬幣湊足給定的整數。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">,</span> <span class="n">i4</span><span class="p">;</span>
+      
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>    <span class="c1">// 輸入的整數須介於"1 ~ 100"之間 </span>
+      
+      <span class="n">i1</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">50</span><span class="p">;</span>    <span class="c1">// 取得"50元"的數量                         </span>
+      <span class="n">i2</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="p">(</span><span class="mi">50</span> <span class="o">*</span> <span class="n">i1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>                     <span class="c1">// 取得"10元"的數量</span>
+      <span class="n">i3</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="p">(</span><span class="mi">50</span> <span class="o">*</span> <span class="n">i1</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">i2</span> <span class="p">))</span> <span class="o">/</span> <span class="mi">5</span><span class="p">;</span>           <span class="c1">// 取得"5元"的數量</span>
+      <span class="n">i4</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="p">(</span><span class="mi">50</span> <span class="o">*</span> <span class="n">i1</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">i2</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">i3</span><span class="p">))</span> <span class="o">/</span> <span class="mi">1</span><span class="p">;</span>   <span class="c1">// 取得"1元"的數量</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i1</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i2</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i3</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i4</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-20.png" alt="" /></p>
+
+<h4 id="-作業-3-21-">[ 作業 3-21 ]</h4>
+<ul>
+  <li>寫一個程式讀入四個正整數 a、b、c、d 並保證點 (a, b) 及 (c, d) 為不同點。如果連接點 (a, b) 及 (c, d) 的直線通過原點則輸出 1，其他狀況均輸出 0。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">A1</span><span class="p">,</span> <span class="n">B1</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"請分別輸入正整數</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> 
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"a = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"b = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"c = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"d = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">);</span>      
+      
+      
+      <span class="c1">// 判斷"商" </span>
+      <span class="n">A</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">);</span>
+      <span class="n">B</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">0</span><span class="p">);</span>
+      
+      <span class="c1">// 判斷"餘數" </span>
+      <span class="n">A1</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">%</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">);</span>
+      <span class="n">B1</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">0</span><span class="p">);</span>
+      
+      <span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">A1</span> <span class="o">==</span> <span class="n">B1</span><span class="p">));</span>    <span class="c1">// 利用"商"跟"餘數"來判斷斜率是否相同</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>&lt; 執行結果 &gt;</strong>
+<img src="/assets/20160104/3-21.png" alt="" /></p>
+
+<h4 id="-作業-3-22-">[ 作業 3-22 ]</h4>
+<ul>
+  <li>寫一個程式讀入四個整數 a、b、c、d 並且保證 c &gt; a 且 d &gt; b 。計算以 (a, b) 為左下角，(c, d) 為右上角的長方形面積及周長。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">area</span><span class="p">,</span> <span class="n">length</span><span class="p">;</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"請分別輸入四個整數</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"必須要保證 c &gt; a 和 d &gt; b</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> 
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"a = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"b = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"c = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"d = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">);</span>
+      
+      
+      <span class="n">area</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">b</span><span class="p">);</span>            <span class="c1">// 計算面積</span>
+      <span class="n">length</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">b</span><span class="p">));</span>    <span class="c1">// 計算周長 </span>
+
+      <span class="n">printf</span><span class="p">(</span><span class="s">"面積為：%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">area</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"周長為：%d"</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>&lt; 執行結果 &gt;</strong></p>
+
+<p><img src="/assets/20160104/3-22.png" alt="" /></p>
+
+<h4 id="-作業-3-23-">[ 作業 3-23 ]</h4>
+<ul>
+  <li>寫一個程式讀入三個整數 a、b、c，其中 a 不等於 0。如果方程式 f(x) = ax^2 + bx + c = 0 有重根則輸出 1，其他狀況均輸出 0。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"請分別輸入三個整數</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">" 'a' 不能為0</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> 
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"a = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"b = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"c = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+      
+      
+      <span class="c1">// 利用 b*b - 4*a*c 公式來判別方程式是否為重根 </span>
+      <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+
+
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>&lt; 執行結果 &gt;</strong></p>
+
+<p><img src="/assets/20160104/3-23.png" alt="" /></p>
+
+<h4 id="-作業-3-24-">[ 作業 3-24 ]</h4>
+<ul>
+  <li>寫一個程式讀入三個整數，分別為一個長方體的高度、寬度和深度。計算並輸出其表面積及體積。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">area</span><span class="p">,</span> <span class="n">volume</span><span class="p">;</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"請分別輸入高度、寬度、深度</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"高度(height) = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">height</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"寬度(width) = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">width</span><span class="p">);</span>
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"深度(depth) = "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">depth</span><span class="p">);</span>
+      
+      
+      <span class="c1">// 計算表面積 </span>
+      <span class="n">area</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">height</span> <span class="o">*</span> <span class="n">width</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">height</span> <span class="o">*</span> <span class="n">depth</span><span class="p">);</span>
+      
+      <span class="c1">// 計算體積</span>
+      <span class="n">volume</span> <span class="o">=</span> <span class="n">height</span> <span class="o">*</span> <span class="n">width</span> <span class="o">*</span> <span class="n">depth</span><span class="p">;</span>
+      
+      
+      <span class="n">printf</span><span class="p">(</span><span class="s">"表面積為：%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">area</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"體積為：%d"</span><span class="p">,</span> <span class="n">volume</span><span class="p">);</span>
+      
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>&lt; 執行結果 &gt;</strong></p>
+
+<p><img src="/assets/20160104/3-24.png" alt="" /></p>
+:ET

@@ -1,0 +1,124 @@
+I"mY<ul id="markdown-toc">
+  <li><a href="#用程式實現歸屬函數的判定" id="markdown-toc-用程式實現歸屬函數的判定">用程式實現歸屬函數的判定</a></li>
+</ul>
+
+<p><img src="https://i.imgur.com/wSK7bFu.jpg" alt="" /></p>
+
+<p><img src="https://i.imgur.com/xaRQW1r.jpg" alt="" /></p>
+
+<h3 id="用程式實現歸屬函數的判定">用程式實現歸屬函數的判定</h3>
+<ul>
+  <li>分別輸入 X1、X2 的數值，輸出其 <strong>歸屬函數(membership function, mf)</strong> 的值。</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// Set loop</span>
+    <span class="kt">float</span> <span class="n">mf</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">75</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
+    <span class="kt">float</span> <span class="n">X1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// Input X1, X2</span>
+    <span class="kt">float</span> <span class="n">ua1</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ua2</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>   <span class="c1">// for X1</span>
+    <span class="kt">float</span> <span class="n">ub1</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ub2</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>   <span class="c1">// for X2</span>
+    <span class="kt">float</span> <span class="n">u13</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">u14</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">u23</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">u24</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"VS"</span><span class="p">,</span> <span class="s">"S"</span><span class="p">,</span> <span class="s">"M"</span><span class="p">,</span> <span class="s">"L"</span><span class="p">,</span> <span class="s">"VL"</span><span class="p">};</span>
+
+
+    <span class="cm">/* The entry */</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* Initial value */</span>
+        <span class="n">ua1</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ua2</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+        <span class="n">ub1</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ub2</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+        <span class="n">u13</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">u14</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">u23</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">u24</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+ 
+
+        <span class="cm">/* Key the value of x */</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">Please key in the value of 'Input'</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"X1 = "</span><span class="p">);</span>    <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">X1</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"X2 = "</span><span class="p">);</span>    <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">X2</span><span class="p">);</span>
+
+
+        <span class="cm">/* Calculate the linear μ */</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">****The membership function****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// input = mf</span>
+            <span class="k">if</span> <span class="p">(((</span><span class="n">X1</span> <span class="o">==</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span> <span class="p">{</span> 
+                <span class="n">ua1</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>    <span class="n">ua2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X1：μ[%s] = 1, ua1 = %.3f、ua2 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua1</span><span class="p">,</span> <span class="n">ua2</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(((</span><span class="n">X2</span> <span class="o">==</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span> <span class="p">{</span> 
+                <span class="n">ub1</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>    <span class="n">ub2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X2：μ[%s] = 1, ub1 = %.3f、ub2 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ub1</span><span class="p">,</span> <span class="n">ub2</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+
+            <span class="c1">// input bigger than the max's mf</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">X1</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span> <span class="p">{</span> 
+                <span class="n">ua1</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>   <span class="n">ua2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X1：μ[%s] = 1, ua1 = %.3f、ua2 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">ua1</span><span class="p">,</span> <span class="n">ua2</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">X2</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span> <span class="p">{</span> 
+                <span class="n">ub1</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>   <span class="n">ub2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X2：μ[%s] = 1, ub1 = %.3f、ub2 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">ub1</span><span class="p">,</span> <span class="n">ub2</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+
+            <span class="c1">// input smaller than the min's mf</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">X1</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span> 
+                <span class="n">ua1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.;</span>   <span class="n">ua2</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X1：μ[%s] = 1, ua1 = %.3f、ua2 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ua1</span><span class="p">,</span> <span class="n">ua2</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">X2</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span> 
+                <span class="n">ub1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.;</span>   <span class="n">ub2</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X2：μ[%s] = 1, ub1 = %.3f、ub2 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ub1</span><span class="p">,</span> <span class="n">ub2</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+
+            <span class="c1">// Calculate (The linear)... </span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">X1</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">X1</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The linear：X1****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                <span class="n">ua1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">X1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span>
+                <span class="n">ua2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">X1</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span> 
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X1：ua1 = μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua1</span><span class="p">);</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X1：ua2 = μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ua2</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">X2</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">X2</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The linear：X2****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                <span class="n">ub1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">X2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span>
+                <span class="n">ub2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">X2</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span> 
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X2：ub1 = μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ub1</span><span class="p">);</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"X2：ub2 = μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub2</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+
+        <span class="c1">// Get the minimun...</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The minimum****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">u13</span> <span class="o">=</span> <span class="p">(</span><span class="n">ua1</span> <span class="o">&lt;</span> <span class="n">ub1</span> <span class="o">?</span> <span class="n">ua1</span> <span class="o">:</span> <span class="n">ub1</span><span class="p">);</span>    <span class="n">u14</span> <span class="o">=</span> <span class="p">(</span><span class="n">ua1</span> <span class="o">&lt;</span> <span class="n">ub2</span> <span class="o">?</span> <span class="n">ua1</span> <span class="o">:</span> <span class="n">ub2</span><span class="p">);</span>
+        <span class="n">u23</span> <span class="o">=</span> <span class="p">(</span><span class="n">ua2</span> <span class="o">&lt;</span> <span class="n">ub1</span> <span class="o">?</span> <span class="n">ua2</span> <span class="o">:</span> <span class="n">ub1</span><span class="p">);</span>    <span class="n">u24</span> <span class="o">=</span> <span class="p">(</span><span class="n">ua2</span> <span class="o">&lt;</span> <span class="n">ub2</span> <span class="o">?</span> <span class="n">ua2</span> <span class="o">:</span> <span class="n">ub2</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"u13 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u13</span><span class="p">);</span>  <span class="n">printf</span><span class="p">(</span><span class="s">"u14 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u14</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"u23 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u23</span><span class="p">);</span>  <span class="n">printf</span><span class="p">(</span><span class="s">"u24 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u24</span><span class="p">);</span>
+
+
+        <span class="c1">// Get the product...</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The product****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">u13</span> <span class="o">=</span> <span class="n">ua1</span> <span class="o">*</span> <span class="n">ub1</span><span class="p">;</span>    <span class="n">u14</span> <span class="o">=</span> <span class="n">ua1</span> <span class="o">*</span> <span class="n">ub2</span><span class="p">;</span>
+        <span class="n">u23</span> <span class="o">=</span> <span class="n">ua2</span> <span class="o">*</span> <span class="n">ub1</span><span class="p">;</span>    <span class="n">u24</span> <span class="o">=</span> <span class="n">ua2</span> <span class="o">*</span> <span class="n">ub2</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"u13 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u13</span><span class="p">);</span>  <span class="n">printf</span><span class="p">(</span><span class="s">"u14 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u14</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"u23 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u23</span><span class="p">);</span>  <span class="n">printf</span><span class="p">(</span><span class="s">"u24 = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u24</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/qQmALqk.jpg" alt="" />
+<img src="https://i.imgur.com/8R4pkpE.jpg" alt="" /></li>
+</ul>
+:ET

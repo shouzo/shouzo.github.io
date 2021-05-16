@@ -328,7 +328,7 @@
   </li>
   <li>The variable turn indicates whose turn it is to enter the critical section</li>
   <li>The flag array is used to indicate if a process is ready to enter the critical section.</li>
-  <li><code class="highlighter-rouge">flag[i] = true</code> implies that process Pi is ready!</li>
+  <li><code class="language-plaintext highlighter-rouge">flag[i] = true</code> implies that process Pi is ready!</li>
 </ul>
 
 <p><img src="https://i.imgur.com/VjV8Owl.jpg" alt="" /></p>
@@ -431,7 +431,7 @@
 </ul>
 
 <h3 id="一-low-level-file-access">(一) Low-level file access</h3>
-<p>Header：<code class="highlighter-rouge">#include &lt;unistd.h&gt;</code></p>
+<p>Header：<code class="language-plaintext highlighter-rouge">#include &lt;unistd.h&gt;</code></p>
 
 <ul>
   <li>Action
@@ -467,8 +467,8 @@
 
 <h4 id="1-open">1. open</h4>
 <ul>
-  <li><code class="highlighter-rouge">int open(const char* path, int oflags);</code></li>
-  <li><code class="highlighter-rouge">int open(const char* path, int oflags, mode_t mode);</code></li>
+  <li><code class="language-plaintext highlighter-rouge">int open(const char* path, int oflags);</code></li>
+  <li><code class="language-plaintext highlighter-rouge">int open(const char* path, int oflags, mode_t mode);</code></li>
   <li>Mode
     <ul>
       <li>O_RDONLY</li>
@@ -488,7 +488,7 @@
 
 <h4 id="2-read">2. read</h4>
 <ul>
-  <li><code class="highlighter-rouge">size_t read(int fildes, void* buf, size_t nbytes);</code></li>
+  <li><code class="language-plaintext highlighter-rouge">size_t read(int fildes, void* buf, size_t nbytes);</code></li>
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
@@ -511,7 +511,7 @@
 
 <h4 id="3-write">3. write</h4>
 <ul>
-  <li><code class="highlighter-rouge">size_t write(int fildes, void* buf, size_t n
+  <li><code class="language-plaintext highlighter-rouge">size_t write(int fildes, void* buf, size_t n
 bytes);</code></li>
 </ul>
 
@@ -575,64 +575,64 @@ bytes);</code></li>
 </code></pre></div></div>
 
 <h3 id="二-standard-io-library">(二) Standard I/O Library</h3>
-<p>Header：<code class="highlighter-rouge">#include &lt;stdio.h&gt;</code></p>
+<p>Header：<code class="language-plaintext highlighter-rouge">#include &lt;stdio.h&gt;</code></p>
 
 <ul>
-  <li><code class="highlighter-rouge">fopen</code>, <code class="highlighter-rouge">fclose</code>
+  <li><code class="language-plaintext highlighter-rouge">fopen</code>, <code class="language-plaintext highlighter-rouge">fclose</code>
     <ul>
       <li>int fclose(FILE* stream);</li>
     </ul>
   </li>
-  <li><code class="highlighter-rouge">fread</code>, <code class="highlighter-rouge">fwrite</code>
+  <li><code class="language-plaintext highlighter-rouge">fread</code>, <code class="language-plaintext highlighter-rouge">fwrite</code>
     <ul>
       <li>size_t fread(void* ptr, size_t size, size_t nitems, FILE* stream);</li>
       <li>size_t fwrite(void* ptr, size_t size, size_t nitems, FILE* stream);</li>
     </ul>
   </li>
-  <li><code class="highlighter-rouge">fflush</code>
+  <li><code class="language-plaintext highlighter-rouge">fflush</code>
     <ul>
       <li>int fflush(FLIE* stream);</li>
     </ul>
   </li>
-  <li><code class="highlighter-rouge">fseek</code>
+  <li><code class="language-plaintext highlighter-rouge">fseek</code>
     <ul>
       <li>int fseek(FILE* stream, long int offset, int whence);</li>
     </ul>
   </li>
-  <li><code class="highlighter-rouge">fgetc</code>, <code class="highlighter-rouge">getc</code>, <code class="highlighter-rouge">getchar</code>
+  <li><code class="language-plaintext highlighter-rouge">fgetc</code>, <code class="language-plaintext highlighter-rouge">getc</code>, <code class="language-plaintext highlighter-rouge">getchar</code>
     <ul>
       <li>int fgetc(FILE* stream);</li>
       <li>int getc(FILE* stream);</li>
       <li>int getchar();</li>
     </ul>
   </li>
-  <li><code class="highlighter-rouge">fputc</code>, <code class="highlighter-rouge">putc</code>, <code class="highlighter-rouge">putchar</code>
+  <li><code class="language-plaintext highlighter-rouge">fputc</code>, <code class="language-plaintext highlighter-rouge">putc</code>, <code class="language-plaintext highlighter-rouge">putchar</code>
     <ul>
       <li>int fputc(int c, FILE* stream);</li>
       <li>int putc(int c, FILE* stream);</li>
       <li>int putchar(int c);</li>
     </ul>
   </li>
-  <li><code class="highlighter-rouge">fgets</code>, <code class="highlighter-rouge">gets</code>
+  <li><code class="language-plaintext highlighter-rouge">fgets</code>, <code class="language-plaintext highlighter-rouge">gets</code>
     <ul>
       <li>char* fgets(char<em>s, int n, FILE</em> stream);</li>
       <li>char* gets(char*s);</li>
     </ul>
   </li>
   <li>
-    <p><code class="highlighter-rouge">printf</code>, <code class="highlighter-rouge">fprintf</code>, <code class="highlighter-rouge">sprintf</code></p>
+    <p><code class="language-plaintext highlighter-rouge">printf</code>, <code class="language-plaintext highlighter-rouge">fprintf</code>, <code class="language-plaintext highlighter-rouge">sprintf</code></p>
   </li>
-  <li><code class="highlighter-rouge">scanf</code>, <code class="highlighter-rouge">fscanf</code>, <code class="highlighter-rouge">sscanf</code></li>
+  <li><code class="language-plaintext highlighter-rouge">scanf</code>, <code class="language-plaintext highlighter-rouge">fscanf</code>, <code class="language-plaintext highlighter-rouge">sscanf</code></li>
 </ul>
 
 <h4 id="fopen">fopen</h4>
 <ul>
-  <li><code class="highlighter-rouge">FILE *fopen(const char *filename, const
+  <li><code class="language-plaintext highlighter-rouge">FILE *fopen(const char *filename, const
 char* mode);</code>
     <ul>
-      <li><code class="highlighter-rouge">r</code> (唯讀模式)</li>
-      <li><code class="highlighter-rouge">w</code> (寫入模式、長度歸零)</li>
-      <li><code class="highlighter-rouge">a</code> (寫入模式、附加)</li>
+      <li><code class="language-plaintext highlighter-rouge">r</code> (唯讀模式)</li>
+      <li><code class="language-plaintext highlighter-rouge">w</code> (寫入模式、長度歸零)</li>
+      <li><code class="language-plaintext highlighter-rouge">a</code> (寫入模式、附加)</li>
     </ul>
   </li>
 </ul>
@@ -674,44 +674,6 @@ char* mode);</code>
                     
                 
             
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
                 
                     
                 
@@ -900,6 +862,52 @@ char* mode);</code>
                 
                     
                 
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
             
                 
                     
