@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</title>
-    <meta name="description" content="  20210517 - Day_3          一、模擬磁碟片，並進行讀取        工作環境          Lubuntu 20.04      VMware Workstation 16.1.1        參考資料          Linux 版本筆記      《30天自制操作系统》源...">
+    <meta name="description" content="  20210517 - Day_3          一、模擬磁碟片，並進行讀取      二、撰寫完整的磁碟片開機磁區        工作環境          Lubuntu 20.04      VMware Workstation 16.1.1        參考資料          Linux 版本...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
@@ -230,6 +230,8 @@
         <ul id="markdown-toc">
   <li><a href="#20210517---day_3" id="markdown-toc-20210517---day_3">20210517 - Day_3</a>    <ul>
       <li><a href="#一模擬磁碟片並進行讀取" id="markdown-toc-一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</a></li>
+      <li><a href="#二撰寫完整的磁碟片開機磁區" id="markdown-toc-二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</a></li>
+      <li><a href="#三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑" id="markdown-toc-三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑">三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)</a></li>
     </ul>
   </li>
 </ul>
@@ -268,85 +270,99 @@
 <p>(延續 2017/07/09 的進度)</p>
 
 <ol>
-  <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong>
-```asm=
-MOV		AX,0x0820
+  <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong></li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MOV		AX,0x0820
 MOV		ES,AX
 MOV		CH,0        ;   磁柱0			
 MOV		DH,0        ;   磁頭0
-MOV		CL,2        ;   磁區2</li>
-</ol>
+MOV		CL,2        ;   磁區2
 
-<p>MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
+MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
 MOV		AL,1        ;   1磁區
 MOV		BX,0
 MOV		DL,0x00     ;   A磁碟機
 INT		0x13        ;   呼叫磁碟片 BIOS
-JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-2. **編譯並測試能否模擬磁碟片進行讀取**
-&gt; nasm -o bootloader -l ipl.lst ipl.nas
-&gt; dd if=/dev/zero of=ipl.img bs=512 count=2880
-&gt; dd if=bootloader of=ipl.img bs=512 count=1
-
-![](https://i.imgur.com/eiMWp6d.jpg)
-
-3. **啟動虛擬機，讀取 `ipl.img`**
-* 執行結果
-![](https://i.imgur.com/zoAr8xH.jpg)
-
-
-## 二、撰寫完整的磁碟片開機磁區
-1. **以下為 `ipl_all.nas` 的完整程式碼**：
-</code></pre></div></div>
-<p>; haribote-ipl
-; TAB=4</p>
-
-<p>CYLS    EQU     10</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ORG		0x7c00              ;   指定從 0x7c00 開始執行	
+JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序
 </code></pre></div></div>
 
-<p>;   以下是為了標準 FAT12 格式的軟式磁碟片的記述</p>
+<ol>
+  <li><strong>編譯並測試能否模擬磁碟片進行讀取</strong>
+    <blockquote>
+      <p>nasm -o bootloader -l ipl.lst ipl.nas
+dd if=/dev/zero of=ipl.img bs=512 count=2880
+dd if=bootloader of=ipl.img bs=512 count=1</p>
+    </blockquote>
+  </li>
+</ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>JMP		entry
-DB		0x90
-DB		"HARIBOTE"		
-DW		512				
-DB		1				
-DW		1				
-DB		2				
-DW		224				
-DW		2880			
-DB		0xf0			
-DW		9				
-DW		18				
-DW		2				
-DD		0				
-DD		2880			
-DB		0,0,0x29		
-DD		0xffffffff		
-DB		"HARIBOTEOS "	
-DB		"FAT12   "		
-RESB	18				
-</code></pre></div></div>
+<p><img src="https://i.imgur.com/eiMWp6d.jpg" alt="" /></p>
 
-<p>;   程式碼本身</p>
+<ol>
+  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl.img</code></strong>
+    <ul>
+      <li>執行結果
+<img src="https://i.imgur.com/zoAr8xH.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ol>
 
-<p>entry:
+<h2 id="二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</h2>
+<ol>
+  <li><strong>以下為 <code class="language-plaintext highlighter-rouge">ipl_all.nas</code> 的完整程式碼</strong>：</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; haribote-ipl
+; TAB=4
+
+CYLS    EQU     10
+
+	ORG		0x7c00              ;   指定從 0x7c00 開始執行	
+
+;   以下是為了標準 FAT12 格式的軟式磁碟片的記述
+
+	JMP		entry
+	DB		0x90
+	DB		"HARIBOTE"		
+	DW		512				
+	DB		1				
+	DW		1				
+	DB		2				
+	DW		224				
+	DW		2880			
+	DB		0xf0			
+	DW		9				
+	DW		18				
+	DW		2				
+	DD		0				
+	DD		2880			
+	DB		0,0,0x29		
+	DD		0xffffffff		
+	DB		"HARIBOTEOS "	
+	DB		"FAT12   "		
+	RESB	18				
+
+
+
+
+;   程式碼本身
+
+entry:
 	MOV		AX,0            ;   暫存器初始化
 	MOV		SS,AX
 	MOV		SP,0x7c00
-	MOV		DS,AX</p>
+	MOV		DS,AX
 
-<p>;   —- 20210517 新增的部份 (START) —-
+
+;   ---- 20210517 新增的部份 (START) ----
 	MOV		AX,0x0820
 	MOV		ES,AX
 	MOV		CH,0            ;   磁柱0		
 	MOV		DH,0			;   磁頭0
-	MOV		CL,2	        ;   磁區2</p>
+	MOV		CL,2	        ;   磁區2
 
-<p>readloop:
+readloop:
     MOV     SI,0            ;   計算失敗次數的暫存器
 retry:
 	MOV		AH,0x02         ;   AH=0x02：讀入磁碟片			
@@ -365,7 +381,7 @@ retry:
 next:
     MOV     AX,ES           ;   位址前進到 0x200
     ADD     AX,0x0020
-    MOV     ES,AX           ;   因為沒有 “ADD    Es,0x020” 的命令，所以才如此執行
+    MOV     ES,AX           ;   因為沒有 "ADD    Es,0x020" 的命令，所以才如此執行
     ADD     CL,1            ;   CL 加 1
     CMP     CL,18           ;   CL 與 18 做比較
     JBE     readloop        ;   若是 CL &lt;= 18 就到 readloop
@@ -377,13 +393,16 @@ next:
     ADD     CH,1
     CMP     CH,CYLS
     JB      readloop        ;   若是 CH &lt; CYLS 就到 readloop
-;   —- 20210517 新增的部份 (END) —-</p>
+;   ---- 20210517 新增的部份 (END) ----
 
-<p>fin:
+
+
+
+fin:
 	HLT					    ;   直到有了某個物件就將 CPU 停止	
-	JMP		fin				;   無限迴圈</p>
+	JMP		fin				;   無限迴圈
 
-<p>error:
+error:
 	MOV		SI,msg
 putloop:
 	MOV		AL,[SI]
@@ -396,42 +415,54 @@ putloop:
 	JMP		putloop
 msg:
 	DB		0x0a, 0x0a		;   連續兩個換行
-	DB		“load error”
+	DB		"load error"
 	DB		0x0a			;   換行
-	DB		0</p>
+	DB		0
 
-<p>;   RESB	0x7dfe-$		;   此行編譯無法通過，故修改成 “TIMES 510-($-$$)   DB  0”</p>
+;   RESB	0x7dfe-$		;   此行編譯無法通過，故修改成 "TIMES 510-($-$$)   DB  0"
+        
+    TIMES 510-($-$$)    DB      0
+;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TIMES 510-($-$$)    DB      0 ;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
-
-DB		0x55, 0xaa
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-2. **編譯 `ipl_all.nas` 後得到 `ipl_all.img`**
-&gt; nasm ipl_all.nas -o ipl_all.img
-
-![](https://i.imgur.com/aaJVRC7.png)
-
-3. **啟動虛擬機，讀取 `ipl.img`**
-* 執行結果
-![](https://i.imgur.com/dh1ghJR.jpg)
-
-
-## 三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)
-1. **以下為 `ipl_os.nas` 的完整程式碼**：
+	DB		0x55, 0xaa
 
 </code></pre></div></div>
-<p>; ipl-os
-; TAB=4</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ORG		0xc200      ;   這個程式碼是要讀進去那裡
+<ol>
+  <li><strong>編譯 <code class="language-plaintext highlighter-rouge">ipl_all.nas</code> 後得到 <code class="language-plaintext highlighter-rouge">ipl_all.img</code></strong>
+    <blockquote>
+      <p>nasm ipl_all.nas -o ipl_all.img</p>
+    </blockquote>
+  </li>
+</ol>
 
-MOV		AL,0x13	    ;   VGA 圖形、320 x 200 x 8bit 彩色
-MOV		AH,0x00
-INT		0x10 fin:
+<p><img src="https://i.imgur.com/aaJVRC7.png" alt="" /></p>
+
+<ol>
+  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl.img</code></strong>
+    <ul>
+      <li>執行結果
+<img src="https://i.imgur.com/dh1ghJR.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑">三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)</h2>
+<ol>
+  <li><strong>以下為 <code class="language-plaintext highlighter-rouge">ipl_os.nas</code> 的完整程式碼</strong>：</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; ipl-os
+; TAB=4
+
+	ORG		0xc200      ;   這個程式碼是要讀進去那裡
+
+	MOV		AL,0x13	    ;   VGA 圖形、320 x 200 x 8bit 彩色
+	MOV		AH,0x00
+	INT		0x10
+fin:
 	HLT
-	JMP		fin ```
+	JMP		fin
 </code></pre></div></div>
 
 <ol>

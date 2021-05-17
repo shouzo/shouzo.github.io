@@ -229,6 +229,7 @@
                     <ul id="markdown-toc">
   <li><a href="#20210517---day_3" id="markdown-toc-20210517---day_3">20210517 - Day_3</a>    <ul>
       <li><a href="#一模擬磁碟片並進行讀取" id="markdown-toc-一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</a></li>
+      <li><a href="#二撰寫完整的磁碟片開機磁區" id="markdown-toc-二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</a></li>
     </ul>
   </li>
 </ul>
@@ -267,38 +268,51 @@
 <p>(延續 2017/07/09 的進度)</p>
 
 <ol>
-  <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong>
-```asm=
-MOV		AX,0x0820
+  <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong></li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MOV		AX,0x0820
 MOV		ES,AX
 MOV		CH,0        ;   磁柱0			
 MOV		DH,0        ;   磁頭0
-MOV		CL,2        ;   磁區2</li>
-</ol>
+MOV		CL,2        ;   磁區2
 
-<p>MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
+MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
 MOV		AL,1        ;   1磁區
 MOV		BX,0
 MOV		DL,0x00     ;   A磁碟機
 INT		0x13        ;   呼叫磁碟片 BIOS
-JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-2. **編譯並測試能否模擬磁碟片進行讀取**
-&gt; nasm -o bootloader -l ipl.lst ipl.nas
-&gt; dd if=/dev/zero of=ipl.img bs=512 count=2880
-&gt; dd if=bootloader of=ipl.img bs=512 count=1
-
-![](https://i.imgur.com/eiMWp6d.jpg)
-
-3. **啟動虛擬機，讀取 `ipl.img`**
-* 執行結果
-![](https://i.imgur.com/zoAr8xH.jpg)
-
-
-## 二、撰寫完整的磁碟片開機磁區
-1. **以下為 `ipl_all.nas` 的完整程式碼**：
+JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序
 </code></pre></div></div>
-<p>; haribote-ipl
+
+<ol>
+  <li><strong>編譯並測試能否模擬磁碟片進行讀取</strong>
+    <blockquote>
+      <p>nasm -o bootloader -l ipl.lst ipl.nas
+dd if=/dev/zero of=ipl.img bs=512 count=2880
+dd if=bootloader of=ipl.img bs=512 count=1</p>
+    </blockquote>
+  </li>
+</ol>
+
+<p><img src="https://i.imgur.com/eiMWp6d.jpg" alt="" /></p>
+
+<ol>
+  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl.img</code></strong>
+    <ul>
+      <li>執行結果
+<img src="https://i.imgur.com/zoAr8xH.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</h2>
+<ol>
+  <li><strong>以下為 <code class="language-plaintext highlighter-rouge">ipl_all.nas</code> 的完整程式碼</strong>：</li>
+</ol>
+
+<p>```
+; haribote-ipl
 ; TAB=4</p>
 
 <p>CYLS    EQU     10</p>

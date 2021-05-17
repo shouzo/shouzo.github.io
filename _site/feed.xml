@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 18 May 2021 03:51:04 +0800</pubDate>
-    <lastBuildDate>Tue, 18 May 2021 03:51:04 +0800</lastBuildDate>
+    <pubDate>Tue, 18 May 2021 03:58:09 +0800</pubDate>
+    <lastBuildDate>Tue, 18 May 2021 03:58:09 +0800</lastBuildDate>
     <generator>Jekyll v4.2.0</generator>
     
       <item>
@@ -14,6 +14,8 @@
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#20210517---day_3&quot; id=&quot;markdown-toc-20210517---day_3&quot;&gt;20210517 - Day_3&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#一模擬磁碟片並進行讀取&quot; id=&quot;markdown-toc-一模擬磁碟片並進行讀取&quot;&gt;一、模擬磁碟片，並進行讀取&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二撰寫完整的磁碟片開機磁區&quot; id=&quot;markdown-toc-二撰寫完整的磁碟片開機磁區&quot;&gt;二、撰寫完整的磁碟片開機磁區&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑&quot; id=&quot;markdown-toc-三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑&quot;&gt;三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -52,85 +54,99 @@
 &lt;p&gt;(延續 2017/07/09 的進度)&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt; 裡新增以下內容，並存成 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl.nas&lt;/code&gt;&lt;/strong&gt;
-```asm=
-MOV		AX,0x0820
+  &lt;li&gt;&lt;strong&gt;在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt; 裡新增以下內容，並存成 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl.nas&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MOV		AX,0x0820
 MOV		ES,AX
 MOV		CH,0        ;   磁柱0			
 MOV		DH,0        ;   磁頭0
-MOV		CL,2        ;   磁區2&lt;/li&gt;
-&lt;/ol&gt;
+MOV		CL,2        ;   磁區2
 
-&lt;p&gt;MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
+MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
 MOV		AL,1        ;   1磁區
 MOV		BX,0
 MOV		DL,0x00     ;   A磁碟機
 INT		0x13        ;   呼叫磁碟片 BIOS
-JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-2. **編譯並測試能否模擬磁碟片進行讀取**
-&amp;gt; nasm -o bootloader -l ipl.lst ipl.nas
-&amp;gt; dd if=/dev/zero of=ipl.img bs=512 count=2880
-&amp;gt; dd if=bootloader of=ipl.img bs=512 count=1
-
-![](https://i.imgur.com/eiMWp6d.jpg)
-
-3. **啟動虛擬機，讀取 `ipl.img`**
-* 執行結果
-![](https://i.imgur.com/zoAr8xH.jpg)
-
-
-## 二、撰寫完整的磁碟片開機磁區
-1. **以下為 `ipl_all.nas` 的完整程式碼**：
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;; haribote-ipl
-; TAB=4&lt;/p&gt;
-
-&lt;p&gt;CYLS    EQU     10&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ORG		0x7c00              ;   指定從 0x7c00 開始執行	
+JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;;   以下是為了標準 FAT12 格式的軟式磁碟片的記述&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;編譯並測試能否模擬磁碟片進行讀取&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;nasm -o bootloader -l ipl.lst ipl.nas
+dd if=/dev/zero of=ipl.img bs=512 count=2880
+dd if=bootloader of=ipl.img bs=512 count=1&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;JMP		entry
-DB		0x90
-DB		&quot;HARIBOTE&quot;		
-DW		512				
-DB		1				
-DW		1				
-DB		2				
-DW		224				
-DW		2880			
-DB		0xf0			
-DW		9				
-DW		18				
-DW		2				
-DD		0				
-DD		2880			
-DB		0,0,0x29		
-DD		0xffffffff		
-DB		&quot;HARIBOTEOS &quot;	
-DB		&quot;FAT12   &quot;		
-RESB	18				
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/eiMWp6d.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;;   程式碼本身&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;啟動虛擬機，讀取 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl.img&lt;/code&gt;&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/zoAr8xH.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;entry:
+&lt;h2 id=&quot;二撰寫完整的磁碟片開機磁區&quot;&gt;二、撰寫完整的磁碟片開機磁區&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;以下為 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_all.nas&lt;/code&gt; 的完整程式碼&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; haribote-ipl
+; TAB=4
+
+CYLS    EQU     10
+
+	ORG		0x7c00              ;   指定從 0x7c00 開始執行	
+
+;   以下是為了標準 FAT12 格式的軟式磁碟片的記述
+
+	JMP		entry
+	DB		0x90
+	DB		&quot;HARIBOTE&quot;		
+	DW		512				
+	DB		1				
+	DW		1				
+	DB		2				
+	DW		224				
+	DW		2880			
+	DB		0xf0			
+	DW		9				
+	DW		18				
+	DW		2				
+	DD		0				
+	DD		2880			
+	DB		0,0,0x29		
+	DD		0xffffffff		
+	DB		&quot;HARIBOTEOS &quot;	
+	DB		&quot;FAT12   &quot;		
+	RESB	18				
+
+
+
+
+;   程式碼本身
+
+entry:
 	MOV		AX,0            ;   暫存器初始化
 	MOV		SS,AX
 	MOV		SP,0x7c00
-	MOV		DS,AX&lt;/p&gt;
+	MOV		DS,AX
 
-&lt;p&gt;;   —- 20210517 新增的部份 (START) —-
+
+;   ---- 20210517 新增的部份 (START) ----
 	MOV		AX,0x0820
 	MOV		ES,AX
 	MOV		CH,0            ;   磁柱0		
 	MOV		DH,0			;   磁頭0
-	MOV		CL,2	        ;   磁區2&lt;/p&gt;
+	MOV		CL,2	        ;   磁區2
 
-&lt;p&gt;readloop:
+readloop:
     MOV     SI,0            ;   計算失敗次數的暫存器
 retry:
 	MOV		AH,0x02         ;   AH=0x02：讀入磁碟片			
@@ -149,7 +165,7 @@ retry:
 next:
     MOV     AX,ES           ;   位址前進到 0x200
     ADD     AX,0x0020
-    MOV     ES,AX           ;   因為沒有 “ADD    Es,0x020” 的命令，所以才如此執行
+    MOV     ES,AX           ;   因為沒有 &quot;ADD    Es,0x020&quot; 的命令，所以才如此執行
     ADD     CL,1            ;   CL 加 1
     CMP     CL,18           ;   CL 與 18 做比較
     JBE     readloop        ;   若是 CL &amp;lt;= 18 就到 readloop
@@ -161,13 +177,16 @@ next:
     ADD     CH,1
     CMP     CH,CYLS
     JB      readloop        ;   若是 CH &amp;lt; CYLS 就到 readloop
-;   —- 20210517 新增的部份 (END) —-&lt;/p&gt;
+;   ---- 20210517 新增的部份 (END) ----
 
-&lt;p&gt;fin:
+
+
+
+fin:
 	HLT					    ;   直到有了某個物件就將 CPU 停止	
-	JMP		fin				;   無限迴圈&lt;/p&gt;
+	JMP		fin				;   無限迴圈
 
-&lt;p&gt;error:
+error:
 	MOV		SI,msg
 putloop:
 	MOV		AL,[SI]
@@ -180,42 +199,54 @@ putloop:
 	JMP		putloop
 msg:
 	DB		0x0a, 0x0a		;   連續兩個換行
-	DB		“load error”
+	DB		&quot;load error&quot;
 	DB		0x0a			;   換行
-	DB		0&lt;/p&gt;
+	DB		0
 
-&lt;p&gt;;   RESB	0x7dfe-$		;   此行編譯無法通過，故修改成 “TIMES 510-($-$$)   DB  0”&lt;/p&gt;
+;   RESB	0x7dfe-$		;   此行編譯無法通過，故修改成 &quot;TIMES 510-($-$$)   DB  0&quot;
+        
+    TIMES 510-($-$$)    DB      0
+;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;TIMES 510-($-$$)    DB      0 ;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
-
-DB		0x55, 0xaa
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-2. **編譯 `ipl_all.nas` 後得到 `ipl_all.img`**
-&amp;gt; nasm ipl_all.nas -o ipl_all.img
-
-![](https://i.imgur.com/aaJVRC7.png)
-
-3. **啟動虛擬機，讀取 `ipl.img`**
-* 執行結果
-![](https://i.imgur.com/dh1ghJR.jpg)
-
-
-## 三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)
-1. **以下為 `ipl_os.nas` 的完整程式碼**：
+	DB		0x55, 0xaa
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;; ipl-os
-; TAB=4&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ORG		0xc200      ;   這個程式碼是要讀進去那裡
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;編譯 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_all.nas&lt;/code&gt; 後得到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_all.img&lt;/code&gt;&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;nasm ipl_all.nas -o ipl_all.img&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
-MOV		AL,0x13	    ;   VGA 圖形、320 x 200 x 8bit 彩色
-MOV		AH,0x00
-INT		0x10 fin:
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/aaJVRC7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;啟動虛擬機，讀取 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl.img&lt;/code&gt;&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;執行結果
+&lt;img src=&quot;https://i.imgur.com/dh1ghJR.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑&quot;&gt;三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;以下為 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_os.nas&lt;/code&gt; 的完整程式碼&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; ipl-os
+; TAB=4
+
+	ORG		0xc200      ;   這個程式碼是要讀進去那裡
+
+	MOV		AL,0x13	    ;   VGA 圖形、320 x 200 x 8bit 彩色
+	MOV		AH,0x00
+	INT		0x10
+fin:
 	HLT
-	JMP		fin ```
+	JMP		fin
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ol&gt;
