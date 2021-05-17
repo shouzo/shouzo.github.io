@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</title>
+    <meta name="description" content="  20210517 - Day_3          一、模擬磁碟片，並進行讀取        工作環境          Lubuntu 20.04      VMware Workstation 16.1.1        參考資料          Linux 版本筆記      《30天自制操作系统》源...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2021/05/17/30OS_day3/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>BE STRONG TO BE USEFUL</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2021-05-17
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#組合語言" title="Category: 組合語言" rel="category">組合語言</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#%E7%B5%84%E5%90%88%E8%AA%9E%E8%A8%80" title="Tag: 組合語言" rel="tag">組合語言</a-->
+        <a href="/tag/#組合語言" title="Tag: 組合語言" rel="tag">組合語言</a>&nbsp;
+    
+        <!--a href="/tag/#C%E8%AA%9E%E8%A8%80" title="Tag: C語言" rel="tag">C語言</a-->
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#20210517---day_3" id="markdown-toc-20210517---day_3">20210517 - Day_3</a>    <ul>
+      <li><a href="#一模擬磁碟片並進行讀取" id="markdown-toc-一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>工作環境
+    <ul>
+      <li>Lubuntu 20.04</li>
+      <li>VMware Workstation 16.1.1</li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://lengly.top/archives/85">Linux 版本筆記</a></li>
+      <li><a href="https://github.com/yourtion/30dayMakeOS">《30天自制操作系统》源码中文版。自己制作一个操作系统（OSASK）的过程</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="20210517---day_3">20210517 - Day_3</h1>
+<ul>
+  <li>進度摘要
+    <ol>
+      <li>製作真實 IPL (初始程式載入程序)</li>
+      <li>從 16 位元進入 32 位元 (在 linux 上撰寫有些麻煩，暫時跳過)</li>
+    </ol>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/My-30OS/tree/master/20210517">https://github.com/shouzo/My-30OS/tree/master/20210517</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</h2>
+<p>(延續 2017/07/09 的進度)</p>
+
+<ol>
+  <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong>
+```asm=
+MOV		AX,0x0820
+MOV		ES,AX
+MOV		CH,0        ;   磁柱0			
+MOV		DH,0        ;   磁頭0
+MOV		CL,2        ;   磁區2</li>
+</ol>
+
+<p>MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
+MOV		AL,1        ;   1磁區
+MOV		BX,0
+MOV		DL,0x00     ;   A磁碟機
+INT		0x13        ;   呼叫磁碟片 BIOS
+JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+2. **編譯並測試能否模擬磁碟片進行讀取**
+&gt; nasm -o bootloader -l ipl.lst ipl.nas
+&gt; dd if=/dev/zero of=ipl.img bs=512 count=2880
+&gt; dd if=bootloader of=ipl.img bs=512 count=1
+
+![](https://i.imgur.com/eiMWp6d.jpg)
+
+3. **啟動虛擬機，讀取 `ipl.img`**
+* 執行結果
+![](https://i.imgur.com/zoAr8xH.jpg)
+
+
+## 二、撰寫完整的磁碟片開機磁區
+1. **以下為 `ipl_all.nas` 的完整程式碼**：
+</code></pre></div></div>
+<p>; haribote-ipl
+; TAB=4</p>
+
+<p>CYLS    EQU     10</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ORG		0x7c00              ;   指定從 0x7c00 開始執行	
+</code></pre></div></div>
+
+<p>;   以下是為了標準 FAT12 格式的軟式磁碟片的記述</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>JMP		entry
+DB		0x90
+DB		"HARIBOTE"		
+DW		512				
+DB		1				
+DW		1				
+DB		2				
+DW		224				
+DW		2880			
+DB		0xf0			
+DW		9				
+DW		18				
+DW		2				
+DD		0				
+DD		2880			
+DB		0,0,0x29		
+DD		0xffffffff		
+DB		"HARIBOTEOS "	
+DB		"FAT12   "		
+RESB	18				
+</code></pre></div></div>
+
+<p>;   程式碼本身</p>
+
+<p>entry:
+	MOV		AX,0            ;   暫存器初始化
+	MOV		SS,AX
+	MOV		SP,0x7c00
+	MOV		DS,AX</p>
+
+<p>;   —- 20210517 新增的部份 (START) —-
+	MOV		AX,0x0820
+	MOV		ES,AX
+	MOV		CH,0            ;   磁柱0		
+	MOV		DH,0			;   磁頭0
+	MOV		CL,2	        ;   磁區2</p>
+
+<p>readloop:
+    MOV     SI,0            ;   計算失敗次數的暫存器
+retry:
+	MOV		AH,0x02         ;   AH=0x02：讀入磁碟片			
+	MOV		AL,1			;   1個磁區
+	MOV		BX,0
+	MOV		DL,0x00			;   A磁碟機
+	INT		0x13	        ;   呼叫磁碟片 BIOS
+    JNC     fin             ;   如果出現錯誤就到 fin
+    ADD     SI,1            ;   SI 加 1
+    CMP     SI,5            ;   SI 與 5 做比較
+    JAE     error           ;   如果 SI &gt;= 5，就到 error
+    MOV     AH,0x00
+    MOV     DL,0x00         ;   A磁碟機
+    INT     0x13            ;   磁碟機的重設
+    JMP     retry
+next:
+    MOV     AX,ES           ;   位址前進到 0x200
+    ADD     AX,0x0020
+    MOV     ES,AX           ;   因為沒有 “ADD    Es,0x020” 的命令，所以才如此執行
+    ADD     CL,1            ;   CL 加 1
+    CMP     CL,18           ;   CL 與 18 做比較
+    JBE     readloop        ;   若是 CL &lt;= 18 就到 readloop
+    MOV     CL,1
+    ADD     DH,1
+    CMP     DH,2
+    JB      readloop        ;   若是 DH &lt; 2 就到 readloop
+    MOV     DH,0
+    ADD     CH,1
+    CMP     CH,CYLS
+    JB      readloop        ;   若是 CH &lt; CYLS 就到 readloop
+;   —- 20210517 新增的部份 (END) —-</p>
+
+<p>fin:
+	HLT					    ;   直到有了某個物件就將 CPU 停止	
+	JMP		fin				;   無限迴圈</p>
+
+<p>error:
+	MOV		SI,msg
+putloop:
+	MOV		AL,[SI]
+	ADD		SI,1			
+	CMP		AL,0
+	JE		fin
+	MOV		AH,0x0e			
+	MOV		BX,15			
+	INT		0x10			
+	JMP		putloop
+msg:
+	DB		0x0a, 0x0a		;   連續兩個換行
+	DB		“load error”
+	DB		0x0a			;   換行
+	DB		0</p>
+
+<p>;   RESB	0x7dfe-$		;   此行編譯無法通過，故修改成 “TIMES 510-($-$$)   DB  0”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TIMES 510-($-$$)    DB      0 ;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
+
+DB		0x55, 0xaa
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+2. **編譯 `ipl_all.nas` 後得到 `ipl_all.img`**
+&gt; nasm ipl_all.nas -o ipl_all.img
+
+![](https://i.imgur.com/aaJVRC7.png)
+
+3. **啟動虛擬機，讀取 `ipl.img`**
+* 執行結果
+![](https://i.imgur.com/dh1ghJR.jpg)
+
+
+## 三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)
+1. **以下為 `ipl_os.nas` 的完整程式碼**：
+
+</code></pre></div></div>
+<p>; ipl-os
+; TAB=4</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ORG		0xc200      ;   這個程式碼是要讀進去那裡
+
+MOV		AL,0x13	    ;   VGA 圖形、320 x 200 x 8bit 彩色
+MOV		AH,0x00
+INT		0x10 fin:
+	HLT
+	JMP		fin ```
+</code></pre></div></div>
+
+<ol>
+  <li><strong>編譯 <code class="language-plaintext highlighter-rouge">ipl_os.nas</code> 後得到 <code class="language-plaintext highlighter-rouge">ipl_os.img</code></strong>
+    <blockquote>
+      <p>nasm ipl_os.nas -o ipl_os.img</p>
+    </blockquote>
+  </li>
+</ol>
+
+<p><img src="https://i.imgur.com/q6RK8rn.jpg" alt="" /></p>
+
+<ol>
+  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl_os.img</code></strong>
+    <ul>
+      <li>執行結果 (畫面會是全黑的)
+<img src="https://i.imgur.com/KKEJV8s.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2021/05/16/2021_WFH_0/">20210516 [WFH] 在家工作系列 - Part 0</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2021/05/17/30OS_day3/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2021/05/17/30OS_day3/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

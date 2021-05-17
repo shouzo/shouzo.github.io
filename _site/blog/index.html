@@ -166,6 +166,179 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2021-05-17
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#組合語言" title="Category: 組合語言" rel="category">組合語言</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#組合語言" title="Tag: 組合語言" rel="tag">組合語言</a>&nbsp;
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#20210517---day_3" id="markdown-toc-20210517---day_3">20210517 - Day_3</a>    <ul>
+      <li><a href="#一模擬磁碟片並進行讀取" id="markdown-toc-一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>工作環境
+    <ul>
+      <li>Lubuntu 20.04</li>
+      <li>VMware Workstation 16.1.1</li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://lengly.top/archives/85">Linux 版本筆記</a></li>
+      <li><a href="https://github.com/yourtion/30dayMakeOS">《30天自制操作系统》源码中文版。自己制作一个操作系统（OSASK）的过程</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="20210517---day_3">20210517 - Day_3</h1>
+<ul>
+  <li>進度摘要
+    <ol>
+      <li>製作真實 IPL (初始程式載入程序)</li>
+      <li>從 16 位元進入 32 位元 (在 linux 上撰寫有些麻煩，暫時跳過)</li>
+    </ol>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/My-30OS/tree/master/20210517">https://github.com/shouzo/My-30OS/tree/master/20210517</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</h2>
+<p>(延續 2017/07/09 的進度)</p>
+
+<ol>
+  <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong>
+```asm=
+MOV		AX,0x0820
+MOV		ES,AX
+MOV		CH,0        ;   磁柱0			
+MOV		DH,0        ;   磁頭0
+MOV		CL,2        ;   磁區2</li>
+</ol>
+
+<p>MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
+MOV		AL,1        ;   1磁區
+MOV		BX,0
+MOV		DL,0x00     ;   A磁碟機
+INT		0x13        ;   呼叫磁碟片 BIOS
+JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+2. **編譯並測試能否模擬磁碟片進行讀取**
+&gt; nasm -o bootloader -l ipl.lst ipl.nas
+&gt; dd if=/dev/zero of=ipl.img bs=512 count=2880
+&gt; dd if=bootloader of=ipl.img bs=512 count=1
+
+![](https://i.imgur.com/eiMWp6d.jpg)
+
+3. **啟動虛擬機，讀取 `ipl.img`**
+* 執行結果
+![](https://i.imgur.com/zoAr8xH.jpg)
+
+
+## 二、撰寫完整的磁碟片開機磁區
+1. **以下為 `ipl_all.nas` 的完整程式碼**：
+</code></pre></div></div>
+<p>; haribote-ipl
+; TAB=4</p>
+
+<p>CYLS    EQU     10</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ORG		0x7c00              ;   指定從 0x7c00 開始執行	
+</code></pre></div></div>
+
+<p>;   以下是為了標準 FAT12 格式的軟式磁碟片的記述</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>JMP		entry
+DB		0x90
+DB		"HARIBOTE"		
+DW		512				
+DB		1				
+DW		1				
+DB		2				
+DW		224				
+DW		2880			
+DB		0xf0			
+DW		9				
+DW		18				
+DW		2				
+DD		0				
+DD		2880			
+DB		0,0,0x29		
+DD		0xffffffff		
+DB		"HARIBOTEOS "	
+DB		"FAT12   "		
+RESB	18				
+</code></pre></div></div>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2021/05/17/30OS_day3/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2021/05/16/2021_WFH_0/">20210516 [WFH] 在家工作系列 - Part 0</a>
                 </h2>
                 <div class="label">
@@ -657,131 +830,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2021/01/09/2020_Life-Work_6/">20210109 [年度回顧] 關於工作和生活 - Part 6</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2021-01-09
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#年度回顧" title="Category: 年度回顧" rel="category">年度回顧</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#年度回顧" title="Tag: 年度回顧" rel="tag">年度回顧</a>&nbsp;
-    
-        <a href="/tag/#生活" title="Tag: 生活" rel="tag">生活</a>&nbsp;
-    
-        <a href="/tag/#工作" title="Tag: 工作" rel="tag">工作</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#圍繞人開展的工作" id="markdown-toc-圍繞人開展的工作">圍繞人開展的工作</a></li>
-</ul>
-
-<h3 id="圍繞人開展的工作">圍繞人開展的工作</h3>
-
-<p>信念是可塑物，能透過環境外力強化或削弱。</p>
-
-<p>像是對我而言：<strong>「行政的重要性等同於專項技能，甚至有過之無不及。」</strong></p>
-
-<p>學生時代深信如此，出社會後更強化了這項信念。</p>
-
-<p>–</p>
-
-<p>越是深入問題層級，越會發現問題跟人有關。所有組織問題，到最後都會碰上人這道關卡。</p>
-
-<p>換個角度來說，最終問題都是圍繞人開展的。</p>
-
-<blockquote>
-  <p><strong>「行政，就是圍繞人開展的工作。」</strong></p>
-</blockquote>
-
-<p>我認為一個好的行政，會同時滿足三個面向：<strong>共同認知、工作流程、通訊協定</strong></p>
-<ol>
-  <li><strong>共同認知</strong>：確保相關人士有相同且完整的資訊。</li>
-  <li><strong>工作流程</strong>：確保事情會按照約定模式執行，產出穩定預期。</li>
-  <li><strong>通訊協定</strong>：確保衝突發生時，能依照既定管道有效處理和協調衝突。</li>
-</ol>
-
-<p>–</p>
-
-<p>具體來說可以怎麼做？</p>
-
-<p>在此以 <strong>指導老師(教練)帶領學生社團進行社課</strong> 為例，來檢視一個行政模組從建立、執行到檢討的過程。</p>
-
-<p>在 <strong>籌備社課</strong> 這個階段，參與其中的核心人物是：<strong>幹部 / 助教</strong>、<strong>教練</strong>、<strong>社長</strong>。
-<img src="https://i.imgur.com/MK2mzQV.jpg" alt="" /></p>
-
-<p>首先要根據這次的任務需求，明確擬定各個核心人物的工作範圍和權限，像是：</p>
-<ul>
-  <li><strong>幹部 / 助教</strong>：在課前向社員介紹課程、課程中引導社員參與課程，過程中聽從教練、社長指示。</li>
-  <li><strong>教練</strong>：向幹部、社長說明課程進行流程和資源需求，主導課程進行和提供課程知識、技術指導。</li>
-  <li><strong>社長</strong>：作為本次任務代表，向教練討論課程期望和要求。</li>
-</ul>
-
-<p>當核心人物都出席在現場後，先共同擬定相同的討論模組，再要求彼此對於討論結果進行執行承諾。
-<img src="https://i.imgur.com/brN0st0.jpg" alt="" /></p>
-
-<p>比方說社團課程，在進行時各個環節會有先後順序之分。像這類容易理解且有明確標準的模組就很適合當作討論基準。(也可以因應需求自行設計)</p>
-
-<p>這樣的話不論是籌備討論、實際執行和課後檢討，都會有完整的模組可以檢視：
-<img src="https://i.imgur.com/4PZpdRq.jpg" alt="" /></p>
-
-<p>–</p>
-
-<p>以行政的視角觀察事情，會有很多有意思的發現。比方說公司討論產品和課程，它通常也會有既定的流程和約束。
-行政背後透露出各個角色的立場，隱藏的是彼此的權限、價值觀和利害關係；行政是各方期望、調整、妥協下的產物。</p>
-
-<p>以個人發展來說，我正在透過行政的知識去實踐自己對於職涯的想像。</p>
-
-<p>之後來談談，關於我在職涯上的 <strong>定向選擇</strong>。</p>
-
-<p>(…未完待續)</p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2021/01/09/2020_Life-Work_6/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -809,6 +857,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</a></li>
+                    
                         <li><a href="/2021/05/16/2021_WFH_0/">20210516 [WFH] 在家工作系列 - Part 0</a></li>
                     
                         <li><a href="/2021/02/01/2020_Life-Work_9/">20210201 [年度回顧] 關於工作和生活 - Part 9</a></li>
@@ -827,8 +877,6 @@
                     
                         <li><a href="/2020/12/15/2020_Life-Work_2/">20201215 [年度回顧] 關於工作和生活 - Part 2</a></li>
                     
-                        <li><a href="/2020/12/09/2020_Life-Work_1/">20201209 [年度回顧] 關於工作和生活 - Part 1</a></li>
-                    
                 </ul>
             </div>
 
@@ -845,7 +893,7 @@
                             <span class="name">
                                 C語言
                             </span>
-                            <span class="badge">10</span>
+                            <span class="badge">11</span>
                         </a>
                     </li>
                     
@@ -980,7 +1028,7 @@
                             <span class="name">
                                 作業系統
                             </span>
-                            <span class="badge">20</span>
+                            <span class="badge">21</span>
                         </a>
                     </li>
                     
@@ -989,7 +1037,7 @@
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">22</span>
+                            <span class="badge">23</span>
                         </a>
                     </li>
                     
@@ -998,7 +1046,7 @@
                             <span class="name">
                                 組合語言
                             </span>
-                            <span class="badge">2</span>
+                            <span class="badge">3</span>
                         </a>
                     </li>
                     
@@ -1123,7 +1171,7 @@
                       
                       
                       
-                      <a href="/tag/#Data-Mining" style="font-size: 11.5pt; color: #777;">Data-Mining</a>
+                      <a href="/tag/#Data-Mining" style="font-size: 11pt; color: #777;">Data-Mining</a>
                     
                       
                       
@@ -1186,7 +1234,7 @@
                       
                       
                       
-                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #555;">社團</a>
+                      <a href="/tag/#社團" style="font-size: 12.5pt; color: #666;">社團</a>
                     
                       
                       
@@ -1242,7 +1290,7 @@
                       
                       
                       
-                      <a href="/tag/#組合語言" style="font-size: 9.5pt; color: #999;">組合語言</a>
+                      <a href="/tag/#組合語言" style="font-size: 9.5pt; color: #888;">組合語言</a>
                     
                       
                       
@@ -1270,28 +1318,28 @@
                       
                       
                       
-                      <a href="/tag/#當兵生活紀實" style="font-size: 14pt; color: #444;">當兵生活紀實</a>
+                      <a href="/tag/#當兵生活紀實" style="font-size: 13.5pt; color: #444;">當兵生活紀實</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#活動心得" style="font-size: 15pt; color: #333;">活動心得</a>
+                      <a href="/tag/#活動心得" style="font-size: 14.5pt; color: #333;">活動心得</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#學習筆記" style="font-size: 15.5pt; color: #333;">學習筆記</a>
+                      <a href="/tag/#學習筆記" style="font-size: 15pt; color: #333;">學習筆記</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#年度回顧" style="font-size: 13.5pt; color: #444;">年度回顧</a>
+                      <a href="/tag/#年度回顧" style="font-size: 13.5pt; color: #555;">年度回顧</a>
                     
                       
                       
@@ -1305,21 +1353,21 @@
                       
                       
                       
-                      <a href="/tag/#清華大學" style="font-size: 10.5pt; color: #888;">清華大學</a>
+                      <a href="/tag/#清華大學" style="font-size: 10pt; color: #888;">清華大學</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#推甄" style="font-size: 10.5pt; color: #888;">推甄</a>
+                      <a href="/tag/#推甄" style="font-size: 10pt; color: #888;">推甄</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#運動科學" style="font-size: 10.5pt; color: #888;">運動科學</a>
+                      <a href="/tag/#運動科學" style="font-size: 10pt; color: #888;">運動科學</a>
                     
                       
                       
