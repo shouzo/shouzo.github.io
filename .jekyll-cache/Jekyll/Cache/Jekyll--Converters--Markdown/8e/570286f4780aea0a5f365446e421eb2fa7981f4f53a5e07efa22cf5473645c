@@ -1,4 +1,4 @@
-I"e<ul id="markdown-toc">
+I"�<ul id="markdown-toc">
   <li><a href="#20210517---day_3" id="markdown-toc-20210517---day_3">20210517 - Day_3</a>    <ul>
       <li><a href="#一模擬磁碟片並進行讀取" id="markdown-toc-一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</a></li>
       <li><a href="#二撰寫完整的磁碟片開機磁區" id="markdown-toc-二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</a></li>
@@ -60,9 +60,11 @@ JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，
 <ol>
   <li><strong>編譯並測試能否模擬磁碟片進行讀取</strong>
     <blockquote>
-      <p>nasm -o bootloader -l ipl.lst ipl.nas
-dd if=/dev/zero of=ipl.img bs=512 count=2880
-dd if=bootloader of=ipl.img bs=512 count=1</p>
+      <p>nasm -o bootloader -l ipl.lst ipl.nas</p>
+
+      <p>dd if=/dev/zero of=ipl.img bs=512 count=2880</p>
+
+      <p>dd if=bootloader of=ipl.img bs=512 count=1</p>
     </blockquote>
   </li>
 </ol>

@@ -288,9 +288,11 @@ JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，
 <ol>
   <li><strong>編譯並測試能否模擬磁碟片進行讀取</strong>
     <blockquote>
-      <p>nasm -o bootloader -l ipl.lst ipl.nas
-dd if=/dev/zero of=ipl.img bs=512 count=2880
-dd if=bootloader of=ipl.img bs=512 count=1</p>
+      <p>nasm -o bootloader -l ipl.lst ipl.nas</p>
+
+      <p>dd if=/dev/zero of=ipl.img bs=512 count=2880</p>
+
+      <p>dd if=bootloader of=ipl.img bs=512 count=1</p>
     </blockquote>
   </li>
 </ol>

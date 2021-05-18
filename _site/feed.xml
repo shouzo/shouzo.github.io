@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 18 May 2021 03:58:09 +0800</pubDate>
-    <lastBuildDate>Tue, 18 May 2021 03:58:09 +0800</lastBuildDate>
+    <pubDate>Tue, 18 May 2021 11:10:18 +0800</pubDate>
+    <lastBuildDate>Tue, 18 May 2021 11:10:18 +0800</lastBuildDate>
     <generator>Jekyll v4.2.0</generator>
     
       <item>
@@ -74,9 +74,11 @@ JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;編譯並測試能否模擬磁碟片進行讀取&lt;/strong&gt;
     &lt;blockquote&gt;
-      &lt;p&gt;nasm -o bootloader -l ipl.lst ipl.nas
-dd if=/dev/zero of=ipl.img bs=512 count=2880
-dd if=bootloader of=ipl.img bs=512 count=1&lt;/p&gt;
+      &lt;p&gt;nasm -o bootloader -l ipl.lst ipl.nas&lt;/p&gt;
+
+      &lt;p&gt;dd if=/dev/zero of=ipl.img bs=512 count=2880&lt;/p&gt;
+
+      &lt;p&gt;dd if=bootloader of=ipl.img bs=512 count=1&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
