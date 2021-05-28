@@ -1,0 +1,450 @@
+I"U?<ul id="markdown-toc">
+  <li><a href="#20210518---day_4" id="markdown-toc-20210518---day_4">20210518 - Day_4</a>    <ul>
+      <li><a href="#撰寫-makefile" id="markdown-toc-撰寫-makefile">撰寫 Makefile</a>        <ul>
+          <li><a href="#step-1---製作相關檔案" id="markdown-toc-step-1---製作相關檔案">STEP 1 - 製作相關檔案</a></li>
+          <li><a href="#step-2---製作映像檔" id="markdown-toc-step-2---製作映像檔">STEP 2 - 製作映像檔</a></li>
+          <li><a href="#完整-makefile-程式碼" id="markdown-toc-完整-makefile-程式碼">完整 Makefile 程式碼</a></li>
+        </ul>
+      </li>
+      <li><a href="#一讓螢幕顯示白色" id="markdown-toc-一讓螢幕顯示白色">一、讓螢幕顯示白色</a></li>
+      <li><a href="#二讓螢幕顯示條紋" id="markdown-toc-二讓螢幕顯示條紋">二、讓螢幕顯示條紋</a></li>
+      <li><a href="#三矩形的繪製與處理" id="markdown-toc-三矩形的繪製與處理">三、矩形的繪製與處理</a></li>
+      <li><a href="#四螢幕顯示出狀態列圖樣" id="markdown-toc-四螢幕顯示出狀態列圖樣">四、螢幕顯示出狀態列圖樣</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>工作環境
+    <ul>
+      <li>Lubuntu 20.04</li>
+      <li>VMware Workstation 16.1.1</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="20210518---day_4">20210518 - Day_4</h1>
+<ul>
+  <li>進度摘要
+    <ol>
+      <li>撰寫 Makefile</li>
+      <li>控制畫面顏色 (白色、條紋色)</li>
+      <li>矩形的繪製與處理</li>
+      <li>螢幕顯示出狀態列圖樣</li>
+    </ol>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/My-30OS/tree/master/20210518">https://github.com/shouzo/My-30OS/tree/master/20210518</a></li>
+    </ul>
+  </li>
+  <li>參考文章
+    <ul>
+      <li><a href="https://www.gnu.org/software/mtools/manual/mtools.html">Mtools 4.0.27</a>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Mtools">mcopy - The following refers to mtools usage in floppy images</a></li>
+        </ul>
+      </li>
+      <li><a href="https://stackoverflow.com/questions/45422374/undefined-reference-to-global-offset-table-only-when-generating-binaries">undefined reference to <em>GLOBAL_OFFSET_TABLE</em> (only when generating binaries)</a></li>
+      <li><a href="https://blog.gtwang.org/linux/linux-mount/">Linux 檔案系統掛載（mount）使用教學與範例</a></li>
+      <li><a href="https://askubuntu.com/questions/986684/how-would-i-extract-a-img-file">How would I extract a .img file</a></li>
+      <li><a href="https://www.itread01.com/p/194699.html">Makefile 雙冒號規則 - zxiaocheng</a></li>
+      <li><a href="https://www.howtogeek.com/443342/how-to-use-the-mkfs-command-on-linux/">How to Use the mkfs Command on Linux</a></li>
+      <li><a href="https://stackoverflow.com/questions/32893607/how-do-i-write-a-bin-file-512-bytes-to-the-first-sector-sector-0-of-a-floppy">How do I write a bin file (512 bytes) to the first sector (sector 0) of a floppy disk?</a></li>
+      <li><a href="http://wen00072.github.io/blog/2014/03/14/study-on-the-linker-script/">Linker Script初探 - GNU Linker Ld手冊略讀</a></li>
+      <li><a href="http://www.study-area.org/cyril/opentools/opentools/x909.html">gcc與Obj檔，動態連結與ELF檔</a></li>
+      <li><a href="https://blog.louie.lu/2016/11/06/10%E5%88%86%E9%90%98%E8%AE%80%E6%87%82-linker-scripts/">10分鐘讀懂 linker scripts</a></li>
+      <li><a href="https://bit.ly/3wijRxO">oslite.ldsを開いて、以下のとおり記述します。</a> (參考 oslite.lds 的環節來撰寫)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="撰寫-makefile">撰寫 Makefile</h2>
+<p>從撰寫原始檔、組/編譯程式，到了最後還要跑虛擬機。</p>
+
+<p>如果每次都要一行行打指令會很辛苦。</p>
+
+<p>所以要把這些指令寫成 Makefile，在往後的測試會相對容易和簡便。</p>
+
+<p>-</p>
+
+<p>Makefile 主要要做的事情有：</p>
+<ul>
+  <li><strong>STEP 1 - 製作相關檔案</strong>
+    <ul>
+      <li>處理開機磁區 - <code class="language-plaintext highlighter-rouge">ipl10.asm</code></li>
+      <li>包含作業系統本體 -<code class="language-plaintext highlighter-rouge">asmhead.asm</code>、<code class="language-plaintext highlighter-rouge">nasmfunc.asm</code>、<code class="language-plaintext highlighter-rouge">bootpack.c</code>、<code class="language-plaintext highlighter-rouge">os.lds</code></li>
+    </ul>
+  </li>
+  <li><strong>STEP 2 - 製作映像檔</strong>
+    <ul>
+      <li>製作開機磁區映像檔</li>
+      <li>將作業系統本體寫入映像檔</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="step-1---製作相關檔案">STEP 1 - 製作相關檔案</h3>
+<p>主要的指令有這些</p>
+<blockquote>
+  <p>nasm ipl10.asm -o ipl10.bin -l ipl10.lst</p>
+
+  <p>nasm asmhead.asm -o asmhead.bin -l asmhead.lst</p>
+
+  <p>nasm -g -f elf nasmfunc.asm -o nasmfunc.o</p>
+
+  <p>gcc -march=i486 -m32 -nostdlib -g -O0 -T os.lds bootpack.c nasmfunc.o -o bootpack.hrb -fno-pie</p>
+
+  <p>cat asmhead.bin bootpack.hrb &gt; haribote.sys</p>
+</blockquote>
+
+<h3 id="step-2---製作映像檔">STEP 2 - 製作映像檔</h3>
+<p>有兩種產生映像檔的寫法，這兩種都會用到 <code class="language-plaintext highlighter-rouge">mcopy</code>。
+<img src="https://i.imgur.com/xRC0Tut.png" alt="" /></p>
+
+<ul>
+  <li><strong>寫法 1 (主要指令 - <code class="language-plaintext highlighter-rouge">mformat</code>、<code class="language-plaintext highlighter-rouge">mcopy</code>)</strong>：
+    <blockquote>
+      <p>mformat -f 1440 -C -B ipl10.bin -i haribote.img ::</p>
+
+      <p>mcopy -i haribote.img haribote.sys ::</p>
+    </blockquote>
+  </li>
+  <li><strong>寫法 2 (主要指令 - <code class="language-plaintext highlighter-rouge">dd</code>、<code class="language-plaintext highlighter-rouge">mcopy</code>)</strong>：
+    <blockquote>
+      <p>dd if=/dev/zero of=haribote.img bs=512 count=2880</p>
+
+      <p>dd if=ipl10.bin of=haribote.img conv=notrunc</p>
+
+      <p>mcopy -i haribote.img haribote.sys ::</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="完整-makefile-程式碼">完整 Makefile 程式碼</h3>
+<ul>
+  <li>專案原始檔 (<strong>Makefile</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile">https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile</a></li>
+</ul>
+
+<p><strong>將以上 STEP 1、STEP 2 裡的指令寫成 Makefile。</strong>
+(以下為完整程式碼)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSNAME := haribote
+
+.DEFAULT_GOAL : all
+.PHONY : all
+all : img
+	DEBUG_DIR := ./debug
+	OBJDUMP_FLAGS := --full-contents --all-headers --target=binary --architecture=i386:intel --disassemble-all
+
+
+#===============================================================================
+ipl10.bin    : ipl10.asm
+asmhead.bin  : asmhead.asm
+nasmfunc.o   : nasmfunc.asm
+
+%.bin : %.asm 
+	@make make-debug-dir
+	nasm $^ -o $@ -l ${DEBUG_DIR}/$*.lst
+
+%.o : %.asm
+	@make make-debug-dir
+	nasm -f elf $^ -o $@ -l ${DEBUG_DIR}/$*.lst
+
+BOOTPACK_FILES := bootpack.c nasmfunc.o
+bootpack.hrb : ${BOOTPACK_FILES} os.lds
+	@make make-debug-dir
+
+gcc -march=i486 -m32 -nostdlib -g -O0 \
+	-T os.lds \
+	-o $@ \
+	-fno-pie\
+	${BOOTPACK_FILES}
+
+objdump ${OBJDUMP_FLAGS} $@ &gt; ${DEBUG_DIR}/$@.dasm
+
+
+${OSNAME}.sys : asmhead.bin bootpack.hrb
+%.sys :
+	@make make-debug-dir
+	cat $^ &gt; $@
+
+objdump ${OBJDUMP_FLAGS} $@ &gt; ${DEBUG_DIR}/$@.dasm
+
+
+
+${OSNAME}.img : ipl10.bin ${OSNAME}.sys
+
+# ======方法 1======
+    mformat -f 1440 -C -B ipl10.bin -i $@ ::
+    mcopy -i $@ ${OSNAME}.sys ::
+# ================
+
+# ======方法 2======
+# dd if=/dev/zero of=${OSNAME}.img bs=512 count=2880
+# dd if=ipl10.bin of=${OSNAME}.img conv=notrunc
+# mcopy -i $@ ${OSNAME}.sys ::
+# =================
+
+
+#===============================================================================
+
+
+.PHONY : asm
+asm :
+	make ipl10.bin
+
+.PHONY : img
+img :
+	make ${OSNAME}.img 
+
+.PHONY : run
+run :
+	make img
+	qemu-system-i386 -fda ${OSNAME}.img
+
+.PHONY : make-debug-dir
+        make-debug-dir :
+	@if [ ! -d ${DEBUG_DIR} ]; then mkdir ${DEBUG_DIR}; fi
+
+
+#===============================================================================
+
+
+.PHONY : clean
+clean :
+	@rm *.img *.bin *.sys *.hrb *.o
+
+.PHONY : debug
+debug:
+	make img
+	qemu-system-i386 -fda haribote.img -gdb tcp::10000 -S
+</code></pre></div></div>
+
+<p>記得將 Makefile 與其他原始檔放在同一目錄下，未來如果要編譯直接載入 Makefile 指令即可。
+<img src="https://i.imgur.com/YLTk8k3.jpg" alt="" /></p>
+
+<p>以下為常用的指令 (在 Makefile 和其他原始檔皆存在的狀況下)：</p>
+<ul>
+  <li>編譯原始檔
+    <blockquote>
+      <p>make</p>
+    </blockquote>
+  </li>
+  <li>編譯並執行 (以 QEMU 模擬)
+    <blockquote>
+      <p>make run</p>
+    </blockquote>
+  </li>
+  <li>清除原始檔以外的檔案
+    <blockquote>
+      <p>make clean</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="一讓螢幕顯示白色">一、讓螢幕顯示白色</h2>
+<ul>
+  <li>專案原始檔：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/01_source1_white">https://github.com/shouzo/My-30OS/tree/master/20210518/01_source1_white</a></li>
+</ul>
+
+<p><strong>1. 在 VRAM (Video RAM, 顯示畫面用的記憶體) 寫入指令，相關程式碼如下：</strong></p>
+
+<ul>
+  <li><strong>bootpack.c</strong> (../01_source1_white/bootpack.c)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* 告知C語言編譯器，有使用其他檔案所製作的函數 */
+
+void io_hlt(void);
+void write_mem8(int addr, int data);
+/* 雖然是函數的宣告，卻沒有 {}，而且馬上就以; 字元結束。
+   這是表示它存在於其他的檔案裡，請到該處去進行讀取。 */
+
+void HariMain(void)
+{
+    int i;  /* 宣告變數。稱為 i 的變數是 32 位元的整數型別 */
+
+    for (i = 0xa0000; i &lt;= 0xaffff; i++)     {
+        write_mem8(i, 15);      // 螢幕會顯示白色
+        // write_mem8(i, i &amp; 0x0f);     // 螢幕會顯示條紋色
+    }
+
+    for (;;) {
+        io_hlt(); /* 這樣在 nasmfunc.asm 的 io_hlt 將會執行 */
+    }	
+}
+
+</code></pre></div></div>
+
+<ul>
+  <li><strong>nasmfunc.asm</strong> (../01_source1_white/nasmfunc.asm)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; nasmfunc
+; TAB=4
+
+; ===========================================
+section .text
+    GLOBAL	io_hlt
+	GLOBAL	write_mem8
+; ===========================================
+
+
+; ===========================================
+io_hlt:	; void io_hlt(void);
+		HLT
+		RET
+; ===========================================
+
+
+write_mem8:    ; void write_mem8(int addr, int data);
+        MOV     ECX, [ESP+4]    ; 因為在 [ESP+4] 裡有 addr，所以將該值讀入到 ECX
+        MOV     AL, [ESP+8]     ; 因為在 [ESP+8] 裡有 data，所以將該值讀入 AL
+        MOV     [ECX], AL
+        RET
+
+</code></pre></div></div>
+
+<p><strong>2. 進行編譯並執行</strong></p>
+<blockquote>
+  <p>make run</p>
+</blockquote>
+
+<p><strong>【執行結果】</strong> 螢幕顯示白色
+<img src="https://i.imgur.com/yEncOoa.png" alt="" /></p>
+
+<h2 id="二讓螢幕顯示條紋">二、讓螢幕顯示條紋</h2>
+<ul>
+  <li>專案原始檔：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/01_source2_stripes">https://github.com/shouzo/My-30OS/tree/master/20210518/01_source2_stripes</a></li>
+</ul>
+
+<p><strong>1. 在 VRAM (Video RAM, 顯示畫面用的記憶體) 寫入指令，相關程式碼如下：</strong></p>
+
+<ul>
+  <li><strong>bootpack.c</strong> (../01_source2_stripes/bootpack.c)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* 告知C語言編譯器，有使用其他檔案所製作的函數 */
+
+void io_hlt(void);
+void write_mem8(int addr, int data);
+/* 雖然是函數的宣告，卻沒有 {}，而且馬上就以; 字元結束。
+   這是表示它存在於其他的檔案裡，請到該處去進行讀取。 */
+
+void HariMain(void)
+{
+    int i;  /* 宣告變數。稱為 i 的變數是 32 位元的整數型別 */
+
+    for (i = 0xa0000; i &lt;= 0xaffff; i++)     {
+        write_mem8(i, 15);      // 螢幕會顯示白色
+        // write_mem8(i, i &amp; 0x0f);     // 螢幕會顯示條紋色
+    }
+
+    for (;;) {
+        io_hlt(); /* 這樣在 nasmfunc.asm 的 io_hlt 將會執行 */
+    }	
+}
+
+</code></pre></div></div>
+
+<p><strong>2. 進行編譯並執行</strong></p>
+<blockquote>
+  <p>make run</p>
+</blockquote>
+
+<p><strong>【執行結果】</strong> 螢幕顯示條紋色
+<img src="https://i.imgur.com/1c5JuaQ.png" alt="" /></p>
+
+<h2 id="三矩形的繪製與處理">三、矩形的繪製與處理</h2>
+<ul>
+  <li>專案原始檔：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/01_source3_rectangle">https://github.com/shouzo/My-30OS/tree/master/20210518/01_source3_rectangle</a></li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://wen00072.github.io/blog/2014/03/14/study-on-the-linker-script/">Linker Script初探 - GNU Linker Ld手冊略讀</a></li>
+      <li><a href="https://blog.louie.lu/2016/11/06/10%E5%88%86%E9%90%98%E8%AE%80%E6%87%82-linker-scripts/">10分鐘讀懂 linker scripts</a></li>
+      <li><a href="https://bit.ly/3wijRxO">oslite.ldsを開いて、以下のとおり記述します。</a> (參考 oslite.lds 的環節來撰寫)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>1. 修改主要程式碼</strong></p>
+<ul>
+  <li><a href="https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/bootpack.c"><strong>bootpack.c</strong></a>
+(../01_source3_rectangle/bootpack.c)</li>
+  <li><a href="https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/nasmfunc.asm"><strong>nasmfunc.asm</strong></a>
+(../01_source3_rectangle/nasmfunc.asm)</li>
+</ul>
+
+<p><strong>2. 要修改 Linker Script - <code class="language-plaintext highlighter-rouge">os.lds</code>，程式碼如下：</strong></p>
+<ul>
+  <li><a href="https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/os.lds"><strong>os.lds</strong></a> (…/01_source3_rectangle/os.lds)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OUTPUT_FORMAT(binary)
+OUTPUT_ARCH(i386)
+
+SECTIONS {
+     .head 0x0 :
+     {
+         LONG((ADDR(.bss) + SIZEOF(.bss) + 0xfff) &amp; ~ 0xfff)
+         BYTE(0x4f) BYTE(0x53) BYTE(0x4c) BYTE(0x69)
+         LONG(0x0)
+         LONG(ADDR(.data))
+         LONG(SIZEOF(.data))
+         LONG(LOADADDR(.data))
+         LONG(0xe9000000)
+         LONG(HariMain - 0x20)
+         LONG((ADDR(.bss) + SIZEOF(.bss) + 0xf) &amp; ~ 0xf)
+     }
+
+     .text ADDR(.head) + SIZEOF(.head) :
+         SUBALIGN (1)
+     {
+         *(.text)
+     }
+
+     .data 0x00000400 :
+         AT ( LOADADDR(.text) + SIZEOF(.text) ) SUBALIGN (4)
+     {
+         *(.data)
+         *(.rodata*)
+     }
+
+     .bss  :
+         AT ( LOADADDR(.data) + SIZEOF(.data) ) SUBALIGN (4)
+     {
+        *(.bss)
+     }
+
+     /DISCARD/ : { *(*) }
+}
+</code></pre></div></div>
+
+<p><strong>3. 進行編譯並執行</strong></p>
+<blockquote>
+  <p>make run</p>
+</blockquote>
+
+<p><strong>【執行結果】</strong> 螢幕顯示矩形
+<img src="https://i.imgur.com/PPgmWjZ.png" alt="" /></p>
+
+<h2 id="四螢幕顯示出狀態列圖樣">四、螢幕顯示出狀態列圖樣</h2>
+<ul>
+  <li>專案原始檔：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/01_source4_status">https://github.com/shouzo/My-30OS/tree/master/20210518/01_source4_status</a></li>
+</ul>
+
+<p><strong>1. 修改主要程式碼</strong></p>
+<ul>
+  <li><a href="https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/bootpack.c"><strong>bootpack.c</strong></a>
+(../01_source4_status/bootpack.c)</li>
+</ul>
+
+<p><strong>2. 進行編譯並執行</strong></p>
+<blockquote>
+  <p>make run</p>
+</blockquote>
+
+<p><strong>【執行結果】</strong> 螢幕顯示出狀態列圖樣
+<img src="https://i.imgur.com/b809yVD.png" alt="" /></p>
+:ET

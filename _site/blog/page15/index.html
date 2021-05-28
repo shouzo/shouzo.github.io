@@ -168,6 +168,549 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/05/05/linux_system/">20170505 [學習筆記] Linux 系統程式 (9)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-05-05
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-semaphore" id="markdown-toc-一-semaphore">(一) Semaphore</a>        <ul>
+          <li><a href="#1-usage" id="markdown-toc-1-usage">1. Usage</a></li>
+          <li><a href="#2-implementation" id="markdown-toc-2-implementation">2. Implementation</a>            <ul>
+              <li><a href="#1-busy-waiting" id="markdown-toc-1-busy-waiting">(1) Busy waiting</a></li>
+              <li><a href="#2-with-no-busy-waiting" id="markdown-toc-2-with-no-busy-waiting">(2) with no Busy waiting</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#二-deadlock-and-starvation" id="markdown-toc-二-deadlock-and-starvation">(二) Deadlock and Starvation</a></li>
+      <li><a href="#三-classical-problems-of-synchronization" id="markdown-toc-三-classical-problems-of-synchronization">(三) Classical Problems of Synchronization</a>        <ul>
+          <li><a href="#1-bounded-buffer-problem" id="markdown-toc-1-bounded-buffer-problem">1. Bounded-Buffer Problem</a>            <ul>
+              <li><a href="#1-the-structure-of-the-producer-process" id="markdown-toc-1-the-structure-of-the-producer-process">(1) The structure of the producer process</a></li>
+              <li><a href="#2-the-structure-of-the-consumer-process" id="markdown-toc-2-the-structure-of-the-consumer-process">(2) The structure of the consumer process</a></li>
+            </ul>
+          </li>
+          <li><a href="#2-readers-writers-problem" id="markdown-toc-2-readers-writers-problem">2. Readers-Writers Problem</a>            <ul>
+              <li><a href="#1-the-structure-of-a-writer-process" id="markdown-toc-1-the-structure-of-a-writer-process">(1) The structure of a writer process</a></li>
+              <li><a href="#2-the-structure-of-a-reader-process" id="markdown-toc-2-the-structure-of-a-reader-process">(2) The structure of a reader process</a></li>
+              <li><a href="#3-problem" id="markdown-toc-3-problem">(3) Problem</a></li>
+            </ul>
+          </li>
+          <li><a href="#3-dining-philosophers-problem" id="markdown-toc-3-dining-philosophers-problem">3. Dining-Philosophers Problem</a>            <ul>
+              <li><a href="#1-in-the-case-of-5-philosophers" id="markdown-toc-1-in-the-case-of-5-philosophers">(1) In the case of 5 philosophers</a></li>
+              <li><a href="#2-monitors" id="markdown-toc-2-monitors">(2) Monitors</a></li>
+              <li><a href="#monitors-implementation" id="markdown-toc-monitors-implementation">Monitors Implementation</a>                <ul>
+                  <li><a href="#1-using-semaphores" id="markdown-toc-1-using-semaphores">1. Using Semaphores</a></li>
+                  <li><a href="#2-condition-variables" id="markdown-toc-2-condition-variables">2. Condition Variables</a></li>
+                  <li><a href="#resuming-processes" id="markdown-toc-resuming-processes">Resuming Processes</a></li>
+                  <li><a href="#allocate-single-resource" id="markdown-toc-allocate-single-resource">Allocate Single Resource</a></li>
+                </ul>
+              </li>
+              <li><a href="#3-solution" id="markdown-toc-3-solution">(3) Solution</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課程簡報
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170504/ch06.pdf">Chapter 6: Process Scheduling</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-semaphore">(一) Semaphore</h3>
+<ul>
+  <li>Synchronization tool that does not require busy waiting.</li>
+  <li>Semaphore S – integer variable</li>
+  <li>Two standard operations modify S: <code class="language-plaintext highlighter-rouge">wait()</code> and <code class="language-plaintext highlighter-rouge">signal()</code></li>
+  <li>Less complicated</li>
+  <li>Can only be accessed via two indivisible (atomic) operations</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">S</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">;</span> <span class="c1">//busy wait</span>
+    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
+<span class="err">}</span>
+<span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">S</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="1-usage">1. Usage</h4>
+<ul>
+  <li><strong>Counting semaphore</strong> – integer value can range over an unrestricted domain</li>
+  <li><strong>Binary semaphore</strong> – integer value can range only between 0 and 1
+    <ul>
+      <li>Then a <code class="language-plaintext highlighter-rouge">mutex lock</code></li>
+    </ul>
+  </li>
+  <li>Can implement a counting semaphore S as a binary semaphore</li>
+  <li>Can solve various synchronization problems</li>
+  <li>Consider P1 and P2 that require S1 to happen before S2</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">P1:</span>
+    <span class="n">S1</span><span class="p">;</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
+<span class="n">P2</span><span class="o">:</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
+    <span class="n">S2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="2-implementation">2. Implementation</h4>
+<h5 id="1-busy-waiting">(1) Busy waiting</h5>
+<ul>
+  <li>
+    <p>Must guarantee that no two processes can execute <code class="language-plaintext highlighter-rouge">wait()</code> and <code class="language-plaintext highlighter-rouge">signal()</code> on the same semaphore at the same time</p>
+  </li>
+  <li>Thus, implementation becomes the critical section problem where the wait and signal code are placed in the critical section</li>
+  <li>Could now have <strong>busy waiting</strong> in critical section implementation
+    <ul>
+      <li>But implementation code is short</li>
+      <li>Little busy waiting if critical section rarely occupied</li>
+    </ul>
+  </li>
+  <li>Note that applications may spend lots of time in critical sections and therefore this is not a good solution</li>
+</ul>
+
+<h5 id="2-with-no-busy-waiting">(2) with no Busy waiting</h5>
+<ul>
+  <li>With each semaphore there is an associated waiting queue</li>
+  <li>Each entry in a waiting queue has two data items:
+    <ul>
+      <li>value (of type integer)</li>
+      <li>pointer to next record in the list</li>
+    </ul>
+  </li>
+  <li>Two operations:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">block</code> – place the process invoking the operation on the appropriate waiting queue</li>
+      <li><code class="language-plaintext highlighter-rouge">wakeup</code> – remove one of processes in the waiting queue and place it in the ready queue</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">process</span> <span class="o">*</span><span class="n">list</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">semaphore</span><span class="p">;</span>
+
+<span class="n">wait</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// add this process to S-&gt;list;</span>
+        <span class="n">block</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">signal</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// remove a process P from S-&gt;list;</span>
+        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="二-deadlock-and-starvation">(二) Deadlock and Starvation</h3>
+<ul>
+  <li><strong>Deadlock</strong> – two or more processes are waiting indefinitely for an event that can be caused by only one of the waiting processes</li>
+  <li>
+    <p>Let S and Q be two semaphores initialized to 1
+<img src="https://i.imgur.com/9cUghpD.png" alt="" /></p>
+  </li>
+  <li><strong>Starvation</strong> – indefinite blocking
+    <ul>
+      <li>A process may never be removed from the semaphore queue in which it is suspended</li>
+    </ul>
+  </li>
+  <li><strong>Priority Inversion</strong>
+    <ul>
+      <li>Scheduling problem when lower-priority process holds a lock needed by higher-priority process</li>
+      <li>Solved via <strong>priority-inheritance protocol</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="三-classical-problems-of-synchronization">(三) Classical Problems of Synchronization</h3>
+<h4 id="1-bounded-buffer-problem">1. Bounded-Buffer Problem</h4>
+<ul>
+  <li>n buffers, each can hold one item
+    <ul>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">mutex</code> initialized to the value 1</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">full</code> initialized to the value 0</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">empty</code> initialized to the value n</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="1-the-structure-of-the-producer-process">(1) The structure of the producer process</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="cm">/* produce an item in next_produced */</span>
+    <span class="p">...</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    
+    <span class="p">...</span>
+    <span class="cm">/* add next produced to the buffer */</span>
+    <span class="p">...</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h5 id="2-the-structure-of-the-consumer-process">(2) The structure of the consumer process</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+
+    <span class="p">...</span>
+    <span class="cm">/* remove an item from buffer to next_consumed */</span>
+    <span class="p">...</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
+
+    <span class="p">...</span>
+    <span class="cm">/* consume the item in next consumed */</span>
+    <span class="p">...</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="2-readers-writers-problem">2. Readers-Writers Problem</h4>
+<ul>
+  <li>A data set is shared among a number of concurrent processes
+    <ul>
+      <li><strong>Readers</strong> - only read the data set; they do not perform any updates</li>
+      <li><strong>Writers</strong> - can both read and write</li>
+    </ul>
+  </li>
+  <li><strong>Problem</strong> - allow multiple readers to read at the same time</li>
+  <li>Several variations of how readers and writers are treated – all involve priorities</li>
+  <li>Shared Data
+    <ul>
+      <li>Data set</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">rw_mutex</code> initialized to 1</li>
+      <li>Semaphore <code class="language-plaintext highlighter-rouge">mutex</code> initialized to 1</li>
+      <li>Integer <code class="language-plaintext highlighter-rouge">read_count</code> initialized to 0</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="1-the-structure-of-a-writer-process">(1) The structure of a writer process</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    
+    <span class="p">...</span>
+    <span class="cm">/* writing is performed */</span>
+    <span class="p">...</span>
+    
+    <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h5 id="2-the-structure-of-a-reader-process">(2) The structure of a reader process</h5>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">read_count</span><span class="o">++</span><span class="p">;</span>
+    
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1">// only for the first reader entering</span>
+        <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+        
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>    <span class="c1">// if the first reader wait for rw_mutex, other readers will be blocked on wait(mutex)</span>
+        
+    <span class="p">...</span>
+    <span class="cm">/* reading is performed */</span>
+    <span class="p">...</span>
+        
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">read_count</span><span class="o">--</span><span class="p">;</span>
+        
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1">// only for the last reader leaving</span>
+        <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h5 id="3-problem">(3) Problem</h5>
+<ul>
+  <li><strong>First variation</strong> – no reader kept waiting unless writer has permission to use shared object</li>
+  <li><strong>Second variation</strong> – once writer is ready, it performs write asap</li>
+  <li>Both may have starvation leading to even more variations</li>
+  <li>Problem is solved on some systems by kernel providing <code class="language-plaintext highlighter-rouge">reader-writer locks</code></li>
+</ul>
+
+<h4 id="3-dining-philosophers-problem">3. Dining-Philosophers Problem</h4>
+<ul>
+  <li>Philosophers spend their lives thinking and eating</li>
+  <li>Don’t interact with their neighbors, occasionally try to pick up 2 chopsticks (one at a time) to eat from bowl
+    <ul>
+      <li>Need both to eat, then release both when done
+<img src="https://i.imgur.com/9W4qi3z.png" alt="" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="1-in-the-case-of-5-philosophers">(1) In the case of 5 philosophers</h5>
+<ul>
+  <li>Shared data
+    <ul>
+      <li>Bowl of rice (data set)</li>
+      <li>Semaphore chopstick [5] initialized to 1</li>
+    </ul>
+  </li>
+  <li>The structure of Philosopher i:</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
+    <span class="n">wait</span> <span class="p">(</span> <span class="n">chopStick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
+    
+    <span class="c1">// eat</span>
+
+    <span class="n">signal</span> <span class="p">(</span> <span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">);</span>
+    <span class="n">signal</span> <span class="p">(</span><span class="n">chopstick</span><span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="p">);</span>
+    
+    <span class="c1">// think</span>
+    
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>Incorrect use of semaphore operations:
+    <ul>
+      <li>signal (mutex) …. wait (mutex)</li>
+      <li>wait (mutex) … wait (mutex)</li>
+      <li>Omitting of wait (mutex) or signal (mutex) (or both)</li>
+    </ul>
+  </li>
+  <li>Deadlock and starvation</li>
+</ul>
+
+<h5 id="2-monitors">(2) Monitors</h5>
+<p><img src="https://i.imgur.com/Et1mwXN.png" alt="" /></p>
+
+<ul>
+  <li>A high-level abstraction that provides a convenient and effective mechanism for process synchronization</li>
+  <li>Abstract data type, internal variables only accessible by code within the procedure</li>
+  <li>Only one process may be active within the monitor at a time</li>
+  <li>But not powerful enough to model some synchronization schemes</li>
+</ul>
+
+<h5 id="monitors-implementation">Monitors Implementation</h5>
+<h6 id="1-using-semaphores">1. Using Semaphores</h6>
+<ul>
+  <li>Variables</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// (initially = 1)</span>
+<span class="n">semaphore</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// (initially = 0)</span>
+<span class="kt">int</span> <span class="n">next_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Each procedure F will be replaced by</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+
+<span class="p">...</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">F</span><span class="p">;</span>
+<span class="p">...</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Mutual exclusion within a monitor is ensured</li>
+</ul>
+
+<h6 id="2-condition-variables">2. Condition Variables</h6>
+
+<ul>
+  <li>For each condition variable x, we have:</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semaphore</span> <span class="n">x_sem</span><span class="p">;</span> <span class="c1">// (initially = 0)</span>
+<span class="kt">int</span> <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The operation <code class="language-plaintext highlighter-rouge">x.wait</code> can be implemented as:</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+<span class="n">wait</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
+<span class="n">x</span><span class="o">-</span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h6 id="resuming-processes">Resuming Processes</h6>
+<ul>
+  <li>If several processes queued on condition x, and x.signal() executed, which should be resumed?</li>
+  <li>FCFS frequently not adequate</li>
+  <li><strong>conditional-wait</strong> construct of the form x.wait(c)
+    <ul>
+      <li>Where c is <strong>priority number</strong></li>
+      <li>Process with lowest number (highest priority) is scheduled next</li>
+    </ul>
+  </li>
+</ul>
+
+<h6 id="allocate-single-resource">Allocate Single Resource</h6>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">monitor</span> <span class="n">ResourceAllocator</span>
+<span class="p">{</span>
+    <span class="n">boolean</span> <span class="n">busy</span><span class="p">;</span>
+    <span class="n">condition</span> <span class="n">x</span><span class="p">;</span>
+    
+    <span class="kt">void</span> <span class="n">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">busy</span><span class="p">)</span>
+            <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
+        <span class="n">busy</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">release</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
+        <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="n">initialization</span> <span class="n">code</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">busy</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="3-solution">(3) Solution</h5>
+<ul>
+  <li>Each philosopher i invokes the operations <code class="language-plaintext highlighter-rouge">pickup()</code> and <code class="language-plaintext highlighter-rouge">putdown()</code> in the following sequence:
+    <ul>
+      <li>No deadlock, but starvation is possible.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">EAT</span>
+<span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">monitor</span> <span class="n">DiningPhilosophers</span>
+<span class="p">{</span>
+    <span class="k">enum</span> <span class="p">{</span> <span class="n">THINKING</span><span class="p">;</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">state</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">;</span>
+    <span class="n">condition</span> <span class="n">self</span> <span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+
+    <span class="kt">void</span> <span class="n">pickup</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">HUNGRY</span><span class="p">;</span>
+        <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="n">self</span> <span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">putdown</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
+    
+        <span class="cm">/* test left and right neighbors */</span>
+        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>
+        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">test</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+<span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">HUNGRY</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+<span class="p">(</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">EATING</span><span class="p">;</span>
+            <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">signal</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+    <span class="n">initialization_code</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/05/05/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/05/04/vim/">20170504 [個人紀錄] Vim 慣用設定</a>
                 </h2>
                 <div class="label">
@@ -654,485 +1197,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/04/14/linux_system/">20170414 [學習筆記] Linux 系統程式 (7)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-04-14
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#一-direct-communication" id="markdown-toc-一-direct-communication">(一) Direct Communication</a></li>
-      <li><a href="#二-indirect-communication" id="markdown-toc-二-indirect-communication">(二) Indirect Communication</a></li>
-      <li><a href="#三-synchronization" id="markdown-toc-三-synchronization">(三) Synchronization</a></li>
-      <li><a href="#四-buffering" id="markdown-toc-四-buffering">(四) Buffering</a></li>
-      <li><a href="#examples-of-ipc-systems" id="markdown-toc-examples-of-ipc-systems">Examples of IPC Systems</a>        <ul>
-          <li><a href="#1-posix" id="markdown-toc-1-posix">1. POSIX</a></li>
-          <li><a href="#2-mach" id="markdown-toc-2-mach">2. Mach</a></li>
-          <li><a href="#3-windows" id="markdown-toc-3-windows">3. Windows</a></li>
-        </ul>
-      </li>
-      <li><a href="#五-communications-in-client-server-systems" id="markdown-toc-五-communications-in-client-server-systems">(五) Communications in Client-Server Systems</a>        <ul>
-          <li><a href="#1-sockets" id="markdown-toc-1-sockets">1. Sockets</a></li>
-          <li><a href="#2-remote-procedure-calls" id="markdown-toc-2-remote-procedure-calls">2. Remote Procedure Calls</a></li>
-          <li><a href="#3-pipes" id="markdown-toc-3-pipes">3. Pipes</a></li>
-        </ul>
-      </li>
-      <li><a href="#課堂作業" id="markdown-toc-課堂作業">課堂作業</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="一作業系統">一、作業系統</h2>
-<ul>
-  <li>課程簡報
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170413/ch03.pdf">Chapter 3: Process Concept</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="一-direct-communication">(一) Direct Communication</h3>
-<ul>
-  <li>Processes must name each other explicitly：
-    <ul>
-      <li>send(P, message) – send a message to process P</li>
-      <li>receive(Q, message) – receive a message from process Q</li>
-    </ul>
-  </li>
-  <li>Properties of communication link
-    <ul>
-      <li>Links are established automatically</li>
-      <li>A link is associated with exactly one pair of communicating processes</li>
-      <li>Between each pair there exists exactly one link</li>
-      <li>The link may be unidirectional, but is usually bi-directional</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="二-indirect-communication">(二) Indirect Communication</h3>
-<ul>
-  <li>Messages are directed and received from mailboxes (also referred to as ports)
-    <ul>
-      <li>Each mailbox has a unique id</li>
-      <li>Processes can communicate only if they share a mailbox</li>
-    </ul>
-  </li>
-  <li>Properties of communication link
-    <ul>
-      <li>Link established only if processes share a common mailbox</li>
-      <li>A link may be associated with many processes</li>
-      <li>Each pair of processes may share several communication links</li>
-      <li>Link may be unidirectional or bi-directional</li>
-    </ul>
-  </li>
-  <li>Operations
-    <ul>
-      <li>create a new mailbox</li>
-      <li>send and receive messages through mailbox</li>
-      <li>destroy a mailbox</li>
-    </ul>
-  </li>
-  <li>Primitives are defined as：
-    <ul>
-      <li>send(A, message) – send a message to mailbox A</li>
-      <li>receive(A, message) – receive a message from mailbox A</li>
-    </ul>
-  </li>
-  <li>Mailbox sharing
-    <ul>
-      <li>Who gets the message？
-        <ul>
-          <li>P 1 , P 2 , and P 3 share mailbox A</li>
-          <li>P 1 , sends; P 2 and P 3 receive</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Solutions
-    <ul>
-      <li>Allow a link to be associated with at most two processes.</li>
-      <li>Allow only one process at a time to execute a receive operation.</li>
-      <li>Allow the system to select arbitrarily the receiver. Sender is notified who the receiver was.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="三-synchronization">(三) Synchronization</h3>
-<ul>
-  <li>
-    <p>Message passing may be either blocking or non-blocking</p>
-  </li>
-  <li><strong>Blocking</strong> is considered <strong>synchronous</strong>
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">Blocking send</code> has the sender block until the message is received</li>
-      <li><code class="language-plaintext highlighter-rouge">Blocking receive</code> has the receiver block until a message is available</li>
-    </ul>
-  </li>
-  <li><strong>Non-blocking</strong> is considered <strong>asynchronous</strong>
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">Non-blocking send</code> has the sender send the message and continue</li>
-      <li><code class="language-plaintext highlighter-rouge">Non-blocking receive</code> has the receiver receive a valid message or null</li>
-    </ul>
-  </li>
-  <li>Different combinations possible
-    <ul>
-      <li>If both send and receive are blocking, we have a rendezvous</li>
-    </ul>
-  </li>
-  <li>Producer-consumer becomes trivial</li>
-</ul>
-
-<h3 id="四-buffering">(四) Buffering</h3>
-<ul>
-  <li>Queue of messages attached to the link; implemented in one of three ways
-    <ol>
-      <li>Zero capacity – 0 messages
-  Sender must wait for receiver (rendezvous)</li>
-      <li>Bounded capacity – finite length of n messages
-  Sender must wait if link full</li>
-      <li>Unbounded capacity – infinite length
-  Sender never waits</li>
-    </ol>
-  </li>
-</ul>
-
-<h3 id="examples-of-ipc-systems">Examples of IPC Systems</h3>
-
-<h4 id="1-posix">1. POSIX</h4>
-<ul>
-  <li>POSIX Shared Memory
-    <ul>
-      <li>Process first creates shared memory segment：<code class="language-plaintext highlighter-rouge">shm_fd = shm_open(name, O CREAT | O RDRW, 0666);</code></li>
-      <li>Also used to open an existing segment to share it</li>
-      <li>Set the size of the object：<code class="language-plaintext highlighter-rouge">ftruncate(shm fd, 4096);</code></li>
-      <li>Now the process could write to the shared memory：<code class="language-plaintext highlighter-rouge">sprintf(shared memory, "Writing to shared memory");</code></li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="2-mach">2. Mach</h4>
-<ul>
-  <li>Mach communication is message based
-    <ul>
-      <li>Even system calls are messages</li>
-      <li>Each task gets two mailboxes at creation- Kernel and Notify</li>
-      <li>Only three system calls needed for message transfer：<code class="language-plaintext highlighter-rouge">msg_send()</code>, <code class="language-plaintext highlighter-rouge">msg_receive()</code>, <code class="language-plaintext highlighter-rouge">msg_rpc()</code></li>
-      <li>Mailboxes needed for commuication, created via：<code class="language-plaintext highlighter-rouge">port_allocate()</code></li>
-      <li>Send and receive are flexible, for example four options if mailbox full：
-        <ul>
-          <li>Wait indefinitely</li>
-          <li>Wait at most n milliseconds</li>
-          <li>Return immediately</li>
-          <li>Temporarily cache a message</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="3-windows">3. Windows</h4>
-<ul>
-  <li>Message-passing centric via <code class="language-plaintext highlighter-rouge">advanced local procedure call (LPC)</code> facility
-    <ul>
-      <li>Only works between processes on the same system</li>
-      <li>Uses ports (like mailboxes) to establish and maintain communication channels</li>
-      <li>Communication works as follows：
-        <ul>
-          <li>The client opens a handle to the subsystem’s <code class="language-plaintext highlighter-rouge">connection port</code> object.</li>
-          <li>The client sends a connection request.</li>
-          <li>The server creates two private <code class="language-plaintext highlighter-rouge">communication ports</code> and returns the handle to one of them to the client.</li>
-          <li>The client and server use the corresponding port handle to send messages or callbacks and to listen for replies.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="五-communications-in-client-server-systems">(五) Communications in Client-Server Systems</h3>
-
-<h4 id="1-sockets">1. Sockets</h4>
-<ul>
-  <li>A socket is defined as an endpoint for communication</li>
-  <li>Concatenation of <code class="language-plaintext highlighter-rouge">IP address</code> and <code class="language-plaintext highlighter-rouge">port</code> – a number included at start of message packet to differentiate network services on a host
-    <ul>
-      <li>The socket 161.25.19.8:1625 refers to port 1625 on host 161.25.19.8</li>
-    </ul>
-  </li>
-  <li>Communication consists between a pair of sockets</li>
-  <li>All ports below 1024 are well known, used for standard services</li>
-  <li>Special IP address <code class="language-plaintext highlighter-rouge">127.0.0.1 (loopback)</code> to refer to system on which process is running</li>
-</ul>
-
-<h4 id="2-remote-procedure-calls">2. Remote Procedure Calls</h4>
-<ul>
-  <li>Remote procedure call (RPC) abstracts procedure calls between processes on networked systems
-    <ul>
-      <li>Again uses ports for service differentiation</li>
-    </ul>
-  </li>
-  <li><strong>Stubs</strong> – client-side proxy for the actual procedure on the server</li>
-  <li>The client-side stub locates the server and <strong>marshalls</strong> the parameters</li>
-  <li>The server-side stub receives this message, unpacks the marshalled parameters, and performs the procedure on the server</li>
-  <li>On Windows, stub code compile from specification written in <strong>Microsoft Interface Definition Language (MIDL)</strong></li>
-  <li>Data representation handled via <strong>External Data Representation (XDL)</strong> format to account for different architectures
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">Big-endian</code> and <code class="language-plaintext highlighter-rouge">little-endian</code></li>
-    </ul>
-  </li>
-  <li>Remote communication has more failure scenarios than local
-    <ul>
-      <li>Messages can be delivered <code class="language-plaintext highlighter-rouge">exactly once</code> rather than <code class="language-plaintext highlighter-rouge">at most once</code></li>
-    </ul>
-  </li>
-  <li>OS typically provides a rendezvous (or <strong>matchmaker</strong>) service to connect client and server</li>
-</ul>
-
-<p><img src="https://i.imgur.com/fvjj3rR.jpg" alt="" /></p>
-
-<h4 id="3-pipes">3. Pipes</h4>
-<ul>
-  <li>Acts as a conduit allowing two processes to communicate</li>
-  <li><strong>Issues</strong>
-    <ul>
-      <li>Is communication unidirectional or bidirectional?</li>
-      <li>In the case of two-way communication, is it half or full-duplex?</li>
-      <li>Must there exist a relationship (i.e. parent-child) between the communicating processes?</li>
-      <li>Can the pipes be used over a network?</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://i.imgur.com/W3b5HkN.jpg" alt="" />
-<img src="https://i.imgur.com/c18pKq0.jpg" alt="" /></p>
-
-<h3 id="課堂作業">課堂作業</h3>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">client</code> 部份</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
-*/</span>
-<span class="cm">/* The second program is the producer and allows us to enter data for consumers.
- It's very similar to shm1.c and looks like this. */</span>
-
-<span class="cp">#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-</span>
-<span class="cp">#include &lt;sys/shm.h&gt;
-</span>
-<span class="cp">#include "shm_com.h"
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">running</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">void</span> <span class="o">*</span><span class="n">shared_memory</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="n">shared_stuff</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
-    <span class="kt">int</span> <span class="n">shmid</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">rand_arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-
-    <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">((</span><span class="n">key_t</span><span class="p">)</span><span class="mi">1234</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span><span class="p">),</span> <span class="mo">0666</span> <span class="o">|</span> <span class="n">IPC_CREAT</span><span class="p">);</span>
-	
-    <span class="k">if</span> <span class="p">(</span><span class="n">shmid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmget failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">shared_memory</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmat failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Memory attached at %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">);</span>
-
-    <span class="n">shared_stuff</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">;</span>
-
-    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>            
-            <span class="n">printf</span><span class="p">(</span><span class="s">"waiting for client...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="p">}</span>
-        
-        <span class="cm">/*
-        printf("\nPress Enter to continue...");
-        while (getchar() != '\n');
-        // fgets(buffer, BUFSIZ, stdin);
-        */</span>
-
-        <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-            <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"[%d]%d </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">rand_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-
-        <span class="c1">//  strncpy(shared_stuff-&gt;some_text, &amp;rand_arr, TEXT_SZ);</span>
-        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">shmdt</span><span class="p">(</span><span class="n">shared_memory</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmdt failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">server</code> 部份</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* vim: ts=4 sw=4 et
-*/</span>
-<span class="cm">/* Our first program is a consumer. After the headers the shared memory segment
- (the size of our shared memory structure) is created with a call to shmget,
- with the IPC_CREAT bit specified. */</span>
-
-<span class="cp">#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-</span>
-<span class="cp">#include &lt;sys/shm.h&gt;
-</span>
-<span class="cp">#include "shm_com.h"
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">running</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">void</span> <span class="o">*</span><span class="n">shared_memory</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="n">shared_stuff</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">shmid</span><span class="p">;</span>
-
-    <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">getpid</span><span class="p">());</span>    
-
-    <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">((</span><span class="n">key_t</span><span class="p">)</span><span class="mi">1234</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span><span class="p">),</span> <span class="mo">0666</span> <span class="o">|</span> <span class="n">IPC_CREAT</span><span class="p">);</span>
-    
-    <span class="k">if</span> <span class="p">(</span><span class="n">shmid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmget failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-<span class="cm">/* We now make the shared memory accessible to the program. */</span>
-
-    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">shared_memory</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmat failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Memory attached at %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="kt">long</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">);</span>
-
-<span class="cm">/* The next portion of the program assigns the shared_memory segment to shared_stuff,
- which then prints out any text in written_by_you. The loop continues until end is found
- in written_by_you. The call to sleep forces the consumer to sit in its critical section,
- which makes the producer wait. */</span>
-
-    <span class="n">shared_stuff</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">shared_use_st</span> <span class="o">*</span><span class="p">)</span><span class="n">shared_memory</span><span class="p">;</span>
-    <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    
-    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You wrote:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-            
-            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"[%d]%d </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">some_text</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-            <span class="p">}</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-
-            <span class="n">sleep</span><span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">4</span><span class="p">);</span> <span class="cm">/* make the other process wait for us ! */</span>
-            <span class="c1">// shared_stuff-&gt;written_by_you = 0;</span>
-            
-        <span class="n">shared_stuff</span><span class="o">-&gt;</span><span class="n">written_by_you</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="cm">/* Lastly, the shared memory is detached and then deleted. */</span>
-
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">shmdt</span><span class="p">(</span><span class="n">shared_memory</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmdt failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">shmctl</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="n">IPC_RMID</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"shmctl(IPC_RMID) failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<ul>
-  <li>執行結果
-<img src="https://i.imgur.com/rPMcs2j.jpg" alt="" /></li>
-</ul>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/04/14/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1160,6 +1224,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)</a></li>
+                    
                         <li><a href="/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</a></li>
                     
                         <li><a href="/2021/05/16/2021_WFH_0/">20210516 [WFH] 在家工作系列 - Part 0</a></li>
@@ -1178,8 +1244,6 @@
                     
                         <li><a href="/2020/12/17/2020_Life-Work_3/">20201217 [年度回顧] 關於工作和生活 - Part 3</a></li>
                     
-                        <li><a href="/2020/12/15/2020_Life-Work_2/">20201215 [年度回顧] 關於工作和生活 - Part 2</a></li>
-                    
                 </ul>
             </div>
 
@@ -1196,7 +1260,7 @@
                             <span class="name">
                                 C語言
                             </span>
-                            <span class="badge">11</span>
+                            <span class="badge">12</span>
                         </a>
                     </li>
                     
@@ -1331,7 +1395,7 @@
                             <span class="name">
                                 作業系統
                             </span>
-                            <span class="badge">21</span>
+                            <span class="badge">22</span>
                         </a>
                     </li>
                     
@@ -1340,7 +1404,7 @@
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">23</span>
+                            <span class="badge">24</span>
                         </a>
                     </li>
                     
@@ -1349,7 +1413,7 @@
                             <span class="name">
                                 組合語言
                             </span>
-                            <span class="badge">3</span>
+                            <span class="badge">4</span>
                         </a>
                     </li>
                     
@@ -1446,7 +1510,7 @@
                       
                       
                       
-                      <a href="/tag/#C語言" style="font-size: 12pt; color: #666;">C語言</a>
+                      <a href="/tag/#C語言" style="font-size: 12.5pt; color: #666;">C語言</a>
                     
                       
                       
@@ -1467,7 +1531,7 @@
                       
                       
                       
-                      <a href="/tag/#Data-Science" style="font-size: 12pt; color: #666;">Data-Science</a>
+                      <a href="/tag/#Data-Science" style="font-size: 11.5pt; color: #666;">Data-Science</a>
                     
                       
                       
@@ -1579,7 +1643,7 @@
                       
                       
                       
-                      <a href="/tag/#作業系統" style="font-size: 15pt; color: #333;">作業系統</a>
+                      <a href="/tag/#作業系統" style="font-size: 15.5pt; color: #333;">作業系統</a>
                     
                       
                       
@@ -1593,7 +1657,7 @@
                       
                       
                       
-                      <a href="/tag/#組合語言" style="font-size: 9.5pt; color: #888;">組合語言</a>
+                      <a href="/tag/#組合語言" style="font-size: 10pt; color: #888;">組合語言</a>
                     
                       
                       
@@ -1628,7 +1692,7 @@
                       
                       
                       
-                      <a href="/tag/#活動心得" style="font-size: 14.5pt; color: #333;">活動心得</a>
+                      <a href="/tag/#活動心得" style="font-size: 14.5pt; color: #444;">活動心得</a>
                     
                       
                       
@@ -1642,7 +1706,7 @@
                       
                       
                       
-                      <a href="/tag/#年度回顧" style="font-size: 13.5pt; color: #555;">年度回顧</a>
+                      <a href="/tag/#年度回顧" style="font-size: 13pt; color: #555;">年度回顧</a>
                     
                       
                       
@@ -1677,14 +1741,14 @@
                       
                       
                       
-                      <a href="/tag/#生活" style="font-size: 12pt; color: #666;">生活</a>
+                      <a href="/tag/#生活" style="font-size: 11.5pt; color: #666;">生活</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#工作" style="font-size: 12pt; color: #666;">工作</a>
+                      <a href="/tag/#工作" style="font-size: 11.5pt; color: #666;">工作</a>
                     
                       
                       

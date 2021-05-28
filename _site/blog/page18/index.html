@@ -168,6 +168,184 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/03/17/vim/">20170317 [學習筆記] Vim 常用技巧</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-03-17
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Vim" title="Tag: Vim" rel="tag">Vim</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#前言" id="markdown-toc-前言">前言</a></li>
+  <li><a href="#一常用功能" id="markdown-toc-一常用功能">一、常用功能</a></li>
+</ul>
+
+<h2 id="前言">前言</h2>
+<p>這一陣子開始使用 Vim 作為主要的文字編輯器，但是在使用上遇到了一些問題 (主要原因是還不習慣 Vim 的操作方式)，因此整理了一些常用的技巧。</p>
+
+<h2 id="一常用功能">一、常用功能</h2>
+<ul>
+  <li>引用資料
+    <ul>
+      <li><a href="http://blog.johnsonlu.org/vim-tips/">Vim小技巧</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>刪除一行 - <code class="language-plaintext highlighter-rouge">dd</code></p>
+  </li>
+  <li>
+    <p>進入編輯模式 - <code class="language-plaintext highlighter-rouge">i</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL模式 - <code class="language-plaintext highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>進入VISUAL BLOCK模式 - <code class="language-plaintext highlighter-rouge">ctrl</code>(按鍵) + <code class="language-plaintext highlighter-rouge">v</code></p>
+  </li>
+  <li>
+    <p>寫入(儲存) - <code class="language-plaintext highlighter-rouge">:w</code></p>
+  </li>
+  <li>
+    <p>離開 - <code class="language-plaintext highlighter-rouge">:q</code></p>
+  </li>
+  <li>
+    <p>不儲存強制離開 - <code class="language-plaintext highlighter-rouge">:q!</code></p>
+  </li>
+  <li>
+    <p>paste模式，直接貼上文字時格式不會跑掉 - <code class="language-plaintext highlighter-rouge">:set paste</code></p>
+  </li>
+  <li>
+    <p>顯示行數 - <code class="language-plaintext highlighter-rouge">:set nu</code></p>
+  </li>
+  <li>
+    <p>設定一個tab等於四個空白長度 - <code class="language-plaintext highlighter-rouge">:set tabstop=4</code></p>
+  </li>
+  <li>
+    <p>設定以後，使用tab鍵時會用空白取代(由tabstop決定) - <code class="language-plaintext highlighter-rouge">:set expandtab</code></p>
+  </li>
+  <li>
+    <p>消除Highlight - <code class="language-plaintext highlighter-rouge">:noh</code></p>
+  </li>
+  <li>
+    <p>範圍縮排(3到5行向右縮排，向左縮排用&lt;) - <code class="language-plaintext highlighter-rouge">:3,5&gt;</code></p>
+  </li>
+  <li>
+    <p>將tab轉換成space - <code class="language-plaintext highlighter-rouge">:retab</code></p>
+  </li>
+  <li>
+    <p>將檔案編碼轉成utf8 - <code class="language-plaintext highlighter-rouge">:set fileencoding=utf8</code></p>
+  </li>
+  <li>
+    <p>另存新檔 - <code class="language-plaintext highlighter-rouge">:w myfilename</code></p>
+  </li>
+  <li>
+    <p>開啟檔案 - <code class="language-plaintext highlighter-rouge">:e filename</code></p>
+  </li>
+  <li>
+    <p>自動對齊 - <code class="language-plaintext highlighter-rouge">==</code></p>
+  </li>
+  <li>
+    <p>移動到該行最前端 - <code class="language-plaintext highlighter-rouge">^</code></p>
+  </li>
+  <li>
+    <p>移動到該行最末端 - <code class="language-plaintext highlighter-rouge">$</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的第一個字元 - <code class="language-plaintext highlighter-rouge">w</code></p>
+  </li>
+  <li>
+    <p>移動到前一個單字的第一個字元 - <code class="language-plaintext highlighter-rouge">b</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元 - <code class="language-plaintext highlighter-rouge">e</code></p>
+  </li>
+  <li>
+    <p>移動到下一個單字的最後一個字元(無視符號) - <code class="language-plaintext highlighter-rouge">E</code></p>
+  </li>
+  <li>
+    <p>全選(gg為游標移動到最上方，v為切換成選擇模式，G是游標移動到最下方) - <code class="language-plaintext highlighter-rouge">ggvG</code></p>
+  </li>
+  <li>
+    <p>游標移動到特定行數(移動到第三行) - <code class="language-plaintext highlighter-rouge">3G</code></p>
+  </li>
+  <li>
+    <p>複製反白的區塊(需要在VISUAL模式) - <code class="language-plaintext highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>剪下反白的區塊(需要在VISUAL模式) - <code class="language-plaintext highlighter-rouge">d</code></p>
+  </li>
+  <li>
+    <p>複製游標所在的那行(需要在VISUAL模式) - <code class="language-plaintext highlighter-rouge">shift</code>(按鍵) + <code class="language-plaintext highlighter-rouge">y</code></p>
+  </li>
+  <li>
+    <p>貼上 - <code class="language-plaintext highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>回復 - <code class="language-plaintext highlighter-rouge">u</code></p>
+  </li>
+  <li>
+    <p>自動完成 (需要在編輯模式) - <code class="language-plaintext highlighter-rouge">ctrl</code>(按鍵) + <code class="language-plaintext highlighter-rouge">p</code></p>
+  </li>
+  <li>
+    <p>搜尋字串 - <code class="language-plaintext highlighter-rouge">/&lt;字串&gt;</code>：向下找、<code class="language-plaintext highlighter-rouge">?&lt;字串&gt;</code>：向上找</p>
+  </li>
+</ol>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/03/17/vim/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/03/17/linux_system/">20170317 [學習筆記] Linux 系統程式 (3)</a>
                 </h2>
                 <div class="label">
@@ -829,80 +1007,6 @@ bursts.
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/04/linux_system/">20170303 [學習筆記] Linux 系統程式 (1)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-04
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一-作業系統" id="markdown-toc-一-作業系統">(一) 作業系統</a></li>
-</ul>
-
-<h3 id="一-作業系統">(一) 作業系統</h3>
-<ul>
-  <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170302/ch01.pdf">課程簡報 - Ch1：Introduction</a></li>
-</ul>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/04/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -930,6 +1034,8 @@ bursts.
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)</a></li>
+                    
                         <li><a href="/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</a></li>
                     
                         <li><a href="/2021/05/16/2021_WFH_0/">20210516 [WFH] 在家工作系列 - Part 0</a></li>
@@ -948,8 +1054,6 @@ bursts.
                     
                         <li><a href="/2020/12/17/2020_Life-Work_3/">20201217 [年度回顧] 關於工作和生活 - Part 3</a></li>
                     
-                        <li><a href="/2020/12/15/2020_Life-Work_2/">20201215 [年度回顧] 關於工作和生活 - Part 2</a></li>
-                    
                 </ul>
             </div>
 
@@ -966,7 +1070,7 @@ bursts.
                             <span class="name">
                                 C語言
                             </span>
-                            <span class="badge">11</span>
+                            <span class="badge">12</span>
                         </a>
                     </li>
                     
@@ -1101,7 +1205,7 @@ bursts.
                             <span class="name">
                                 作業系統
                             </span>
-                            <span class="badge">21</span>
+                            <span class="badge">22</span>
                         </a>
                     </li>
                     
@@ -1110,7 +1214,7 @@ bursts.
                             <span class="name">
                                 程式設計
                             </span>
-                            <span class="badge">23</span>
+                            <span class="badge">24</span>
                         </a>
                     </li>
                     
@@ -1119,7 +1223,7 @@ bursts.
                             <span class="name">
                                 組合語言
                             </span>
-                            <span class="badge">3</span>
+                            <span class="badge">4</span>
                         </a>
                     </li>
                     
@@ -1216,7 +1320,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#C語言" style="font-size: 12pt; color: #666;">C語言</a>
+                      <a href="/tag/#C語言" style="font-size: 12.5pt; color: #666;">C語言</a>
                     
                       
                       
@@ -1237,7 +1341,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#Data-Science" style="font-size: 12pt; color: #666;">Data-Science</a>
+                      <a href="/tag/#Data-Science" style="font-size: 11.5pt; color: #666;">Data-Science</a>
                     
                       
                       
@@ -1349,7 +1453,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#作業系統" style="font-size: 15pt; color: #333;">作業系統</a>
+                      <a href="/tag/#作業系統" style="font-size: 15.5pt; color: #333;">作業系統</a>
                     
                       
                       
@@ -1363,7 +1467,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#組合語言" style="font-size: 9.5pt; color: #888;">組合語言</a>
+                      <a href="/tag/#組合語言" style="font-size: 10pt; color: #888;">組合語言</a>
                     
                       
                       
@@ -1398,7 +1502,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#活動心得" style="font-size: 14.5pt; color: #333;">活動心得</a>
+                      <a href="/tag/#活動心得" style="font-size: 14.5pt; color: #444;">活動心得</a>
                     
                       
                       
@@ -1412,7 +1516,7 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#年度回顧" style="font-size: 13.5pt; color: #555;">年度回顧</a>
+                      <a href="/tag/#年度回顧" style="font-size: 13pt; color: #555;">年度回顧</a>
                     
                       
                       
@@ -1447,14 +1551,14 @@ bursts.
                       
                       
                       
-                      <a href="/tag/#生活" style="font-size: 12pt; color: #666;">生活</a>
+                      <a href="/tag/#生活" style="font-size: 11.5pt; color: #666;">生活</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#工作" style="font-size: 12pt; color: #666;">工作</a>
+                      <a href="/tag/#工作" style="font-size: 11.5pt; color: #666;">工作</a>
                     
                       
                       

@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20210518 [學習筆記] 30天作業系統自作入門筆記 (4)</title>
+    <meta name="description" content="  20210518 - Day_4          撰寫 Makefile                  STEP 1 - 製作相關檔案          STEP 2 - 製作映像檔          完整 Makefile 程式碼                      工作環境          ...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://shouzo.github.io/2021/05/18/30OS_day4/">
+    <link rel="alternate" type="application/rss+xml" title="少左 shouzo" href="http://shouzo.github.io /feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">少左 shouzo</a>
+        <small>BE STRONG TO BE USEFUL</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/blog/index.html">
+                    
+                        <i class="fa fa-home"></i>首頁 Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>內容 Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>分類 Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>標籤 Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>收藏 Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>展示 Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-commenting"></i>關於 About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>20210518 [學習筆記] 30天作業系統自作入門筆記 (4)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2021-05-18
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#組合語言" title="Category: 組合語言" rel="category">組合語言</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#%E7%B5%84%E5%90%88%E8%AA%9E%E8%A8%80" title="Tag: 組合語言" rel="tag">組合語言</a-->
+        <a href="/tag/#組合語言" title="Tag: 組合語言" rel="tag">組合語言</a>&nbsp;
+    
+        <!--a href="/tag/#C%E8%AA%9E%E8%A8%80" title="Tag: C語言" rel="tag">C語言</a-->
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1" title="Tag: 作業系統" rel="tag">作業系統</a-->
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Tag: 程式設計" rel="tag">程式設計</a-->
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#20210518---day_4" id="markdown-toc-20210518---day_4">20210518 - Day_4</a>    <ul>
+      <li><a href="#撰寫-makefile" id="markdown-toc-撰寫-makefile">撰寫 Makefile</a>        <ul>
+          <li><a href="#step-1---製作相關檔案" id="markdown-toc-step-1---製作相關檔案">STEP 1 - 製作相關檔案</a></li>
+          <li><a href="#step-2---製作映像檔" id="markdown-toc-step-2---製作映像檔">STEP 2 - 製作映像檔</a></li>
+          <li><a href="#完整-makefile-程式碼" id="markdown-toc-完整-makefile-程式碼">完整 Makefile 程式碼</a></li>
+        </ul>
+      </li>
+      <li><a href="#一讓螢幕顯示白色" id="markdown-toc-一讓螢幕顯示白色">一、讓螢幕顯示白色</a></li>
+      <li><a href="#二讓螢幕顯示條紋" id="markdown-toc-二讓螢幕顯示條紋">二、讓螢幕顯示條紋</a></li>
+      <li><a href="#三矩形的繪製與處理" id="markdown-toc-三矩形的繪製與處理">三、矩形的繪製與處理</a></li>
+      <li><a href="#四螢幕顯示出狀態列圖樣" id="markdown-toc-四螢幕顯示出狀態列圖樣">四、螢幕顯示出狀態列圖樣</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>工作環境
+    <ul>
+      <li>Lubuntu 20.04</li>
+      <li>VMware Workstation 16.1.1</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="20210518---day_4">20210518 - Day_4</h1>
+<ul>
+  <li>進度摘要
+    <ol>
+      <li>撰寫 Makefile</li>
+      <li>控制畫面顏色 (白色、條紋色)</li>
+      <li>矩形的繪製與處理</li>
+      <li>螢幕顯示出狀態列圖樣</li>
+    </ol>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/My-30OS/tree/master/20210518">https://github.com/shouzo/My-30OS/tree/master/20210518</a></li>
+    </ul>
+  </li>
+  <li>參考文章
+    <ul>
+      <li><a href="https://www.gnu.org/software/mtools/manual/mtools.html">Mtools 4.0.27</a>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Mtools">mcopy - The following refers to mtools usage in floppy images</a></li>
+        </ul>
+      </li>
+      <li><a href="https://stackoverflow.com/questions/45422374/undefined-reference-to-global-offset-table-only-when-generating-binaries">undefined reference to <em>GLOBAL_OFFSET_TABLE</em> (only when generating binaries)</a></li>
+      <li><a href="https://blog.gtwang.org/linux/linux-mount/">Linux 檔案系統掛載（mount）使用教學與範例</a></li>
+      <li><a href="https://askubuntu.com/questions/986684/how-would-i-extract-a-img-file">How would I extract a .img file</a></li>
+      <li><a href="https://www.itread01.com/p/194699.html">Makefile 雙冒號規則 - zxiaocheng</a></li>
+      <li><a href="https://www.howtogeek.com/443342/how-to-use-the-mkfs-command-on-linux/">How to Use the mkfs Command on Linux</a></li>
+      <li><a href="https://stackoverflow.com/questions/32893607/how-do-i-write-a-bin-file-512-bytes-to-the-first-sector-sector-0-of-a-floppy">How do I write a bin file (512 bytes) to the first sector (sector 0) of a floppy disk?</a></li>
+      <li><a href="http://wen00072.github.io/blog/2014/03/14/study-on-the-linker-script/">Linker Script初探 - GNU Linker Ld手冊略讀</a></li>
+      <li><a href="http://www.study-area.org/cyril/opentools/opentools/x909.html">gcc與Obj檔，動態連結與ELF檔</a></li>
+      <li><a href="https://blog.louie.lu/2016/11/06/10%E5%88%86%E9%90%98%E8%AE%80%E6%87%82-linker-scripts/">10分鐘讀懂 linker scripts</a></li>
+      <li><a href="https://bit.ly/3wijRxO">oslite.ldsを開いて、以下のとおり記述します。</a> (參考 oslite.lds 的環節來撰寫)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="撰寫-makefile">撰寫 Makefile</h2>
+<p>從撰寫原始檔、組/編譯程式，到了最後還要跑虛擬機。</p>
+
+<p>如果每次都要一行行打指令會很辛苦。</p>
+
+<p>所以要把這些指令寫成 Makefile，在往後的測試會相對容易和簡便。</p>
+
+<p>-</p>
+
+<p>Makefile 主要要做的事情有：</p>
+<ul>
+  <li><strong>STEP 1 - 製作相關檔案</strong>
+    <ul>
+      <li>處理開機磁區 - <code class="language-plaintext highlighter-rouge">ipl10.asm</code></li>
+      <li>包含作業系統本體 -<code class="language-plaintext highlighter-rouge">asmhead.asm</code>、<code class="language-plaintext highlighter-rouge">nasmfunc.asm</code>、<code class="language-plaintext highlighter-rouge">bootpack.c</code>、<code class="language-plaintext highlighter-rouge">os.lds</code></li>
+    </ul>
+  </li>
+  <li><strong>STEP 2 - 製作映像檔</strong>
+    <ul>
+      <li>製作開機磁區映像檔</li>
+      <li>將作業系統本體寫入映像檔</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="step-1---製作相關檔案">STEP 1 - 製作相關檔案</h3>
+<p>主要的指令有這些</p>
+<blockquote>
+  <p>nasm ipl10.asm -o ipl10.bin -l ipl10.lst</p>
+
+  <p>nasm asmhead.asm -o asmhead.bin -l asmhead.lst</p>
+
+  <p>nasm -g -f elf nasmfunc.asm -o nasmfunc.o</p>
+
+  <p>gcc -march=i486 -m32 -nostdlib -g -O0 -T os.lds bootpack.c nasmfunc.o -o bootpack.hrb -fno-pie</p>
+
+  <p>cat asmhead.bin bootpack.hrb &gt; haribote.sys</p>
+</blockquote>
+
+<h3 id="step-2---製作映像檔">STEP 2 - 製作映像檔</h3>
+<p>有兩種產生映像檔的寫法，這兩種都會用到 <code class="language-plaintext highlighter-rouge">mcopy</code>。
+<img src="https://i.imgur.com/xRC0Tut.png" alt="" /></p>
+
+<ul>
+  <li><strong>寫法 1 (主要指令 - <code class="language-plaintext highlighter-rouge">mformat</code>、<code class="language-plaintext highlighter-rouge">mcopy</code>)</strong>：
+    <blockquote>
+      <p>mformat -f 1440 -C -B ipl10.bin -i haribote.img ::</p>
+
+      <p>mcopy -i haribote.img haribote.sys ::</p>
+    </blockquote>
+  </li>
+  <li><strong>寫法 2 (主要指令 - <code class="language-plaintext highlighter-rouge">dd</code>、<code class="language-plaintext highlighter-rouge">mcopy</code>)</strong>：
+    <blockquote>
+      <p>dd if=/dev/zero of=haribote.img bs=512 count=2880</p>
+
+      <p>dd if=ipl10.bin of=haribote.img conv=notrunc</p>
+
+      <p>mcopy -i haribote.img haribote.sys ::</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="完整-makefile-程式碼">完整 Makefile 程式碼</h3>
+<ul>
+  <li>專案原始檔 (<strong>Makefile</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile">https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile</a></li>
+</ul>
+
+<p><strong>將以上 STEP 1、STEP 2 裡的指令寫成 Makefile。</strong>
+(以下為完整程式碼)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSNAME := haribote
+
+.DEFAULT_GOAL : all
+.PHONY : all
+all : img
+	DEBUG_DIR := ./debug
+	OBJDUMP_FLAGS := --full-contents --all-headers --target=binary --architecture=i386:intel --disassemble-all
+
+
+#===============================================================================
+ipl10.bin    : ipl10.asm
+asmhead.bin  : asmhead.asm
+nasmfunc.o   : nasmfunc.asm
+
+%.bin : %.asm 
+	@make make-debug-dir
+	nasm $^ -o $@ -l ${DEBUG_DIR}/$*.lst
+
+%.o : %.asm
+	@make make-debug-dir
+	nasm -f elf $^ -o $@ -l ${DEBUG_DIR}/$*.lst
+
+BOOTPACK_FILES := bootpack.c nasmfunc.o
+bootpack.hrb : ${BOOTPACK_FILES} os.lds
+	@make make-debug-dir
+
+gcc -march=i486 -m32 -nostdlib -g -O0 \
+	-T os.lds \
+	-o $@ \
+	-fno-pie\
+	${BOOTPACK_FILES}
+
+objdump ${OBJDUMP_FLAGS} $@ &gt; ${DEBUG_DIR}/$@.dasm
+
+
+${OSNAME}.sys : asmhead.bin bootpack.hrb
+%.sys :
+	@make make-debug-dir
+	cat $^ &gt; $@
+
+objdump ${OBJDUMP_FLAGS} $@ &gt; ${DEBUG_DIR}/$@.dasm
+
+
+
+${OSNAME}.img : ipl10.bin ${OSNAME}.sys
+
+# ======方法 1======
+    mformat -f 1440 -C -B ipl10.bin -i $@ ::
+    mcopy -i $@ ${OSNAME}.sys ::
+# ================
+
+# ======方法 2======
+# dd if=/dev/zero of=${OSNAME}.img bs=512 count=2880
+# dd if=ipl10.bin of=${OSNAME}.img conv=notrunc
+# mcopy -i $@ ${OSNAME}.sys ::
+# =================
+
+
+#===============================================================================
+
+
+.PHONY : asm
+asm :
+	make ipl10.bin
+
+.PHONY : img
+img :
+	make ${OSNAME}.img 
+
+.PHONY : run
+run :
+	make img
+	qemu-system-i386 -fda ${OSNAME}.img
+
+.PHONY : make-debug-dir
+        make-debug-dir :
+	@if [ ! -d ${DEBUG_DIR} ]; then mkdir ${DEBUG_DIR}; fi
+
+
+#===============================================================================
+
+
+.PHONY : clean
+clean :
+	@rm *.img *.bin *.sys *.hrb *.o
+
+.PHONY : debug
+debug:
+	make img
+	qemu-system-i386 -fda haribote.img -gdb tcp::10000 -S
+</code></pre></div></div>
+
+<p>記得將 Makefile 與其他原始檔放在同一目錄下，未來如果要編譯直接載入 Makefile 指令即可。
+<img src="https://i.imgur.com/YLTk8k3.jpg" alt="" /></p>
+
+<p>以下為常用的指令 (在 Makefile 和其他原始檔皆存在的狀況下)：</p>
+<ul>
+  <li>編譯原始檔
+    <blockquote>
+      <p>make</p>
+    </blockquote>
+  </li>
+  <li>編譯並執行 (以 QEMU 模擬)
+    <blockquote>
+      <p>make run</p>
+    </blockquote>
+  </li>
+  <li>清除原始檔以外的檔案
+    <blockquote>
+      <p>make clean</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="一讓螢幕顯示白色">一、讓螢幕顯示白色</h2>
+<ul>
+  <li>專案原始檔：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/01_source1_white">https://github.com/shouzo/My-30OS/tree/master/20210518/01_source1_white</a></li>
+</ul>
+
+<p><strong>1. 在 VRAM (Video RAM, 顯示畫面用的記憶體) 寫入指令，相關程式碼如下：</strong></p>
+
+<ul>
+  <li><strong>bootpack.c</strong> (../01_source1_white/bootpack.c)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* 告知C語言編譯器，有使用其他檔案所製作的函數 */
+
+void io_hlt(void);
+void write_mem8(int addr, int data);
+/* 雖然是函數的宣告，卻沒有 {}，而且馬上就以; 字元結束。
+   這是表示它存在於其他的檔案裡，請到該處去進行讀取。 */
+
+void HariMain(void)
+{
+    int i;  /* 宣告變數。稱為 i 的變數是 32 位元的整數型別 */
+
+    for (i = 0xa0000; i &lt;= 0xaffff; i++)     {
+        write_mem8(i, 15);      // 螢幕會顯示白色
+        // write_mem8(i, i &amp; 0x0f);     // 螢幕會顯示條紋色
+    }
+
+    for (;;) {
+        io_hlt(); /* 這樣在 nasmfunc.asm 的 io_hlt 將會執行 */
+    }	
+}
+
+</code></pre></div></div>
+
+<ul>
+  <li><strong>nasmfunc.asm</strong> (../01_source1_white/nasmfunc.asm)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; nasmfunc
+; TAB=4
+
+; ===========================================
+section .text
+    GLOBAL	io_hlt
+	GLOBAL	write_mem8
+; ===========================================
+
+
+; ===========================================
+io_hlt:	; void io_hlt(void);
+		HLT
+		RET
+; ===========================================
+
+
+write_mem8:    ; void write_mem8(int addr, int data);
+        MOV     ECX, [ESP+4]    ; 因為在 [ESP+4] 裡有 addr，所以將該值讀入到 ECX
+        MOV     AL, [ESP+8]     ; 因為在 [ESP+8] 裡有 data，所以將該值讀入 AL
+        MOV     [ECX], AL
+        RET
+
+</code></pre></div></div>
+
+<p><strong>2. 進行編譯並執行</strong></p>
+<blockquote>
+  <p>make run</p>
+</blockquote>
+
+<p><strong>【執行結果】</strong> 螢幕顯示白色
+<img src="https://i.imgur.com/yEncOoa.png" alt="" /></p>
+
+<h2 id="二讓螢幕顯示條紋">二、讓螢幕顯示條紋</h2>
+<ul>
+  <li>專案原始檔：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/01_source2_stripes">https://github.com/shouzo/My-30OS/tree/master/20210518/01_source2_stripes</a></li>
+</ul>
+
+<p><strong>1. 在 VRAM (Video RAM, 顯示畫面用的記憶體) 寫入指令，相關程式碼如下：</strong></p>
+
+<ul>
+  <li><strong>bootpack.c</strong> (../01_source2_stripes/bootpack.c)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* 告知C語言編譯器，有使用其他檔案所製作的函數 */
+
+void io_hlt(void);
+void write_mem8(int addr, int data);
+/* 雖然是函數的宣告，卻沒有 {}，而且馬上就以; 字元結束。
+   這是表示它存在於其他的檔案裡，請到該處去進行讀取。 */
+
+void HariMain(void)
+{
+    int i;  /* 宣告變數。稱為 i 的變數是 32 位元的整數型別 */
+
+    for (i = 0xa0000; i &lt;= 0xaffff; i++)     {
+        write_mem8(i, 15);      // 螢幕會顯示白色
+        // write_mem8(i, i &amp; 0x0f);     // 螢幕會顯示條紋色
+    }
+
+    for (;;) {
+        io_hlt(); /* 這樣在 nasmfunc.asm 的 io_hlt 將會執行 */
+    }	
+}
+
+</code></pre></div></div>
+
+<p><strong>2. 進行編譯並執行</strong></p>
+<blockquote>
+  <p>make run</p>
+</blockquote>
+
+<p><strong>【執行結果】</strong> 螢幕顯示條紋色
+<img src="https://i.imgur.com/1c5JuaQ.png" alt="" /></p>
+
+<h2 id="三矩形的繪製與處理">三、矩形的繪製與處理</h2>
+<ul>
+  <li>專案原始檔：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/01_source3_rectangle">https://github.com/shouzo/My-30OS/tree/master/20210518/01_source3_rectangle</a></li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://wen00072.github.io/blog/2014/03/14/study-on-the-linker-script/">Linker Script初探 - GNU Linker Ld手冊略讀</a></li>
+      <li><a href="https://blog.louie.lu/2016/11/06/10%E5%88%86%E9%90%98%E8%AE%80%E6%87%82-linker-scripts/">10分鐘讀懂 linker scripts</a></li>
+      <li><a href="https://bit.ly/3wijRxO">oslite.ldsを開いて、以下のとおり記述します。</a> (參考 oslite.lds 的環節來撰寫)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>1. 修改主要程式碼</strong></p>
+<ul>
+  <li><a href="https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/bootpack.c"><strong>bootpack.c</strong></a>
+(../01_source3_rectangle/bootpack.c)</li>
+  <li><a href="https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/nasmfunc.asm"><strong>nasmfunc.asm</strong></a>
+(../01_source3_rectangle/nasmfunc.asm)</li>
+</ul>
+
+<p><strong>2. 要修改 Linker Script - <code class="language-plaintext highlighter-rouge">os.lds</code>，程式碼如下：</strong></p>
+<ul>
+  <li><a href="https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/os.lds"><strong>os.lds</strong></a> (…/01_source3_rectangle/os.lds)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OUTPUT_FORMAT(binary)
+OUTPUT_ARCH(i386)
+
+SECTIONS {
+     .head 0x0 :
+     {
+         LONG((ADDR(.bss) + SIZEOF(.bss) + 0xfff) &amp; ~ 0xfff)
+         BYTE(0x4f) BYTE(0x53) BYTE(0x4c) BYTE(0x69)
+         LONG(0x0)
+         LONG(ADDR(.data))
+         LONG(SIZEOF(.data))
+         LONG(LOADADDR(.data))
+         LONG(0xe9000000)
+         LONG(HariMain - 0x20)
+         LONG((ADDR(.bss) + SIZEOF(.bss) + 0xf) &amp; ~ 0xf)
+     }
+
+     .text ADDR(.head) + SIZEOF(.head) :
+         SUBALIGN (1)
+     {
+         *(.text)
+     }
+
+     .data 0x00000400 :
+         AT ( LOADADDR(.text) + SIZEOF(.text) ) SUBALIGN (4)
+     {
+         *(.data)
+         *(.rodata*)
+     }
+
+     .bss  :
+         AT ( LOADADDR(.data) + SIZEOF(.data) ) SUBALIGN (4)
+     {
+        *(.bss)
+     }
+
+     /DISCARD/ : { *(*) }
+}
+</code></pre></div></div>
+
+<p><strong>3. 進行編譯並執行</strong></p>
+<blockquote>
+  <p>make run</p>
+</blockquote>
+
+<p><strong>【執行結果】</strong> 螢幕顯示矩形
+<img src="https://i.imgur.com/PPgmWjZ.png" alt="" /></p>
+
+<h2 id="四螢幕顯示出狀態列圖樣">四、螢幕顯示出狀態列圖樣</h2>
+<ul>
+  <li>專案原始檔：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/01_source4_status">https://github.com/shouzo/My-30OS/tree/master/20210518/01_source4_status</a></li>
+</ul>
+
+<p><strong>1. 修改主要程式碼</strong></p>
+<ul>
+  <li><a href="https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/bootpack.c"><strong>bootpack.c</strong></a>
+(../01_source4_status/bootpack.c)</li>
+</ul>
+
+<p><strong>2. 進行編譯並執行</strong></p>
+<blockquote>
+  <p>make run</p>
+</blockquote>
+
+<p><strong>【執行結果】</strong> 螢幕顯示出狀態列圖樣
+<img src="https://i.imgur.com/b809yVD.png" alt="" /></p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://shouzo.github.io/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://shouzo.github.io/2021/05/18/30OS_day4/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://shouzo.github.io/2021/05/18/30OS_day4/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//shouzonotes.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+  <div class="wrapper">
+     <p class="cc - icon">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/tw/88x31.png" /></a>
+      </p>
+
+
+      <p class="description">
+          
+          Martial Artist、Traceur & Engineer!
+          
+      </p>
+
+
+        <p class="contact">
+            Contact me at:
+            
+            <a href="https://github.com/shouzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="mailto:danny200026@yahoo.com.tw"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+
+            
+
+            
+            <a href="https://www.facebook.com/danny200026"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            
+        </p>
+
+
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                <br> 除非另有註明，本部落格內容皆採用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/"> 創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 </a> 授權條款
+            </span>
+        </p>
+
+  </div>
+	
+	
+	<div class="realtimeuserscounter realtimeuserscounter--styled"></div>
+	<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+	
+</footer>
+<script src="/js/main.js " charset="utf-8"></script>
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

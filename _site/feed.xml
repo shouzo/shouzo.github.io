@@ -5,9 +5,484 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 29 May 2021 03:51:31 +0800</pubDate>
-    <lastBuildDate>Sat, 29 May 2021 03:51:31 +0800</lastBuildDate>
+    <pubDate>Sat, 29 May 2021 04:10:58 +0800</pubDate>
+    <lastBuildDate>Sat, 29 May 2021 04:10:58 +0800</lastBuildDate>
     <generator>Jekyll v4.2.0</generator>
+    
+      <item>
+        <title>20210518 [學習筆記] 30天作業系統自作入門筆記 (4)</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#20210518---day_4&quot; id=&quot;markdown-toc-20210518---day_4&quot;&gt;20210518 - Day_4&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#撰寫-makefile&quot; id=&quot;markdown-toc-撰寫-makefile&quot;&gt;撰寫 Makefile&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#step-1---製作相關檔案&quot; id=&quot;markdown-toc-step-1---製作相關檔案&quot;&gt;STEP 1 - 製作相關檔案&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#step-2---製作映像檔&quot; id=&quot;markdown-toc-step-2---製作映像檔&quot;&gt;STEP 2 - 製作映像檔&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#完整-makefile-程式碼&quot; id=&quot;markdown-toc-完整-makefile-程式碼&quot;&gt;完整 Makefile 程式碼&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#一讓螢幕顯示白色&quot; id=&quot;markdown-toc-一讓螢幕顯示白色&quot;&gt;一、讓螢幕顯示白色&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二讓螢幕顯示條紋&quot; id=&quot;markdown-toc-二讓螢幕顯示條紋&quot;&gt;二、讓螢幕顯示條紋&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三矩形的繪製與處理&quot; id=&quot;markdown-toc-三矩形的繪製與處理&quot;&gt;三、矩形的繪製與處理&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#四螢幕顯示出狀態列圖樣&quot; id=&quot;markdown-toc-四螢幕顯示出狀態列圖樣&quot;&gt;四、螢幕顯示出狀態列圖樣&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;工作環境
+    &lt;ul&gt;
+      &lt;li&gt;Lubuntu 20.04&lt;/li&gt;
+      &lt;li&gt;VMware Workstation 16.1.1&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;20210518---day_4&quot;&gt;20210518 - Day_4&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;進度摘要
+    &lt;ol&gt;
+      &lt;li&gt;撰寫 Makefile&lt;/li&gt;
+      &lt;li&gt;控制畫面顏色 (白色、條紋色)&lt;/li&gt;
+      &lt;li&gt;矩形的繪製與處理&lt;/li&gt;
+      &lt;li&gt;螢幕顯示出狀態列圖樣&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;完整專案
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20210518&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20210518&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;參考文章
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.gnu.org/software/mtools/manual/mtools.html&quot;&gt;Mtools 4.0.27&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Mtools&quot;&gt;mcopy - The following refers to mtools usage in floppy images&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/45422374/undefined-reference-to-global-offset-table-only-when-generating-binaries&quot;&gt;undefined reference to &lt;em&gt;GLOBAL_OFFSET_TABLE&lt;/em&gt; (only when generating binaries)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://blog.gtwang.org/linux/linux-mount/&quot;&gt;Linux 檔案系統掛載（mount）使用教學與範例&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://askubuntu.com/questions/986684/how-would-i-extract-a-img-file&quot;&gt;How would I extract a .img file&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.itread01.com/p/194699.html&quot;&gt;Makefile 雙冒號規則 - zxiaocheng&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.howtogeek.com/443342/how-to-use-the-mkfs-command-on-linux/&quot;&gt;How to Use the mkfs Command on Linux&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/32893607/how-do-i-write-a-bin-file-512-bytes-to-the-first-sector-sector-0-of-a-floppy&quot;&gt;How do I write a bin file (512 bytes) to the first sector (sector 0) of a floppy disk?&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://wen00072.github.io/blog/2014/03/14/study-on-the-linker-script/&quot;&gt;Linker Script初探 - GNU Linker Ld手冊略讀&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.study-area.org/cyril/opentools/opentools/x909.html&quot;&gt;gcc與Obj檔，動態連結與ELF檔&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://blog.louie.lu/2016/11/06/10%E5%88%86%E9%90%98%E8%AE%80%E6%87%82-linker-scripts/&quot;&gt;10分鐘讀懂 linker scripts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://bit.ly/3wijRxO&quot;&gt;oslite.ldsを開いて、以下のとおり記述します。&lt;/a&gt; (參考 oslite.lds 的環節來撰寫)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;撰寫-makefile&quot;&gt;撰寫 Makefile&lt;/h2&gt;
+&lt;p&gt;從撰寫原始檔、組/編譯程式，到了最後還要跑虛擬機。&lt;/p&gt;
+
+&lt;p&gt;如果每次都要一行行打指令會很辛苦。&lt;/p&gt;
+
+&lt;p&gt;所以要把這些指令寫成 Makefile，在往後的測試會相對容易和簡便。&lt;/p&gt;
+
+&lt;p&gt;-&lt;/p&gt;
+
+&lt;p&gt;Makefile 主要要做的事情有：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;STEP 1 - 製作相關檔案&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;處理開機磁區 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl10.asm&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;包含作業系統本體 -&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;asmhead.asm&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nasmfunc.asm&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bootpack.c&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;os.lds&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;STEP 2 - 製作映像檔&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;製作開機磁區映像檔&lt;/li&gt;
+      &lt;li&gt;將作業系統本體寫入映像檔&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;step-1---製作相關檔案&quot;&gt;STEP 1 - 製作相關檔案&lt;/h3&gt;
+&lt;p&gt;主要的指令有這些&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;nasm ipl10.asm -o ipl10.bin -l ipl10.lst&lt;/p&gt;
+
+  &lt;p&gt;nasm asmhead.asm -o asmhead.bin -l asmhead.lst&lt;/p&gt;
+
+  &lt;p&gt;nasm -g -f elf nasmfunc.asm -o nasmfunc.o&lt;/p&gt;
+
+  &lt;p&gt;gcc -march=i486 -m32 -nostdlib -g -O0 -T os.lds bootpack.c nasmfunc.o -o bootpack.hrb -fno-pie&lt;/p&gt;
+
+  &lt;p&gt;cat asmhead.bin bootpack.hrb &amp;gt; haribote.sys&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;step-2---製作映像檔&quot;&gt;STEP 2 - 製作映像檔&lt;/h3&gt;
+&lt;p&gt;有兩種產生映像檔的寫法，這兩種都會用到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mcopy&lt;/code&gt;。
+&lt;img src=&quot;https://i.imgur.com/xRC0Tut.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;寫法 1 (主要指令 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mformat&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mcopy&lt;/code&gt;)&lt;/strong&gt;：
+    &lt;blockquote&gt;
+      &lt;p&gt;mformat -f 1440 -C -B ipl10.bin -i haribote.img ::&lt;/p&gt;
+
+      &lt;p&gt;mcopy -i haribote.img haribote.sys ::&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;寫法 2 (主要指令 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dd&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mcopy&lt;/code&gt;)&lt;/strong&gt;：
+    &lt;blockquote&gt;
+      &lt;p&gt;dd if=/dev/zero of=haribote.img bs=512 count=2880&lt;/p&gt;
+
+      &lt;p&gt;dd if=ipl10.bin of=haribote.img conv=notrunc&lt;/p&gt;
+
+      &lt;p&gt;mcopy -i haribote.img haribote.sys ::&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;完整-makefile-程式碼&quot;&gt;完整 Makefile 程式碼&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;專案原始檔 (&lt;strong&gt;Makefile&lt;/strong&gt;)：&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;將以上 STEP 1、STEP 2 裡的指令寫成 Makefile。&lt;/strong&gt;
+(以下為完整程式碼)&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;OSNAME := haribote
+
+.DEFAULT_GOAL : all
+.PHONY : all
+all : img
+	DEBUG_DIR := ./debug
+	OBJDUMP_FLAGS := --full-contents --all-headers --target=binary --architecture=i386:intel --disassemble-all
+
+
+#===============================================================================
+ipl10.bin    : ipl10.asm
+asmhead.bin  : asmhead.asm
+nasmfunc.o   : nasmfunc.asm
+
+%.bin : %.asm 
+	@make make-debug-dir
+	nasm $^ -o $@ -l ${DEBUG_DIR}/$*.lst
+
+%.o : %.asm
+	@make make-debug-dir
+	nasm -f elf $^ -o $@ -l ${DEBUG_DIR}/$*.lst
+
+BOOTPACK_FILES := bootpack.c nasmfunc.o
+bootpack.hrb : ${BOOTPACK_FILES} os.lds
+	@make make-debug-dir
+
+gcc -march=i486 -m32 -nostdlib -g -O0 \
+	-T os.lds \
+	-o $@ \
+	-fno-pie\
+	${BOOTPACK_FILES}
+
+objdump ${OBJDUMP_FLAGS} $@ &amp;gt; ${DEBUG_DIR}/$@.dasm
+
+
+${OSNAME}.sys : asmhead.bin bootpack.hrb
+%.sys :
+	@make make-debug-dir
+	cat $^ &amp;gt; $@
+
+objdump ${OBJDUMP_FLAGS} $@ &amp;gt; ${DEBUG_DIR}/$@.dasm
+
+
+
+${OSNAME}.img : ipl10.bin ${OSNAME}.sys
+
+# ======方法 1======
+    mformat -f 1440 -C -B ipl10.bin -i $@ ::
+    mcopy -i $@ ${OSNAME}.sys ::
+# ================
+
+# ======方法 2======
+# dd if=/dev/zero of=${OSNAME}.img bs=512 count=2880
+# dd if=ipl10.bin of=${OSNAME}.img conv=notrunc
+# mcopy -i $@ ${OSNAME}.sys ::
+# =================
+
+
+#===============================================================================
+
+
+.PHONY : asm
+asm :
+	make ipl10.bin
+
+.PHONY : img
+img :
+	make ${OSNAME}.img 
+
+.PHONY : run
+run :
+	make img
+	qemu-system-i386 -fda ${OSNAME}.img
+
+.PHONY : make-debug-dir
+        make-debug-dir :
+	@if [ ! -d ${DEBUG_DIR} ]; then mkdir ${DEBUG_DIR}; fi
+
+
+#===============================================================================
+
+
+.PHONY : clean
+clean :
+	@rm *.img *.bin *.sys *.hrb *.o
+
+.PHONY : debug
+debug:
+	make img
+	qemu-system-i386 -fda haribote.img -gdb tcp::10000 -S
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;記得將 Makefile 與其他原始檔放在同一目錄下，未來如果要編譯直接載入 Makefile 指令即可。
+&lt;img src=&quot;https://i.imgur.com/YLTk8k3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;以下為常用的指令 (在 Makefile 和其他原始檔皆存在的狀況下)：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;編譯原始檔
+    &lt;blockquote&gt;
+      &lt;p&gt;make&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;編譯並執行 (以 QEMU 模擬)
+    &lt;blockquote&gt;
+      &lt;p&gt;make run&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;清除原始檔以外的檔案
+    &lt;blockquote&gt;
+      &lt;p&gt;make clean&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;一讓螢幕顯示白色&quot;&gt;一、讓螢幕顯示白色&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;專案原始檔：&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20210518/01_source1_white&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20210518/01_source1_white&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 在 VRAM (Video RAM, 顯示畫面用的記憶體) 寫入指令，相關程式碼如下：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;bootpack.c&lt;/strong&gt; (../01_source1_white/bootpack.c)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/* 告知C語言編譯器，有使用其他檔案所製作的函數 */
+
+void io_hlt(void);
+void write_mem8(int addr, int data);
+/* 雖然是函數的宣告，卻沒有 {}，而且馬上就以; 字元結束。
+   這是表示它存在於其他的檔案裡，請到該處去進行讀取。 */
+
+void HariMain(void)
+{
+    int i;  /* 宣告變數。稱為 i 的變數是 32 位元的整數型別 */
+
+    for (i = 0xa0000; i &amp;lt;= 0xaffff; i++)     {
+        write_mem8(i, 15);      // 螢幕會顯示白色
+        // write_mem8(i, i &amp;amp; 0x0f);     // 螢幕會顯示條紋色
+    }
+
+    for (;;) {
+        io_hlt(); /* 這樣在 nasmfunc.asm 的 io_hlt 將會執行 */
+    }	
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;nasmfunc.asm&lt;/strong&gt; (../01_source1_white/nasmfunc.asm)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; nasmfunc
+; TAB=4
+
+; ===========================================
+section .text
+    GLOBAL	io_hlt
+	GLOBAL	write_mem8
+; ===========================================
+
+
+; ===========================================
+io_hlt:	; void io_hlt(void);
+		HLT
+		RET
+; ===========================================
+
+
+write_mem8:    ; void write_mem8(int addr, int data);
+        MOV     ECX, [ESP+4]    ; 因為在 [ESP+4] 裡有 addr，所以將該值讀入到 ECX
+        MOV     AL, [ESP+8]     ; 因為在 [ESP+8] 裡有 data，所以將該值讀入 AL
+        MOV     [ECX], AL
+        RET
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 進行編譯並執行&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;make run&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;【執行結果】&lt;/strong&gt; 螢幕顯示白色
+&lt;img src=&quot;https://i.imgur.com/yEncOoa.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;二讓螢幕顯示條紋&quot;&gt;二、讓螢幕顯示條紋&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;專案原始檔：&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20210518/01_source2_stripes&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20210518/01_source2_stripes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 在 VRAM (Video RAM, 顯示畫面用的記憶體) 寫入指令，相關程式碼如下：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;bootpack.c&lt;/strong&gt; (../01_source2_stripes/bootpack.c)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/* 告知C語言編譯器，有使用其他檔案所製作的函數 */
+
+void io_hlt(void);
+void write_mem8(int addr, int data);
+/* 雖然是函數的宣告，卻沒有 {}，而且馬上就以; 字元結束。
+   這是表示它存在於其他的檔案裡，請到該處去進行讀取。 */
+
+void HariMain(void)
+{
+    int i;  /* 宣告變數。稱為 i 的變數是 32 位元的整數型別 */
+
+    for (i = 0xa0000; i &amp;lt;= 0xaffff; i++)     {
+        write_mem8(i, 15);      // 螢幕會顯示白色
+        // write_mem8(i, i &amp;amp; 0x0f);     // 螢幕會顯示條紋色
+    }
+
+    for (;;) {
+        io_hlt(); /* 這樣在 nasmfunc.asm 的 io_hlt 將會執行 */
+    }	
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 進行編譯並執行&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;make run&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;【執行結果】&lt;/strong&gt; 螢幕顯示條紋色
+&lt;img src=&quot;https://i.imgur.com/1c5JuaQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;三矩形的繪製與處理&quot;&gt;三、矩形的繪製與處理&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;專案原始檔：&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20210518/01_source3_rectangle&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20210518/01_source3_rectangle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;參考資料
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://wen00072.github.io/blog/2014/03/14/study-on-the-linker-script/&quot;&gt;Linker Script初探 - GNU Linker Ld手冊略讀&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://blog.louie.lu/2016/11/06/10%E5%88%86%E9%90%98%E8%AE%80%E6%87%82-linker-scripts/&quot;&gt;10分鐘讀懂 linker scripts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://bit.ly/3wijRxO&quot;&gt;oslite.ldsを開いて、以下のとおり記述します。&lt;/a&gt; (參考 oslite.lds 的環節來撰寫)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 修改主要程式碼&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/bootpack.c&quot;&gt;&lt;strong&gt;bootpack.c&lt;/strong&gt;&lt;/a&gt;
+(../01_source3_rectangle/bootpack.c)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/nasmfunc.asm&quot;&gt;&lt;strong&gt;nasmfunc.asm&lt;/strong&gt;&lt;/a&gt;
+(../01_source3_rectangle/nasmfunc.asm)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 要修改 Linker Script - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;os.lds&lt;/code&gt;，程式碼如下：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/os.lds&quot;&gt;&lt;strong&gt;os.lds&lt;/strong&gt;&lt;/a&gt; (…/01_source3_rectangle/os.lds)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;OUTPUT_FORMAT(binary)
+OUTPUT_ARCH(i386)
+
+SECTIONS {
+     .head 0x0 :
+     {
+         LONG((ADDR(.bss) + SIZEOF(.bss) + 0xfff) &amp;amp; ~ 0xfff)
+         BYTE(0x4f) BYTE(0x53) BYTE(0x4c) BYTE(0x69)
+         LONG(0x0)
+         LONG(ADDR(.data))
+         LONG(SIZEOF(.data))
+         LONG(LOADADDR(.data))
+         LONG(0xe9000000)
+         LONG(HariMain - 0x20)
+         LONG((ADDR(.bss) + SIZEOF(.bss) + 0xf) &amp;amp; ~ 0xf)
+     }
+
+     .text ADDR(.head) + SIZEOF(.head) :
+         SUBALIGN (1)
+     {
+         *(.text)
+     }
+
+     .data 0x00000400 :
+         AT ( LOADADDR(.text) + SIZEOF(.text) ) SUBALIGN (4)
+     {
+         *(.data)
+         *(.rodata*)
+     }
+
+     .bss  :
+         AT ( LOADADDR(.data) + SIZEOF(.data) ) SUBALIGN (4)
+     {
+        *(.bss)
+     }
+
+     /DISCARD/ : { *(*) }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 進行編譯並執行&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;make run&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;【執行結果】&lt;/strong&gt; 螢幕顯示矩形
+&lt;img src=&quot;https://i.imgur.com/PPgmWjZ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;四螢幕顯示出狀態列圖樣&quot;&gt;四、螢幕顯示出狀態列圖樣&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;專案原始檔：&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20210518/01_source4_status&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20210518/01_source4_status&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 修改主要程式碼&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shouzo/My-30OS/blob/master/20210518/01_source3_rectangle/bootpack.c&quot;&gt;&lt;strong&gt;bootpack.c&lt;/strong&gt;&lt;/a&gt;
+(../01_source4_status/bootpack.c)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 進行編譯並執行&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;make run&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;【執行結果】&lt;/strong&gt; 螢幕顯示出狀態列圖樣
+&lt;img src=&quot;https://i.imgur.com/b809yVD.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 18 May 2021 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2021/05/18/30OS_day4/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2021/05/18/30OS_day4/</guid>
+        
+        <category>組合語言</category>
+        
+        <category>C語言</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+        
+        <category>組合語言</category>
+        
+        <category>C語言</category>
+        
+        <category>作業系統</category>
+        
+        <category>程式設計</category>
+        
+      </item>
     
       <item>
         <title>20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</title>
@@ -900,68 +1375,6 @@ fin:
         <pubDate>Thu, 17 Dec 2020 08:00:00 +0800</pubDate>
         <link>http://shouzo.github.io/2020/12/17/2020_Life-Work_3/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2020/12/17/2020_Life-Work_3/</guid>
-        
-        <category>年度回顧</category>
-        
-        <category>生活</category>
-        
-        <category>工作</category>
-        
-        
-        <category>年度回顧</category>
-        
-      </item>
-    
-      <item>
-        <title>20201215 [年度回顧] 關於工作和生活 - Part 2</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#現況的盤點&quot; id=&quot;markdown-toc-現況的盤點&quot;&gt;現況的盤點&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;現況的盤點&quot;&gt;現況的盤點&lt;/h3&gt;
-&lt;p&gt;先簡單介紹一下目前的工作。
-我現在從事運動專項教學，以 &lt;strong&gt;跑酷&lt;/strong&gt; 為主要項目，輔項有體操、彈翻床等等。偶爾會有大專校院的學生社團演講邀約，和零星的協會專案執行。&lt;/p&gt;
-
-&lt;p&gt;教學對象 &lt;strong&gt;包含但不限於&lt;/strong&gt; 3-12 歲的幼兒和兒童、18-25 歲的大學、延畢和研究生，以及職場工作者。&lt;/p&gt;
-
-&lt;p&gt;目前有幾個長期合作的單位，
-工作狀態比較接近自由工作者；
-也因為如此每個月的工作天數、時間和收入並不是固定的。&lt;/p&gt;
-
-&lt;p&gt;以現況來說。
-如果沒有刻意排開，通常一週七天我都會給自己安排工作。像是 2020 年 12 月份的行事曆，我每天都會有工作相關的安排。
-&lt;img src=&quot;https://i.imgur.com/ckGLheT.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;為什麼會這樣安排？&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;一來是這些工作跟我的個人目標是匹配的。
-雖然是不同的工作，但是在領域本質上具有高度遷移性，在能力成長上可以為彼此帶來綜合效益。&lt;/p&gt;
-
-&lt;p&gt;二來是對現在的我而言，這樣的安排並不會帶來過度的壓力。(短時間的尖峰、倦怠期當然也有經歷過，這些之後再聊)&lt;/p&gt;
-
-&lt;p&gt;還有一個，是我從今年九月份開始為自己設定了「&lt;strong&gt;平均每個月都要存 3 萬&lt;/strong&gt;」的目標。&lt;/p&gt;
-
-&lt;p&gt;–&lt;/p&gt;
-
-&lt;p&gt;從 2019/01 開始工作至今，那種忙碌的節奏跟在學生社團時期很像。(又或者說我從那個時期就習慣了這樣的節奏和工作方式)&lt;/p&gt;
-
-&lt;p&gt;只是還是有些差異。&lt;/p&gt;
-
-&lt;p&gt;一來是對於錢的敏感度提升；
-二來是從自身出發去理解現實，那種理解的廣度和深度改變。&lt;/p&gt;
-
-&lt;p&gt;接下來的幾篇文章預計會涵蓋時間安排、專案管理、商業考量、價值判斷這些領域，會透過我親身在工作中的觀察和體悟，展現某些價值觀、內心衝突以及事情在我身上是如何展開和處理的。&lt;/p&gt;
-
-&lt;p&gt;很多事情在沒有親自遇到之前，
-光聽家長、師長、老闆或是其他前輩講述是很難明白的。&lt;/p&gt;
-
-&lt;p&gt;沒有經驗基礎的描述，對於理解而言雖然有效但也很有限。當你在現實生活中遇到的事情足夠多了之後，這些道理就顯得簡單了。&lt;/p&gt;
-
-&lt;p&gt;(…未完待續)&lt;/p&gt;
-</description>
-        <pubDate>Tue, 15 Dec 2020 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2020/12/15/2020_Life-Work_2/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2020/12/15/2020_Life-Work_2/</guid>
         
         <category>年度回顧</category>
         
