@@ -883,7 +883,7 @@ msg:
 <blockquote>
   <p>dd if=/dev/zero of=os.img bs=512 count=2880</p>
 
-  <p>dd if=bootloader of=os.img bs=512 count=1</p>
+  <p>dd if=bootloader of=os.img conv=notrunc</p>
 </blockquote>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if：指定輸入檔案
@@ -892,7 +892,7 @@ bs：指定 block size，一次讀取與寫入 N 個位元組的資料
 count：處理 N 個輸入區塊
 </code></pre></div></div>
 
-<p><img src="https://i.imgur.com/DbKECqo.png" alt="" /></p>
+<p><img src="https://i.imgur.com/FEgqu6y.png" alt="" /></p>
 
 <ul>
   <li>如果打開 <code class="language-plaintext highlighter-rouge">ipl.lst</code> ，可以檢視組合語言轉換成機械碼的情形。</li>

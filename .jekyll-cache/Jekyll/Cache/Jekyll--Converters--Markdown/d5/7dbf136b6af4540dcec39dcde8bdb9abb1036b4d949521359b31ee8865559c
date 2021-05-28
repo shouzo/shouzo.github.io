@@ -1,4 +1,4 @@
-I"<ul id="markdown-toc">
+I"�"<ul id="markdown-toc">
   <li><a href="#20210517---day_3" id="markdown-toc-20210517---day_3">20210517 - Day_3</a>    <ul>
       <li><a href="#一模擬磁碟片並進行讀取" id="markdown-toc-一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</a></li>
       <li><a href="#二撰寫完整的磁碟片開機磁區" id="markdown-toc-二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</a></li>
@@ -27,7 +27,7 @@
   <li>進度摘要
     <ol>
       <li>製作真實 IPL (初始程式載入程序)</li>
-      <li>從 16 位元進入 32 位元 (在 linux 上撰寫有些麻煩，暫時跳過)</li>
+      <li><del>從 16 位元進入 32 位元</del> (在 linux 上撰寫有些麻煩，暫時跳過)</li>
     </ol>
   </li>
   <li>完整專案
@@ -38,11 +38,17 @@
 </ul>
 
 <h2 id="一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</h2>
-<p>(延續 2017/07/09 的進度)</p>
-
-<ol>
-  <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong></li>
-</ol>
+<ul>
+  <li>
+    <p>專案原始檔 (<strong>01_source1_ipl</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210517/01_source1_ipl">https://github.com/shouzo/My-30OS/tree/master/20210517/01_source1_ipl</a>
+(延續 2017/07/09 的進度)</p>
+  </li>
+  <li>
+    <ol>
+      <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong></li>
+    </ol>
+  </li>
+</ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MOV		AX,0x0820
 MOV		ES,AX
@@ -51,45 +57,57 @@ MOV		DH,0        ;   磁頭0
 MOV		CL,2        ;   磁區2
 
 MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
-MOV		AL,1        ;   1磁區
+MOV		AL,1        ;   磁區1
 MOV		BX,0
-MOV		DL,0x00     ;   A磁碟機
+MOV		DL,0x00     ;   磁碟機 A
 INT		0x13        ;   呼叫磁碟片 BIOS
 JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序
 </code></pre></div></div>
 
-<ol>
-  <li><strong>編譯並測試能否模擬磁碟片進行讀取</strong>
-    <blockquote>
-      <p>nasm -o bootloader -l ipl.lst ipl.nas</p>
-
-      <p>dd if=/dev/zero of=ipl.img bs=512 count=2880</p>
-
-      <p>dd if=bootloader of=ipl.img bs=512 count=1</p>
-    </blockquote>
+<ul>
+  <li>
+    <ol>
+      <li><strong>編譯並測試能否模擬磁碟片進行讀取</strong></li>
+    </ol>
   </li>
-</ol>
+</ul>
 
-<p><img src="https://i.imgur.com/eiMWp6d.jpg" alt="" /></p>
+<blockquote>
+  <p>nasm -o bootloader -l ipl.lst ipl.nas</p>
 
-<ol>
-  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl.img</code></strong>
-    <ul>
-      <li>執行結果
+  <p>dd if=/dev/zero of=ipl.img bs=512 count=2880</p>
+
+  <p>dd if=bootloader of=ipl.img conv=notrunc</p>
+</blockquote>
+
+<p><img src="https://i.imgur.com/EWRxemJ.png" alt="" /></p>
+
+<ul>
+  <li>
+    <ol>
+      <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl.img</code></strong></li>
+    </ol>
+  </li>
+  <li>執行結果
 <img src="https://i.imgur.com/zoAr8xH.jpg" alt="" /></li>
-    </ul>
-  </li>
-</ol>
+</ul>
 
 <h2 id="二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</h2>
-<ol>
-  <li><strong>以下為 <code class="language-plaintext highlighter-rouge">ipl_all.nas</code> 的完整程式碼</strong>：</li>
-</ol>
+<ul>
+  <li>
+    <p>專案原始檔 (<strong>01_source2_ipl10</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210517/01_source2_ipl10">https://github.com/shouzo/My-30OS/tree/master/20210517/01_source2_ipl10</a></p>
+  </li>
+  <li>
+    <ol>
+      <li><strong>以下為 <code class="language-plaintext highlighter-rouge">ipl10.nas</code> 的完整程式碼</strong>：</li>
+    </ol>
+  </li>
+</ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; haribote-ipl
 ; TAB=4
 
-CYLS    EQU     10
+    CYLS    EQU     10          ;   讀取 10 次 (磁柱的份量)
 
 	ORG		0x7c00              ;   指定從 0x7c00 開始執行	
 
@@ -201,29 +219,41 @@ msg:
 
 </code></pre></div></div>
 
-<ol>
-  <li><strong>編譯 <code class="language-plaintext highlighter-rouge">ipl_all.nas</code> 後得到 <code class="language-plaintext highlighter-rouge">ipl_all.img</code></strong>
-    <blockquote>
-      <p>nasm ipl_all.nas -o ipl_all.img</p>
-    </blockquote>
+<ul>
+  <li>
+    <ol>
+      <li><strong>編譯 <code class="language-plaintext highlighter-rouge">ipl10.nas</code> 後得到 <code class="language-plaintext highlighter-rouge">ipl10.img</code></strong></li>
+    </ol>
   </li>
-</ol>
+</ul>
 
-<p><img src="https://i.imgur.com/aaJVRC7.png" alt="" /></p>
+<blockquote>
+  <p>nasm ipl10.nas -o ipl10.img</p>
+</blockquote>
 
-<ol>
-  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl.img</code></strong>
-    <ul>
-      <li>執行結果
+<p><img src="https://i.imgur.com/U8ajFxf.png" alt="" /></p>
+
+<ul>
+  <li>
+    <ol>
+      <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl10.img</code></strong></li>
+    </ol>
+  </li>
+  <li>執行結果
 <img src="https://i.imgur.com/dh1ghJR.jpg" alt="" /></li>
-    </ul>
-  </li>
-</ol>
+</ul>
 
 <h2 id="三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑">三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)</h2>
-<ol>
-  <li><strong>以下為 <code class="language-plaintext highlighter-rouge">ipl_os.nas</code> 的完整程式碼</strong>：</li>
-</ol>
+<ul>
+  <li>
+    <p>專案原始檔 (<strong>01_source3_ipl-os</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210517/01_source3_ipl-os">https://github.com/shouzo/My-30OS/tree/master/20210517/01_source3_ipl-os</a></p>
+  </li>
+  <li>
+    <ol>
+      <li><strong>以下為 <code class="language-plaintext highlighter-rouge">os.nas</code> 的完整程式碼</strong>：</li>
+    </ol>
+  </li>
+</ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; ipl-os
 ; TAB=4
@@ -234,27 +264,37 @@ msg:
 	MOV		AH,0x00
 	INT		0x10
 fin:
-	HLT
-	JMP		fin
+		HLT
+		JMP		fin
 </code></pre></div></div>
 
-<ol>
-  <li><strong>編譯 <code class="language-plaintext highlighter-rouge">ipl_os.nas</code> 後得到 <code class="language-plaintext highlighter-rouge">ipl_os.img</code></strong>
-    <blockquote>
-      <p>nasm ipl_os.nas -o ipl_os.img</p>
-    </blockquote>
+<ul>
+  <li>
+    <ol>
+      <li><strong>進行編譯</strong></li>
+    </ol>
   </li>
-</ol>
+</ul>
 
-<p><img src="https://i.imgur.com/q6RK8rn.jpg" alt="" /></p>
+<blockquote>
+  <p>nasm ipl10.nas -o ipl10.bin -l ipl10.lst</p>
 
-<ol>
-  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl_os.img</code></strong>
-    <ul>
-      <li>執行結果 (畫面會是全黑的)
+  <p>nasm os.nas -o os.sys -l os.lst</p>
+
+  <p>mformat -f 1440 -C -B ipl10.bin -i ipl-os.img ::</p>
+
+  <p>mcopy -i ipl-os.img os.sys ::</p>
+</blockquote>
+
+<p><img src="https://i.imgur.com/b5QdVk6.png" alt="" /></p>
+
+<ul>
+  <li>
+    <ol>
+      <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl-os.img</code></strong></li>
+    </ol>
+  </li>
+  <li>執行結果 (畫面會是全黑的)
 <img src="https://i.imgur.com/KKEJV8s.jpg" alt="" /></li>
-    </ul>
-  </li>
-</ol>
-
+</ul>
 :ET

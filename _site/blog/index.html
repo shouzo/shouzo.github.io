@@ -254,7 +254,7 @@
   <li>進度摘要
     <ol>
       <li>製作真實 IPL (初始程式載入程序)</li>
-      <li>從 16 位元進入 32 位元 (在 linux 上撰寫有些麻煩，暫時跳過)</li>
+      <li><del>從 16 位元進入 32 位元</del> (在 linux 上撰寫有些麻煩，暫時跳過)</li>
     </ol>
   </li>
   <li>完整專案
@@ -265,11 +265,15 @@
 </ul>
 
 <h2 id="一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</h2>
-<p>(延續 2017/07/09 的進度)</p>
-
-<ol>
-  <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong></li>
-</ol>
+<ul>
+  <li>
+    <p>專案原始檔 (<strong>01_source1_ipl</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210517/01_source1_ipl">https://github.com/shouzo/My-30OS/tree/master/20210517/01_source1_ipl</a>
+(延續 2017/07/09 的進度)</p>
+  </li>
+  <li>
+    <p><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong></p>
+  </li>
+</ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MOV		AX,0x0820
 MOV		ES,AX
@@ -278,48 +282,50 @@ MOV		DH,0        ;   磁頭0
 MOV		CL,2        ;   磁區2
 
 MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
-MOV		AL,1        ;   1磁區
+MOV		AL,1        ;   磁區1
 MOV		BX,0
-MOV		DL,0x00     ;   A磁碟機
+MOV		DL,0x00     ;   磁碟機 A
 INT		0x13        ;   呼叫磁碟片 BIOS
 JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序
 </code></pre></div></div>
 
-<ol>
-  <li><strong>編譯並測試能否模擬磁碟片進行讀取</strong>
-    <blockquote>
-      <p>nasm -o bootloader -l ipl.lst ipl.nas</p>
+<ul>
+  <li><strong>編譯並測試能否模擬磁碟片進行讀取</strong></li>
+</ul>
 
-      <p>dd if=/dev/zero of=ipl.img bs=512 count=2880</p>
+<blockquote>
+  <p>nasm -o bootloader -l ipl.lst ipl.nas</p>
 
-      <p>dd if=bootloader of=ipl.img bs=512 count=1</p>
-    </blockquote>
-  </li>
-</ol>
+  <p>dd if=/dev/zero of=ipl.img bs=512 count=2880</p>
 
-<p><img src="https://i.imgur.com/eiMWp6d.jpg" alt="" /></p>
+  <p>dd if=bootloader of=ipl.img conv=notrunc</p>
+</blockquote>
 
-<ol>
-  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl.img</code></strong>
-    <ul>
-      <li>執行結果
+<p><img src="https://i.imgur.com/EWRxemJ.png" alt="" /></p>
+
+<ul>
+  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl.img</code></strong></li>
+  <li>執行結果
 <img src="https://i.imgur.com/zoAr8xH.jpg" alt="" /></li>
-    </ul>
-  </li>
-</ol>
+</ul>
 
 <h2 id="二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</h2>
-<ol>
-  <li><strong>以下為 <code class="language-plaintext highlighter-rouge">ipl_all.nas</code> 的完整程式碼</strong>：</li>
-</ol>
+<ul>
+  <li>
+    <p>專案原始檔 (<strong>01_source2_ipl10</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210517/01_source2_ipl10">https://github.com/shouzo/My-30OS/tree/master/20210517/01_source2_ipl10</a></p>
+  </li>
+  <li>
+    <p><strong>以下為 <code class="language-plaintext highlighter-rouge">ipl10.nas</code> 的完整程式碼</strong>：</p>
+  </li>
+</ul>
 
 <p>```
 ; haribote-ipl
 ; TAB=4</p>
 
-<p>CYLS    EQU     10</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CYLS    EQU     10          ;   讀取 10 次 (磁柱的份量)
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ORG		0x7c00              ;   指定從 0x7c00 開始執行	
+ORG		0x7c00              ;   指定從 0x7c00 開始執行	
 </code></pre></div></div>
 
 <p>;   以下是為了標準 FAT12 格式的軟式磁碟片的記述</p>

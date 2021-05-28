@@ -1,39 +1,55 @@
----
-layout: post
-title:  "20170719 [學習筆記] 30天作業系統自作入門筆記 (2)"
-date:   2017-07-19 00:00:00
-categories: 組合語言 C語言 作業系統 程式設計
-tags: 組合語言 C語言 作業系統 程式設計
----
+I"b&<ul id="markdown-toc">
+  <li><a href="#20170719---day_2" id="markdown-toc-20170719---day_2">20170719 - Day_2</a>    <ul>
+      <li><a href="#一修改-helloosnas" id="markdown-toc-一修改-helloosnas">一、修改 <code class="language-plaintext highlighter-rouge">helloos.nas</code></a></li>
+      <li><a href="#二編譯-helloosnas" id="markdown-toc-二編譯-helloosnas">二、編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code></a></li>
+      <li><a href="#三啟動虛擬機讀取-osimg" id="markdown-toc-三啟動虛擬機讀取-osimg">三、啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">os.img</code></a></li>
+    </ul>
+  </li>
+</ul>
 
+<ul>
+  <li>工作環境
+    <ul>
+      <li>Lubuntu 17.04</li>
+      <li>VMware Workstation 12.5.2</li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li>Linux 版本筆記：<a href="http://lengly.top/archives/85">http://lengly.top/archives/85</a></li>
+    </ul>
+  </li>
+</ul>
 
-* content
-{:toc}
+<h1 id="20170719---day_2">20170719 - Day_2</h1>
+<ul>
+  <li>進度摘要
+    <ul>
+      <li>簡易 IPL 製作。</li>
+    </ul>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/My-30OS/tree/master/20170719">https://github.com/shouzo/My-30OS/tree/master/20170719</a></li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="https://blog.gtwang.org/linux/dd-command-examples/">dd 指令教學與實用範例，備份與回復資料的小工具</a></li>
+    </ul>
+  </li>
+</ul>
 
+<h2 id="一修改-helloosnas">一、修改 <code class="language-plaintext highlighter-rouge">helloos.nas</code></h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">RESB	0x7dfe-$</code> 此行無法通過編譯，故修改成 <code class="language-plaintext highlighter-rouge">TIMES 510-($-$$)    DB    0</code>。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">$</code> 代表目前行的位址，<code class="language-plaintext highlighter-rouge">$$</code> 為目前 section 的位址。(TIMES 意思為重複，先決定次數再確定重複的內容)。</li>
+    </ul>
+  </li>
+</ul>
 
-* 工作環境
-    * Lubuntu 17.04
-    * VMware Workstation 12.5.2
-* 參考資料
-    * Linux 版本筆記：[http://lengly.top/archives/85](http://lengly.top/archives/85)
-
-
-# 20170719 - Day_2
-* 進度摘要
-    * 簡易 IPL 製作。
-* 完整專案
-    * [https://github.com/shouzo/My-30OS/tree/master/20170719](https://github.com/shouzo/My-30OS/tree/master/20170719)
-* 參考資料
-    * [dd 指令教學與實用範例，備份與回復資料的小工具](https://blog.gtwang.org/linux/dd-command-examples/)
-
-
-## 一、修改 `helloos.nas`
-* `RESB	0x7dfe-$` 此行無法通過編譯，故修改成 `TIMES 510-($-$$)    DB    0`。
-    * `$` 代表目前行的位址，`$$` 為目前 section 的位址。(TIMES 意思為重複，先決定次數再確定重複的內容)。
-
-
-```
-; hello-os
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; hello-os
 ; TAB=4
 
 ORG		0x7c00			; 指定從 0x7c00 開始執行
@@ -100,38 +116,49 @@ msg:
     TIMES 510-($-$$)    DB    0      ; "$" 代表目前行的位址，"$$" 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
 
     DB		0x55, 0xaa
-```
+</code></pre></div></div>
 
+<h2 id="二編譯-helloosnas">二、編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code></h2>
+<ol>
+  <li>編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code>，在輸出 <code class="language-plaintext highlighter-rouge">bootloader</code> 的同時也輸出列表檔案 <code class="language-plaintext highlighter-rouge">ipl.lst</code>。</li>
+</ol>
 
-## 二、編譯 `helloos.nas`
-1. 編譯 `helloos.nas`，在輸出 `bootloader` 的同時也輸出列表檔案 `ipl.lst`。
+<blockquote>
+  <p>nasm -o bootloader -l ipl.lst helloos.nas</p>
+</blockquote>
 
-> nasm -o bootloader -l ipl.lst helloos.nas
+<p><img src="https://i.imgur.com/KfOYHIM.png" alt="" /></p>
 
-![](https://i.imgur.com/KfOYHIM.png)
+<ol>
+  <li>在 Linux 系統下使用 <code class="language-plaintext highlighter-rouge">dd</code> 指令產生 <code class="language-plaintext highlighter-rouge">os.img</code> 檔案。
+    <ul>
+      <li>先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。</li>
+    </ul>
+    <ul>
+      <li>一個軟碟片容量：<strong>1.44MB = 512KB * 2880</strong></li>
+    </ul>
+  </li>
+</ol>
 
+<blockquote>
+  <p>dd if=/dev/zero of=os.img bs=512 count=2880</p>
 
-2. 在 Linux 系統下使用 `dd` 指令產生 `os.img` 檔案。
-* 先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。
-    * 一個軟碟片容量：**1.44MB = 512KB * 2880**
+  <p>dd if=bootloader of=os.img conv=notrunc</p>
+</blockquote>
 
-> dd if=/dev/zero of=os.img bs=512 count=2880
-> 
-> dd if=bootloader of=os.img conv=notrunc
-
-```
-if：指定輸入檔案
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if：指定輸入檔案
 of：指定輸出檔案
 bs：指定 block size，一次讀取與寫入 N 個位元組的資料
 count：處理 N 個輸入區塊
-```
+</code></pre></div></div>
 
-![](https://i.imgur.com/FEgqu6y.png)
+<p><img src="https://i.imgur.com/DbKECqo.png" alt="" /></p>
 
-* 如果打開 `ipl.lst` ，可以檢視組合語言轉換成機械碼的情形。
+<ul>
+  <li>如果打開 <code class="language-plaintext highlighter-rouge">ipl.lst</code> ，可以檢視組合語言轉換成機械碼的情形。</li>
+</ul>
 
-```
-     1                                  ; hello-os
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     1                                  ; hello-os
      2                                  ; TAB=4
      3                                  
      4                                  ORG		0x7c00			    ;   指定從 0x7c00 開始執行
@@ -158,7 +185,7 @@ count：處理 N 個輸入區塊
     25 0000002B 48454C4C4F2D4F5320-         DB		"HELLO-OS   "	
     25 00000034 2020               
     26 00000036 4641543132202020            DB		"FAT12   "		
-    27 0000003E <res 00000012>              RESB	18				
+    27 0000003E &lt;res 00000012&gt;              RESB	18				
     27          ******************       warning: uninitialized space declared in .text section: zeroing
     28                                  
     29                                  
@@ -200,17 +227,15 @@ count：處理 N 個輸入區塊
     64 00000083 00                          DB		0
     65                                  
     66                                      ;   RESB	0x7dfe-$	;   此行編譯無法通過，故修改成 "TIMES 510-($-$$)      DB      0"
-    67 00000084 00<rept>                    TIMES 510-($-$$)    DB      0   ;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
+    67 00000084 00&lt;rept&gt;                    TIMES 510-($-$$)    DB      0   ;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
     68                                  
     69 000001FE 55AA                        DB		0x55, 0xaa
-```
+</code></pre></div></div>
 
+<h2 id="三啟動虛擬機讀取-osimg">三、啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">os.img</code></h2>
+<ul>
+  <li>執行結果
+<img src="https://i.imgur.com/ZwHRrHj.png" alt="" /></li>
+</ul>
 
-
-
-## 三、啟動虛擬機，讀取 `os.img`
-* 執行結果
-![](https://i.imgur.com/ZwHRrHj.png)
-
-
-
+:ET

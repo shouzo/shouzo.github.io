@@ -5,8 +5,8 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 18 May 2021 11:10:18 +0800</pubDate>
-    <lastBuildDate>Tue, 18 May 2021 11:10:18 +0800</lastBuildDate>
+    <pubDate>Sat, 29 May 2021 03:44:33 +0800</pubDate>
+    <lastBuildDate>Sat, 29 May 2021 03:44:33 +0800</lastBuildDate>
     <generator>Jekyll v4.2.0</generator>
     
       <item>
@@ -40,7 +40,7 @@
   &lt;li&gt;進度摘要
     &lt;ol&gt;
       &lt;li&gt;製作真實 IPL (初始程式載入程序)&lt;/li&gt;
-      &lt;li&gt;從 16 位元進入 32 位元 (在 linux 上撰寫有些麻煩，暫時跳過)&lt;/li&gt;
+      &lt;li&gt;&lt;del&gt;從 16 位元進入 32 位元&lt;/del&gt; (在 linux 上撰寫有些麻煩，暫時跳過)&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
   &lt;li&gt;完整專案
@@ -51,11 +51,15 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;一模擬磁碟片並進行讀取&quot;&gt;一、模擬磁碟片，並進行讀取&lt;/h2&gt;
-&lt;p&gt;(延續 2017/07/09 的進度)&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt; 裡新增以下內容，並存成 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl.nas&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;專案原始檔 (&lt;strong&gt;01_source1_ipl&lt;/strong&gt;)：&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20210517/01_source1_ipl&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20210517/01_source1_ipl&lt;/a&gt;
+(延續 2017/07/09 的進度)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helloos.nas&lt;/code&gt; 裡新增以下內容，並存成 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl.nas&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MOV		AX,0x0820
 MOV		ES,AX
@@ -64,45 +68,47 @@ MOV		DH,0        ;   磁頭0
 MOV		CL,2        ;   磁區2
 
 MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
-MOV		AL,1        ;   1磁區
+MOV		AL,1        ;   磁區1
 MOV		BX,0
-MOV		DL,0x00     ;   A磁碟機
+MOV		DL,0x00     ;   磁碟機 A
 INT		0x13        ;   呼叫磁碟片 BIOS
 JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;編譯並測試能否模擬磁碟片進行讀取&lt;/strong&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;nasm -o bootloader -l ipl.lst ipl.nas&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;編譯並測試能否模擬磁碟片進行讀取&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-      &lt;p&gt;dd if=/dev/zero of=ipl.img bs=512 count=2880&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;nasm -o bootloader -l ipl.lst ipl.nas&lt;/p&gt;
 
-      &lt;p&gt;dd if=bootloader of=ipl.img bs=512 count=1&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+  &lt;p&gt;dd if=/dev/zero of=ipl.img bs=512 count=2880&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/eiMWp6d.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;dd if=bootloader of=ipl.img conv=notrunc&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;啟動虛擬機，讀取 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl.img&lt;/code&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;執行結果
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/EWRxemJ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;啟動虛擬機，讀取 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl.img&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;執行結果
 &lt;img src=&quot;https://i.imgur.com/zoAr8xH.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;二撰寫完整的磁碟片開機磁區&quot;&gt;二、撰寫完整的磁碟片開機磁區&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;以下為 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_all.nas&lt;/code&gt; 的完整程式碼&lt;/strong&gt;：&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;專案原始檔 (&lt;strong&gt;01_source2_ipl10&lt;/strong&gt;)：&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20210517/01_source2_ipl10&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20210517/01_source2_ipl10&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;以下為 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl10.nas&lt;/code&gt; 的完整程式碼&lt;/strong&gt;：&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; haribote-ipl
 ; TAB=4
 
-CYLS    EQU     10
+    CYLS    EQU     10          ;   讀取 10 次 (磁柱的份量)
 
 	ORG		0x7c00              ;   指定從 0x7c00 開始執行	
 
@@ -214,29 +220,31 @@ msg:
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;編譯 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_all.nas&lt;/code&gt; 後得到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_all.img&lt;/code&gt;&lt;/strong&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;nasm ipl_all.nas -o ipl_all.img&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;編譯 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl10.nas&lt;/code&gt; 後得到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl10.img&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/aaJVRC7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;nasm ipl10.nas -o ipl10.img&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;啟動虛擬機，讀取 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl.img&lt;/code&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;執行結果
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/U8ajFxf.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;啟動虛擬機，讀取 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl10.img&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;執行結果
 &lt;img src=&quot;https://i.imgur.com/dh1ghJR.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑&quot;&gt;三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;以下為 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_os.nas&lt;/code&gt; 的完整程式碼&lt;/strong&gt;：&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;專案原始檔 (&lt;strong&gt;01_source3_ipl-os&lt;/strong&gt;)：&lt;a href=&quot;https://github.com/shouzo/My-30OS/tree/master/20210517/01_source3_ipl-os&quot;&gt;https://github.com/shouzo/My-30OS/tree/master/20210517/01_source3_ipl-os&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;以下為 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;os.nas&lt;/code&gt; 的完整程式碼&lt;/strong&gt;：&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; ipl-os
 ; TAB=4
@@ -247,29 +255,31 @@ msg:
 	MOV		AH,0x00
 	INT		0x10
 fin:
-	HLT
-	JMP		fin
+		HLT
+		JMP		fin
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;編譯 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_os.nas&lt;/code&gt; 後得到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_os.img&lt;/code&gt;&lt;/strong&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;nasm ipl_os.nas -o ipl_os.img&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;進行編譯&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/q6RK8rn.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;nasm ipl10.nas -o ipl10.bin -l ipl10.lst&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;啟動虛擬機，讀取 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl_os.img&lt;/code&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;執行結果 (畫面會是全黑的)
+  &lt;p&gt;nasm os.nas -o os.sys -l os.lst&lt;/p&gt;
+
+  &lt;p&gt;mformat -f 1440 -C -B ipl10.bin -i ipl-os.img ::&lt;/p&gt;
+
+  &lt;p&gt;mcopy -i ipl-os.img os.sys ::&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/b5QdVk6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;啟動虛擬機，讀取 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipl-os.img&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;執行結果 (畫面會是全黑的)
 &lt;img src=&quot;https://i.imgur.com/KKEJV8s.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
+&lt;/ul&gt;
 </description>
         <pubDate>Mon, 17 May 2021 08:00:00 +0800</pubDate>
         <link>http://shouzo.github.io/2021/05/17/30OS_day3/</link>

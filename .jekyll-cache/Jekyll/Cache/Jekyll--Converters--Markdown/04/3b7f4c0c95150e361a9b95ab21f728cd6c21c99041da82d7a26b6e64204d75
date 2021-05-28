@@ -1,0 +1,273 @@
+I"� <ul id="markdown-toc">
+  <li><a href="#20210517---day_3" id="markdown-toc-20210517---day_3">20210517 - Day_3</a>    <ul>
+      <li><a href="#一模擬磁碟片並進行讀取" id="markdown-toc-一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</a></li>
+      <li><a href="#二撰寫完整的磁碟片開機磁區" id="markdown-toc-二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</a></li>
+      <li><a href="#三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑" id="markdown-toc-三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑">三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>工作環境
+    <ul>
+      <li>Lubuntu 20.04</li>
+      <li>VMware Workstation 16.1.1</li>
+    </ul>
+  </li>
+  <li>參考資料
+    <ul>
+      <li><a href="http://lengly.top/archives/85">Linux 版本筆記</a></li>
+      <li><a href="https://github.com/yourtion/30dayMakeOS">《30天自制操作系统》源码中文版。自己制作一个操作系统（OSASK）的过程</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="20210517---day_3">20210517 - Day_3</h1>
+<ul>
+  <li>進度摘要
+    <ol>
+      <li>製作真實 IPL (初始程式載入程序)</li>
+      <li><del>從 16 位元進入 32 位元</del> (在 linux 上撰寫有些麻煩，暫時跳過)</li>
+    </ol>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/My-30OS/tree/master/20210517">https://github.com/shouzo/My-30OS/tree/master/20210517</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一模擬磁碟片並進行讀取">一、模擬磁碟片，並進行讀取</h2>
+<ul>
+  <li>專案原始檔 (<strong>01_source1_ipl</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210517/01_source1_ipl">https://github.com/shouzo/My-30OS/tree/master/20210517/01_source1_ipl</a>
+(延續 2017/07/09 的進度)</li>
+</ul>
+
+<ol>
+  <li><strong>在 <code class="language-plaintext highlighter-rouge">helloos.nas</code> 裡新增以下內容，並存成 <code class="language-plaintext highlighter-rouge">ipl.nas</code></strong></li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MOV		AX,0x0820
+MOV		ES,AX
+MOV		CH,0        ;   磁柱0			
+MOV		DH,0        ;   磁頭0
+MOV		CL,2        ;   磁區2
+
+MOV		AH,0x02     ;   AH=0x02：讀入磁碟片			
+MOV		AL,1        ;   磁區1
+MOV		BX,0
+MOV		DL,0x00     ;   磁碟機 A
+INT		0x13        ;   呼叫磁碟片 BIOS
+JC		error       ;   Jump If Carry：「進位旗標」 (Carry Flag) 為 1 時，執行跳躍程序
+</code></pre></div></div>
+
+<ol>
+  <li><strong>編譯並測試能否模擬磁碟片進行讀取</strong></li>
+</ol>
+
+<blockquote>
+  <p>nasm -o bootloader -l ipl.lst ipl.nas</p>
+
+  <p>dd if=/dev/zero of=ipl.img bs=512 count=2880</p>
+
+  <p>dd if=bootloader of=ipl.img conv=notrunc</p>
+</blockquote>
+
+<p><img src="https://i.imgur.com/EWRxemJ.png" alt="" /></p>
+
+<ol>
+  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl.img</code></strong>
+    <ul>
+      <li>執行結果
+<img src="https://i.imgur.com/zoAr8xH.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="二撰寫完整的磁碟片開機磁區">二、撰寫完整的磁碟片開機磁區</h2>
+<ul>
+  <li>專案原始檔 (<strong>01_source2_ipl10</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210517/01_source2_ipl10">https://github.com/shouzo/My-30OS/tree/master/20210517/01_source2_ipl10</a></li>
+</ul>
+
+<ol>
+  <li><strong>以下為 <code class="language-plaintext highlighter-rouge">ipl10.nas</code> 的完整程式碼</strong>：</li>
+</ol>
+
+<pre><code class="language-asm=">; haribote-ipl
+; TAB=4
+
+    CYLS    EQU     10          ;   讀取 10 次 (磁柱的份量)
+
+	ORG		0x7c00              ;   指定從 0x7c00 開始執行	
+
+;   以下是為了標準 FAT12 格式的軟式磁碟片的記述
+
+	JMP		entry
+	DB		0x90
+	DB		"HARIBOTE"		
+	DW		512				
+	DB		1				
+	DW		1				
+	DB		2				
+	DW		224				
+	DW		2880			
+	DB		0xf0			
+	DW		9				
+	DW		18				
+	DW		2				
+	DD		0				
+	DD		2880			
+	DB		0,0,0x29		
+	DD		0xffffffff		
+	DB		"HARIBOTEOS "	
+	DB		"FAT12   "		
+	RESB	18				
+
+
+
+
+;   程式碼本身
+
+entry:
+	MOV		AX,0            ;   暫存器初始化
+	MOV		SS,AX
+	MOV		SP,0x7c00
+	MOV		DS,AX
+
+
+;   ---- 20210517 新增的部份 (START) ----
+	MOV		AX,0x0820
+	MOV		ES,AX
+	MOV		CH,0            ;   磁柱0		
+	MOV		DH,0			;   磁頭0
+	MOV		CL,2	        ;   磁區2
+
+readloop:
+    MOV     SI,0            ;   計算失敗次數的暫存器
+retry:
+	MOV		AH,0x02         ;   AH=0x02：讀入磁碟片			
+	MOV		AL,1			;   1個磁區
+	MOV		BX,0
+	MOV		DL,0x00			;   A磁碟機
+	INT		0x13	        ;   呼叫磁碟片 BIOS
+    JNC     fin             ;   如果出現錯誤就到 fin
+    ADD     SI,1            ;   SI 加 1
+    CMP     SI,5            ;   SI 與 5 做比較
+    JAE     error           ;   如果 SI &gt;= 5，就到 error
+    MOV     AH,0x00
+    MOV     DL,0x00         ;   A磁碟機
+    INT     0x13            ;   磁碟機的重設
+    JMP     retry
+next:
+    MOV     AX,ES           ;   位址前進到 0x200
+    ADD     AX,0x0020
+    MOV     ES,AX           ;   因為沒有 "ADD    Es,0x020" 的命令，所以才如此執行
+    ADD     CL,1            ;   CL 加 1
+    CMP     CL,18           ;   CL 與 18 做比較
+    JBE     readloop        ;   若是 CL &lt;= 18 就到 readloop
+    MOV     CL,1
+    ADD     DH,1
+    CMP     DH,2
+    JB      readloop        ;   若是 DH &lt; 2 就到 readloop
+    MOV     DH,0
+    ADD     CH,1
+    CMP     CH,CYLS
+    JB      readloop        ;   若是 CH &lt; CYLS 就到 readloop
+;   ---- 20210517 新增的部份 (END) ----
+
+
+
+
+fin:
+	HLT					    ;   直到有了某個物件就將 CPU 停止	
+	JMP		fin				;   無限迴圈
+
+error:
+	MOV		SI,msg
+putloop:
+	MOV		AL,[SI]
+	ADD		SI,1			
+	CMP		AL,0
+	JE		fin
+	MOV		AH,0x0e			
+	MOV		BX,15			
+	INT		0x10			
+	JMP		putloop
+msg:
+	DB		0x0a, 0x0a		;   連續兩個換行
+	DB		"load error"
+	DB		0x0a			;   換行
+	DB		0
+
+;   RESB	0x7dfe-$		;   此行編譯無法通過，故修改成 "TIMES 510-($-$$)   DB  0"
+        
+    TIMES 510-($-$$)    DB      0
+;   '$' 代表目前行的位址，'$$' 為目前 section 的位址。(TIMES 意思為重複，先確定次數再確定重複的內容)
+
+	DB		0x55, 0xaa
+
+</code></pre>
+
+<ol>
+  <li><strong>編譯 <code class="language-plaintext highlighter-rouge">ipl10.nas</code> 後得到 <code class="language-plaintext highlighter-rouge">ipl10.img</code></strong></li>
+</ol>
+
+<blockquote>
+  <p>nasm ipl10.nas -o ipl10.img</p>
+</blockquote>
+
+<p><img src="https://i.imgur.com/U8ajFxf.png" alt="" /></p>
+
+<ol>
+  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl10.img</code></strong>
+    <ul>
+      <li>執行結果
+<img src="https://i.imgur.com/dh1ghJR.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="三製作-os-本體並保存為磁碟映像再從開機磁區執行-畫面切換執行結果為畫面全黑">三、製作 OS 本體並保存為磁碟映像，再從開機磁區執行 (畫面切換，執行結果為畫面全黑)</h2>
+<ul>
+  <li>專案原始檔 (<strong>==01_source3_ipl-os==</strong>)：https://github.com/shouzo/My-30OS/tree/master/20210517/01_source3_ipl-os</li>
+</ul>
+
+<ol>
+  <li><strong>以下為 <code class="language-plaintext highlighter-rouge">os.nas</code> 的完整程式碼</strong>：</li>
+</ol>
+
+<pre><code class="language-=asm">; ipl-os
+; TAB=4
+
+	ORG		0xc200      ;   這個程式碼是要讀進去那裡
+
+	MOV		AL,0x13	    ;   VGA 圖形、320 x 200 x 8bit 彩色
+	MOV		AH,0x00
+	INT		0x10
+fin:
+		HLT
+		JMP		fin
+</code></pre>
+
+<ol>
+  <li><strong>進行編譯</strong></li>
+</ol>
+
+<blockquote>
+  <p>nasm ipl10.nas -o ipl10.bin -l ipl10.lst
+nasm os.nas -o os.sys -l os.lst
+mformat -f 1440 -C -B ipl10.bin -i ipl-os.img ::
+mcopy -i ipl-os.img os.sys ::</p>
+</blockquote>
+
+<p><img src="https://i.imgur.com/b5QdVk6.png" alt="" /></p>
+
+<ol>
+  <li><strong>啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">ipl-os.img</code></strong>
+    <ul>
+      <li>執行結果 (畫面會是全黑的)
+<img src="https://i.imgur.com/KKEJV8s.jpg" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+:ET
