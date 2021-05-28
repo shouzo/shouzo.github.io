@@ -1,4 +1,4 @@
-I"X<ul id="markdown-toc">
+I"j<ul id="markdown-toc">
   <li><a href="#20210518---day_4" id="markdown-toc-20210518---day_4">20210518 - Day_4</a>    <ul>
       <li><a href="#撰寫-makefile" id="markdown-toc-撰寫-makefile">撰寫 Makefile</a>        <ul>
           <li><a href="#step-1---製作相關檔案" id="markdown-toc-step-1---製作相關檔案">STEP 1 - 製作相關檔案</a></li>
@@ -122,11 +122,14 @@
   <li>專案原始檔 (<strong>Makefile</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile">https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile</a></li>
 </ul>
 
+<p>-</p>
+
 <p><strong>將以上 STEP 1、STEP 2 裡的指令寫成 Makefile。</strong>
 (以下為完整程式碼)</p>
 
-<p>```
-OSNAME := haribote</p>
+<p>```</p>
+
+<p>OSNAME := haribote</p>
 
 <p>.DEFAULT_GOAL : all
 .PHONY : all
