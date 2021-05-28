@@ -1,8 +1,7 @@
-I"b&<ul id="markdown-toc">
+I"�$<ul id="markdown-toc">
   <li><a href="#20170719---day_2" id="markdown-toc-20170719---day_2">20170719 - Day_2</a>    <ul>
       <li><a href="#一修改-helloosnas" id="markdown-toc-一修改-helloosnas">一、修改 <code class="language-plaintext highlighter-rouge">helloos.nas</code></a></li>
       <li><a href="#二編譯-helloosnas" id="markdown-toc-二編譯-helloosnas">二、編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code></a></li>
-      <li><a href="#三啟動虛擬機讀取-osimg" id="markdown-toc-三啟動虛擬機讀取-osimg">三、啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">os.img</code></a></li>
     </ul>
   </li>
 </ul>
@@ -119,9 +118,9 @@ msg:
 </code></pre></div></div>
 
 <h2 id="二編譯-helloosnas">二、編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code></h2>
-<ol>
+<ul>
   <li>編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code>，在輸出 <code class="language-plaintext highlighter-rouge">bootloader</code> 的同時也輸出列表檔案 <code class="language-plaintext highlighter-rouge">ipl.lst</code>。</li>
-</ol>
+</ul>
 
 <blockquote>
   <p>nasm -o bootloader -l ipl.lst helloos.nas</p>
@@ -129,16 +128,14 @@ msg:
 
 <p><img src="https://i.imgur.com/KfOYHIM.png" alt="" /></p>
 
-<ol>
+<ul>
   <li>在 Linux 系統下使用 <code class="language-plaintext highlighter-rouge">dd</code> 指令產生 <code class="language-plaintext highlighter-rouge">os.img</code> 檔案。
     <ul>
       <li>先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。</li>
-    </ul>
-    <ul>
       <li>一個軟碟片容量：<strong>1.44MB = 512KB * 2880</strong></li>
     </ul>
   </li>
-</ol>
+</ul>
 
 <blockquote>
   <p>dd if=/dev/zero of=os.img bs=512 count=2880</p>
@@ -231,11 +228,4 @@ count：處理 N 個輸入區塊
     68                                  
     69 000001FE 55AA                        DB		0x55, 0xaa
 </code></pre></div></div>
-
-<h2 id="三啟動虛擬機讀取-osimg">三、啟動虛擬機，讀取 <code class="language-plaintext highlighter-rouge">os.img</code></h2>
-<ul>
-  <li>執行結果
-<img src="https://i.imgur.com/ZwHRrHj.png" alt="" /></li>
-</ul>
-
 :ET

@@ -1,4 +1,4 @@
-I"d&<ul id="markdown-toc">
+I"O&<ul id="markdown-toc">
   <li><a href="#20170719---day_2" id="markdown-toc-20170719---day_2">20170719 - Day_2</a>    <ul>
       <li><a href="#一修改-helloosnas" id="markdown-toc-一修改-helloosnas">一、修改 <code class="language-plaintext highlighter-rouge">helloos.nas</code></a></li>
       <li><a href="#二編譯-helloosnas" id="markdown-toc-二編譯-helloosnas">二、編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code></a></li>
@@ -119,9 +119,9 @@ msg:
 </code></pre></div></div>
 
 <h2 id="二編譯-helloosnas">二、編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code></h2>
-<ol>
+<ul>
   <li>編譯 <code class="language-plaintext highlighter-rouge">helloos.nas</code>，在輸出 <code class="language-plaintext highlighter-rouge">bootloader</code> 的同時也輸出列表檔案 <code class="language-plaintext highlighter-rouge">ipl.lst</code>。</li>
-</ol>
+</ul>
 
 <blockquote>
   <p>nasm -o bootloader -l ipl.lst helloos.nas</p>
@@ -129,21 +129,19 @@ msg:
 
 <p><img src="https://i.imgur.com/KfOYHIM.png" alt="" /></p>
 
-<ol>
+<ul>
   <li>在 Linux 系統下使用 <code class="language-plaintext highlighter-rouge">dd</code> 指令產生 <code class="language-plaintext highlighter-rouge">os.img</code> 檔案。
     <ul>
       <li>先將 os.img 清空歸零，再將 bootloader 拷貝到 img 裡面。</li>
-    </ul>
-    <ul>
       <li>一個軟碟片容量：<strong>1.44MB = 512KB * 2880</strong></li>
     </ul>
   </li>
-</ol>
+</ul>
 
 <blockquote>
   <p>dd if=/dev/zero of=os.img bs=512 count=2880</p>
 
-  <p>dd if=bootloader of=os.img bs=512 count=1</p>
+  <p>dd if=bootloader of=os.img conv=notrunc</p>
 </blockquote>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if：指定輸入檔案
@@ -152,7 +150,7 @@ bs：指定 block size，一次讀取與寫入 N 個位元組的資料
 count：處理 N 個輸入區塊
 </code></pre></div></div>
 
-<p><img src="https://i.imgur.com/DbKECqo.png" alt="" /></p>
+<p><img src="https://i.imgur.com/FEgqu6y.png" alt="" /></p>
 
 <ul>
   <li>如果打開 <code class="language-plaintext highlighter-rouge">ipl.lst</code> ，可以檢視組合語言轉換成機械碼的情形。</li>
