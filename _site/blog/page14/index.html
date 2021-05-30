@@ -153,6 +153,8 @@
                 
                     
                 
+                    
+                
             </ul>
         </nav>
     </div>
@@ -165,6 +167,533 @@
         <small>菜鳥的學習紀錄</small>
         <hr>
         <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/06/08/linux_system/">20170608 [學習筆記] Linux 系統程式 (14)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-06-08
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
+      <li><a href="#一-background" id="markdown-toc-一-background">(一) Background</a></li>
+      <li><a href="#二-virtual-address-space" id="markdown-toc-二-virtual-address-space">(二) Virtual Address Space</a></li>
+      <li><a href="#三-demand-paging" id="markdown-toc-三-demand-paging">(三) Demand Paging</a>        <ul>
+          <li><a href="#1-valid-invalid-bit" id="markdown-toc-1-valid-invalid-bit">1. Valid-Invalid Bit</a></li>
+          <li><a href="#2-example" id="markdown-toc-2-example">2. Example</a></li>
+          <li><a href="#3-optimizations" id="markdown-toc-3-optimizations">3. Optimizations</a></li>
+        </ul>
+      </li>
+      <li><a href="#四-page-fault" id="markdown-toc-四-page-fault">(四) Page Fault</a>        <ul>
+          <li><a href="#1-aspects-of-demand-paging" id="markdown-toc-1-aspects-of-demand-paging">1. Aspects of Demand Paging</a></li>
+          <li><a href="#2-instruction-restart" id="markdown-toc-2-instruction-restart">2. Instruction Restart</a>            <ul>
+              <li><a href="#performance-of-demand-paging" id="markdown-toc-performance-of-demand-paging">Performance of Demand Paging</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#五-copy-on-write" id="markdown-toc-五-copy-on-write">(五) Copy-on-Write</a></li>
+      <li><a href="#六-page-replacement" id="markdown-toc-六-page-replacement">(六) Page Replacement</a>        <ul>
+          <li><a href="#1-what-happens-if-there-is-no-free-frame" id="markdown-toc-1-what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</a></li>
+          <li><a href="#2-basic-page-replacement" id="markdown-toc-2-basic-page-replacement">2. Basic Page Replacement</a></li>
+          <li><a href="#3-page-and-frame-replacement-algorithms" id="markdown-toc-3-page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</a>            <ul>
+              <li><a href="#1-first-in-first-out-fifo-algorithm" id="markdown-toc-1-first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</a></li>
+              <li><a href="#2-optimal-algorithm" id="markdown-toc-2-optimal-algorithm">(2) Optimal Algorithm</a></li>
+              <li><a href="#3-least-recently-used-lru-algorithm" id="markdown-toc-3-least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</a></li>
+              <li><a href="#4-lru-approximation-algorithms" id="markdown-toc-4-lru-approximation-algorithms">(4) LRU Approximation Algorithms</a></li>
+              <li><a href="#5-counting-algorithms" id="markdown-toc-5-counting-algorithms">(5) Counting Algorithms</a></li>
+              <li><a href="#6-page-buffering-algorithms" id="markdown-toc-6-page-buffering-algorithms">(6) Page-Buffering Algorithms</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一作業系統">一、作業系統</h2>
+<ul>
+  <li>課堂講義
+    <ul>
+      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170608/ch09.pdf">Chapter 9: Virtual-Memory Management</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-background">(一) Background</h3>
+<ul>
+  <li>Code needs to be in memory to execute, but entire program rarely used
+    <ul>
+      <li>Error code, unusual routines, large data structures</li>
+    </ul>
+  </li>
+  <li>Entire program code not needed at same time</li>
+  <li>Consider ability to execute partially-loaded program
+    <ul>
+      <li>Program no longer constrained by limits of physical memory</li>
+      <li>Program and programs could be larger than physical memory</li>
+    </ul>
+  </li>
+  <li><strong>Virtual memory</strong> – separation of user logical memory from physical memory
+    <ul>
+      <li>Only part of the program needs to be in memory for execution</li>
+      <li>Logical address space can therefore be much larger than physical address space</li>
+      <li>Allows address spaces to be shared by several processes</li>
+      <li>Allows for more efficient process creation</li>
+      <li>More programs running concurrently</li>
+      <li>Less I/O needed to load or swap processes</li>
+    </ul>
+  </li>
+  <li>Virtual memory can be implemented via
+    <ul>
+      <li>Demand paging</li>
+      <li>Demand segmentation</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="二-virtual-address-space">(二) Virtual Address Space</h3>
+<p><img src="http://i.imgur.com/DkDhsAx.jpg" alt="" /></p>
+
+<ul>
+  <li>Enables <strong>sparse</strong> address spaces with holes left for growth, dynamically linked libraries, etc</li>
+  <li>System libraries shared via mapping into virtual address space</li>
+  <li>Shared memory by mapping pages read-write into virtual address space</li>
+  <li>Pages can be shared during <code class="language-plaintext highlighter-rouge">fork()</code>, speeding process creation</li>
+</ul>
+
+<p><img src="http://i.imgur.com/3jsjqeH.png" alt="" /></p>
+
+<h3 id="三-demand-paging">(三) Demand Paging</h3>
+<ul>
+  <li>Could bring entire process into memory at load time</li>
+  <li>Or bring a page into memory only when it is needed
+    <ul>
+      <li>Less I/O needed, no unnecessary I/O</li>
+      <li>Less memory needed</li>
+      <li>Faster response</li>
+      <li>More users</li>
+    </ul>
+  </li>
+  <li>Page is needed » reference to it
+    <ul>
+      <li>invalid reference » abort</li>
+      <li>not-in-memory » bring to memory</li>
+    </ul>
+  </li>
+  <li><strong>Lazy swapper</strong> – never swaps a page into memory unless page will be needed
+    <ul>
+      <li>Swapper that deals with pages is a <strong>pager</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/aLRTern.png" alt="" /></p>
+
+<h4 id="1-valid-invalid-bit">1. Valid-Invalid Bit</h4>
+<ul>
+  <li>With each page table entry a valid–invalid bit is associated (<strong>v</strong> » in-memory – <strong>memory resident</strong>, <strong>i</strong> » not-in-memory)</li>
+  <li>Initially valid–invalid bit is set to <strong>i</strong> on all entries</li>
+</ul>
+
+<p><img src="https://i.imgur.com/0Fk929T.jpg" alt="" /></p>
+
+<h4 id="2-example">2. Example</h4>
+<ul>
+  <li>Memory access time = 200 nanoseconds</li>
+  <li>Average page-fault service time = 8 milliseconds
+    <blockquote>
+      <p>EAT = (1 – p) x 200 + p (8 milliseconds)
+= (1 – p) x 200 + p x 8,000,000
+= 200 + p x 7,999,800</p>
+    </blockquote>
+  </li>
+  <li>If one access out of 1,000 causes a page fault, then EAT = 8.2 microseconds. (This is a slowdown by a factor of 40)</li>
+  <li>If want performance degradation &lt; 10 percent
+    <ul>
+      <li>220 &gt; 200 + 7,999,800 x p</li>
+      <li>20 &gt; 7,999,800 x p</li>
+      <li>p &lt; .0000025 (&lt; one page fault in every 400,000 memory accesses)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="3-optimizations">3. Optimizations</h4>
+<ul>
+  <li>Copy entire process image to swap space at process load time
+    <ul>
+      <li>Then page in and out of swap space</li>
+      <li>Used in older BSD Unix</li>
+    </ul>
+  </li>
+  <li>Demand page in from program binary on disk, but discard rather than paging out when freeing frame
+    <ul>
+      <li>Used in Solaris and current BSD</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="四-page-fault">(四) Page Fault</h3>
+<ul>
+  <li>If there is a reference to a page, first reference to that page will trap to operating system
+    <ul>
+      <li><strong>page fault</strong></li>
+    </ul>
+  </li>
+  <li>Operating system looks at another table to decide
+    <ul>
+      <li>Invalid reference » abort</li>
+      <li>Just not in memory</li>
+    </ul>
+  </li>
+  <li>Get empty frame</li>
+  <li>Swap page into frame via scheduled disk operation</li>
+  <li>Reset tables to indicate page now in memory Set validation bit = <strong>v</strong></li>
+  <li>Restart the instruction that caused the page fault</li>
+</ul>
+
+<p><img src="https://i.imgur.com/98V6oNY.png" alt="" /></p>
+
+<h4 id="1-aspects-of-demand-paging">1. Aspects of Demand Paging</h4>
+<ul>
+  <li>Extreme case – start process with no pages in memory
+    <ul>
+      <li>OS sets instruction pointer to first instruction of process, non-memory-resident -&gt; page fault</li>
+      <li>And for every other process pages on first access</li>
+      <li><strong>Pure demand paging</strong></li>
+    </ul>
+  </li>
+  <li>Actually, a given instruction could access multiple pages -&gt; multiple page faults
+    <ul>
+      <li>Pain decreased because of <strong>locality of reference</strong></li>
+    </ul>
+  </li>
+  <li>Hardware support needed for demand paging
+    <ul>
+      <li>Page table with valid / invalid bit</li>
+      <li>Secondary memory (swap device with <strong>swap space</strong>)</li>
+      <li>Instruction restart</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="2-instruction-restart">2. Instruction Restart</h4>
+<ul>
+  <li>Consider an instruction that could access several different locations
+    <ul>
+      <li>block move</li>
+      <li>auto increment/decrement location</li>
+      <li>Restart the whole operation?
+        <ul>
+          <li>What if source and destination overlap?</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="performance-of-demand-paging">Performance of Demand Paging</h5>
+<ul>
+  <li>Stages in Demand Paging
+    <blockquote>
+      <ol>
+        <li>Trap to the operating system</li>
+        <li>Save the user registers and process state</li>
+        <li>Determine that the interrupt was a page fault</li>
+        <li>Check that the page reference was legal and determine the location of the page on the disk</li>
+        <li>Issue a read from the disk to a free frame:
+(1) Wait in a queue for this device until the read request is serviced
+(2) Wait for the device seek and/or latency time
+(3) Begin the transfer of the page to a free frame</li>
+        <li>While waiting, allocate the CPU to some other user</li>
+        <li>Receive an interrupt from the disk I/O subsystem (I/O completed)</li>
+        <li>Save the registers and process state for the other user</li>
+        <li>Determine that the interrupt was from the disk</li>
+        <li>Correct the page table and other tables to show page is now in memory</li>
+        <li>Wait for the CPU to be allocated to this process again</li>
+        <li>Restore the user registers, process state, and new page table, and then resume the interrupted instruction</li>
+      </ol>
+    </blockquote>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/HA817pb.png" alt="" /></p>
+
+<h3 id="五-copy-on-write">(五) Copy-on-Write</h3>
+<ul>
+  <li><strong>Copy-on-Write</strong> (COW) allows both parent and child processes to initially share the same pages in memory
+    <ul>
+      <li>If either process modifies a shared page, only then is the page copied</li>
+    </ul>
+  </li>
+  <li>COW allows more efficient process creation as only modified pages are copied</li>
+  <li>In general, free pages are allocated from a <strong>pool</strong> of <strong>zero-fill-on-demand</strong> pages
+    <ul>
+      <li>Why zero-out a page before allocating it?</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">vfork()</code> variation on <code class="language-plaintext highlighter-rouge">fork()</code> system call has parent suspend and child using copy-on-write address space of parent
+    <ul>
+      <li>Designed to have child call <code class="language-plaintext highlighter-rouge">exec()</code></li>
+      <li>Very efficient</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="http://i.imgur.com/LABMPPo.jpg" alt="" /></p>
+
+<h3 id="六-page-replacement">(六) Page Replacement</h3>
+<ul>
+  <li>Prevent over-allocation of memory by modifying page-fault service routine to include page replacement</li>
+  <li>Use <strong>modify (dirty) bit</strong> to reduce overhead of page transfers – only modified pages are written to disk</li>
+  <li>Page replacement completes separation between logical memory and physical memory – large virtual memory can be provided on a smaller physical memory</li>
+</ul>
+
+<h4 id="1-what-happens-if-there-is-no-free-frame">1. What Happens if There is no Free Frame?</h4>
+<ul>
+  <li>Used up by process pages</li>
+  <li>Also in demand from the kernel, I/O buffers, etc</li>
+  <li>How much to allocate to each?</li>
+  <li>Page replacement – find some page in memory, but not really in use, page it out
+    <ul>
+      <li>Algorithm – terminate? swap out? replace the page?</li>
+      <li>Performance – want an algorithm which will result in minimum number of page faults</li>
+    </ul>
+  </li>
+  <li>Same page may be brought into memory several times</li>
+</ul>
+
+<p><img src="https://i.imgur.com/eFpQyPv.png" alt="" /></p>
+
+<h4 id="2-basic-page-replacement">2. Basic Page Replacement</h4>
+<blockquote>
+  <ol>
+    <li>Find the location of the desired page on disk</li>
+    <li>Find a free frame:
+      <blockquote>
+        <p>a. If there is a free frame, use it
+b. If there is no free frame, use a page replacement algorithm to select a <strong>victim frame</strong>
+c. Write victim frame to disk if dirty</p>
+      </blockquote>
+    </li>
+    <li>Bring the desired page into the (newly) free frame; update the page and frame tables</li>
+    <li>Continue the process by restarting the instruction that caused the trap
+      <ul>
+        <li>Note now potentially 2 page transfers for page fault – increasing EAT</li>
+      </ul>
+    </li>
+  </ol>
+</blockquote>
+
+<p><img src="https://i.imgur.com/Hm6MvuN.png" alt="" /></p>
+
+<h4 id="3-page-and-frame-replacement-algorithms">3. Page and Frame Replacement Algorithms</h4>
+<ul>
+  <li><strong>Frame-allocation algorithm</strong> determines
+    <ul>
+      <li>How many frames to give each process</li>
+      <li>Which frames to replace</li>
+    </ul>
+  </li>
+  <li><strong>Page-replacement algorithm</strong>
+    <ul>
+      <li>Want lowest page-fault rate on both first access and re-access</li>
+    </ul>
+  </li>
+  <li>Evaluate algorithm by running it on a particular string of memory references (reference string) and computing the number of page faults on that string
+    <ul>
+      <li>String is just page numbers, not full addresses</li>
+      <li>Repeated access to the same page does not cause a page fault</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="1-first-in-first-out-fifo-algorithm">(1) First-In-First-Out (FIFO) Algorithm</h5>
+<p><img src="https://i.imgur.com/cSezcCO.png" alt="" />
+<img src="https://i.imgur.com/NVa4BTe.png" alt="" />
+<img src="https://i.imgur.com/6VeXbGw.png" alt="" /></p>
+
+<h5 id="2-optimal-algorithm">(2) Optimal Algorithm</h5>
+<ul>
+  <li>Replace page that will not be used for longest period of time
+    <ul>
+      <li>9 is optimal for the example on the next slide</li>
+    </ul>
+  </li>
+  <li>How do you know this?
+    <ul>
+      <li>Can’t read the future</li>
+    </ul>
+  </li>
+  <li>Used for measuring how well your algorithm performs</li>
+</ul>
+
+<p><img src="https://i.imgur.com/1jc2ngr.png" alt="" /></p>
+
+<h5 id="3-least-recently-used-lru-algorithm">(3) Least Recently Used (LRU) Algorithm</h5>
+<ul>
+  <li>Use past knowledge rather than future</li>
+  <li>Replace page that has not been used in the most amount of time</li>
+  <li>Associate time of last use with each page</li>
+</ul>
+
+<p><img src="https://i.imgur.com/RiLxhrF.png" alt="" /></p>
+
+<ul>
+  <li>Counter implementation
+    <ul>
+      <li>Every page entry has a counter; every time page is referenced through this entry, copy the clock into the counter</li>
+      <li>When a page needs to be changed, look at the counters to find smallest value
+        <ul>
+          <li>Search through table needed</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Stack implementation
+    <ul>
+      <li>Keep a stack of page numbers in a double link form:</li>
+      <li>Page referenced:
+        <ul>
+          <li>move it to the top</li>
+          <li>requires 6 pointers to be changed</li>
+        </ul>
+      </li>
+      <li>But each update more expensive</li>
+      <li>No search for replacement</li>
+    </ul>
+  </li>
+  <li>LRU and OPT are cases of <strong>stack algorithms</strong> that don’t have Belady’s Anomaly</li>
+</ul>
+
+<p><img src="http://i.imgur.com/yvsGPvm.jpg" alt="" /></p>
+
+<h5 id="4-lru-approximation-algorithms">(4) LRU Approximation Algorithms</h5>
+<ul>
+  <li>LRU needs special hardware and still slow</li>
+  <li><strong>Reference bit</strong>
+    <ul>
+      <li>With each page associate a bit, initially = 0</li>
+      <li>When page is referenced bit set to 1</li>
+      <li>Replace any with reference bit = 0 (if one exists)
+        <ul>
+          <li>We do not know the order, however</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Second-chance algorithm</strong>
+    <ul>
+      <li>Generally FIFO, plus hardware-provided reference bit</li>
+      <li>Clock replacement</li>
+      <li>If page to be replaced has
+        <ul>
+          <li>Reference bit = 0 -&gt; replace it</li>
+          <li>reference bit = 1 then:
+            <ul>
+              <li>set reference bit 0, leave page in memory</li>
+              <li>replace next page, subject to same rules</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="http://i.imgur.com/jInNXqt.png" alt="" /></p>
+
+<h5 id="5-counting-algorithms">(5) Counting Algorithms</h5>
+<ul>
+  <li>Keep a counter of the number of references that have been made to each page
+    <ul>
+      <li>Not common</li>
+    </ul>
+  </li>
+  <li><strong>LFU Algorithm</strong>: replaces page with smallest count</li>
+  <li><strong>MFU Algorithm</strong>: based on the argument that the page with the smallest count was probably just brought in and has yet to be used</li>
+</ul>
+
+<h5 id="6-page-buffering-algorithms">(6) Page-Buffering Algorithms</h5>
+<ul>
+  <li>Keep a pool of free frames, always
+    <ul>
+      <li>Then frame available when needed, not found at fault time</li>
+      <li>Read page into free frame and select victim to evict and add to free pool</li>
+      <li>When convenient, evict victim</li>
+    </ul>
+  </li>
+  <li>Possibly, keep list of modified pages
+    <ul>
+      <li>When backing store otherwise idle, write pages there and set to non-dirty</li>
+    </ul>
+  </li>
+  <li>Possibly, keep free frame contents intact and note what is in them
+    <ul>
+      <li>If referenced again before reused, no need to load contents again from disk</li>
+      <li>Generally useful to reduce penalty if wrong victim frame selected</li>
+    </ul>
+  </li>
+</ul>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/06/08/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
             
               <li>
                 <h2>
@@ -1166,275 +1695,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/05/12/linux_system/">20170512 [學習筆記] Linux 系統程式 (10)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-05-12
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>&nbsp;
-    
-        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
-    
-        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
-    
-        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
-    
-        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
-      <li><a href="#一-deadlock-characterization" id="markdown-toc-一-deadlock-characterization">(一) Deadlock Characterization</a></li>
-      <li><a href="#二-resource-allocation-graph" id="markdown-toc-二-resource-allocation-graph">(二) Resource-Allocation Graph</a>        <ul>
-          <li><a href="#1-example" id="markdown-toc-1-example">1. Example</a></li>
-          <li><a href="#2-basic-facts" id="markdown-toc-2-basic-facts">2. Basic Facts</a></li>
-          <li><a href="#3-methods-for-handling-deadlocks" id="markdown-toc-3-methods-for-handling-deadlocks">3. Methods for Handling Deadlocks</a></li>
-        </ul>
-      </li>
-      <li><a href="#三-deadlock-prevention" id="markdown-toc-三-deadlock-prevention">(三) Deadlock Prevention</a>        <ul>
-          <li><a href="#1-example-1" id="markdown-toc-1-example-1">1. Example</a></li>
-          <li><a href="#2-deadlock-avoidance" id="markdown-toc-2-deadlock-avoidance">2. Deadlock Avoidance</a></li>
-          <li><a href="#3-safe-state" id="markdown-toc-3-safe-state">3. Safe State</a></li>
-          <li><a href="#4-basic-facts" id="markdown-toc-4-basic-facts">4. Basic Facts</a></li>
-          <li><a href="#5-safe-unsafe-deadlock-state" id="markdown-toc-5-safe-unsafe-deadlock-state">5. Safe, Unsafe, Deadlock State</a></li>
-          <li><a href="#6-avoidance-algorithms" id="markdown-toc-6-avoidance-algorithms">6. Avoidance algorithms</a></li>
-          <li><a href="#7-resource-allocation-graph" id="markdown-toc-7-resource-allocation-graph">7. Resource-Allocation Graph</a></li>
-          <li><a href="#8-algorithm" id="markdown-toc-8-algorithm">8. Algorithm</a>            <ul>
-              <li><a href="#1-data-structures-for-the-bankers-algorithm" id="markdown-toc-1-data-structures-for-the-bankers-algorithm">(1) Data Structures for the Banker’s Algorithm</a></li>
-              <li><a href="#2-safety-algorithm" id="markdown-toc-2-safety-algorithm">(2) Safety Algorithm</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="一作業系統">一、作業系統</h2>
-<ul>
-  <li>課堂講義
-    <ul>
-      <li><a href="https://github.com/shouzo/Operating-System_pages/blob/master/class-tutorial/20170511/ch07.pdf">Chapter 7: Deadlocks</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="一-deadlock-characterization">(一) Deadlock Characterization</h3>
-<ul>
-  <li><strong>Mutual exclusion</strong>：only one process at a time can use a resource.</li>
-  <li><strong>Hold and wait</strong>：a process holding at least one resource is waiting to acquire additional resources held by other processes.</li>
-  <li><strong>No preemption</strong>：a resource can be released only voluntarily by the process holding it, after that process has completed its task.</li>
-  <li><strong>Circular wait</strong>：there exists a set {P0, P1, …, Pn } of waiting processes such that P0 is waiting for a resource that is held by P1, P1 is waiting for a resource that is held by P2 , …, Pn–1 is waiting for a resource that is held by Pn, and Pn is waiting for a resource that is held by P0.</li>
-  <li>Deadlocks can occur via system calls, locking, etc</li>
-</ul>
-
-<h3 id="二-resource-allocation-graph">(二) Resource-Allocation Graph</h3>
-<p><img src="https://i.imgur.com/ruQSE03.png" alt="" />
-<img src="https://i.imgur.com/jSnZ1nO.png" alt="" /></p>
-
-<h4 id="1-example">1. Example</h4>
-<ul>
-  <li>
-    <p>Resource Allocation Graph
-<img src="https://i.imgur.com/e10FFPp.png" alt="" /></p>
-  </li>
-  <li>
-    <p>Resource Allocation Graph With A Deadlock
-<img src="https://i.imgur.com/t2UkKLi.png" alt="" /></p>
-  </li>
-  <li>
-    <p>Graph With A Cycle But No Deadlock
-<img src="https://i.imgur.com/3mqHz5J.png" alt="" /></p>
-  </li>
-</ul>
-
-<h4 id="2-basic-facts">2. Basic Facts</h4>
-<ul>
-  <li>If graph contains no cycles » no deadlock</li>
-  <li>If graph contains a cycle
-    <ul>
-      <li>if only one instance per resource type, then deadlock</li>
-      <li>if several instances per resource type, possibility of deadlock</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="3-methods-for-handling-deadlocks">3. Methods for Handling Deadlocks</h4>
-<ul>
-  <li>Ensure that the system will never enter a deadlock state</li>
-  <li>Allow the system to enter a deadlock state and then recover</li>
-  <li>Ignore the problem and pretend that deadlocks never occur in the system; used by most operating systems, including UNIX</li>
-</ul>
-
-<h3 id="三-deadlock-prevention">(三) Deadlock Prevention</h3>
-<ul>
-  <li><strong>Mutual Exclusion</strong>：not required for sharable resources; must hold for nonsharable resources</li>
-  <li><strong>Hold and Wait</strong>：must guarantee that whenever a process requests a resource, it does not hold any other resources
-    <ul>
-      <li>Require process to request and be allocated all its resources before it begins execution, or allow process to request resources only when the process has none</li>
-      <li>Low resource utilization; starvation possible</li>
-    </ul>
-  </li>
-  <li><strong>No Preemption</strong>：
-    <ul>
-      <li>If a process that is holding some resources requests another resource that cannot be immediately allocated to it, then all resources currently being held are released</li>
-      <li>Preempted resources are added to the list of resources for which the process is waiting</li>
-      <li>Process will be restarted only when it can regain its old resources, as well as the new ones that it is requesting</li>
-    </ul>
-  </li>
-  <li><strong>Circular Wait</strong>：impose a total ordering of all resource types, and require that each process requests resources in an increasing order of enumeration</li>
-</ul>
-
-<h4 id="1-example-1">1. Example</h4>
-<ul>
-  <li>Deadlock Example</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* thread one runs in this function */</span>
-<span class="kt">void</span> <span class="o">*</span><span class="k">do</span> <span class="n">work</span> <span class="nf">one</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="cm">/** * Do some work */</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="cm">/* thread two runs in this function */</span>
-<span class="kt">void</span> <span class="o">*</span><span class="k">do</span> <span class="n">work</span> <span class="nf">two</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="cm">/** * Do some work */</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">first</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">mutex</span> <span class="n">unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">second</span> <span class="n">mutex</span><span class="p">);</span>
-    <span class="n">pthread</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<ul>
-  <li>Deadlock Example with Lock Ordering</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">transaction</span><span class="p">(</span><span class="n">Account</span> <span class="n">from</span><span class="p">,</span> <span class="n">Account</span> <span class="n">to</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">mutex</span> <span class="n">lock1</span><span class="p">,</span> <span class="n">lock2</span><span class="p">;</span>
-    <span class="n">lock1</span> <span class="o">=</span> <span class="n">get</span> <span class="n">lock</span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
-    <span class="n">lock2</span> <span class="o">=</span> <span class="n">get</span> <span class="n">lock</span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
-    <span class="n">acquire</span><span class="p">(</span><span class="n">lock1</span><span class="p">);</span>
-    <span class="n">acquire</span><span class="p">(</span><span class="n">lock2</span><span class="p">);</span>
-    <span class="n">withdraw</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">amount</span><span class="p">);</span>
-    <span class="n">deposit</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">amount</span><span class="p">);</span>
-    <span class="n">release</span><span class="p">(</span><span class="n">lock2</span><span class="p">);</span>
-    <span class="n">release</span><span class="p">(</span><span class="n">lock1</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h4 id="2-deadlock-avoidance">2. Deadlock Avoidance</h4>
-<ul>
-  <li>Requires that the system has some additional a priori information available
-    <ul>
-      <li>Simplest and most useful model requires that each process declare the <strong>maximum number</strong> of resources of each type that it may need</li>
-      <li>The deadlock-avoidance algorithm dynamically examines the resource-allocation state to ensure that there can never be a circular-wait condition</li>
-      <li>Resource-allocation state is defined by the number of available and allocated resources, and the maximum demands of the processes</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="3-safe-state">3. Safe State</h4>
-<p><img src="https://i.imgur.com/Qzeh5D8.png" alt="" /></p>
-
-<h4 id="4-basic-facts">4. Basic Facts</h4>
-<ul>
-  <li>If a system is in safe state » no deadlocks</li>
-  <li>If a system is in unsafe state » possibility of deadlock</li>
-  <li>Avoidance » ensure that a system will never enter an unsafe state</li>
-</ul>
-
-<h4 id="5-safe-unsafe-deadlock-state">5. Safe, Unsafe, Deadlock State</h4>
-<p><img src="https://i.imgur.com/Y7KEMVp.png" alt="" /></p>
-
-<h4 id="6-avoidance-algorithms">6. Avoidance algorithms</h4>
-<ul>
-  <li>Single instance of a resource type
-    <ul>
-      <li>Use a resource-allocation graph</li>
-    </ul>
-  </li>
-  <li>Multiple instances of a resource type
-    <ul>
-      <li>Use the banker’s algorithm</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="7-resource-allocation-graph">7. Resource-Allocation Graph</h4>
-<p><img src="https://i.imgur.com/aUkipvw.png" alt="" />
-<img src="http://i.imgur.com/RtDzuXQ.jpg" alt="" /></p>
-
-<h4 id="8-algorithm">8. Algorithm</h4>
-<h5 id="1-data-structures-for-the-bankers-algorithm">(1) Data Structures for the Banker’s Algorithm</h5>
-<p><img src="http://i.imgur.com/Z9SQSCC.png" alt="" /></p>
-
-<ul>
-  <li>Example
-<img src="http://i.imgur.com/IMSADSw.png" alt="" />
-<img src="http://i.imgur.com/CnQFX9s.png" alt="" /></li>
-</ul>
-
-<h5 id="2-safety-algorithm">(2) Safety Algorithm</h5>
-<p><img src="http://i.imgur.com/V6oA8hC.png" alt="" /></p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/05/12/linux_system/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1445,10 +1705,10 @@
             <a href="/blog/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
             <a href="/blog/page13/" class="previous"><i class="fa fa-angle-left"></i></a>
           
-          <span class="page_number ">14/24</span>
+          <span class="page_number ">14/25</span>
           
             <a href="/blog/page15/" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="/blog/page24" class="next"><i class="fa fa-angle-double-right"></i></a>
+            <a href="/blog/page25" class="next"><i class="fa fa-angle-double-right"></i></a>
           
         </div>
     </div>
@@ -1462,11 +1722,13 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2021/05/30/2021_WFH_2/">20210530 [WFH] 在家工作系列 - Part 1</a></li>
+                    
                         <li><a href="/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)</a></li>
                     
                         <li><a href="/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</a></li>
                     
-                        <li><a href="/2021/05/16/2021_WFH_0/">20210516 [WFH] 在家工作系列 - Part 0</a></li>
+                        <li><a href="/2021/05/16/2021_WFH_0/">20210516 [WFH] 在家工作系列 - Part 1</a></li>
                     
                         <li><a href="/2021/02/01/2020_Life-Work_9/">20210201 [年度回顧] 關於工作和生活 - Part 9</a></li>
                     
@@ -1479,8 +1741,6 @@
                         <li><a href="/2020/12/24/2020_Life-Work_5/">20201224 [年度回顧] 關於工作和生活 - Part 5</a></li>
                     
                         <li><a href="/2020/12/19/2020_Life-Work_4/">20201219 [年度回顧] 關於工作和生活 - Part 4</a></li>
-                    
-                        <li><a href="/2020/12/17/2020_Life-Work_3/">20201217 [年度回顧] 關於工作和生活 - Part 3</a></li>
                     
                 </ul>
             </div>
@@ -1723,7 +1983,7 @@
                             <span class="name">
                                 在家工作
                             </span>
-                            <span class="badge">1</span>
+                            <span class="badge">2</span>
                         </a>
                     </li>
                     
@@ -1979,35 +2239,35 @@
                       
                       
                       
-                      <a href="/tag/#生活" style="font-size: 11.5pt; color: #666;">生活</a>
+                      <a href="/tag/#生活" style="font-size: 12pt; color: #666;">生活</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#工作" style="font-size: 11.5pt; color: #666;">工作</a>
+                      <a href="/tag/#工作" style="font-size: 12pt; color: #666;">工作</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#WFM" style="font-size: 9pt; color: #999;">WFM</a>
+                      <a href="/tag/#WFM" style="font-size: 9.5pt; color: #999;">WFM</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#進修" style="font-size: 9pt; color: #999;">進修</a>
+                      <a href="/tag/#進修" style="font-size: 9.5pt; color: #999;">進修</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#COVID-19" style="font-size: 9pt; color: #999;">COVID-19</a>
+                      <a href="/tag/#COVID-19" style="font-size: 9.5pt; color: #999;">COVID-19</a>
                     
                 </div>
             </div>

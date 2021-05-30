@@ -5,9 +5,83 @@
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 29 May 2021 04:19:05 +0800</pubDate>
-    <lastBuildDate>Sat, 29 May 2021 04:19:05 +0800</lastBuildDate>
+    <pubDate>Sun, 30 May 2021 19:36:52 +0800</pubDate>
+    <lastBuildDate>Sun, 30 May 2021 19:36:52 +0800</lastBuildDate>
     <generator>Jekyll v4.2.0</generator>
+    
+      <item>
+        <title>20210530 [WFH] 在家工作系列 - Part 1</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#一前言&quot; id=&quot;markdown-toc-一前言&quot;&gt;一、前言&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#二整體來看&quot; id=&quot;markdown-toc-二整體來看&quot;&gt;二、整體來看&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#三其他的變化&quot; id=&quot;markdown-toc-三其他的變化&quot;&gt;三、其他的變化&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;一前言&quot;&gt;一、前言&lt;/h3&gt;
+
+&lt;p&gt;兩個禮拜過去了，這段時間發生很多事情。
+稍微檢視一下這段時間的計畫執行成效，也順便談談這一陣子在生活狀態上的變化。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/vSYMZD7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;二整體來看&quot;&gt;二、整體來看&lt;/h3&gt;
+
+&lt;p&gt;在每天律定的計畫上有一項是確實在執行的 (橘色部份)，偶爾會額外增加項目 (綠色部份)。這兩週主要是在試水溫：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;「在沒有人逼迫的狀況下，你會如何執行計畫？」&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;當自己全心投注在當下，而且事情沒有到一個段落的時候，你不會想要花心思去執行其他項目。(除非強制停止)&lt;/p&gt;
+
+&lt;p&gt;就結果來看，一天至多只會全力執行一項而已。&lt;/p&gt;
+
+&lt;p&gt;這確實是個收穫。讓我知道自己在剩下的過渡時期裡，可以如何利用這個特性規劃行程。&lt;/p&gt;
+
+&lt;h3 id=&quot;三其他的變化&quot;&gt;三、其他的變化&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;(一) 生活作息改變&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;因為本職工作的關係，退伍後我的清醒時間大多是 AM 5:00 - PM 11:00。
+(排除掉午休時間，平均睡眠時間約 5 - 6 小時不等)&lt;/p&gt;
+
+&lt;p&gt;這兩週的清醒時間逐漸變成 PM 1:40 - PM 9:00、AM 2:00 - AM 8:00。
+(已經很接近大學時期在實驗室的生活模式)
+睡眠時間變長，但精神集中的時間變成在深夜。&lt;/p&gt;
+
+&lt;p&gt;-&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(二) 訓練頻率調整&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;盡可能不出門。
+但因為住家有需要配合的地方，不適合在家訓練。
+以維持職業基本體感為前提，從每天都在訓練變成一週出門運動 2 - 3 次，一次不超過 2 小時。&lt;/p&gt;
+
+&lt;p&gt;-&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(三) 碎碎念的時間變多了&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;我本身是內在大起大落，外在處在穩定平衡的人。
+自從大多時間獨自在家後，腦海裡未經處理的聲音會直接從口中冒出來。
+那樣的場景大多發生在回顧和檢討過往失誤的時候。
+(像是先前場景發揮的能力已經是 100%，現在看來大概只有自身能力的 20％)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 30 May 2021 08:00:00 +0800</pubDate>
+        <link>http://shouzo.github.io/2021/05/30/2021_WFH_2/</link>
+        <guid isPermaLink="true">http://shouzo.github.io/2021/05/30/2021_WFH_2/</guid>
+        
+        <category>WFM</category>
+        
+        <category>生活</category>
+        
+        <category>工作</category>
+        
+        <category>進修</category>
+        
+        <category>COVID-19</category>
+        
+        
+        <category>在家工作</category>
+        
+      </item>
     
       <item>
         <title>20210518 [學習筆記] 30天作業系統自作入門筆記 (4)</title>
@@ -780,7 +854,7 @@ fin:
       </item>
     
       <item>
-        <title>20210516 [WFH] 在家工作系列 - Part 0</title>
+        <title>20210516 [WFH] 在家工作系列 - Part 1</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#一前言&quot; id=&quot;markdown-toc-一前言&quot;&gt;一、前言&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#二現況盤點&quot; id=&quot;markdown-toc-二現況盤點&quot;&gt;二、現況盤點&lt;/a&gt;&lt;/li&gt;
@@ -1309,72 +1383,6 @@ fin:
         <pubDate>Sat, 19 Dec 2020 08:00:00 +0800</pubDate>
         <link>http://shouzo.github.io/2020/12/19/2020_Life-Work_4/</link>
         <guid isPermaLink="true">http://shouzo.github.io/2020/12/19/2020_Life-Work_4/</guid>
-        
-        <category>年度回顧</category>
-        
-        <category>生活</category>
-        
-        <category>工作</category>
-        
-        
-        <category>年度回顧</category>
-        
-      </item>
-    
-      <item>
-        <title>20201217 [年度回顧] 關於工作和生活 - Part 3</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#努力在做的事情&quot; id=&quot;markdown-toc-努力在做的事情&quot;&gt;努力在做的事情&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;努力在做的事情&quot;&gt;努力在做的事情&lt;/h3&gt;
-&lt;p&gt;每個人都在扮演名為「自己」的角色，會從自己的角度出發來說故事。就像你看到我正在以「自己」的視角撰寫這篇文章。&lt;/p&gt;
-
-&lt;p&gt;因為身份不同，看到的事情就不會一樣。所以沒有人對於現實的理解是全面且完整的。每個人都會有立場，而隱藏在立場背後的是各自關注的利益。&lt;/p&gt;
-
-&lt;p&gt;以職場來說，
-公司的目標是營利，老闆要的是「能夠為公司創造價值」的員工。這很合理，因為不能持續產生價值的公司最後只能退場。&lt;/p&gt;
-
-&lt;p&gt;–&lt;/p&gt;
-
-&lt;p&gt;就拿運動教學舉例，
-你會在教學現場看到 &lt;strong&gt;教學者&lt;/strong&gt; 和 &lt;strong&gt;學習者&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;教學者&lt;/strong&gt; 可以是老師、教練、教官、講師等等，教學現場的服務提供者；&lt;strong&gt;學習者&lt;/strong&gt; 可以是幼兒童、青少年、成人、年長者等等，教學現場的服務使用者。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/adKYtmj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;但如果再更深入的檢視，你會發現：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;服務提供者未必有能力自作主張&lt;/strong&gt;。
-就像是在公司工作，公司就會期望底下教練的行為舉止符合公司形象和規範。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;服務使用者未必有能力付費買單&lt;/strong&gt;。
-就像是幼兒運動教學，為服務付費的通常是家長。&lt;/p&gt;
-
-&lt;p&gt;而衝突就在於：「&lt;strong&gt;服務提供者或服務使用者都未必在按照自己的期望做事&lt;/strong&gt;。」&lt;/p&gt;
-
-&lt;p&gt;學習者本身並不想來，卻被家長逼著去上課，
-因為家長認為學習者需要多運動；
-教學者本身是個內向的人，卻被公司要求扮演著外向開朗的人，因為公司認為這樣才能迎合市場的多數。&lt;/p&gt;
-
-&lt;p&gt;–&lt;/p&gt;
-
-&lt;p&gt;在 &lt;strong&gt;自我期望&lt;/strong&gt; 和 &lt;strong&gt;外在規範&lt;/strong&gt; 一來一往相互衝突的過程中，
-讓我產生了「擺脫現況」的動機：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;先做「別人認為有價值、願意買單的事情」；
-之後要轉變成「做自己想要做的事情，然後讓它變得有價值」。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;而這件事就實踐在自己的工作安排上。&lt;/p&gt;
-
-&lt;p&gt;(…未完待續)&lt;/p&gt;
-</description>
-        <pubDate>Thu, 17 Dec 2020 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2020/12/17/2020_Life-Work_3/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2020/12/17/2020_Life-Work_3/</guid>
         
         <category>年度回顧</category>
         
