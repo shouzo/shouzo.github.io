@@ -170,6 +170,87 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/04/06/ai/">20170406 [學習筆記] 人工智慧 (6)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-04-06
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#一-fuzzy-建模-建立模型" id="markdown-toc-一-fuzzy-建模-建立模型">(一) Fuzzy 建模 (建立模型)</a></li>
+</ul>
+
+<ul>
+  <li>參考資源
+    <ul>
+      <li><a href="http://fuzzy.cs.ovgu.de/ci/fs/">http://fuzzy.cs.ovgu.de/ci/fs/</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="一-fuzzy-建模-建立模型">(一) Fuzzy 建模 (建立模型)</h3>
+<ul>
+  <li>
+    <p>利用現有的輸入、輸出資料建立模型：<code class="language-plaintext highlighter-rouge">y = f(x1, x2)</code>。
+<img src="https://i.imgur.com/F43zJRS.jpg" alt="" /></p>
+  </li>
+  <li>
+    <p>規則表
+<img src="https://i.imgur.com/GNcbx9m.jpg" alt="" /></p>
+  </li>
+</ul>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/04/06/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/04/03/university_interesting/">20170403 [有感而發] 求學就像是吃餅，怎麼可能一口氣吃得完？當然是要從最有興趣的地方開始慢慢吃啊！</a>
                 </h2>
                 <div class="label">
@@ -1200,180 +1281,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/03/23/ai/">20170323 [學習筆記] 人工智慧 (4)</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-03-23
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#人工智慧" title="Category: 人工智慧" rel="category">人工智慧</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#人工智慧" title="Tag: 人工智慧" rel="tag">人工智慧</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#用程式實現歸屬函數的判定" id="markdown-toc-用程式實現歸屬函數的判定">用程式實現歸屬函數的判定</a></li>
-</ul>
-
-<h3 id="用程式實現歸屬函數的判定">用程式實現歸屬函數的判定</h3>
-<ul>
-  <li>請分別輸入 NB、NM、NS、PS、PM、PB 的數值，再輸入欲判定的值，輸出其 <strong>歸屬函數(membership function, mf)</strong> 的值。
-    <ol>
-      <li>直線 mf</li>
-      <li>S函數 mf</li>
-    </ol>
-  </li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// Set loop</span>
-    <span class="kt">float</span> <span class="n">mf</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">tmp</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">input</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ua</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ub</span> <span class="o">=</span> <span class="p">.</span><span class="mi">0</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"NB"</span><span class="p">,</span> <span class="s">"NM"</span><span class="p">,</span> <span class="s">"NS"</span><span class="p">,</span> <span class="s">"ZR"</span><span class="p">,</span> <span class="s">"PS"</span><span class="p">,</span> <span class="s">"PM"</span><span class="p">,</span> <span class="s">"PB"</span><span class="p">};</span>
-
-    <span class="cm">/* Key the value of name */</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Please define NS、NM、NB value (smaller than 0)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="p">}</span>
-      
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Please define PS、PM、PB value (bigger than 0)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="p">}</span>
-
-    <span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// Set the ZR value</span>
-
-
-    <span class="cm">/* Sort the numbers */</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">((</span><span class="n">mf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="p">{</span>
-                <span class="n">tmp</span> <span class="o">=</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-                <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mf</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-                <span class="n">mf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
-            <span class="p">}</span>
-       <span class="p">}</span>
-    <span class="p">}</span>
-
-
-    <span class="cm">/* The entry */</span>
-    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="cm">/* Key the value of x */</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">Please key in the value of 'Input'</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"Input = "</span><span class="p">);</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">);</span>
-
-
-        <span class="cm">/* Calculate the linear μ */</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">****The membership function****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// input = mf</span>
-            <span class="k">if</span> <span class="p">(((</span><span class="n">input</span> <span class="o">==</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span> <span class="p">{</span> 
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="c1">// input bigger than the max's mf</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]))</span> <span class="p">{</span> 
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">/</span> <span class="n">mf</span><span class="p">[</span><span class="mi">6</span><span class="p">]));</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="c1">// input smaller than the min's mf</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span> 
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mf</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="c1">// Calculate...</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&gt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
-                <span class="cm">/* linear area */</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The linear****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-                <span class="n">ua</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">input</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span>
-                <span class="n">ub</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">input</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span> 
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua</span><span class="p">);</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub</span><span class="p">);</span>
-                
-                <span class="cm">/* non-linear area */</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">****The non-linear (S-function)****</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="p">((</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="n">sa</span> <span class="o">=</span> <span class="p">(((</span><span class="n">input</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])));</span>
-                    <span class="n">ua</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sa</span> <span class="o">*</span> <span class="n">sa</span><span class="p">);</span>
-                    <span class="n">ub</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ua</span><span class="p">;</span>
-                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua</span><span class="p">);</span>
-                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub</span><span class="p">);</span>
-                <span class="p">}</span>
-
-                <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">input</span> <span class="o">&gt;=</span> <span class="p">((</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
-                    <span class="n">sa</span> <span class="o">=</span> <span class="p">(((</span><span class="n">input</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mf</span><span class="p">[</span><span class="n">i</span><span class="p">])));</span>
-                    <span class="n">ua</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sa</span> <span class="o">*</span> <span class="n">sa</span><span class="p">);</span>
-                    <span class="n">ub</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ua</span><span class="p">;</span>
-                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ua</span><span class="p">);</span>
-                    <span class="n">printf</span><span class="p">(</span><span class="s">"μ[%s] = %.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ub</span><span class="p">);</span>
-                <span class="p">}</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<ul>
-  <li>執行結果
-<img src="https://i.imgur.com/0Zc0QN0.jpg" alt="" />
-<img src="https://i.imgur.com/VTDsGpm.jpg" alt="" /></li>
-</ul>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/03/23/ai/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -1401,6 +1308,8 @@
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2021/06/10/2021_WFH_3/">20210610 [WFH] 在家工作系列 - Part 3</a></li>
+                    
                         <li><a href="/2021/05/30/2021_WFH_2/">20210530 [WFH] 在家工作系列 - Part 2</a></li>
                     
                         <li><a href="/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)</a></li>
@@ -1418,8 +1327,6 @@
                         <li><a href="/2021/01/09/2020_Life-Work_6/">20210109 [年度回顧] 關於工作和生活 - Part 6</a></li>
                     
                         <li><a href="/2020/12/24/2020_Life-Work_5/">20201224 [年度回顧] 關於工作和生活 - Part 5</a></li>
-                    
-                        <li><a href="/2020/12/19/2020_Life-Work_4/">20201219 [年度回顧] 關於工作和生活 - Part 4</a></li>
                     
                 </ul>
             </div>
@@ -1662,7 +1569,7 @@
                             <span class="name">
                                 在家工作
                             </span>
-                            <span class="badge">2</span>
+                            <span class="badge">3</span>
                         </a>
                     </li>
                     
@@ -1918,35 +1825,35 @@
                       
                       
                       
-                      <a href="/tag/#生活" style="font-size: 12pt; color: #666;">生活</a>
+                      <a href="/tag/#生活" style="font-size: 12.5pt; color: #666;">生活</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#工作" style="font-size: 12pt; color: #666;">工作</a>
+                      <a href="/tag/#工作" style="font-size: 12.5pt; color: #666;">工作</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#WFM" style="font-size: 9.5pt; color: #999;">WFM</a>
+                      <a href="/tag/#WFH" style="font-size: 9.5pt; color: #888;">WFH</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#進修" style="font-size: 9.5pt; color: #999;">進修</a>
+                      <a href="/tag/#進修" style="font-size: 9.5pt; color: #888;">進修</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#COVID-19" style="font-size: 9.5pt; color: #999;">COVID-19</a>
+                      <a href="/tag/#COVID-19" style="font-size: 9.5pt; color: #888;">COVID-19</a>
                     
                 </div>
             </div>
