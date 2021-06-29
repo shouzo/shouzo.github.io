@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>羅左欣 shouzo</title>
+    <title>shouzo</title>
     <description></description>
     <link>http://shouzo.github.io/</link>
     <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Jun 2021 12:46:25 +0800</pubDate>
-    <lastBuildDate>Tue, 29 Jun 2021 12:46:25 +0800</lastBuildDate>
+    <pubDate>Tue, 29 Jun 2021 12:52:49 +0800</pubDate>
+    <lastBuildDate>Tue, 29 Jun 2021 12:52:49 +0800</lastBuildDate>
     <generator>Jekyll v4.2.0</generator>
     
       <item>
