@@ -170,6 +170,243 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2021-05-18
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#組合語言" title="Category: 組合語言" rel="category">組合語言</a>&nbsp;
+    
+        <a href="/category/#C語言" title="Category: C語言" rel="category">C語言</a>&nbsp;
+    
+        <a href="/category/#作業系統" title="Category: 作業系統" rel="category">作業系統</a>&nbsp;
+    
+        <a href="/category/#程式設計" title="Category: 程式設計" rel="category">程式設計</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#組合語言" title="Tag: 組合語言" rel="tag">組合語言</a>&nbsp;
+    
+        <a href="/tag/#C語言" title="Tag: C語言" rel="tag">C語言</a>&nbsp;
+    
+        <a href="/tag/#作業系統" title="Tag: 作業系統" rel="tag">作業系統</a>&nbsp;
+    
+        <a href="/tag/#程式設計" title="Tag: 程式設計" rel="tag">程式設計</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#20210518---day_4" id="markdown-toc-20210518---day_4">20210518 - Day_4</a>    <ul>
+      <li><a href="#撰寫-makefile" id="markdown-toc-撰寫-makefile">撰寫 Makefile</a>        <ul>
+          <li><a href="#step-1---製作相關檔案" id="markdown-toc-step-1---製作相關檔案">STEP 1 - 製作相關檔案</a></li>
+          <li><a href="#step-2---製作映像檔" id="markdown-toc-step-2---製作映像檔">STEP 2 - 製作映像檔</a></li>
+          <li><a href="#完整-makefile-程式碼" id="markdown-toc-完整-makefile-程式碼">完整 Makefile 程式碼</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>工作環境
+    <ul>
+      <li>Lubuntu 20.04</li>
+      <li>VMware Workstation 16.1.1</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="20210518---day_4">20210518 - Day_4</h1>
+<ul>
+  <li>進度摘要
+    <ol>
+      <li>撰寫 Makefile</li>
+      <li>控制畫面顏色 (白色、條紋色)</li>
+      <li>矩形的繪製與處理</li>
+      <li>螢幕顯示出狀態列圖樣</li>
+    </ol>
+  </li>
+  <li>完整專案
+    <ul>
+      <li><a href="https://github.com/shouzo/My-30OS/tree/master/20210518">https://github.com/shouzo/My-30OS/tree/master/20210518</a></li>
+    </ul>
+  </li>
+  <li>參考文章
+    <ul>
+      <li><a href="https://www.gnu.org/software/mtools/manual/mtools.html">Mtools 4.0.27</a>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Mtools">mcopy - The following refers to mtools usage in floppy images</a></li>
+        </ul>
+      </li>
+      <li><a href="https://stackoverflow.com/questions/45422374/undefined-reference-to-global-offset-table-only-when-generating-binaries">undefined reference to <em>GLOBAL_OFFSET_TABLE</em> (only when generating binaries)</a></li>
+      <li><a href="https://blog.gtwang.org/linux/linux-mount/">Linux 檔案系統掛載（mount）使用教學與範例</a></li>
+      <li><a href="https://askubuntu.com/questions/986684/how-would-i-extract-a-img-file">How would I extract a .img file</a></li>
+      <li><a href="https://www.itread01.com/p/194699.html">Makefile 雙冒號規則 - zxiaocheng</a></li>
+      <li><a href="https://www.howtogeek.com/443342/how-to-use-the-mkfs-command-on-linux/">How to Use the mkfs Command on Linux</a></li>
+      <li><a href="https://stackoverflow.com/questions/32893607/how-do-i-write-a-bin-file-512-bytes-to-the-first-sector-sector-0-of-a-floppy">How do I write a bin file (512 bytes) to the first sector (sector 0) of a floppy disk?</a></li>
+      <li><a href="http://wen00072.github.io/blog/2014/03/14/study-on-the-linker-script/">Linker Script初探 - GNU Linker Ld手冊略讀</a></li>
+      <li><a href="http://www.study-area.org/cyril/opentools/opentools/x909.html">gcc與Obj檔，動態連結與ELF檔</a></li>
+      <li><a href="https://blog.louie.lu/2016/11/06/10%E5%88%86%E9%90%98%E8%AE%80%E6%87%82-linker-scripts/">10分鐘讀懂 linker scripts</a></li>
+      <li><a href="https://bit.ly/3wijRxO">oslite.ldsを開いて、以下のとおり記述します。</a> (參考 oslite.lds 的環節來撰寫)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="撰寫-makefile">撰寫 Makefile</h2>
+<p>從撰寫原始檔、組/編譯程式，到了最後還要跑虛擬機。</p>
+
+<p>如果每次都要一行行打指令會很辛苦。</p>
+
+<p>所以要把這些指令寫成 Makefile，在往後的測試會相對容易和簡便。</p>
+
+<p>-</p>
+
+<p>Makefile 主要要做的事情有：</p>
+<ul>
+  <li><strong>STEP 1 - 製作相關檔案</strong>
+    <ul>
+      <li>處理開機磁區 - <code class="language-plaintext highlighter-rouge">ipl10.asm</code></li>
+      <li>包含作業系統本體 -<code class="language-plaintext highlighter-rouge">asmhead.asm</code>、<code class="language-plaintext highlighter-rouge">nasmfunc.asm</code>、<code class="language-plaintext highlighter-rouge">bootpack.c</code>、<code class="language-plaintext highlighter-rouge">os.lds</code></li>
+    </ul>
+  </li>
+  <li><strong>STEP 2 - 製作映像檔</strong>
+    <ul>
+      <li>製作開機磁區映像檔</li>
+      <li>將作業系統本體寫入映像檔</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="step-1---製作相關檔案">STEP 1 - 製作相關檔案</h3>
+<p>主要的指令有這些</p>
+<blockquote>
+  <p>nasm ipl10.asm -o ipl10.bin -l ipl10.lst</p>
+
+  <p>nasm asmhead.asm -o asmhead.bin -l asmhead.lst</p>
+
+  <p>nasm -g -f elf nasmfunc.asm -o nasmfunc.o</p>
+
+  <p>gcc -march=i486 -m32 -nostdlib -g -O0 -T os.lds bootpack.c nasmfunc.o -o bootpack.hrb -fno-pie</p>
+
+  <p>cat asmhead.bin bootpack.hrb &gt; haribote.sys</p>
+</blockquote>
+
+<h3 id="step-2---製作映像檔">STEP 2 - 製作映像檔</h3>
+<p>有兩種產生映像檔的寫法，這兩種都會用到 <code class="language-plaintext highlighter-rouge">mcopy</code>。
+<img src="https://i.imgur.com/xRC0Tut.png" alt="" /></p>
+
+<ul>
+  <li><strong>寫法 1 (主要指令 - <code class="language-plaintext highlighter-rouge">mformat</code>、<code class="language-plaintext highlighter-rouge">mcopy</code>)</strong>：
+    <blockquote>
+      <p>mformat -f 1440 -C -B ipl10.bin -i haribote.img ::</p>
+
+      <p>mcopy -i haribote.img haribote.sys ::</p>
+    </blockquote>
+  </li>
+  <li><strong>寫法 2 (主要指令 - <code class="language-plaintext highlighter-rouge">dd</code>、<code class="language-plaintext highlighter-rouge">mcopy</code>)</strong>：
+    <blockquote>
+      <p>dd if=/dev/zero of=haribote.img bs=512 count=2880</p>
+
+      <p>dd if=ipl10.bin of=haribote.img conv=notrunc</p>
+
+      <p>mcopy -i haribote.img haribote.sys ::</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="完整-makefile-程式碼">完整 Makefile 程式碼</h3>
+<ul>
+  <li>專案原始檔 (<strong>Makefile</strong>)：<a href="https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile">https://github.com/shouzo/My-30OS/tree/master/20210518/Makefile/Makefile</a></li>
+</ul>
+
+<p><strong>將以上 STEP 1、STEP 2 裡的指令寫成 Makefile。</strong>
+(以下為完整程式碼)</p>
+
+<p>```
+OSNAME := haribote</p>
+
+<p>.DEFAULT_GOAL : all
+.PHONY : all
+all : img
+	DEBUG_DIR := ./debug
+	OBJDUMP_FLAGS := –full-contents –all-headers –target=binary –architecture=i386:intel –disassemble-all</p>
+
+<p>#===============================================================================
+ipl10.bin    : ipl10.asm
+asmhead.bin  : asmhead.asm
+nasmfunc.o   : nasmfunc.asm</p>
+
+<p>%.bin : %.asm 
+	@make make-debug-dir
+	nasm $^ -o $@ -l ${DEBUG_DIR}/$*.lst</p>
+
+<p>%.o : %.asm
+	@make make-debug-dir
+	nasm -f elf $^ -o $@ -l ${DEBUG_DIR}/$*.lst</p>
+
+<p>BOOTPACK_FILES := bootpack.c nasmfunc.o
+bootpack.hrb : ${BOOTPACK_FILES} os.lds
+	@make make-debug-dir</p>
+
+<p>gcc -march=i486 -m32 -nostdlib -g -O0 <br />
+	-T os.lds <br />
+	-o $@ <br />
+	-fno-pie<br />
+	${BOOTPACK_FILES}</p>
+
+<p>objdump ${OBJDUMP_FLAGS} $@ &gt; ${DEBUG_DIR}/$@.dasm</p>
+
+<p>${OSNAME}.sys : asmhead.bin bootpack.hrb
+%.sys :
+	@make make-debug-dir
+	cat $^ &gt; $@</p>
+
+<p>objdump ${OBJDUMP_FLAGS} $@ &gt; ${DEBUG_DIR}/$@.dasm</p>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2021/05/18/30OS_day4/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)</a>
                 </h2>
                 <div class="label">
@@ -706,156 +943,6 @@ RESB	18
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2021/01/13/2020_Life-Work_7/">20210113 [年度回顧] 關於工作和生活 - Part 7</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2021-01-13
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#年度回顧" title="Category: 年度回顧" rel="category">年度回顧</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#年度回顧" title="Tag: 年度回顧" rel="tag">年度回顧</a>&nbsp;
-    
-        <a href="/tag/#生活" title="Tag: 生活" rel="tag">生活</a>&nbsp;
-    
-        <a href="/tag/#工作" title="Tag: 工作" rel="tag">工作</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#定向選擇" id="markdown-toc-定向選擇">定向選擇</a></li>
-</ul>
-
-<h3 id="定向選擇">定向選擇</h3>
-
-<p>我們每天都在選擇。</p>
-
-<p>從吃東西 (我不要麥當勞，我要肯德基)，到人生發展 (我不要沒沒無聞，我要揚名立萬)，</p>
-
-<p>這些都是選擇。</p>
-
-<p>可以把這個句型精簡為：<strong>「我不要…，我要…」</strong></p>
-
-<p>每個選擇的背後都通往著下一個選擇，串連起來會形成一條明確的線，但那條線通往哪裡呢？</p>
-
-<p>將方向確立好並且在選擇時加以參考，在此稱為 <strong>定向選擇</strong>。</p>
-
-<p>–</p>
-
-<p>以課程設計為例。</p>
-
-<p>特別是在具有商業需求的課程裡，
-所有的場景設計都不會是偶然，而是定向選擇的結果。</p>
-
-<p>舉例來說：<strong>「10 個學生裡有 2 個來訓練、 8 個是來玩的；我們不要那 2 個來訓練的，我們要那 8 個來玩的。」</strong></p>
-
-<blockquote>
-  <p><strong>選擇的背後代表著一套公司策略、假設和價值觀。
-它就像是一面篩子。
-篩掉對公司而言不能獲利的，留下那些能創造高價值的。</strong></p>
-</blockquote>
-
-<p>–</p>
-
-<p>關於選擇。</p>
-
-<p>經過這兩年，內心的想法變得更加強烈和明確：</p>
-<ol>
-  <li>我不要有人在上頭對我發號司令，我要自己作主把事情搞定。</li>
-  <li>我不要教「只想要來玩卻沒有意願學習的」，我要教「願意訓練、想要深入接觸但是卻無從開始的」。</li>
-  <li><strong>我不要讓跑酷只停留在運動層面，我要讓它拓展到其他層面。</strong></li>
-</ol>
-
-<p>關於第 3 點，是起源於自己觀察到的跑酷推廣現況：</p>
-
-<p><strong>「我們都相信跑酷的精神能應用在日常生活。但是為何，以及該如何證明有效？到底是真的有效？還是我們自以為有效？」</strong></p>
-
-<p>我想要釐清這個還沒什麼人能說清楚的地方。也是因為如此，這幾年我開始朝 <strong>冒險、體驗教育</strong> 領域拓展。</p>
-
-<p>我想分享一些嘗試拓展後的成果。</p>
-
-<p>–</p>
-
-<p>自 2019 年 09 月份開始，
-我每週固定會前往清大和交大跑酷社進行教學。</p>
-
-<p>在課程開始前都會設計當週的課程目標，除了記錄社團狀況，也會定期收集學員回饋。</p>
-
-<p>在經過當屆幹部同意後，
-我將這一年多的記錄統整成一份資料，用來申請 AAEE 助理引導員認證。</p>
-
-<p><img src="https://i.imgur.com/NaQp28n.png" alt="" />
-(後來審查通過了)</p>
-
-<p>這件事對我的職涯發展而言，有兩個意義：</p>
-<ol>
-  <li><strong>方向一致</strong>：這件事本來就和我期望的冒險、體驗教育領域成正相關。</li>
-  <li><strong>承上接下</strong>：完成這件事情的同時，也能幫助我達成並推進其他目標。</li>
-</ol>
-
-<p>像是在推甄研究所時，這些記錄、證照是能夠實際拿出來的成果。</p>
-
-<p>但前提是你很清楚那代表著什麼，並且要付出心力來推進。</p>
-
-<blockquote>
-  <p>【備註】關於推甄研究所的經過，可以參考 <a href="https://shouzo.github.io/collections/years/2020_NTHU-Sport-Science.html">【2020 年度回顧系列】清大運科所推甄歷程</a></p>
-</blockquote>
-
-<p>–</p>
-
-<p>雖然方向明確，道路和選擇也逐漸具體了。但對於想像中的未來，腦海裡還沒有清晰的畫面。</p>
-
-<p><strong>未來究竟會是什麼樣子？那時候的我會是個什麼樣的人呢？</strong></p>
-
-<p>雖然看不到自己未來的具體畫面，但是我們可以看看走得比我前面的人，究竟過著什麼樣的生活。</p>
-
-<p>(…未完待續)</p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2021/01/13/2020_Life-Work_7/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -883,6 +970,8 @@ RESB	18
                 </div>
                 <ul class="content-ul" recent>
                     
+                        <li><a href="/2021/08/20/2021_WFH_6/">20210820 [WFH] 在家工作系列 - Part 5</a></li>
+                    
                         <li><a href="/2021/08/20/2021_WFH_5/">20210820 [WFH] 在家工作系列 - Part 5</a></li>
                     
                         <li><a href="/2021/08/17/2021_WFH_4/">20210817 [WFH] 在家工作系列 - Part 4</a></li>
@@ -900,8 +989,6 @@ RESB	18
                         <li><a href="/2021/02/01/2020_Life-Work_9/">20210201 [年度回顧] 關於工作和生活 - Part 9</a></li>
                     
                         <li><a href="/2021/01/25/2020_Life-Work_8/">20210125 [年度回顧] 關於工作和生活 - Part 8</a></li>
-                    
-                        <li><a href="/2021/01/13/2020_Life-Work_7/">20210113 [年度回顧] 關於工作和生活 - Part 7</a></li>
                     
                 </ul>
             </div>
@@ -1144,7 +1231,7 @@ RESB	18
                             <span class="name">
                                 在家工作
                             </span>
-                            <span class="badge">5</span>
+                            <span class="badge">6</span>
                         </a>
                     </li>
                     
@@ -1414,21 +1501,21 @@ RESB	18
                       
                       
                       
-                      <a href="/tag/#WFH" style="font-size: 10pt; color: #888;">WFH</a>
+                      <a href="/tag/#WFH" style="font-size: 10.5pt; color: #777;">WFH</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#進修" style="font-size: 10pt; color: #888;">進修</a>
+                      <a href="/tag/#進修" style="font-size: 10.5pt; color: #777;">進修</a>
                     
                       
                       
                       
                       
                       
-                      <a href="/tag/#COVID-19" style="font-size: 10pt; color: #888;">COVID-19</a>
+                      <a href="/tag/#COVID-19" style="font-size: 10.5pt; color: #777;">COVID-19</a>
                     
                 </div>
             </div>
