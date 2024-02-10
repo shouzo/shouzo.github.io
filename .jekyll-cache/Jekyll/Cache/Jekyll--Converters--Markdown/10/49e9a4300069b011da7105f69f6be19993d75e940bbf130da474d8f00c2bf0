@@ -1,4 +1,4 @@
-I"C<ul id="markdown-toc">
+I"�<ul id="markdown-toc">
   <li><a href="#一-作業系統" id="markdown-toc-一-作業系統">(一) 作業系統</a></li>
   <li><a href="#二-linux-程式設計" id="markdown-toc-二-linux-程式設計">(二) Linux 程式設計</a></li>
 </ul>
@@ -18,8 +18,8 @@
   </li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
 <span class="cm">/* Press any Integer */</span>

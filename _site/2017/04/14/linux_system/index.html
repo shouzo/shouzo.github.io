@@ -13,8 +13,8 @@
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://shouzo.github.io/2017/04/14/linux_system/">
-    <link rel="alternate" type="application/rss+xml" title="羅左欣" href="http://shouzo.github.io /feed.xml ">
+    <link rel="canonical" href="http://localhost:4000/2017/04/14/linux_system/">
+    <link rel="alternate" type="application/rss+xml" title="羅左欣" href="http://localhost:4000 /feed.xml ">
 
 
 
@@ -494,14 +494,14 @@
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
 
-<span class="cp">#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include &lt;sys/shm.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;sys/shm.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include "shm_com.h"
+<span class="cp">#include</span> <span class="cpf">"shm_com.h"</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -572,14 +572,14 @@
  (the size of our shared memory structure) is created with a call to shmget,
  with the IPC_CREAT bit specified. */</span>
 
-<span class="cp">#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include &lt;sys/shm.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;sys/shm.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include "shm_com.h"
+<span class="cp">#include</span> <span class="cpf">"shm_com.h"</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -668,9 +668,9 @@
 </ul>
 
 <h3 id="二-shared-memory-function">(二) Shared Memory Function</h3>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/sem.h&gt;
-#include &lt;sys/type.h&gt;
-#include &lt;sys/ipc.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;sys/sem.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;sys/type.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;sys/ipc.h&gt;</span><span class="cp">
 </span>
 
 <span class="kt">int</span> <span class="nf">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shmflg</span><span class="p">);</span>
@@ -740,15 +740,15 @@
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
 
-<span class="cp">#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include &lt;time.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include &lt;sys/shm.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;sys/shm.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include "shm_com.h"
+<span class="cp">#include</span> <span class="cpf">"shm_com.h"</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -839,14 +839,14 @@
  (the size of our shared memory structure) is created with a call to shmget,
  with the IPC_CREAT bit specified. */</span>
 
-<span class="cp">#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include &lt;sys/shm.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;sys/shm.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include "shm_com.h"
+<span class="cp">#include</span> <span class="cpf">"shm_com.h"</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -1266,7 +1266,7 @@
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)
+                            <a href="http://localhost:4000/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)
                             
                             </a>
                         </li>
@@ -1310,7 +1310,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)
+                            <a href="http://localhost:4000/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)
                             
                             </a>
                         </li>
@@ -1362,8 +1362,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://shouzo.github.io/2017/04/14/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://shouzo.github.io/2017/04/14/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://localhost:4000/2017/04/14/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2017/04/14/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE

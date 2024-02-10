@@ -13,8 +13,8 @@
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://shouzo.github.io/2017/03/22/get_prime/">
-    <link rel="alternate" type="application/rss+xml" title="羅左欣" href="http://shouzo.github.io /feed.xml ">
+    <link rel="canonical" href="http://localhost:4000/2017/03/22/get_prime/">
+    <link rel="alternate" type="application/rss+xml" title="羅左欣" href="http://localhost:4000 /feed.xml ">
 
 
 
@@ -246,12 +246,12 @@
 
 <h2 id="一輸出有問題">一、輸出有問題</h2>
 <h3 id="一-原本的程式">(一) 原本的程式</h3>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;pthread.h&gt;
-#include &lt;semaphore.h&gt; 
-#include &lt;time.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;pthread.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;semaphore.h&gt;</span><span class="c1"> </span><span class="cp">
+#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
 </span>
 <span class="cp">#define NUM_THREADS 10
 #define MSIZE 100
@@ -416,12 +416,12 @@
   <li>這個方法比較繁瑣，需要事先宣告陣列來儲存質數。在執行 threads 時將對應的質數儲存至陣列，接著再回到 main() 裡面輸出結果。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;pthread.h&gt;
-#include &lt;semaphore.h&gt; 
-#include &lt;time.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;pthread.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;semaphore.h&gt;</span><span class="c1"> </span><span class="cp">
+#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
 </span>
 <span class="cp">#define NUM_THREADS 10
 #define MSIZE 100
@@ -548,12 +548,12 @@
   <li>在 <code class="language-plaintext highlighter-rouge">void *thread_function(void *arg) { ... }</code> 裡面的開頭和結尾分別加上 <code class="language-plaintext highlighter-rouge">pthread_mutex_lock(&amp;work_mutex);</code> 和 <code class="language-plaintext highlighter-rouge">pthread_mutex_unlock(&amp;work_mutex);</code></li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;pthread.h&gt;
-#include &lt;semaphore.h&gt; 
-#include &lt;time.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;pthread.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;semaphore.h&gt;</span><span class="c1"> </span><span class="cp">
+#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
 </span>
 <span class="cp">#define NUM_THREADS 10
 #define MSIZE 100
@@ -658,8 +658,8 @@
 </ul>
 
 <h2 id="三取質數的範例程式">三、取質數的範例程式</h2>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span>
 <span class="c1">// 找出所有質數</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
@@ -1018,7 +1018,7 @@
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)
+                            <a href="http://localhost:4000/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)
                             
                             </a>
                         </li>
@@ -1062,7 +1062,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)
+                            <a href="http://localhost:4000/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)
                             
                             </a>
                         </li>
@@ -1114,8 +1114,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://shouzo.github.io/2017/03/22/get_prime/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://shouzo.github.io/2017/03/22/get_prime/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://localhost:4000/2017/03/22/get_prime/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2017/03/22/get_prime/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE

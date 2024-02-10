@@ -1,4 +1,4 @@
-I"mY<ul id="markdown-toc">
+I"�Y<ul id="markdown-toc">
   <li><a href="#用程式實現歸屬函數的判定" id="markdown-toc-用程式實現歸屬函數的判定">用程式實現歸屬函數的判定</a></li>
 </ul>
 
@@ -11,8 +11,8 @@
   <li>分別輸入 X1、X2 的數值，輸出其 <strong>歸屬函數(membership function, mf)</strong> 的值。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>

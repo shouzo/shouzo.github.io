@@ -1,4 +1,4 @@
-I"<ul id="markdown-toc">
+I"�<ul id="markdown-toc">
   <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
       <li><a href="#一-process-in-memory" id="markdown-toc-一-process-in-memory">(一) Process in Memory</a></li>
       <li><a href="#二-process-state" id="markdown-toc-二-process-state">(二) Process State</a></li>
@@ -119,9 +119,9 @@ bursts.
   <li>課程作業</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
 	<span class="n">pid_t</span> <span class="n">pid</span><span class="p">;</span>

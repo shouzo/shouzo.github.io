@@ -1,4 +1,4 @@
-I"�$<ul id="markdown-toc">
+I"�(<ul id="markdown-toc">
   <li><a href="#整理自-由片語學習c程式設計---ch04--判斷" id="markdown-toc-整理自-由片語學習c程式設計---ch04--判斷">整理自 由片語學習C程式設計 - Ch04 : 判斷</a>    <ul>
       <li><a href="#-筆記內容-" id="markdown-toc--筆記內容-">[ 筆記內容 ]</a>        <ul>
           <li><a href="#-範例程式碼--github" id="markdown-toc--範例程式碼--github">[ 範例程式碼 ] GitHub</a></li>
@@ -118,7 +118,7 @@
 <h5 id="-範例-4-1--只顯示正數">[ 範例 4-1 ] 只顯示正數</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-1.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -145,7 +145,7 @@
 
 <h5 id="-範例-4-2--檢查-i-及-j-的乘積是否為正數">[ 範例 4-2 ] 檢查 i 及 j 的乘積是否為正數</h5>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-2.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -179,7 +179,7 @@
 <h5 id="-範例-4-3--顯示絕對值">[ 範例 4-3 ] 顯示絕對值</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-3.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -215,7 +215,7 @@
 <h5 id="-範例-4-4--決定三個數中的最大值">[ 範例 4-4 ] 決定三個數中的最大值</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-4.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
@@ -255,7 +255,7 @@
 <h5 id="-範例-4-5--讀入兩個整數並由小到大印出">[ 範例 4-5 ] 讀入兩個整數並由小到大印出</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-5.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
@@ -305,7 +305,7 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-6.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -330,7 +330,7 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-7.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -362,7 +362,7 @@
 <h5 id="-範例-4-8--顯示絕對值利用判斷式值精簡化">[ 範例 4-8 ] 顯示絕對值(利用判斷式值精簡化)</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-8.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -378,7 +378,7 @@
 <h5 id="-範例-4-9--決定三個數中的最大值利用判斷式值精簡化">[ 範例 4-9 ] 決定三個數中的最大值(利用判斷式值精簡化)</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-9.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">max</span><span class="p">;</span>
@@ -398,7 +398,7 @@
 <h5 id="-範例-4-10--判斷平閏年利用判斷式值精簡化">[ 範例 4-10 ] 判斷平閏年(利用判斷式值精簡化)</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-10.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -452,7 +452,7 @@
 <h5 id="-範例-4-11--使用-switch-依據-power-值做不同的事">[ 範例 4-11 ] 使用 switch 依據 power 值做不同的事</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-11.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">power</span><span class="p">;</span>
@@ -481,7 +481,7 @@
 <h5 id="-範例-4-12--使用-switch-依據-power-值做不同的事少寫一個-break">[ 範例 4-12 ] 使用 switch 依據 power 值做不同的事(少寫一個 break)</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-12.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">power</span><span class="p">;</span>
@@ -509,7 +509,7 @@
 <h5 id="-範例-4-13--決定一個月的天數">[ 範例 4-13 ] 決定一個月的天數</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-13.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">days</span><span class="p">;</span>
@@ -553,7 +553,7 @@
   <li>寫一個程式讀入三個正整數 a、b、c。計算並印出其中的最小值。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -578,7 +578,7 @@
   <li>寫一個程式讀入三個平面上的點座標，然後印出其中距離原點最遠的點。如果兩個或多個點有相同的距離，輸出最先出現的點座標。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">la</span><span class="p">;</span>	<span class="c1">// 點 a(a1, a2)、與原點距離 la</span>
@@ -616,7 +616,7 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-16.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (a, b) </span>
@@ -647,7 +647,7 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-17.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">// 點 (a, b) </span>
@@ -695,7 +695,7 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-18.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>	<span class="c1">// 三個非零的整數</span>
@@ -721,7 +721,7 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-19.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>	<span class="c1">// 三個非零的整數</span>
@@ -744,7 +744,7 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-20.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -770,7 +770,7 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "4-21.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>	<span class="c1">// 三個非零的整數 (3個三角形的邊長)</span>

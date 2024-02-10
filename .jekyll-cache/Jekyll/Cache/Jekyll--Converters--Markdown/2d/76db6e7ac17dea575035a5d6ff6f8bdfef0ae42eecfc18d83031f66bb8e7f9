@@ -1,4 +1,4 @@
-I"No<ul id="markdown-toc">
+I"�q<ul id="markdown-toc">
   <li><a href="#一作業系統" id="markdown-toc-一作業系統">一、作業系統</a>    <ul>
       <li><a href="#一-direct-communication" id="markdown-toc-一-direct-communication">(一) Direct Communication</a></li>
       <li><a href="#二-indirect-communication" id="markdown-toc-二-indirect-communication">(二) Indirect Communication</a></li>
@@ -254,14 +254,14 @@
 <span class="cm">/* The second program is the producer and allows us to enter data for consumers.
  It's very similar to shm1.c and looks like this. */</span>
 
-<span class="cp">#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include &lt;sys/shm.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;sys/shm.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include "shm_com.h"
+<span class="cp">#include</span> <span class="cpf">"shm_com.h"</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -332,14 +332,14 @@
  (the size of our shared memory structure) is created with a call to shmget,
  with the IPC_CREAT bit specified. */</span>
 
-<span class="cp">#include &lt;unistd.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include &lt;sys/shm.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;sys/shm.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include "shm_com.h"
+<span class="cp">#include</span> <span class="cpf">"shm_com.h"</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>

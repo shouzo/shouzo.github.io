@@ -13,8 +13,8 @@
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://shouzo.github.io/2017/03/10/linux_system/">
-    <link rel="alternate" type="application/rss+xml" title="羅左欣" href="http://shouzo.github.io /feed.xml ">
+    <link rel="canonical" href="http://localhost:4000/2017/03/10/linux_system/">
+    <link rel="alternate" type="application/rss+xml" title="羅左欣" href="http://localhost:4000 /feed.xml ">
 
 
 
@@ -366,9 +366,9 @@ bursts.
   <li>課程作業</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
 	<span class="n">pid_t</span> <span class="n">pid</span><span class="p">;</span>
@@ -413,8 +413,8 @@ bursts.
   <li>課堂練習： <code class="language-plaintext highlighter-rouge">execv()</code> 的概念</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span>
 <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"/bin/ls"</span><span class="p">,</span> <span class="s">"-1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
@@ -523,7 +523,7 @@ bursts.
 </ul>
 
 <h5 id="1-signal">(1) signal()</h5>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp">
 </span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))(</span><span class="kt">int</span><span class="p">);</span>
 </code></pre></div></div>
 
@@ -531,9 +531,9 @@ bursts.
   <li>攔截 Ctrl-C 訊號</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
 </span>
 <span class="kt">void</span> <span class="nf">ouch</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span> <span class="p">{</span>
 	<span class="n">printf</span><span class="p">(</span><span class="s">"OUCH! - I got signal %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
@@ -551,7 +551,7 @@ bursts.
 </code></pre></div></div>
 
 <h5 id="2-sigaction">(2) sigaction()</h5>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp">
 </span><span class="kt">int</span> <span class="nf">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span><span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">act</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="n">oact</span><span class="p">);</span>
 </code></pre></div></div>
 <ul>
@@ -570,9 +570,9 @@ bursts.
 <img src="https://i.imgur.com/1Zbog12.jpg" alt="" /></li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;signal.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp">
 </span>
 
 <span class="c1">// When the process get the "Ctrl+C" signal.</span>
@@ -932,7 +932,7 @@ bursts.
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)
+                            <a href="http://localhost:4000/2021/05/18/30OS_day4/">20210518 [學習筆記] 30天作業系統自作入門筆記 (4)
                             
                             </a>
                         </li>
@@ -976,7 +976,7 @@ bursts.
                     
                         
                         <li class="relatedPost">
-                            <a href="http://shouzo.github.io/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)
+                            <a href="http://localhost:4000/2021/05/17/30OS_day3/">20210517 [學習筆記] 30天作業系統自作入門筆記 (3)
                             
                             </a>
                         </li>
@@ -1028,8 +1028,8 @@ bursts.
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://shouzo.github.io/2017/03/10/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://shouzo.github.io/2017/03/10/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://localhost:4000/2017/03/10/linux_system/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2017/03/10/linux_system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE

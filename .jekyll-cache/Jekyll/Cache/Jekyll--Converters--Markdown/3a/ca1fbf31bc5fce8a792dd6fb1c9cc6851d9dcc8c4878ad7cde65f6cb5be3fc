@@ -1,4 +1,4 @@
-I"<h2 id="內文整理自-opencv程式設計介紹2">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv2.html">OpenCV程式設計介紹(2)</a></h2>
+I"�<h2 id="內文整理自-opencv程式設計介紹2">內文整理自 <a href="http://yester-place.blogspot.tw/2008/06/opencv2.html">OpenCV程式設計介紹(2)</a></h2>
 
 <h4 id="-基本資料結構-">[ 基本資料結構 ]</h4>
 
@@ -17,9 +17,9 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Introduce_2.cpp</span>
-<span class="cp">#include &lt;cv.h&gt;
-#include &lt;highgui.h&gt;
-#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;cv.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;highgui.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>

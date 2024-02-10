@@ -1,4 +1,4 @@
-I".<ul id="markdown-toc">
+I"�<ul id="markdown-toc">
   <li><a href="#內文整理自-opencv程式設計介紹1" id="markdown-toc-內文整理自-opencv程式設計介紹1">內文整理自 OpenCV程式設計介紹(1)</a>    <ul>
       <li><a href="#-背景知識-" id="markdown-toc--背景知識-">[ 背景知識 ]</a>        <ul>
           <li><a href="#一opencv---open-source-computer-vision" id="markdown-toc-一opencv---open-source-computer-vision">（一）OpenCV - Open Source Computer Vision</a></li>
@@ -34,10 +34,10 @@
 
 <p><strong>[ 函式庫載入方式 ]</strong></p>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;cv.h&gt;
-#include &lt;highgui.h&gt;
-#include &lt;cxcore.h&gt;
-#include &lt;cvaux.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;cv.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;highgui.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cxcore.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cvaux.h&gt;</span><span class="cp">
 </span></code></pre></div></div>
 
 <h3 id="三基本資料結構iplimage">（三）基本資料結構：IplImage</h3>
@@ -62,9 +62,9 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Introduce_1.cpp</span>
-<span class="cp">#include &lt;stdio.h&gt;
-#include &lt;cv.h&gt;
-#include &lt;highgui.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cv.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;highgui.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>

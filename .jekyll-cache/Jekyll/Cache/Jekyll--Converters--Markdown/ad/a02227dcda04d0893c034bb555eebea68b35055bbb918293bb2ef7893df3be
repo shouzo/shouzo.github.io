@@ -1,4 +1,4 @@
-I"^-<ul id="markdown-toc">
+I"�1<ul id="markdown-toc">
   <li><a href="#整理自-由片語學習c程式設計---ch03--運算" id="markdown-toc-整理自-由片語學習c程式設計---ch03--運算">整理自 由片語學習C程式設計 - Ch03 : 運算</a>    <ul>
       <li><a href="#-筆記內容-" id="markdown-toc--筆記內容-">[ 筆記內容 ]</a>        <ul>
           <li><a href="#-範例程式碼--github" id="markdown-toc--範例程式碼--github">[ 範例程式碼 ] GitHub</a></li>
@@ -160,7 +160,7 @@
 <h5 id="-範例-3-1--設定-i-為-j">[ 範例 3-1 ] 設定 i 為 j</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-1.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -190,7 +190,7 @@
 <h5 id="-範例-3-2--交換變數-i-和-變數-j-的值">[ 範例 3-2 ] 交換變數 i 和 變數 j 的值</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-2.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -226,7 +226,7 @@
 <h5 id="-範例-3-3--使用指定當算式">[ 範例 3-3 ] 使用指定當算式</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-3.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -303,7 +303,7 @@
 <h5 id="-範例-3-4--設定-k-為-i-及-j-的和或差">[ 範例 3-4 ] 設定 k 為 i 及 j 的和或差</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-4.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -328,7 +328,7 @@
 <h5 id="-範例-3-5--設定-k-為-i-及-j-的商">[ 範例 3-5 ] 設定 k 為 i 及 j 的商</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-5.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>          
@@ -352,7 +352,7 @@
 <h5 id="-範例-3-6--設定-k-為-i-除以-j-的餘數">[ 範例 3-6 ] 設定 k 為 i 除以 j 的餘數</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-6.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -376,7 +376,7 @@
 <h5 id="-範例-3-7--計算一個二位數的十位數及個位數">[ 範例 3-7 ] 計算一個二位數的十位數及個位數</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-7.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -398,7 +398,7 @@
 <h5 id="-範例-3-8--計算一個數的負數">[ 範例 3-8 ] 計算一個數的負數</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-8.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -447,7 +447,7 @@
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-9.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -471,7 +471,7 @@
 <h5 id="-範例-3-10--數學運算的先後順序">[ 範例 3-10 ] 數學運算的先後順序</h5>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "3-10.c"</span>
-<span class="cp">#include &lt;stdio.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -607,7 +607,7 @@
 
 <h5 id="-範例-3-11--印出比較運算的結果">[ 範例 3-11 ] 印出比較運算的結果</h5>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
@@ -727,7 +727,7 @@
 </table>
 
 <h5 id="-範例-3-12--整數使用邏輯運算">[ 範例 3-12 ] 整數使用邏輯運算</h5>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
@@ -752,7 +752,7 @@
   <li>一個閏年必須是 400 的倍數，或是 4 的倍數但非 100 的倍數。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">year</span><span class="p">;</span>
@@ -773,7 +773,7 @@
 
 <h5 id="-範例-3-14--快捷運算可能造成意料之外的執行結果">[ 範例 3-14 ] 快捷運算可能造成意料之外的執行結果</h5>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
@@ -792,7 +792,7 @@
 
 <h5 id="-範例-3-15--避免快捷運算可能造成意料之外的執行結果-繼範例-3-14">[ 範例 3-15 ] “避免”快捷運算可能造成意料之外的執行結果 (繼範例 3-14)</h5>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
@@ -820,7 +820,7 @@
   <li>寫一個程式讀入三個˙整數，計算並輸出他們的連乘積。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">,</span> <span class="n">total</span><span class="p">;</span>
@@ -841,7 +841,7 @@
   <li>寫一個程式讀入一個整數，如果該整數為偶數則輸出 1 ，否則輸出 0。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -861,7 +861,7 @@
   <li>寫一個程式讀入一個四位正整數並計算四個位數的和。如果輸入為 1234，則輸出為 10。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -888,7 +888,7 @@
   <li>寫一個程式讀入一個正整數。如果該整數為 3 的倍數但不為 5 的倍數則輸出 1 ，或是為 5 的倍數但不為 3 的倍數則輸出 1；其他狀況均輸出 0。例如輸入為 36 或 20，則輸出為 1；如果輸入為 30 或 7，則輸出為 0。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -908,7 +908,7 @@
   <li>寫一個程式找零錢。程式首先讀入一介於 1 與 100 之間的整數，然後使用最少數目的 50、10、5、1 硬幣湊足給定的整數。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -935,7 +935,7 @@
   <li>寫一個程式讀入四個正整數 a、b、c、d 並保證點 (a, b) 及 (c, d) 為不同點。如果連接點 (a, b) 及 (c, d) 的直線通過原點則輸出 1，其他狀況均輸出 0。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
@@ -977,7 +977,7 @@
   <li>寫一個程式讀入四個整數 a、b、c、d 並且保證 c &gt; a 且 d &gt; b 。計算以 (a, b) 為左下角，(c, d) 為右上角的長方形面積及周長。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
@@ -1016,7 +1016,7 @@
   <li>寫一個程式讀入三個整數 a、b、c，其中 a 不等於 0。如果方程式 f(x) = ax^2 + bx + c = 0 有重根則輸出 1，其他狀況均輸出 0。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
@@ -1052,7 +1052,7 @@
   <li>寫一個程式讀入三個整數，分別為一個長方體的高度、寬度和深度。計算並輸出其表面積及體積。</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
       <span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
