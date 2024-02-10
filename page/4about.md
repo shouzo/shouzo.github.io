@@ -115,6 +115,8 @@ icon: commenting
     * [如何辦一場跑酷體驗活動？(Part 3)](https://vocus.cc/article/649d06a7fd89780001ad0966)
 
 * 【文章 / 專欄 / 懶人包】一個能夠體現南台灣跑酷文化的活動：Move Island - https://vocus.cc/article/642b1d61fd897800012a604c (2023/04/08)
+  
+  * ![](https://i.imgur.com/m3TJCRO.png)
 
 * 【文章 / 專欄 / 懶人包】什麼是跑酷？ - https://www.facebook.com/tssc.tw/videos/879321080064112 (2023/11/17)
   
@@ -133,12 +135,6 @@ icon: commenting
 #### 2024
 
 (陸續增加中)
-
-
-
-
-
-
 
  
 
