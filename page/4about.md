@@ -5,10 +5,7 @@ permalink: /about/
 icon: commenting
 ---
 
-* content
-  {:toc}
-
-## 一、這裡是哪裡？
+* ## 一、這裡是哪裡？
 
 * 由生活和思考堆砌而成的屋子。屋裡空無一物，只放著裝滿水的瓶子。
   * 「正要步入社會叢林，在理想與現實的碰撞下產生質變。」 - 2019.01.08
@@ -36,7 +33,9 @@ icon: commenting
   * 國術社社長 (2013 - 2015)
   * 跑酷社創社社長 (2015 - 2017)
   * 畢聯會活動部長 (2016 - 2017)
+
 * 國立體育大學
+  
   * 休閒產業經營學系碩士班 (2022 - )
 
 ### 相關經歷
@@ -68,62 +67,80 @@ icon: commenting
 #### 2019
 
 * 【文章 / 專欄 / 懶人包】2019 Move Island 訓練營心得和筆記 - [https://shorturl.at/hlpJR](https://shorturl.at/hlpJR) (2019/02/19)
+  * ![](https://i.imgur.com/SqUiXRd.png)
 
 #### 2020
 
 * 【文章 / 專欄 / 懶人包】如何設計一場戶外冒險活動 - [https://shorturl.at/yOP37](https://shorturl.at/yOP37) (2020/08/23)
+  * ![](https://i.imgur.com/xXSRjOW.png)
 
 #### 2021
 
 #### 2022
 
 * 【文章 / 專欄 / 懶人包】 我所知道關於跑酷的事情 (前言) - https://vocus.cc/article/62a34d66fd8978000178e93c (2022/06/10)
+  
+  * ![](https://i.imgur.com/FkX7pep.jpeg)
 
 * 【文章 / 專欄 / 懶人包】我所知道關於跑酷的事情 (開始把跑酷當成一回事) - https://vocus.cc/article/62a720c6fd89780001a945ff (2022/06/13)
+  
+  * ![](https://i.imgur.com/ILuS9q4.jpeg)
 
 * 【活動 / 課程 / 工作坊】中國文化大學推廣教育部 - 第一梯跑酷基礎培訓班 (2022/07/30 - 2022/09/03)
   
-  * ![](/home/shouzo/GitHub/shouzo.github.io/imgs/20230331/DSC_4305.JPG)
+  * ![](https://i.imgur.com/ufT7Xr8.jpeg)
 
 * 【文章 / 專欄 / 懶人包】抱歉，我實在沒有辦法支持跑酷比賽 - https://vocus.cc/article/63aa719afd89780001521c87 (2022/12/27)
+  
+  * ![](https://i.imgur.com/YEbQijk.png)
 
 #### 2023
 
 * 【活動 / 課程 / 工作坊】中國文化大學推廣教育部 - 第二梯跑酷基礎培訓班 (2023/02/11 - 2023/04/15)
   
-  * ![](/home/shouzo/GitHub/shouzo.github.io/imgs/20230505/20230505.jpg)
+  * ![](https://i.imgur.com/IuD9jRa.jpeg)
 
 * 【活動 / 課程 / 工作坊】玩轉學校 - 鬧野孩趴踢 (跑酷關卡區域設計負責人) (2023/02/19)
   
-  * ![](/home/shouzo/GitHub/shouzo.github.io/imgs/20230219/play.jpg)
+  * ![](https://i.imgur.com/ekqpHx8.jpeg)
 
 * 【活動 / 課程 / 工作坊】國立體育大學體育推廣學系 - 跑酷運動指導與體驗 (2023/03/31)
   
-  * [如何辦一場跑酷體驗活動？(Part 1)](https://vocus.cc/article/64944381fd897800016ee025)
-  
-  * [如何辦一場跑酷體驗活動？(Part 2)](https://vocus.cc/article/64996837fd89780001edb629)
-  
-  * [如何辦一場跑酷體驗活動？(Part 3)](https://vocus.cc/article/649d06a7fd89780001ad0966)
+  * ![](https://i.imgur.com/Yglb1oW.png)
+    
+    * [如何辦一場跑酷體驗活動？(Part 1)](https://vocus.cc/article/64944381fd897800016ee025)
+    
+    * [如何辦一場跑酷體驗活動？(Part 2)](https://vocus.cc/article/64996837fd89780001edb629)
+    
+    * [如何辦一場跑酷體驗活動？(Part 3)](https://vocus.cc/article/649d06a7fd89780001ad0966)
 
 * 【文章 / 專欄 / 懶人包】一個能夠體現南台灣跑酷文化的活動：Move Island - https://vocus.cc/article/642b1d61fd897800012a604c (2023/04/08)
 
+* 【文章 / 專欄 / 懶人包】什麼是跑酷？ - https://www.facebook.com/tssc.tw/videos/879321080064112 (2023/11/17)
+  
+  * ![](https://i.imgur.com/TE83IH2.png)
+
 * 【活動 / 課程 / 工作坊】AAEE 第十八屆亞洲體驗教育年會工作坊發表 - **遊走於城市裡的戶外冒險─跑酷/移動的藝術** (2023/12/03)
   
-  * ![](/home/shouzo/GitHub/shouzo.github.io/imgs/20231203/speak.jpg)
+  * ![](https://i.imgur.com/nzJFMrw.jpeg)
     
     * 跑酷是一種藉由 攀、爬、跑、跳、撐 等動作與環境互動的活動，這些互動具有「環境的理解」、「身心的試探」、「移動的選擇」等特徵；跑酷源自於 Georges Hébert 的大自然訓練哲學，其觀賞及實用性使得跑酷成為新世代的潮流代表，亦提供了嚮往戶外的人們一個全新的冒險體驗與想像。本次工作坊以跑酷文化為起點，探討跑酷與冒險教育的共通及交會處，透過理論並搭配實際演練，呈現跑酷應用於冒險教育之潛力。`戶外冒險`、`身體活動`、`跑酷`
 
 * 【文章 / 專欄 / 懶人包】跑酷作為教育媒介的潛力與實踐想像 - https://shorturl.at/adBKY (2023/12/07)
+  
+  * ![](https://i.imgur.com/PsHliuQ.png)
 
 #### 2024
 
+(陸續增加中)
+
+
+
+
+
+
+
  
-
-
-
-
-
-
 
 ## 四、使用說明書
 
