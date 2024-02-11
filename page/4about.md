@@ -136,7 +136,7 @@ icon: commenting
 
 #### 【文章 / 專欄 / 懶人包】
 
-- `2023/04/08` **一個能夠體現南台灣跑酷文化的活動：Move Island** - [一個能夠體現南台灣跑酷文化的活動：Move Island｜方格子 vocus](https://vocus.cc/article/642b1d61fd897800012a604c)
+- `2023/04/08` **一個能夠體現南台灣跑酷文化的活動：Move Island** - https://vocus.cc/article/642b1d61fd897800012a604c
   
   - ![](https://i.imgur.com/m3TJCRO.png)
 
@@ -154,8 +154,6 @@ icon: commenting
 * `2024/01/31` **大學跑酷社團聯合幹部培訓** - 參與單位：國立台灣大學、國立台灣科技大學、國立台灣師範大學、國立陽明交通大學、國立清華大學
   
   * ![](https://i.imgur.com/2IVyqOZ.png)
-
-
 
 #### 【文章 / 專欄 / 懶人包】
 
