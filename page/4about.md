@@ -158,20 +158,16 @@ icon: commenting
 * `2024/03/18`【2024】Move Island 工作坊
   
   * ![可能是 1 人和文字的圖像](https://scontent.ftpe1-3.fna.fbcdn.net/v/t39.30808-6/432683917_7005848482875125_7768125786023299280_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=iJRbb1ISnokQ7kNvgEIGdUU&_nc_ht=scontent.ftpe1-3.fna&_nc_gid=AVXySz0QNhEhWE8Eo6BWiK2&oh=00_AYCOENQUxcTbGnl6GdUeJOUkfKcIocfzgf0zGxXXmQ4X9Q&oe=67044CFA)
-    
-    * 
 
 * `2024/05/11` **【講座邀請】耕水小子 - 跑出欣世界**
   
-  * ![耕水小子.JPG](/home/shouzo/下載/耕水小子.JPG)
+  * ![](https://i.imgur.com/uG1EOvd.jpeg)
     
     * 介紹以跑酷為工作的生活，帶領同學進行跑酷體驗
 
 * `2024/05/25` **【還我特色公園聯盟】** 囡仔逗陣上街玩街道遊戲 - 跑酷體驗活動
   
-  * 
-    
-    ![未提供相片說明。](https://scontent.ftpe1-3.fna.fbcdn.net/v/t39.30808-6/436449897_7262514913875146_6992709765424727575_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=V0HW_P1b_lUQ7kNvgEr25G-&_nc_ht=scontent.ftpe1-3.fna&_nc_gid=ALLv5C7AsaOgodGF_cws1iP&oh=00_AYC9KCBhzU0WHL6IyQAQiEWFHBEIaNSWrPylrhcSfC8G-w&oe=6704241F)
+  * ![未提供相片說明。](https://scontent.ftpe1-3.fna.fbcdn.net/v/t39.30808-6/436449897_7262514913875146_6992709765424727575_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=V0HW_P1b_lUQ7kNvgEr25G-&_nc_ht=scontent.ftpe1-3.fna&_nc_gid=ALLv5C7AsaOgodGF_cws1iP&oh=00_AYC9KCBhzU0WHL6IyQAQiEWFHBEIaNSWrPylrhcSfC8G-w&oe=6704241F)
   
   * ![未提供相片說明。](https://scontent.ftpe1-3.fna.fbcdn.net/v/t39.30808-6/444500191_7307656369361000_2004812401705034616_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=p0nI-1pLPgQQ7kNvgGvQu2a&_nc_ht=scontent.ftpe1-3.fna&_nc_gid=A89Ow8XAN4sd67_9vqChikU&oh=00_AYDix6LUaMc3Ff9HbgCz5QZhe-iAm0PQiGCDZoMqI06YgQ&oe=67043840)
 
@@ -182,16 +178,23 @@ icon: commenting
 * `2024/09/28` **【還我特色公園聯盟】** 街道小玩咖 - 跑酷體驗活動
   
   * ![可能是 9 個人、地圖和文字的圖像](https://scontent.ftpe1-3.fna.fbcdn.net/v/t39.30808-6/461334352_8012505258876104_2454326948153435482_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=DRq2IyXvvMAQ7kNvgFQeTwM&_nc_ht=scontent.ftpe1-3.fna&_nc_gid=A8NIcxF2KOQpVoNWdy1Uc8G&oh=00_AYAbmL71MHa9nKxG3Zgdb81hubPUuxM6GvQ1_R4WP3y3kA&oe=670445AD)
-    
-    ![S__78094343.jpg](/home/shouzo/下載/S__78094343.jpg)
+  
+  * ![](https://i.imgur.com/AFj1Pz7.jpeg)
 
 #### 【文章 / 專欄 / 懶人包】
 
 * `2024/05/04` **【創動視角】練跑酷的人，到底在想些什麼？**
   
-  * **[【創動視角】練跑酷的人，到底在想些什麼？ - YouTube](https://www.youtube.com/watch?v=1sxLMZBRIt8)**
+  * ![](https://i.imgur.com/S95nRt2.png)
+    * **[【創動視角】練跑酷的人，到底在想些什麼？ - YouTube](https://www.youtube.com/watch?v=1sxLMZBRIt8)**
 
  
+
+
+
+
+
+
 
 ## 四、使用說明書
 
