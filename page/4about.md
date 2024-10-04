@@ -132,7 +132,7 @@ icon: commenting
 
 * `2023/07/11 - 2023/08/24` **桃園方圓幼兒園跑酷體驗課**
   
-  * ![funyuan_kid_parkour.jpg](/home/shouzo/下載/funyuan_kid_parkour.jpg)
+  * ![](https://i.imgur.com/VE2VTpC.jpeg)
 
 * `2023/12/03` **AAEE 第十八屆亞洲體驗教育年會工作坊發表 - 遊走於城市裡的戶外冒險─跑酷/移動的藝術**
   
@@ -163,7 +163,7 @@ icon: commenting
 
 * `2024/03/04` **【中和國小附幼】師長跑酷體驗活動**
   
-  * ![kid_parkour_teach.jpg](/home/shouzo/下載/kid_parkour_teach.jpg)
+  * ![](https://i.imgur.com/hocSSPf.jpeg)
 
 * `2024/03/18`**【2024】Move Island 工作坊** - 如何將跑酷應用於體驗教育
   
