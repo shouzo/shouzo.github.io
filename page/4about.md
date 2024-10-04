@@ -52,6 +52,7 @@ icon: commenting
 * 國立台灣科技大學跑酷社 - 社團指導老師 (2023 - )
 * 國立台灣師範大學跑酷社 - 社團指導老師 (2023 - )
 * 新北市淡水國民運動中心 - 跑酷教練 (2023 - )
+* 國立中央大學跑酷社 - 社團指導老師 (2024 - )
 
 ### 個人證照
 
@@ -61,6 +62,7 @@ icon: commenting
 * AAEE 亞洲體驗教育學會 - **助理引導員** (2020/10 - 2023/09)
 * 中華民國體操協會 - **C 級** 彈翻床教練 (2021/10 - )
 * AAEE 亞洲體驗教育學會 - **副引導員** (2023/09 - )
+* 中華民國運動教練學會 - 肌力與體能教練 **丙級** (2024/05 - )
 
 ### 工作記錄
 
@@ -128,6 +130,10 @@ icon: commenting
     
     * [如何辦一場跑酷體驗活動？(Part 3)](https://vocus.cc/article/649d06a7fd89780001ad0966)
 
+* `2023/07/11 - 2023/08/24` **桃園方圓幼兒園跑酷體驗課**
+  
+  * ![funyuan_kid_parkour.jpg](/home/shouzo/下載/funyuan_kid_parkour.jpg)
+
 * `2023/12/03` **AAEE 第十八屆亞洲體驗教育年會工作坊發表 - 遊走於城市裡的戶外冒險─跑酷/移動的藝術**
   
   * ![](https://i.imgur.com/nzJFMrw.jpeg)
@@ -155,7 +161,11 @@ icon: commenting
   
   * ![](https://i.imgur.com/2IVyqOZ.png)
 
-* `2024/03/18`【2024】Move Island 工作坊
+* `2024/03/04` **【中和國小附幼】師長跑酷體驗活動**
+  
+  * ![kid_parkour_teach.jpg](/home/shouzo/下載/kid_parkour_teach.jpg)
+
+* `2024/03/18`**【2024】Move Island 工作坊** - 如何將跑酷應用於體驗教育
   
   * ![可能是 1 人和文字的圖像](https://scontent.ftpe1-3.fna.fbcdn.net/v/t39.30808-6/432683917_7005848482875125_7768125786023299280_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=iJRbb1ISnokQ7kNvgEIGdUU&_nc_ht=scontent.ftpe1-3.fna&_nc_gid=AVXySz0QNhEhWE8Eo6BWiK2&oh=00_AYCOENQUxcTbGnl6GdUeJOUkfKcIocfzgf0zGxXXmQ4X9Q&oe=67044CFA)
 
@@ -189,12 +199,6 @@ icon: commenting
     * **[【創動視角】練跑酷的人，到底在想些什麼？ - YouTube](https://www.youtube.com/watch?v=1sxLMZBRIt8)**
 
  
-
-
-
-
-
-
 
 ## 四、使用說明書
 
