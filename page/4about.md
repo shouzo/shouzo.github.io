@@ -63,6 +63,7 @@ icon: commenting
 * 中華民國體操協會 - **C 級** 彈翻床教練 (2021/10 - )
 * AAEE 亞洲體驗教育學會 - **副引導員** (2023/09 - )
 * 中華民國運動教練學會 - 肌力與體能教練 **丙級** (2024/05 - )
+* DR Academy (動人學院) - 功能性運動表現專家 **Functional Performance Specialist (FPS) Level 1** (2024/10 - )
 
 ### 工作記錄
 
