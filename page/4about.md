@@ -5,6 +5,11 @@ permalink: /about/
 icon: commenting
 ---
 
+
+* content
+{:toc}
+
+
 ### 一、這裡是哪裡？
 
 * 由生活和思考堆砌而成的屋子。屋裡空無一物，只放著裝滿水的瓶子。
@@ -63,7 +68,7 @@ icon: commenting
 * 中華民國體操協會 - **C 級** 彈翻床教練 (2021/10 - )
 * AAEE 亞洲體驗教育學會 - **副引導員** (2023/09 - )
 * 中華民國運動教練學會 - 肌力與體能教練 **丙級** (2024/05 - )
-* DR Academy (動人學院) - 功能性運動表現專家 **Functional Performance Specialist (FPS) Level 1** (2024/10 - )
+* DR Academy (動人學院) - 功能性運動表現專家 **Functional Performance Specialist (FPS) Level 1** (2024/10 - )
 
 ### 工作記錄
 
@@ -216,17 +221,13 @@ icon: commenting
   
   * ![](https://i.imgur.com/S95nRt2.png)
     * **[【創動視角】練跑酷的人，到底在想些什麼？ - YouTube](https://www.youtube.com/watch?v=1sxLMZBRIt8)**
+
 * `2024/12/03` **【桃園市工務局】光明公園跑酷場**
+  
   * **規則示範** - **[光明公園跑酷場-規則示範 - YouTube](https://youtu.be/FrjwMcCvWN8?si=OoZf4oORk3a8u5fM)**
     * ![](https://i.imgur.com/7Ofjgna.jpeg)
   * **動作示範** - **[光明公園跑酷場-動作示範 - YouTube](https://youtu.be/K3Vk4NEUwJA?si=ERvQBnjby6etuiLn)**
     * ![](https://i.imgur.com/ie7cIDU.jpeg)
-
-
-
-
-
-
 
 ## 四、使用說明書
 

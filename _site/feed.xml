@@ -3,10 +3,10 @@
   <channel>
     <title>羅左欣</title>
     <description></description>
-    <link>http://shouzo.github.io/</link>
-    <atom:link href="http://shouzo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 29 Nov 2024 20:44:09 +0800</pubDate>
-    <lastBuildDate>Fri, 29 Nov 2024 20:44:09 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 01 Dec 2024 21:43:57 +0800</pubDate>
+    <lastBuildDate>Sun, 01 Dec 2024 21:43:57 +0800</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
       <item>
@@ -94,8 +94,8 @@
 &lt;p&gt;(…未完待續)&lt;/p&gt;
 </description>
         <pubDate>Sat, 12 Feb 2022 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2022/02/12/NTNU-CVE_1/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2022/02/12/NTNU-CVE_1/</guid>
+        <link>http://localhost:4000/2022/02/12/NTNU-CVE_1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/02/12/NTNU-CVE_1/</guid>
         
         <category>年度回顧</category>
         
@@ -173,8 +173,8 @@
 &lt;p&gt;(…未完待續)&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Jan 2022 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2022/01/18/2021_Life-Work_2/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2022/01/18/2021_Life-Work_2/</guid>
+        <link>http://localhost:4000/2022/01/18/2021_Life-Work_2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/01/18/2021_Life-Work_2/</guid>
         
         <category>年度回顧</category>
         
@@ -248,8 +248,8 @@
 &lt;p&gt;(…未完待續)&lt;/p&gt;
 </description>
         <pubDate>Mon, 10 Jan 2022 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2022/01/10/2021_Life-Work_1/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2022/01/10/2021_Life-Work_1/</guid>
+        <link>http://localhost:4000/2022/01/10/2021_Life-Work_1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/01/10/2021_Life-Work_1/</guid>
         
         <category>年度回顧</category>
         
@@ -489,8 +489,8 @@
 &lt;/blockquote&gt;
 </description>
         <pubDate>Mon, 06 Sep 2021 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2021/09/06/2021_WFH_6/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2021/09/06/2021_WFH_6/</guid>
+        <link>http://localhost:4000/2021/09/06/2021_WFH_6/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/09/06/2021_WFH_6/</guid>
         
         <category>WFH</category>
         
@@ -590,8 +590,8 @@
 
 </description>
         <pubDate>Fri, 20 Aug 2021 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2021/08/20/2021_WFH_5/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2021/08/20/2021_WFH_5/</guid>
+        <link>http://localhost:4000/2021/08/20/2021_WFH_5/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/08/20/2021_WFH_5/</guid>
         
         <category>WFH</category>
         
@@ -680,8 +680,8 @@
 
 </description>
         <pubDate>Tue, 17 Aug 2021 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2021/08/17/2021_WFH_4/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2021/08/17/2021_WFH_4/</guid>
+        <link>http://localhost:4000/2021/08/17/2021_WFH_4/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/08/17/2021_WFH_4/</guid>
         
         <category>WFH</category>
         
@@ -739,8 +739,8 @@
 &lt;p&gt;一樣保持著邊探索邊調整的精神，先試過再說。&lt;/p&gt;
 </description>
         <pubDate>Thu, 10 Jun 2021 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2021/06/10/2021_WFH_3/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2021/06/10/2021_WFH_3/</guid>
+        <link>http://localhost:4000/2021/06/10/2021_WFH_3/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/06/10/2021_WFH_3/</guid>
         
         <category>WFH</category>
         
@@ -817,8 +817,8 @@
 (像是先前場景發揮的能力已經是 100%，現在看來大概只有自身能力的 20％)&lt;/p&gt;
 </description>
         <pubDate>Sun, 30 May 2021 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2021/05/30/2021_WFH_2/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2021/05/30/2021_WFH_2/</guid>
+        <link>http://localhost:4000/2021/05/30/2021_WFH_2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/05/30/2021_WFH_2/</guid>
         
         <category>WFH</category>
         
@@ -1288,8 +1288,8 @@ SECTIONS {
 &lt;img src=&quot;https://i.imgur.com/b809yVD.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 May 2021 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2021/05/18/30OS_day4/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2021/05/18/30OS_day4/</guid>
+        <link>http://localhost:4000/2021/05/18/30OS_day4/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/05/18/30OS_day4/</guid>
         
         <category>組合語言</category>
         
@@ -1583,8 +1583,8 @@ fin:
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 17 May 2021 08:00:00 +0800</pubDate>
-        <link>http://shouzo.github.io/2021/05/17/30OS_day3/</link>
-        <guid isPermaLink="true">http://shouzo.github.io/2021/05/17/30OS_day3/</guid>
+        <link>http://localhost:4000/2021/05/17/30OS_day3/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/05/17/30OS_day3/</guid>
         
         <category>組合語言</category>
         
