@@ -204,7 +204,7 @@ icon: commenting
 
 * `2024/11/10` **【Fun 星球】** 跑酷故事暨體驗活動
   
-  * (待更新)
+  * ![](https://i.imgur.com/RatP87B.jpeg)
 
 * `2024/11/14、2024/11/28` **【國立體育大學】** 冒險活動系列課程 - 跑酷體驗
   
@@ -216,8 +216,17 @@ icon: commenting
   
   * ![](https://i.imgur.com/S95nRt2.png)
     * **[【創動視角】練跑酷的人，到底在想些什麼？ - YouTube](https://www.youtube.com/watch?v=1sxLMZBRIt8)**
+* `2024/12/03` **【桃園市工務局】光明公園跑酷場**
+  * **規則示範** - **[光明公園跑酷場-規則示範 - YouTube](https://youtu.be/FrjwMcCvWN8?si=OoZf4oORk3a8u5fM)**
+    * ![](https://i.imgur.com/7Ofjgna.jpeg)
+  * **動作示範** - **[光明公園跑酷場-動作示範 - YouTube](https://youtu.be/K3Vk4NEUwJA?si=ERvQBnjby6etuiLn)**
+    * ![](https://i.imgur.com/ie7cIDU.jpeg)
 
- 
+
+
+
+
+
 
 ## 四、使用說明書
 
